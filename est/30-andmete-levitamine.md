@@ -20,8 +20,8 @@ Erinevalt vanast Andmelaost, uus Andmeladu sõnumeid liidestuvatatele osapooltel
 
 - liidestunud turuosalise süsteem saadab päringu ning paneb kaasa ajatempli (*timestamp*), millal viimati õnnestus antud andmeobjekti uuendusi edukalt tõmmata.
 - Andmeladu otsib andmeobjektid, mis on lisandunud või muutunud pärast ajatempli väärtust.
-- Andmeladu filtreerib välja need andmeobjektid või andmeobjekti andmed, mida antud olukorras antud turuosalisele väljastada ei tohi
-- Andmeladu tagastab uued või muutunud andmeobjektid koos Andmelao poolse ID-ga
+- Andmeladu filtreerib välja need andmeobjektid või andmeobjekti andmed, mida antud olukorras antud turuosalisele väljastada ei tohi.
+- Andmeladu tagastab uued või muutunud andmeobjektid koos Andmelao poolse ID-ga.
 
 Liidestunud turuosalise süsteem skaneerib erinevate andmeobjektide API-d endale sobiva intervalliga võttes arvesse andmeobjektide tekkimise ja muutumise tavapärast sagedust:
 

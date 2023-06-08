@@ -22,36 +22,36 @@ Bilansihaldurile kohanduvad Andmelaos avatud tarnija õigused ja kohustused. Bil
 
 Bilansihalduri bilansipiirkond on Andmelaos bilansihaldurile nähtav järgmiselt:
 
-1. Mõõtepunkti EIC kood
-2. Kliendi EIC kood
-3. Mõõtepunkti võrguoperaatori EIC kood
-4. Võrguoperaatori bilansihalduri EIC kood
-5. Kui mõõtepunkt on bilansihalduri tarneahelas: mõõtepunktis avatud tarnija EIC kood ja bilansihalduri EIC kood
-6. Kui mõõtepunkt ei ole bilansihalduri tarneahelas: mõõtepunktis avatud tarnija ja bilansihaldur ei ole nähtavad
+1. Mõõtepunkti EIC kood.
+2. Kliendi EIC kood.
+3. Mõõtepunkti võrguoperaatori EIC kood.
+4. Võrguoperaatori bilansihalduri EIC kood.
+5. Kui mõõtepunkt on bilansihalduri tarneahelas: mõõtepunktis avatud tarnija EIC kood ja bilansihalduri EIC kood.
+6. Kui mõõtepunkt ei ole bilansihalduri tarneahelas: mõõtepunktis avatud tarnija ja bilansihaldur ei ole nähtavad.
 7. Periood (avatud tarne lepingu algus- ja lõpuaeg).
 
 Bilansihaldur saab Andmelaost mõõteandmed järgmiselt:
 
-1. Mõõteandmed nendest mõõtepunktidest, mis on elektrilepingute alusel bilansihalduri avatud tarne ahelas
-2. Kui võrguettevõtja piirimõõtepunktid on selle bilansihalduri bilansipiirkonna piirimõõtepunktid, saadakse mõõteandmed samuti nendest piirimõõtepunktidest
+1. Mõõteandmed nendest mõõtepunktidest, mis on elektrilepingute alusel bilansihalduri avatud tarne ahelas.
+2. Kui võrguettevõtja piirimõõtepunktid on selle bilansihalduri bilansipiirkonna piirimõõtepunktid, saadakse mõõteandmed samuti nendest piirimõõtepunktidest.
 3. Summeeritult mõõteandmed võrguettevõtja piirkonnas olevate mõõtepunktide kohta, mis on teiste bilansihaldurite portfellides. Raport edastatakse eelmise perioodi andmetega kell 10.30 bilansihalduri poolt Andmelaos märgitud aadressile.
 
 ## Bilansipiirkonna sõnum
 
 Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toimunud muudatuste edastamiseks. Bilansipiirkonna muudatussõnumi genereerimise ja edastamise protsess on järgmine:
 
-- Andmelaos registreeritakse uus võrgu- või avatud tarne või portfellileping VÕI olemasolev võrgu- või avatud tarne või portfellileping lõppeb
-- Andmeladu arvutab kord ööpäevas viimase ööpäeva bilansimuudatused (mõõtepunkti sisenemine või väljumine bilansipiirkonnast)
-- Andmeladu koostab kell 00:05 bilansimuudatuste sõnumi ja teeb selle kättesaadavaks selle vastava(te)le bilansihalduri(te)le, kelle bilansipiirkonnas muudatused toimusid `changes` teenuse kaudu. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md). Sõnum sisaldab uusi mõõtepunkte bilansipiirkonnas *(ADDED)* või bilansipiirkonnast välja arvatud mõõtepunkte *(REMOVED)*
+- Andmelaos registreeritakse uus võrgu- või avatud tarne või portfellileping VÕI olemasolev võrgu- või avatud tarne või portfellileping lõppeb.
+- Andmeladu arvutab kord ööpäevas viimase ööpäeva bilansimuudatused (mõõtepunkti sisenemine või väljumine bilansipiirkonnast).
+- Andmeladu koostab kell 00:05 bilansimuudatuste sõnumi ja teeb selle kättesaadavaks selle vastava(te)le bilansihalduri(te)le, kelle bilansipiirkonnas muudatused toimusid `changes` teenuse kaudu. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md). Sõnum sisaldab uusi mõõtepunkte bilansipiirkonnas *(ADDED)* või bilansipiirkonnast välja arvatud mõõtepunkte *(REMOVED)*.
 
 ### Masinliidese sõnumid
 
 ### Sõnumid
 
-| Sõnum | Eesmärk |
-|-------|---------|
-|`POST /api/{version}/balance-state/changes` | Võimaldab skaneerida bilansipiirkonna muudatusi |
-|`POST /api/{version}/balance-state/search` | Võimaldab otsida soovitud perioodi bilansipiirkonna seisu |
+| Sõnum                                       | Eesmärk                                                   |
+|---------------------------------------------|-----------------------------------------------------------|
+| `POST /api/{version}/balance-state/changes` | Võimaldab skaneerida bilansipiirkonna muudatusi           |
+| `POST /api/{version}/balance-state/search`  | Võimaldab otsida soovitud perioodi bilansipiirkonna seisu |
 
 ### Sõnumi reeglid
 

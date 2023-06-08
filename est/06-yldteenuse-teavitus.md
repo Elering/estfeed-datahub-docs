@@ -13,7 +13,7 @@ Võrguettevõtjale edastatakse infot kõikide lisatud ja muudetud avatud tarne l
 
 Üldteenuse rakendumisel sõltub edasine andmevahetuse sellest, kas võrguettevõtjal on sõlmitud nimetatud tarnija leping või mitte:
 
-- Kui ei ole, siis täiendavat andmevahetust pole ette nähtud;
+- Kui ei ole, siis täiendavat andmevahetust pole ette nähtud.
 - Kui on, siis Andmeladu võimaldab võrguettevõtjale saata nimetatud tarnijale sõnumit selle kohta, et turuosalisele rakendub üldteenus. Tasub tähele panna, et antud protsessi on Andmeladu lihtsalt sõnumivahendaja ning selle liidese kasutamine on vabatahtlik.
 
 Käesolev dokument kirjeldab teenust, millega nimetatud tarnijat üldteenuse rakendumisest teavitatakse.

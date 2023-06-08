@@ -38,13 +38,13 @@ Võrguettevõtja ja liinivaldaja saab mõõteandmed edastada Andmelattu nii veeb
 
 Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Mõõtepunkti haldur saadab uue või muutunud mõõteandmete sõnumi kasutades teenust `meter-data`
-- Kuivõrd mõõteandmete töötlemine toimub Andmelaos asünkroonselt, siis esmalt annab Andmeladu kiire vastuse, kas sõnum õnnestus kätte saada või mitte
-- Seejärel paneb Andmeladu sõnumi töötluse järjekorda
-- Soovi korral kontrollib mõõtepunkti haldur asünkroonse töötluse olekut kasutades teenust `meter-data/status`
+- Mõõtepunkti haldur saadab uue või muutunud mõõteandmete sõnumi kasutades teenust `meter-data`.
+- Kuivõrd mõõteandmete töötlemine toimub Andmelaos asünkroonselt, siis esmalt annab Andmeladu kiire vastuse, kas sõnum õnnestus kätte saada või mitte.
+- Seejärel paneb Andmeladu sõnumi töötluse järjekorda.
+- Soovi korral kontrollib mõõtepunkti haldur asünkroonse töötluse olekut kasutades teenust `meter-data/status`.
 - Kui sõnumi töötlemine õnnestub vigadeta, siis rohkem teavitusi Andmeladu mõõtepunkti haldurile ei edasta. Andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `changes` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
 - Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile läbi `changes` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
-- Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale
+- Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
 
 > **Warning**
 >
@@ -59,9 +59,9 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 
 Mõõteandmete edastamise puhul on oluline aru saada perioodi, resolutsiooni ja positsiooni tähendustest ja omavahelistest seostest:
 
-- **Resolutsioon** määrab mõõteandmete tiheduse: 1 päev, 1 tund või 15 minutit
-- **Periood** defineerib ajavahemiku, mille kohta mõõteandmeid edastatakse
-- **Positsioon** defineerib pesa ehk sloti, mille kohta mõõteandmed käivad
+- **Resolutsioon** määrab mõõteandmete tiheduse: 1 päev, 1 tund või 15 minutit;
+- **Periood** defineerib ajavahemiku, mille kohta mõõteandmeid edastatakse;
+- **Positsioon** defineerib pesa ehk sloti, mille kohta mõõteandmed käivad.
 
 Näiteks kui periood on 3 tundi ja resolutsioon 1 tund, siis tähendab see seda, et andmete edastaja soovib meile saata kolme pesa andmed. Seega eeldab süsteem sõnumis kolme sektsiooni, kus igas sektsioonis on mõõteandmed ja sektsioonide positsioonide väärtused on vastavalt 1, 2 ja 3.
 
@@ -69,12 +69,12 @@ Tehniliselt on küll lubatud ka sellised sõnumid, kus edastatud pesad ei kata �
 
 #### Sõnumid
 
-|Sõnum|Eesmärk|
-|-----|-------|
-|`POST /api/{version}/meter-data`|Võimaldab lisada mõõteandmeid|
-|`PUT /api/{version}/meter-data`|Võimaldab muuta mõõteandmeid|
-|`POST /api/{version}/meter-data/status`|Võimaldab kontrollida asünkroonse töötluse olekut|
-|`POST /api/{version}/meter-data/changes`|Võimaldab skaneerida mõõteandmete töötluse vearaporteid|
+| Sõnum                                    | Eesmärk                                                 |
+|------------------------------------------|---------------------------------------------------------|
+| `POST /api/{version}/meter-data`         | Võimaldab lisada mõõteandmeid                           |
+| `PUT /api/{version}/meter-data`          | Võimaldab muuta mõõteandmeid                            |
+| `POST /api/{version}/meter-data/status`  | Võimaldab kontrollida asünkroonse töötluse olekut       |
+| `POST /api/{version}/meter-data/changes` | Võimaldab skaneerida mõõteandmete töötluse vearaporteid |
 
 Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
 
@@ -83,11 +83,11 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](http
 
 #### Sõnumite reeglid
 
-- Mõõteandmete ja mõõtepunkti resolutsiooni seose kohta loe täpsemalt dokumendist [Mõõtepunktid](04-mootepunktid.md#sõnumite-reeglid)
+- Mõõteandmete ja mõõtepunkti resolutsiooni seose kohta loe täpsemalt dokumendist [Mõõtepunktid](04-mootepunktid.md#sõnumite-reeglid).
 - Perioodi ajaperioodi väärtus peab olema vastavuses resolutsiooniga. Näiteks:
-  - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00)
-  - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45)
-- perioodi algus esitatakse vasakjoondusega ja perioodi lõpp paremjoondusega. Näiteks 1 tunni mõõteandmete periood esitatakse kujul hh:00 - hh+1:00 (03:00-04:00)
+  - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00);
+  - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45).
+- perioodi algus esitatakse vasakjoondusega ja perioodi lõpp paremjoondusega. Näiteks 1 tunni mõõteandmete periood esitatakse kujul hh:00 - hh+1:00 (03:00-04:00).
 - Mõõtekogused esitatakse alati kWh-des täpsusega 3 kohta peale koma.
 - Mõõteandmete suund esitatakse alati mõõtva mõõtepunkti halduri poolt vaadatuna:
   - in – võrku sisenev energia (tootmine);
@@ -111,10 +111,10 @@ Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
 #### Sõnumid
 
-|Sõnum|Eesmärk|
-|-----|-------|
-|`POST /api/{version}/meter-data/search`|Võimaldab otsida mõõteandmeid|
-|`POST /api/{version}/meter-data/changes`|Võimaldab skaneerida mõõteandmete muudatusi|
+| Sõnum                                    | Eesmärk                                     |
+|------------------------------------------|---------------------------------------------|
+| `POST /api/{version}/meter-data/search`  | Võimaldab otsida mõõteandmeid               |
+| `POST /api/{version}/meter-data/changes` | Võimaldab skaneerida mõõteandmete muudatusi |
 
 Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
 

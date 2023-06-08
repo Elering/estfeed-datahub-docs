@@ -43,10 +43,10 @@ Andmelattu andmete sisestajaid nimetatakse operaatoriteks, kelle ülesanded ja v
 - **Võrguettevõtja** on elektriettevõtja, kes osutab võrguteenust võrgu kaudu ning kes **vastutab** oma võrgupiirkonna mõõtepunktide ja mõõteandmete kogumise ja edastamise eest Andmelattu. Iga võrguettevõtja on turuosaline oma võrgukadudega.  Lisaks vastavalt seadusandlusele,  kui turuosalisel ei ole avatud tarne lepingut, siis on tema avatud tarnijaks automaatselt tema võrguettevõtja või viimase poolt nimetatud müüja.
 - **Liinivaldaja** kasutab elektrienergia edastamiseks otseliini ning kes **vastutab** oma liinipiirkonna mõõteandmete kogumise ja edastamise eest Andmelattu.
 - **Suletud jaotusvõrk** osutab võrguteenust suletud jaotusvõrgu kaudu kaudu ning kes **vastutab** oma võrgupiirkonna mõõtepunktide ja mõõteandmete kogumise ja edastamise eest Andmelattu. Iga võrguettevõtja on turuosaline oma võrgukadudega.  Suletud jaotusvõrgus edastatakse elektrienergiat geograafiliselt piiratud tootmiskoha, ärirajatise või ühisteenuste koha piires seal asuvatele äritarbijatele, kelle tegevus või tootmisprotsess on tehnilistel või ohutusega seotud põhjustel omavahel ühendatud, või mille kaudu edastatakse elektrienergiat peamiselt võrgu omanikule või võrguettevõtjale, kes seda võrku haldab, või nendega valitseva mõju kaudu seotud ettevõtjale.
-- **Tootja**  edastab oma mõõtepunkti(de)ga seotud andmed, kui ei oma liinivaldaja tegevusluba
-- **Laadimispunkti operaator** haldab laadimispunkte, mille kaudu on  võimalik laadida korraga ühte elektrisõidukit või vahetada korraga ühe elektrisõiduki aku
+- **Tootja**  edastab oma mõõtepunkti(de)ga seotud andmed, kui ei oma liinivaldaja tegevusluba.
+- **Laadimispunkti operaator** haldab laadimispunkte, mille kaudu on  võimalik laadida korraga ühte elektrisõidukit või vahetada korraga ühe elektrisõiduki aku.
 - **Avatud tarnija** on elektri müüja või ostja, kes osutab kliendile avatud tarnet ehk müüb/ostab kas puudujääva/ülejääva elektrienergia koguse või müüb/ostab kogu mõõdetud elektrienergia koguse sõltuvalt poolte vahelisest kokkuleppest turuosalisega. Avatud tarnija sisestab Andmelattu avatud tarne lepingu andmed turuosalisega.
-- **Nimetatud müüja** võrguettevõtja poolt valitud avatud tarnija, kes osutab võrguettevõtja asemel avatud tarne teenust võrguettevõtja teeninduspiirkonna klientidele, kellel puudub avatud tarne leping.  
+- **Nimetatud müüja** võrguettevõtja poolt valitud avatud tarnija, kes osutab võrguettevõtja asemel avatud tarne teenust võrguettevõtja teeninduspiirkonna klientidele, kellel puudub avatud tarne leping;
 - **Bilansihaldur** on hierarhiliselt kõrgemal olev avatud tarnija, kellel on bilansileping süsteemihalduriga.
 - **Agregaator** on tarbimise juhrimise teenuse osutaja ning edastab Andmelattu agregeerimislepingu info, tarbimise juhtimise mõõtepunkti ja andmed.
 - **Süsteemihaldur** on Elering, tagab Eesti elektrisüsteemi bilansi, on avatud tarnijaks bilansilepingu sõlminud bilansihalduritele, haldab ja arendab elektrituruseaduse alusel Andmeladu.
@@ -118,7 +118,7 @@ Sõnumite struktuuride ja validatasioonide kirjeldused on leitavad [Swagger](htt
 
 - Kohustuslikud (tärniga tähistatud) elemendid peavad olema alati lisatud. Elemendi puudumisel muutub
 sõnum töötlematuks ja seda ei aktsepteerita vastuvõtval poolel.
-- Osad elemendid on kohustuslikud ainult teatud juhtudel. Sellisel juhul on kohustuslikkuse reegel leitav sõnumi või elemendi kirjeldusest või käesolevatest dokumentidest
+- Osad elemendid on kohustuslikud ainult teatud juhtudel. Sellisel juhul on kohustuslikkuse reegel leitav sõnumi või elemendi kirjeldusest või käesolevatest dokumentidest.
 - Kui element ei ole kohustuslik, siis võib see puududa.
 - Sõnumites kasutatakse vaikimisi UTF-8 kodeeringut.
 
@@ -130,8 +130,8 @@ sõnum töötlematuks ja seda ei aktsepteerita vastuvõtval poolel.
 
 Liidestuval süsteemil on aadressi andmete edastamiseks 2 võimalust:
 
-- saata Maaameti ADS süsteemi aadressi ID (ADR_ID)
-- saata aadressi kirjeldus tekstilisel kujul
+- saata Maaameti ADS süsteemi aadressi ID (ADR_ID).
+- saata aadressi kirjeldus tekstilisel kujul.
 
 Mõlemad korraga ei ole lubatud.
 
@@ -159,15 +159,15 @@ Aadressi sektsioon koosneb järgmistest atribuutidest:
 
 Atribuutide selgitus:
 
-|Atribuut|Selgitus|Näide|
-|--------|--------|-----|
-|adsId|Maaameti ADS süsteemi ADR_ID|2105345|
-|county|Maakond|Harju maakond|
-|municipality|Omavalitsus|Tallinn|
-|locality|Asustusüksus (küla, alevik, alev, vallasisene linn) või linnaosa|Kesklinna linnaosa|
-|streetAddress|Lähiaadress (väikekoht, maaüksuse nimi, tänav, aadressinumber, korteri või muu hooneosa number)|Pärnu mnt 8|
-|postalCode|Postiindeks|10148|
-|comment|Kommentaar|C1T|
+| Atribuut      | Selgitus                                                                                        | Näide              |
+|---------------|-------------------------------------------------------------------------------------------------|--------------------|
+| adsId         | Maaameti ADS süsteemi ADR_ID                                                                    | 2105345            |
+| county        | Maakond                                                                                         | Harju maakond      |
+| municipality  | Omavalitsus                                                                                     | Tallinn            |
+| locality      | Asustusüksus (küla, alevik, alev, vallasisene linn) või linnaosa                                | Kesklinna linnaosa |
+| streetAddress | Lähiaadress (väikekoht, maaüksuse nimi, tänav, aadressinumber, korteri või muu hooneosa number) | Pärnu mnt 8        |
+| postalCode    | Postiindeks                                                                                     | 10148              |
+| comment       | Kommentaar                                                                                      | C1T                |
 
 ### Vastussõnumite koodid
 

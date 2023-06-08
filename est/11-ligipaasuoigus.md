@@ -22,21 +22,21 @@ Andmetele ligipääsu õigus võib tuleneda ka seadusest.
 
 Ligipääsuõiguse andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-1. Turuosaline lisab uue ligipääsuõiguse kasutades Kliendiportaali funktsionaalsust
-2. Andmeladu salvestab uue ligipääsuõiguse oma andmebaasi ja määrab avatud tarnija, kellele see kättesaadavaks tehakse
-3. Avatud tarnija skaneerib `changes` teenust ning tuvastab, et talle on adresseeritud uus ligipääsuõigus
+1. Turuosaline lisab uue ligipääsuõiguse kasutades Kliendiportaali funktsionaalsust.
+2. Andmeladu salvestab uue ligipääsuõiguse oma andmebaasi ja määrab avatud tarnija, kellele see kättesaadavaks tehakse.
+3. Avatud tarnija skaneerib `changes` teenust ning tuvastab, et talle on adresseeritud uus ligipääsuõigus.
 4. Pärast ligipääsuõiguse andmist võib avatud tarnija kasutada sõnumeid andmete pärimiseks:
-   - kliendi andmed - kirjeldatud dokumendis [Kliendid](03-kliendi-eic.md)
-   - mõõtepunkti andmed - kirjeldatud dokumendis [Mõõtepunktid](04-mootepunktid.md)
-   - mõõteandmed - kirjeldatud dokumendis [Mõõteandmed](07-mooteandmed.md)
+   - kliendi andmed - kirjeldatud dokumendis [Kliendid](03-kliendi-eic.md);
+   - mõõtepunkti andmed - kirjeldatud dokumendis [Mõõtepunktid](04-mootepunktid.md);
+   - mõõteandmed - kirjeldatud dokumendis [Mõõteandmed](07-mooteandmed.md).
 
 ## Masinliidese sõnumid
 
 ### Sõnumid
 
-| Sõnum | Eesmärk |
-|-------|---------|
-| `POST /api/{version}/customer-authorization/search` | Võimaldab otsida ligipääsuõigusi |
+| Sõnum                                                | Eesmärk                                        |
+|------------------------------------------------------|------------------------------------------------|
+| `POST /api/{version}/customer-authorization/search`  | Võimaldab otsida ligipääsuõigusi               |
 | `POST /api/{version}/customer-authorization/changes` | Võimaldab skaneerida ligipääsuõiguste uuendusi |
 
 ### Sõnumi reeglid
@@ -45,5 +45,5 @@ Ligipääsuõiguse andmete edastamiseks ja pärimiseks on loodud vastavad Andmel
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
 
 - Igal ligipääsuõigusel on algus- ja lõppaeg. Etteantuna on kehtivusaeg 48h, mida ligipääsuõiguse andja saab vähendada.
-- Iga ligipääsuõigus sisaldab konkreetset andmete töötlemise eesmärki ja kes on andmete vastutav töötleja
+- Iga ligipääsuõigus sisaldab konkreetset andmete töötlemise eesmärki ja kes on andmete vastutav töötleja.
 - Avatud tarnija ei näe kliendi ligipääsuõigusi teistele avatud tarnijatele.

@@ -24,7 +24,7 @@ Elering tagab, et turuosalise andmetele Andmelaost saavad ligipääsu vaid need 
 
 Ligipääsuõiguste üldpõhimõtted on järgmised:
 
-1. Andmelao andmetele ligipääsuks tuleb Eleringiga sõlmida leping kõikidel elektriettevõtjatel ning energiateenuste osutajatel, kes taotlevad turuosalise andmetele ligipääsu
+1. Andmelao andmetele ligipääsuks tuleb Eleringiga sõlmida leping kõikidel elektriettevõtjatel ning energiateenuste osutajatel, kes taotlevad turuosalise andmetele ligipääsu.
 2. Võrgulepingu kliendile tagatakse juurdepääs kliendiportaali kaudu edastatavatele andmetele. Kliendil on õigus volituse andmise kaudu edastada oma mõõtepunkti ja mõõteandmeid teistele isikutele ja süsteemidele.
 
 > **Warning**
@@ -238,7 +238,6 @@ Autentimiseks tuleb liidestuval süsteemi läbida järgmised sammud:
 |Hash võtme genereerimine|Andmelaos on seotud hash võti, millel on aegumise kuupäev ja seotud rollid|
 |Autentimispäringu saatmine /api/authenticate aadressil|Andmeladu valideerib hash võtme, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse|
 |JWT tokeni lisamine igale järgnevale API sõnumile|Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist|
-
 
 ## API liideses autoriseerimine
 

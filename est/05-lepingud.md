@@ -16,12 +16,12 @@
 
 Süsteem võimaldab lisada järgmisi lepinguid:
 
-- Võrguleping
-- Avatud tarne leping
-- Agregeerimisleping
-- Portfellileping (siia kuulub ka bilansileping)
-- Nimetatud tarnija leping
-- Ühisarve leping
+- võrguleping;
+- avatud tarne leping;
+- agregeerimisleping;
+- portfellileping (siia kuulub ka bilansileping);
+- nimetatud tarnija leping;
+- ühisarve leping.
 
 Erinevatel lepingutel on erinevad reeglid. Lisaks eksisteerivad lepingute omavahelised reeglid stiilis "avatud tarne lepingut ei saa lisada perioodi, kus puudub võrguleping".
 
@@ -39,9 +39,9 @@ Bilansivastutus tagatakse katkematu avatud tarne ahela kaudu alljärgnevas hiera
 
 Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andmevahetuse sõnumi abil. Lepingu edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Vastav turuosaline saadab uue või muutunud lepingu sõnumi kasutades teenust `agreement`
-- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `changes` teenuse vahendusel
-- Õigustatud kasutaja pärib lepingu andmed `agreement/search` teenusest ning vajadusel ekspordib lepinguid kasutades teenust `agreement/export`
+- Vastav turuosaline saadab uue või muutunud lepingu sõnumi kasutades teenust `agreement`.
+- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `changes` teenuse vahendusel.
+- Õigustatud kasutaja pärib lepingu andmed `agreement/search` teenusest ning vajadusel ekspordib lepinguid kasutades teenust `agreement/export`.
 
 ### Lepingute edastamine veebiliidese abil
 
@@ -84,10 +84,11 @@ Lepingute omavahelised sõltuvused ja reeglid:
 
 Muud reeglid:
 
-- Lepingu alguse aeg esitatakse päeva täpsusega, leping hakkab kehtima esitatud päeval kell 00:00;
+- Lepingu alguse aeg esitatakse päeva täpsusega, leping hakkab kehtima esitatud päeval kell 00:00.
 - Lepingu lõpu aeg esitatakse päeva täpsusega, leping lõpeb esitatud päeva südaööl.
 - Lepingu lõpu kuupäev peab olema hilisem alguskuupäevast.
 - Lepingu loomine iseendale ei ole lubatud - lepingu teenusepakkuja ja klient ei tohi olla sama.
+- Kehtivat ega kehtivuse kaotanud lepingut kustutada (*delete*) ei ole lubatud. Kehtivat lepingut on võimalik sulgeda, uuendades lepingu lõppemise kuupäeva väärtust.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)

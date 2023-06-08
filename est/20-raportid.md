@@ -29,10 +29,10 @@ Koondraportid arvutatakse ja edastatakse järgmise ajakavaga:
 
 Näide koondmõõteandmete arvutuse aegadest bilansiaruannete jaoks:
 
-|| Jaanuari mõõteandmete koondraport | Veebruari mõõteandmete koondraport | Märtsi mõõteandmete koondraport |
-|-|----------------------------------|------------------------------------|---------------------------------|
-| Esialgne bilansiaruanne | 08. veebr | 08. märts | 08. aprill |
-| Lõplik bilansiaruanne   | 1. aprill | 1. mai | 1. juuni |
+|                         | Jaanuari mõõteandmete koondraport | Veebruari mõõteandmete koondraport | Märtsi mõõteandmete koondraport |
+|-------------------------|-----------------------------------|------------------------------------|---------------------------------|
+| Esialgne bilansiaruanne | 08. veebr                         | 08. märts                          | 08. aprill                      |
+| Lõplik bilansiaruanne   | 1. aprill                         | 1. mai                             | 1. juuni                        |
 
 > **Note**
 > Raportid arvutatakse kõikidele operaatoritele samal ajal
@@ -52,13 +52,13 @@ Kõik raportid sisaldavad ühe kalendrikuu andmeid. Enamus raportid on koostatud
 
 Saajad:
 
-- **Võrguettevõtjad**
+- **Võrguettevõtjad**.
 
 Sagedus:
 
-- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00)
-- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00)
-- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00)
+- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00).
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00).
 
 Andmed:
 
@@ -103,6 +103,10 @@ Veergude kirjeldus:
 
 ### Avatud tarnija raport
 
+> **Warning**
+> 
+> Avatud tarnija ei ole esialgses skoobis
+
 Saajad:
 
 - **Avatud tarnijad**
@@ -133,13 +137,21 @@ Veergude kirjeldus:
 
 ### Avatud tarnija koondraport
 
+> **Warning**
+> 
+> Avatud tarnija koondraport ei ole esialgses skoobis
+
 Saajad:
 
 - **Avatud tarnijad**
 
 Sagedus:
 
-- Arvutamise aja (päev ja kellaaeg) seadistab administraator – arvutatakse 1x kalendrikuu alguses eelmise kuu kohta
+- Arvutamise aja (päev ja kellaaeg) seadistab administraator – arvutatakse 1x kalendrikuu alguses eelmise kuu kohta.
+
+Andmed:
+
+Avatud tarne portfellis olevate avatud tarnijate kuised kogused mõõtepunktide ja klientide lõikes avatud tarne lepingute alusel.
 
 Veergude kirjeldus:
 
@@ -174,9 +186,9 @@ Andmed:
 - koondmõõteandmed võrguettevõtja piiripunktide kaudu võrku sisenenud kogus;
 - võrguettevõtja võrgust väljunud kogused näidates eraldi summat:
   - avatud tarnijate summas lõppkogused mõõtepunktide summas, mille kohta on olemas elektri avatud tarne leping - sisse ei arvutata piirimõõtepunkte, kus võrgulepingu kliendiks on teine võrguettevõtja.
-  - Üldteenus (tavalises mõõtepunktis võrguleping on, aga puudub müügileping)
-  - Kliendiks teiste võrguettevõtjate summas kogus – piirimõõtepunktide summa võrguettevõtjatele (klient)
-- Võrguettevõtja võrgukadu
+  - Üldteenus (tavalises mõõtepunktis võrguleping on, aga puudub müügileping).
+  - Kliendiks teiste võrguettevõtjate summas kogus – piirimõõtepunktide summa võrguettevõtjatele (klient).
+- Võrguettevõtja võrgukadu.
 
 Veergude kirjeldus:
 
@@ -233,7 +245,7 @@ Andmed:
 - Bilansihalduri + tema portfellis olevate avatud tarnijate bilansiselgituse mõõtepunktide koondandmed, mis arvatakse bilansihalduri bilansiselgituse piirkonda (nn IN mõõtepunktid);
 - võrguettevõtja bilansihalduri bilansiselgituse portfellist maha arvutatud müük, gaasilepingud teiste bilansihaldurite portfellides (nn OUT piirimõõtepunktid).
 - Leht „BP_OS“ = Bilansihalduri ja tema portfellis olevate avatud tarnijate bilansiselgituse mõõtepunktide koondandmed, mis arvatakse bilansihalduri bilansiselgituse piirkonda (nn IN bilansiselgituse mõõtepunktid);
-- Leht „BP_GO“ = võrguettevõtja bilansihalduri bilansiselgituse portfellist maha arvutatud müük, gaasi müügilepingud teiste bilansihaldurite portfellides (nn OUT bilansiselgituse mõõtepunktid)
+- Leht „BP_GO“ = võrguettevõtja bilansihalduri bilansiselgituse portfellist maha arvutatud müük, gaasi müügilepingud teiste bilansihaldurite portfellides (nn OUT bilansiselgituse mõõtepunktid).
 
 Veergude kirjeldus:
 
@@ -276,9 +288,8 @@ Sagedus:
 
 Andmed:
 
-```diff
-- Siit on see sektsioon millegipärast puudub. Oleks viisakas mingil hetkel lisada. @kajali
-```
+- Leht „BH_OS_GO“ – bilansihalduri ja tema portfellis olevate avatud tarnijate kogused võrguettevõtjate võrgupiirkondade lõikes.
+- Leht „BH_GO_OS_GO“ – bilansihalduri portfellis olevate võrguettevõtjate üldteenusel olevate klientide kogused ning võrgukadude kogused.
 
 Veergude kirjeldus:
 
