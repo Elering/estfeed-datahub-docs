@@ -25,7 +25,7 @@ Kliendi andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused
 - Võrguettevõtja saadab uue või muutunud kliendi sõnumi kasutades teenust `customer`.
 - Andmeladu salvestab kliendi andmed ning määrab kliendile EIC koodi.
 - Õigustatud kasutaja pärib kliendi andmed `customer/search` teenusest..
-- Õigustatud kasutaja pärib uute ja muutunud klientide andmete uuendusi kasutades teenust `customer/changes`.
+- Õigustatud kasutaja pärib uute ja muutunud klientide andmete uuendusi kasutades teenust `customer/change`.
 
 ## Masinliidese sõnumid
 
@@ -36,9 +36,9 @@ Kliendi andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused
 | `POST /api/{version}/customer`         | Võimaldab registreerida uut klienti.             |
 | `PUT /api/{version}/customer`          | Võimaldab uuendada olemasoleva kliendi andmeid.  |
 | `POST /api/{version}/customer/search`  | Võimaldab otsida registreeritud klienti.         |
-| `POST /api/{version}/customer/changes` | Võimaldab skaneerida klientide andmete uuendusi. |
+| `POST /api/{version}/customer/change`  | Võimaldab skaneerida klientide andmete uuendusi. |
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel

@@ -40,16 +40,19 @@ Kõik füüsiliste isikutega seotud andmed (sh EIC koodid) on isikuandmed ja isi
 
 Andmelattu andmete sisestajaid nimetatakse operaatoriteks, kelle ülesanded ja vastutused jagunevad järgmiselt:
 
-- **Võrguettevõtja** on elektriettevõtja, kes osutab võrguteenust võrgu kaudu ning kes **vastutab** oma võrgupiirkonna mõõtepunktide ja mõõteandmete kogumise ja edastamise eest Andmelattu. Iga võrguettevõtja on turuosaline oma võrgukadudega.  Lisaks vastavalt seadusandlusele,  kui turuosalisel ei ole avatud tarne lepingut, siis on tema avatud tarnijaks automaatselt tema võrguettevõtja või viimase poolt nimetatud müüja.
-- **Liinivaldaja** kasutab elektrienergia edastamiseks otseliini ning kes **vastutab** oma liinipiirkonna mõõteandmete kogumise ja edastamise eest Andmelattu.
-- **Suletud jaotusvõrk** osutab võrguteenust suletud jaotusvõrgu kaudu kaudu ning kes **vastutab** oma võrgupiirkonna mõõtepunktide ja mõõteandmete kogumise ja edastamise eest Andmelattu. Iga võrguettevõtja on turuosaline oma võrgukadudega.  Suletud jaotusvõrgus edastatakse elektrienergiat geograafiliselt piiratud tootmiskoha, ärirajatise või ühisteenuste koha piires seal asuvatele äritarbijatele, kelle tegevus või tootmisprotsess on tehnilistel või ohutusega seotud põhjustel omavahel ühendatud, või mille kaudu edastatakse elektrienergiat peamiselt võrgu omanikule või võrguettevõtjale, kes seda võrku haldab, või nendega valitseva mõju kaudu seotud ettevõtjale.
-- **Tootja**  edastab oma mõõtepunkti(de)ga seotud andmed, kui ei oma liinivaldaja tegevusluba.
-- **Laadimispunkti operaator** haldab laadimispunkte, mille kaudu on  võimalik laadida korraga ühte elektrisõidukit või vahetada korraga ühe elektrisõiduki aku.
-- **Avatud tarnija** on elektri müüja või ostja, kes osutab kliendile avatud tarnet ehk müüb/ostab kas puudujääva/ülejääva elektrienergia koguse või müüb/ostab kogu mõõdetud elektrienergia koguse sõltuvalt poolte vahelisest kokkuleppest turuosalisega. Avatud tarnija sisestab Andmelattu avatud tarne lepingu andmed turuosalisega.
-- **Nimetatud müüja** võrguettevõtja poolt valitud avatud tarnija, kes osutab võrguettevõtja asemel avatud tarne teenust võrguettevõtja teeninduspiirkonna klientidele, kellel puudub avatud tarne leping;
-- **Bilansihaldur** on hierarhiliselt kõrgemal olev avatud tarnija, kellel on bilansileping süsteemihalduriga.
-- **Agregaator** on tarbimise juhrimise teenuse osutaja ning edastab Andmelattu agregeerimislepingu info, tarbimise juhtimise mõõtepunkti ja andmed.
-- **Süsteemihaldur** on Elering, tagab Eesti elektrisüsteemi bilansi, on avatud tarnijaks bilansilepingu sõlminud bilansihalduritele, haldab ja arendab elektrituruseaduse alusel Andmeladu.
+- **Võrguettevõtja (GO)** on elektriettevõtja, kes osutab võrguteenust võrgu kaudu ning kes **vastutab** oma võrgupiirkonna mõõtepunktide ja mõõteandmete kogumise ja edastamise eest Andmelattu. Iga võrguettevõtja on turuosaline oma võrgukadudega.  Lisaks vastavalt seadusandlusele,  kui turuosalisel ei ole avatud tarne lepingut, siis on tema avatud tarnijaks automaatselt tema võrguettevõtja või viimase poolt nimetatud müüja.
+- **Liinivaldaja (LO)** kasutab elektrienergia edastamiseks otseliini ning kes **vastutab** oma liinipiirkonna mõõteandmete kogumise ja edastamise eest Andmelattu.
+- **Suletud jaotusvõrgu ettevõtja (ISO)** osutab võrguteenust suletud jaotusvõrgu kaudu kaudu ning kes **vastutab** oma võrgupiirkonna mõõtepunktide ja mõõteandmete kogumise ja edastamise eest Andmelattu. Iga võrguettevõtja on turuosaline oma võrgukadudega. Suletud jaotusvõrgus edastatakse elektrienergiat geograafiliselt piiratud tootmiskoha, ärirajatise või ühisteenuste koha piires seal asuvatele äritarbijatele, kelle tegevus või tootmisprotsess on tehnilistel või ohutusega seotud põhjustel omavahel ühendatud, või mille kaudu edastatakse elektrienergiat peamiselt võrgu omanikule või võrguettevõtjale, kes seda võrku haldab, või nendega valitseva mõju kaudu seotud ettevõtjale.
+- **Tootja (PO)**  edastab oma mõõtepunkti(de)ga seotud andmed, kui ei oma liinivaldaja tegevusluba.
+- **Laadimispunkti operaator (CO)** haldab laadimispunkte, mille kaudu on võimalik laadida korraga ühte elektrisõidukit või vahetada korraga ühe elektrisõiduki aku.
+- **Salvestusjaama operaator (STO)** haldab mõõtepunkte, mis on seotud elektrienergia salvestamisega energiasalvestusüksustes, kus salvestatakse energiat, sealhulgas kahesuunalist laadimist võimaldav elektrisõiduki laadimispunkt.
+- **Gaasitankla operaator (GST)** haldab laadimispunkte, mille kaudu on võimalik tankida gaasi mootorsõidukitele.
+- **Muu energiateenuse osutaja (ES)** on juriidiline isik, kes osutab energiateenuseid või rakendab muid energiatõhususe parandamise meetmeid lõpptarbija seadmetes või ruumides.
+- **Avatud tarnija (OS)** on elektri müüja või ostja, kes osutab kliendile avatud tarnet ehk müüb/ostab kas puudujääva/ülejääva elektrienergia koguse või müüb/ostab kogu mõõdetud elektrienergia koguse sõltuvalt poolte vahelisest kokkuleppest turuosalisega. Avatud tarnija sisestab Andmelattu avatud tarne lepingu andmed turuosalisega.
+- **Nimetatud müüja (NS)** võrguettevõtja poolt valitud avatud tarnija, kes osutab võrguettevõtja asemel avatud tarne teenust võrguettevõtja teeninduspiirkonna klientidele, kellel puudub avatud tarne leping.
+- **Bilansihaldur (BRP)** on hierarhiliselt kõrgemal olev avatud tarnija, kellel on bilansileping süsteemihalduriga.
+- **Agregaator (AGG)** on tarbimise juhtimise teenuse osutaja ning edastab Andmelattu agregeerimislepingu info, tarbimise juhtimise mõõtepunkti ja andmed.
+- **Süsteemihaldur (TSO)** on Elering, tagab Eesti elektrisüsteemi bilansi, on avatud tarnijaks bilansilepingu sõlminud bilansihalduritele, haldab ja arendab elektrituruseaduse alusel Andmeladu.
 
 Operaatoritele, v.a energiateenuse osutajad, tagatakse andmete edastamiseks ja kättesaamiseks andmevahetus nii masinliidestuse (API) kui täiendava veebirakenduse kaudu.
 
@@ -103,7 +106,10 @@ EIC koodide register asub Andmelaos.
 
 Automaatne infovahetus (masinliidestus) toimub Andmelao ja kliendi infosüsteemi vahel REST liidese abil. Infovahetuseks süsteemide vahel kasutatakse JSON-formaadis esitatud sõnumeid.
 
-Sõnumite struktuuride ja validatasioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad järgmiselt:
+
+- [Test Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnas on nähtav versioon, mis on rakenduses realiseeritud. Selles keskkonnas on võimalik Swagger interaktiivse keskkonna abil rakendusele päris sõnumeid saata.
+- [Github](https://github.com/Elering/Estfeed-API) keskkonnas on nähtav tuleviku visioon. Liides on kirjeldatud OpenAPI formaadis.
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel
@@ -112,7 +118,6 @@ Sõnumite struktuuride ja validatasioonide kirjeldused on leitavad [Swagger](htt
 
 - [Testkeskkond](https://andmeladu-test.elering.ee/consumer/home)
 - [Live keskkond](https://andmeladu.elering.ee/consumer/home)
-- [Masinliidestuse sõnumid ja kirjeldused](https://andmeladu.elering.ee/documentation.html)
 
 ### Üldreeglid
 
@@ -147,13 +152,13 @@ Aadressi sektsioon koosneb järgmistest atribuutidest:
 
 ```json
 {
-"adsId": "string",
-"county": "string",
-"municipality": "string",
-"locality": "string",
-"streetAddress": "string", 
-"postalCode": "string",
-"comment": "string"
+  "adsId": "string",
+  "county": "string",
+  "municipality": "string",
+  "locality": "string",
+  "streetAddress": "string", 
+  "postalCode": "string",
+  "comment": "string"
 }
 ```
 

@@ -231,12 +231,17 @@ Süsteemihalduril on õigus saada ligipääs iga elektrienergiat tootva ja taast
 
 ## API liideses autentimine
 
+API liideses autentimiseks tuleb liidestuval turosalisel läbida liidestumise protsess Eleringiga. Selle käigus selgitatakse välja ja luuakse vajalik arv kasutajakontosid, mida hakkavad kasutama liidestuvad süsteemid.
+
+Näiteks, kui liidestuval turuosalisel on ainult üks liidestuv süsteem, siis luuakse üks konto. Aga kui liidestuval turuosalisel on mitu süsteemi (nt üks võrguettevõtja ja teine avatud tarnija rolli jaoks), siis saab liidestuv turuosalisel otsustada, kas soovitakse kahe süsteemi jaoks erinevaid või piisab ühest kontost.
+
+Täpsemad juhised antud kontode kasutamiseks antakse liidestuvale turuosalisele liidestumise protsessi käigus.
+
 Autentimiseks tuleb liidestuval süsteemi läbida järgmised sammud:
 
 |Samm|Tulemus|
 |----|-------|
-|Hash võtme genereerimine|Andmelaos on seotud hash võti, millel on aegumise kuupäev ja seotud rollid|
-|Autentimispäringu saatmine /api/authenticate aadressil|Andmeladu valideerib hash võtme, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse|
+|Autentimispäringu saatmine Eleringi poolt antud aadressile|Andmeladu valideerib konto, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse|
 |JWT tokeni lisamine igale järgnevale API sõnumile|Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist|
 
 ## API liideses autoriseerimine
@@ -249,9 +254,8 @@ Sektsioon `marketParticipantContext` koosneb järgmistest atribuutidest:
 "marketParticipantContext": {
   "marketParticipantIdentification": "string", 
   "marketParticipantRole": "string", 
-  "commodityType": "string",
-  "purpose": "string"
-  },
+  "commodityType": "string"
+}
 ```
 
 Atribuutide selgitus:
@@ -260,7 +264,24 @@ Atribuutide selgitus:
 |--------|--------|
 |marketParticipantIdentification|Turuosalise EIC X-kood, kes sõnumit saadab. Peab viitama samale turuosalisele, kes on defineeritud JWT tokenis.|
 |marketParticipantRole|Roll, milles turuosaline sõnumit saadab. Nt kui avatud tarnija on üksiti ka võrguettevõtja, siis tuleb päringu saatmised defineerida, mis rolli hetkel selle sõnumiga täidetakse.Näiteks avatud tarnija saab andmeid pärida OPEN_SUPPLIER rollis|
-|purpose|Sõnumi saatmise eesmärk. On sõltuvuses rollist. |
 |commodityType|Energiatoote tüüp (elekter või gaas). Oluline nende ettevõtete jaoks, kes osalevad nii elektri kui gaasi turul.|
 
 Kui defineeritud `marketParticipantContext` ei lähe kokku sõnumi ülejäänud sisuga (nt proovib uut mõõtepunkti registreerida rollis "Avatud tarnija"), siis Andmeladu vastab veakoodiga.
+
+Rollid:
+
+| Roll                          | `marketParticipantIdentification` kood |
+|-------------------------------|----------------------------------------|
+| Bilansihaldur                 | BALANCE_RESPONSIBLE_PARTY              |
+| Avatud tarnija                | OPEN_SUPPLIER                          |
+| Nimetatud müüja               | NAMED_SUPPLIER                         |
+| Võrguettevõtja                | GRID_OPERATOR                          |
+| Suletud jaotusvõrgu ettevõtja | CLOSED_DISTRIBUTION_NETWORK            |
+| Liinivaldaja                  | LINE_OPERATOR                          |
+| Laadimispunkti operaator      | CHARGING_POINT_OPERATOR                |
+| Gaasitankla operaator         | GAS_STATION_OPERATOR                   |
+| Salvestusjaama operaator      | STORAGE_OPERATOR                       |
+| Agregaator                    | AGGREGATOR                             |
+| Tootja                        | PRODUCER_OPERATOR                      |
+| Muu energiateenuse osutaja    | ENERGY_SERVICE_PROVIDER                |
+| Süsteemihaldur                | TRANSMISSION_SYSTEM_OPERATOR           |

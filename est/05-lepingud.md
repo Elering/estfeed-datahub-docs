@@ -16,12 +16,15 @@
 
 Süsteem võimaldab lisada järgmisi lepinguid:
 
-- võrguleping;
-- avatud tarne leping;
-- agregeerimisleping;
-- portfellileping (siia kuulub ka bilansileping);
-- nimetatud tarnija leping;
-- ühisarve leping.
+| Leping                                         | Kood               |
+|------------------------------------------------|--------------------|
+| võrguleping                                    | GRID               |
+| piirimõõtepunkti võrguleping                   | BORDER_GRID        |
+| avatud tarne leping                            | SUPPLY             |
+| agregeerimisleping                             | AGGREGATION        |
+| portfellileping (siia kuulub ka bilansileping) | PORTFOLIO_SUPPLIER |
+| nimetatud tarnija leping                       | NAMED_SUPPLIER     |
+| ühisarve leping                                | JOINT_INVOICE      |
 
 Erinevatel lepingutel on erinevad reeglid. Lisaks eksisteerivad lepingute omavahelised reeglid stiilis "avatud tarne lepingut ei saa lisada perioodi, kus puudub võrguleping".
 
@@ -40,7 +43,7 @@ Bilansivastutus tagatakse katkematu avatud tarne ahela kaudu alljärgnevas hiera
 Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andmevahetuse sõnumi abil. Lepingu edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
 - Vastav turuosaline saadab uue või muutunud lepingu sõnumi kasutades teenust `agreement`.
-- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `changes` teenuse vahendusel.
+- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `change` teenuse vahendusel.
 - Õigustatud kasutaja pärib lepingu andmed `agreement/search` teenusest ning vajadusel ekspordib lepinguid kasutades teenust `agreement/export`.
 
 ### Lepingute edastamine veebiliidese abil
@@ -61,11 +64,11 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 |`DELETE /api/{version}/agreement`      |Võimaldab tühistada lepingu                                   |
 |`POST /api/{version}/agreement/search` |Võimaldab otsida lepinguid                                    |
 |`POST /api/{version}/agreement/export` |Võimaldab eksportida tingimustele vastavad lepingud           |
-|`POST /api/{version}/agreement/changes`|Võimaldab skaneerida lepingute andmete uuendusi.              |
+|`POST /api/{version}/agreement/change` |Võimaldab skaneerida lepingute andmete uuendusi.              |
 
 Võrgulepingu registreerimine koos mõõtepunktiga on kirjeldatud [Mõõtepunktide dokumendis](04-mootepunktid.md)
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel
@@ -87,8 +90,9 @@ Muud reeglid:
 - Lepingu alguse aeg esitatakse päeva täpsusega, leping hakkab kehtima esitatud päeval kell 00:00.
 - Lepingu lõpu aeg esitatakse päeva täpsusega, leping lõpeb esitatud päeva südaööl.
 - Lepingu lõpu kuupäev peab olema hilisem alguskuupäevast.
-- Lepingu loomine iseendale ei ole lubatud - lepingu teenusepakkuja ja klient ei tohi olla sama.
 - Kehtivat ega kehtivuse kaotanud lepingut kustutada (*delete*) ei ole lubatud. Kehtivat lepingut on võimalik sulgeda, uuendades lepingu lõppemise kuupäeva väärtust.
+- Lepingus märgitud energia liik peab olema sama lepingus märgitud mõõtepunkti energia liigiga (juhul, kui lepingu tüüp neid andmeid ette näeb).
+- Lepingute puhul on lubatud muuta ainult operaatoripoolset ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)

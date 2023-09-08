@@ -41,9 +41,8 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 - Mõõtepunkti haldur saadab uue või muutunud mõõteandmete sõnumi kasutades teenust `meter-data`.
 - Kuivõrd mõõteandmete töötlemine toimub Andmelaos asünkroonselt, siis esmalt annab Andmeladu kiire vastuse, kas sõnum õnnestus kätte saada või mitte.
 - Seejärel paneb Andmeladu sõnumi töötluse järjekorda.
-- Soovi korral kontrollib mõõtepunkti haldur asünkroonse töötluse olekut kasutades teenust `meter-data/status`.
-- Kui sõnumi töötlemine õnnestub vigadeta, siis rohkem teavitusi Andmeladu mõõtepunkti haldurile ei edasta. Andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `changes` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
-- Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile läbi `changes` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
+- Kui sõnumi töötlemine õnnestub vigadeta, siis rohkem teavitusi Andmeladu mõõtepunkti haldurile ei edasta. Andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `change` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
+- Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile läbi `change` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
 - Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
 
 > **Warning**
@@ -57,26 +56,47 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 
 ### Masinliidese sõnumid
 
-Mõõteandmete edastamise puhul on oluline aru saada perioodi, resolutsiooni ja positsiooni tähendustest ja omavahelistest seostest:
+Uues Andmelaos on "pos" ehk "positsiooni" atribuut eemaldatud. Mõõteandmete edastaja peab sõnumis defineerima perioodi alguse (pS) ja resolutsiooni (r) ehk andmete mõõtmise tiheduse:
 
-- **Resolutsioon** määrab mõõteandmete tiheduse: 1 päev, 1 tund või 15 minutit;
-- **Periood** defineerib ajavahemiku, mille kohta mõõteandmeid edastatakse;
-- **Positsioon** defineerib pesa ehk sloti, mille kohta mõõteandmed käivad.
+```json
+"periods": [
+  {
+    "r": "PT1H",
+    "aI": [
+      {
+        "pS": "2023-09-04T12:00:00.000Z",
+        "in": {
+          "rTime": "2023-09-04T12:48:13.368Z",
+          "rType": "E",
+          "kwh": 0
+        },
+        "out": {
+          "rTime": "2023-09-04T12:48:13.368Z",
+          "rType": "E",
+          "kwh": 5
+        }
+      }
+    ]
+  }
+]
+```
 
-Näiteks kui periood on 3 tundi ja resolutsioon 1 tund, siis tähendab see seda, et andmete edastaja soovib meile saata kolme pesa andmed. Seega eeldab süsteem sõnumis kolme sektsiooni, kus igas sektsioonis on mõõteandmed ja sektsioonide positsioonide väärtused on vastavalt 1, 2 ja 3.
+Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandmetega täidetud. 
 
-Tehniliselt on küll lubatud ka sellised sõnumid, kus edastatud pesad ei kata ära kogu esitatud perioodi. Näiteks periood on 3 tundi, resolutsioon 1 tund, aga positsioone on kõigest 2. Sellisel juhul määrab süsteem edastatud positsioonide mõõteandmed perioodi algusesse - positsioon 1 andmed esimesse tundi ja positsioon 2 andmed teise tundi. Kolmas tund jääb täitmata.
+> **Warning**
+> 
+> Andmete resolutsioon on Andmelao poolt jäigalt fikseeritud - nii elektri kui gaasi puhul on resolutsiooniks 1 tund. 2024 aastal läheb elekter üle resolutsioonile 15 minutit.
+> 
+> Gaasi puhul on lubatud edastada ka päeva andmeid. Sellisel juhul tuleb päeva mõõteandmed lisada enda poolt sobivasse gaasipäeva tundi.
 
 #### Sõnumid
 
 | Sõnum                                    | Eesmärk                                                 |
 |------------------------------------------|---------------------------------------------------------|
-| `POST /api/{version}/meter-data`         | Võimaldab lisada mõõteandmeid                           |
-| `PUT /api/{version}/meter-data`          | Võimaldab muuta mõõteandmeid                            |
-| `POST /api/{version}/meter-data/status`  | Võimaldab kontrollida asünkroonse töötluse olekut       |
-| `POST /api/{version}/meter-data/changes` | Võimaldab skaneerida mõõteandmete töötluse vearaporteid |
+| `POST /api/{version}/meter-data`         | Võimaldab lisada ja/või muuta mõõteandmeid              |
+| `POST /api/{version}/meter-data/change`  | Võimaldab skaneerida mõõteandmete töötluse vearaporteid |
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel
@@ -88,12 +108,13 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](http
   - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00);
   - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45).
 - perioodi algus esitatakse vasakjoondusega ja perioodi lõpp paremjoondusega. Näiteks 1 tunni mõõteandmete periood esitatakse kujul hh:00 - hh+1:00 (03:00-04:00).
-- Mõõtekogused esitatakse alati kWh-des täpsusega 3 kohta peale koma.
+- Elektri mõõtekogused esitatakse alati kWh-des täpsusega 3 kohta peale koma.
+- Gaasi mõõtekogused esitatakse nii kWh-des kui ka kuupmeetrites täpsusega 3 kohta peale koma.
 - Mõõteandmete suund esitatakse alati mõõtva mõõtepunkti halduri poolt vaadatuna:
   - in – võrku sisenev energia (tootmine);
   - out – võrgust väljuv energia (tarbimine).
 - Siseneva ja väljuva energia koguseid võib edastada ka eraldi sõnumitega.
-- Mõõteandmeid korrigeeritakse tagasiulatuvalt kuni 12 kuud.
+- Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
@@ -104,7 +125,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligi
 
 Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
-- Avatud tarnija skaneerib mõõteandmete muudatusi kasutades teenust `changes`
+- Avatud tarnija skaneerib mõõteandmete muudatusi kasutades teenust `change`
 - Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
 
 ### Masinliidese sõnumid
@@ -114,9 +135,9 @@ Mõõteandmete päringute teostamiseks on järgmised võimalused:
 | Sõnum                                    | Eesmärk                                     |
 |------------------------------------------|---------------------------------------------|
 | `POST /api/{version}/meter-data/search`  | Võimaldab otsida mõõteandmeid               |
-| `POST /api/{version}/meter-data/changes` | Võimaldab skaneerida mõõteandmete muudatusi |
+| `POST /api/{version}/meter-data/change`  | Võimaldab skaneerida mõõteandmete muudatusi |
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel

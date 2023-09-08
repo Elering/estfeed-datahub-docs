@@ -16,7 +16,7 @@ Selleks on vaja uus info turuosaliste süsteemideni toimetada. Käesolev dokumen
 
 ## Andmeuuenduste skaneerimine
 
-Erinevalt vanast Andmelaost, uus Andmeladu sõnumeid liidestuvatatele osapooltele ei saada vaid eeldab, et liidestuv süsteem kontrollib kas talle on uus sõnumeid. Selleks on igale andmeobjektile loodud spetsiaalne uuenduste tõmbamise API liides nimega `/changes`, mis toimib standardsel moel:
+Erinevalt vanast Andmelaost, uus Andmeladu sõnumeid liidestuvatatele osapooltele ei saada vaid eeldab, et liidestuv süsteem kontrollib kas talle on uus sõnumeid. Selleks on igale andmeobjektile loodud spetsiaalne uuenduste tõmbamise API liides nimega `/change`, mis toimib standardsel moel:
 
 - liidestunud turuosalise süsteem saadab päringu ning paneb kaasa ajatempli (*timestamp*), millal viimati õnnestus antud andmeobjekti uuendusi edukalt tõmmata.
 - Andmeladu otsib andmeobjektid, mis on lisandunud või muutunud pärast ajatempli väärtust.

@@ -24,7 +24,7 @@ Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
 
 - Võrguettevõtja saadab uue või muutunud võrguteenuse arve sõnumi kasutades teenust `network-bill`.
 - Võrguettevõtja kustutab vajadusel eksliku arve kasutades teenust `delete`.
-- Avatud tarnija skaneerib võrguteenuste arvete muudatusi kasutades teenust `changes`.
+- Avatud tarnija skaneerib võrguteenuste arvete muudatusi kasutades teenust `change`.
 - Avatud tarnija kustutab kättesaadud võrguteenuste arve kasutades teenust `delete`.
 
 Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu salvestatud arvete otsimiseks.
@@ -38,10 +38,9 @@ Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu 
 | `POST /api/{version}/network-bill`         | Võimaldab registreerida uut võrguarvet.                        |
 | `PUT /api/{version}/network-bill`          | Võimaldab uuendada olemasoleva võrguarve andmeid.              |
 | `POST /api/{version}/network-bill/search`  | Võimaldab otsida registreeritud võrguarvet.                    |
-| `POST /api/{version}/network-bill/changes` | Võimaldab skaneerida võrguarvete muudatusi                     |
-| `POST /api/{version}/network-bill/delete`  | Võimaldab eemaldada eksliku või töödeldud võrguarve Andmelaost |
+| `POST /api/{version}/network-bill/change`  | Võimaldab skaneerida võrguarvete muudatusi                     |
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel
@@ -54,3 +53,4 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](http
 - Maksimaalne võrguarve koostamise periood on üks kuu.
 - Perioodi alguse ja lõpu kuu väärtus peab olema võrdne (juhul, kui avatud tarnija ei vahetu kuu vahetusel, siis võrguettevõtja peab edastama 2 eraldi võrguteenuse arvet).
 - Juhul kui turuosaline kasutab üldteenust, on võrguteenuste arve edastamine Andmelattu vabatahtlik.
+

@@ -19,16 +19,10 @@
 
 Mõõtepunkt on seade, mis mõõdab energia tarbimise ja tootmise koguseid teatud asukohas.
 
-Andmeladu võimaldab registreerida kolme tüüpi mõõtepunkte:
-
-1. Elektri mõõtepunkt;
-2. Gaasi mõõtepunkt;
-3. Agregeerimise mõõtepunkt;
-
 Mõõtepunkte haldavad järgmised turuosalised:
 
 - võrguettevõtja;
-- liinioperaator;
+- liinivaldaja;
 - suletud jaotusvõrgu ettevõtja;
 - agregaator;
 - tootja;
@@ -43,12 +37,22 @@ Mõõtepunkti haldur vastutab Andmelaos tema piirkonnas olevate mõõtepunktid k
 Mõõtepunkti andmestik sisaldab järgmist teavet:
 
 1. mõõtepunkti EIC kood;
-2. mõõtepunkti tüüp (virtuaalne, kaugloetav, kohtloetav);
-3. energia tüüp (elekter või gaas)
-4. mõõtepunkti asukoha aadress;
-5. elektrimõõtepunkti metaandmestik;
-6. gaasimõõtepunkti metaandmestik;
-7. agregeerimismõõtepunkti metaandmestik.
+2. mõõtepunkti tüüp:
+   1. REGULAR - regulaarne ehk tavaline mõõtepunkt;
+   2. BORDER - piirimõõtepunkt ehk mõõtepunkt, kus võrguettevõtja on võrguteenuse klient;
+   3. AGGREGATION - agregeerimise mõõtepunkt;
+   4. INTERNAL - sisemine mõõtepunkt, millel puudub seos mõne lepinguga;
+3. mõõteviis:
+   1. REMOTE_READING - kaugloetav;
+   2. NON_REMOTE_READING - kohtloetav;
+   3. VIRTUAL - virtuaalne;
+4. energia tüüp:
+   1. ELECTRICITY - elekter;
+   2. NATURAL_GAS - gaas;
+5. mõõtepunkti asukoha aadress;
+6. elektrimõõtepunkti metaandmestik;
+7. gaasimõõtepunkti metaandmestik;
+8. agregeerimismõõtepunkti metaandmestik.
 
 > **Warning**
 > 
@@ -60,8 +64,7 @@ Mõõtepunkti haldur saab mõõtepunktide tehnilised andmed edastada Andmelattu 
 
 Mõõtepunkti andmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Vajadusel kasutab võrguettevõtja eelnevalt teenust `range` et leida vaba EIC kood mõõtepunkti registreerimiseks.
-- Võrguettevõtja saadab uue või muutunud mõõtepunkti sõnumi kasutades teenust `meter` või `gridagreementmeteringpoint`.
+- Võrguettevõtja saadab uue või muutunud mõõtepunkti sõnumi kasutades teenust `meter`.
 
 ### Veebiliides
 
@@ -72,14 +75,12 @@ Mõõtepunkti andmete edastamiseks on loodud vastavad Andmelao teenused. Ettenä
 
 #### Sõnumid
 
-| Sõnum                                            | Eesmärk                                                          | Märkus       |
-|--------------------------------------------------|------------------------------------------------------------------|--------------|
-| `POST /api/{version}/eic/range`                  | Võimaldab pärida vaba(d) EIC koodi(d) omale eraldatud vahemikust |              |
-| `POST /api/{version}/meter`                      | Võimaldab registreerida uue mõõtepunkti                          |              |
-| `PUT /api/{version}/meter`                       | Võimaldab uuendada mõõtepunkti andmeid                           |              |
-| `POST /api/{version}/gridagreementmeteringpoint` | Võimaldab registreerida mõõtepunkti koos võrgulepinguga korraga  | Pole MVP osa |
+| Sõnum                                            | Eesmärk                                                          |
+|--------------------------------------------------|------------------------------------------------------------------|
+| `POST /api/{version}/meter`                      | Võimaldab registreerida uue mõõtepunkti                          |
+| `PUT /api/{version}/meter`                       | Võimaldab uuendada mõõtepunkti andmeid                           |
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel
@@ -87,30 +88,31 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](http
 #### Sõnumite reeglid
 
 - Mõõtepunkti EIC kood peab jääma võrguettevõtja EIC koodide vahemikku.
-- Piirimõõtepunkt on mõõtepunkt, kus võrguettevõtja on võrguteenuse klient.
-- Mõõtepunkti resolutsiooni reeglid on energia tüübist sõltuvad:
-  - Elektri puhul on resolutsioon täiendav info ja ei mõjuta mõõteandmete edastamist tulevikus vaid iseloomustab, kas mõõtepunkt suudab  reaalsuses tarbimist mõõta 15 minuti või 1 tunni täpsusega või on andmed võrguettevõtja poolt jaotatud ja prognoositud .
-  - Gaasi puhul on resolutsioon rangelt seotud mõõteandmete resolutsiooniga. Näiteks kui mõõtepunkti resolutsioon on 1 päev, siis peavad ka edastatud mõõteandmed olema resolutsioonis 1 päev.
+- Mõõtepunkti tüüp defineerib lubatud metaandmestiku:
+  - regulaarne, piirimõõtepunkt, sisemine - lubatud on gaasi või elektri metaandmestik;
+  - agregeerimise - lubatud on agregeerimise metaandmestik;
+- Mõõtepunkti resolutsioon on täiendav info ja ei mõjuta mõõteandmete edastamist tulevikus vaid iseloomustab, kas mõõtepunkt suudab  reaalsuses tarbimist mõõta 15 minuti, 1 tunni või päeva täpsusega.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
 
 ## Mõõtepunkti andmete küsimine
 
-Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades teenust `changes`.
+Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades teenust `change`.
 
 ### Masinliidese sõnumid
 
 #### Sõnumid
 
-| Sõnum                                       | Eesmärk                                                 |
-|---------------------------------------------|---------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Võimaldab otsida mõõtepunkte mõõtepunkti andmete alusel |
-| `POST /api/{version}/meter/search/customer` | Võimaldab otsida mõõtepunkte kliendi andmete alusel     |
-| `POST /api/{version}/meter/export`          | Võimaldab eksportida tingimustele vastavad mõõtepunktid |
-| `POST /api/{version}/meter/changes`         | Võimaldab skaneerida mõõtepunktide andmete uuendusi.    |
+| Sõnum                                       | Eesmärk                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| `POST /api/{version}/meter/search`          | Võimaldab otsida mõõtepunkte mõõtepunkti andmete alusel                                          |
+| `POST /api/{version}/meter/search/customer` | Võimaldab otsida mõõtepunkte, kus sisendis olev klient on mõõtepunktiga seotud läbi mõne lepingu |
+| `POST /api/{version}/meter/search/border`   | Võimaldab otsida piirimõõtepunkte, kus sisendis olev klient on mõõtepunktiga seotud läbi võrgulepingu |
+| `POST /api/{version}/meter/export`          | Võimaldab eksportida tingimustele vastavad mõõtepunktid                                          |
+| `POST /api/{version}/meter/change`          | Võimaldab skaneerida mõõtepunktide andmete uuendusi.                                             |
 
-Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad [Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 > **Note**
 > Sõnumite näidiste kogumik on loomisel

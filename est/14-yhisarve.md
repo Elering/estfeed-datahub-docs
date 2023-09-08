@@ -25,11 +25,11 @@ Võrguarvet on võimalik edastada nii masinliidese kui ka veebiliidese vahenduse
 
 Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Võrguettevõtja saadab uue ühisarve võrguteenuse arve sõnumi kasutades teenust `forward-invoice`.
+- Võrguettevõtja saadab uue ühisarve võrguteenuse arve sõnumi kasutades teenust `joint-invoice`.
 - Andmeladu kontrollib, et määratud adressaadi ja saatja vahel on kehtiv ühisarve leping ning kas määratud kliendil selles mõõtepunktis on kehtiv avatud tarne leping arve adressaadiga.
   - kui ei ole, siis Andmeladu vastab veateatega;
-  - kui on, siis Andmeladu salvestab andmed andmebaasi ja teeb andmed kättesaadavaks avatud tarnijale `changes` teenuse vahendusel.
-- Avatud tarnija skaneerib võrguteenuste arvete muudatusi kasutades teenust `changes`.
+  - kui on, siis Andmeladu salvestab andmed andmebaasi ja teeb andmed kättesaadavaks avatud tarnijale `change` teenuse vahendusel.
+- Avatud tarnija skaneerib võrguteenuste arvete muudatusi kasutades teenust `change`.
 - Avatud tarnija laeb alla võrguteenuste arve kasutades teenust `download`.
 - Avatud tarnija kustutab kättesaadud võrguteenuste arve kasutades teenust `delete`.
 
@@ -44,13 +44,15 @@ Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu 
 
 #### Sõnumid
 
-| Sõnum                                          | Eesmärk                                                        |
-|------------------------------------------------|----------------------------------------------------------------|
-| `POST /api/{version}/forward-invoice`          | Võimaldab edastada ühisarve võrguarvet                         |
-| `POST /api/{version}/forward-invoice/search`   | Võimaldab otsida edastatud ühisarve võrguarveid                |
-| `POST /api/{version}/forward-invoice/download` | Võimaldab ühisarve võrguarvet alla laadida                     |
-| `POST /api/{version}/forward-invoice/delete`   | Võimaldab eemaldada eksliku või töödeldud võrguarve Andmelaost |
-| `POST /api/{version}/forward-invoice/changes`  | Võimaldab skaneerida võrguarvete muudatusi                     |
+| Sõnum                                        | Eesmärk                                                        |
+|----------------------------------------------|----------------------------------------------------------------|
+| `POST /api/{version}/joint-invoice`          | Võimaldab edastada ühisarve võrguarvet                         |
+| `POST /api/{version}/joint-invoice/search`   | Võimaldab otsida edastatud ühisarve võrguarveid                |
+| `POST /api/{version}/joint-invoice/download` | Võimaldab ühisarve võrguarvet alla laadida                     |
+| `POST /api/{version}/joint-invoice/delete`   | Võimaldab eemaldada eksliku või töödeldud võrguarve Andmelaost |
+| `POST /api/{version}/joint-invoice/change`   | Võimaldab skaneerida võrguarvete muudatusi                     |
+
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 #### Sõnumite reeglid
 

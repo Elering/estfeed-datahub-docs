@@ -25,19 +25,19 @@ Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on lood
 1. Avatud tarnija saadab välja- või sisselülitamise taotluse.
 2. Andmeladu kontrollib, et määratud adressaadi ja saatja vahel on kehtiv (või on viimase 6 kuu jooksul olnud) ühisarve leping ning kas määratud kliendil selles mõõtepunktis on kehtiv avatud tarne leping saatjaga (või on olnud kehtiv viimase 12 kuu jooksul) ja kas määratud kliendi ja mõõtepunkti kombinatsioonil on kehtiv (või on olnud kehtiv viimase 12 kuu jooksul) võrguleping adresaadiga:
    - kui ei ole, siis Andmeladu vastab veateatega;
-   - kui on, siis Andmeladu salvestab andmed andmebaasi ja teeb andmed kättesaadavaks võrguettevõtjale `changes` teenuse vahendusel.
+   - kui on, siis Andmeladu salvestab andmed andmebaasi ja teeb andmed kättesaadavaks võrguettevõtjale `change` teenuse vahendusel.
 3. Avatud tarnija vajadusel uuendab taotluse andmeid kasutades `PUT` teenust (selle teenusega saab ka tellimust tühistada).
-4. Võrguettevõtja skaneerib välja- või sisselülitamise taotlusi kasutades teenust `changes`.
+4. Võrguettevõtja skaneerib välja- või sisselülitamise taotlusi kasutades teenust `change`.
 5. Võrguettevõtja lisab taotluse olekut kasutades teenust `connection-state/response`. Võimalikud variandid on:
    - mõõtepunkti välja- või sisselülitamise plaani võtmine;
    - mõõtepunkti välja- või sisselülitamisest keeldumine;
    - mõõtepunkti välja- või sisselülitamine.
-6. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `changes`.
+6. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `change`.
 7. Võrguettevõtja uuendab taotluse olekut kasutades teenust `connection-state/response`. Võimalikud variandid on:
    - mõõtepunkti välja- või sisselülitamise plaani muutumine;
    - mõõtepunkti välja- või sisselülitamisest keeldumine;
    - mõõtepunkti välja- või sisselülitamine.
-8. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `changes`.
+8. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `change`.
 
 ### Masinliidese sõnumid
 
@@ -50,7 +50,9 @@ Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on lood
 | `POST /api/{version}/connection-state/search`   | Võimaldab otsida välja- või sisselülitamise taotluse vastust                 |
 | `POST /api/{version}/connection-state/response` | Võimaldab luua uut välja- või sisselülitamise taotluse vastust               |
 | `PUT /api/{version}/connection-state/response`  | Võimaldab muuta välja- või sisselülitamise taotluse vastust                  |
-| `POST /api/{version}/connection-state/changes`  | Võimaldab skaneerida välja- või sisselülitamise taotlusi või nende vastuseid |
+| `POST /api/{version}/connection-state/change`   | Võimaldab skaneerida välja- või sisselülitamise taotlusi või nende vastuseid |
+
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 #### Sõnumite reeglid
 

@@ -24,7 +24,7 @@ Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt 
 | RequestMeteringPointsData    | MVP                   | `/api/{version}/meter/search/customer`  |
 | NotifySupplyAgreement        | MVP                   | `/api /{version}/agreement`             |
 | EnergyReport                 | MVP                   | `/api/{version}/meter-data`             |
-| EnergyReportResult           | MVP                   | `/api/{version}/meter-data/status`      |
+| EnergyReportResult           | MVP                   | `/api/{version}/meter-data/change`      |
 | NetworkBill                  | MVP                   | `/api/{version}/network-bill`           |
 | RequestMeteringDataHistory   | MVP                   | `/api/{version}/meter-data/search`      |
 | NotifyCustomerAuthorization  | MVP                   | `/api/customer-authorization`           |
@@ -35,7 +35,7 @@ Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt 
 | RequestAgreementCoordination | -                     | `/api/{version}/agreement-coordination` |
 | ReplyAgreementCoordination   | -                     | `/api/{version}/agreement-coordination` |
 | ConfirmAgreementCoordination | -                     | `/api/{version}/agreement-coordination` |
-| ForwardInvoice               | MVP                   | `/api/{version}/forward-invoice`        |
+| ForwardInvoice               | MVP                   | `/api/{version}/joint-invoice`          |
 | RequestConnectionState       | -                     | `/api/{version}/connection-state`       |
 | ReplyRequestConnectionState  | -                     | `/api/{version}/connection-state`       |
 | SendMessage                  | -                     | `/api/{version}/direct-message`         |
@@ -45,7 +45,7 @@ Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt 
 
 ## Lisandunud funktsionaalsus
 
-Võrrelded varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel järgmised uued funktsionaalsused:
+Võrreldes varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel järgmised uued funktsionaalsused:
 
 - Lisandunud on uus lepingu tüüp - [Agregeerimisleping](05.6-agregeerimisleping.md).
 - Niinimetatud ülem-mõõtepunkti kontseptsioon.
@@ -58,3 +58,6 @@ Võrrelded varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel
 - Ülekandevõrgu alajaam
 - Korteriühistu tunnus
 - Laadimispunkti tunnus
+- Mõõteandmete resolutsioon on energiatüübi kaupa fikseeritud rakenduse konfiguratsioonis ning mõõteandmete sõnumis resolutsiooni enam juhtida ei saa.
+- Mõõteandmete edastamisel pole vaja enam arvutada ega edastada "pos" väärtust. Selle asemel on kasutusel perioodi alguse plus resolutsiooni kombinatsioon.
+- Lisandunud on eraldi piirimõõtepunkti (BORDER) ja piirimõõtepunkti lepingu (BORDER_GRID) definitsioonid
