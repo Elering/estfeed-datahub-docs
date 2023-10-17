@@ -65,14 +65,14 @@ Uues Andmelaos on "pos" ehk "positsiooni" atribuut eemaldatud. Mõõteandmete ed
     "aI": [
       {
         "pS": "2023-09-04T12:00:00.000Z",
-        "in": {
+        "mI": {
           "rTime": "2023-09-04T12:48:13.368Z",
           "rType": "E",
           "kwh": 0
         },
-        "out": {
+        "mO": {
           "rTime": "2023-09-04T12:48:13.368Z",
-          "rType": "E",
+          "rType": "M",
           "kwh": 5
         }
       }
@@ -80,6 +80,16 @@ Uues Andmelaos on "pos" ehk "positsiooni" atribuut eemaldatud. Mõõteandmete ed
   }
 ]
 ```
+
+API teenuses kasutatavate lühendite selgitused:
+
+* r - resolutsioon
+* aI - Account Interval ehk ühe mõõtetulemuse intervall
+* pS - Period Start ehk perioodi algus
+* mI - IN ehk siseneva energia mõõtetulemus
+* mO - OUT ehk väljuva energia mõõtetulemus
+* rTime - Reading Time ehk mõõtmise aeg
+* rType - Reading Type ehk mõõtmise tüüp (E - estimeeritud, M - mõõdetud)
 
 Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandmetega täidetud. 
 
@@ -107,7 +117,6 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Perioodi ajaperioodi väärtus peab olema vastavuses resolutsiooniga. Näiteks:
   - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00);
   - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45).
-- perioodi algus esitatakse vasakjoondusega ja perioodi lõpp paremjoondusega. Näiteks 1 tunni mõõteandmete periood esitatakse kujul hh:00 - hh+1:00 (03:00-04:00).
 - Elektri mõõtekogused esitatakse alati kWh-des täpsusega 3 kohta peale koma.
 - Gaasi mõõtekogused esitatakse nii kWh-des kui ka kuupmeetrites täpsusega 3 kohta peale koma.
 - Mõõteandmete suund esitatakse alati mõõtva mõõtepunkti halduri poolt vaadatuna:
