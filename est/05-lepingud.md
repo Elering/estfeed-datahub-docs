@@ -61,7 +61,7 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 |---------------------------------------|--------------------------------------------------------------|
 |`POST /api/{version}/agreement`        |Võimaldab lisada uue lepingu                                  |
 |`PUT /api/{version}/agreement`         |Võimaldab uuendada lepingu andmeid                            |
-|`DELETE /api/{version}/agreement`      |Võimaldab tühistada lepingu                                   |
+|`POST /api/{version}/agreement/delete` |Võimaldab tühistada lepingu                                   |
 |`POST /api/{version}/agreement/search` |Võimaldab otsida lepinguid                                    |
 |`POST /api/{version}/agreement/export` |Võimaldab eksportida tingimustele vastavad lepingud           |
 |`POST /api/{version}/agreement/change` |Võimaldab skaneerida lepingute andmete uuendusi.              |

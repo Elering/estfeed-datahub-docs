@@ -65,12 +65,12 @@ Uues Andmelaos on "pos" ehk "positsiooni" atribuut eemaldatud. Mõõteandmete ed
     "aI": [
       {
         "pS": "2023-09-04T12:00:00.000Z",
-        "mI": {
+        "inQty": {
           "rTime": "2023-09-04T12:48:13.368Z",
           "rType": "E",
           "kwh": 0
         },
-        "mO": {
+        "outQty": {
           "rTime": "2023-09-04T12:48:13.368Z",
           "rType": "M",
           "kwh": 5
@@ -86,8 +86,8 @@ API teenuses kasutatavate lühendite selgitused:
 * r - resolutsioon
 * aI - Account Interval ehk ühe mõõtetulemuse intervall
 * pS - Period Start ehk perioodi algus
-* mI - IN ehk siseneva energia mõõtetulemus
-* mO - OUT ehk väljuva energia mõõtetulemus
+* inQty - IN ehk siseneva energia mõõtetulemus
+* outQty - OUT ehk väljuva energia mõõtetulemus
 * rTime - Reading Time ehk mõõtmise aeg
 * rType - Reading Type ehk mõõtmise tüüp (E - estimeeritud, M - mõõdetud)
 

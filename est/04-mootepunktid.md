@@ -75,10 +75,12 @@ Mõõtepunkti andmete edastamiseks on loodud vastavad Andmelao teenused. Ettenä
 
 #### Sõnumid
 
-| Sõnum                                            | Eesmärk                                                          |
-|--------------------------------------------------|------------------------------------------------------------------|
-| `POST /api/{version}/meter`                      | Võimaldab registreerida uue mõõtepunkti                          |
-| `PUT /api/{version}/meter`                       | Võimaldab uuendada mõõtepunkti andmeid                           |
+| Sõnum                                            | Eesmärk                                                         |
+|--------------------------------------------------|-----------------------------------------------------------------|
+| `POST /api/{version}/meter`                      | Võimaldab registreerida uue mõõtepunkti                         |
+| `PUT /api/{version}/meter`                       | Võimaldab uuendada mõõtepunkti andmeid                          |
+| `GET /api/{version}/template/`                   | Võimaldab alla laadida mõõtepunkti masslisamise Excel templiidi |
+| `POST /api/{version}/meter/import`               | Võimaldab lisada mitu mõõtepunkti täidetud Excel templiidi abil |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
