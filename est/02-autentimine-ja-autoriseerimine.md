@@ -8,6 +8,7 @@
     - [Elektriettevõtja ja energiateenuse osutajate registreerimine ja ligipääsuõigused](#elektriettevõtja-ja-energiateenuse-osutajate-registreerimine-ja-ligipääsuõigused)
     - [Avatud tarne lisarollid](#avatud-tarne-lisarollid)
   - [Andmevahetuse ligipääsuõigused](#andmevahetuse-ligipääsuõigused)
+    - [Kasutajarollid turuosalise rollide lõikes](#kasutajarollid-turuosalise-rollide-lõikes)
     - [Võrguoperaatorite (sh liinivaldajad, laadimispunktid) andmevahetus ja ligipääsud](#võrguoperaatorite-sh-liinivaldajad-laadimispunktid-andmevahetus-ja-ligipääsud)
     - [Avatud tarnija ligipääs andmetele](#avatud-tarnija-ligipääs-andmetele)
     - [Bilansihalduri ligipääs andmetele](#bilansihalduri-ligipääs-andmetele)
@@ -16,6 +17,9 @@
     - [Energiateenuse osutajate ligipääs andmetele](#energiateenuse-osutajate-ligipääs-andmetele)
     - [Süsteemihalduri ligipääs andmetele (bilansihaldus ja taastuvenergia äriprotsess)](#süsteemihalduri-ligipääs-andmetele-bilansihaldus-ja-taastuvenergia-äriprotsess)
   - [API liideses autentimine](#api-liideses-autentimine)
+    - [Näited JWT tokeni küsimiseks](#näited-jwt-tokeni-küsimiseks)
+      - [cURL](#curl)
+      - [Python](#python)
   - [API liideses autoriseerimine](#api-liideses-autoriseerimine)
 
 ## Rollipõhised ligipääsuõigused
@@ -62,6 +66,30 @@ Elektriettevõtja registreerimisel Andmelao kasutajaks sisestab Elering lepingus
 *Joonis 1 Registreerimise protsess*
 
 ## Andmevahetuse ligipääsuõigused
+
+### Kasutajarollid turuosalise rollide lõikes
+
+Turuosaliste funktsionaalsust kontrollib ja piirab Andmeladu, kuid turosalistel endil on võimalik täiendavalt piirata erinevate kasutajate õigusi.
+
+Õiguste süsteem töötab Andmelaos selliselt, et kasutaja õigusi on võimalik seadistada turosalise rollide, energiakandja liikide ja kasutajarollide kombinatsioonides. Näiteks:
+
+| Turuosaline | Turuosalise roll | Energiakandja liik | Kasutajaroll     | Tulemus                                                                                       |
+|-------------|------------------|--------------------|------------------|-----------------------------------------------------------------------------------------------|
+| Ettevõte X  | Avatud tarnija   | Elekter            | VIEWER_AGREEMENT | Kasutaja näeb elektri mõõtepunktide lepinguid, mille nägemise õigus on ettevõtel X kui avatud tarnijal            |
+| Ettevõte X  | Avatud tarnija   | Gaas               | EDITOR_AGREEMENT | Kasutaja näeb ja saab muuta gaasi mõõtepunktide lepinguid, mille nägemise ja muutmise õigus on ettevõtel X kui avatud tarnijal|
+| Ettevõte X  | Võrguettevõtja   | Elekter            | EDITOR_AGREEMENT | Kasutaja näeb ja saab muuta elektri mõõtepunktide lepinguid, mille nägemise õigus on ettevõtel X kui võrguettevõtjal |
+
+Kõik kasutajarollid ei ole kõikidele turuosalise rollidele avatud. Alljärgnev tabel annab ülevaate, mis kellele avatud on:
+
+| Rolli kood            | Rolli kirjeldus                                         | OS | GO | LO | ISO | PO | CO | AGG | ES |
+|-----------------------|---------------------------------------------------------|----|----|----|-----|----|----|-----|----|
+| ADMIN                 | Ligipääs kõikidele turosalise rolli funktsionaalsustele | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | ✓  |
+| VIEWER_METERING_DATA  | Mõõteandmete vaatamine                                  | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | ✓  |
+| EDITOR_METERING_DATA  | Mõõteandmete lisamine ja muutmine                       | x  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+| VIEWER_METERING_POINT | Mõõtepunkti vaatamine                                   | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | ✓  |
+| EDITOR_METERING_POINT | Mõõtepunkti lisamine ja muutmine                        | x  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+| VIEWER_AGREEMENT      | Lepingu vaatamine                                       | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+| EDITOR_AGREEMENT      | Lepingu lisamine ja muutmine                            | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
 
 ### Võrguoperaatorite (sh liinivaldajad, laadimispunktid) andmevahetus ja ligipääsud
 
@@ -243,6 +271,71 @@ Autentimiseks tuleb liidestuval süsteemi läbida järgmised sammud:
 |----|-------|
 |Autentimispäringu saatmine Eleringi poolt antud aadressile|Andmeladu valideerib konto, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse|
 |JWT tokeni lisamine igale järgnevale API sõnumile|Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist|
+
+### Näited JWT tokeni küsimiseks
+
+#### cURL
+
+```bash
+#!/bin/bash
+# Example cURL request for retrieving token for Estfeed public test.
+# For use with API requests, must be passed as a header.
+
+API_USER="replace this username"
+API_PASS="replace this password"
+API_CLIENT="replace this client"
+
+TOKEN=$(\
+    curl \
+        -s \
+        -X POST \
+        -d username=$API_USER \
+        -d password=$API_PASS \
+        -d grant_type=password \
+        -d client_id=$API_CLIENT \
+        https://{replace this with Keycloak host}/realms/estfeed-public/protocol/openid-connect/token \
+)
+
+if ! command -v jq &> /dev/null; then
+    echo -e "WARN: jq not found for JSON parsing, printing out raw json\n"
+    echo $TOKEN
+    exit 0
+fi
+
+ACCESS_TOKEN=`echo $TOKEN | jq -er .access_token`
+EXPIRES_IN=`echo $TOKEN | jq -r .expires_in`
+REFRESH_ACCESS_TOKEN=`echo $TOKEN | jq -er .refresh_token`
+REFRESH_EXPIRES_IN=`echo $TOKEN | jq -er .refresh_expires_in`
+
+if [[  $ACCESS_TOKEN == null ]]; then
+    echo 'FATAL: Access token not found, probably incorrect credentials.'
+    exit 1
+fi
+
+echo "===================================================================================="
+echo -e "\t\tAccess token:"
+echo -e "Expires at\n\t`date --date=\"+$EXPIRES_IN seconds\"` ($EXPIRES_IN seconds)\n\nToken\n\t$ACCESS_TOKEN"
+echo "===================================================================================="
+echo -e "\t\tRefresh token:"
+echo -e "Expires at\n\t`date --date=\"+$REFRESH_EXPIRES_IN seconds\"` ($REFRESH_EXPIRES_IN seconds)\n\nToken\n\t$REFRESH_ACCESS_TOKEN"
+echo "===================================================================================="
+
+```
+
+#### Python
+
+```python
+import requests
+import config
+
+url = config.keycloakHost + "/auth/realms/estfeed/protocol/openid-connect/token"
+headers = {'Content-type': 'application/x-www-form-urlencoded'}
+body = "client_id=" + config.keycloakClientId + "&grant_type=password" + "&username="+ config.keycloakUsername + "&password=" + config.keycloakPassword
+
+response = requests.post(url, headers=headers, data=body)
+access_token = response.json().get('access_token')
+print(access_token)
+```
 
 ## API liideses autoriseerimine
 
