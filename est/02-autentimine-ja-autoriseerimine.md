@@ -337,6 +337,11 @@ access_token = response.json().get('access_token')
 print(access_token)
 ```
 
+Example
+```
+client_id=client123&grant_type=password&username=user123&password=pass123
+```
+
 ## API liideses autoriseerimine
 
 Iga API päring sisaldab `marketParticipantContext` sektsiooni, kus API sõnumi saatja peab ära defineerima enda rolli ja päringu saatmise eesmärgi. Selle eesmärgiks on luua selge arusaam kes ja milleks sõnumeid saadab ja milline on andmete kasutamise eesmärk.
