@@ -31,12 +31,12 @@ Kliendi andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused
 
 ### Sõnumid
 
-| Sõnum                                  | Eesmärk                                          |
-|----------------------------------------|--------------------------------------------------|
-| `POST /api/{version}/customer`         | Võimaldab registreerida uut klienti.             |
-| `PUT /api/{version}/customer`          | Võimaldab uuendada olemasoleva kliendi andmeid.  |
-| `POST /api/{version}/customer/search`  | Võimaldab otsida registreeritud klienti.         |
-| `POST /api/{version}/customer/change`  | Võimaldab skaneerida klientide andmete uuendusi. |
+| Sõnum                                 | Eesmärk                                                  |
+|---------------------------------------|----------------------------------------------------------|
+| `POST /api/{version}/customer`        | Võimaldab registreerida uut klienti.                     |
+| `PUT /api/{version}/customer`         | Võimaldab uuendada olemasoleva kliendi andmeid.          |
+| `POST /api/{version}/customer/search` | Võimaldab otsida registreeritud klienti või turuosalist. |
+| `POST /api/{version}/customer/change` | Võimaldab skaneerida klientide andmete uuendusi.         |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
@@ -64,6 +64,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Riigi väärtuse edastamiseks kasutatakse [ISO standardi](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) 2-tähelisi koode.
 - Uue kliendi registreerimisel peab `customerType + identityType + identityValue + extensionType(COUNTRY)` kombinatsioon peab olema unikaalne. Kui ei ole, siis on tegu olemasoleva kliendiga ning süsteem kohtleb lisamise päringut kui kliendi andmete uuendamise päringuna ning võimalusel uuendab kliendi andmed.
 - Kliendi otsingu teenus tagastab ainult kliendi EIC koodi juhul, kui andmete pärijal puudub vastav õigus.
+- Nime järgi saab otsida ainult teist turuosalist
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)

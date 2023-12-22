@@ -1,0 +1,73 @@
+﻿# Balance area
+
+## Table of contents
+
+- [Balance area](#balance-area)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Balance area message](#balance-area-message)
+    - [API messages](#api-messages)
+    - [Messages](#messages)
+    - [Message rules](#message-rules)
+  - [Summed metering data message](#summed-metering-data-message)
+    - [API messages](#api-messages-1)
+
+## Introduction
+
+In other words, a balance area is a portfolio of metering points. Each metering point must belong to a balance area. Belonging to the balance area is determined by who is the energy supplier for the metering point at a given time.
+
+The rule for creating a balance area is as follows: the balance area of a balance responsible party is determined by the metering points of the balance settlement of the market participants in that balance area – this is a metering point where the balance responsible party of a market participant and the balance responsible party of the grid operator differ.
+
+A balance responsible party has the rights and obligations of an open supplier in the Datahub. The supply chain of a balance responsible party consists of market participants who have an open supply agreement with the balance responsible party and other open suppliers and/or grid operators entered via portfolio agreements by the balance responsible party.
+
+A balance responsible party sees the following data in the Datahub regarding its balance area:
+
+1. Metering point EIC.
+2. Customer EIC.
+3. Metering point’s grid operator EIC.
+4. Grid operator’s balance responsible party EIC.
+5. If the metering point is in the supply chain of a balance responsible party: the EIC of the open supplier at the metering point and the EIC of the balance responsible party.
+6. If the metering point is not in the supply chain of a balance responsible party then the open supplier at the metering point and the balance responsible party are not visible.
+7. Period (start and end time of the open supply agreement).
+
+A balance responsible party receives metering data from the Datahub as follows:
+
+1. Metering data from those metering points that are in the open supply chain of the balance responsible party pursuant to electricity agreements.
+2. If the border metering points of the grid operator are the border metering points of the balance area of the balance responsible party, the information will also include metering data from those border metering points.
+3. Summed metering data from metering points in the grid operator’s area that are in the portfolios of other balance responsible parties. The report is sent with the data of the previous period at 10.30 to the address indicated by the balance responsible party in the Datahub.
+
+## Balance area message
+
+Used to forward changes in the area of the balance responsible party to the balance responsible party and the system operator. The process for generating and transmitting a balance area change message is as follows:
+
+- A new grid or open supply or portfolio agreement is registered in the Datahub OR an existing grid or open supply or portfolio agreement expires.
+- Once a day, the Datahub calculates the balance changes of the last 24 hours (entering a metering point or exiting the balance area).
+- At 00:05, the Datahub generates a balance changes message and makes it via the `change` service available to the relevant balance responsible party(-ies) in whose balance area the changes occurred. For more details, see [Data transmission](30-andmete-levitamine.md). The message contains new metering points in the balance area *(ADDED)* or metering points removed from the balance area *(REMOVED)*.
+
+### API messages
+
+### Messages
+
+| Message                                       | Objective                                                   |
+|---------------------------------------------|-----------------------------------------------------------|
+| `POST /api/{version}/balance-state/change`  | Allows the user to scan changes in the balance area.           |
+| `POST /api/{version}/balance-state/search`  | Allows the user to search for the balance area status for the desired period. |
+
+For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
+
+### Message rules
+
+> **Note**
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+
+## Summed metering data message
+
+Summed metering data is distributed to balance responsible parties so that they can predict future demand and production. The process for generating and distributing the message is as follows:
+
+- After processing the message to add or change metering data, the Datahub sums the metering data (Pin and Pout) in the area of the grid operator that are in the portfolios of other balance responsible parties.
+- Once a day (at 14:00), the Datahub generates an aggregated metering data message and makes it available to the balance responsible party(-ies) via the `change` service. For more details, see [Data distribution](30-andmete-levitamine.md). The message contains metering data from the beginning of the current calendar month (on the first day data from the entire previous day), with daily additional data sent by the grid operator to the Datahub.
+
+### API messages
+
+> **Note**
+> The services are under development

@@ -17,7 +17,7 @@
 
 ## Sissejuhatus
 
-Kliendi pöördumiste vahenduse protsessi eesmärk on klientide võrguteenusega seotud pöördumiste vahendamine elektrimüüjalt võrguettevõtjale. Kliendi pöördumiste vahendus on kasutatav vaid müüja ja võrguettevõtja vaheliste sõnumitena. Kliendi pöördumiste funktsionaalsus sisaldab võrguettevõtjate ja müüjate omavahelist infovahetust standardiseeritud kujul.
+Kliendi pöördumiste vahenduse protsessi eesmärk on klientide võrguteenusega seotud pöördumiste vahendamine müüjalt võrguettevõtjale. Kliendi pöördumiste vahendus on kasutatav vaid müüja ja võrguettevõtja vaheliste sõnumitena. Kliendi pöördumiste funktsionaalsus sisaldab võrguettevõtjate ja müüjate omavahelist infovahetust standardiseeritud kujul.
 
 > **Warning**
 > 

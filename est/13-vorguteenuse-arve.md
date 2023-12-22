@@ -23,11 +23,10 @@ Võrguteenuse koostamise sõnum abil edastab võrguettevõtja info selle kohta, 
 Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
 - Võrguettevõtja saadab uue või muutunud võrguteenuse arve sõnumi kasutades teenust `network-bill`.
-- Võrguettevõtja kustutab vajadusel eksliku arve kasutades teenust `delete`.
-- Avatud tarnija skaneerib võrguteenuste arvete muudatusi kasutades teenust `change`.
-- Avatud tarnija kustutab kättesaadud võrguteenuste arve kasutades teenust `delete`.
+- Andmeladu salvestab võrguteenuse arve andmebaasi
+- Avatud tarnija otsib uusi võrguarveid kasutades teenust `search`
 
-Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu salvestatud arvete otsimiseks.
+Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum parandatud andmetega sama perioodi kohta ning väärtustada atribuut `calculationTimestamp` uuema väärtusega.
 
 ## Masinliidese sõnumid
 
@@ -36,9 +35,7 @@ Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu 
 | Sõnum                                      | Eesmärk                                                        |
 |--------------------------------------------|----------------------------------------------------------------|
 | `POST /api/{version}/network-bill`         | Võimaldab registreerida uut võrguarvet.                        |
-| `PUT /api/{version}/network-bill`          | Võimaldab uuendada olemasoleva võrguarve andmeid.              |
 | `POST /api/{version}/network-bill/search`  | Võimaldab otsida registreeritud võrguarvet.                    |
-| `POST /api/{version}/network-bill/change`  | Võimaldab skaneerida võrguarvete muudatusi                     |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
@@ -50,7 +47,8 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
 
-- Maksimaalne võrguarve koostamise periood on üks kuu.
-- Perioodi alguse ja lõpu kuu väärtus peab olema võrdne (juhul, kui avatud tarnija ei vahetu kuu vahetusel, siis võrguettevõtja peab edastama 2 eraldi võrguteenuse arvet).
-- Juhul kui turuosaline kasutab üldteenust, on võrguteenuste arve edastamine Andmelattu vabatahtlik.
 
+- Juhul kui turuosaline kasutab üldteenust, on võrguteenuste arve edastamine Andmelattu vabatahtlik.
+- Võrguarvete otsimise reeglid:
+  - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (ISO) saavad otsida ainult neid võrguarveid, mida nad ise lisasid
+  - avatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise avatud tarne lepinguga, kus avatud tarnija on teenusepakkuja.

@@ -1,0 +1,388 @@
+﻿# Authentication and authorisation
+
+## Table of contents
+
+- [Authentication and authorisation](#authentication-and-authorisation)
+  - [Table of contents](#table-of-contents)
+  - [Role-based access rights](#role-based-access-rights)
+    - [Registration and access rights of electricity undertaking and energy service providers](#registration-and-access-rights-of-electricity-undertaking-and-energy-service-providers)
+    - [Additional open supply roles](#additional-open-supply-roles)
+  - [Data exchange access rights](#data-exchange-access-rights)
+    - [User roles by market participant roles](#user-roles-by-market-participant-roles)
+    - [Data exchange and access of grid operators (including line operators and charging points)](#data-exchange-and-access-of-grid-operators-including-line-operators-and-charging-points)
+    - [Open supplier access to data](#open-supplier-access-to-data)
+    - [Balance responsible party access to data](#balance-responsible-party-access-to-data)
+    - [Named supplier access to data](#named-supplier-access-to-data)
+    - [Aggregator access to data](#aggregator-access-to-data)
+    - [Energy service providers access to data](#energy-service-providers-access-to-data)
+    - [System operator access to data (balance management and renewable energy business process)](#system-operator-access-to-data-balance-management-and-renewable-energy-business-process)
+  - [Authentication in API](#authentication-in-api)
+    - [Examples of JWT requests](#examples-of-jwt-requests)
+      - [cURL](#curl)
+      - [Python](#python)
+  - [Authorisation in API](#authorisation-in-api)
+
+## Role-based access rights
+
+Elering ensures that only parties with the respective right arising from legislation or to whom a market participant has granted the respective right are able to access the information of the market participant in the Datahub.
+
+The general principles of access rights are as follows:
+
+1. All electricity undertakings and energy service providers requesting access to the information of a market participant must enter into an agreement with Elering in order to access the information in the Datahub.
+2. The customer of a grid agreement is granted access to the data transmitted via the customer portal. The customer has the right to transmit data regarding their metering point and metering data to other persons and systems by means of granting the relevant authorisation.
+
+> **Warning**
+>
+> Please note! All data relating to natural persons (including EICs) are personal data and subject to the GDPR. Each user of the Datahub is responsible for having a legal basis for performing requests, which also means that a metering point request is permitted only for the purpose of fulfilling the verification obligation provided for in the Network Code on the Operation of the Electricity Market. All consumers can submit complaints and inquiries to Elering about the requests made by market participants, and the person making an inquiry/request must prove the legal basis for processing the customer’s data.
+
+### Registration and access rights of electricity undertaking and energy service providers
+
+Once an electricity undertaking or energy service provider has **entered into an agreement with Elering to access data**, the latter will register the company and determine the access rights. Each type of electricity undertaking is differentiated with its own role abbreviation and has access rights based on their role arising from legislation. Please note! Open suppliers do not have the default rights given to grid operators and grid operators do not have the rights of open suppliers, which means that the role of every electricity undertaking is separately determined (a grid operator can have several roles).
+
+| Datahub user type | Abbreviation | Description | Open supply portfolio agreement obligation |
+|---|---|---|---|
+| Grid operator | GO | Own code range. Responsible for transmitting the technical data, information on grid agreements and metering data of the metering points in its grid area. | Yes. Upon the absence of a agreement, Elering will enter it in the open supplier portfolio of the superior grid operator. |
+| Line operator | LO | Own code range. Responsible for the collection and transmission of information related to its metering points and metering data. | No. Not included in balancing – open supply agreements are not added to line operator metering points. |
+| Closed distribution network | ISO | Own code range. Responsible for transmitting the technical data, information on grid agreements and metering data of the metering points in its grid area. | Yes. |
+| Producer operator | PO | Own code range. Responsible for the collection and transmission of information related to its metering points and metering data. | No, not included in balancing – open supply agreements are not added to PO metering points. |
+| Charging point operator | CO | Own code range. Responsible for the collection and transmission of information related to its metering points and metering data. | No, not included in balancing – open supply agreements are not added to CO metering points. |
+| Open supplier | OS | Open suppliers transmit the information on open supply agreements entered into with market participants and also the portfolio agreement if they provide open supply services to another open electricity undertaking. | Yes. In the absence of an open supply agreement, the agreements entered into by an open supplier with a market participant are rendered null and void.|
+| Aggregator | AGR | Own code range. Aggregators enter the information on aggregation agreements entered into with market participants and transmit the data on consumption management. | Yes. In the absence of an open supply agreement, the agreements entered into by an aggregator with a market participant are rendered null and void.|
+| Energy service provider | ES | Energy service providers receive access to information only on the basis of the access rights granted by end-users. | No – the role has access to data only on the basis of access rights. |
+
+### Additional open supply roles
+
+The following additional roles are created arising from agreements in relation to open supply services:
+
+| Additional open supplier role | Abbreviation | Description | Open supply portfolio agreement obligation |
+|---|---|---|---|
+| Named supplier | Named | If the grid operator does not provide open supply services to the customers of its own grid area by itself (if the customer does not have an open supply agreement), it will designate one open supplier for its entire area. The grid operator enters the information on the agreement entered into with the named supplier in the Datahub. **The named supplier has the same rights to metering points and metering data as an open supplier with an open supply agreement.** | Yes, open supplier rules |
+| Balance responsible party | BRP | A balance responsible party is an open supplier that has entered into a balance agreement with Elering. | Yes. Elering enters the information on the balance agreement in the Datahub.  
+| System operator | TSO | Elering serves as the open supplier for balance responsible parties. | Outside the Datahub. |
+
+Upon the registration of an electricity undertaking as a user in the Datahub, Elering enters the person provided in the agreement (with the role name ‘admin’) as the person chiefly responsible for the information of the company. The admin of every electricity undertaking is obliged to configure the API and enter/administer other users of their company and their representation rights. Admins create user accounts for the authorised employees in their company and assume the responsibility for managing their access rights.
+
+![Registration process](../images/registreerumise-protsess.jpg)
+*Figure 1. Registration process*
+
+## Data exchange access rights
+
+### User roles by market participant roles
+
+Functions available to market participants are managed and limited by the Datahub, but market participants can further restrict the rights of various users.
+
+The rights system of the Datahub works in such a way that user rights can be configured in combination with market participant roles, commodity types and user roles. For example:
+
+| Market participant | Market participant role | Type of commodity | User role        | Result                                                                                                                           |
+|--------------------|-------------------------|-------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Company X          | Open supplier           | Electricity       | VIEWER_AGREEMENT | The user can view the electricity metering point agreements that Company X, as an open supplier, has the right to view           |
+| Company X          | Open supplier           | Gas               | EDITOR_AGREEMENT | The user can view and edit the gas metering point agreements that Company X, as an open supplier, has the right to view and edit |
+| Company X          | Grid operator           | Electricity       | EDITOR_AGREEMENT | The user can view and edit electricity metering point agreements that Company X, as a grid operator, has the right to view       |
+
+Not all user roles are available to all market participant roles. The table below gives an overview of their availability.
+
+| Role code             | Role description                                        | OS | GO | LO | ISO | PO | CO | AGG | ES |
+|-----------------------|---------------------------------------------------------|----|----|----|-----|----|----|-----|----|
+| ADMIN                 | Has access to all functions of market participant roles | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | ✓  |
+| VIEWER_METERING_DATA  | Can view metering data                                  | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | ✓  |
+| EDITOR_METERING_DATA  | Can add and edit metering data                          | x  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+| VIEWER_METERING_POINT | Can view metering points                                | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | ✓  |
+| EDITOR_METERING_POINT | Can add and edit metering points                        | x  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+| VIEWER_AGREEMENT      | Can view agreements                                     | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+| EDITOR_AGREEMENT      | Can add and edit agreements                             | ✓  | ✓  | ✓  | ✓   | ✓  | ✓  | ✓   | x  |
+
+### Data exchange and access of grid operators (including line operators and charging points)
+
+Grid operators, closed distribution networks, line operators/producers and charging point operators transmit the following data to the Datahub:
+
+|Information transmitted| Grid operator (GO) | Closed distribution network (ISO) | Line operators and producer (LO and PO)| Charging point (CO)| Datahub role| Description |
+|---|---|---|---|---|---|---|
+|Customer data|YES|YES|YES|YES|Assigns EIC (X) to customers.||
+| Metering point technical data encoded in its code range and data if the metering point has a registered grid agreement person, start time and end time. | YES| YES| YES| YES| Format check, storage, data exchange.  | Format of technical data. Code range from the Datahub required prior to this.|
+| Hourly metering data by metering points (metering data 15 minutes later)| YES | YES | YES| YES| Format check, storage, data exchange.| Obligation on the basis of the Network Code on the Operation of the Electricity Market.|
+| Replies to requests for amendment of open supply agreements| YES | YES| NO | NO | | If there is no named supplier agreement|
+| agreement of supplier named by the grid operator| YES | YES| NO | NO | Storing agreement information and ensuring access rights| The named supplier provides open supply services to general service customers on behalf of the grid operator|
+| Joint invoice agreement with open supplier| YES | YES| NO | NO | Storing agreement information and ensuring data exchange| The open supplier submits the network invoice to customers on behalf of the grid operator|
+| Joint network invoice for customers| YES | YES| NO | NO | Data exchange| *same* |
+| Customer enquiries reply to open supplier| YES | YES | NO | NO | *same* | *same* |
+| Confirmation of disconnection application in relation to joint invoice to open supplier| YES | YES | NO | NO | *same* | *same* |
+| Network invoice issue message | YES | YES | NO | NO | *same* | *same* |
+| Information exchange with other users | YES | YES | YES | YES | *same* | Information exchange with other users – all or selected open suppliers, etc. |
+
+The users of grid operators, closed distribution networks, line operators/producers and charging point operators have access to the following data:
+
+| Access to information | Grid operator | Closed distribution network | Line operator and producer | Charging point | Description |
+|---|---|---|---|---|---|
+|Customer data|YES|YES|YES|YES||
+| Own code range of metering points | YES | YES | YES | YES | For entering metering point information|
+| Metering point technical data, grid agreement person, start time and end time | YES | YES | YES | YES | Access to data of its own area |
+| Data on agreements related to metering points (persons, start time and end time of open supply and aggregation agreements) | YES | YES | NO | NO | Access to data of its own area |
+| Metering data of metering points | YES | YES | YES | YES | Access to data of its own area |
+| Metering data of metering points, including border metering points | YES | YES | YES | YES | Access to data: grid operator as a customer |
+| Metering data transmission status | YES | YES | YES | YES | New. The Datahub monitors data exchange for every metering point. Data of own metering points. |
+| Data on the consumption management by the aggregator of metering points | YES | YES | YES | YES | New. Basis: Network Code on the Operation of the Electricity Market (currently draft). Regarding own metering points. |
+| Data on requests for amendment of open supply agreements | YES | YES | NO | NO | Access to data of its own area |
+| Registered agreements in own area: joint invoice agreement, named supplier agreement, open supplier and balance responsible party of the area | YES | YES | NO | NO | Access to data of its own area |
+| Disconnection application and customer enquiry messages in relation to joint invoice from open supplier and own answers thereto | YES | YES | NO | NO | Access to data of its own area |
+| Messages related to information exchange | YES | YES | YES | YES | Information exchange between users |
+| Calculation of grid losses | YES | YES | NO | NO | New functionality. |
+| Summary reports by agreements related to own area | YES | YES | YES | YES | Content of reports described separately. |
+
+### Open supplier access to data
+
+Open suppliers transmit the following data to the Datahub:
+
+| Information transmitted | Open supplier | Datahub role | Description |
+|---|---|---|---|
+| Open supply agreement information by metering point: start time, end time, fee for premature termination of agreement (yes/no). | YES | 1. Customer with a valid open supply agreement: </br> the Datahub terminates the current open supply agreement 14 days in advance (message schedule verification), registers the new one and ensures information exchange. </br> 2. Customer without an open supply agreement: </br> the Datahub registers the new open supply agreement one day in advance (message schedule verification) and ensures information exchange. | New provider change process as of 01.01.2023 |
+| Open supply portfolio agreement with another electricity undertaking: start time, end time. | YES | Registration of agreement | Registration of agreement seven days in advance |
+| Replies to requests for amendment of open supply agreements | YES | Data exchange | Replies to requests by the grid operator as a balance responsible party/named supplier |
+| Connection application related to joint invoice | YES | Data exchange | Only regarding own open supply agreement metering points to the grid operator with whom a joint invoice agreement has been entered into |
+| Information on customer enquiries | YES | Data exchange | Only regarding own open supply agreement metering points |
+
+Open suppliers can access information as follows:
+
+| Access to information | Potential open supplier | Open supplier with a future agreement | Open supplier with a valid agreement | Open supplier with a agreement that expired within a period of up to 12 months | Description |
+|---|---|---|---|---|---|
+| Customer data| YES (only EIC without access right) | YES | YES | YES | Required for registering the open supply agreement                                                |
+| List of EICs of metering points of a market participant along with the periods of validity of valid grid, open supply and aggregation agreements | YES | YES | YES | YES | Verification of the validity of open supply agreement of the market participant. Objective: entering into a new open supply agreement |
+| Authorisation granted by a market participant for accessing technical data of a metering point and the metering data from the past 12 months | YES | YES | YES | YES | A market participant can grant authorisation for accessing its data on the basis of the Network Code on the Operation of the Electricity Market          |
+| Access to the technical data of metering points of a market participant | NO | YES | YES | YES | On the basis of a agreement |
+| Access to metering data of **the past 12 months** of a market participant | NO | NO | YES | YES (metering data of own agreement period) | On the basis of a agreement |
+| Metering data of metering point of market participant during the validity of open supplier agreement | NO (no agreement) | NO (agreement has not entered into force) | YES | YES (data on own agreement period) | On the basis of a agreement |
+| **Data on the consumption management by the aggregator** | **NO** | **NO**| **YES** | **YES** | **On the basis of a agreement** |
+| Open supplier agreements at metering point(s) of market participant along with validity and parties of grid and aggregation agreement(s) | NO (no agreement) | YES | YES | YES | Information on agreements registered by the user |
+| Portfolio agreements registered by open supplier | NO (no agreement) | YES | YES | YES | Information on agreements registered by the user |
+| Own open supply portfolio agreement information | YES | YES | YES | YES | Open suppliers must also have a so-called superior open supplier |
+| Termination of open supply agreements by grid operator or another open supplier | NO (no agreement) | YES | YES | YES | Information on own agreements |
+| Information on agreement related to being a named supplier | NO (no agreement) | YES | YES | YES | Information on own agreements |
+| Joint invoice agreement with grid operator | NO (no agreement) | YES | YES | YES | Information on own agreements |
+| Joint invoice information (invoice content) | NO | NO | YES | YES | Information on own agreements |
+| Information on the connection application related to a joint invoice | NO (no agreement) | NO (agreement must be valid for data exchange) | YES | NO | Information on own agreements            |
+| Information on customer enquiries | NO | NO | YES | YES | |
+| Information on network invoice preparation | NO | NO | YES | YES | Information on own agreements |
+| Data on requests for the amendment of open supply agreements | NO | YES | YES | YES | Data on own applications and self-verification applications |
+| Data exchange with another electricity undertaking or Elering | YES | YES | YES | YES | Information exchange between users |
+| Summary reports regarding own area and related agreements | NO | NO | YES | YES up to 3 months | Content of reports described separately. |
+
+### Balance responsible party access to data
+
+Balance responsible party is an open supplier at a higher hierarchical level that has **a balance agreement with Elering**. Elering enters the information on the balance agreement in the Datahub. In other matters, the rights and obligations of an open supplier apply to balance responsible party.
+
+**The metering points of the balance area of a balance responsible party are metering points where the balance responsible party of a market participant and the balance responsible party of the grid operator differ in the respective metering point.**
+
+The inclusion of a metering point of a consumer and/or producer in a balance settlement of a balance responsible party has been determined as follows:
+
+| The metering point of the market participant is within the open supply chain of the balance responsible party | The grid operator managing the metering point is within the open supply chain of the balance responsible party | Inclusion of a metering point in the balance settlement of a balance responsible party </br> (+) amounts are added at the metering point </br> (-) amounts are subtracted at metering point at the metering point |
+|---|---|---|
+| Yes | Yes | No |
+| Yes | No | Yes (+) |
+| No | Yes | Yes (-) |
+| No | No | No |
+
+The inclusion of a border metering point of a grid operator (the point at which electricity from another grid operator enters their grid) in the balance settlement of a balance responsible party has been determined as follows:
+
+| The grid operator is within the open supply chain of the balance responsible party | The open supplier of the grid operator at a higher hierarchical level than the grid operator (the person managing their border metering points) is a balance responsible party | Inclusion of a metering point in the balance settlement of a balance responsible party </br> (+) amounts are added at the metering point </br> (-) amounts are subtracted at metering point at the metering point |
+|---|---|---|
+| Yes | Yes | No |
+| Yes | No | Yes (+) |
+| No | Yes | Yes (-) |
+| No | No | No |
+
+A balance responsible party has access to the following information:
+
+| Access to information | Balance responsible party with a future agreement | Balance responsible party with a valid agreement | Balance responsible party with a agreement that expired within a period of up to 12 months | Datahub role | Description |
+|---|---|---|---|---|---|
+| Balance settlement metering points of consumer and/or producer that belong to the balance area: customer EIC, metering point EIC, **technical data**, parties, start times and end times of the related agreements | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | Automated open supply chain tree and balance area creation | Required for ensuring the balance settlement |
+| Metering points excluded from the balance area to a grid operator’s balance responsible party: metering point EIC and grid operator | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | *same* | *same* |
+| Balance settlement metering data from metering points of consumer and/or producer that are included in the balance area | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | *same* | *same* |
+| Aggregated metering data from metering points excluded from the balance area to a grid operator’s balance responsible party | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | *same* | *same* |
+
+### Named supplier access to data
+
+A named supplier is an open supplier who has **a agreement with a grid operator** in their area of activity for the purchase or sale of electricity to market participants without an open supply agreement. The grid operator enters the contractual information in the Datahub.
+
+**The named supplier has the same rights to metering points and metering data as an open supplier with an open supply agreement**. A named supplier has access to the following information:
+
+| Access to information | Named supplier with a future agreement | Named supplier with a valid agreement | Named supplier with a agreement that expired within a period of up to 12 months | Datahub role | Description |
+|---|---|---|---|---|---|
+| Metering points of a market participant that are included in the open supply area via the named supplier role: customer EIC, metering point EIC, parties, start times and end times of the related agreements | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | Automated administration of open supply chain and data exchange | The role of a named supplier provides the same rights as an open supplier with a agreement |
+| Metering data from metering points of a market participant that are included in the open supply area via the named supplier role | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | *same* | *same* |
+| agreement information of named supplier (parties and period of validity) | YES | YES | YES | *same* | *same* |
+| Summary reports to named supplier | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | *same* | *same* |
+| All other accesses of open supplier during the validity of open supply agreement | YES, during the validity of agreement | YES, during the validity of agreement | YES, during the validity of agreement | | |
+
+### Aggregator access to data
+
+Aggregators transmit the following information to the Datahub:
+
+| Information transmitted | Aggregator | Datahub role | Description |
+|---|---|---|---|
+| Aggregation agreement information by grid agreement metering point: | YES | A new aggregation agreement is registered when the market participant does not have a valid aggregation agreement in the Datahub that is at valid at least 14 days after | Aggregators register and complete the information of their agreements by themselves |
+| Technical data of a metering point encoded using own code range | YES | Recording of technical data of metering point | Aggregator’s metering points |
+| Hourly metering data by metering point (metering data 15 minutes later) | YES | Recording of data and data exchange | Transmission of consumption management data by metering point of grid agreement |
+
+Aggregators have access to the following information:
+
+| Access to information | Potential aggregator | Aggregator with a future agreement | Aggregator with a valid agreement | Aggregator with a agreement that expired within a period of up to 12 months | Description |
+|---|---|---|---|---|---|
+| Market participant EIC | YES on the basis of access right | YES | YES | YES | Required for registering the aggregation agreement |
+| List of EICs of metering points of a market participant along with the periods of validity of valid grid and aggregation agreements | YES on the basis of access right | YES | YES | YES | Verification of the validity of a market participant’s grid agreement. Objective: entry into a new aggregation agreement |
+| Authorisation granted by a market participant for accessing technical data of a metering point and the metering data from the past 12 months | YES | YES | YES | YES | A market participant can grant authorisation for accessing its data on the basis of the Network Code on the Operation of the Electricity Market |
+| Access to the technical data of metering points of a market participant | NO | YES | YES | YES | On the basis of a agreement |
+| Access to metering data of the past 12 months of a market participant | NO | NO | NO | NO | Access right required |
+| Metering data of metering points of a market participant during the validity of the aggregation agreement | NO (no agreement) | NO | YES | YES (data on own agreement period) | On the basis of a agreement |
+| agreements of the aggregator at the metering point(s) of a market participant along with the validity and parties of grid and open supply agreements | NO (no agreement) | YES | YES | YES | Information on agreements registered by the aggregator |
+| Data on the aggregator’s own metering points | YES | YES | YES | YES | Data registered by the aggregator |
+| Aggregator’s own open supply portfolio agreement details | YES | YES | YES | YES | Aggregators must also have a so-called superior open supplier |
+| Terminations of aggregation agreements by the grid operator as of the termination of the grid agreement | NO (no agreement) | YES | YES | YES | Information on the aggregator’s own agreements |
+| Data exchange with another electricity undertaking or Elering | YES | YES | YES | YES | Information exchange between users |
+| Summary reports regarding own area and related agreements | NO | NO | YES | YES up to 3 months | Content of reports described separately. |
+
+### Energy service providers access to data
+
+Access to data of other energy services is determined by the relevant access right. Energy service providers are not market participants and do not forward data to the Datahub.
+
+| Access to information | Energy service | Description |
+|---|---|---|
+| Market participant EIC | YES on the basis of access right | The customer must give the access right in the customer portal |
+| Authorisation granted by a market participant for accessing the market participant’s EIC, metering point technical data and the metering data from the last 12 months | YES | Transmission of the market participant’s authorisation to the energy service |
+| Access to the technical data of metering points of a market participant | YES on the basis of the access right granted in the customer portal | The customer must give the access right in the customer portal |
+| Access to a market participant’s metering data from the past 12 months or other period (according to the authorisation) | YES on the basis of an authorisation | Authorisation by customer required |
+
+### System operator access to data (balance management and renewable energy business process)
+
+1. Data exchange of balance management business process
+For each balance responsible party, the system operator gains access to the metering points, metering data and aggregated summary reports of the balance settlement of its balance area.
+2. Data exchange of renewable energy business process
+The system operator is entitled to gain access to the technical information and metering data of every metering point producing energy and registered in the renewable energy information system.
+
+## Authentication in API
+
+In order to be authenticated in the API, the market participant wishing to use the API must go through an integration process with Elering. During this process, the required number of user accounts used by the integrating systems will be identified and created.
+
+For example, if the integrating market participant has only one integrating system, one account will be created. But if the integrating market participant has several systems (e.g. one for the grid operator and one for the open supplier role), the integrating market participant can decide whether they want to have one or several accounts.
+
+Further instructions on how to use these accounts will be provided to the integrating market participant during the integration process.
+
+To be authenticated, the integrating system must go through the following steps:
+
+|Step|Result|
+|----|-------|
+|Sending an authentication request to the address provided by Elering|The Datahub validates the account, creates the session and returns a JWT valid for the length of the session|
+|A JWT is added to each subsequent API message|The Datahub validates the JWT. If it is missing or invalid, an error code 401 (unauthorised) is returned. If it is valid, an authorisation follows, which you can read about in the next chapter|
+
+> **Note**
+> At the moment the system only supports authentication via username+password. This is a temporary solution. Proper OAuth authentication for machine-to-machine communication is under development
+
+### Examples of JWT requests
+
+#### cURL
+
+```bash
+#!/bin/bash
+# Example cURL request for retrieving token for Estfeed public test.
+# For use with API requests, must be passed as a header.
+
+API_USER="replace this username"
+API_PASS="replace this password"
+API_CLIENT="replace this client"
+
+TOKEN=$(\
+    curl \
+        -s \
+        -X POST \
+        -d username=$API_USER \
+        -d password=$API_PASS \
+        -d grant_type=password \
+        -d client_id=$API_CLIENT \
+        https://{replace this with Keycloak host}/realms/estfeed-public/protocol/openid-connect/token \
+)
+
+if ! command -v jq &> /dev/null; then
+    echo -e "WARN: jq not found for JSON parsing, printing out raw json\n"
+    echo $TOKEN
+    exit 0
+fi
+
+ACCESS_TOKEN=`echo $TOKEN | jq -er .access_token`
+EXPIRES_IN=`echo $TOKEN | jq -r .expires_in`
+REFRESH_ACCESS_TOKEN=`echo $TOKEN | jq -er .refresh_token`
+REFRESH_EXPIRES_IN=`echo $TOKEN | jq -er .refresh_expires_in`
+
+if [[  $ACCESS_TOKEN == null ]]; then
+    echo 'FATAL: Access token not found, probably incorrect credentials.'
+    exit 1
+fi
+
+echo "===================================================================================="
+echo -e "\t\tAccess token:"
+echo -e "Expires at\n\t`date --date=\"+$EXPIRES_IN seconds\"` ($EXPIRES_IN seconds)\n\nToken\n\t$ACCESS_TOKEN"
+echo "===================================================================================="
+echo -e "\t\tRefresh token:"
+echo -e "Expires at\n\t`date --date=\"+$REFRESH_EXPIRES_IN seconds\"` ($REFRESH_EXPIRES_IN seconds)\n\nToken\n\t$REFRESH_ACCESS_TOKEN"
+echo "===================================================================================="
+
+```
+
+#### Python
+
+```python
+import requests
+import config
+
+url = config.keycloakHost + "/auth/realms/estfeed/protocol/openid-connect/token"
+headers = {'Content-type': 'application/x-www-form-urlencoded'}
+body = "client_id=" + config.keycloakClientId + "&grant_type=password" + "&username="+ config.keycloakUsername + "&password=" + config.keycloakPassword
+
+response = requests.post(url, headers=headers, data=body)
+access_token = response.json().get('access_token')
+print(access_token)
+```
+
+Example
+```
+client_id=client123&grant_type=password&username=user123&password=pass123
+```
+
+## Authorisation in API
+
+Each API request contains a `marketParticipantContext` section where the API message sender must define their role and the purpose for sending the request. Its purpose is to create a clear understanding of who sends requests and why, and what the data are being used for.
+
+The `marketParticipantContext` section consists of the following attributes:
+
+```json
+"marketParticipantContext": {
+  "marketParticipantIdentification": "string", 
+  "marketParticipantRole": "string", 
+  "commodityType": "string"
+}
+```
+
+Attributes description:
+
+|Attribute|Description|
+|--------|--------|
+|marketParticipantIdentification|The EIC X code of the market participant sending the message. Must refer to the same market participant defined in the JWT.|
+|marketParticipantRole|The role in which the market participant sends the message. E.g. if the open supplier is also a grid operator, then the request must define which role is currently being used. For example, an open supplier can request data in the OPEN_SUPPLIER role|
+|commodityType|Type of energy product (electricity or gas). Important for companies that are involved in both the electricity and gas markets.|
+
+If the defined `marketParticipantContext` does not match the rest of the message (e.g. tries to register a new metering point in the role ‘Open supplier’), the Datahub will respond with an error code.
+
+Roles:
+
+| Role                                 | `marketParticipantIdentification` code |
+|--------------------------------------|----------------------------------------|
+| Balance responsible party            | BALANCE_RESPONSIBLE_PARTY              |
+| Open supplier                        | OPEN_SUPPLIER                          |
+| Named supplier                       | NAMED_SUPPLIER                         |
+| Grid operator                        | GRID_OPERATOR                          |
+| Closed distribution network operator | CLOSED_DISTRIBUTION_NETWORK            |
+| Line operator                        | LINE_OPERATOR                          |
+| Charging point operator              | CHARGING_POINT_OPERATOR                |
+| Gas station operator                 | GAS_STATION_OPERATOR                   |
+| Storage operator                     | STORAGE_OPERATOR                       |
+| Aggregator                           | AGGREGATOR                             |
+| Producer                             | PRODUCER_OPERATOR                      |
+| Other energy service provider        | ENERGY_SERVICE_PROVIDER                |
+| System operator                      | TRANSMISSION_SYSTEM_OPERATOR           |
