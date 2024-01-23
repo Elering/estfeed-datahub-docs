@@ -48,7 +48,7 @@ Relevant Datahub services have been set up to transmit and request a network bil
 |----------------------------------------------|--------------------------|
 | `POST /api/{version}/joint-invoice`          | Create a joint invoice   |
 | `POST /api/{version}/joint-invoice/search`   | Find a joint invoice     |
-
+| `POST /api/{version}/joint-invoice/download` | Download a joint invoice |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

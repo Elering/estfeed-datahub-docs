@@ -41,14 +41,19 @@ Relevant Datahub services have been set up to transmit the request and confirmat
 
 #### Messages
 
+| Message                                                | Objective                             |
 |--------------------------------------------------------|---------------------------------------|
 | `POST /api/{version}/connection-state/initiate`        | Initiate connection state change      |
 | `POST /api/{version}/connection-state/search`          | Find connection states                |
 | `POST /api/{version}/connection-state/message`         | Create connection state message       |
 | `POST /api/{version}/connection-state/message-history` | Find connection state message history |
 
+For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
+
 #### Message rules
 
+- Allowed states for `initiate` message are `CONNECT` or `DISCONNECT`
+- `initiate` service is open for open suppliers only.
 - The open supplier is allowed to send only `CANCELLED` state in the `message` service.
 - The grid operator is allowed to send `PLANNED`, `REFUSED`, `CONNECTED` and `DICONNECTED` states in the `message` service.
 - If the state of the connection and disconnection request is `CONNECTED`, `DISCONNECTED`, `REFUSED` or `CANCELLED`, then no additional messages can be sent in the `message` service.

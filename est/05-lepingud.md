@@ -64,7 +64,7 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 | `POST /api/{version}/agreement/delete`       | Lepingu kustutamine          |
 | `POST /api/{version}/agreement/search`       | Lepingute otsing             |
 | `POST /api/{version}/agreement/search/meter` | Mõõtepunkti lepingute otsing |
-
+| `POST /api/{version}/agreement/export`       | Lepingute eksport            |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
