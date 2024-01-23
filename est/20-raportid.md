@@ -7,6 +7,8 @@
   - [Sissejuhatus](#sissejuhatus)
   - [Raportite genereerimine](#raportite-genereerimine)
   - [Raportite edastamine](#raportite-edastamine)
+    - [Masinliidese sõnumid](#masinliidese-sõnumid)
+      - [Sõnumid](#sõnumid)
   - [Raportite kirjeldused](#raportite-kirjeldused)
     - [Võrguettevõtja raport](#võrguettevõtja-raport)
     - [Avatud tarnija raport](#avatud-tarnija-raport)
@@ -43,6 +45,16 @@ Näide koondmõõteandmete arvutuse aegadest bilansiaruannete jaoks:
 - Operaatoril on võimalik seadistada, kas ta soovib raporteid saada e-posti, API kaudu või ei soovi nende edastamist nende kanalite kaudu üldse.
 - Operaator saab sisestada eraldi e-posti aadressi raportite jaoks, kui ta on valinud saamise viisiks e-posti. API puhul saadetakse raportid olemasoleva seadistuse alusel.
 - Operaatoril on võimalik igat raportit XML või EXCEL’i formaadis alla laadida.
+  
+### Masinliidese sõnumid
+
+#### Sõnumid
+
+| Sõnum                                     | Eesmärk                                  |
+|-------------------------------------------|------------------------------------------|
+| `POST /api/{version}/report/search`       | Raportite otsing                         |
+| `POST /api/{version}/report/export/excel` | MS Excel formaadis raporti allalaadimine |
+| `POST /api/{version}/report/export/json`  | JSON formaadis raporti allalaadimine     |
 
 ## Raportite kirjeldused
 

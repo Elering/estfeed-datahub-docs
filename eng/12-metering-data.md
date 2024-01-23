@@ -41,8 +41,12 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 - The metering point operators sends a new or changed metering data message using the `meter-data` service.
 - Since the processing of metering data in the Datahub is asynchronous, the Datahub first gives a quick response whether the message was received or not.
 - The Datahub then queues the message.
-- If the message is processed without errors, then the Datahub will forward no more notices to the metering point operator. The data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the `change` service. For more details, see [Data distribution](30-andmete-levitamine.md).
-- If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator through the `change` service. For more details, see [Data distribution](30-andmete-levitamine.md).
+- The metering point operator verifies the result of processing, using `meter-data/status` service. Possible results are:
+  - `PROCESSING` - processing not finished
+  - `SUCCESSFUL` - processing finised successfully
+  - `ÈRROR` - processing finised with errors.
+- If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the `data-distribution/search` service. For more details, see [Data distribution](30-data-distribution.md).
+- If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
 
 > **Warning**
@@ -103,8 +107,9 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 
 | Message                                 | Objective                                                            |
 |-----------------------------------------|----------------------------------------------------------------------|
-| `POST /api/{version}/meter-data`        | Allows the user to add and/or change metering data.                  |
-| `POST /api/{version}/meter-data/change` | Allows the user to scan error reports from metering data processing. |
+| `POST /api/{version}/meter-data`        | Create or update meter reading data                  |
+| `POST /api/{version}/meter-data/status` | Find meter data processing status |
+| `POST /api/{version}/meter-data/import` | Bulk import of metering data      |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
@@ -124,6 +129,7 @@ For a description of message structures and validations, see [Datahub descriptio
   - out – energy leaving the grid (consumption).
 - The amounts of incoming and outgoing energy can also be transmitted in separate messages.
 - It is permitted to correct metering data retroactively for up to 12 months.
+- The `import` service requires the same template, that the service `export` returns.
 
 > **Note**
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
@@ -134,17 +140,17 @@ Relevant Datahub services have been set up to transmit metering data. Access to 
 
 The following options are available for making metering data requests:
 
-- Open suppliers can scan metering data changes using the `change` service.
+- Open suppliers can scan metering data changes using the `data-distribution/search` service.
 - Authorised users can request metering data using the `search` service.
 
 ### API messages
 
 #### Messages
 
-| Message                                    | Objective                                     |
-|------------------------------------------|---------------------------------------------|
-| `POST /api/{version}/meter-data/search`  | Allows the user to search for metering data.               |
-| `POST /api/{version}/meter-data/change`  | Allows the user to scan metering data changes. |
+| Message                                 | Objective         |
+|-----------------------------------------|-------------------|
+| `POST /api/{version}/meter-data/search` | Find meter data   |
+| `POST /api/{version}/meter-data/export` | Export meter data |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

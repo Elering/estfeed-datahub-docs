@@ -32,9 +32,8 @@ Relevant Datahub services have been set up to transmit and request a network bil
   - the designated customer has a valid grid agreement with the bill recipient at this metering point.
 - If conditions are not met, then Datahub responds with an error message.
 - If conditions are met, then Datahub stores the data in the database.
-- Open suppliers can scan network bill changes using the `change` service.
+- Open suppliers can scan network bill changes using the `search` service.
 - Open suppliers can download network bills using the `download` service.
-- Open suppliers can delete received network bills using the `delete` service.
 
 ### Web interface
 
@@ -45,11 +44,11 @@ Relevant Datahub services have been set up to transmit and request a network bil
 
 #### Messages
 
-| Message                                      | Objective                                          |
-|----------------------------------------------|----------------------------------------------------|
-| `POST /api/{version}/joint-invoice`          | Allows the user to transmit a joint network bill.  |
-| `POST /api/{version}/joint-invoice/search`   | Allows the user to search for joint network bills. |
-| `POST /api/{version}/joint-invoice/download` | Allows the user to download joint network bills.   |
+| Message                                      | Objective                |
+|----------------------------------------------|--------------------------|
+| `POST /api/{version}/joint-invoice`          | Create a joint invoice   |
+| `POST /api/{version}/joint-invoice/search`   | Find a joint invoice     |
+
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

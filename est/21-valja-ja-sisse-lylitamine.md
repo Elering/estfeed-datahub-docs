@@ -22,42 +22,41 @@ Kui Võrguteenuse osutaja ja avatud tarnija on sõlminud ühisarve lepingu, siis
 
 Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-1. Avatud tarnija saadab välja- või sisselülitamise taotluse.
+1. Avatud tarnija saadab välja- või sisselülitamise taotluse, kaqsutades teenust `initiate` ja määrates soovitud tegevuse (`CONNECT` või `DISCONNECT`.)
 2. Andmeladu kontrollib, et määratud adressaadi ja saatja vahel on kehtiv (või on viimase 6 kuu jooksul olnud) ühisarve leping ning kas määratud kliendil selles mõõtepunktis on kehtiv avatud tarne leping saatjaga (või on olnud kehtiv viimase 12 kuu jooksul) ja kas määratud kliendi ja mõõtepunkti kombinatsioonil on kehtiv (või on olnud kehtiv viimase 12 kuu jooksul) võrguleping adresaadiga:
    - kui ei ole, siis Andmeladu vastab veateatega;
-   - kui on, siis Andmeladu salvestab andmed andmebaasi ja teeb andmed kättesaadavaks võrguettevõtjale `change` teenuse vahendusel.
-3. Avatud tarnija vajadusel uuendab taotluse andmeid kasutades `PUT` teenust (selle teenusega saab ka tellimust tühistada).
-4. Võrguettevõtja skaneerib välja- või sisselülitamise taotlusi kasutades teenust `change`.
-5. Võrguettevõtja lisab taotluse olekut kasutades teenust `connection-state/response`. Võimalikud variandid on:
-   - mõõtepunkti välja- või sisselülitamise plaani võtmine;
-   - mõõtepunkti välja- või sisselülitamisest keeldumine;
-   - mõõtepunkti välja- või sisselülitamine.
-6. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `change`.
-7. Võrguettevõtja uuendab taotluse olekut kasutades teenust `connection-state/response`. Võimalikud variandid on:
-   - mõõtepunkti välja- või sisselülitamise plaani muutumine;
-   - mõõtepunkti välja- või sisselülitamisest keeldumine;
-   - mõõtepunkti välja- või sisselülitamine.
-8. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `change`.
+   - kui on, siis Andmeladu salvestab andmed andmebaasi.
+3. Avatud tarnija vajadusel tühistab taotluse kasutades `message` teenust ja määrates oleku `CANCELLED`.
+4. Võrguettevõtja skaneerib välja- või sisselülitamise taotlusi kasutades teenust `data-distribution/search`.
+5. Võrguettevõtja otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
+6. Võrguettevõtja muudab taotluse olekut kasutades teenust `message`. Võimalikud variandid on:
+   - mõõtepunkti välja- või sisselülitamise plaani võtmine (`PLANNED`);
+   - mõõtepunkti välja- või sisselülitamisest keeldumine (`REFUSED`);
+   - mõõtepunkti välja- või sisselülitamine (`CONNECTED` või `DISCONNECTED`).
+7. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `data-distribution/search`.
+8. Avatud tarnija otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
+9. Võrguettecõtja ja avatud tarnija saavad pärida välja- või sisselülitamise taotluse sõnumite ja vastuste ajalugu kasutades teenust `message-history`
 
 ### Masinliidese sõnumid
 
 #### Sõnumid
 
-| Sõnum                                           | Eesmärk                                                                      |
-|-------------------------------------------------|------------------------------------------------------------------------------|
-| `POST /api/{version}/connection-state`          | Võimaldab luua uut välja- või sisselülitamise taotlust                       |
-| `PUT /api/{version}/connection-state`           | Võimaldab muuta või tühistada välja- või sisselülitamise taotlust            |
-| `POST /api/{version}/connection-state/search`   | Võimaldab otsida välja- või sisselülitamise taotluse vastust                 |
-| `POST /api/{version}/connection-state/response` | Võimaldab luua uut välja- või sisselülitamise taotluse vastust               |
-| `PUT /api/{version}/connection-state/response`  | Võimaldab muuta välja- või sisselülitamise taotluse vastust                  |
-| `POST /api/{version}/connection-state/change`   | Võimaldab skaneerida välja- või sisselülitamise taotlusi või nende vastuseid |
+| Sõnum                                                  | Eesmärk                                                          |
+|--------------------------------------------------------|------------------------------------------------------------------|
+| `POST /api/{version}/connection-state/initiate`        | Sisse- või väljalülitamise taotluse lisamine                     |
+| `POST /api/{version}/connection-state/search`          | Sisse- või väljalülitamise taotluste otsing                      |
+| `POST /api/{version}/connection-state/message`         | Sisse- või väljalülitamise taotlusele jätkusõnumite edastamine   |
+| `POST /api/{version}/connection-state/message-history` | Sisse- või väljalülitamise taotluste jätkusõnumite ajaloo otsing |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 #### Sõnumite reeglid
 
-- Ühel välja- või sisselülitamise taotlusel saab olla ainult üks vastus. Vastuse muutumist tuleb väljendada vastuse muutmisega.
-- Välja- või sisselülitamise taotlust on lubatud muuta seniks, kuni võrguettevõtja pole saatnud vastus lõppolekuga (CONNECTED, DISCONNECTED).
+- `initiate` teenuses on ainukesed lubatud olekud `CONNECT` või `DISCONNECT`.
+- `initiate` teenus on avatud ainult avatud tarnijatele.
+- `message` teenuses on avatud tarnijale lubatud edastada ainult `CANCELLED` olekut.
+- `message` teenuses on võrguettevõtjale lubatud edastada `PLANNED`, `REFUSED`, `CONNECTED` ja `DICONNECTED` olekuid.
+- Kui välja- või sisselülitamise taotluse olek on `CONNECTED`, `DISCONNECTED`, `REFUSED` või `CANCELLED`, siis täiendavate `message` sõnumite saatmine ei ole võimalik.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)

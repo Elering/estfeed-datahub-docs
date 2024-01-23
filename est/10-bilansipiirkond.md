@@ -42,15 +42,17 @@ Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toi
 
 - Andmelaos registreeritakse uus võrgu- või avatud tarne või portfellileping VÕI olemasolev võrgu- või avatud tarne või portfellileping lõppeb.
 - Andmeladu arvutab kord ööpäevas viimase ööpäeva bilansimuudatused (mõõtepunkti sisenemine või väljumine bilansipiirkonnast).
-- Andmeladu koostab kell 00:05 bilansimuudatuste sõnumi ja teeb selle kättesaadavaks selle vastava(te)le bilansihalduri(te)le, kelle bilansipiirkonnas muudatused toimusid `change` teenuse kaudu. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md). Sõnum sisaldab uusi mõõtepunkte bilansipiirkonnas *(ADDED)* või bilansipiirkonnast välja arvatud mõõtepunkte *(REMOVED)*.
+- Andmeladu koostab kell 00:05 bilansimuudatuste sõnumi ja teeb selle kättesaadavaks selle vastava(te)le bilansihalduri(te)le, kelle bilansipiirkonnas muudatused toimusid. Sõnum sisaldab uusi mõõtepunkte bilansipiirkonnas *(ADDED)* või bilansipiirkonnast välja arvatud mõõtepunkte *(REMOVED)*.
 
 ### Masinliidese sõnumid
 
 ### Sõnumid
 
+> **Note**
+> Teenused on väljatöötamisel
+
 | Sõnum                                       | Eesmärk                                                   |
 |---------------------------------------------|-----------------------------------------------------------|
-| `POST /api/{version}/balance-state/change`  | Võimaldab skaneerida bilansipiirkonna muudatusi           |
 | `POST /api/{version}/balance-state/search`  | Võimaldab otsida soovitud perioodi bilansipiirkonna seisu |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
@@ -65,7 +67,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 Bilansihalduritele edastatakse summeeritud mõõteandmeid, et bilansihaldurid saaksid prognoosida tuleviku tarbimist ja tootmist. Sõnumi genereerimise ja edastamise protsess on järgmine:
 
 - Peale mõõteandmete lisamise või muutmise sõnumi töötlemist summeerib Andmeladu mõõteandmed selle võrguettevõtja piirkonnas olevate mõõteandmete (Pin ja Pout) kohta, mis on teiste bilansihaldurite portfellides.
-- Kord ööpäevas (kell 14:00) koostab Andmeladu summeeritud mõõteandmete sõnumi ja teeb selle kättesaavaks bilansihaldurile(tele) `change` teenuse kaudu. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md). Sõnum sisaldab mõõteandmeid kehtiva kalendrikuu algusest alates (esimesel kuupäeval terve eelmise kuupäeva andmed), kusjuures iga päev lisanduvad andmed eelmise päeva kohta võrguettevõtja poolt Andmelattu saadetud andmetest.
+- Kord ööpäevas (kell 14:00) koostab Andmeladu summeeritud mõõteandmete sõnumi ja teeb selle kättesaavaks bilansihaldurile(tele). Sõnum sisaldab mõõteandmeid kehtiva kalendrikuu algusest alates (esimesel kuupäeval terve eelmise kuupäeva andmed), kusjuures iga päev lisanduvad andmed eelmise päeva kohta võrguettevõtja poolt Andmelattu saadetud andmetest.
 
 ### Masinliidese sõnumid
 

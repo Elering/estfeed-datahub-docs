@@ -30,11 +30,11 @@ Pöördumisi on võimalik edastada ja vaadata nii masin- kui ka veebiliidese vah
 Pöördumiste edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
 - Avatud tarnija saadab kliendi pöördumise info kasutades teenust `direct-messages`.
-- Andmeladu salvestab pöördumise ja teeb selle kättesaadavaks võrguettevõtjale `change` teenuse vahendusel.
-- Võrguettevõtja skaneerib `change` teenust ja saab uued või muutunud pöördumised.
+- Andmeladu salvestab pöördumise ja teeb selle kättesaadavaks võrguettevõtjale `TODO` teenuse vahendusel.
+- Võrguettevõtja skaneerib `TODO` teenust ja saab uued või muutunud pöördumised.
 - Võrguettevõtja saadab pöördumisele vastuse kasutades teenust `response`.
-- Andmeladu salvestab vastuse ja teeb selle kättesaadavaks avatud tarnijale `change` teenuse vahendusel.
-- Avatud tarnija skaneerib `change` teenust ja saab uued või muutunud vastused.
+- Andmeladu salvestab vastuse ja teeb selle kättesaadavaks avatud tarnijale `TODO` teenuse vahendusel.
+- Avatud tarnija skaneerib `TODO` teenust ja saab uued või muutunud vastused.
 
 Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu salvestatud pöördumiste ja vastuste otsimiseks.
 
@@ -54,7 +54,6 @@ Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu 
 | `POST /api/{version}/direct-messages/search`   | Võimaldab otsida kliendi pöördumisi ja tagasisidet                                       |
 | `POST /api/{version}/direct-messages/response` | Võimaldab registreerida uue kliendi pöördumise tagasiside                                |
 | `PUT /api/{version}/direct-messages/response`  | Võimaldab muuta olemasoleva kliendi pöördumise tagasiside andmeid                        |
-| `POST /api/{version}/direct-messages/change`   | Võimaldab skaneerida kliendi pöördumiste ja tagasisidede muudatusi                       |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

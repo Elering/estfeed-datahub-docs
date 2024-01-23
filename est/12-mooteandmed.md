@@ -41,8 +41,12 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 - Mõõtepunkti haldur saadab uue või muutunud mõõteandmete sõnumi kasutades teenust `meter-data`.
 - Kuivõrd mõõteandmete töötlemine toimub Andmelaos asünkroonselt, siis esmalt annab Andmeladu kiire vastuse, kas sõnum õnnestus kätte saada või mitte.
 - Seejärel paneb Andmeladu sõnumi töötluse järjekorda.
-- Kui sõnumi töötlemine õnnestub vigadeta, siis rohkem teavitusi Andmeladu mõõtepunkti haldurile ei edasta. Andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `change` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
-- Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile läbi `change` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
+- Mõõtepunkti haldur kontrollib andmete töötluse tulemust, kasutades teenust `meter-data/status`. Võimalikud tulemused on:
+  - `PROCESSING` - töötlus ei ole veel lõppenud
+  - `SUCCESSFUL` - töötlus lõppes vigadeta
+  - `ÈRROR` - töötlus lõppes vigadega
+- Kui sõnumi töötlemine õnnestub vigadeta, siis andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `data-distribution/search` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
+- Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile teenuse `meter-data/status` vastuses.
 - Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
 
 > **Warning**
@@ -101,10 +105,11 @@ Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandme
 
 #### Sõnumid
 
-| Sõnum                                    | Eesmärk                                                 |
-|------------------------------------------|---------------------------------------------------------|
-| `POST /api/{version}/meter-data`         | Võimaldab lisada ja/või muuta mõõteandmeid              |
-| `POST /api/{version}/meter-data/change`  | Võimaldab skaneerida mõõteandmete töötluse vearaporteid |
+| Sõnum                                   | Eesmärk                                        |
+|-----------------------------------------|------------------------------------------------|
+| `POST /api/{version}/meter-data`        | Mõõteandmete lisamine                          |
+| `POST /api/{version}/meter-data/status` | Mõõteandmete sõnumi töötlemise staatuse päring |
+| `POST /api/{version}/meter-data/import` | Mõõteandmete masslaadimine templiidi abil      |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
@@ -124,6 +129,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
   - out – võrgust väljuv energia (tarbimine).
 - Siseneva ja väljuva energia koguseid võib edastada ka eraldi sõnumitega.
 - Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
+- Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export`
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
@@ -134,17 +140,17 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligi
 
 Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
-- Avatud tarnija skaneerib mõõteandmete muudatusi kasutades teenust `change`
+- Avatud tarnija skaneerib mõõteandmete muudatusi kasutades teenust `data-distribution/search`
 - Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
 
 ### Masinliidese sõnumid
 
 #### Sõnumid
 
-| Sõnum                                    | Eesmärk                                     |
-|------------------------------------------|---------------------------------------------|
-| `POST /api/{version}/meter-data/search`  | Võimaldab otsida mõõteandmeid               |
-| `POST /api/{version}/meter-data/change`  | Võimaldab skaneerida mõõteandmete muudatusi |
+| Sõnum                                   | Eesmärk                   |
+|-----------------------------------------|---------------------------|
+| `POST /api/{version}/meter-data/search` | Mõõteandmete otsing       |
+| `POST /api/{version}/meter-data/export` | Mõõteandmete eksportimine |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

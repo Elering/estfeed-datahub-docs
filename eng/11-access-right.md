@@ -24,7 +24,7 @@ Relevant Datahub services have been set up to transmit and request access right 
 
 1. The market participant adds a new access right using the relevant function of the customer portal.
 2. The Datahub stores the new access right in its database and designates an open supplier to whom it will be made available.
-3. The open supplier uses the `change` service and detects that a new access right has been granted to it.
+3. The open supplier uses the `/customer-authorization/search` service and detects that a new access right has been granted to it.
 4. Once access has been granted, the open supplier can use messages to request the following data:
    - customer data – described in [Customers](03-customer-eic.md);
    - metering point data – described in [Metering points](04-metering-points.md);

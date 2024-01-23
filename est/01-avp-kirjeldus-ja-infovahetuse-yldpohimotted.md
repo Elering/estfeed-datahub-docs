@@ -13,7 +13,6 @@
     - [Keskkonnad](#keskkonnad)
     - [Üldreeglid](#üldreeglid)
     - [Aja esitamise reeglid](#aja-esitamise-reeglid)
-    - [Aadressi esitamise reeglid](#aadressi-esitamise-reeglid)
     - [Vastussõnumite koodid](#vastussõnumite-koodid)
 
 ## Andmevahetusplatvorm elektrituru kontekstis
@@ -130,49 +129,6 @@ sõnum töötlematuks ja seda ei aktsepteerita vastuvõtval poolel.
 ### Aja esitamise reeglid
 
 - Kõik ajad esitatakse vastavalt [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) formaadile. Süsteem toetab nii UTC kui ka ajatsooniga ajaväärtust. Seega nii `2023-04-01T00:00Z` kui ka `2023-04-01T00:00+03:00` on lubatud.
-
-### Aadressi esitamise reeglid
-
-Liidestuval süsteemil on aadressi andmete edastamiseks 2 võimalust:
-
-- saata Maaameti ADS süsteemi aadressi ID (ADR_ID).
-- saata aadressi kirjeldus tekstilisel kujul.
-
-Mõlemad korraga ei ole lubatud.
-
-Aadressi tekstilisel kujul saatmise korral on andmekvaliteedi huvides palve kasutada ametlikke [EHAK klassifikaatoris](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) toodud maakonna, omavalitsuse ja asutusüksuse nimekujusid.
-
-Kui Andmelattu laekub ADS süsteemi ID, siis Andmeladu pärib ise ADS süsteemist aadressi komponendid ja tekstilise kuju.
-
-> **Warning**
->
-> Turuosaline on kohustatud hoidma Andmelaos olevad aadressi andmed ajakohased. Andmeladu aadresse omal initsiatiivil ei uuenda. See tähendab, et aadressi muutumise korral (nt KOV muudab tänava nime) peab turuosaline saatma vastava andmeobjekti uuendussõnumi, kus on uus aadressi ID või uus aadress tekstilisel kujul.
-
-Aadressi sektsioon koosneb järgmistest atribuutidest:
-
-```json
-{
-  "adsId": "string",
-  "county": "string",
-  "municipality": "string",
-  "locality": "string",
-  "streetAddress": "string", 
-  "postalCode": "string",
-  "comment": "string"
-}
-```
-
-Atribuutide selgitus:
-
-| Atribuut      | Selgitus                                                                                        | Näide              |
-|---------------|-------------------------------------------------------------------------------------------------|--------------------|
-| adsId         | Maaameti ADS süsteemi ADR_ID                                                                    | 2105345            |
-| county        | Maakond                                                                                         | Harju maakond      |
-| municipality  | Omavalitsus                                                                                     | Tallinn            |
-| locality      | Asustusüksus (küla, alevik, alev, vallasisene linn) või linnaosa                                | Kesklinna linnaosa |
-| streetAddress | Lähiaadress (väikekoht, maaüksuse nimi, tänav, aadressinumber, korteri või muu hooneosa number) | Pärnu mnt 8        |
-| postalCode    | Postiindeks                                                                                     | 10148              |
-| comment       | Kommentaar                                                                                      | C1T                |
 
 ### Vastussõnumite koodid
 

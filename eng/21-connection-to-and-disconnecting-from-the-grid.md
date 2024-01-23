@@ -22,42 +22,36 @@ If a grid service provider and an open supplier have entered into a joint invoic
 
 Relevant Datahub services have been set up to transmit the request and confirmation for connecting and disconnecting. The intended use process is as follows:
 
-1. An open supplier sends a request to turn the connection on or off.
+1. An open supplier sends a request to turn the connection on or off using the service `intiate` and setting desired activity (`CONNECT` or `DICONNECT`).
 2. The Datahub verifies that there is (or has been in the last six months) a valid joint invoice agreement between the designated recipient and the sender and whether the designated customer has (or has had within the past 12 months) a valid open supply agreement with the sender at this metering point and whether the combination of the designated customer and the metering point has (or has had within the past 12 months) a valid grid agreement with the recipient:
    - if not, the Datahub responds with an error message;
-   - if yes, the Datahub stores the data in the database and makes the data available to the grid operator via the `change` service.
-3. If necessary, the open supplier can update the application data using the `PUT` service (this service can also be used to cancel a subscription).
-4. The grid operator can scan connection and disconnection requests using the `change` service.
-5. The grid operator adds the status of the request using the `connection-state/response` service. Possible options are:
-   - indicating a plan to connect or disconnect a metering point;
-   - refusal to connect or disconnect a metering point;
-   - connecting or disconnecting a metering point.
-6. The open supplier scans the grid operator’s responses using the `change` service.
-7. The grid operator updates the status of the request using the `connection-state/response` service. Possible options are:
-   - a change in the plan to connect or disconnect a metering point;
-   - refusal to connect or disconnect a metering point;
-   - connecting or disconnecting a metering point.
-8. The open supplier scans the grid operator’s responses using the `change` service.
+   - if yes, the Datahub stores the data in the database.
+3. If necessary, the open supplier can cancel the connection and disconnection request using the `message` service and setting the state to `CANCELLED`.
+4. The grid operator can scan connection and disconnection requests using the `data-distribution/search` service.
+5. The grid operator can search for the connection and disconnection requests using the `search` service.
+6. The grid operator updates the status of the request using the `message` service. Possible options are:
+   - connect or disconnect a metering point is planned (`PLANNED`);
+   - refusal to connect or disconnect a metering point (`REFUSED`);
+   - connecting or disconnecting a metering point (`CONNECTED` or `DISCONNECTED`).
+7. The open supplier scans the grid operator’s responses using the `data-distribution/search` service.
+8. The open supplier can search for the connection and disconnection requests using the `search` service.
+9. The grid operator and the open supplier can query the message history of the connection and disconnection request using the `message-history` service.
 
 ### API messages
 
 #### Messages
 
-| Message                                         | Objective                                                                         |
-|-------------------------------------------------|-----------------------------------------------------------------------------------|
-| `POST /api/{version}/connection-state`          | Allows the user to create a new connection or disconnection request               |
-| `PUT /api/{version}/connection-state`           | Allows the user to change or cancel the connection or disconnection request       |
-| `POST /api/{version}/connection-state/search`   | Allows the user to search for a response to a connection or disconnection request |
-| `POST /api/{version}/connection-state/response` | Allows the user to create a new response to a connection or disconnection request |
-| `PUT /api/{version}/connection-state/response`  | Allows the user to change the response to a connection or disconnection request   |
-| `POST /api/{version}/connection-state/change`   | Allows the user to scan connection or disconnection requests or their responses   |
-
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
+|--------------------------------------------------------|---------------------------------------|
+| `POST /api/{version}/connection-state/initiate`        | Initiate connection state change      |
+| `POST /api/{version}/connection-state/search`          | Find connection states                |
+| `POST /api/{version}/connection-state/message`         | Create connection state message       |
+| `POST /api/{version}/connection-state/message-history` | Find connection state message history |
 
 #### Message rules
 
-- A single connection or disconnection request can only have one response. The response must be changed in the case of reconsideration.
-- Users can modify the connection or disconnection request before the grid operator has sent a reply with the final state (CONNECTED, DISCONNECTED).
+- The open supplier is allowed to send only `CANCELLED` state in the `message` service.
+- The grid operator is allowed to send `PLANNED`, `REFUSED`, `CONNECTED` and `DICONNECTED` states in the `message` service.
+- If the state of the connection and disconnection request is `CONNECTED`, `DISCONNECTED`, `REFUSED` or `CANCELLED`, then no additional messages can be sent in the `message` service.
 
 > **Note**
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)

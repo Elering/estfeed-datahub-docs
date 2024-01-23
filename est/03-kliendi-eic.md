@@ -24,19 +24,21 @@ Kliendi andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused
 
 - Võrguettevõtja saadab uue või muutunud kliendi sõnumi kasutades teenust `customer`.
 - Andmeladu salvestab kliendi andmed ning määrab kliendile EIC koodi.
-- Õigustatud kasutaja pärib kliendi andmed `customer/search` teenusest..
-- Õigustatud kasutaja pärib uute ja muutunud klientide andmete uuendusi kasutades teenust `customer/change`.
+- Õigustatud kasutaja pärib kliendi andmed `customer/search` teenusest.
+- Õigustatud kasutaja pärib uute ja muutunud klientide andmete uuendusi kasutades teenust `/data-distribution/search`.
 
 ## Masinliidese sõnumid
 
 ### Sõnumid
 
-| Sõnum                                 | Eesmärk                                                  |
-|---------------------------------------|----------------------------------------------------------|
-| `POST /api/{version}/customer`        | Võimaldab registreerida uut klienti.                     |
-| `PUT /api/{version}/customer`         | Võimaldab uuendada olemasoleva kliendi andmeid.          |
-| `POST /api/{version}/customer/search` | Võimaldab otsida registreeritud klienti või turuosalist. |
-| `POST /api/{version}/customer/change` | Võimaldab skaneerida klientide andmete uuendusi.         |
+| Sõnum                                                | Eesmärk                              |
+|------------------------------------------------------|--------------------------------------|
+| `POST /api/{version}/customer`                       | Kliendi ja tema metaandmete lisamine |
+| `PUT /api/{version}/customer`                        | Kliendi metaandmete muutmine         |
+| `POST /api/{version}/customer/search`                | Kliendi ja tema metaandmete otsing   |
+| `POST /api/{version}/customer/search/representative` | Äriregistri esindusõiguste otsing    |
+| `POST /api/{version}/customer/search/agreement`      | Kliendi lepingute otsing             |
+| `POST /api/{version}/customer/search/meter`          | Kliendi mõõtepunktide otsing         |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

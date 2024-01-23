@@ -32,10 +32,10 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
 
 ### Sõnumid
 
-| Sõnum                                      | Eesmärk                                                        |
-|--------------------------------------------|----------------------------------------------------------------|
-| `POST /api/{version}/network-bill`         | Võimaldab registreerida uut võrguarvet.                        |
-| `POST /api/{version}/network-bill/search`  | Võimaldab otsida registreeritud võrguarvet.                    |
+| Sõnum                                     | Eesmärk                    |
+|-------------------------------------------|----------------------------|
+| `POST /api/{version}/network-bill`        | Võrguteenuse arve lisamine |
+| `POST /api/{version}/network-bill/search` | Võrguteenuse arve otsing   |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
@@ -47,7 +47,11 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
 
-
+- Võrguarve edastamise reeglid:
+  - Võrguarvet saab lisada võrguettevõtja (GO) või suletud jaotusvõrgu ettevõtja (ISO)
+  - Võrguarve `periodStart` ei tohi olla väiksem, kui võrgulepingu kehtivuse algus
+  - Võrguarve `periodEnd` ei tohi olla suurem, kui võrgulepingu kehtivuse lõpp
+  - Maksimaalne võrguarve koostamise periood on üks kuu.
 - Juhul kui turuosaline kasutab üldteenust, on võrguteenuste arve edastamine Andmelattu vabatahtlik.
 - Võrguarvete otsimise reeglid:
   - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (ISO) saavad otsida ainult neid võrguarveid, mida nad ise lisasid

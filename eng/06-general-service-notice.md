@@ -5,20 +5,17 @@
 - [General service notice](#general-service-notice)
   - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
-  - [Transmitting a general service notice](#transmitting-a-general-service-notice)
 
 ## Introduction
 
-Information about all added and amended open supply agreements is transmitted to the grid operator in order for the grid operator to be able to monitor when the customer starts using the general service.
+Datahub identifies all periods, where the customer is or will be using the general service. Datahub also identifies sub-periods inside those periods, that are covered with named supplier agreement. Datahub will create general service (`GENERAL_SERVICE`) agreements for all those identified (sub)periods and sets the grid operator or named supplier as the service provider. This solution is purely technical, to store the start and end date of the general service in more explicit manner. Those agreements are not legally valid agreements.
+
+- Datahub makes the general service agreements available to the grid operator and to the named supplier via the `data-distribution/search` service.
 
 Upon the activation of the general service, further data exchange will depend on whether or not the grid operator has a named supplier agreement or not:
 
 - If not, no additional data exchange is foreseen.
-- If so, the Datahub will allow the grid operator to send a message to the named supplier that the market participant uses the general service. It is worth noting that for this process, the Datahub is simply a message broker and the use of this interface is optional.
-
-This document describes the service that will be used to notify the named supplier of the activation of the general service.
-
-## Transmitting a general service notice
+- If so, the Datahub will allow the grid operator to send customer's contact and billing metadata using the `customer` service.
 
 > **Note**
-> The services are under development
+> In this process, the Datahub is acting only as data exchanger. Using the service is purely optional.

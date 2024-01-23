@@ -25,18 +25,20 @@ Relevant Datahub services have been set up to transmit and request customer data
 - A grid operator sends a new or changed customer message using the `customer` service.
 - The Datahub stores the customer’s details and assigns an EIC to the customer.
 - The authorised user requests the customer’s data from the `customer/search` service.
-- The authorised user requests updates of new and changed customer data by using the `customer/change` service.
+- The authorised user requests updates of new and changed customer data by using the `/data-distribution/search` service.
 
 ## API messages
 
 ### Messages
 
-| Message                               | Objective                                                                  |
-|---------------------------------------|----------------------------------------------------------------------------|
-| `POST /api/{version}/customer`        | Allows the user to register a new customer.                                |
-| `PUT /api/{version}/customer`         | Allows the user to update the data of an existing customer.                |
-| `POST /api/{version}/customer/search` | Allows the user to search for a registered customer or market participant. |
-| `POST /api/{version}/customer/change` | Allows the user to scan customer data updates.                             |
+| Message                                              | Objective                                                   |
+|------------------------------------------------------|-------------------------------------------------------------|
+| `POST /api/{version}/customer`                       | Create Customer with metadata                               |
+| `PUT /api/{version}/customer`                        | Update customer with metadata                               |
+| `POST /api/{version}/customer/search`                | Find a customer by identity                                 |
+| `POST /api/{version}/customer/search/representative` | Find Estonian Business Registry representations of Customer |
+| `POST /api/{version}/customer/search/agreement`      | Search Customer agreements                                  |
+| `POST /api/{version}/customer/search/meter`          | Search Customer metering points                             |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

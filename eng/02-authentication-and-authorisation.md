@@ -16,6 +16,7 @@
     - [Aggregator access to data](#aggregator-access-to-data)
     - [Energy service providers access to data](#energy-service-providers-access-to-data)
     - [System operator access to data (balance management and renewable energy business process)](#system-operator-access-to-data-balance-management-and-renewable-energy-business-process)
+  - [Authentication in web interface](#authentication-in-web-interface)
   - [Authentication in API](#authentication-in-api)
     - [Examples of JWT requests](#examples-of-jwt-requests)
       - [cURL](#curl)
@@ -257,13 +258,15 @@ For each balance responsible party, the system operator gains access to the mete
 2. Data exchange of renewable energy business process
 The system operator is entitled to gain access to the technical information and metering data of every metering point producing energy and registered in the renewable energy information system.
 
+## Authentication in web interface
+
+In order to authenticate in the Datahub web interface, the user has to authenticate himself with ID-card, mobile-ID or smart-ID.
+
 ## Authentication in API
 
-In order to be authenticated in the API, the market participant wishing to use the API must go through an integration process with Elering. During this process, the required number of user accounts used by the integrating systems will be identified and created.
+In order to be authenticated in the API, the market participant wishing to use the API must go through an integration process with Elering. During this process, Elering will create needed amount of administrator user accounts. Those market participant administrators can use the web interface and create needed amount of technical user accounts, that can be used in the API.
 
-For example, if the integrating market participant has only one integrating system, one account will be created. But if the integrating market participant has several systems (e.g. one for the grid operator and one for the open supplier role), the integrating market participant can decide whether they want to have one or several accounts.
-
-Further instructions on how to use these accounts will be provided to the integrating market participant during the integration process.
+For example, if the integrating market participant has only one integrating system, one technical user account will be created. But if the integrating market participant has several systems (e.g. one for the grid operator and one for the open supplier role), the integrating market participant can decide whether they want to have one or several accounts.
 
 To be authenticated, the integrating system must go through the following steps:
 
@@ -271,9 +274,6 @@ To be authenticated, the integrating system must go through the following steps:
 |----|-------|
 |Sending an authentication request to the address provided by Elering|The Datahub validates the account, creates the session and returns a JWT valid for the length of the session|
 |A JWT is added to each subsequent API message|The Datahub validates the JWT. If it is missing or invalid, an error code 401 (unauthorised) is returned. If it is valid, an authorisation follows, which you can read about in the next chapter|
-
-> **Note**
-> At the moment the system only supports authentication via username+password. This is a temporary solution. Proper OAuth authentication for machine-to-machine communication is under development
 
 ### Examples of JWT requests
 
@@ -284,19 +284,18 @@ To be authenticated, the integrating system must go through the following steps:
 # Example cURL request for retrieving token for Estfeed public test.
 # For use with API requests, must be passed as a header.
 
-API_USER="replace this username"
-API_PASS="replace this password"
 API_CLIENT="replace this client"
+API_SECRET="replace this secret"
 
 TOKEN=$(\
     curl \
         -s \
         -X POST \
-        -d username=$API_USER \
-        -d password=$API_PASS \
-        -d grant_type=password \
+        -d grant_type=client_credentials \
         -d client_id=$API_CLIENT \
-        https://{replace this with Keycloak host}/realms/estfeed-public/protocol/openid-connect/token \
+        -d client_secret=$API_SECRET \
+        -d scope=openid
+        https://{replace this with Keycloak host}/realms/{vhost}/protocol/openid-connect/token \
 )
 
 if ! command -v jq &> /dev/null; then
@@ -331,9 +330,9 @@ echo "==========================================================================
 import requests
 import config
 
-url = config.keycloakHost + "/auth/realms/estfeed/protocol/openid-connect/token"
+url = f'{config.keycloakHost}/auth/realms/{config.keycloakVhost}/protocol/openid-connect/token'
 headers = {'Content-type': 'application/x-www-form-urlencoded'}
-body = "client_id=" + config.keycloakClientId + "&grant_type=password" + "&username="+ config.keycloakUsername + "&password=" + config.keycloakPassword
+body = f'client_id={config.keycloakClientId}&grant_type=client_credentials&client_secret={config.keycloakClientSecret}&scope=openid'
 
 response = requests.post(url, headers=headers, data=body)
 access_token = response.json().get('access_token')
@@ -341,8 +340,9 @@ print(access_token)
 ```
 
 Example
-```
-client_id=client123&grant_type=password&username=user123&password=pass123
+
+```text
+grant_type=client_credentials&client_id=client123&client_secret=secret123&scope=openid
 ```
 
 ## Authorisation in API

@@ -16,14 +16,13 @@ For this, new information needs to be delivered to the systems of market partici
 
 ## Scanning data updates
 
-Unlike the old Datahub, the new Datahub does not send messages to integrated parties but requires the integrated system to check whether it has new messages. For this purpose, a dedicated update pulling API named `/change` has been created for each data object, which works in a standard way:
+Unlike the old Datahub, the new Datahub does not send messages to integrated parties but requires the integrated system to check whether it has new messages. For this purpose, a dedicated update pulling API `/data-distribution/search ` has been created, which works in a standard way:
 
-- The system of the integrated market participant sends a request and includes a *timestamp* regarding when it was last able to successfully download updates to a given data object.
-- The Datahub searches for data objects that have been added or changed since the timestamp value.
-- The Datahub filters out those data objects or data object data that cannot be released to a given market participant in a given situation.
-- The Datahub returns new or changed data objects together with the ID from the Datahub.
+- The system of the integrated market participant sends a request defining time period and dataobject type(s).
+- The Datahub finds previously created data distribution messages addressed to the Market Participant and where the attributes match with the search criteria.
+- The Datahub returns new or changed data objects together with the reason of change.
 
-The system of the integrated market participant scans the APIs of the various data objects at a suitable interval, taking into account the usual frequency of data object addition and changing:
+The system of the integrated market participant scans the data distribution API at a suitable interval, taking into account the usual frequency of data object addition and changing:
 
 - it is recommended that slowly added and changing data (e.g. metering points) are scanned 1-4 times a day;
 - it is recommended that rapidly added and changing data (e.g. metering data) are scanned with the same frequency as data are added – for example, every hour or more frequently. This will help the Datahub cope better with peak loads.

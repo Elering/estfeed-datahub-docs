@@ -13,7 +13,6 @@
     - [Environments](#environments)
     - [General rules](#general-rules)
     - [Date and time submission rules](#date-and-time-submission-rules)
-    - [Address submission rules](#address-submission-rules)
     - [Response codes](#response-codes)
 
 ## Data exchange platform in the context of electricity market
@@ -130,49 +129,6 @@ message cannot be processed and will not be accepted at the receiving end.
 ### Date and time submission rules
 
 - All dates and times are submitted in [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) format. The system supports both UTC and time zone offsets. Thus both `2023-04-01T00:00Z` and `2023-04-01T00:00+03:00` are allowed.
-
-### Address submission rules
-
-The integrating system can submit address data in two ways:
-
-- by sending the address ID of the Land Board’s ADS system (ADR_ID);
-- by sending the address as text.
-
-Both at the same time are not allowed.
-
-For data quality reasons, please use the official [EHAK classification](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) (county, municipality and settlement unit designations) for addresses submitted as text.
-
-If the ADS system ID is received by the Datahub, the Datahub itself requests the address components and text format from the ADS system.
-
-> **Warning**
->
-> Market participants are obliged to keep the address details in the Datahub up to date. The Datahub does not update addresses on its own initiative. This means that in case of a change of address (e.g. a local government changes the name of a street), the market participant must send an update message of the corresponding data object with the new address ID or the new address in text format.
-
-The address section consists of the following attributes:
-
-```json
-{
-  "adsId": "string",
-  "county": "string",
-  "municipality": "string",
-  "locality": "string",
-  "streetAddress": "string", 
-  "postalCode": "string",
-  "comment": "string"
-}
-```
-
-Attributes description:
-
-| Attribute     | Description                                                                                                          | Example                 |
-|---------------|----------------------------------------------------------------------------------------------------------------------|-------------------------|
-| adsId         | ADR_ID of the Land Board’s ADS system                                                                                | 2105345                 |
-| county        | County                                                                                                               | Harju County            |
-| municipality  | Municipality                                                                                                         | Tallinn                 |
-| locality      | Settlement unit (village, small town, town, municipal town) or city district                                         | Kesklinna city district |
-| streetAddress | Street address (small place, name of the land unit, street, address number, apartment or other building part number) | Pärnu mnt 8             |
-| postalCode    | Postal code                                                                                                          | 10148                   |
-| comment       | Comment                                                                                                              | C1T                     |
 
 ### Response codes
 

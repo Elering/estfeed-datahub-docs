@@ -43,7 +43,7 @@ Bilansivastutus tagatakse katkematu avatud tarne ahela kaudu alljärgnevas hiera
 Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andmevahetuse sõnumi abil. Lepingu edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
 - Vastav turuosaline saadab uue või muutunud lepingu sõnumi kasutades teenust `agreement`.
-- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `change` teenuse vahendusel.
+- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `data-distribution/search` teenuse vahendusel.
 - Õigustatud kasutaja pärib lepingu andmed `agreement/search` teenusest ning vajadusel ekspordib lepinguid kasutades teenust `agreement/export`.
 
 ### Lepingute edastamine veebiliidese abil
@@ -57,16 +57,14 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 
 #### Sõnumid
 
-|Sõnum                                  |Eesmärk                                                       |
-|---------------------------------------|--------------------------------------------------------------|
-|`POST /api/{version}/agreement`        |Võimaldab lisada uue lepingu                                  |
-|`PUT /api/{version}/agreement`         |Võimaldab uuendada lepingu andmeid                            |
-|`POST /api/{version}/agreement/delete` |Võimaldab tühistada lepingu                                   |
-|`POST /api/{version}/agreement/search` |Võimaldab otsida lepinguid                                    |
-|`POST /api/{version}/agreement/export` |Võimaldab eksportida tingimustele vastavad lepingud           |
-|`POST /api/{version}/agreement/change` |Võimaldab skaneerida lepingute andmete uuendusi.              |
+| Sõnum                                        | Eesmärk                      |
+|----------------------------------------------|------------------------------|
+| `POST /api/{version}/agreement`              | Lepingu loomine              |
+| `PUT /api/{version}/agreement`               | Lepingu uuendamine           |
+| `POST /api/{version}/agreement/delete`       | Lepingu kustutamine          |
+| `POST /api/{version}/agreement/search`       | Lepingute otsing             |
+| `POST /api/{version}/agreement/search/meter` | Mõõtepunkti lepingute otsing |
 
-Võrgulepingu registreerimine koos mõõtepunktiga on kirjeldatud [Mõõtepunktide dokumendis](04-mootepunktid.md)
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

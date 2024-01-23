@@ -91,18 +91,18 @@ The data of metering point is the same in all interfaces. The data of a metering
 
 - Common address data for all metering point types:
 
-| Attribute in the API | Column name in mass import template | Explanation                                  | Mandatory?                      | Other rules           |
-|----------------------|-------------------------------------|----------------------------------------------|---------------------------------|-----------------------|
-| adsId                | Ads ID                              | Address ID (ADR_ID) of Land Board ADS system | no                              | Must be number        |
-| comment              | Comment                             |                                              | no                              |                       |
-| county               | County                              |                                              | yes                             |                       |
-| municipality         | Municipality                        |                                              | yes                             |                       |
-| locality             | Locality                            |                                              | no                              |                       |
-| streetAddress        | Street Address                      | street, house, apartment etc                 | yes                             |                       |
-| postcode             | Postcode                            |                                              | yes                             |                       |
-| latitude             | Latitude                            | latitude of coordinates                      | no                              |                       |
-| longitude            | Longitude                           | latitude of coordinates                      | no                              |                       |
-| coordinateSystem     | Coordinate Sytem                    |                                              | yes if coordinates are provided | One of: WGS84, LEST97 |
+| Attribute in the API | Column name in mass import template | Explanation                                  | Mandatory?                               | Other rules           |
+|----------------------|-------------------------------------|----------------------------------------------|------------------------------------------|-----------------------|
+| adrId                | Adr ID                              | Address ID (ADR_ID) of Land Board ADS system | yes if county and municipality are empty | Must be an integer    |
+| comment              | Comment                             |                                              | no                                       |                       |
+| county               | County                              |                                              | yes                                      |                       |
+| municipality         | Municipality                        |                                              | yes                                      |                       |
+| locality             | Locality                            |                                              | no                                       |                       |
+| streetAddress        | Street Address                      | street, house, apartment etc                 | yes                                      |                       |
+| postcode             | Postcode                            |                                              | yes                                      |                       |
+| latitude             | Latitude                            | latitude of coordinates                      | no                                       | In case LEST97, the value must be 7 positions before and 1-3 positions after comma. In case WHS84, the value must be 2 positions before and 4-8 positions after comma. |
+| longitude            | Longitude                           | latitude of coordinates                      | no                                       | In case LEST97, the value must be 6 positions before and 1-3 positions after comma. In case WHS84, the value must be 2 positions before and 4-8 positions after comma. |
+| coordinateSystem     | Coordinate Sytem                    |                                              | yes if coordinates are provided          | One of: WGS84, LEST97 |
 
 > **Note**
 > The structure and validation rules of address attributes are under development
@@ -122,12 +122,12 @@ The data of the metering point is described in paragraph [Transmitting metering 
 
 #### Messages
 
-| Message                            | Objective                                                                         |
-|------------------------------------|-----------------------------------------------------------------------------------|
-| `POST /api/{version}/meter`        | Allows the user to register a new metering point                                  |
-| `PUT /api/{version}/meter`         | Allows the user to update metering point data                                     |
-| `GET /api/{version}/template/`     | Allows the user to download the Excel template for mass uploading metering points |
-| `POST /api/{version}/meter/import` | Allows the user to add multiple metering points via a filled Excel template       |
+| Message                              | Objective                                 |
+|--------------------------------------|-------------------------------------------|
+| `POST /api/{version}/meter`          | Create meter with metadata                |
+| `PUT /api/{version}/meter`           | Update meter metadata                     |
+| `POST /api/{version}/template/meter` | Get metering point mass import templates  |
+| `POST /api/{version}/meter/import`   | Mass import metering points with template |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
@@ -152,25 +152,25 @@ For a description of message structures and validations, see [Datahub descriptio
   - GRID_OPERATOR
   - PRODUCER_OPERATOR
 - For electricity metering point, the `marketParticipantRole` value must be AGGREGATOR
+- For data quality reasons, please use the official [EHAK classification](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) (county, municipality and settlement unit designations) for addresses submitted as text.
 
 > **Note**
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
 
 ## Requesting metering point data
 
-In general, all authorised users can request metering point data using the `search` services, but open suppliers and balance responsible parties can also request updates of new and changed metering point data using the `change` service.
+In general, all authorised users can request metering point data using the `search` services, but open suppliers and balance responsible parties can also request updates of new and changed metering point data using the `data-distribution/search` service.
 
 ### API messages
 
 #### Messages
 
-| Message                                     | Objective                                                                                                                                                                        |
-|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Allows the user to search for metering points based on metering point data                                                                                                       |
-| `POST /api/{version}/meter/search/customer` | Allows the user to search for metering points where the customer indicated in the input is connected to the metering point through a grid, border grid or aggregation agreement. |
-| `POST /api/{version}/meter/search/border`   | Allows the user to search for border metering points where the customer indicated in the input is connected to the border metering point through a grid agreement                |
-| `POST /api/{version}/meter/export`          | Allows the user to export metering points fitting the conditions                                                                                                                 |
-| `POST /api/{version}/meter/change`          | Allows the user to scan metering point data updates                                                                                                                              |
+| Message                                     | Objective                              |
+|---------------------------------------------|----------------------------------------|
+| `POST /api/{version}/meter/search`          | Find a Metering Point by attributes    |
+| `POST /api/{version}/meter/search/customer` | Find a Metering Point by Customer EIC  |
+| `POST /api/{version}/meter/search/border`   | Get border Metering Points by customer |
+| `POST /api/{version}/meter/export`          | Export Metering Points by attributes   |
 
 > **Warning**
 > 

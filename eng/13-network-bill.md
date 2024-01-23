@@ -32,10 +32,10 @@ In ordert to update a network bill, new `network-bill` message with same period 
 
 ### Messages
 
-| Message                                   | Objective                                                       |
-|-------------------------------------------|-----------------------------------------------------------------|
-| `POST /api/{version}/network-bill`        | Allows the user to register a new network bill.                 |
-| `POST /api/{version}/network-bill/search` | Allows the user to search for a registered network bill.        |
+| Message                                   | Objective                          |
+|-------------------------------------------|------------------------------------|
+| `POST /api/{version}/network-bill`        | Create or update network bill data |
+| `POST /api/{version}/network-bill/search` | Find network bill data             |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

@@ -30,11 +30,11 @@ It is possible to send and view enquiries via both the API and web interface.
 Relevant Datahub services have been set up to transmit enquiries. The intended use process is as follows:
 
 - An open supplier sends the information regarding customer enquiries using the `direct-messages` service.
-- The Datahub stores the enquiry and makes it available to the grid operator via the `change` service.
-- The grid operator scans the `change` service and receives new or changed enquiries.
+- The Datahub stores the enquiry and makes it available to the grid operator via the `TODO` service.
+- The grid operator scans the `TODO` service and receives new or changed enquiries.
 - The grid operator sends a response to the enquiry using the `response` service.
-- The Datahub stores the response and makes it available to the open supplier via the `change` service.
-- The open supplier scans the `change` service and receives new or changed responses.
+- The Datahub stores the response and makes it available to the open supplier via the `TODO` service.
+- The open supplier scans the `TODO` service and receives new or changed responses.
 
 The grid operator or open supplier can use the `search` service to search for enquiries and responses stored in the Datahub.
 
@@ -54,7 +54,6 @@ The grid operator or open supplier can use the `search` service to search for en
 | `POST /api/{version}/direct-messages/search`   | Allows the user to search for customer enquiries and responses                                  |
 | `POST /api/{version}/direct-messages/response` | Allows the user to register a new response to a customer enquiry                                |
 | `PUT /api/{version}/direct-messages/response`  | Allows the user to change the data of an existing response to a customer enquiry                |
-| `POST /api/{version}/direct-messages/change`   | Allows the user to scan changes to customer enquiries and responses                             |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

@@ -16,6 +16,7 @@
     - [Agregaatori ligipääs andmetele](#agregaatori-ligipääs-andmetele)
     - [Energiateenuse osutajate ligipääs andmetele](#energiateenuse-osutajate-ligipääs-andmetele)
     - [Süsteemihalduri ligipääs andmetele (bilansihaldus ja taastuvenergia äriprotsess)](#süsteemihalduri-ligipääs-andmetele-bilansihaldus-ja-taastuvenergia-äriprotsess)
+  - [Veebiliideses autentimine](#veebiliideses-autentimine)
   - [API liideses autentimine](#api-liideses-autentimine)
     - [Näited JWT tokeni küsimiseks](#näited-jwt-tokeni-küsimiseks)
       - [cURL](#curl)
@@ -57,7 +58,7 @@ Avatud tarne teenusega tekivad lepingutest lähtuvalt veel järgmised lisarollid
 | Avatud tarnija lisaroll | Lühend | Selgitus | Avatud tarne portfellilepingu kohustus |
 |---|---|---|---|
 | Nimetatud müüja | Named | Kui võrguettevõtja ei osuta avatud tarne teenust oma võrgupiirkonna klientidele ise (juhuks, kui kliendil puudub avatud tarne leping), nimetab ta ühe avatud tarnija kogu oma tegevuspiirkonna kohta. Nimetatud müüja lepingu andmed sisestab Andmelattu võrguettevõtja. **Nimetatud müüjal on mõõtepunkti ja mõõteandmete osas samad õigused nagu avatud tarne lepinguga avatud tarnijal.** | Jah, avatud tarnija reeglid |
-| Bilansihaldur | BRP | Bilansihaldur on avatud tarnija, kes on sõlminud bilansi epingu Eleringiga. | Jah. Bilansilepingu andmed sisestab Andmelattu Elering.  
+| Bilansihaldur | BRP | Bilansihaldur on avatud tarnija, kes on sõlminud bilansi lepingu Eleringiga. | Jah. Bilansilepingu andmed sisestab Andmelattu Elering.  
 | Süsteemihaldur | TSO | Elering on bilansihaldurite avatud tarnija. | Andmelao väline. |
 
 Elektriettevõtja registreerimisel Andmelao kasutajaks sisestab Elering lepingus toodud isiku (rollinimega „Haldur“) ettevõtte andmete eest põhivastutavaks isikuks. Iga elektriettevõtja Halduril on kohustus sisestada masinliidese seaded ning sisestada/hallata oma ettevõtte teisi kasutajaid ja nende esindusõigusi. Haldur loob ise oma ettevõtte volitatud töötajatele kasutajakontod ning vastutab oma ettevõtte volitatud töötajate ligipääsu koosseisu haldamise eest.
@@ -151,7 +152,7 @@ Avatud tarnija ligipääs infole on alljärgnev:
 | Turuosalise **12 kuu** mõõteandmetele ligipääs | EI | EI | JAH | JAH (oma lepingu­perioodi mõõteandmed) | Aluseks leping |
 | Turuosalise mõõtepunkti mõõteandmed avatud tarnija lepingu perioodil | EI (leping puudub) | EI (leping pole jõustunud) | JAH | JAH (oma lepingu-perioodi andmed) | Aluseks leping |
 | **Agregaatori tarbimise juhtimise andmed** | **EI** | **EI**| **JAH** | **JAH** | **Aluseks leping** |
-| Avatud tarnija lepingud turuosalise mõõtepunkit(de)s koos võrgu- ja agregeerimislepingu(te) kehtivuse ja osapoolega | EI (leping puudub) | JAH | JAH | JAH | Enda poolt registreeritud lepingute info |
+| Avatud tarnija lepingud turuosalise mõõtepunkti(de)s koos võrgu- ja agregeerimislepingu(te) kehtivuse ja osapoolega | EI (leping puudub) | JAH | JAH | JAH | Enda poolt registreeritud lepingute info |
 | Avatud tarnija poolt registreeritud portfellilepingud | EI (leping puudub) | JAH | JAH | JAH | Enda poolt registreeritud lepingute info |
 | Tema enda avatud tarne portfelli-lepingu andmed | JAH | JAH | JAH | JAH | Avatud tarnijal peab olema alati nn ülem- avatud tarnija |
 | Avatud tarne lepingu lõpetamised kas võrguettevõtja või teise avatud tarnija poolt | EI (leping puudub) | JAH | JAH | JAH | Enda lepingutega seotud info |
@@ -257,9 +258,13 @@ Süsteemihaldur saab ligipääsu iga bilansihalduri lõikes tema bilansipiirkonn
 2. Taastuvenergia äriprotsessi andmevahetus
 Süsteemihalduril on õigus saada ligipääs iga elektrienergiat tootva ja taastuvenergia infosüsteemis registreeritud mõõtepunktiga seotud tehnilisele infole ja mõõteandmetele.
 
+## Veebiliideses autentimine
+
+Andmelao veebiliideses autentimiseks on vaja läbida Elering autentimisprotsess ID-kaardi, mobiil-ID või smart-ID abil. Peale edukat autentimist tuvastab Andmeladu kasutaja rollid ning võimaldab kasutajal määrata, millises rollis ta soovib Andmeladu kasutada.
+
 ## API liideses autentimine
 
-API liideses autentimiseks tuleb liidestuval turosalisel läbida liidestumise protsess Eleringiga. Selle käigus selgitatakse välja ja luuakse vajalik arv kasutajakontosid, mida hakkavad kasutama liidestuvad süsteemid.
+API liideses autentimiseks tuleb liidestuval turuosalisel läbida liidestumise protsess Eleringiga. Selle käigus selgitatakse välja ja luuakse vajalik arv kasutajakontosid, mida hakkavad kasutama liidestuvad süsteemid.
 
 Näiteks, kui liidestuval turuosalisel on ainult üks liidestuv süsteem, siis luuakse üks konto. Aga kui liidestuval turuosalisel on mitu süsteemi (nt üks võrguettevõtja ja teine avatud tarnija rolli jaoks), siis saab liidestuv turuosalisel otsustada, kas soovitakse kahe süsteemi jaoks erinevaid või piisab ühest kontost.
 
@@ -272,9 +277,6 @@ Autentimiseks tuleb liidestuval süsteemi läbida järgmised sammud:
 |Autentimispäringu saatmine Eleringi poolt antud aadressile|Andmeladu valideerib konto, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse|
 |JWT tokeni lisamine igale järgnevale API sõnumile|Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist|
 
-> **Note**
-> Hetkel toetab süsteem ainult kasutajanimi+parool meetodil autentimist. Tegemist on ajutise lahendusega. Korralik OAuth autentimine masin-masin liidesele on arendamisel
-
 ### Näited JWT tokeni küsimiseks
 
 #### cURL
@@ -284,19 +286,18 @@ Autentimiseks tuleb liidestuval süsteemi läbida järgmised sammud:
 # Example cURL request for retrieving token for Estfeed public test.
 # For use with API requests, must be passed as a header.
 
-API_USER="replace this username"
-API_PASS="replace this password"
 API_CLIENT="replace this client"
+API_SECRET="replace this secret"
 
 TOKEN=$(\
     curl \
         -s \
         -X POST \
-        -d username=$API_USER \
-        -d password=$API_PASS \
-        -d grant_type=password \
+        -d grant_type=client_credentials \
         -d client_id=$API_CLIENT \
-        https://{replace this with Keycloak host}/realms/estfeed-public/protocol/openid-connect/token \
+        -d client_secret=$API_SECRET \
+        -d scope=openid
+        https://{replace this with Keycloak host}/realms/{vhost}/protocol/openid-connect/token \
 )
 
 if ! command -v jq &> /dev/null; then
@@ -331,9 +332,9 @@ echo "==========================================================================
 import requests
 import config
 
-url = config.keycloakHost + "/auth/realms/estfeed/protocol/openid-connect/token"
+url = f'{config.keycloakHost}/auth/realms/{config.keycloakVhost}/protocol/openid-connect/token'
 headers = {'Content-type': 'application/x-www-form-urlencoded'}
-body = "client_id=" + config.keycloakClientId + "&grant_type=password" + "&username="+ config.keycloakUsername + "&password=" + config.keycloakPassword
+body = f'client_id={config.keycloakClientId}&grant_type=client_credentials&client_secret={config.keycloakClientSecret}&scope=openid'
 
 response = requests.post(url, headers=headers, data=body)
 access_token = response.json().get('access_token')
@@ -341,8 +342,9 @@ print(access_token)
 ```
 
 Example
-```
-client_id=client123&grant_type=password&username=user123&password=pass123
+
+```text
+grant_type=client_credentials&client_id=client123&client_secret=secret123&scope=openid
 ```
 
 ## API liideses autoriseerimine

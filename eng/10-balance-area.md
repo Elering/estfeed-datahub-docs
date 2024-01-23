@@ -42,16 +42,18 @@ Used to forward changes in the area of the balance responsible party to the bala
 
 - A new grid or open supply or portfolio agreement is registered in the Datahub OR an existing grid or open supply or portfolio agreement expires.
 - Once a day, the Datahub calculates the balance changes of the last 24 hours (entering a metering point or exiting the balance area).
-- At 00:05, the Datahub generates a balance changes message and makes it via the `change` service available to the relevant balance responsible party(-ies) in whose balance area the changes occurred. For more details, see [Data transmission](30-andmete-levitamine.md). The message contains new metering points in the balance area *(ADDED)* or metering points removed from the balance area *(REMOVED)*.
+- At 00:05, the Datahub generates a balance changes message and makes it available to the relevant balance responsible party(-ies) in whose balance area the changes occurred. The message contains new metering points in the balance area *(ADDED)* or metering points removed from the balance area *(REMOVED)*.
 
 ### API messages
 
 ### Messages
 
-| Message                                       | Objective                                                   |
-|---------------------------------------------|-----------------------------------------------------------|
-| `POST /api/{version}/balance-state/change`  | Allows the user to scan changes in the balance area.           |
-| `POST /api/{version}/balance-state/search`  | Allows the user to search for the balance area status for the desired period. |
+> **Note**
+> The services are under development
+
+| Message                                    | Objective                                                                     |
+|--------------------------------------------|-------------------------------------------------------------------------------|
+| `POST /api/{version}/balance-state/search` | Allows the user to search for the balance area status for the desired period. |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
@@ -65,7 +67,7 @@ For a description of message structures and validations, see [Datahub descriptio
 Summed metering data is distributed to balance responsible parties so that they can predict future demand and production. The process for generating and distributing the message is as follows:
 
 - After processing the message to add or change metering data, the Datahub sums the metering data (Pin and Pout) in the area of the grid operator that are in the portfolios of other balance responsible parties.
-- Once a day (at 14:00), the Datahub generates an aggregated metering data message and makes it available to the balance responsible party(-ies) via the `change` service. For more details, see [Data distribution](30-andmete-levitamine.md). The message contains metering data from the beginning of the current calendar month (on the first day data from the entire previous day), with daily additional data sent by the grid operator to the Datahub.
+- Once a day (at 14:00), the Datahub generates an aggregated metering data message and makes it available to the balance responsible party(-ies). The message contains metering data from the beginning of the current calendar month (on the first day data from the entire previous day), with daily additional data sent by the grid operator to the Datahub.
 
 ### API messages
 

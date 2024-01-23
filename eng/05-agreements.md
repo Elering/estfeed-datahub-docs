@@ -43,7 +43,7 @@ Balance responsibility is ensured through an uninterrupted open supply chain in 
 Agreements can be transmitted to the Datahub using both a web interface and an automatic data exchange message. Relevant Datahub services have been set up to transmit and request agreements. The intended use process is as follows:
 
 - The relevant market participant sends a new or changed agreement message using the `agreement` service.
-- Depending on the type of agreement, parties and other data, the Datahub may make additional or changed agreement data available through the `change` service.
+- Depending on the type of agreement, parties and other data, the Datahub may make additional or changed agreement data available through the `data-distribution/search` service.
 - The authorised user requests the agreement data from the `agreement/search` service and, if necessary, exports the agreements using the `agreement/export` service.
 
 ### Transmitting agreements using the web interface
@@ -57,16 +57,14 @@ In the Datahub, the transmission interface of various agreements is harmonised a
 
 #### Messages
 
-| Message                                | Objective                                                   |
-| -------------------------------------- | ----------------------------------------------------------- |
-| `POST /api/{version}/agreement`        | Allows the user to add a new agreement                      |
-| `PUT /api/{version}/agreement`         | Allows the user to update agreement data                    |
-| `POST /api/{version}/agreement/delete` | Allows the user to cancel a agreement                       |
-| `POST /api/{version}/agreement/search` | Allows the user to search for agreements                    |
-| `POST /api/{version}/agreement/export` | Allows the user to export agreements fitting the conditions |
-| `POST /api/{version}/agreement/change` | Allows the user to scan agreement data updates              |
-
-The registration of a grid agreement with a metering point is described in [Metering points](04-metering-points.md).
+| Message                                      | Objective                         |
+|----------------------------------------------|-----------------------------------|
+| `POST /api/{version}/agreement`              | Create agreement                  |
+| `PUT /api/{version}/agreement`               | Update agreement                  |
+| `POST /api/{version}/agreement/delete`       | Delete agreement                  |
+| `POST /api/{version}/agreement/search`       | Find agreements                   |
+| `POST /api/{version}/agreement/search/meter` | Find agreements by Metering Point |
+| `POST /api/{version}/agreement/export`       | Export agreements by attributes   |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

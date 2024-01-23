@@ -7,6 +7,8 @@
   - [Introduction](#introduction)
   - [Generating reports](#generating-reports)
   - [Transmitting reports](#transmitting-reports)
+    - [API messages](#api-messages)
+      - [Messages](#messages)
   - [Report descriptions](#report-descriptions)
     - [Grid operator report](#grid-operator-report)
     - [Open supplier report](#open-supplier-report)
@@ -43,6 +45,16 @@ Example of calculation times of aggregated data for balance reports:
 - Operators can configure whether they want to receive reports via e-mail, API or not at all.
 - Operators can enter a separate e-mail address for the reports if they have chosen e-mail as the method of receipt. In the case of the API, reports are sent based on the existing configuration.
 - Operators can download each report in XML or Excel format.
+
+### API messages
+
+#### Messages
+
+| Message                                   | Objective                       |
+|-------------------------------------------|---------------------------------|
+| `POST /api/{version}/report/search`       | Find reports                    |
+| `POST /api/{version}/report/export/excel` | Download report in Excel format |
+| `POST /api/{version}/report/export/json`  | Download report in JSON format  |
 
 ## Report descriptions
 

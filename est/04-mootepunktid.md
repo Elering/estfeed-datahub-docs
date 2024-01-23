@@ -90,18 +90,18 @@ Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliide
 
 - Ühised aadressi andmed kõikidele mõõtepunktidele:
 
-| Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus                                   | Kohustuslik?                   | Muud reeglid             |
-|-------------------|----------------------------------------|--------------------------------------------|--------------------------------|--------------------------|
-| adsId             | Ads ID                                 | Maaameti ADS süsteemi aadressi ID (ADR_ID) | ei                             | Peab olema number        |
-| comment           | Comment                                | kommentaar                                 | ei                             |                          |
-| county            | County                                 | maakond                                    | jah                            |                          |
-| municipality      | Municipality                           | vald, linn                                 | jah                            |                          |
-| locality          | Locality                               | asustusüksus                               | ei                             |                          |
-| streetAddress     | Street Address                         | kohaadress (tänav, maja, korter jne)       | jah                            |                          |
-| postcode          | Postcode                               | sihtnumber                                 | jah                            |                          |
-| latitude          | Latitude                               | koordinaadi laiuskraad                     | ei                             |                          |
-| longitude         | Longitude                              | koordinaadi pikkuskraad                    | ei                             |                          |
-| coordinateSystem  | Coordinate Sytem                       | koordinaatsüsteem                          | jah, kui koordinaadid on antud | Üks neist: WGS84, LEST97 |
+| Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus                                   | Kohustuslik?                            | Muud reeglid             |
+|-------------------|----------------------------------------|--------------------------------------------|-----------------------------------------|--------------------------|
+| adrId             | Adr ID                                 | Maaameti ADS süsteemi aadressi ID (ADR_ID) | jah kui county ja municipality on puudu | Peab olema täisarv       |
+| comment           | Comment                                | kommentaar                                 | ei                                      |                          |
+| county            | County                                 | maakond                                    | jah                                     |                          |
+| municipality      | Municipality                           | vald, linn                                 | jah                                     |                          |
+| locality          | Locality                               | asustusüksus                               | ei                                      |                          |
+| streetAddress     | Street Address                         | kohaadress (tänav, maja, korter jne)       | jah                                     |                          |
+| postcode          | Postcode                               | sihtnumber                                 | jah                                     |                          |
+| latitude          | Latitude                               | koordinaadi laiuskraad                     | ei                                      | LEST97 puhul peab väärtus olema olema 7 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enna ja 4-8 kohta peale koma |
+| longitude         | Longitude                              | koordinaadi pikkuskraad                    | ei                                      | LEST97 puhul peab väärtus olema olema 6 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enna ja 4-8 kohta peale koma |
+| coordinateSystem  | Coordinate Sytem                       | koordinaatsüsteem                          | jah, kui koordinaadid on antud          | Üks neist: WGS84, LEST97 |
 
 > **Note**
 > Aadressi andmete struktuur ja validatsioonid on täiendamisel
@@ -121,12 +121,12 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 #### Sõnumid
 
-| Sõnum                              | Eesmärk                                                         |
-|------------------------------------|-----------------------------------------------------------------|
-| `POST /api/{version}/meter`        | Võimaldab registreerida uue mõõtepunkti                         |
-| `PUT /api/{version}/meter`         | Võimaldab uuendada mõõtepunkti andmeid                          |
-| `GET /api/{version}/template/`     | Võimaldab alla laadida mõõtepunkti masslisamise Excel templiidi |
-| `POST /api/{version}/meter/import` | Võimaldab lisada mitu mõõtepunkti täidetud Excel templiidi abil |
+| Sõnum                                | Eesmärk                                             |
+|--------------------------------------|-----------------------------------------------------|
+| `POST /api/{version}/meter`          | Mõõtepunkti lisamine                                |
+| `PUT /api/{version}/meter`           | Mõõtepunkti muutmine                                |
+| `POST /api/{version}/template/meter` | Mõõtepunktide masslisamise templiidi alla laadimine |
+| `POST /api/{version}/meter/import`   | Mõõtepunktide massimport templiidi abil             |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
@@ -151,25 +151,24 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
   - GRID_OPERATOR
   - PRODUCER_OPERATOR
 - Agregeerimise mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema AGGREGATOR
+- Aadressi tekstilisel kujul saatmise korral on andmekvaliteedi huvides palve kasutada ametlikke [EHAK klassifikaatoris](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) toodud maakonna, omavalitsuse ja asutusüksuse nimekujusid.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
 
 ## Mõõtepunkti andmete küsimine
 
-Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades teenust `change`.
+Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades teenust `data-distribution/search`.
 
 ### Masinliidese sõnumid
 
 #### Sõnumid
 
-| Sõnum                                       | Eesmärk                                                                                                                                |
-|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Võimaldab otsida mõõtepunkte mõõtepunkti andmete alusel                                                                                |
-| `POST /api/{version}/meter/search/customer` | Võimaldab otsida mõõtepunkte, kus sisendis olev klient on mõõtepunktiga seotud läbi (piirimõõtepunkti)võrgu või agregeerimise lepingu. |
-| `POST /api/{version}/meter/search/border`   | Võimaldab otsida piirimõõtepunkte, kus sisendis olev klient on piirimõõtepunktiga seotud läbi võrgulepingu                             |
-| `POST /api/{version}/meter/export`          | Võimaldab eksportida tingimustele vastavad mõõtepunktid                                                                                |
-| `POST /api/{version}/meter/change`          | Võimaldab skaneerida mõõtepunktide andmete uuendusi.                                                                                   |
+|---------------------------------------------|---------------------------------------------|
+| `POST /api/{version}/meter/search`          | Mõõtepunkti otsing                          |
+| `POST /api/{version}/meter/search/customer` | Mõõtepunkti otsing kliendi EIC koodi alusel |
+| `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                     |
+| `POST /api/{version}/meter/export`          | Mõõtepunktide eksportimine                  |
 
 > **Warning**
 > 

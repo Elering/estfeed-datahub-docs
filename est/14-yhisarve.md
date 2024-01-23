@@ -27,14 +27,13 @@ Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
 
 - Võrguettevõtja saadab uue ühisarve võrguteenuse arve sõnumi kasutades teenust `joint-invoice`.
 - Andmeladu kontrollib, et:
-  -  määratud adressaadi ja saatja vahel on kehtiv ühisarve leping ning 
-  -  määratud kliendil on selles mõõtepunktis kehtiv avatud tarne leping arve adressaadiga ning
-  -  määratud kliendil on selles mõõtepunktis kehtiv võrguleping arve saatjaga.
+  - määratud adressaadi ja saatja vahel on kehtiv ühisarve leping ning
+  - määratud kliendil on selles mõõtepunktis kehtiv avatud tarne leping arve adressaadiga ning
+  - määratud kliendil on selles mõõtepunktis kehtiv võrguleping arve saatjaga.
 - Kui tingimused ei ole täidetud, siis Andmeladu vastab veateatega.
 - Kui tingimused on täidetud, siis Andmeladu salvestab andmed andmebaasi.
 - Avatud tarnija või võrguettevõtja otsib võrguteenuste arveid  kasutades teenust `search`.
 - Avatud tarnija või võrguettevõtja laeb alla võrguteenuste arve kasutades teenust `download`.
-- Avatud tarnija kustutab kättesaadud võrguteenuste arve kasutades teenust `delete`.
 
 ### Veebiliides
 
@@ -45,11 +44,11 @@ Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
 
 #### Sõnumid
 
-| Sõnum                                        | Eesmärk                                                        |
-|----------------------------------------------|----------------------------------------------------------------|
-| `POST /api/{version}/joint-invoice`          | Võimaldab edastada ühisarve võrguarvet                         |
-| `POST /api/{version}/joint-invoice/search`   | Võimaldab otsida edastatud ühisarve võrguarveid                |
-| `POST /api/{version}/joint-invoice/download` | Võimaldab ühisarve võrguarvet alla laadida                     |
+| Sõnum                                        | Eesmärk                           |
+|----------------------------------------------|-----------------------------------|
+| `POST /api/{version}/joint-invoice`          | Ühisarve võrguarve lisamine       |
+| `POST /api/{version}/joint-invoice/search`   | Ühisarve võrguarve otsing         |
+| `POST /api/{version}/joint-invoice/download` | Ühisarve võrguarve alla laadimine |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
