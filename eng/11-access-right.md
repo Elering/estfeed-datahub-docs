@@ -26,7 +26,7 @@ Relevant Datahub services have been set up to transmit and request access right 
 2. The Datahub stores the new access right in its database and designates an open supplier to whom it will be made available.
 3. The open supplier uses the `/customer-authorization/search` service and detects that a new access right has been granted to it.
 4. Once access has been granted, the open supplier can use messages to request the following data:
-   - customer data – described in [Customers](03-customer-eic.md);
+   - customer data – described in [Customers](04-customer-eic.md);
    - metering point data – described in [Metering points](04-metering-points.md);
    - metering data – described in [Metering data](07-mooteandmed.md).
 
@@ -44,7 +44,7 @@ For a description of message structures and validations, see [Datahub descriptio
 ### Message rules
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 - Each access right has a start and end time. The default validity period is 48h, which can be reduced by the grantor of the access right.
 - Each access right includes the specific purpose for which the data is processed and who is the data controller.

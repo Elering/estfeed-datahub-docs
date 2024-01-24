@@ -115,8 +115,21 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad järgmiselt:
 
 ### Keskkonnad
 
-- [Testkeskkond](https://andmeladu-test.elering.ee/consumer/home)
-- [Live keskkond](https://andmeladu.elering.ee/consumer/home)
+Andmelao veebirakendus:
+
+- [Test keskkond](https://public-test-datahub.elering.ee/login)
+- [Live keskkond](https://datahub.elering.ee/login)
+
+Andmelao masinliidese otspunktid:
+
+- [Test keskkond](https://public-test-datahub.elering.ee)
+- [Live keskkond](https://datahub.elering.ee)
+
+Andmelao OpenApi teenuste kirjeldused:
+
+- [Test keskkond](https://public-test-datahub.elering.ee/swagger-ui/index.html)
+- [Live keskkond](https://datahub.elering.ee/swagger-ui/index.html)
+- [Tuleviku nägemus ja plaanid](https://github.com/Elering/Estfeed-API)
 
 ### Üldreeglid
 
@@ -134,4 +147,4 @@ sõnum töötlematuks ja seda ei aktsepteerita vastuvõtval poolel.
 
 Kasutusel on klassikalised REST API vastuskoodid. Veaolukordade korral tagastab süsteem võimalusel info vea põhjuse kohta. Vea kirjeldused on nii inim- kui masinloatavas formaadis.
 
-Vastussõnumite struktuurid on leitavad [Sõnumite näidiste kogumik on loomisel](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnast.
+Vastussõnumite struktuurid on leitavad OpenApi teenuste kirjeldustest.

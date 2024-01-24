@@ -62,4 +62,4 @@ For a description of message structures and validations, see [Datahub descriptio
 - The Datahub does not check the recipient of enquiries. It is the responsibility of the open supplier to provide correct data.
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

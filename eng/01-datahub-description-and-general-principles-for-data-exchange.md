@@ -105,18 +105,23 @@ The register of EICs is located in the Datahub.
 
 The automatic information change (API) between the Datahub and the customer’s information system is done using a REST interface. Systems use JSON format to exchange information.
 
-Descriptions of message structures and validations can be found as follows:
-
-- In the [Test Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) environment, you can see the version that has been implemented in the application. In this environment, it is possible to send real messages to the application using the Swagger interactive environment.
-- In the [Github](https://github.com/Elering/Estfeed-API) environment, you can see a vision for the future. The interface is in OpenAPI format.
-
-> **Note**
-> A collection of sample messages is being created
-
 ### Environments
 
-- [Test environment](https://andmeladu-test.elering.ee/consumer/home)
-- [Live environment](https://andmeladu.elering.ee/consumer/home)
+Datahub web application:
+
+- [Test environment](https://public-test-datahub.elering.ee/login)
+- [Live environment](https://datahub.elering.ee/login)
+
+Datahub API endpoints:
+
+- [Test environment](https://public-test-datahub.elering.ee)
+- [Live environment](https://datahub.elering.ee)
+
+Datahub OpenApi decriptions:
+
+- [Test environment](https://public-test-datahub.elering.ee/swagger-ui/index.html)
+- [Live environment](https://datahub.elering.ee/swagger-ui/index.html)
+- [The vision of the future](https://github.com/Elering/Estfeed-API)
 
 ### General rules
 
@@ -134,4 +139,4 @@ message cannot be processed and will not be accepted at the receiving end.
 
 The Datahub uses classic REST API response codes. In the event of an error, the system will return information on the cause of the error if possible. Error descriptions are in both human-readable and machine-readable formats.
 
-The structures of the responses can be found in the [A collection of sample messages is being created](https://test-datahub.elering.ee/swagger-ui/index.html) environment.
+The structures of the responses can be found in OpenApi descriptions.

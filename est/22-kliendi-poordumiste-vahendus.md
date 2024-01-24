@@ -62,4 +62,4 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Pöördumise adressaati Andmeladu ei valideeri. Õigete andmete väärtustamise eest vastutab avatud tarnija.
 
 > **Note**
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

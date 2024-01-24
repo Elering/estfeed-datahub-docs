@@ -45,7 +45,7 @@ For a description of message structures and validations, see [Datahub descriptio
 ### Message rules
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 - Rules for adding network bills:
   - Only grid operator (GO) or closed distribution network operator (ISO) can add network bills

@@ -60,7 +60,7 @@ For a description of message structures and validations, see [Datahub descriptio
 ### Message rules
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ## Summed metering data message
 

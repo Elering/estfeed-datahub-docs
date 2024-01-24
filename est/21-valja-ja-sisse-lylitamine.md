@@ -59,4 +59,4 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Kui välja- või sisselülitamise taotluse olek on `CONNECTED`, `DISCONNECTED`, `REFUSED` või `CANCELLED`, siis täiendavate `message` sõnumite saatmine ei ole võimalik.
 
 > **Note**
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

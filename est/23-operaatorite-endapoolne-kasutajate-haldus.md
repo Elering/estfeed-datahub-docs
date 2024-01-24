@@ -18,7 +18,7 @@ Veebiliidese puudumisel või selle häirete puhul lisab kasutajad Süsteemihaldu
 |-------------------|------------------------|------------------|-----------|---------|---------------|-----------------|
 | Volitatud töötaja |                        |                  |           |         |               |                 |
 
-Loe täpsemalt rollide kohta dokumendist [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+Loe täpsemalt rollide kohta dokumendist [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 Pärast lepingu sõlmimist toimuvatest muudatustest Kasutaja volitatud töötajate koosseisus (uue töötaja lisandumine, töötaja lahkumine jms) viib Kasutaja Haldur vastavad muudatused ligipääsuõiguste osas sisse viivitamatult pärast Kasutaja volitatud isikute koosseisu muudatuste toimumist.
 

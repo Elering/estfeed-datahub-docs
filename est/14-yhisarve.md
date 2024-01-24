@@ -13,7 +13,7 @@
 
 ## Sissejuhatus
 
-Ühisarve saatmise eelduseks on ühisarve leping Andmelaos. Loe täpsemalt dokumendist [Lepingud](05-lepingud.md).
+Ühisarve saatmise eelduseks on ühisarve leping Andmelaos. Loe täpsemalt dokumendist [Lepingud](06-lepingud.md).
 
 Põhimõtteskeem võrguarve liikumiseks on järgmine: Võrguettevõtja > Andmeladu > Müüja > Klient.
 
@@ -55,4 +55,4 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 #### Sõnumite reeglid
 
 > **Note**
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

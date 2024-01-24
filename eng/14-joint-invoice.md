@@ -13,7 +13,7 @@
 
 ## Introduction
 
-The prerequisite for sending a joint invoice is a joint invoice agreement in the Datahub. For more information, see [Agreements](05-agreements.md).
+The prerequisite for sending a joint invoice is a joint invoice agreement in the Datahub. For more information, see [Agreements](06-agreements.md).
 
 The basic flow scheme of the network bill is as follows: Grid Operator > Datahub > Seller > Customer.
 
@@ -55,4 +55,4 @@ For a description of message structures and validations, see [Datahub descriptio
 #### Message rules
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

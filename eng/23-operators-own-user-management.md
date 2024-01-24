@@ -18,7 +18,7 @@ In the absence of a web interface or in the event of its failure, users are adde
 |-------------------------|----------------------|--------------|------------------------------|------------|-----------|----------------|
 | Authorised employee     |                      |              |                              |            |           |                |
 
-Read more about roles in [Authentication and authorisation](02-authentication-and-authorisation.md).
+Read more about roles in [Authentication and authorisation](03-authentication-and-authorisation.md).
 
 If there are any changes in the composition of the user’s authorised employees after the entry into the agreement (a new employee is added, an employee leaves, etc.), the user’s admin will make the corresponding changes regarding access rights immediately after the composition of the user’s authorised employees has changed.
 

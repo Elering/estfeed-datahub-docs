@@ -16,45 +16,45 @@ This document has been created as a temporary tool for developers to help them m
 
 The new Datahub uses a more modern REST data exchange interface. As a consequence, all the services of the data exchange interface will change. The table below compares old and new services.
 
-| Old XML service              | New REST service                                                                                |
-|------------------------------|-------------------------------------------------------------------------------------------------|
-| RequestCustomerEIC           | `POST` `/api/{version}/customer`                                                                |
-|                              | `POST` `/api/{version}/customer/search`                                                         |
-| NotifyMeteringPointData      | `POST` and `PUT` `/api/{version}/meter`                                                         |
-|                              | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = GRID`                       |
-| NotifyGridAgreementChange    | `POST` `/api /{version}/data-distribution/search` where `resourceType = AGREEMENT`              |
-| RequestMeteringPointsData    | `POST` `/api/{version}/meter/search/customer`                                                   |
-| NotifySupplyAgreement        | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = SUPPLY`                     |
-| EnergyReport                 | `POST` `/api/{version}/meter-data`                                                              |
-| EnergyReportResult           | `POST` `/api /{version}/meter-data/status`                                                      |
-| NetworkBill                  | `POST` `/api/{version}/network-bill`                                                            |
-|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = NETWORK_BILL`           |
-| RequestMeteringDataHistory   | `POST` `/api/{version}/meter-data/search`                                                       |
-| NotifyCustomerAuthorization  | `POST` `/api/customer-authorization/search`                                                     |
-|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = CUSTOMER_AUTHORIZATION` |
-| CustomerMetadata             | *The service is under development*                                                              |
-| NotifyJointInvoiceAgreement  | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = JOINT_INVOICE`              |
-| NotifyPortfolioAgreement     | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = PORTFOLIO_SUPPLIER`         |
-| NotifyNamedSupplierAgreement | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = NAMED_SUPPLIER`             |
-| RequestAgreementCoordination | *The service is under development*                                                              |
-| ReplyAgreementCoordination   | *The service is under development*                                                              |
-| ConfirmAgreementCoordination | *The service is under development*                                                              |
-| ForwardInvoice               | `POST` `/api/{version}/joint-invoice`                                                           |
-|                              | `POST` `/api/{version}/joint-invoice/download`                                                  |
-|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = JOINT_INVOICE`          |
-| RequestConnectionState       | `POST` `/api/{version}/connection-state/initiate`                                               |
-|                              | `POST` `/api/{version}/connection-state/message`                                                |
-|                              | `POST` `/api/{version}/connection-state/message-history`                                        |
-|                              | `POST` `/api/{version}/connection-state/search`                                                 |
-|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = CONNECTION_STATE`       |
-| ReplyRequestConnectionState  | `POST` `/api/{version}/connection-state/message`                                                |
-|                              | `POST` `/api/{version}/connection-state/message-history`                                        |
-|                              | `POST` `/api/{version}/connection-state/search`                                                 |
-|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = CONNECTION_STATE`       |
-| SendMessage                  | *The service is under development*                                                              |
-| BalanceState                 | *The service is under development*                                                              |
-| AggregatedMeteringDataReport | *The service is under development*                                                              |
-| Report                       | *The service is under development*                                                              |
+| Old XML service              | New REST service                                                                                | Link to the API                                                                                      |
+|------------------------------|-------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| RequestCustomerEIC           | `POST` `/api/{version}/customer`                                                                | [Customer EIC](04-customer-eic.md)                                                                   |
+|                              | `POST` `/api/{version}/customer/search`                                                         | [Customer EIC](04-customer-eic.md)                                                                   |
+| NotifyMeteringPointData      | `POST` and `PUT` `/api/{version}/meter`                                                         | [Metering point](05-metering-point.md)                                                               |
+|                              | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = GRID`                       | [Metering point](05-metering-point.md)                                                               |
+| NotifyGridAgreementChange    | `POST` `/api /{version}/data-distribution/search` where `resourceType = AGREEMENT`              | [Data distribution](30-data-distribution.md)                                                         |
+| RequestMeteringPointsData    | `POST` `/api/{version}/meter/search/customer`                                                   | [Customer EIC](04-customer-eic.md)                                                                   |
+| NotifySupplyAgreement        | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = SUPPLY`                     | [Agreements](05-Agreements.md)                                                                       |
+| EnergyReport                 | `POST` `/api/{version}/meter-data`                                                              | [Metering data](12-metering-data.md)                                                                 |
+| EnergyReportResult           | `POST` `/api /{version}/meter-data/status`                                                      | [Metering data](12-metering-data.md)                                                                 |
+| NetworkBill                  | `POST` `/api/{version}/network-bill`                                                            | [Network bill](13-network-bill.md)                                                                   |
+|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = NETWORK_BILL`           | [Data distribution](30-data-distribution.md)                                                         |
+| RequestMeteringDataHistory   | `POST` `/api/{version}/meter-data/search`                                                       | [Metering data](12-metering-data.md)                                                                 |
+| NotifyCustomerAuthorization  | `POST` `/api/customer-authorization/search`                                                     | [Metering data](12-metering-data.md)                                                                 |
+|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = CUSTOMER_AUTHORIZATION` | [Data distribution](30-data-distribution.md)                                                         |
+| CustomerMetadata             | *The service is under development*                                                              | -                                                                                                    |
+| NotifyJointInvoiceAgreement  | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = JOINT_INVOICE`              | [Agreements](05-Agreements.md)                                                                       |
+| NotifyPortfolioAgreement     | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = PORTFOLIO_SUPPLIER`         | [Agreements](05-Agreements.md)                                                                       |
+| NotifyNamedSupplierAgreement | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = NAMED_SUPPLIER`             | [Agreements](05-Agreements.md)                                                                       |
+| RequestAgreementCoordination | *The service is under development*                                                              | -                                                                                                    |
+| ReplyAgreementCoordination   | *The service is under development*                                                              | -                                                                                                    |
+| ConfirmAgreementCoordination | *The service is under development*                                                              | -                                                                                                    |
+| ForwardInvoice               | `POST` `/api/{version}/joint-invoice`                                                           | [Joint invoice](14-joint-invoice.md)                                                                 |
+|                              | `POST` `/api/{version}/joint-invoice/download`                                                  | [Joint invoice](14-joint-invoice.md)                                                                 |
+|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = JOINT_INVOICE`          | [Data distribution](30-data-distribution.md)                                                         |
+| RequestConnectionState       | `POST` `/api/{version}/connection-state/initiate`                                               | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api/{version}/connection-state/message`                                                | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api/{version}/connection-state/message-history`                                        | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api/{version}/connection-state/search`                                                 | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = CONNECTION_STATE`       | [Data distribution](30-data-distribution.md)                                                         |
+| ReplyRequestConnectionState  | `POST` `/api/{version}/connection-state/message`                                                | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api/{version}/connection-state/message-history`                                        | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api/{version}/connection-state/search`                                                 | [Connecting to and disconnecting from the grid](21-connection-to-and-disconnecting-from-the-grid.md) |
+|                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = CONNECTION_STATE`       | [Data distribution](30-data-distribution.md)                                                         |
+| SendMessage                  | *The service is under development*                                                              | -                                                                                                    |
+| BalanceState                 | *The service is under development*                                                              | -                                                                                                    |
+| AggregatedMeteringDataReport | *The service is under development*                                                              | -                                                                                                    |
+| Report                       | *The service is under development*                                                              | -                                                                                                    |
 
 Information about development and deployment deadlines of all API-s can be found [here](50-roadmap.md)
 
@@ -62,7 +62,7 @@ Information about development and deployment deadlines of all API-s can be found
 
 Compared to the previous Datahub, the new Datahub has the following new functionalities already developed or under development:
 
-- A new agreement type has been added: [Aggregation agreement](05.6-aggregation-agreement.md).
+- A new agreement type has been added: [Aggregation agreement](06.6-aggregation-agreement.md).
 - Adding and updating a customer is separated from agreement.
 - There is a new concept of a master metering point.
 - The processing of metering data can be asynchronous.

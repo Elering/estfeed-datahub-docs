@@ -118,7 +118,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 #### Sõnumite reeglid
 
-- Mõõteandmete ja mõõtepunkti resolutsiooni seose kohta loe täpsemalt dokumendist [Mõõtepunktid](04-mootepunktid.md#sõnumite-reeglid).
+- Mõõteandmete ja mõõtepunkti resolutsiooni seose kohta loe täpsemalt dokumendist [Mõõtepunktid](05-mootepunktid.md#sõnumite-reeglid).
 - Perioodi ajaperioodi väärtus peab olema vastavuses resolutsiooniga. Näiteks:
   - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00);
   - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45).
@@ -132,11 +132,11 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export`
 
 > **Note**
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ## Mõõteandmete päringud
 
-Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligipääs on piiratud. Reeglid on  kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligipääs on piiratud. Reeglid on  kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
@@ -160,4 +160,4 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 #### Sõnumite reeglid
 
 > **Note**
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](02-autentimine-ja-autoriseerimine.md)
+> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

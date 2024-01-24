@@ -132,11 +132,11 @@ For a description of message structures and validations, see [Datahub descriptio
 - The `import` service requires the same template, that the service `export` returns.
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ## Metering data requests
 
-Relevant Datahub services have been set up to transmit metering data. Access to data is limited. The rules are described in [Authentication and authorisation](02-authentication-and-authorisation.md).
+Relevant Datahub services have been set up to transmit metering data. Access to data is limited. The rules are described in [Authentication and authorisation](03-authentication-and-authorisation.md).
 
 The following options are available for making metering data requests:
 
@@ -160,4 +160,4 @@ For a description of message structures and validations, see [Datahub descriptio
 #### Message rules
 
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](02-authentication-and-authorisation.md)
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
