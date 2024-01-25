@@ -14,6 +14,8 @@
   - [Agreement management](#agreement-management)
     - [Register new grid agreement](#register-new-grid-agreement)
     - [Register new open supply agreement](#register-new-open-supply-agreement)
+    - [Generate and distribute general service agreements](#generate-and-distribute-general-service-agreements)
+    - [Exchange customer's billing information from grid operator to named supplier](#exchange-customers-billing-information-from-grid-operator-to-named-supplier)
   - [Connecting to and disconnecting from the grid](#connecting-to-and-disconnecting-from-the-grid)
     - [Disconnecting](#disconnecting)
     - [Reconnecting](#reconnecting)
@@ -67,6 +69,20 @@ Indicator for reused process is:
 ### Register new open supply agreement
 
 ![Register new open supply agreement](../diagrams/agreement-management/register-new-open-supply-agreement.svg)
+
+### Generate and distribute general service agreements
+
+Business process:
+
+![Generate and distribute general service agreements](../diagrams/agreement-management/generate-and-distribute-general-service-agreements.svg)
+
+Additional diagram, that helps to clarify how general service agreements are generated:
+
+![Additional info](../diagrams/agreement-management/general-service-agreement-generation-additional-info.svg)
+
+### Exchange customer's billing information from grid operator to named supplier
+
+![Exchange customer's billing information from grid operator to named supplier](../diagrams/agreement-management/exchange-customer-billing-data.svg)
 
 ## Connecting to and disconnecting from the grid
 

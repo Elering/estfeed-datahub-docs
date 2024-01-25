@@ -14,6 +14,8 @@
   - [Lepingute haldus](#lepingute-haldus)
     - [Võrgulepingu registreerimine](#võrgulepingu-registreerimine)
     - [Avatud tarne lepingu registreerimine](#avatud-tarne-lepingu-registreerimine)
+    - [Üldteenuse lepingute genereerimine ja levitamine](#üldteenuse-lepingute-genereerimine-ja-levitamine)
+    - [Kliendi arveldusandmete vahendamine võrguettevõtjalt nimetatud müüjale](#kliendi-arveldusandmete-vahendamine-võrguettevõtjalt-nimetatud-müüjale)
   - [Võrguühenduse välja- ja sisselülitamine](#võrguühenduse-välja--ja-sisselülitamine)
     - [Lahti ühendamine](#lahti-ühendamine)
     - [Sisse lülitamine](#sisse-lülitamine)
@@ -67,6 +69,18 @@ Taaskasutatud protsesside tähis on diagrammidel järgmine:
 ### Avatud tarne lepingu registreerimine
 
 ![Avatud tarne lepingu registreerimine](../diagrams/agreement-management/avatud-tarne-lepingu-registreerimine.svg)
+
+### Üldteenuse lepingute genereerimine ja levitamine
+
+![Üldteenuse lepingute genereerimine ja levitamine](../diagrams/agreement-management/yldteenuse-lepingute-genereerimine-ja-levitamine.svg)
+
+Alljärgnev diagram aitab paremini mõista protsessi, kuidas üldteenuse lepinguid genereeritakse:
+
+![Täiendav diagramm](../diagrams/agreement-management/general-service-agreement-generation-additional-info.svg)
+
+### Kliendi arveldusandmete vahendamine võrguettevõtjalt nimetatud müüjale
+
+![Kliendi arveldusandmete vahendamine võrguettevõtjalt nimetatud müüjale](../diagrams/agreement-management/kliendi-arveldusandmete-vahetus.svg)
 
 ## Võrguühenduse välja- ja sisselülitamine
 
