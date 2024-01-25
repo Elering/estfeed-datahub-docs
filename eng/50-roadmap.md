@@ -48,20 +48,6 @@
 | Metering Point         | `POST` | /api/v1/meter/import                     | Mass import Metering Points with template                            | 2024.02.13 |
 | Metering Point         | `POST` | /api/v1/meter/export                     | Export Metering Points by attributes                                 | 2024.02.13 |
 | Balance State          | `POST` | /api/v1/balance-state/search             | Get balance state                                                    | 2024.03.12 |
-| Customer Overview      | `POST` | /api/v1/customer/search/representative   | Find Estonian Business Registry representations of Customer          | 2024.03.12 |
-| Customer Overview      | `POST` | /api/v1/customer/search/agreement        | Search Customer agreements                                           | 2024.03.12 |
-| Customer Overview      | `POST` | /api/v1/customer/search/meter            | Search Customer's Metering Points                                    | 2024.03.12 |
 | Reports                | `POST` | /api/v1/report/export/json               | Download report in JSON format                                       | 2024.03.31 |
 | Reports                | `POST` | /api/v1/report/export/excel              | Download report in Excel format                                      | 2024.03.31 |
 | Reports                | `POST` | /api/v1/report/search                    | Find reports                                                         | 2024.03.31 |
-| Joint Invoice          | `PUT`  | /api/v1/joint-invoice                    | Update a forwarded invoice                                           | 2024.05.15 |
-| Provider Management    | `PUT`  | /api/v1/identity                         | Update Identity                                                      | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/identity                         | Create Identity                                                      | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/provider                         | Create Provider                                                      | 2024.05.15 |
-| Provider Management    | `PUT`  | /api/v1/provider                         | Update Provider                                                      | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/provider/search                  | Search providers                                                     | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/market-role/search               | Get market roles                                                     | 2024.05.15 |
-| Provider Management    | `PUT`  | /api/v1/provider/market-role             | Update Market Role for Market Participant                            | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/provider/market-role             | Create Market Role for Market Participant                            | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/provider/market-role/search      | Get Market Role for Market Participant                               | 2024.05.15 |
-| Provider Management    | `POST` | /api/v1/provider/eic-range               | Get a list of unused EIC-s from range                                | 2024.05.15 |

@@ -48,20 +48,6 @@
 | Mõõtepunkt                | `POST` | /api/v1/meter/import                     | Mõõtepunktide massimport templiidi abil                          | 2024.02.13 |
 | Mõõtepunkt                | `POST` | /api/v1/meter/export                     | Mõõtepunktide eksportimine                                       | 2024.02.13 |
 | Bilanss                   | `POST` | /api/v1/balance-state/search             | Bilansihalduri piirkonnas toimunud muudatuste otsing             | 2024.03.12 |
-| Klient                    | `POST` | /api/v1/customer/search/representative   | Äriregistri esindusõiguste otsing                                | 2024.03.12 |
-| Klient                    | `POST` | /api/v1/customer/search/agreement        | Kliendi lepingute otsing                                         | 2024.03.12 |
-| Klient                    | `POST` | /api/v1/customer/search/meter            | Kliendi mõõtepunktide otsing                                     | 2024.03.12 |
 | Raport                    | `POST` | /api/v1/report/export/json               | JSON formaadis raporti allalaadimine                             | 2024.03.31 |
 | Raport                    | `POST` | /api/v1/report/export/excel              | MS Excel formaadis raporti allalaadimine                         | 2024.03.31 |
 | Raport                    | `POST` | /api/v1/report/search                    | Raportite otsing                                                 | 2024.03.31 |
-| Ühisarve võrguarve        | `PUT`  | /api/v1/joint-invoice                    | Ühisarve võrguarve muutmine                                      | 2024.05.15 |
-| Turuosaliste haldus       | `PUT`  | /api/v1/identity                         | Identiteedi lisamine                                             | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/identity                         | Identiteedi muutmine                                             | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/provider                         | Turosalise lisamine                                              | 2024.05.15 |
-| Turuosaliste haldus       | `PUT`  | /api/v1/provider                         | Turuosalise muutmine                                             | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/provider/search                  | Tururollide otsing                                               | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/market-role/search               | Turuosalise rollide otsing                                       | 2024.05.15 |
-| Turuosaliste haldus       | `PUT`  | /api/v1/provider/market-role             | Turuosalise rolli muutmine                                       | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/provider/market-role             | Turuosalise rolli lisamine                                       | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/provider/market-role/search      | Turuosalise rollide otsing                                       | 2024.05.15 |
-| Turuosaliste haldus       | `POST` | /api/v1/provider/eic-range               | EIC vahemikust vabade EIC koodide otsing                         | 2024.05.15 |

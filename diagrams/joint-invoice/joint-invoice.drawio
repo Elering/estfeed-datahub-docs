@@ -1,0 +1,348 @@
+<mxfile host="Electron" modified="2024-01-25T10:01:20.774Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="QGsCIA6_H02BtS0p0_FE" version="22.1.21" type="device" pages="4">
+  <diagram name="Add joint invoice" id="8MDporz_g2Um2DUFQjdH">
+    <mxGraphModel dx="1830" dy="837" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ErJsUryPeic-7oZZHzyE-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-1" target="ErJsUryPeic-7oZZHzyE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-1" value="Joint invoice agreement&lt;br&gt;signed and registered&lt;br&gt;in Datahub" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=bottom;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fontFamily=Helvetica;fontSize=12;fontColor=#4D4D4D;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="-8" y="292" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-2" target="ErJsUryPeic-7oZZHzyE-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-2" value="Compose joint invoice in agreed format" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#fff2cc;strokeColor=#4D4D4D;shadow=0;fontColor=#4D4D4D;gradientColor=#FFE6CC;gradientDirection=east;glass=0;collapsible=0;backgroundOutline=0;enumerate=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="115" y="287" width="140" height="60" as="geometry">
+            <mxRectangle x="340" y="420" width="90" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-4" target="ErJsUryPeic-7oZZHzyE-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ln-3Bt3ZYaKmS4pvewE-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-4" target="ErJsUryPeic-7oZZHzyE-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="368" y="404" />
+              <mxPoint x="17" y="404" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-4" value="Send joint invoice message" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#4D4D4D;fontColor=#4D4D4D;rounded=1;arcSize=20;shadow=0;gradientColor=#FFE6CC;gradientDirection=east;glass=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="308" y="287" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-6" target="ErJsUryPeic-7oZZHzyE-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-6" value="POST /api/{version}/joint-invoice" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="258" y="181" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-8" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;spacing=0;spacingTop=0;spacingLeft=0;spacingBottom=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="512" y="292" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-10" target="ErJsUryPeic-7oZZHzyE-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-10" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=bottom;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fontFamily=Helvetica;fontSize=12;fontColor=#4D4D4D;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;" vertex="1" parent="1">
+          <mxGeometry x="-8" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-11" target="ErJsUryPeic-7oZZHzyE-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-17" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-16">
+          <mxGeometry x="-0.0968" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-11" value="Sender and receiver&lt;br&gt;have joint invoice agreement(s)&lt;br&gt;for the whole period?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="105" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-13" target="ErJsUryPeic-7oZZHzyE-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-19" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-18">
+          <mxGeometry x="-0.0566" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-13" value="Customer and sender&lt;br&gt;have grid agreement&lt;br&gt;for the whole period?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="255" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-14" target="ErJsUryPeic-7oZZHzyE-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-25" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-21">
+          <mxGeometry x="-0.1389" y="-1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-14" target="ErJsUryPeic-7oZZHzyE-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="429" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-26" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-24">
+          <mxGeometry x="-0.5749" y="2" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-14" value="Customer and receiver&lt;br&gt;have open supply agreement&lt;br&gt;for the whole period?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="404" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-15" target="ErJsUryPeic-7oZZHzyE-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-23" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-22">
+          <mxGeometry x="0.0533" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-15" target="ErJsUryPeic-7oZZHzyE-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-31" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-30">
+          <mxGeometry y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-15" value="Customer and receiver&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;have named supply agreement&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;for the whole period?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=middle;labelBackgroundColor=#ffffff;verticalAlign=middle;align=left;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=right;spacingLeft=11;" vertex="1" parent="1">
+          <mxGeometry x="571" y="585" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-20" target="ErJsUryPeic-7oZZHzyE-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-20" value="Save joint invoice" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#fff2cc;strokeColor=#4D4D4D;shadow=0;fontColor=#4D4D4D;gradientColor=#FFE6CC;gradientDirection=east;glass=0;collapsible=0;backgroundOutline=0;enumerate=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="526" y="474" width="140" height="60" as="geometry">
+            <mxRectangle x="340" y="420" width="90" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-29" value="Error" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;spacing=0;spacingTop=0;spacingLeft=0;spacingBottom=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="571" y="689" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-11" target="ErJsUryPeic-7oZZHzyE-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="714" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-35" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-33">
+          <mxGeometry x="-0.7915" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-13" target="ErJsUryPeic-7oZZHzyE-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="714" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-36" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ErJsUryPeic-7oZZHzyE-34">
+          <mxGeometry x="-0.6837" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ErJsUryPeic-7oZZHzyE-37" target="ErJsUryPeic-7oZZHzyE-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-37" value="Distribute to open or named supplier" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#4D4D4D;fontColor=#4D4D4D;rounded=1;arcSize=20;shadow=0;gradientColor=#FFE6CC;gradientDirection=east;glass=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="723" y="474" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-39" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;spacing=0;spacingTop=0;spacingLeft=0;spacingBottom=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="904" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-41" value="Grid operator" style="swimlane;html=1;horizontal=0;startSize=20;strokeColor=#4D4D4D;fillColor=#dae8fc;connectable=0;allowArrows=0;recursiveResize=0;fontColor=#4D4D4D;gradientColor=#A9C4EB;gradientDirection=north;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="-82" y="169" width="1065" height="211" as="geometry" />
+        </mxCell>
+        <mxCell id="ErJsUryPeic-7oZZHzyE-42" value="Datahub" style="swimlane;html=1;horizontal=0;startSize=20;strokeColor=#4D4D4D;fillColor=#dae8fc;connectable=0;allowArrows=0;recursiveResize=0;fontColor=#4D4D4D;gradientColor=#A9C4EB;gradientDirection=north;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="-82" y="380" width="1065" height="395" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Update joint invoice" id="X2jLZjVCrs03dSrVPhsL">
+    <mxGraphModel dx="2074" dy="1214" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="Ytgb3KsRPZpZkvnP3kQw-0" />
+        <mxCell id="Ytgb3KsRPZpZkvnP3kQw-1" parent="Ytgb3KsRPZpZkvnP3kQw-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="RRt0JlioAHXpC4tP_UKX" name="Ühisarve võrguarve lisamine">
+    <mxGraphModel dx="2059" dy="971" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-2" target="aUxfDn-0duZV7Zlwz5kJ-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-2" value="Ühisarve leping on&amp;nbsp;&lt;br&gt;sõlmitud ja lisatud&lt;br&gt;Andmelattu" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=bottom;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fontFamily=Helvetica;fontSize=12;fontColor=#4D4D4D;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="-8" y="292" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-4" target="aUxfDn-0duZV7Zlwz5kJ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-4" value="Ühisarve võrguarve koostamine ettenähtud formaadis" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#fff2cc;strokeColor=#4D4D4D;shadow=0;fontColor=#4D4D4D;gradientColor=#FFE6CC;gradientDirection=east;glass=0;collapsible=0;backgroundOutline=0;enumerate=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="115" y="287" width="140" height="60" as="geometry">
+            <mxRectangle x="340" y="420" width="90" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-6" target="aUxfDn-0duZV7Zlwz5kJ-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="56tKm2xbbI2hdgiJlcFT-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-6" target="aUxfDn-0duZV7Zlwz5kJ-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="368" y="408" />
+              <mxPoint x="17" y="408" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-6" value="Ühisarve võrguarve sõnumi saatmine" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#4D4D4D;fontColor=#4D4D4D;rounded=1;arcSize=20;shadow=0;gradientColor=#FFE6CC;gradientDirection=east;glass=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="308" y="287" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-8" target="aUxfDn-0duZV7Zlwz5kJ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-8" value="POST /api/{version}/joint-invoice" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="258" y="181" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-9" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;spacing=0;spacingTop=0;spacingLeft=0;spacingBottom=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="512" y="292" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-11" target="aUxfDn-0duZV7Zlwz5kJ-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-11" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=bottom;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fontFamily=Helvetica;fontSize=12;fontColor=#4D4D4D;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;" vertex="1" parent="1">
+          <mxGeometry x="-8" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-14" target="aUxfDn-0duZV7Zlwz5kJ-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-13" value="JAH" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-12">
+          <mxGeometry x="-0.0968" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-14" value="Saatja ja adressaadi vahel&lt;br&gt;on kehtiv ühisarve leping,&amp;nbsp;&lt;br&gt;mis katab terve perioodi?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="105" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-17" target="aUxfDn-0duZV7Zlwz5kJ-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-16" value="JAH" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-15">
+          <mxGeometry x="-0.0566" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-17" value="Saatja ja kliendi vahel&lt;br&gt;on kehtiv võrguleping,&lt;br&gt;mis katab terve perioodi?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="255" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-22" target="aUxfDn-0duZV7Zlwz5kJ-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-19" value="JAH" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-18">
+          <mxGeometry x="-0.1389" y="-1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-22" target="aUxfDn-0duZV7Zlwz5kJ-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="429" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-21" value="EI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-20">
+          <mxGeometry x="-0.5749" y="2" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-22" value="Adressaadi ja kliendi vahel&lt;br&gt;on kehtiv avatud tarne leping,&lt;br&gt;mis katab terve perioodi?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="404" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-27" target="aUxfDn-0duZV7Zlwz5kJ-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-24" value="JAH" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-23">
+          <mxGeometry x="0.0533" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-27" target="aUxfDn-0duZV7Zlwz5kJ-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-26" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-25">
+          <mxGeometry y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-27" value="Adressaadi ja kliendi vahel&lt;br style=&quot;border-color: var(--border-color); text-align: center;&quot;&gt;&lt;span style=&quot;text-align: center;&quot;&gt;on kehtiv üldteenuse leping,&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); text-align: center;&quot;&gt;&lt;span style=&quot;text-align: center;&quot;&gt;mis katab terve perioodi?&lt;/span&gt;" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=middle;labelBackgroundColor=#ffffff;verticalAlign=middle;align=left;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#D5E8D4;strokeColor=#4D4D4D;rounded=0;shadow=0;gradientColor=#97D077;gradientDirection=east;spacing=0;labelPosition=right;spacingLeft=11;" vertex="1" parent="1">
+          <mxGeometry x="571" y="585" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-29" target="aUxfDn-0duZV7Zlwz5kJ-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-29" value="Ühisarve võrguarve salvestamine" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#fff2cc;strokeColor=#4D4D4D;shadow=0;fontColor=#4D4D4D;gradientColor=#FFE6CC;gradientDirection=east;glass=0;collapsible=0;backgroundOutline=0;enumerate=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="526" y="474" width="140" height="60" as="geometry">
+            <mxRectangle x="340" y="420" width="90" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-30" value="Veaolukord" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;spacing=0;spacingTop=0;spacingLeft=0;spacingBottom=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="571" y="689" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-14" target="aUxfDn-0duZV7Zlwz5kJ-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="714" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-32" value="EI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-31">
+          <mxGeometry x="-0.7915" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-17" target="aUxfDn-0duZV7Zlwz5kJ-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="714" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-34" value="EI" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="aUxfDn-0duZV7Zlwz5kJ-33">
+          <mxGeometry x="-0.6837" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aUxfDn-0duZV7Zlwz5kJ-36" target="aUxfDn-0duZV7Zlwz5kJ-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-36" value="Info levitamine avatud või nimetatud tarnijale" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#4D4D4D;fontColor=#4D4D4D;rounded=1;arcSize=20;shadow=0;gradientColor=#FFE6CC;gradientDirection=east;glass=0;labelBackgroundColor=none;labelBorderColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="723" y="474" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-37" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=top;labelBackgroundColor=#ffffff;verticalAlign=middle;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fontFamily=Helvetica;fontSize=12;fontColor=#000000;fillColor=#f8cecc;strokeColor=#4D4D4D;rounded=1;shadow=0;strokeWidth=1;gradientColor=#FF9999;gradientDirection=east;spacing=0;spacingTop=0;spacingLeft=0;spacingBottom=0;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="904" y="479" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-38" value="Võrguettevõtja" style="swimlane;html=1;horizontal=0;startSize=20;strokeColor=#4D4D4D;fillColor=#dae8fc;connectable=0;allowArrows=0;recursiveResize=0;fontColor=#4D4D4D;gradientColor=#A9C4EB;gradientDirection=north;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="-82" y="169" width="1065" height="211" as="geometry" />
+        </mxCell>
+        <mxCell id="aUxfDn-0duZV7Zlwz5kJ-39" value="Andmeladu" style="swimlane;html=1;horizontal=0;startSize=20;strokeColor=#4D4D4D;fillColor=#dae8fc;connectable=0;allowArrows=0;recursiveResize=0;fontColor=#4D4D4D;gradientColor=#A9C4EB;gradientDirection=north;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="-82" y="380" width="1065" height="395" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Zq9IDmpw0l-5gupltGjz" name="Ühisarve võrguarve muutmine">
+    <mxGraphModel dx="2074" dy="1214" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
