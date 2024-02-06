@@ -128,6 +128,7 @@ The data of the metering point is described in paragraph [Transmitting metering 
 | `PUT /api/{version}/meter`           | Update meter metadata                     |
 | `POST /api/{version}/template/meter` | Get metering point mass import templates  |
 | `POST /api/{version}/meter/import`   | Mass import metering points with template |
+| `POST /api/{version}/eic/range`      | Get a list of unused EICs from a range    |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

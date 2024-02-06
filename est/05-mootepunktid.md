@@ -171,6 +171,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 | `POST /api/{version}/meter/search/customer` | Mõõtepunkti otsing kliendi EIC koodi alusel |
 | `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                     |
 | `POST /api/{version}/meter/export`          | Mõõtepunktide eksportimine                  |
+| `POST /api/{version}/eic/range`             | EIC vahemikust vabade EIC koodide otsing    |
 
 > **Warning**
 > 

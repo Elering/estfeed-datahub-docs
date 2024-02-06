@@ -37,7 +37,6 @@ Ligipääsuõiguse andmete edastamiseks ja pärimiseks on loodud vastavad Andmel
 | Sõnum                                                | Eesmärk                                        |
 |------------------------------------------------------|------------------------------------------------|
 | `POST /api/{version}/customer-authorization/search`  | Võimaldab otsida ligipääsuõigusi               |
-| `POST /api/{version}/customer-authorization/change`  | Võimaldab skaneerida ligipääsuõiguste uuendusi |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

@@ -15,39 +15,41 @@
 | User Rights            | `POST` | /api/v1/user/rights/search               | Get user rights                                                      | Deployed   |
 | User role types        | `GET`  | /api/v1/user-role-type                   | Get user role types                                                  | Deployed   |
 | User market roles      | `GET`  | /api/v1/user/market-roles                | Get market roles of user                                             | Deployed   |
-| Network Bill           | `POST` | /api/v1/network-bill                     | Create or update network bill data                                   | 2024.01.18 |
-| Network Bill           | `POST` | /api/v1/network-bill/search              | Find network bill data                                               | 2024.01.18 |
-| Meter Data             | `POST` | /api/v1/meter-data/export                | Export meter data                                                    | 2024.01.18 |
-| Joint Invoice          | `POST` | /api/v1/joint-invoice                    | Create a joint invoice                                               | 2024.01.18 |
-| Joint Invoice          | `POST` | /api/v1/joint-invoice/search             | Find a joint invoice                                                 | 2024.01.18 |
-| Joint Invoice          | `POST` | /api/v1/joint-invoice/download           | Download a joint invoice                                             | 2024.01.18 |
-| Customer Authorization | `POST` | /api/v1/customer-authorization/search    | Search for authorizations given by the Customer in the Client Portal | 2024.01.18 |
-| Connection State       | `POST` | /api/v1/connection-state/search          | Find connection states                                               | 2024.01.31 |
-| Connection State       | `POST` | /api/v1/connection-state/message         | Create connection state message                                      | 2024.01.31 |
-| Connection State       | `POST` | /api/v1/connection-state/message-history | Find connection state message history                                | 2024.01.31 |
-| Connection State       | `POST` | /api/v1/connection-state/initiate        | Initiate connection state change                                     | 2024.01.31 |
-| Meter Data             | `POST` | /api/v1/meter-data/status                | Find meter data processing status                                    | 2024.01.31 |
-| Meter Data             | `POST` | /api/v1/meter-data/search                | Find meter data                                                      | 2024.01.31 |
-| Meter Data             | `POST` | /api/v1/meter-data/import                | Bulk import of metering data                                         | 2024.01.31 |
-| Agreement              | `POST` | /api/v1/agreement/search/meter           | Find agreements by Metering Point                                    | 2024.01.31 |
-| Authorization          | `POST` | /api/v1/authorization/search             | Get user authorizations by market role                               | 2024.01.31 |
-| Authorization          | `POST` | /api/v1/authorization/delete             | Delete user authorization                                            | 2024.01.31 |
-| Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params         | 2024.01.31 |
-| Customer               | `PUT`  | /api/v1/customer                         | Update customer with metadata                                        | 2024.02.13 |
-| Customer               | `POST` | /api/v1/customer                         | Create customer with metadata                                        | 2024.02.13 |
-| Customer               | `POST` | /api/v1/customer/search                  | Find a customer by identity                                          | 2024.02.13 |
-| Technical User         | `POST` | /api/v1/idr/technical-user               | Create technical user                                                | 2024.02.13 |
-| Technical User         | `PUT`  | /api/v1/idr/technical-user               | Invalidate technical user                                            | 2024.02.13 |
-| Technical User         | `POST` | /api/v1/idr/technical-user/search        | Find technical users                                                 | 2024.02.13 |
-| Technical User         | `POST` | /api/v1/idr/technical-user/role          | List technical user roles                                            | 2024.02.13 |
-| Metering Point         | `PUT`  | /api/v1/meter                            | Update Metering Point's metadata                                     | 2024.02.13 |
-| Metering Point         | `POST` | /api/v1/meter                            | Create Metering Point with metadata                                  | 2024.02.13 |
-| Metering Point         | `POST` | /api/v1/meter/search                     | Find a Metering Point by attributes                                  | 2024.02.13 |
-| Metering Point         | `POST` | /api/v1/meter/search/customer            | Find a Metering Point by Customer EIC                                | 2024.02.13 |
-| Metering Point         | `POST` | /api/v1/meter/search/border              | Get border Metering Points by customer                               | 2024.02.13 |
-| Metering Point         | `POST` | /api/v1/meter/import                     | Mass import Metering Points with template                            | 2024.02.13 |
-| Metering Point         | `POST` | /api/v1/meter/export                     | Export Metering Points by attributes                                 | 2024.02.13 |
-| Balance State          | `POST` | /api/v1/balance-state/search             | Get balance state                                                    | 2024.03.12 |
+| Network Bill           | `POST` | /api/v1/network-bill                     | Create or update network bill data                                   | Deployed   |
+| Network Bill           | `POST` | /api/v1/network-bill/search              | Find network bill data                                               | Deployed   |
+| Meter Data             | `POST` | /api/v1/meter-data/export                | Export meter data                                                    | Deployed   |
+| Joint Invoice          | `POST` | /api/v1/joint-invoice                    | Create a joint invoice                                               | Deployed   |
+| Joint Invoice          | `POST` | /api/v1/joint-invoice/search             | Find a joint invoice                                                 | Deployed   |
+| Joint Invoice          | `POST` | /api/v1/joint-invoice/download           | Download a joint invoice                                             | Deployed   |
+| Customer Authorization | `POST` | /api/v1/customer-authorization/search    | Search for authorizations given by the Customer in the Client Portal | Deployed   |
+| Connection State       | `POST` | /api/v1/connection-state/search          | Find connection states                                               | Deployed   |
+| Connection State       | `POST` | /api/v1/connection-state/message         | Create connection state message                                      | Deployed   |
+| Connection State       | `POST` | /api/v1/connection-state/message-history | Find connection state message history                                | Deployed   |
+| Connection State       | `POST` | /api/v1/connection-state/initiate        | Initiate connection state change                                     | Deployed   |
+| Meter Data             | `POST` | /api/v1/meter-data/status                | Find meter data processing status                                    | Deployed   |
+| Meter Data             | `POST` | /api/v1/meter-data/search                | Find meter data                                                      | Deployed   |
+| Meter Data             | `POST` | /api/v1/meter-data/import                | Bulk import of metering data                                         | Deployed   |
+| Agreement              | `POST` | /api/v1/agreement/search/meter           | Find agreements by Metering Point                                    | Deployed   |
+| Authorization          | `POST` | /api/v1/authorization/search             | Get user authorizations by market role                               | Deployed   |
+| Authorization          | `POST` | /api/v1/authorization/delete             | Delete user authorization                                            | Deployed   |
+| Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params         | Deployed   |
+| Customer               | `PUT`  | /api/v1/customer                         | Update customer with metadata                                        | 2024.02.19 |
+| Customer               | `POST` | /api/v1/customer                         | Create customer with metadata                                        | 2024.02.19 |
+| Customer               | `POST` | /api/v1/customer/search                  | Find a customer by identity                                          | 2024.02.19 |
+| Technical User         | `POST` | /api/v1/idr/technical-user               | Create technical user                                                | 2024.02.19 |
+| Technical User         | `PUT`  | /api/v1/idr/technical-user               | Invalidate technical user                                            | 2024.02.19 |
+| Technical User         | `POST` | /api/v1/idr/technical-user/search        | Find technical users                                                 | 2024.02.19 |
+| Technical User         | `POST` | /api/v1/idr/technical-user/role          | List technical user roles                                            | 2024.02.19 |
+| Metering Point         | `PUT`  | /api/v1/meter                            | Update Metering Point's metadata                                     | 2024.02.19 |
+| Metering Point         | `POST` | /api/v1/meter                            | Create Metering Point with metadata                                  | 2024.02.19 |
+| Metering Point         | `POST` | /api/v1/meter/search                     | Find a Metering Point by attributes                                  | 2024.02.19 |
+| Metering Point         | `POST` | /api/v1/meter/search/customer            | Find a Metering Point by Customer EIC                                | 2024.02.19 |
+| Metering Point         | `POST` | /api/v1/meter/search/border              | Get border Metering Points by customer                               | 2024.02.19 |
+| Metering Point         | `POST` | /api/v1/meter/import                     | Mass import Metering Points with template                            | 2024.02.19 |
+| Metering Point         | `POST` | /api/v1/meter/export                     | Export Metering Points by attributes                                 | 2024.02.19 |
+| Balance State          | `POST` | /api/v1/balance-state/search             | Get balance state                                                    | 2024.03.01 |
+| EIC                    | `POST` | /api/v1/eic/range                        | Get a list of unused EICs from a range                               | 2024.03.01 |
 | Reports                | `POST` | /api/v1/report/export/json               | Download report in JSON format                                       | 2024.03.31 |
 | Reports                | `POST` | /api/v1/report/export/excel              | Download report in Excel format                                      | 2024.03.31 |
 | Reports                | `POST` | /api/v1/report/search                    | Find reports                                                         | 2024.03.31 |
+| Joint Invoice          | `PUT`  | /api/v1/joint-invoice                    | Update a forwarded invoice                                           | 2024.05.15 |

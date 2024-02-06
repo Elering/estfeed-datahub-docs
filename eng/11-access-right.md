@@ -37,7 +37,6 @@ Relevant Datahub services have been set up to transmit and request access right 
 | Message                                             | Objective                                     |
 |-----------------------------------------------------|-----------------------------------------------|
 | `POST /api/{version}/customer-authorization/search` | Allows the user to search for access rights.  |
-| `POST /api/{version}/customer-authorization/change` | Allows the user to scan access right updates. |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
