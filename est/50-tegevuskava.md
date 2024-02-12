@@ -33,20 +33,20 @@
 | Ligipääsuõigus            | `POST` | /api/v1/authorization/search             | Kasutaja ligipääsuõiguste otsing                                 | Valmis     |
 | Ligipääsuõigus            | `POST` | /api/v1/authorization/delete             | Kasutaja ligipääsuõiguse kustutamine                             | Valmis     |
 | Andmete levitamine        | `POST` | /api/v1/data-distribution/search         | Erinevate andmeobjektide muudatuste teavitused                   | Valmis     |
-| Klient                    | `PUT`  | /api/v1/customer                         | Kliendi ja tema metaandmete muutmine                             | 2024.02.13 |
-| Klient                    | `POST` | /api/v1/customer                         | Kliendi ja tema metaandmete lisamine                             | 2024.02.13 |
-| Klient                    | `POST` | /api/v1/customer/search                  | Kliendi ja tema metaandmete otsing                               | 2024.02.13 |
-| Tehniline kasutaja        | `POST` | /api/v1/idr/technical-user               | Tehnilise kasutaja loomine                                       | 2024.02.13 |
-| Tehniline kasutaja        | `PUT`  | /api/v1/idr/technical-user               | Tehnilise kasutaja kehtetuks muutmine                            | 2024.02.13 |
-| Tehniline kasutaja        | `POST` | /api/v1/idr/technical-user/search        | Tehnilise kasutaja otsing                                        | 2024.02.13 |
-| Tehniline kasutaja        | `POST` | /api/v1/idr/technical-user/role          | Tehnilise kasutaja rollide otsing                                | 2024.02.13 |
-| Mõõtepunkt                | `PUT`  | /api/v1/meter                            | Mõõtepunkti andmete muutmine                                     | 2024.02.13 |
-| Mõõtepunkt                | `POST` | /api/v1/meter                            | Mõõtepunkti lisamine                                             | 2024.02.13 |
-| Mõõtepunkt                | `POST` | /api/v1/meter/search                     | Mõõtepunkti otsing                                               | 2024.02.13 |
-| Mõõtepunkt                | `POST` | /api/v1/meter/search/customer            | Mõõtepunkti otsing kliendi EIC koodi alusel                      | 2024.02.13 |
-| Mõõtepunkt                | `POST` | /api/v1/meter/search/border              | Piirimõõtepunkti otsing                                          | 2024.02.13 |
-| Mõõtepunkt                | `POST` | /api/v1/meter/import                     | Mõõtepunktide massimport templiidi abil                          | 2024.02.13 |
-| Mõõtepunkt                | `POST` | /api/v1/meter/export                     | Mõõtepunktide eksportimine                                       | 2024.02.13 |
+| Klient                    | `PUT`  | /api/v1/customer                         | Kliendi ja tema metaandmete muutmine                             | 2024.02.19 |
+| Klient                    | `POST` | /api/v1/customer                         | Kliendi ja tema metaandmete lisamine                             | 2024.02.19 |
+| Klient                    | `POST` | /api/v1/customer/search                  | Kliendi ja tema metaandmete otsing                               | 2024.02.19 |
+| Tehniline kasutaja        | `POST` | /api/v1/idr/technical-user               | Tehnilise kasutaja loomine                                       | 2024.02.19 |
+| Tehniline kasutaja        | `PUT`  | /api/v1/idr/technical-user               | Tehnilise kasutaja kehtetuks muutmine                            | 2024.02.19 |
+| Tehniline kasutaja        | `POST` | /api/v1/idr/technical-user/search        | Tehnilise kasutaja otsing                                        | 2024.02.19 |
+| Tehniline kasutaja        | `POST` | /api/v1/idr/technical-user/role          | Tehnilise kasutaja rollide otsing                                | 2024.02.19 |
+| Mõõtepunkt                | `PUT`  | /api/v1/meter                            | Mõõtepunkti andmete muutmine                                     | 2024.02.19 |
+| Mõõtepunkt                | `POST` | /api/v1/meter                            | Mõõtepunkti lisamine                                             | 2024.02.19 |
+| Mõõtepunkt                | `POST` | /api/v1/meter/search                     | Mõõtepunkti otsing                                               | 2024.02.19 |
+| Mõõtepunkt                | `POST` | /api/v1/meter/search/customer            | Mõõtepunkti otsing kliendi EIC koodi alusel                      | 2024.02.19 |
+| Mõõtepunkt                | `POST` | /api/v1/meter/search/border              | Piirimõõtepunkti otsing                                          | 2024.02.19 |
+| Mõõtepunkt                | `POST` | /api/v1/meter/import                     | Mõõtepunktide massimport templiidi abil                          | 2024.02.19 |
+| Mõõtepunkt                | `POST` | /api/v1/meter/export                     | Mõõtepunktide eksportimine                                       | 2024.02.19 |
 | Bilanss                   | `POST` | /api/v1/balance-state/search             | Bilansihalduri piirkonnas toimunud muudatuste otsing             | 2024.03.01 |
 | EIC                       | `POST` | /api/v1/eic/range                        | EIC vahemikust vabade EIC koodide otsing                         | 2024.03.01 |
 | Raport                    | `POST` | /api/v1/report/export/json               | JSON formaadis raporti allalaadimine                             | 2024.03.31 |
