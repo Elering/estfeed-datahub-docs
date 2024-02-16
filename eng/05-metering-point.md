@@ -135,6 +135,9 @@ For a description of message structures and validations, see [Datahub descriptio
 #### Message rules
 
 - The EIC of the metering point must be within the range of the grid operator’s EICs.
+- The `marketParticipantContext.commodityType` of the message defines the commodity type of the metering point and consequently the allowed metadata:
+  - for `ELECTRICITY` value - electricity or aggregation metadata is allowed and required;
+  - for `NATURAL_GAS` value - gas or aggregation metadata is allowed and required;
 - The type of the metering point defines the allowed metadata:
   - regular, border, internal types – gas or electricity metadata are allowed;
   - aggregation – aggregation metadata are allowed.

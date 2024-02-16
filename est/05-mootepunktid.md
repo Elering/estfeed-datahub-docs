@@ -134,6 +134,9 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 #### Sõnumite reeglid
 
 - Mõõtepunkti EIC kood peab jääma võrguettevõtja EIC koodide vahemikku.
+- Mõõtepunki sõnumi `marketParticipantContext.commodityType` määrab mõõtepunkti energiakandja liigi ning sellest tulenevalt lubatud metaandmestiku:
+  - väärtuse `ELECTRICITY` puhul - lubatud ja nõutud on elektri või agregeerimise metaandmestik;
+  - väärtuse `NATURAL_GAS` puhul - lubatud ja nõutud on gaasi või agregeerimise metaandmestik;
 - Mõõtepunkti tüüp defineerib lubatud metaandmestiku:
   - regulaarne, piirimõõtepunkt, sisemine - lubatud on gaasi või elektri metaandmestik;
   - agregeerimise - lubatud on agregeerimise metaandmestik;
