@@ -33,20 +33,20 @@
 | Authorization          | `POST` | /api/v1/authorization/search             | Get user authorizations by market role                               | Deployed   |
 | Authorization          | `POST` | /api/v1/authorization/delete             | Delete user authorization                                            | Deployed   |
 | Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params         | Deployed   |
-| Customer               | `PUT`  | /api/v1/customer                         | Update customer with metadata                                        | 2024.02.19 |
-| Customer               | `POST` | /api/v1/customer                         | Create customer with metadata                                        | 2024.02.19 |
-| Customer               | `POST` | /api/v1/customer/search                  | Find a customer by identity                                          | 2024.02.19 |
-| Technical User         | `POST` | /api/v1/idr/technical-user               | Create technical user                                                | 2024.02.19 |
-| Technical User         | `PUT`  | /api/v1/idr/technical-user               | Invalidate technical user                                            | 2024.02.19 |
-| Technical User         | `POST` | /api/v1/idr/technical-user/search        | Find technical users                                                 | 2024.02.19 |
-| Technical User         | `POST` | /api/v1/idr/technical-user/role          | List technical user roles                                            | 2024.02.19 |
-| Metering Point         | `PUT`  | /api/v1/meter                            | Update Metering Point's metadata                                     | 2024.02.19 |
-| Metering Point         | `POST` | /api/v1/meter                            | Create Metering Point with metadata                                  | 2024.02.19 |
-| Metering Point         | `POST` | /api/v1/meter/search                     | Find a Metering Point by attributes                                  | 2024.02.19 |
-| Metering Point         | `POST` | /api/v1/meter/search/customer            | Find a Metering Point by Customer EIC                                | 2024.02.19 |
-| Metering Point         | `POST` | /api/v1/meter/search/border              | Get border Metering Points by customer                               | 2024.02.19 |
-| Metering Point         | `POST` | /api/v1/meter/import                     | Mass import Metering Points with template                            | 2024.02.19 |
-| Metering Point         | `POST` | /api/v1/meter/export                     | Export Metering Points by attributes                                 | 2024.02.19 |
+| Customer               | `PUT`  | /api/v1/customer                         | Update customer with metadata                                        | Deployed   |
+| Customer               | `POST` | /api/v1/customer                         | Create customer with metadata                                        | Deployed   |
+| Customer               | `POST` | /api/v1/customer/search                  | Find a customer by identity                                          | Deployed   |
+| Technical User         | `POST` | /api/v1/idr/technical-user               | Create technical user                                                | Deployed   |
+| Technical User         | `PUT`  | /api/v1/idr/technical-user               | Invalidate technical user                                            | Deployed   |
+| Technical User         | `POST` | /api/v1/idr/technical-user/search        | Find technical users                                                 | Deployed   |
+| Technical User         | `POST` | /api/v1/idr/technical-user/role          | List technical user roles                                            | Deployed   |
+| Metering Point         | `PUT`  | /api/v1/meter                            | Update Metering Point's metadata                                     | Deployed   |
+| Metering Point         | `POST` | /api/v1/meter                            | Create Metering Point with metadata                                  | Deployed   |
+| Metering Point         | `POST` | /api/v1/meter/search                     | Find a Metering Point by attributes                                  | Deployed   |
+| Metering Point         | `POST` | /api/v1/meter/search/customer            | Find a Metering Point by Customer EIC                                | Deployed   |
+| Metering Point         | `POST` | /api/v1/meter/search/border              | Get border Metering Points by customer                               | Deployed   |
+| Metering Point         | `POST` | /api/v1/meter/import                     | Mass import Metering Points with template                            | Deployed   |
+| Metering Point         | `POST` | /api/v1/meter/export                     | Export Metering Points by attributes                                 | Deployed   |
 | Balance State          | `POST` | /api/v1/balance-state/search             | Get balance state                                                    | 2024.03.01 |
 | EIC                    | `POST` | /api/v1/eic/range                        | Get a list of unused EICs from a range                               | 2024.03.01 |
 | Reports                | `POST` | /api/v1/report/export/json               | Download report in JSON format                                       | 2024.03.31 |

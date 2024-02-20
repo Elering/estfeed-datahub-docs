@@ -115,7 +115,7 @@ Business errors:
 - `opp.error.business.name-has-no-extension`: 'Extension cannot be assigned to Name'
 - `opp.error.business.customer-type-identity-type-mismatch`: 'This Customer type cannot have the given Identity type'
 - `opp.error.business.internal-id-resolve-error`: 'Internal ID of the Service Provider cannot be resolved.'
-- `opp.error.business.only-market-participants-can-be-searched-by-name: 'Only Market Participants can be searched by name'
+- `opp.error.business.only-market-participants-can-be-searched-by-name`: 'Only Market Participants can be searched by name'
 
 ## /data-distribution
 
