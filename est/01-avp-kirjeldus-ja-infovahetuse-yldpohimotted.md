@@ -147,4 +147,4 @@ sõnum töötlematuks ja seda ei aktsepteerita vastuvõtval poolel.
 
 Kasutusel on klassikalised REST API vastuskoodid. Veaolukordade korral tagastab süsteem võimalusel info vea põhjuse kohta. Vea kirjeldused on nii inim- kui masinloatavas formaadis.
 
-Vastussõnumite struktuurid on leitavad OpenApi teenuste kirjeldustest.
+Loe täpsemalt dokumendist [Andmevahetusliidese veakoodid](35-veakoodid.md)

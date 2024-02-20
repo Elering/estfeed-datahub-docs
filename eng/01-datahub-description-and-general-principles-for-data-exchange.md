@@ -139,4 +139,4 @@ message cannot be processed and will not be accepted at the receiving end.
 
 The Datahub uses classic REST API response codes. In the event of an error, the system will return information on the cause of the error if possible. Error descriptions are in both human-readable and machine-readable formats.
 
-The structures of the responses can be found in OpenApi descriptions.
+Read more in document [API error codes](35-error_codes.md)
