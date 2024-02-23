@@ -125,7 +125,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 - Ühel ajahetkel saab kehtida ainult üks sama tüübiga metaandmestik. Andmete uuendamisel muudab Andmeladu eelmise väärtuse kehtetuks (vastavalt edastatud `validFrom` ja `validTo` väärtustele või nende puudumisel automaatselt).
 - Metaandmestiku `BILLING_METHOD` reeglid:
   - Lubatud väärtused on: `EMAIL`, `POST` ja `BANK`
-  - Mitme väärtuse lisamisel on lubatud komaga eraldatud andmed. Näiteks: `EMAIL,POST`
+  - Mitme väärtuse lisamisel on lubatud komaga eraldatud andmed. Näiteks: `EMAIL,POST` (ilma tühikuteta)
   - Täiendavate metaandmete vajadus sõltuvalt väärtusest:
     - väärtuse `EMAIL` korral peab sõnumis või varasemas andmestikus eksisteerima metaandmestik `EMAIL`
     - väärtuse `POST` korral peab sõnumis või varasemas andmestikus eksisteerima metaandmestik `BILLING_ADDRESS`

@@ -126,7 +126,7 @@ One identity can have multiple extension. For example if the `identityType` valu
 - Only one metadata of the same type can be valid at a time. When updating the data, the Datahub invalidates the previous value (according to the transmitted `validFrom` and `validTo` values, or automatically if they are not provided).
 - Additional rules for metadata `BILLING_METHOD`:
   - Allowed values are: `EMAIL`, `POST` and `BANK`
-  - For sending multiple values, use comma separated values, like `EMAIL,POST`
+  - For sending multiple values, use comma separated values, like `EMAIL,POST` (without spaces)
   - Depending on the value, additional data might be required:
     - In case of value `EMAIL`, the customer must already have or the message must contain metadata with type `EMAIL`
     - In case of value `POST`, the customer must already have or the message must contain metadata with type `BILLING_ADDRESS`

@@ -85,8 +85,16 @@ Dependencies and rules between agreements:
 
 Other rules:
 
-- The start time of the agreement is given to the day, the agreement will start at 00:00 on the day in question.
-- The end time of the agreement is given to the day, the agreement will end at midnight on the day in question.
+- The start and end time of the agreement is presented in the user interface with the accuracy of the day or month:
+  - If the type of agreement allows validity periods to be determined by month:
+    - the agreement starts on the first day of the selected month at 00:00
+    - the agreement ends at midnight of the last day of the selected month.
+  - If the type of agreement allows the validity period to be determined by days:
+    - the agreement starts at 00:00 on the selected day
+    - the agreement ends at midnight of the selected day.
+- The start and end time of the agreement is presented in the API with the accuracy of date and time:
+  - The start time of the agreement must be 00:00:00 Estonian time on the first day of the agreement validity. The Datahub interprets the date and time provided as inclusive. For example, if the agreement should start from the beginning of 01.01.2024, `2024-01-01T:00:00+02:00` or `2023-12-31T22:00:00Z` must be sent in the message.
+  - The end time of the agreement must be 00:00:00 Estonian time of the day following the end of the agreement. The Datahub interprets the provided date and time as exclusive. For example, if the agreement should end at midnight on 30.04.2024, then `2024-05-01T00:00:00+03:00` or `2024-04-30T21:00:00Z` must be sent in the message, which according to the Datahub business logic means that the agreement was valid until 30.04.2024 23:59:59.
 - The end date of the agreement must be later than the start date.
 - It is not permitted to *delete* a valid or expired agreement. It is possible to close a valid agreement by updating the value of the end date of the agreement.
 - The type of energy indicated in the agreement must be the same as the type of energy at the metering point indicated in the agreement (if the type of agreement provides for this information).
