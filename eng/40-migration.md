@@ -65,7 +65,6 @@ Compared to the previous Datahub, the new Datahub has the following new function
 - A new agreement type has been added: [Aggregation agreement](06.6-aggregation-agreement.md).
 - Adding and updating a customer is separated from agreement.
 - There is a new concept of a master metering point.
-- The processing of metering data can be asynchronous.
 - Location data now include ADS’s ADR_ID and comment.
 - A 15 min resolution has been added to reading resolutions.
 - There are new customer types: ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR.
@@ -80,3 +79,4 @@ Compared to the previous Datahub, the new Datahub has the following new function
 - Joint Invoice billing metadata can be added as Customer metadata.
 - Datahub now generates GENERAL_SERVICE agreements automatically and distributes this knowledge to grid operator and named supplier
 - Added support for technical users in the API authentication and authorization.
+- The process of receiving and processing metering data has become asynchronous. The processing result can be obtained from the `/meter-data/status` service.

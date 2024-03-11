@@ -3,7 +3,7 @@
 ## API arendused
 
 | Teema                     | Tüüp   | Otspunkt                                 | Kirjeldus                                                        | Valmimine  |
-|---------------------------|--------|------------------------------------------|------------------------------------------------------------------|------------|
+| ------------------------- | ------ | ---------------------------------------- | ---------------------------------------------------------------- | ---------- |
 | Leping                    | `POST` | /api/v1/agreement                        | Lepingu loomine                                                  | Valmis     |
 | Leping                    | `PUT`  | /api/v1/agreement                        | Lepingu uuendamine                                               | Valmis     |
 | Leping                    | `POST` | /api/v1/agreement/search                 | Lepingute otsing                                                 | Valmis     |
@@ -47,8 +47,8 @@
 | Mõõtepunkt                | `POST` | /api/v1/meter/search/border              | Piirimõõtepunkti otsing                                          | Valmis     |
 | Mõõtepunkt                | `POST` | /api/v1/meter/import                     | Mõõtepunktide massimport templiidi abil                          | Valmis     |
 | Mõõtepunkt                | `POST` | /api/v1/meter/export                     | Mõõtepunktide eksportimine                                       | Valmis     |
-| Bilanss                   | `POST` | /api/v1/balance-state/search             | Bilansihalduri piirkonnas toimunud muudatuste otsing             | 2024.03.01 |
-| EIC                       | `POST` | /api/v1/eic/range                        | EIC vahemikust vabade EIC koodide otsing                         | 2024.03.01 |
+| Bilanss                   | `POST` | /api/v1/balance-settlement-point/search  | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi        | Valmis     |
+| EIC                       | `POST` | /api/v1/meter/eic/amount                 | EIC vahemikust vabade EIC koodide otsing                         | Valmis     |
 | Raport                    | `POST` | /api/v1/report/export/json               | JSON formaadis raporti allalaadimine                             | 2024.03.31 |
 | Raport                    | `POST` | /api/v1/report/export/excel              | MS Excel formaadis raporti allalaadimine                         | 2024.03.31 |
 | Raport                    | `POST` | /api/v1/report/search                    | Raportite otsing                                                 | 2024.03.31 |

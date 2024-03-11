@@ -80,8 +80,8 @@ The data of metering point is the same in all interfaces. The data of a metering
 | chargingPoint         | Charging Point                      | is charging point?                         | yes        | One of: TRUE (yes), FALSE (no)                                                                |
 | storageCapacity       | Storage Capacity                    | storage capacity in kW                     | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
 | storageEnergy         | Storage Energy                      | storage capacity  energy in kWh            | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
-| productionCapacity    | Production Capacity                 |                                            | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
-| transmissionCapacity  | Transmission Capacity               |                                            | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
+| productionCapacity    | Production Capacity                 | production capacity in kW                  | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
+| transmissionCapacity  | Transmission Capacity               | transmission capacity in kW                | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
 
 - Specific data for aggregation metering points:
 

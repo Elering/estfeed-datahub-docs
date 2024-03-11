@@ -7,10 +7,13 @@
   - [Sissejuhatus](#sissejuhatus)
   - [Katkematu avatud tarne](#katkematu-avatud-tarne)
   - [Lepingute edastamine](#lepingute-edastamine)
-    - [Lepingute edastamine veebiliidese abil](#lepingute-edastamine-veebiliidese-abil)
+    - [Veebiliidese abil](#veebiliidese-abil)
     - [Masinliidese sõnumid](#masinliidese-sõnumid)
-      - [Sõnumid](#sõnumid)
       - [Sõnumite reeglid](#sõnumite-reeglid)
+  - [Lepingute otsimine ja eksport](#lepingute-otsimine-ja-eksport)
+    - [Masinliidese sõnumid](#masinliidese-sõnumid-1)
+      - [Sõnumite reeglid](#sõnumite-reeglid-1)
+    - [Veebiliidese abil](#veebiliidese-abil-1)
 
 ## Sissejuhatus
 
@@ -46,25 +49,20 @@ Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andme
 - Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `data-distribution/search` teenuse vahendusel.
 - Õigustatud kasutaja pärib lepingu andmed `agreement/search` teenusest ning vajadusel ekspordib lepinguid kasutades teenust `agreement/export`.
 
-### Lepingute edastamine veebiliidese abil
+### Veebiliidese abil
 
 > **Note**
-> Veebiliides on valmimisel
+> Lepingute loomine veebiliidese abil on kirjeldatud alamlehtedel.
 
 ### Masinliidese sõnumid
 
 Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasutusel samad sõnumid ja andmestruktuurid. Küll aga tasub tähele panna, et erinevatel lepingutel on erinevad reeglid ja seega ka erinev nõutud ja lubatud andmekoosseis.
-
-#### Sõnumid
 
 | Sõnum                                        | Eesmärk                      |
 |----------------------------------------------|------------------------------|
 | `POST /api/{version}/agreement`              | Lepingu loomine              |
 | `PUT /api/{version}/agreement`               | Lepingu uuendamine           |
 | `POST /api/{version}/agreement/delete`       | Lepingu kustutamine          |
-| `POST /api/{version}/agreement/search`       | Lepingute otsing             |
-| `POST /api/{version}/agreement/search/meter` | Mõõtepunkti lepingute otsing |
-| `POST /api/{version}/agreement/export`       | Lepingute eksport            |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
@@ -81,7 +79,6 @@ Lepingute omavahelised sõltuvused ja reeglid:
 - Agregaator saab agregeerimislepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  agregaator on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Avatud tarne lepingu sõlmimise aluseks on kehtiv võrguleping mõõtepunktis. Avatud tarne lepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
 - Agregeerimislepingu sõlmimise aluseks on kehtiv võrguleping võrgu mõõtepunktis (mida nimetatakse ka ülemmõõtepunktiks). Agregeerimislepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
-- Avatud tarne ja agregeerimislepingu klient peab olema sama isik, kes on ka võrgulepingu klient.
 
 Muud reeglid:
 
@@ -102,3 +99,38 @@ Muud reeglid:
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
+
+## Lepingute otsimine ja eksport
+
+Lepinguid otsitakse kahes äriprotsessis:
+
+- Kui turuosaline soovib leida (ja soovi korral eksportida) lepinguid, kus ta on teenusepakkuja või klient.
+- Kui turuosaline soovib lisada uut võrgu, avatud tarne või agregeerimise lepingut ja soovib näha mõõtepunkti teisi lepinguid
+
+### Masinliidese sõnumid
+
+Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasutusel samad sõnumid ja andmestruktuurid. Küll aga tasub tähele panna, et erinevatel lepingutel on erinevad reeglid ja seega ka erinev nõutud ja lubatud andmekoosseis.
+
+| Sõnum                                        | Eesmärk                                                            |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| `POST /api/{version}/agreement/search`       | Lepingute otsing, kus turuosaline on kas teenusepakkuja või klient |
+| `POST /api/{version}/agreement/search/meter` | Mõõtepunkti teiste lepingute otsing uue lepingu lisamisel          |
+| `POST /api/{version}/agreement/export`       | Lepingute eksport                                                  |
+
+Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
+
+> **Note**
+> Sõnumite näidiste kogumik on loomisel
+
+#### Sõnumite reeglid
+
+> **Warning**
+> 
+> Teenuse `/agreement/search/meter` kasutamine on lubatud ainult uue lepingu loomise protsessis. Teenuse kasutamist ja kasutamise õiguspärastust monitooritakse.
+
+- Mõõtepunkti lepingute otsingu teenus tagastab lepinguite täisandmestiku ainult juhul, kui otsingu teostaja on lepingu teenusepakkuja või kui mõõtepunkti klient on andnud turuosalisele esindusõiguse
+
+### Veebiliidese abil
+
+> **Note**
+> Lepingute loomine veebiliidese abil on kirjeldatud alamlehtedel.

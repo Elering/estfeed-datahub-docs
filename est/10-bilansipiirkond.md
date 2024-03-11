@@ -6,11 +6,9 @@
   - [Sisukord](#sisukord)
   - [Sissejuhatus](#sissejuhatus)
   - [Bilansipiirkonna sõnum](#bilansipiirkonna-sõnum)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid)
-    - [Sõnumid](#sõnumid)
-    - [Sõnumi reeglid](#sõnumi-reeglid)
-  - [Summeeritud mõõteandmete sõnum](#summeeritud-mõõteandmete-sõnum)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid-1)
+  - [Masinliidese sõnumid](#masinliidese-sõnumid)
+  - [Sõnumi reeglid](#sõnumi-reeglid)
+  - [Sõnumi atribuutide reeglid](#sõnumi-atribuutide-reeglid)
 
 ## Sissejuhatus
 
@@ -32,44 +30,37 @@ Bilansihalduri bilansipiirkond on Andmelaos bilansihaldurile nähtav järgmiselt
 
 Bilansihaldur saab Andmelaost mõõteandmed järgmiselt:
 
-1. Mõõteandmed nendest mõõtepunktidest, mis on elektrilepingute alusel bilansihalduri avatud tarne ahelas.
+1. Mõõteandmed nendest mõõtepunktidest, mis on lepingute alusel bilansihalduri avatud tarne ahelas.
 2. Kui võrguettevõtja piirimõõtepunktid on selle bilansihalduri bilansipiirkonna piirimõõtepunktid, saadakse mõõteandmed samuti nendest piirimõõtepunktidest.
-3. Summeeritult mõõteandmed võrguettevõtja piirkonnas olevate mõõtepunktide kohta, mis on teiste bilansihaldurite portfellides. Raport edastatakse eelmise perioodi andmetega kell 10.30 bilansihalduri poolt Andmelaos märgitud aadressile.
 
 ## Bilansipiirkonna sõnum
 
-Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toimunud muudatuste edastamiseks. Bilansipiirkonna muudatussõnumi genereerimise ja edastamise protsess on järgmine:
+Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toimunud bilansiselgituse mõõtepunktide muudatuste edastamiseks. Bilansipiirkonna muudatussõnumi genereerimise ja edastamise protsess on järgmine:
 
-- Andmelaos registreeritakse uus võrgu- või avatud tarne või portfellileping VÕI olemasolev võrgu- või avatud tarne või portfellileping lõppeb.
-- Andmeladu arvutab kord ööpäevas viimase ööpäeva bilansimuudatused (mõõtepunkti sisenemine või väljumine bilansipiirkonnast).
-- Andmeladu koostab kell 00:05 bilansimuudatuste sõnumi ja teeb selle kättesaadavaks selle vastava(te)le bilansihalduri(te)le, kelle bilansipiirkonnas muudatused toimusid. Sõnum sisaldab uusi mõõtepunkte bilansipiirkonnas *(ADDED)* või bilansipiirkonnast välja arvatud mõõtepunkte *(REMOVED)*.
+- Andmelaos aktiveerub uus võrgu- või avatud tarne või portfellileping VÕI olemasolev võrgu- või avatud tarne või portfellileping lõppeb (ööpäeva vahetusel).
+- Bilansihaldur pärib endale sobival ajal bilansipiirkonna muudatused kasutades teenust `balance-settlement-point/change` ja määrates ära kuupäeva, mille muudatusi soovib.
+- Andmeladu arvutab ja tagastab muudatused koheselt. Sõnum sisaldab uusi bilansiselgituse mõõtepunkte bilansipiirkonnas *(ADDED)* või bilansipiirkonnast välja arvatud bilansiselgituse mõõtepunkte *(REMOVED)*.
 
-### Masinliidese sõnumid
+## Masinliidese sõnumid
 
-### Sõnumid
-
-> **Note**
-> Teenused on väljatöötamisel
-
-| Sõnum                                       | Eesmärk                                                   |
-|---------------------------------------------|-----------------------------------------------------------|
-| `POST /api/{version}/balance-state/search`  | Võimaldab otsida soovitud perioodi bilansipiirkonna seisu |
+| Sõnum                                                 | Eesmärk                                                   |
+| ----------------------------------------------------- | --------------------------------------------------------- |
+| `POST /api/{version}/balance-settlement-point/change` | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-### Sõnumi reeglid
+## Sõnumi reeglid
+
+- Teenus annab vastuse ainult bilansihalduritele (kellel on portfellileping TSO-ga). Teistele bilansipuu portfelliteenuse pakkujatele andmeid ei väljastata.
+- Sõnumiga saab pärida ainult ühe kuupäeva muudatusi. Pikema perioodi muudatuste pärimiseks tuleb sõnumit saata mitu korda soovitud perioodi kuupäevadega.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
-## Summeeritud mõõteandmete sõnum
+## Sõnumi atribuutide reeglid
 
-Bilansihalduritele edastatakse summeeritud mõõteandmeid, et bilansihaldurid saaksid prognoosida tuleviku tarbimist ja tootmist. Sõnumi genereerimise ja edastamise protsess on järgmine:
-
-- Peale mõõteandmete lisamise või muutmise sõnumi töötlemist summeerib Andmeladu mõõteandmed selle võrguettevõtja piirkonnas olevate mõõteandmete (Pin ja Pout) kohta, mis on teiste bilansihaldurite portfellides.
-- Kord ööpäevas (kell 14:00) koostab Andmeladu summeeritud mõõteandmete sõnumi ja teeb selle kättesaavaks bilansihaldurile(tele). Sõnum sisaldab mõõteandmeid kehtiva kalendrikuu algusest alates (esimesel kuupäeval terve eelmise kuupäeva andmed), kusjuures iga päev lisanduvad andmed eelmise päeva kohta võrguettevõtja poolt Andmelattu saadetud andmetest.
-
-### Masinliidese sõnumid
-
-> **Note**
-> Teenused on väljatöötamisel
+| Atribuut teenuses    | Selgitus                                 | Kohustuslik? | Muud reeglid                                                                                                                                 |
+| -------------------- | ---------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| updatePeriodStart    | Muudatuse alguse kuupäev                 | ei           | Võimaldab otsida vabalt valitud kuupäeva muudatusi. Kellaja väärtust ignoreeritakse. Kui täitmata, siis süsteem väärtustab tänase kuupäevaga |
+| meteringPointActions | Muudatuse tüüp                           | ei           | ADDED - lisatud; REMOVED - eemaldatud                                                                                                        |
+| includeParticipants  | Kas vastusesse kaasata lepingu osapooled | ei           | Väärtuse "true" puhul on vastuses täidetud positsioon `serviceProviders`                                                                     |

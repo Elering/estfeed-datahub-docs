@@ -65,7 +65,6 @@ Võrreldes varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel
 - Lisandunud on uus lepingu tüüp - [Agregeerimisleping](06.6-agregeerimisleping.md).
 - Kliendi lisamine ja muutmine on lepingust sõltumatu.
 - Niinimetatud ülem-mõõtepunkti kontseptsioon.
-- Mõõteandmete asünkroonne töötlus.
 - Asukoha andmetesse on lisandunud ADS-i ADR_ID ja kommentaar.
 - Mõõtmise resolutsioonide hulka on lisandunud ka 15min võimekus.
 - Uued klienditüübi valikud: ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR.
@@ -80,3 +79,4 @@ Võrreldes varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel
 - Lisandunud on võimalus edastada kliendi metaandmetena ühisarve võrguarve jaoks vajalikke arvelduse andmeid.
 - Andmeladu genereerib GENERAL_SERVICE lepinguid automaatselt ja levitab seda infot võrguettevõtjale ja nimetatud müüjale.
 - API kasutamiseks vajalike tehniliste kasutajakontode toe loomine.
+- Mõõteandmete vastuvõtmise ja töötlemise protsess on muutunud asünkroonseks. Töötlemise tulemuse saab pärida teenusest `/meter-data/status`

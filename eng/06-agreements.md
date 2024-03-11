@@ -7,10 +7,13 @@
   - [Introduction](#introduction)
   - [Uninterrupted open supply](#uninterrupted-open-supply)
   - [Transmitting agreements](#transmitting-agreements)
-    - [Transmitting agreements using the web interface](#transmitting-agreements-using-the-web-interface)
     - [API messages](#api-messages)
-      - [Messages](#messages)
       - [Message rules](#message-rules)
+    - [Web interface](#web-interface)
+  - [Searching and exporting agreements](#searching-and-exporting-agreements)
+    - [API messages](#api-messages-1)
+      - [Message rules](#message-rules-1)
+    - [Web interface](#web-interface-1)
 
 ## Introduction
 
@@ -46,27 +49,20 @@ Agreements can be transmitted to the Datahub using both a web interface and an a
 - Depending on the type of agreement, parties and other data, the Datahub may make additional or changed agreement data available through the `data-distribution/search` service.
 - The authorised user requests the agreement data from the `agreement/search` service and, if necessary, exports the agreements using the `agreement/export` service.
 
-### Transmitting agreements using the web interface
-
-> **Note**
-> The web interface is under construction
-
 ### API messages
 
 In the Datahub, the transmission interface of various agreements is harmonised and thus the same messages and data structures are used. However, it is worth noting that agreements have different rules and therefore a different required and permitted data composition.
-
-#### Messages
 
 | Message                                      | Objective                         |
 |----------------------------------------------|-----------------------------------|
 | `POST /api/{version}/agreement`              | Create agreement                  |
 | `PUT /api/{version}/agreement`               | Update agreement                  |
 | `POST /api/{version}/agreement/delete`       | Delete agreement                  |
-| `POST /api/{version}/agreement/search`       | Find agreements                   |
-| `POST /api/{version}/agreement/search/meter` | Find agreements by Metering Point |
-| `POST /api/{version}/agreement/export`       | Export agreements by attributes   |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
+
+> **Note**
+> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 > **Note**
 > A collection of sample messages is being created
@@ -81,7 +77,6 @@ Dependencies and rules between agreements:
 - An aggregator can only add aggregation agreements if they have a valid portfolio agreement (i.e. when the aggregator is in someone’s portfolio). The validity period is not taken into account.
 - An open supply agreement cannot be entered into without a valid grid agreement at the metering point. The duration of the open supply agreement cannot exceed the duration of the grid agreement at either end point.
 - An aggregation agreement cannot be entered into without a valid grid agreement at the grid metering point (also called the master metering point). The duration of the aggregation agreement cannot exceed the duration of the grid agreement at either end point.
-- The customer of the open supply and aggregation agreement must be the same person who is also the customer of the grid agreement.
 
 Other rules:
 
@@ -100,5 +95,40 @@ Other rules:
 - The type of energy indicated in the agreement must be the same as the type of energy at the metering point indicated in the agreement (if the type of agreement provides for this information).
 - For agreements, only the operator ID and the end date of the agreement can be changed. Changing the remaining data is not allowed.
 
+### Web interface
+
 > **Note**
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
+> Transmitting agreements using the web interface is described in the sub-pages.
+
+## Searching and exporting agreements
+
+There are 2 different business cases where agreements are searched:
+
+1. When market participant wants to find agreements, where it is a service provider or customer. After the search, exporting might be performed.
+2. When market participant is adding a new grid, supply or aggregation agreement and wants to see other agreements of the metering points.
+
+### API messages
+
+| Message                                      | Objective                                                                       |
+| -------------------------------------------- | ------------------------------------------------------------------------------- |
+| `POST /api/{version}/agreement/search`       | Find agreements, where the market participant is a service provider or customer |
+| `POST /api/{version}/agreement/search/meter` | Find agreements by Metering Point during new agreement registration             |
+| `POST /api/{version}/agreement/export`       | Export agreements by attributes                                                 |
+
+For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
+
+> **Note**
+> A collection of sample messages is being created
+
+#### Message rules
+
+> **Warning**
+> 
+> Using the `/agreement/search/meter` API endpoint is allowed only during new agreement registration process. The use of the service and the legality of use are monitored.
+
+- The metering point agreements search API returns the full data of agreements only if the requester is a service provider of the agreement or if the customer of the metering point has authorized the market participant.
+
+### Web interface
+
+> **Note**
+> Searching and exporting agreements using the web interface is described in the sub-pages.

@@ -6,11 +6,9 @@
   - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Balance area message](#balance-area-message)
-    - [API messages](#api-messages)
-    - [Messages](#messages)
-    - [Message rules](#message-rules)
-  - [Summed metering data message](#summed-metering-data-message)
-    - [API messages](#api-messages-1)
+  - [API messages](#api-messages)
+  - [Message rules](#message-rules)
+  - [Attribute specific rules](#attribute-specific-rules)
 
 ## Introduction
 
@@ -32,44 +30,37 @@ A balance responsible party sees the following data in the Datahub regarding its
 
 A balance responsible party receives metering data from the Datahub as follows:
 
-1. Metering data from those metering points that are in the open supply chain of the balance responsible party pursuant to electricity agreements.
+1. Metering data from those metering points that are in the open supply chain of the balance responsible party pursuant to agreements.
 2. If the border metering points of the grid operator are the border metering points of the balance area of the balance responsible party, the information will also include metering data from those border metering points.
-3. Summed metering data from metering points in the grid operator’s area that are in the portfolios of other balance responsible parties. The report is sent with the data of the previous period at 10.30 to the address indicated by the balance responsible party in the Datahub.
 
 ## Balance area message
 
 Used to forward changes in the area of the balance responsible party to the balance responsible party and the system operator. The process for generating and transmitting a balance area change message is as follows:
 
-- A new grid or open supply or portfolio agreement is registered in the Datahub OR an existing grid or open supply or portfolio agreement expires.
-- Once a day, the Datahub calculates the balance changes of the last 24 hours (entering a metering point or exiting the balance area).
-- At 00:05, the Datahub generates a balance changes message and makes it available to the relevant balance responsible party(-ies) in whose balance area the changes occurred. The message contains new metering points in the balance area *(ADDED)* or metering points removed from the balance area *(REMOVED)*.
+- A new grid or open supply or portfolio agreement becomes active in the Datahub OR an existing grid or open supply or portfolio agreement expires (at midnight).
+- The balance responsible party requests changes to the balance area at a convenient time using the `balance-settlement-point/change` service and specifying the date of changes.
+- The Datahub calculates and returns the changes immediately. The message contains new metering points in the balance area *(ADDED)* or metering points removed from the balance area *(REMOVED)*.
 
-### API messages
+## API messages
 
-### Messages
-
-> **Note**
-> The services are under development
-
-| Message                                    | Objective                                                                     |
-|--------------------------------------------|-------------------------------------------------------------------------------|
-| `POST /api/{version}/balance-state/search` | Allows the user to search for the balance area status for the desired period. |
+| Message                                               | Objective                                              |
+| ----------------------------------------------------- | ------------------------------------------------------ |
+| `POST /api/{version}/balance-settlement-point/change` | Allows the user to search for the balance area changes |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-### Message rules
+## Message rules
+
+- The service only responds to balance responsible parties (who have a portfolio agreement with the TSO). No data is issued to other portfolio providers in the balance tree.
+- Only one day changes can be requested with a message. To request changes of a longer period, the message must be sent several times with the each date of the desired period.
 
 > **Note**
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
-## Summed metering data message
+## Attribute specific rules
 
-Summed metering data is distributed to balance responsible parties so that they can predict future demand and production. The process for generating and distributing the message is as follows:
-
-- After processing the message to add or change metering data, the Datahub sums the metering data (Pin and Pout) in the area of the grid operator that are in the portfolios of other balance responsible parties.
-- Once a day (at 14:00), the Datahub generates an aggregated metering data message and makes it available to the balance responsible party(-ies). The message contains metering data from the beginning of the current calendar month (on the first day data from the entire previous day), with daily additional data sent by the grid operator to the Datahub.
-
-### API messages
-
-> **Note**
-> The services are under development
+| Attribute in the API | Explanation                                                  | Mandatory? | Other rules                                                                                                                                                 |
+| -------------------- | ------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| updatePeriodStart    | The date of the balance change                               | no         | Allows to search the changed on specific date. Sent time value is ignored by Datahub. If not provided, then Datahub will set the value to current timestamp |
+| meteringPointActions | Type of change                                               | no         | On of: ADDED, REMOVED                                                                                                                                       |
+| includeParticipants  | Whether the response should contain participants information | no         | If "true", then position `serviceProviders` is filled in the response                                                                                       |
