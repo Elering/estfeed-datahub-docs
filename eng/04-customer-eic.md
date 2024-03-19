@@ -108,21 +108,40 @@ One identity can have multiple extension. For example if the `identityType` valu
   - organization name;
   - country;
   - embassy ID;
+- Customer type and identity type have the following allowed combinations:
+
+|             | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
+| ----------- | ------------ | --------------- | ------------ |
+| PERSONAL_ID | -            | ✓               | -            |
+| COMPANY_ID  | ✓            | -               | ✓            |
+| DOCUMENT_ID | ✓            | ✓               | -            |
+| EMBASSY_ID  | ✓            | -               | -            |
+
+- Identity type and identity extension type have the following allowed combinations:
+
+|             | COUNTRY | ISSUER |
+| ----------- | ------- | ------ |
+| PERSONAL_ID | ✓       | ✓      |
+| COMPANY_ID  | ✓       | ✓      |
+| DOCUMENT_ID | ✓       | ✓      |
+| EMBASSY_ID  | ✓       | -      |
+
 - Customer type and metadata type have the following allowed combinations:
-  - All customer types:
-    - phone
-    - email
-    - billing method
-    - billing bank
-    - billing bank account
-    - billing address
-  - Physical person:
-    - first name
-    - last name
-  - Legal person:
-    - company name
-  - Organization:
-    - organization name
+
+|                      | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
+| -------------------- | ------------ | --------------- | ------------ |
+| ORGANIZATION_NAME    | ✓            | -               | -            |
+| FIRST_NAME           | -            | ✓               | -            |
+| LAST_NAME            | -            | ✓               | -            |
+| COMPANY_NAME         | -            | -               | ✓            |
+| PHONE                | ✓            | ✓               | ✓            |
+| EMAIL                | ✓            | ✓               | ✓            |
+| BILLING_METHOD       | ✓            | ✓               | ✓            |
+| BILLING_BANK_NAME    | ✓            | ✓               | ✓            |
+| BILLING_BANK_ACCOUNT | ✓            | ✓               | ✓            |
+| BILLING_ADDRESS      | ✓            | ✓               | ✓            |
+| SELF_SERVICE         | ✓            | ✓               | ✓            |
+
 - Only one metadata of the same type can be valid at a time. When updating the data, the Datahub invalidates the previous value (according to the transmitted `validFrom` and `validTo` values, or automatically if they are not provided).
 - Additional rules for metadata `BILLING_METHOD`:
   - Allowed values are: `EMAIL`, `POST` and `BANK`

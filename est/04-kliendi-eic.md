@@ -107,21 +107,41 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
   - organisatsiooni nimi;
   - riik;
   - esinduse ID;
+- Kliendi tüübi ja identiteedi tüübi lubatud kombinatsioonid on:
+
+|             | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
+| ----------- | ------------ | --------------- | ------------ |
+| PERSONAL_ID | -            | ✓               | -            |
+| COMPANY_ID  | ✓            | -               | ✓            |
+| DOCUMENT_ID | ✓            | ✓               | -            |
+| EMBASSY_ID  | ✓            | -               | -            |
+
+- Identitedi tüübi ja identiteedi laienduse tüübi lubatud kombinatsioonid on:
+
+|             | COUNTRY | ISSUER |
+| ----------- | ------- | ------ |
+| PERSONAL_ID | ✓       | ✓      |
+| COMPANY_ID  | ✓       | ✓      |
+| DOCUMENT_ID | ✓       | ✓      |
+| EMBASSY_ID  | ✓       | -      |
+
 - Kliendi tüübi ja tema metaandmestiku tüübi lubatud kombinatsioonid on:
-  - Kõik kliendi tüübid:
-    - telefoni nr
-    - e-posti aadress
-    - arveldamise meetod
-    - arveldamise pank
-    - arveldamise pangakonto
-    - arveldamise aadress
-  - Füüsiline isik:
-    - eesnimi
-    - perenimi
-  - Juriidiline isik:
-    - ettevõtte nimetus
-  - Organisatsioon:
-    - organisatsiooni nimi
+
+|                      | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
+| -------------------- | ------------ | --------------- | ------------ |
+| ORGANIZATION_NAME    | ✓            | -               | -            |
+| FIRST_NAME           | -            | ✓               | -            |
+| LAST_NAME            | -            | ✓               | -            |
+| COMPANY_NAME         | -            | -               | ✓            |
+| PHONE                | ✓            | ✓               | ✓            |
+| EMAIL                | ✓            | ✓               | ✓            |
+| BILLING_METHOD       | ✓            | ✓               | ✓            |
+| BILLING_BANK_NAME    | ✓            | ✓               | ✓            |
+| BILLING_BANK_ACCOUNT | ✓            | ✓               | ✓            |
+| BILLING_ADDRESS      | ✓            | ✓               | ✓            |
+| SELF_SERVICE         | ✓            | ✓               | ✓            |
+
+
 - Ühel ajahetkel saab kehtida ainult üks sama tüübiga metaandmestik. Andmete uuendamisel muudab Andmeladu eelmise väärtuse kehtetuks (vastavalt edastatud `validFrom` ja `validTo` väärtustele või nende puudumisel automaatselt).
 - Metaandmestiku `BILLING_METHOD` reeglid:
   - Lubatud väärtused on: `EMAIL`, `POST` ja `BANK`
