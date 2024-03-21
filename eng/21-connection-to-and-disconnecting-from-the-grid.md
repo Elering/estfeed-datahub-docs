@@ -27,13 +27,13 @@ Relevant Datahub services have been set up to transmit the request and confirmat
    - if not, the Datahub responds with an error message;
    - if yes, the Datahub stores the data in the database.
 3. If necessary, the open supplier can cancel the connection and disconnection request using the `message` service and setting the state to `CANCELLED`.
-4. The grid operator can scan connection and disconnection requests using the `data-distribution/search` service.
+4. The grid operator can scan connection and disconnection requests using the `connection-state/search` service.
 5. The grid operator can search for the connection and disconnection requests using the `search` service.
 6. The grid operator updates the status of the request using the `message` service. Possible options are:
    - connect or disconnect a metering point is planned (`PLANNED`);
    - refusal to connect or disconnect a metering point (`REFUSED`);
    - connecting or disconnecting a metering point (`CONNECTED` or `DISCONNECTED`).
-7. The open supplier scans the grid operator’s responses using the `data-distribution/search` service.
+7. The open supplier scans the grid operator’s responses using the `connection-state/search` service.
 8. The open supplier can search for the connection and disconnection requests using the `search` service.
 9. The grid operator and the open supplier can query the message history of the connection and disconnection request using the `message-history` service.
 

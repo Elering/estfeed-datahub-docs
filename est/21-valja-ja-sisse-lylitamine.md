@@ -27,13 +27,13 @@ Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on lood
    - kui ei ole, siis Andmeladu vastab veateatega;
    - kui on, siis Andmeladu salvestab andmed andmebaasi.
 3. Avatud tarnija vajadusel tühistab taotluse kasutades `message` teenust ja määrates oleku `CANCELLED`.
-4. Võrguettevõtja skaneerib välja- või sisselülitamise taotlusi kasutades teenust `data-distribution/search`.
+4. Võrguettevõtja skaneerib välja- või sisselülitamise taotlusi kasutades teenust `connection-state/search`.
 5. Võrguettevõtja otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
 6. Võrguettevõtja muudab taotluse olekut kasutades teenust `message`. Võimalikud variandid on:
    - mõõtepunkti välja- või sisselülitamise plaani võtmine (`PLANNED`);
    - mõõtepunkti välja- või sisselülitamisest keeldumine (`REFUSED`);
    - mõõtepunkti välja- või sisselülitamine (`CONNECTED` või `DISCONNECTED`).
-7. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `data-distribution/search`.
+7. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `connection-state/search`.
 8. Avatud tarnija otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
 9. Võrguettecõtja ja avatud tarnija saavad pärida välja- või sisselülitamise taotluse sõnumite ja vastuste ajalugu kasutades teenust `message-history`
 
