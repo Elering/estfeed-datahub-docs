@@ -35,10 +35,11 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 
 ## Masinliidese sõnumid
 
-| Sõnum                                        | Eesmärk                  | Kirjeldus ja reeglid                                                          |
-| -------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------- |
-| `POST /api/{version}/joint-invoice`          | Ühisarve lisamine       | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine)             |
-| `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing         | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine)             |
+| Sõnum                                        | Eesmärk                 | Kirjeldus ja reeglid                                          |
+|----------------------------------------------|-------------------------| ------------------------------------------------------------- |
+| `POST /api/{version}/joint-invoice`          | Ühisarve lisamine       | [Ühisarve lisamine](#ühisarve-lisamine-ja-muutmine)         |
+| `PUT /api/{version}/joint-invoice`           | Ühisarve muutmine       | [Ühisarve muutmine](#ühisarve-lisamine-ja-muutmine)         |
+| `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing         | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine) |
 | `POST /api/{version}/joint-invoice/download` | Ühisarve alla laadimine | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)

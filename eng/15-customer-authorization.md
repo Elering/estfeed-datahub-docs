@@ -15,15 +15,18 @@
 
 Customer authorization is an access right given by the customer to the open supplier or other market participant via the client portal. Access right given this way has specific validity period and scope.
 
-Customer authorization extends the access right of the market participant and can be used to query such metering point(s) and metering data, that otherwise would not be allowed.
+Customer authorization extends the access right of the market participant and can be used to access data, that otherwise would not be allowed.
 
-## Sending and requesting the customer authorizations
+## Transmitting and requesting the customer authorizations
 
-Relevant Datahub services have been set up to transmit the customer authorizations. The intended use process is as follows:
+Relevant Datahub services have been set up to request the customer authorizations. The intended use process is as follows:
 
 - The customer enters the client portal and creates new customer authorization
-- The authorized market participant scans for new customer authorizations using the `data-distribution/search` service or searches for specific customer authorization using the `search` service.
-- The authorized market participant queries the metering point and its metering data using the  `meter` or `meter-data` services by the authorized metering point's EIC code (customer authorization is not used in the data-distribution process).
+- The authorized market participant scans for new customer authorizations using the `data-distribution/search` service or searches for specific customer authorization using the `customer-authorization/search` service.
+- The authorized market participant can use messages to request the following data:
+  - customer data – described in [Customers](04-customer-eic.md);
+  - metering point data – described in [Metering points](05-metering-point.md);
+  - metering data – described in [Metering data](12-metering-data.md).
 
 ### Web interface
 
@@ -36,7 +39,7 @@ Relevant Datahub services have been set up to transmit the customer authorizatio
 
 | Message                                      | Objective                                                            |
 |----------------------------------------------|----------------------------------------------------------------------|
-| `POST /api/{version}/customer-authorization` | Search for authorizations given by the Customer in the Client Portal |
+| `POST /api/{version}/customer-authorization/search` | Search for authorizations given by the Customer in the Client Portal |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

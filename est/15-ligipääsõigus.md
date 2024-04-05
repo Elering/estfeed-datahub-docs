@@ -15,15 +15,18 @@
 
 Ligipääsuõigus antakse kliendi poolt avatud tarnijale või mõnele muule turuosalisele kliendiportaali vahendusel. Igal ligipääsuõigusel on oma kehtivusaeg ja ligipääsu ulatus.
 
-Ligipääsuõigus laiendab turuosalise ligipääsu andmetele ja võimaldab pärida sellise mõõtepunkti- ja mõõteandmeid, mida muidu ei õnnestuks pärida.
+Ligipääsuõigus laiendab turuosalise ligipääsu andmetele ja võimaldab pärida selliseid andmeid, mida muidu ei õnnestuks pärida.
 
 ## Ligipääsuõiguste loomine ja pärimine
 
 Ligipääsuõiguse edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
 - Klient siseneb kliendiportaali ja loob uue ligipääsuõiguse.
-- Volitatud turuosaline skanneerib uusi ligipääsuõigusi kasutades teenust `data-distribution/search` või otsib spetsiifilisi ligipääsuõigusi kasutades teenust `search`.
-- Volitatud turuosaline pärib mõõtepunkti ja tema mõõteandmeid kasutades `meter` ja `meter-data` teenuseid ligipääsuõiguses määratud mõõtepunkti EIC koodi alusel (ligipääsuõigust ei arvestata automaatses andmete levitamise protsessis).
+- Volitatud turuosaline skanneerib uusi ligipääsuõigusi kasutades teenust `data-distribution/search` või otsib spetsiifilisi ligipääsuõigusi kasutades teenust `customer-authorization/search`.
+- Volitatud turuosaline pärib järgmisi andmeid:
+  - kliendi andmed - kirjeldatud dokumendis [Kliendid](04-kliendi-eic.md);
+  - mõõtepunkti andmed - kirjeldatud dokumendis [Mõõtepunktid](05-mootepunktid.md);
+  - mõõteandmed - kirjeldatud dokumendis [Mõõteandmed](12-mooteandmed.md).
 
 ### Veebiliides
 
@@ -34,9 +37,9 @@ Ligipääsuõiguse edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
 
 #### Sõnumid
 
-| Sõnum                                        | Eesmärk                                        |
-|----------------------------------------------|------------------------------------------------|
-| `POST /api/{version}/customer-authorization` | Kliendiportaalis antud ligipääsuõiguste otsing |
+| Sõnum                                               | Eesmärk                                        |
+|-----------------------------------------------------|------------------------------------------------|
+| `POST /api/{version}/customer-authorization/search` | Kliendiportaalis antud ligipääsuõiguste otsing |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

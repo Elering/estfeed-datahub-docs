@@ -193,3 +193,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Kui andmete pärijal puudub vajalik kliendi andmete nägemise õigus, siis otsingu teenus tagastab ainult EIC koodi.
 - Andmeladu väljastab mõõtepunkti andmed ilma aadressita, kui teostatakse võrgueeskirja §8 lg 5 järgset kontrolli.
 - Ligipääsuõiguste olemasolul väljastab Andmeladu kogu mõõtepunkti andmestiku.
+
+##### `meter/search/customer` täiendavad reeglid
+
+- atribuute `legalConsent` saab kasutada juriidilise isiku ja organisatsiooni järgi otsides. Füüsilise isiku järgi otsides seda atribuuti kasutada ei saa

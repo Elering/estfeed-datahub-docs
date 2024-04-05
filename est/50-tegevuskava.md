@@ -3,7 +3,7 @@
 ## API arendused
 
 | Teema                     | Tüüp   | Otspunkt                                 | Kirjeldus                                                        | Valmimine  |
-| ------------------------- | ------ | ---------------------------------------- | ---------------------------------------------------------------- | ---------- |
+|---------------------------|--------|------------------------------------------|------------------------------------------------------------------|------------|
 | Leping                    | `POST` | /api/v1/agreement                        | Lepingu loomine                                                  | Valmis     |
 | Leping                    | `PUT`  | /api/v1/agreement                        | Lepingu uuendamine                                               | Valmis     |
 | Leping                    | `POST` | /api/v1/agreement/search                 | Lepingute otsing                                                 | Valmis     |

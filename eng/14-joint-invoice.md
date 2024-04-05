@@ -1,20 +1,21 @@
 ﻿# Joint invoice
 
 ## Table of contents
-
-- [Joint invoice](#joint-invoice)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Transmitting requesting a network bill](#transmitting-requesting-a-network-bill)
-  - [Web interface](#web-interface)
-  - [API messages](#api-messages)
-  - [API message rules](#api-message-rules)
-    - [Create or update joint invoice](#create-or-update-joint-invoice)
-      - [Attribute specific rules](#attribute-specific-rules)
-      - [Additional rules](#additional-rules)
-    - [Find and download joint invoice](#find-and-download-joint-invoice)
-      - [Attribute specific rules](#attribute-specific-rules-1)
-      - [Additional rules](#additional-rules-1)
+<!-- TOC -->
+* [Joint invoice](#joint-invoice)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Transmitting requesting a network bill](#transmitting-requesting-a-network-bill)
+  * [Web interface](#web-interface)
+  * [API messages](#api-messages)
+  * [API message rules](#api-message-rules)
+    * [Create or update joint invoice](#create-or-update-joint-invoice)
+      * [Attribute specific rules](#attribute-specific-rules)
+      * [Additional rules](#additional-rules)
+    * [Find and download joint invoice](#find-and-download-joint-invoice)
+      * [Attribute specific rules](#attribute-specific-rules-1)
+      * [Additional rules](#additional-rules-1)
+<!-- TOC -->
 
 ## Introduction
 
@@ -35,10 +36,11 @@ Relevant Datahub services have been set up to transmit and request joint invoice
 
 ## API messages
 
-| Message                                      | Objective                | Description and rules |
-|----------------------------------------------|--------------------------|------------------------ |
-| `POST /api/{version}/joint-invoice`          | Create a joint invoice   | [Create or update joint invoice](#create-or-update-joint-invoice) |
-| `POST /api/{version}/joint-invoice/search`   | Find a joint invoice     | [Create or update joint invoice](#create-or-update-joint-invoice) |
+| Message                                      | Objective                | Description and rules                                               |
+|----------------------------------------------|--------------------------|---------------------------------------------------------------------|
+| `POST /api/{version}/joint-invoice`          | Create a joint invoice   | [Create joint invoice](#create-or-update-joint-invoice)             |
+| `PUT /api/{version}/joint-invoice`           | Update a joint invoice   | [Update joint invoice](#create-or-update-joint-invoice)             |
+| `POST /api/{version}/joint-invoice/search`   | Find a joint invoice     | [Create or update joint invoice](#create-or-update-joint-invoice)   |
 | `POST /api/{version}/joint-invoice/download` | Download a joint invoice | [Find and download joint invoice](#find-and-download-joint-invoice) |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)

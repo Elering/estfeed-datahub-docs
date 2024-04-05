@@ -3,7 +3,7 @@
 ## API developments
 
 | Topic                  | Type   | Endpoint                                 | Description                                                                      | Deployment |
-| ---------------------- | ------ | ---------------------------------------- | -------------------------------------------------------------------------------- | ---------- |
+|------------------------|--------|------------------------------------------|----------------------------------------------------------------------------------|------------|
 | Agreement              | `POST` | /api/v1/agreement                        | Create agreement                                                                 | Deployed   |
 | Agreement              | `PUT`  | /api/v1/agreement                        | Update agreement                                                                 | Deployed   |
 | Agreement              | `POST` | /api/v1/agreement/search                 | Find agreements                                                                  | Deployed   |

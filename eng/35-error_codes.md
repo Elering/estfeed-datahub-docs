@@ -15,6 +15,8 @@
   - [/meter](#meter)
   - [/network-bill](#network-bill)
   - [/technical-user](#technical-user)
+  - [/report](#report)
+  - [/authorization](#authorization)
   - [Common codes](#common-codes)
 
 ## Introduction
@@ -40,8 +42,11 @@ Error messages have always the same structure:
 
 - `message` is a translated description of the error
 - `code` is the technical error code, that can be used by the integrated system for automatic error handling
-- `traceId` is the unique ID, that can be used by the Elering technical team to trach the root cause of the error
+- `traceId` is the unique ID, that can be used by the Elering technical team to trace the root cause of the error
 - `args` contains additional information in case it's needed. Can also be empty
+
+> **Note**
+> Error codes that begin with a different prefix, such as "mpd" and "mpm", are not covered in this document. These error codes are temporary and will be fixed during development
 
 ## /agreement
 
@@ -80,6 +85,8 @@ Validation errors:
 - `opp.error.validation.connection-state-participant-should-match-market-participant-identification`: 'Participant should match with market participant identification'
 - `opp.error.validation.connection-state-preferred-date-can-be-sent-by-os-only`: 'Preferred date can be sent by Open Supplier only'
 - `opp.error.validation.connection-state-estimated-date-can-be-sent-by-go-and-iso-only`: 'Estimated date can be sent by Grid Operator or Closed Distribution Network'
+- `opp.error.validation.connection-state-preferred-date-cannot-be-in-past`: 'Preferred date cannot be in the past'
+- `opp.error.validation.connection-state-estimated-date-cannot-be-in-past`: 'Estimated date cannot be in the past'
 
 Business errors:
 
@@ -114,8 +121,10 @@ Business errors:
 - `opp.error.business.eic-has-no-extension`: 'Extension cannot be assigned to EIC code'
 - `opp.error.business.name-has-no-extension`: 'Extension cannot be assigned to Name'
 - `opp.error.business.customer-type-identity-type-mismatch`: 'This Customer type cannot have the given Identity type'
+- `opp.error.business.customer-type-metadata-type-mismatch`: 'This Customer type cannot have the given Metadata type'
 - `opp.error.business.internal-id-resolve-error`: 'Internal ID of the Service Provider cannot be resolved.'
 - `opp.error.business.only-market-participants-can-be-searched-by-name`: 'Only Market Participants can be searched by name'
+- `opp.error.business.customer-metadata-not-found`: 'Customer metadata not found'
 
 ## /data-distribution
 
@@ -141,6 +150,8 @@ Business errors:
 - `opp.error.business.download-joint-invoice-not-found`: 'The searched joint invoice is not found'
 - `opp.error.business.joint-invoice-incorrect-market-participant-role`: 'Joint invoice can be created by the following market roles: Grid operator, Closed distribution network'
 - `opp.error.business.joint-invoice-search-incorrect-market-participant-role`: 'Joint invoice can be searched by the following market roles: Grid operator, Closed distribution network, Open supplier'
+- `opp.error.business.joint-invoice-already-exists`: 'Joint invoice already exists for the given parameters'
+- `opp.error.business.joint-invoice-not-exists`: 'Joint invoice not exists for the given parameters, cannot be updated'
 
 ## /meter-data
 
@@ -189,6 +200,7 @@ Business errors:
 - `opp.error.business.eic-range-error`: 'Eic code is not in range of Market Participant'
 - `opp.error.business.incorrect-market-participant-role`: 'Metering Point cannot be created or updated with this Market Participant Role Type'
 - `opp.error.business.source-type-error`: 'Market Participant with this role cannot access Metering Point with some of the requested source types'
+- `opp.error.business.legal-consent-only-for-legal-person`: 'Legal consent can only be given, when the customer''s business object type is legal person'
 
 ## /network-bill
 
@@ -210,10 +222,65 @@ Business errors:
 - `opp.error.business.technical-user-number-exceeds-maximum`: 'Number of the technical users by market participant exceeds the maximum number'
 - `opp.error.business.technical-user-suffix-needs-to-be-unique`: 'Suffix must be unique by market participants'
 
+Technical errors:
+
+- `opp.error.technical.failed-to-create-client-in-keycloak`: "Failed to create new client in keycloak. For further details please check the logs"
+
+## /report
+
+Validation errors:
+
+- `opp.error.validation.greater-end-month-offset-than-start`: 'endMonthOffset cannot be greater than startMonthOffset'
+- `opp.error.validation.commodity-type-not-supported`: 'Commodity type not supported'
+- `opp.error.validation.report-type-not-supported`: 'Report type not supported'
+
+Business errors:
+
+- `opp.error.business.report-header-not-found`: 'Report header not found'
+
+## /authorization
+
+Validation errors:
+
+- `authz.error.validation.max-length.%s`: '%s cannot be longer than %d characters'
+- `authz.error.validation.invalid-enum.%s`: '%s can be %s'
+- `authz.error.validation.unparseable.%s`: 'Field %s can not be parsed for value %s'
+- `authz.error.validation.wrong-order.%s`: '%s cannot be after %s'
+- `authz.error.validation.role-cannot-be-assigned`: 'The selected role cannot be assigned'
+
+Business errors:
+
+- `authz.error.business.not-found.authorization`: 'Authorization not found'
+- `authz.error.business.not-found.market-role`: 'Market role not found'
+- `authz.error.business.not-found.role`: 'Role not found'
+- `authz.error.business.not-found.right`: 'Right not found'
+- `authz.error.business.authorization-does-not-exist`: 'Authorization does not exist'
+- `authz.error.business.general.no-change`: 'No change received'
+- `authz.error.business.service-provider-does-not-exist`: 'Service Provider does not exist'
+- `authz.error.business.service-provider-does-not-exist-on-period`: 'Service Provider does not exist on the whole period'
+- `authz.error.business.valid-from-cannot-be-in-past`: 'Authorization of a user cannot start in the past'
+- `authz.error.business.invalid-validity`: 'Invalid validity period'
+- `authz.error.business.user-role-cannot-be-assigned-to-service-provider-role`: 'This user role cannot be assigned to this service provider role'
+- `authz.error.business.user-does-not-exist`: 'The user in this context has not been created yet'
+- `authz.error.business.user-is-not-authorized-with-this-role`: 'User is not authorized with this role'
+- `authz.error.business.market-role-already-exists`: 'Market Participant Role already exists'
+- `authz.error.business.user-already-exist`: 'The user in this context has already been created'
+
+Technical errors:
+
+- `authz.error.technical.general.no-response`: 'No valid response from server'
+
 ## Common codes
 
 Validation errors:
 
+- `opp.error.validation.missing`: 'Missing from request: {0}'
+- `opp.error.validation.invalid-pattern`: '{0} for value {1} must match {2}'
+- `opp.error.validation.invalid-email`: '{0} must be a well-formed email address'
+- `opp.error.validation.size`: '{0} with value {1} size must be between {2} and {3}'
+- `opp.error.validation.too-small`: '{0} with value {1} must be greater than or equal to {2}'
+- `opp.error.validation.too-big`: '{0} with value {1} must be less than or equal to {2}'
+- `opp.error.validation.too-many-entries`: '{0} for value {1} must match {2}'
 - `opp.error.validation.missing-field`: 'Missing field {0}'
 - `opp.error.validation.invalid-enum`: '{0} can be {1}'
 - `opp.error.validation.unparseable`: 'Field {0} can not be parsed for value {1}'
@@ -234,6 +301,8 @@ Business errors:
 - `opp.error.business.market-participant-external-id-resolve-error`: 'External ID of the market participant cannot be resolved'
 - `opp.error.business.service-provider-external-id-resolve-error`: 'External ID of the service provider cannot be resolved'
 - `opp.error.business.service-provider-internal-id-resolve-error`: 'Internal ID of Service Provider cannot be resolved'
+- `opp.error.business.sender-and-service-provider-mismatch-error`: 'Sender and Service Provider must be the same'
+- `opp.error.business.request-commodity-type-mismatch`: 'Commodities do not match'
 - `opp.error.business.customer-external-id-resolve-error`: 'External ID of customer cannot be resolved'
 - `opp.error.business.customer-internal-id-resolve-error`: 'Internal ID of Customer cannot be resolved'
 - `opp.error.business.user-external-id-resolve-error`: 'External ID of user cannot be resolved'
@@ -251,3 +320,5 @@ Technical errors:
 - `opp.error.technical.json-processing-exception`: 'An error occurred while processing JSON'
 - `opp.error.technical.no-response`: 'No valid response from server'
 - `opp.error.technical.not-found.header`: 'No header data found'
+- `opp.error.technical.scheduler-exception`: 'An error occurred while scheduling jobs'
+- `opp.error.technical.scheduler-parameter-parse-exception`: 'An error occurred while parsing job parameters'

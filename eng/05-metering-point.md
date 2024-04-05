@@ -193,3 +193,7 @@ For a description of message structures and validations, see [Datahub descriptio
 - If the data requester has the necessary right to see the customer’s data, the search service only returns the EIC.
 - The Datahub issues metering point data without an address if a verification is carried out in accordance with subsection 8 (5) of the Network Code on the Operation of the Electricity Market.
 - If the user has access rights, the Datahub outputs the entire data set of the metering point.
+
+##### `meter/search/customer` additional rules
+
+- attribute `legalConsent` can be used, when searching by legal person or organization. Cannot be used, when searching by physical person
