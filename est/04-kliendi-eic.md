@@ -2,20 +2,22 @@
 
 ## Sisukord
 
-- [Kliendid](#kliendid)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Kliendi andmete edastamine ja pärimine](#kliendi-andmete-edastamine-ja-pärimine)
-  - [Masinliidese sõnumid](#masinliidese-sõnumid)
-  - [Sõnumite reeglid](#sõnumite-reeglid)
-    - [Kliendi ja tema metaandmete lisamine ja muutmine](#kliendi-ja-tema-metaandmete-lisamine-ja-muutmine)
-      - [Sõnumi atribuutide reeglid](#sõnumi-atribuutide-reeglid)
-      - [Täiendavad reeglid](#täiendavad-reeglid)
-    - [Kliendi ja tema metaandmete otsing](#kliendi-ja-tema-metaandmete-otsing)
-      - [Sõnumi atribuutide reeglid](#sõnumi-atribuutide-reeglid-1)
-    - [Äriregistri esindusõiguste otsing](#äriregistri-esindusõiguste-otsing)
-    - [Kliendi lepingute otsing](#kliendi-lepingute-otsing)
-    - [Kliendi mõõtepunktide otsing](#kliendi-mõõtepunktide-otsing)
+<!-- TOC -->
+* [Kliendid](#kliendid)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Kliendi andmete edastamine ja pärimine](#kliendi-andmete-edastamine-ja-pärimine)
+  * [Masinliidese sõnumid](#masinliidese-sõnumid)
+  * [Sõnumite reeglid](#sõnumite-reeglid)
+    * [Kliendi ja tema metaandmete lisamine ja muutmine](#kliendi-ja-tema-metaandmete-lisamine-ja-muutmine)
+      * [Sõnumi atribuutide reeglid](#sõnumi-atribuutide-reeglid)
+      * [Täiendavad reeglid](#täiendavad-reeglid)
+    * [Kliendi ja tema metaandmete otsing](#kliendi-ja-tema-metaandmete-otsing)
+      * [Sõnumi atribuutide reeglid](#sõnumi-atribuutide-reeglid-1)
+    * [Äriregistri esindusõiguste otsing](#äriregistri-esindusõiguste-otsing)
+    * [Kliendi lepingute otsing](#kliendi-lepingute-otsing)
+    * [Kliendi mõõtepunktide otsing](#kliendi-mõõtepunktide-otsing)
+<!-- TOC -->
 
 ## Sissejuhatus
 
@@ -144,12 +146,13 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 
 - Ühel ajahetkel saab kehtida ainult üks sama tüübiga metaandmestik. Andmete uuendamisel muudab Andmeladu eelmise väärtuse kehtetuks (vastavalt edastatud `validFrom` ja `validTo` väärtustele või nende puudumisel automaatselt).
 - Metaandmestiku `BILLING_METHOD` reeglid:
-  - Lubatud väärtused on: `EMAIL`, `POST` ja `BANK`
+  - Lubatud väärtused on: `EMAIL`, `POST`, `BANK` ja `SELF_SERVICE`
   - Mitme väärtuse lisamisel on lubatud komaga eraldatud andmed. Näiteks: `EMAIL,POST` (ilma tühikuteta)
   - Täiendavate metaandmete vajadus sõltuvalt väärtusest:
     - väärtuse `EMAIL` korral peab sõnumis või varasemas andmestikus eksisteerima metaandmestik `EMAIL`
     - väärtuse `POST` korral peab sõnumis või varasemas andmestikus eksisteerima metaandmestik `BILLING_ADDRESS`
     - väärtuse `BANK` korral peavad sõnumis või varasemas andmestikus eksisteerima metaandmestikud `BILLING_BANK_ACCOUNT` ja `BILLING_BANK_NAME`
+    - väärtuse `SELF_SERVICE` korral täiendavad nõutavad andmed puuduvad
 - Eesti isikukoodi ja äriregistri koodi puhul rakendub formaadi kontroll.
 - Välismaiste ID-de puhul formaadi kontrolli ei rakendu.
 - Uue kliendi registreerimisel peab `customerType + identityType + identityValue + extensionType(COUNTRY)` kombinatsioon peab olema unikaalne. Kui ei ole, siis on tegu olemasoleva kliendiga ning süsteem kohtleb lisamise päringut kliendi andmete uuendamise päringuna ning võimalusel uuendab kliendi andmed.

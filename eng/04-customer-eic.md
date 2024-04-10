@@ -2,21 +2,23 @@
 
 ## Table of contents
 
-- [Customer EIC](#customer-eic)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Transmitting and requesting customer data](#transmitting-and-requesting-customer-data)
-  - [API messages](#api-messages)
-  - [API message rules](#api-message-rules)
-    - [Create or update customer with metadata](#create-or-update-customer-with-metadata)
-      - [Attribute specific rules](#attribute-specific-rules)
-      - [Additional rules](#additional-rules)
-    - [Find customer](#find-customer)
-      - [Attribute specific rules](#attribute-specific-rules-1)
-      - [Additional rules](#additional-rules-1)
-    - [Find Estonian Business Registry representations of Customer](#find-estonian-business-registry-representations-of-customer)
-    - [Search Customer agreements](#search-customer-agreements)
-    - [Search Customer metering points](#search-customer-metering-points)
+<!-- TOC -->
+* [Customer EIC](#customer-eic)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Transmitting and requesting customer data](#transmitting-and-requesting-customer-data)
+  * [API messages](#api-messages)
+  * [API message rules](#api-message-rules)
+    * [Create or update customer with metadata](#create-or-update-customer-with-metadata)
+      * [Attribute specific rules](#attribute-specific-rules)
+      * [Additional rules](#additional-rules)
+    * [Find customer](#find-customer)
+      * [Attribute specific rules](#attribute-specific-rules-1)
+      * [Additional rules](#additional-rules-1)
+    * [Find Estonian Business Registry representations of Customer](#find-estonian-business-registry-representations-of-customer)
+    * [Search Customer agreements](#search-customer-agreements)
+    * [Search Customer metering points](#search-customer-metering-points)
+<!-- TOC -->
 
 ## Introduction
 
@@ -144,12 +146,13 @@ One identity can have multiple extension. For example if the `identityType` valu
 
 - Only one metadata of the same type can be valid at a time. When updating the data, the Datahub invalidates the previous value (according to the transmitted `validFrom` and `validTo` values, or automatically if they are not provided).
 - Additional rules for metadata `BILLING_METHOD`:
-  - Allowed values are: `EMAIL`, `POST` and `BANK`
+  - Allowed values are: `EMAIL`, `POST`, `BANK` and `SELF_SERVICE`
   - For sending multiple values, use comma separated values, like `EMAIL,POST` (without spaces)
   - Depending on the value, additional data might be required:
     - In case of value `EMAIL`, the customer must already have or the message must contain metadata with type `EMAIL`
     - In case of value `POST`, the customer must already have or the message must contain metadata with type `BILLING_ADDRESS`
     - In case of value `BANK`, the customer must already have or the message must contain metadata with type `BILLING_BANK_ACCOUNT` and `BILLING_BANK_NAME`
+    - in the case of `SELF_SERVICE`, there are no additional data required
 - Estonian personal identification codes and Estonian registry code are subject to a format check.
 - For foreign IDs, no format check applies.
 - When registering a new customer, the `customerType + identityType + identityValue + extensionType(COUNTRY)` combination must be unique. If it is not, the customer is an existing customer and the system will treat the add request as a customer update request and will update the customer’s details if possible.
