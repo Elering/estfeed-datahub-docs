@@ -32,7 +32,6 @@
 | Leping                    | `POST` | /api/v1/agreement/search/meter           | Mõõtepunkti lepingute otsing                                     | Valmis     |
 | Ligipääsuõigus            | `POST` | /api/v1/authorization/search             | Kasutaja ligipääsuõiguste otsing                                 | Valmis     |
 | Ligipääsuõigus            | `POST` | /api/v1/authorization/delete             | Kasutaja ligipääsuõiguse kustutamine                             | Valmis     |
-| Andmete levitamine        | `POST` | /api/v1/data-distribution/search         | Erinevate andmeobjektide muudatuste teavitused                   | Valmis     |
 | Klient                    | `PUT`  | /api/v1/customer                         | Kliendi ja tema metaandmete muutmine                             | Valmis     |
 | Klient                    | `POST` | /api/v1/customer                         | Kliendi ja tema metaandmete lisamine                             | Valmis     |
 | Klient                    | `POST` | /api/v1/customer/search                  | Kliendi ja tema metaandmete otsing                               | Valmis     |
@@ -49,7 +48,8 @@
 | Mõõtepunkt                | `POST` | /api/v1/meter/export                     | Mõõtepunktide eksportimine                                       | Valmis     |
 | Bilanss                   | `POST` | /api/v1/balance-settlement-point/search  | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi        | Valmis     |
 | EIC                       | `POST` | /api/v1/meter/eic/amount                 | EIC vahemikust vabade EIC koodide otsing                         | Valmis     |
-| Raport                    | `POST` | /api/v1/report/export/json               | JSON formaadis raporti allalaadimine                             | 2024.03.31 |
-| Raport                    | `POST` | /api/v1/report/export/excel              | MS Excel formaadis raporti allalaadimine                         | 2024.03.31 |
-| Raport                    | `POST` | /api/v1/report/search                    | Raportite otsing                                                 | 2024.03.31 |
-| Ühisarve võrguarve        | `PUT`  | /api/v1/joint-invoice                    | Ühisarve võrguarve muutmine                                      | 2024.05.15 |
+| Raport                    | `POST` | /api/v1/report/export/json               | JSON formaadis raporti allalaadimine                             | 2024.05.20 |
+| Raport                    | `POST` | /api/v1/report/export/excel              | MS Excel formaadis raporti allalaadimine                         | 2024.05.20 |
+| Raport                    | `POST` | /api/v1/report/search                    | Raportite otsing                                                 | 2024.05.20 |
+| Ühisarve võrguarve        | `PUT`  | /api/v1/joint-invoice                    | Ühisarve võrguarve muutmine                                      | 2024.04.22 |
+| Andmete levitamine        | `POST` | /api/v1/data-distribution/search         | Erinevate andmeobjektide muudatuste teavitused                   | 2024.05.01 |

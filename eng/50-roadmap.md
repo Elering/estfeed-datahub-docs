@@ -32,7 +32,6 @@
 | Agreement              | `POST` | /api/v1/agreement/search/meter           | Find agreements by Metering Point                                                | Deployed   |
 | Authorization          | `POST` | /api/v1/authorization/search             | Get user authorizations by market role                                           | Deployed   |
 | Authorization          | `POST` | /api/v1/authorization/delete             | Delete user authorization                                                        | Deployed   |
-| Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params                     | Deployed   |
 | Customer               | `PUT`  | /api/v1/customer                         | Update customer with metadata                                                    | Deployed   |
 | Customer               | `POST` | /api/v1/customer                         | Create customer with metadata                                                    | Deployed   |
 | Customer               | `POST` | /api/v1/customer/search                  | Find a customer by identity                                                      | Deployed   |
@@ -49,7 +48,8 @@
 | Metering Point         | `POST` | /api/v1/meter/export                     | Export Metering Points by attributes                                             | Deployed   |
 | Balance State          | `POST` | /api/v1/balance-settlement-point/search  | Give back the changes in Balance Settlement Points to the Balance Provider party | Deployed   |
 | Metering Point         | `POST` | /api/v1/meter/eic/amount                 | Generate the requested amount of metering point EICs                             | Deployed   |
-| Reports                | `POST` | /api/v1/report/export/json               | Download report in JSON format                                                   | 2024.03.31 |
-| Reports                | `POST` | /api/v1/report/export/excel              | Download report in Excel format                                                  | 2024.03.31 |
-| Reports                | `POST` | /api/v1/report/search                    | Find reports                                                                     | 2024.03.31 |
-| Joint Invoice          | `PUT`  | /api/v1/joint-invoice                    | Update a forwarded invoice                                                       | 2024.05.15 |
+| Reports                | `POST` | /api/v1/report/export/json               | Download report in JSON format                                                   | 2024.05.20 |
+| Reports                | `POST` | /api/v1/report/export/excel              | Download report in Excel format                                                  | 2024.05.20 |
+| Reports                | `POST` | /api/v1/report/search                    | Find reports                                                                     | 2024.05.20 |
+| Joint Invoice          | `PUT`  | /api/v1/joint-invoice                    | Update a forwarded invoice                                                       | 2024.04.22 |
+| Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params                     | 2024.05.01 |
