@@ -141,7 +141,6 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 | BILLING_BANK_NAME    | ✓            | ✓               | ✓            |
 | BILLING_BANK_ACCOUNT | ✓            | ✓               | ✓            |
 | BILLING_ADDRESS      | ✓            | ✓               | ✓            |
-| SELF_SERVICE         | ✓            | ✓               | ✓            |
 
 
 - Ühel ajahetkel saab kehtida ainult üks sama tüübiga metaandmestik. Andmete uuendamisel muudab Andmeladu eelmise väärtuse kehtetuks (vastavalt edastatud `validFrom` ja `validTo` väärtustele või nende puudumisel automaatselt).
@@ -152,7 +151,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
     - väärtuse `EMAIL` korral peab sõnumis või varasemas andmestikus eksisteerima metaandmestik `EMAIL`
     - väärtuse `POST` korral peab sõnumis või varasemas andmestikus eksisteerima metaandmestik `BILLING_ADDRESS`
     - väärtuse `BANK` korral peavad sõnumis või varasemas andmestikus eksisteerima metaandmestikud `BILLING_BANK_ACCOUNT` ja `BILLING_BANK_NAME`
-    - väärtuse `SELF_SERVICE` korral täiendavad nõutavad andmed puuduvad
+    - väärtuse `SELF_SERVICE` või `B2B_BILL` korral täiendavad nõutavad andmed puuduvad
 - Eesti isikukoodi ja äriregistri koodi puhul rakendub formaadi kontroll.
 - Välismaiste ID-de puhul formaadi kontrolli ei rakendu.
 - Uue kliendi registreerimisel peab `customerType + identityType + identityValue + extensionType(COUNTRY)` kombinatsioon peab olema unikaalne. Kui ei ole, siis on tegu olemasoleva kliendiga ning süsteem kohtleb lisamise päringut kliendi andmete uuendamise päringuna ning võimalusel uuendab kliendi andmed.
@@ -168,7 +167,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 | searchCriteria        | Otsingu tingimused                  | jah          | Kasutab sama struktuuri nagu `customerIdentifiers`                                                |
 
 - Kliendi otsingu teenus tagastab ainult kliendi EIC koodi juhul, kui andmete pärijal puudub vastav õigus.
-- Nime järgi saab otsida ainult teist energiaettevõtjat
+- Nime järgi saab otsida juriidilisi isikuid ja orangisatsioone. Füüsilisi isikuid nime järgi otsida ei saa.
 
 ### Äriregistri esindusõiguste otsing
 

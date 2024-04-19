@@ -2,18 +2,20 @@
 
 ## Table of contents
 
-- [Metering data](#metering-data)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Transmitting metering data](#transmitting-metering-data)
-    - [Transmitting metering data via the web interface](#transmitting-metering-data-via-the-web-interface)
-    - [API messages](#api-messages)
-      - [Messages](#messages)
-      - [Message rules](#message-rules)
-  - [Metering data requests](#metering-data-requests)
-    - [API messages](#api-messages-1)
-      - [Messages](#messages-1)
-      - [Message rules](#message-rules-1)
+<!-- TOC -->
+* [Metering data](#metering-data)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Transmitting metering data](#transmitting-metering-data)
+    * [Transmitting metering data via the web interface](#transmitting-metering-data-via-the-web-interface)
+    * [API messages](#api-messages)
+      * [Messages](#messages)
+      * [Message rules](#message-rules)
+  * [Metering data requests](#metering-data-requests)
+    * [API messages](#api-messages-1)
+      * [Messages](#messages-1)
+      * [Message rules](#message-rules-1)
+<!-- TOC -->
 
 ## Introduction
 
@@ -105,11 +107,12 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 
 #### Messages
 
-| Message                                 | Objective                                                            |
-|-----------------------------------------|----------------------------------------------------------------------|
-| `POST /api/{version}/meter-data`        | Create or update meter reading data                  |
-| `POST /api/{version}/meter-data/status` | Find meter data processing status |
-| `POST /api/{version}/meter-data/import` | Bulk import of metering data      |
+| Message                                   | Objective                                                           |
+|-------------------------------------------|---------------------------------------------------------------------|
+| `POST /api/{version}/meter-data`          | Create or update meter reading data                                 |
+| `POST /api/{version}/meter-data/status`   | Find meter data processing status                                   |
+| `POST /api/{version}/meter-data/import`   | Bulk import of metering data                                        |
+| `POST /api/{version}/template/meter-data` | Generate and download the template for bulk import of metering data |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

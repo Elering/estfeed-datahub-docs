@@ -1,4 +1,4 @@
-﻿# Customer EIC
+# Customer EIC
 
 ## Table of contents
 
@@ -142,7 +142,6 @@ One identity can have multiple extension. For example if the `identityType` valu
 | BILLING_BANK_NAME    | ✓            | ✓               | ✓            |
 | BILLING_BANK_ACCOUNT | ✓            | ✓               | ✓            |
 | BILLING_ADDRESS      | ✓            | ✓               | ✓            |
-| SELF_SERVICE         | ✓            | ✓               | ✓            |
 
 - Only one metadata of the same type can be valid at a time. When updating the data, the Datahub invalidates the previous value (according to the transmitted `validFrom` and `validTo` values, or automatically if they are not provided).
 - Additional rules for metadata `BILLING_METHOD`:
@@ -152,7 +151,7 @@ One identity can have multiple extension. For example if the `identityType` valu
     - In case of value `EMAIL`, the customer must already have or the message must contain metadata with type `EMAIL`
     - In case of value `POST`, the customer must already have or the message must contain metadata with type `BILLING_ADDRESS`
     - In case of value `BANK`, the customer must already have or the message must contain metadata with type `BILLING_BANK_ACCOUNT` and `BILLING_BANK_NAME`
-    - in the case of `SELF_SERVICE`, there are no additional data required
+    - in the case of `SELF_SERVICE` or `B2B_BILL`, there are no additional data required
 - Estonian personal identification codes and Estonian registry code are subject to a format check.
 - For foreign IDs, no format check applies.
 - When registering a new customer, the `customerType + identityType + identityValue + extensionType(COUNTRY)` combination must be unique. If it is not, the customer is an existing customer and the system will treat the add request as a customer update request and will update the customer’s details if possible.
@@ -170,7 +169,7 @@ One identity can have multiple extension. For example if the `identityType` valu
 #### Additional rules
 
 - If the data requester does not have the corresponding right, the customer search service only returns the customer’s EIC.
-- Only service provider can be searched by name.
+- Only legal persons and organizations can be searched by name. Physical persons cannot be searched by name.
 
 ### Find Estonian Business Registry representations of Customer
 

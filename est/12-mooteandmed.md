@@ -2,18 +2,20 @@
 
 ## Sisukord
 
-- [Mõõteandmed](#mõõteandmed)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Mõõteandmete edastamine](#mõõteandmete-edastamine)
-    - [Mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid)
-      - [Sõnumid](#sõnumid)
-      - [Sõnumite reeglid](#sõnumite-reeglid)
-  - [Mõõteandmete päringud](#mõõteandmete-päringud)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid-1)
-      - [Sõnumid](#sõnumid-1)
-      - [Sõnumite reeglid](#sõnumite-reeglid-1)
+<!-- TOC -->
+* [Mõõteandmed](#mõõteandmed)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Mõõteandmete edastamine](#mõõteandmete-edastamine)
+    * [Mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid)
+      * [Sõnumid](#sõnumid)
+      * [Sõnumite reeglid](#sõnumite-reeglid)
+  * [Mõõteandmete päringud](#mõõteandmete-päringud)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
+      * [Sõnumid](#sõnumid-1)
+      * [Sõnumite reeglid](#sõnumite-reeglid-1)
+<!-- TOC -->
 
 ## Sissejuhatus
 
@@ -105,11 +107,12 @@ Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandme
 
 #### Sõnumid
 
-| Sõnum                                   | Eesmärk                                        |
-|-----------------------------------------|------------------------------------------------|
-| `POST /api/{version}/meter-data`        | Mõõteandmete lisamine                          |
-| `POST /api/{version}/meter-data/status` | Mõõteandmete sõnumi töötlemise staatuse päring |
-| `POST /api/{version}/meter-data/import` | Mõõteandmete masslaadimine templiidi abil      |
+| Sõnum                                     | Eesmärk                                                              |
+|-------------------------------------------|----------------------------------------------------------------------|
+| `POST /api/{version}/meter-data`          | Mõõteandmete lisamine                                                |
+| `POST /api/{version}/meter-data/status`   | Mõõteandmete sõnumi töötlemise staatuse päring                       |
+| `POST /api/{version}/meter-data/import`   | Mõõteandmete masslaadimine templiidi abil                            |
+| `POST /api/{version}/template/meter-data` | Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
