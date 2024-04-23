@@ -2,18 +2,20 @@
 
 ## Table of contents
 
-- [Datahub description and general principles for data exchange](#datahub-description-and-general-principles-for-data-exchange)
-  - [Table of contents](#table-of-contents)
-  - [Data exchange platform in the context of electricity market](#data-exchange-platform-in-the-context-of-electricity-market)
-  - [Datahub use agreement](#datahub-use-agreement)
-  - [Datahub functionality](#datahub-functionality)
-  - [EICs](#eics)
-  - [General principles of information exchange](#general-principles-of-information-exchange)
-    - [Introduction](#introduction)
-    - [Environments](#environments)
-    - [General rules](#general-rules)
-    - [Date and time submission rules](#date-and-time-submission-rules)
-    - [Response codes](#response-codes)
+<!-- TOC -->
+* [Datahub description and general principles for data exchange](#datahub-description-and-general-principles-for-data-exchange)
+  * [Table of contents](#table-of-contents)
+  * [Data exchange platform in the context of electricity market](#data-exchange-platform-in-the-context-of-electricity-market)
+  * [Datahub use agreement](#datahub-use-agreement)
+  * [Datahub functionality](#datahub-functionality)
+  * [EICs](#eics)
+  * [General principles of information exchange](#general-principles-of-information-exchange)
+    * [Introduction](#introduction)
+    * [Environments](#environments)
+    * [General rules](#general-rules)
+    * [Date and time submission rules](#date-and-time-submission-rules)
+    * [Response codes](#response-codes)
+<!-- TOC -->
 
 ## Data exchange platform in the context of electricity market
 
@@ -114,14 +116,17 @@ Datahub web application:
 
 Datahub API endpoints:
 
-- [Test environment](https://public-test-datahub.elering.ee)
-- [Live environment](https://datahub.elering.ee)
+- Public test environment:
+  - Data Distribution API-s: `https://public-test-dd-datahub.elering.ee`
+  - All other API-s: `https://public-test-datahub.elering.ee`
+- Live environment: `https://datahub.elering.ee`
 
 Datahub OpenApi decriptions:
 
-- [Test environment](https://public-test-datahub.elering.ee/swagger-ui/index.html)
+- Public test environment:
+  - [Data Distribution API-s](https://public-test-dd-datahub.elering.ee/swagger-ui/index.html)
+  - [All other API-s](https://public-test-datahub.elering.ee/swagger-ui/index.html)
 - [Live environment](https://datahub.elering.ee/swagger-ui/index.html)
-- [The vision of the future](https://github.com/Elering/Estfeed-API)
 
 ### General rules
 

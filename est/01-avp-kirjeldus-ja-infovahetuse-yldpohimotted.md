@@ -2,18 +2,20 @@
 
 ## Sisukord
 
-- [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](#andmelao-kirjeldus-ja-infovahetuse-üldpõhimõtted)
-  - [Sisukord](#sisukord)
-  - [Andmevahetusplatvorm elektrituru kontekstis](#andmevahetusplatvorm-elektrituru-kontekstis)
-  - [Andmelao kasutamise leping](#andmelao-kasutamise-leping)
-  - [Andmelao funktsionaalsus](#andmelao-funktsionaalsus)
-  - [EIC koodid](#eic-koodid)
-  - [Infovahetuse üldpõhimõtted](#infovahetuse-üldpõhimõtted)
-    - [Sissejuhatus](#sissejuhatus)
-    - [Keskkonnad](#keskkonnad)
-    - [Üldreeglid](#üldreeglid)
-    - [Aja esitamise reeglid](#aja-esitamise-reeglid)
-    - [Vastussõnumite koodid](#vastussõnumite-koodid)
+<!-- TOC -->
+* [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](#andmelao-kirjeldus-ja-infovahetuse-üldpõhimõtted)
+  * [Sisukord](#sisukord)
+  * [Andmevahetusplatvorm elektrituru kontekstis](#andmevahetusplatvorm-elektrituru-kontekstis)
+  * [Andmelao kasutamise leping](#andmelao-kasutamise-leping)
+  * [Andmelao funktsionaalsus](#andmelao-funktsionaalsus)
+  * [EIC koodid](#eic-koodid)
+  * [Infovahetuse üldpõhimõtted](#infovahetuse-üldpõhimõtted)
+    * [Sissejuhatus](#sissejuhatus)
+    * [Keskkonnad](#keskkonnad)
+    * [Üldreeglid](#üldreeglid)
+    * [Aja esitamise reeglid](#aja-esitamise-reeglid)
+    * [Vastussõnumite koodid](#vastussõnumite-koodid)
+<!-- TOC -->
 
 ## Andmevahetusplatvorm elektrituru kontekstis
 
@@ -117,19 +119,22 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad järgmiselt:
 
 Andmelao veebirakendus:
 
-- [Test keskkond](https://public-test-datahub.elering.ee/login)
+- [Avalik test keskkond](https://public-test-datahub.elering.ee/login)
 - [Live keskkond](https://datahub.elering.ee/login)
 
 Andmelao masinliidese otspunktid:
 
-- [Test keskkond](https://public-test-datahub.elering.ee)
-- [Live keskkond](https://datahub.elering.ee)
+- Avalik test keskkond:
+  - Andmete levitamise teenused: `https://public-test-dd-datahub.elering.ee`
+  - Ülejäänud teenused: `https://public-test-datahub.elering.ee`
+- Live keskkond: `https://datahub.elering.ee`
 
 Andmelao OpenApi teenuste kirjeldused:
 
-- [Test keskkond](https://public-test-datahub.elering.ee/swagger-ui/index.html)
+- Avalik test keskkond:
+  - [Andmete levitamise teenused](https://public-test-dd-datahub.elering.ee/swagger-ui/index.html)
+  - [Ülejäänud teenused](https://public-test-datahub.elering.ee/swagger-ui/index.html)
 - [Live keskkond](https://datahub.elering.ee/swagger-ui/index.html)
-- [Tuleviku nägemus ja plaanid](https://github.com/Elering/Estfeed-API)
 
 ### Üldreeglid
 

@@ -109,8 +109,50 @@ Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliide
 
 ### Veebiliides
 
-> **Note**
-> Dokumentatsioon on loomisel
+Vajadusel on võimalik järgmine vaba mõõtepunkti EIC kood genereerida veebiliidese kaudu navigeerides "Metering points" -> "Metering Point Bulk Import" lehele. Täpsustada tuleb soovitud EIC koodide arv.
+
+![EIC koodi genereerimine](../images/opp-ui/metering-point/generate-EIC.png)
+
+Mõõtepunkti lisamiseks veebiliideses on 2 võimalust:
+
+- ükshaaval;
+- masslaadimisega.
+
+Ükshaaval laadimiseks tuleks navigeerida "Metering points" lehele.
+
+1. Alustuseks tuleks vajutada nupule "New".
+2. Seejärel on vaja avanevas modaalaknas täita kõik kohustuslikud väljad (märgitud tärniga).
+3. Kui "Create" nupp on mitteaktiivne on tõenäoliselt jäänud mõni kohustuslik väli täitmata.
+
+![Uue mõõtepunkti lisamine](../images/opp-ui/metering-point/add-meter-point-1.png)
+
+![Uue mõõtepunkti andmete täitmine](../images/opp-ui/metering-point/add-meter-point-2.png)
+
+Mõõtepunktide masslaadimine on võimalik MS Excel faili abil navigeerides "Metering points" -> "Metering Point Bulk Import" lehele.
+
+1. Vajutades lehel "Download" nupule on võimalik allalaadida template.
+2. "Import" nupp avab modaalakna.
+3. Seejärel on võimalik lisada mõõtepunki(de) andmetega täidetud fail.
+
+![Mõõtepunktide masslaadimine](../images/opp-ui/metering-point/meter-point-import.png)
+
+Mõõtepunktide otsimiseks tuleks navigeerida "Metering points" lehele.
+
+1. Soovi korral on võimalik lisada 1 või rohkem otsingukriteeriumit.
+2. Ilma ühtegi välja täitmata ja kohe "Search" nuppu vajutades väljastatakse kõigi mõõtepunktide andmed.
+Ühe või rohkema otsingukriteeriumi lisamisel väljastatakse vaid nendele kriteeriumitele vastavad mõõtepunktid.
+3. Võimalik on otsingut täpsustada täiendavate kriteeriumitega, need valikud avanevad vajutades "Detailed search" nupule.
+
+![Mõõtepunktide otsimine](../images/opp-ui/metering-point/meter-point-search.png)
+
+Peale mõõtepunkti otsingu tulemuste saamist on võimalik:
+1. vaadata mõõtepunkti mõõteandmeid;
+2. vaadata mõõtepunktiga seotud lepinguid;
+3. muuta mõõtepunkti andmeid.
+
+Kirjeldatud on mõõtepunkte haldavate turuosaliste õigused, teistel rollidel mõõtepunkti muutmise õigus puudub.
+
+![Mõõtepunktide informatsioon](../images/opp-ui/metering-point/meter-point-info.png)
 
 ### Mõõtepunktide masslaadimine
 

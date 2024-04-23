@@ -109,8 +109,50 @@ The data of metering point is the same in all interfaces. The data of a metering
 
 ### Web interface
 
-> **Note**
-> Documentation is under development
+When needed, it is possible to generate a new free EIC code via the web interface by navigating to the “Metering points” -> “Metering Point Bulk Import” page. You need to specify the number of EIC codes needed.
+
+![generate the EIC code](../images/opp-ui/metering-point/generate-EIC.png)
+
+There are two options for adding metering points in the web interface:
+
+- one by one
+- using mass import
+
+For one by one uploading you need to navigate to the "Metering points" page.
+
+1. Click the "New" button.
+2. Fill in all mandatory fields (marked with an asterisk) in the modal window.
+3. If the “Create” button is inactive, there might be an unfilled mandatory field.
+
+![Adding a new metering point](../images/opp-ui/metering-point/add-meter-point-1.png)
+
+![Adding the new metering point data](../images/opp-ui/metering-point/add-meter-point-2.png)
+
+Metering point mass import is possible by navigating to "Metering points" -> "Metering Point Bulk Import" page and using a MS Excel file.
+
+1. Download the template.
+2. Use the “Import” button to open the modal window.
+3. Add the data-filled file containing the metering point(s).
+
+![Metering points mass import](../images/opp-ui/metering-point/meter-point-import.png)
+
+On the "Metering points" page it is possible to use the search functionality to find the needed metering points.
+
+1. If needed 1 or more search requirements can be added.
+2. Without any search requirements all metering points are shown. Otherwise the results are shown based on the given search requirements.
+3. It is possible to use more search categories by opening the detailed search.
+
+![Metering point search](../images/opp-ui/metering-point/meter-point-search.png)
+
+From the metering point results it is possible to:
+1. view the metering point metering data;
+2. view the metering point agreements;
+3. change the metering point data.
+
+The described functionalities are for market participants who manage metering points, other roles do not have the possibility to edit the data.
+
+![Metering point information](../images/opp-ui/metering-point/meter-point-info.png)
+
 
 ### Mass import
 
