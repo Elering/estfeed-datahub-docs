@@ -1,3 +1,11 @@
+## [EDH-2349] Release 0.4.1
+
+- __2024-04-25__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type |  Priority |                                       Title                                       |
+|-----------|------|-----------|-----------------------------------------------------------------------------------|
+|  EDH-2337 |  Bug |  Critical |  Using ee.. username JWT authentication token fails to authN in Data Distribution |
+
 ## [EDH-2284] Release 0.4.0
 
 - __2024-04-23__ - released to __TEST-PUBLIC__
