@@ -52,4 +52,4 @@
 | Raport                    | `POST` | /api/v1/report/export/excel              | MS Excel formaadis raporti allalaadimine                         | 2024.05.20 |
 | Raport                    | `POST` | /api/v1/report/search                    | Raportite otsing                                                 | 2024.05.20 |
 | Ühisarve võrguarve        | `PUT`  | /api/v1/joint-invoice                    | Ühisarve võrguarve muutmine                                      | 2024.04.22 |
-| Andmete levitamine        | `POST` | /api/v1/data-distribution/search         | Erinevate andmeobjektide muudatuste teavitused                   | 2024.05.01 |
+| Andmete levitamine        | `POST` | /api/v1/data-distribution/search         | Erinevate andmeobjektide muudatuste teavitused                   | 2024.05.16 |

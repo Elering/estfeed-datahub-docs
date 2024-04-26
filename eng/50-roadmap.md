@@ -52,4 +52,4 @@
 | Reports                | `POST` | /api/v1/report/export/excel              | Download report in Excel format                                                  | 2024.05.20 |
 | Reports                | `POST` | /api/v1/report/search                    | Find reports                                                                     | 2024.05.20 |
 | Joint Invoice          | `PUT`  | /api/v1/joint-invoice                    | Update a forwarded invoice                                                       | 2024.04.22 |
-| Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params                     | 2024.05.01 |
+| Data Distribution      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params                     | 2024.05.16 |
