@@ -2,19 +2,22 @@
 
 ## Sisukord
 
-- [Mõõtepunktid](#mõõtepunktid)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Mõõtepunkti andmete edastamine](#mõõtepunkti-andmete-edastamine)
-    - [Veebiliides](#veebiliides)
-    - [Mõõtepunktide masslaadimine](#mõõtepunktide-masslaadimine)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid)
-      - [Sõnumid](#sõnumid)
-      - [Sõnumite reeglid](#sõnumite-reeglid)
-  - [Mõõtepunkti andmete küsimine](#mõõtepunkti-andmete-küsimine)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid-1)
-      - [Sõnumid](#sõnumid-1)
-      - [Sõnumite reeglid](#sõnumite-reeglid-1)
+<!-- TOC -->
+* [Mõõtepunktid](#mõõtepunktid)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Mõõtepunkti andmete edastamine](#mõõtepunkti-andmete-edastamine)
+    * [Veebiliides](#veebiliides)
+    * [Mõõtepunktide masslaadimine](#mõõtepunktide-masslaadimine)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid)
+      * [Sõnumid](#sõnumid)
+      * [Sõnumite reeglid](#sõnumite-reeglid)
+  * [Mõõtepunkti andmete küsimine](#mõõtepunkti-andmete-küsimine)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
+      * [Sõnumid](#sõnumid-1)
+      * [Sõnumite reeglid](#sõnumite-reeglid-1)
+        * [`meter/search/customer` täiendavad reeglid](#metersearchcustomer-täiendavad-reeglid)
+<!-- TOC -->
 
 ## Sissejuhatus
 

@@ -2,18 +2,20 @@
 
 ## Sisukord
 
-- [Lepingud](#lepingud)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Katkematu avatud tarne](#katkematu-avatud-tarne)
-  - [Lepingute edastamine](#lepingute-edastamine)
-    - [Veebiliidese abil](#veebiliidese-abil)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid)
-      - [Sõnumite reeglid](#sõnumite-reeglid)
-  - [Lepingute otsimine ja eksport](#lepingute-otsimine-ja-eksport)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid-1)
-      - [Sõnumite reeglid](#sõnumite-reeglid-1)
-    - [Veebiliidese abil](#veebiliidese-abil-1)
+<!-- TOC -->
+* [Lepingud](#lepingud)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Katkematu avatud tarne](#katkematu-avatud-tarne)
+  * [Lepingute edastamine](#lepingute-edastamine)
+    * [Veebiliidese abil](#veebiliidese-abil)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid)
+      * [Sõnumite reeglid](#sõnumite-reeglid)
+  * [Lepingute otsimine ja eksport](#lepingute-otsimine-ja-eksport)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
+      * [Sõnumite reeglid](#sõnumite-reeglid-1)
+    * [Veebiliidese abil](#veebiliidese-abil-1)
+<!-- TOC -->
 
 ## Sissejuhatus
 

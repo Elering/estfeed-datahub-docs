@@ -2,18 +2,20 @@
 
 ## Table of contents
 
-- [Agreements](#agreements)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Uninterrupted open supply](#uninterrupted-open-supply)
-  - [Transmitting agreements](#transmitting-agreements)
-    - [API messages](#api-messages)
-      - [Message rules](#message-rules)
-    - [Web interface](#web-interface)
-  - [Searching and exporting agreements](#searching-and-exporting-agreements)
-    - [API messages](#api-messages-1)
-      - [Message rules](#message-rules-1)
-    - [Web interface](#web-interface-1)
+<!-- TOC -->
+* [Agreements](#agreements)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Uninterrupted open supply](#uninterrupted-open-supply)
+  * [Transmitting agreements](#transmitting-agreements)
+    * [API messages](#api-messages)
+      * [Message rules](#message-rules)
+    * [Web interface](#web-interface)
+  * [Searching and exporting agreements](#searching-and-exporting-agreements)
+    * [API messages](#api-messages-1)
+      * [Message rules](#message-rules-1)
+    * [Web interface](#web-interface-1)
+<!-- TOC -->
 
 ## Introduction
 

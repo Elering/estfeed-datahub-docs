@@ -2,19 +2,22 @@
 
 ## Table of contents
 
-- [Metering point](#metering-point)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Transmitting metering point data](#transmitting-metering-point-data)
-    - [Web interface](#web-interface)
-    - [Mass import](#mass-import)
-    - [API messages](#api-messages)
-      - [Messages](#messages)
-      - [Message rules](#message-rules)
-  - [Requesting metering point data](#requesting-metering-point-data)
-    - [API messages](#api-messages-1)
-      - [Messages](#messages-1)
-      - [Message rules](#message-rules-1)
+<!-- TOC -->
+* [Metering point](#metering-point)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Transmitting metering point data](#transmitting-metering-point-data)
+    * [Web interface](#web-interface)
+    * [Mass import](#mass-import)
+    * [API messages](#api-messages)
+      * [Messages](#messages)
+      * [Message rules](#message-rules)
+  * [Requesting metering point data](#requesting-metering-point-data)
+    * [API messages](#api-messages-1)
+      * [Messages](#messages-1)
+      * [Message rules](#message-rules-1)
+        * [`meter/search/customer` additional rules](#metersearchcustomer-additional-rules)
+<!-- TOC -->
 
 ## Introduction
 
@@ -109,7 +112,7 @@ The data of metering point is the same in all interfaces. The data of a metering
 
 ### Web interface
 
-When needed, it is possible to generate a new free EIC code via the web interface by navigating to the “Metering points” -> “Metering Point Bulk Import” page. You need to specify the number of EIC codes needed.
+When needed, it is possible to generate a new available EIC code via the web interface by navigating to the “Metering points” -> “Metering Point Bulk Import” page. You need to specify the number of EIC codes needed.
 
 ![generate the EIC code](../images/opp-ui/metering-point/generate-EIC.png)
 

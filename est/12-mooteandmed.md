@@ -12,6 +12,7 @@
       * [Sõnumid](#sõnumid)
       * [Sõnumite reeglid](#sõnumite-reeglid)
   * [Mõõteandmete päringud](#mõõteandmete-päringud)
+    * [Mõõteandmete otsimine veebiliidese kaudu](#mõõteandmete-otsimine-veebiliidese-kaudu)
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
       * [Sõnumid](#sõnumid-1)
       * [Sõnumite reeglid](#sõnumite-reeglid-1)
@@ -57,8 +58,25 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 
 ### Mõõteandmete edastamine veebiliidese kaudu
 
-> **Note**
-> Dokumentatsioon on loomisel
+Mõõteandmete edastamiseks veebiliidese kaudu tuleb navigeerida "Metering data" lehele.
+
+Mõõteandmete mugavamaks edastamiseks on võimalik alla laadida template. Template koostamiseks tuleks valida mõõteandmete resolutsioon ning ajavahemik, selle põhjal koostatakse eeltäidetud template. Tähelepanu tuleks pöörata valitud ajavahemikule - valitud kellaajad peavad vastama mõõteandmete resolutsioonile.
+
+![Mõõteandmete template genereerimine](../images/opp-ui/metering-data/metering-data-template1.png)
+
+![Template seadistamine](../images/opp-ui/metering-data/metering-data-template2.png)
+
+Mõõteandmete importimiseks tuleks vajutada "Metering data" lehel nuppu "Import". Seejärel on võimalik võimalik lisada mõõteandmete fail. 
+
+![Mõõteandmete edastamine](../images/opp-ui/metering-data/metering-data-import.png)
+
+Kui faili on juhtunud mõni viga annab süsteem sellest teada.
+1. Mõõtepunktide andmed võivad olla lisatud ka mitmele MS Excel faili lehele, seetõttu annab süsteem kasutajatele teada, millisel lehel probleem on.
+2. Lisaks on võimalik näha vigase rea numbrit.
+3. Probleemi kirjeldus aitab mõista probleemi sisu.
+4. Kui probleem on leitud ja fail parandatud peaks vajutama "Cancel" ning importimise protsessi kordama.
+
+![Error mõõteandmete edastamisel](../images/opp-ui/metering-data/metering-data-error.png)
 
 ### Masinliidese sõnumid
 
@@ -145,6 +163,12 @@ Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
 - Avatud tarnija skaneerib mõõteandmete muudatusi kasutades teenust `data-distribution/search`
 - Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
+
+### Mõõteandmete otsimine veebiliidese kaudu
+
+Mõõteandmeid saab otsida navigeerides "Metering data" lehele. Selleks tuleb sisestada otsitava mõõtepunkti EIC kood ning otsinguperioodi algkuupäev. Soovi korral võib määrata ka lõppkuupäeva.
+
+![Mõõteandmete otsimine](../images/opp-ui/metering-data/metering-data-search.png)
 
 ### Masinliidese sõnumid
 

@@ -12,6 +12,7 @@
       * [Messages](#messages)
       * [Message rules](#message-rules)
   * [Metering data requests](#metering-data-requests)
+    * [Requesting metering data via the web interface](#requesting-metering-data-via-the-web-interface)
     * [API messages](#api-messages-1)
       * [Messages](#messages-1)
       * [Message rules](#message-rules-1)
@@ -57,8 +58,25 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 
 ### Transmitting metering data via the web interface
 
-> **Note**
-> Documentation is under development
+In order to transmit data via the web interface user will need to navigate to "Metering data" page.
+
+For easier metering data transmitting it is possible to download the template. To generate the template the resolution and time range needs to be selected, based on it the prefilled template is generated. It is important to choose the time range correctly - it needs to fit the resolution.
+
+![Generating the template](../images/opp-ui/metering-data/metering-data-template1.png)
+
+![Fillin in the template](../images/opp-ui/metering-data/metering-data-template2.png)
+
+To import metering data "Import" button needs to be clicked on the "Metering data" page. After that it is possible to add the metering data file. 
+
+![Metering data import](../images/opp-ui/metering-data/metering-data-import.png)
+
+In case there is a mistake in the file the system will notify the user:
+1. Metering data can be added to several MS Excel file sheets. The system will tell the user on which sheet the problem is located.
+2. In addition it is possible to see the row where the problem is.
+3. Error description helps to understand the issue.
+4. After the problem is found and fixed "Cancel" should be clicked and import process should be repeated.
+
+![Import error](../images/opp-ui/metering-data/metering-data-error.png)
 
 ### API messages
 
@@ -145,6 +163,12 @@ The following options are available for making metering data requests:
 
 - Open suppliers can scan metering data changes using the `data-distribution/search` service.
 - Authorised users can request metering data using the `search` service.
+
+### Requesting metering data via the web interface
+
+Metering data can be requested by navigating to "Metering data" page. There metering point EIC code and search period start need to be defined. If needed the end date can be added as well. 
+
+![Searching metering data](../images/opp-ui/metering-data/metering-data-search.png)
 
 ### API messages
 
