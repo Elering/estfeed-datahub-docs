@@ -43,24 +43,35 @@ Used to forward changes in the area of the balance responsible party to the bala
 
 ## API messages
 
-| Message                                               | Objective                                              |
-| ----------------------------------------------------- | ------------------------------------------------------ |
-| `POST /api/{version}/balance-settlement-point/change` | Allows the user to search for the balance area changes |
+| Message                                               | Objective                                                                            |
+|-------------------------------------------------------|--------------------------------------------------------------------------------------|
+| `POST /api/{version}/balance-settlement-point/change` | Allows the user to search for the balance area changes                               |
+| `POST /api/{version}/balance-settlement-point/search` | Allows the user to search for the balance settlement points for the requested period |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
 ## Message rules
 
 - The service only responds to balance responsible parties (who have a portfolio agreement with the TSO). No data is issued to other portfolio providers in the balance tree.
-- Only one day changes can be requested with a message. To request changes of a longer period, the message must be sent several times with the each date of the desired period.
+- Only one day changes can be requested with a `change` message. To request changes of a longer period, the message must be sent several times with the each date of the desired period.
 
 > **Note**
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ## Attribute specific rules
 
+### Service `change`
+
 | Attribute in the API | Explanation                                                  | Mandatory? | Other rules                                                                                                                                                 |
 | -------------------- | ------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | updatePeriodStart    | The date of the balance change                               | no         | Allows to search the changed on specific date. Sent time value is ignored by Datahub. If not provided, then Datahub will set the value to current timestamp |
 | meteringPointActions | Type of change                                               | no         | On of: ADDED, REMOVED                                                                                                                                       |
 | includeParticipants  | Whether the response should contain participants information | no         | If "true", then position `serviceProviders` is filled in the response                                                                                       |
+
+### Service `search`
+
+| Attribute in the API | Explanation                 | Mandatory? | Other rules                                                                                         |
+|----------------------|-----------------------------|------------|-----------------------------------------------------------------------------------------------------|
+| periodStart          | Start of the desired period | yes        | periodStart and periodEnd define the period for which the balance state metering points are desired |
+| periodEnd            | End of the desired period   | yes        |                                                                                                     |
+| meteringPointTypes   | Metering point types        | no         | REGULAR - regular metering point; BORDER - border metering point                                    |

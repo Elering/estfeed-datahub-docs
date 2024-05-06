@@ -131,12 +131,13 @@ One identity can have multiple extension. For example if the `identityType` valu
 - Customer type and metadata type have the following allowed combinations:
 
 |                      | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
-| -------------------- | ------------ | --------------- | ------------ |
+|----------------------| ------------ | --------------- | ------------ |
 | ORGANIZATION_NAME    | ✓            | -               | -            |
 | FIRST_NAME           | -            | ✓               | -            |
 | LAST_NAME            | -            | ✓               | -            |
 | COMPANY_NAME         | -            | -               | ✓            |
 | PHONE                | ✓            | ✓               | ✓            |
+| MOBILE_PHONE         | ✓            | ✓               | ✓            |
 | EMAIL                | ✓            | ✓               | ✓            |
 | BILLING_METHOD       | ✓            | ✓               | ✓            |
 | BILLING_BANK_NAME    | ✓            | ✓               | ✓            |
@@ -170,6 +171,8 @@ One identity can have multiple extension. For example if the `identityType` valu
 
 - If the data requester does not have the corresponding right, the customer search service only returns the customer’s EIC.
 - Only legal persons and organizations can be searched by name. Physical persons cannot be searched by name.
+- Metadata `BILLING_*`, `PHONE`, `MOBILE_PHONE` and `EMAIL` is returned only if the requester is the Named Supplier, who has currently active (or had in the last 12 months) general service agreement
+  with the customer
 
 ### Find Estonian Business Registry representations of Customer
 

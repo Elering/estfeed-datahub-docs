@@ -43,24 +43,35 @@ Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toi
 
 ## Masinliidese sõnumid
 
-| Sõnum                                                 | Eesmärk                                                   |
-| ----------------------------------------------------- | --------------------------------------------------------- |
-| `POST /api/{version}/balance-settlement-point/change` | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi |
+| Sõnum                                                 | Eesmärk                                                             |
+|-------------------------------------------------------|---------------------------------------------------------------------|
+| `POST /api/{version}/balance-settlement-point/change` | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi           |
+| `POST /api/{version}/balance-settlement-point/search` | Võimaldab otsida bilansiselgituse mõõtepunkte soovitud ajaperioodil |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-## Sõnumi reeglid
+## Sõnumite reeglid
 
 - Teenus annab vastuse ainult bilansihalduritele (kellel on portfellileping TSO-ga). Teistele bilansipuu portfelliteenuse pakkujatele andmeid ei väljastata.
-- Sõnumiga saab pärida ainult ühe kuupäeva muudatusi. Pikema perioodi muudatuste pärimiseks tuleb sõnumit saata mitu korda soovitud perioodi kuupäevadega.
+- `change` sõnumiga saab pärida ainult ühe kuupäeva muudatusi. Pikema perioodi muudatuste pärimiseks tuleb sõnumit saata mitu korda soovitud perioodi kuupäevadega.
 
 > **Note**
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
-## Sõnumi atribuutide reeglid
+## Sõnumite atribuutide reeglid
+
+### Teenus `change`
 
 | Atribuut teenuses    | Selgitus                                 | Kohustuslik? | Muud reeglid                                                                                                                                 |
 | -------------------- | ---------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | updatePeriodStart    | Muudatuse alguse kuupäev                 | ei           | Võimaldab otsida vabalt valitud kuupäeva muudatusi. Kellaja väärtust ignoreeritakse. Kui täitmata, siis süsteem väärtustab tänase kuupäevaga |
 | meteringPointActions | Muudatuse tüüp                           | ei           | ADDED - lisatud; REMOVED - eemaldatud                                                                                                        |
 | includeParticipants  | Kas vastusesse kaasata lepingu osapooled | ei           | Väärtuse "true" puhul on vastuses täidetud positsioon `serviceProviders`                                                                     |
+
+### Teenus `search`
+
+| Atribuut teenuses  | Selgitus                                 | Kohustuslik? | Muud reeglid                                                                                    |
+|--------------------|------------------------------------------|--------------|-------------------------------------------------------------------------------------------------|
+| periodStart        | Soovitud perioodi alguse kuupäev         | jah          | periodStart ja periodEnd määravad perioodi, mille kohta soovitakse bilansiselgituse mõõtepunkte |
+| periodEnd          | Soovitud perioodi lõpu kuupäev           | jah          |                                                                                                 |
+| meteringPointTypes | Kas vastusesse kaasata lepingu osapooled | ei           | REGULAR - tavamõõtepunkt; BORDER - piirimõõtepunkt                                              |

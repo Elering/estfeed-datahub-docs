@@ -14,7 +14,7 @@
     * [Mõõteandmed](#mõõteandmed)
     * [Võrguteenuse arve](#võrguteenuse-arve)
     * [Kliendi metaandmed](#kliendi-metaandmed)
-    * [Raportid](#raportid)
+    * [Ligipääsuõigused](#ligipääsuõigused)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -45,7 +45,7 @@ Andmeobjekti tüübid on:
 - NETWORK_BILL - võrguteenuse arve
 - CUSTOMER - kliendi metaandmed (arveldamise andmete edastuseks nimetatud müüjale)
 - AGREEMENT - leping ja üldteenuse teavitus, mis on realiseeritud lepinguna
-- REPORT - raportid
+- PERMISSION - ligipääsuõigused (antud Kliendiportaali kaudu)
 
 Maksimaalne päritava perioodi pikkus on:
 
@@ -162,15 +162,44 @@ alles välja töötamisel. Selle tekkimisel teavitatakse turuosalisi aegsasti ja
 
 ### Võrguteenuse arve
 
-> **Note**
-> Näidised on loomisel
+```json
+[
+    {
+        "commodityType": "ELECTRICITY",
+        "meterEic": "38ZGO-10000013-K",
+        "networkBillPeriod": {
+            "calculationTimestamp": "2024-05-02T17:23:07.648663+03:00",
+            "containsCalculatedValues": true,
+            "measurements": [
+                {
+                    "day": 10,
+                    "direction": "IN",
+                    "measurementUnit": "KWH",
+                    "night": 10,
+                    "total": 20
+                },
+                {
+                    "day": 20,
+                    "direction": "OUT",
+                    "measurementUnit": "KWH",
+                    "night": 20,
+                    "total": 40
+                }
+            ],
+            "periodEnd": "2024-03-25T00:00+02:00",
+            "periodStart": "2024-03-24T00:00+02:00"
+        }
+    }
+]
+```
 
 ### Kliendi metaandmed
 
 > **Note**
 > Näidised on loomisel
 
-### Raportid
+
+### Ligipääsuõigused
 
 > **Note**
 > Näidised on loomisel

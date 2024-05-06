@@ -130,12 +130,13 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 - Kliendi tüübi ja tema metaandmestiku tüübi lubatud kombinatsioonid on:
 
 |                      | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
-| -------------------- | ------------ | --------------- | ------------ |
+|----------------------| ------------ | --------------- | ------------ |
 | ORGANIZATION_NAME    | ✓            | -               | -            |
 | FIRST_NAME           | -            | ✓               | -            |
 | LAST_NAME            | -            | ✓               | -            |
 | COMPANY_NAME         | -            | -               | ✓            |
 | PHONE                | ✓            | ✓               | ✓            |
+| MOBILE_PHONE         | ✓            | ✓               | ✓            |
 | EMAIL                | ✓            | ✓               | ✓            |
 | BILLING_METHOD       | ✓            | ✓               | ✓            |
 | BILLING_BANK_NAME    | ✓            | ✓               | ✓            |
@@ -167,7 +168,9 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 | searchCriteria        | Otsingu tingimused                  | jah          | Kasutab sama struktuuri nagu `customerIdentifiers`                                                |
 
 - Kliendi otsingu teenus tagastab ainult kliendi EIC koodi juhul, kui andmete pärijal puudub vastav õigus.
-- Nime järgi saab otsida juriidilisi isikuid ja orangisatsioone. Füüsilisi isikuid nime järgi otsida ei saa.
+- Nime järgi saab otsida juriidilisi isikuid ja organisatsioone. Füüsilisi isikuid nime järgi otsida ei saa.
+- Metaandmeid `BILLING_*`, `PHONE`, `MOBILE_PHONE` ja `EMAIL` väljastatakse ainult juhul, kui pärijaks on on nimetatud müüja, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne)
+  üldteenuse leping antud kliendiga.
 
 ### Äriregistri esindusõiguste otsing
 

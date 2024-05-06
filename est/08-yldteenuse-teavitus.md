@@ -8,9 +8,12 @@
 
 ## Sissejuhatus
 
-Andmeladu tuvastab perioodid, millal klient kasutab või hakkab kasutama üldteenust. Nendest perioodidest tuvastab Andmeladu alamperioodid, mis on kaetud nimetatud müüja lepinguga. Tuvastatud (alam)perioodide kohta koostab Andmeladu tehnilised üldteenuse (`GENERAL_SERVICE`) lepingud ja määrab teenusepakkujaks kas võrguettevõtja või nimetatud müüja. Tegemist on puhtalt tehnilise lahendusega, et üldteenuse algust ja lõppu eksplitsiitselt talletada. Tegemist ei ole juriidilises mõttes lepinguga.
+Andmeladu tuvastab perioodid, millal klient kasutab või hakkab kasutama üldteenust. Nendest perioodidest tuvastab Andmeladu alamperioodid, mis on kaetud nimetatud müüja lepinguga. 
+Tuvastatud (alam)perioodide kohta koostab Andmeladu tehnilised üldteenuse (`GENERAL_SERVICE`) lepingud ja määrab teenusepakkujaks kas võrguettevõtja või nimetatud müüja. 
+Tegemist on puhtalt tehnilise lahendusega, et üldteenuse algust ja lõppu eksplitsiitselt talletada. Tegemist ei ole juriidilises mõttes lepinguga.
 
-Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale `data-distribution/search` teenuse abil.
+Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale `data-distribution/search` teenuse abil koheselt peale üldteenuse rakendumist.
+Teenuse väljundis on GENERAL_SERVICE lepingu andmed.
 
 Üldteenuse rakendumisel sõltub edasine andmevahetuse sellest, kas võrguettevõtjal on sõlmitud nimetatud tarnija leping või mitte:
 

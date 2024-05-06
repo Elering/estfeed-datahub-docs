@@ -14,7 +14,7 @@
     * [Metering data](#metering-data)
     * [Network bill](#network-bill)
     * [Customer](#customer)
-    * [Reports](#reports)
+    * [Customer authorizations](#customer-authorizations)
 <!-- TOC -->
 
 ## Introduction
@@ -45,7 +45,7 @@ Resource types are:
 - NETWORK_BILL - network bill
 - CUSTOMER - customer's metadata (billing data for named supplier)
 - AGREEMENT - agreement and general service, which is modelled as agreement
-- REPORT - reports
+- PERMISSION - customer authorizations (given in the Client Portal)
 
 Maximum allowed period in the query depends on the resource type:
 
@@ -162,16 +162,43 @@ development. Market participants will be informed in a timely and thorough manne
 
 ### Network bill
 
-> **Note**
-> A collection of sample messages is being created
+```json
+[
+    {
+        "commodityType": "ELECTRICITY",
+        "meterEic": "38ZGO-10000013-K",
+        "networkBillPeriod": {
+            "calculationTimestamp": "2024-05-02T17:23:07.648663+03:00",
+            "containsCalculatedValues": true,
+            "measurements": [
+                {
+                    "day": 10,
+                    "direction": "IN",
+                    "measurementUnit": "KWH",
+                    "night": 10,
+                    "total": 20
+                },
+                {
+                    "day": 20,
+                    "direction": "OUT",
+                    "measurementUnit": "KWH",
+                    "night": 20,
+                    "total": 40
+                }
+            ],
+            "periodEnd": "2024-03-25T00:00+02:00",
+            "periodStart": "2024-03-24T00:00+02:00"
+        }
+    }
+]
+```
 
 ### Customer
 
 > **Note**
 > A collection of sample messages is being created
 
-### Reports
+### Customer authorizations
 
 > **Note**
 > A collection of sample messages is being created
-
