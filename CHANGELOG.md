@@ -1,3 +1,11 @@
+## [EDH-2426] Release 0.5.3
+
+- __2024-05-16__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type | Priority|                          Title                          |
+|-----------|------|---------|---------------------------------------------------------|
+|  EDH-2408 |  Bug |  Medium |  [DD] Agreement distribution fails for SUPPLY agreement |
+
 ## [EDH-2397] Release 0.5.2
 
 - __2024-05-09__ - released to __TEST-PUBLIC__
