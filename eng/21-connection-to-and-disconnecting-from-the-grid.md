@@ -2,21 +2,19 @@
 
 ## Table of contents
 
-- [Connecting to and disconnecting from the grid](#connecting-to-and-disconnecting-from-the-grid)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Connection and disconnection request and confirmation](#connection-and-disconnection-request-and-confirmation)
-    - [API messages](#api-messages)
-      - [Messages](#messages)
-      - [Message rules](#message-rules)
+<!-- TOC -->
+* [Connecting to and disconnecting from the grid](#connecting-to-and-disconnecting-from-the-grid)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Connection and disconnection request and confirmation](#connection-and-disconnection-request-and-confirmation)
+    * [API messages](#api-messages)
+      * [Messages](#messages)
+      * [Message rules](#message-rules)
+<!-- TOC -->
 
 ## Introduction
 
 If a grid service provider and an open supplier have entered into a joint invoice agreement, a market participant will always be sent a joint invoice (the market participant cannot choose otherwise) and the open supplier will have the right to request that the grid connection be turned off if the market participant has not paid its joint invoice.
-
-> **Warning**
-> 
-> All functionality described in this document is excluded from the original scope.
 
 ## Connection and disconnection request and confirmation
 
@@ -31,11 +29,14 @@ Relevant Datahub services have been set up to transmit the request and confirmat
 5. The grid operator can search for the connection and disconnection requests using the `search` service.
 6. The grid operator updates the status of the request using the `message` service. Possible options are:
    - connect or disconnect a metering point is planned (`PLANNED`);
-   - refusal to connect or disconnect a metering point (`REFUSED`);
-   - connecting or disconnecting a metering point (`CONNECTED` or `DISCONNECTED`).
+   - refusal to disconnect a metering point (`REFUSED`);
+   - confirming connecting or disconnecting a metering point (`CONNECTED` or `DISCONNECTED`).
 7. The open supplier scans the grid operator’s responses using the `connection-state/search` service.
 8. The open supplier can search for the connection and disconnection requests using the `search` service.
 9. The grid operator and the open supplier can query the message history of the connection and disconnection request using the `message-history` service.
+
+State diagram of statuses for `message` service:
+![connection_state_stastuses.png](../diagrams/connection-state/connection_state_statuses.png)
 
 ### API messages
 

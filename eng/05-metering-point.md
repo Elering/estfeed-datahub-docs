@@ -72,7 +72,7 @@ The data of metering point is the same in all interfaces. The data of a metering
 | production             | Production                          | is any production in metering point?      | yes        | One of: TRUE (yes), FALSE (no)                                                                            |
 | productionSource       | Production Source                   |                                           | no         | One of: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE |
 | transmissionNetworkEic | Transmission Network EIC            | 16 digit EIC code of transmission network | yes        | EIC code of transmission network must be registered in the Datahub                                        |
-| apartmentAssociation   | Apartment Association               | is associated with apartment              | yes        | One of: TRUE (yes), FALSE (no)                                                                            |
+| apartmentAssociation   | Apartment Association               | is it an apartment association?           | yes        | One of: TRUE (yes), FALSE (no)                                                                            |
 
 - Specific data for electricity metering points:
 
@@ -167,19 +167,20 @@ The data of the metering point is described in paragraph [Transmitting metering 
 
 #### Messages
 
-| Message                              | Objective                                 |
-|--------------------------------------|-------------------------------------------|
-| `POST /api/{version}/meter`          | Create meter with metadata                |
-| `PUT /api/{version}/meter`           | Update meter metadata                     |
-| `POST /api/{version}/template/meter` | Get metering point mass import templates  |
-| `POST /api/{version}/meter/import`   | Mass import metering points with template |
-| `POST /api/{version}/eic/range`      | Get a list of unused EICs from a range    |
+| Message                              | Objective                                          |
+|--------------------------------------|----------------------------------------------------|
+| `POST /api/{version}/meter`          | Create meter with metadata                         |
+| `PUT /api/{version}/meter`           | Update meter metadata                              |
+| `POST /api/{version}/template/meter` | Get metering point mass import templates           |
+| `POST /api/{version}/meter/import`   | Mass import metering points with template          |
+| `POST /api/{version}/eic/amount`     | Get a list of unused EICs from a range             |
+| `POST /api/{version}/eic/range`      | Get a list of EIC ranges of the Market Participant |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
 #### Message rules
 
-- The EIC of the metering point must be within the range of the grid operator’s EICs.
+- The EIC of the metering point must be within one of the ranges of the grid operator’s EICs.
 - The `marketParticipantContext.commodityType` of the message defines the commodity type of the metering point and consequently the allowed metadata:
   - for `ELECTRICITY` value - electricity or aggregation metadata is allowed and required;
   - for `NATURAL_GAS` value - gas or aggregation metadata is allowed and required;

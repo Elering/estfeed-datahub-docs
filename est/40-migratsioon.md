@@ -16,45 +16,57 @@ Käesolev dokument on loodud ajutiseks abivahendiks arendajatele, et aidata neil
 
 Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt muutuvad kõik andmevahetusliidese teenused. Allolev tabel kõrvutab vanad ja uued teenused.
 
-| Vana XML teenus              | Uus REST teenus                                                                               | Link teenuse kirjeldusele                                    |
-|------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| RequestCustomerEIC           | `POST` `/api/{version}/customer`                                                              | [Kliendi EIC](04-kliendi-eic.md)                             |
-|                              | `POST` `/api/{version}/customer/search`                                                       | [Kliendi EIC](04-kliendi-eic.md)                             |
-| NotifyMeteringPointData      | `POST` ja `PUT` `/api/{version}/meter`                                                        | [Mõõtepunktid](05-mootepunktid.md)                           |
-|                              | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = GRID`                        | [Mõõtepunktid](05-mootepunktid.md)                           |
-| NotifyGridAgreementChange    | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`              | [Andmete levitamine](30-andmete-levitamine.md)               |
-| RequestMeteringPointsData    | `POST` `/api/{version}/meter/search/customer`                                                 | [Kliendi EIC](04-kliendi-eic.md)                             |
-| NotifySupplyAgreement        | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = SUPPLY`                      | [Lepingud](06-lepingud.md)                                   |
-| EnergyReport                 | `POST` `/api/{version}/meter-data`                                                            | [Mõõteandmed](12-mooteandmed.md)                             |
-| EnergyReportResult           | `POST` `/api /{version}/meter-data/status`                                                    | [Mõõteandmed](12-mooteandmed.md)                             |
-| NetworkBill                  | `POST` `/api/{version}/network-bill`                                                          | [Võrguteenuse arve](13-vorguteenuse-arve.md)                 |
-|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = NETWORK_BILL`           | [Andmete levitamine](30-andmete-levitamine.md)               |
-| RequestMeteringDataHistory   | `POST` `/api/{version}/meter-data/search`                                                     | [Mõõteandmed](12-mooteandmed.md)                             |
-| NotifyCustomerAuthorization  | `POST` `/api/customer-authorization/search`                                                   | [Mõõteandmed](12-mooteandmed.md)                             |
-|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = CUSTOMER_AUTHORIZATION` | [Andmete levitamine](30-andmete-levitamine.md)               |
-| CustomerMetadata             | *teenus on valmimisel*                                                                        | -                                                            |
-| NotifyJointInvoiceAgreement  | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = JOINT_INVOICE`               | [Lepingud](06-lepingud.md)                                   |
-| NotifyPortfolioAgreement     | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = PORTFOLIO_SUPPLIER`          | [Lepingud](06-lepingud.md)                                   |
-| NotifyNamedSupplierAgreement | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = NAMED_SUPPLIER`              | [Lepingud](06-lepingud.md)                                   |
-| RequestAgreementCoordination | *teenus on valmimisel*                                                                        | -                                                            |
-| ReplyAgreementCoordination   | *teenus on valmimisel*                                                                        | -                                                            |
-| ConfirmAgreementCoordination | *teenus on valmimisel*                                                                        | -                                                            |
-| ForwardInvoice               | `POST` `/api/{version}/joint-invoice`                                                         | [Ühisarve](14-yhisarve.md)                                   |
-|                              | `POST` `/api/{version}/joint-invoice/download`                                                | [Ühisarve](14-yhisarve.md)                                   |
-|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = JOINT_INVOICE`          | [Andmete levitamine](30-andmete-levitamine.md)               |
-| RequestConnectionState       | `POST` `/api/{version}/connection-state/initiate`                                             | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api/{version}/connection-state/message`                                              | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api/{version}/connection-state/message-history`                                      | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api/{version}/connection-state/search`                                               | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = CONNECTION_STATE`       | [Andmete levitamine](30-andmete-levitamine.md)               |
-| ReplyRequestConnectionState  | `POST` `/api/{version}/connection-state/message`                                              | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api/{version}/connection-state/message-history`                                      | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api/{version}/connection-state/search`                                               | [Sisse ja välja lülitamine](21-valja-ja-sisse-lylitamine.md) |
-|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = CONNECTION_STATE`       | [Andmete levitamine](30-andmete-levitamine.md)               |
-| SendMessage                  | *teenus on valmimisel*                                                                        | -                                                            |
-| BalanceState                 | *teenus on valmimisel*                                                                        | -                                                            |
-| AggregatedMeteringDataReport | *teenus on valmimisel*                                                                        | -                                                            |
-| Report                       | *teenus on valmimisel*                                                                        | -                                                            |
+| Vana XML teenus              | Uus REST teenus                                                                       | Link teenuse kirjeldusele                                    |
+|------------------------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| RequestCustomerEIC           | `POST` ja `PUT` `/api/{version}/customer`                                             | [Kliendi EIC](04-kliendi-eic.md)                             |
+|                              | `POST` `/api/{version}/customer/search`                                               | [Kliendi EIC](04-kliendi-eic.md)                             |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = CUSTOMER_DATA`  | [Andmete levitamine](30-andmete-levitamine.md)               |
+| NotifyMeteringPointData      | `POST` ja `PUT` `/api/{version}/meter`                                                | [Mõõtepunktid](05-mootepunktid.md)                           |
+|                              | `POST` ja `PUT` `/api/{version}/meter/import`                                         |                                                              |
+|                              | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = GRID`                | [Lepingud](06-lepingud.md)                                   |
+|                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = METERING_POINT` | [Andmete levitamine](30-andmete-levitamine.md)               |
+| NotifyGridAgreementChange    | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`      | [Andmete levitamine](30-andmete-levitamine.md)               |
+| RequestMeteringPointsData    | `POST` `/api/{version}/meter/search/customer`                                         | [Mõõtepunktid](05-mootepunktid.md)                           |
+|                              | `POST` `/api/{version}/agreement/search/meter`                                        | [Lepingud](06-lepingud.md)                                   |
+| NotifySupplyAgreement        | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = SUPPLY`              | [Lepingud](06-lepingud.md)                                   |
+|                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`      | [Andmete levitamine](30-andmete-levitamine.md)               |
+| EnergyReport                 | `POST` `/api/{version}/meter-data`                                                    | [Mõõteandmed](12-mooteandmed.md)                             |
+|                              | `POST` `/api/{version}/meter-data/import`                                             |                                                              |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = METERING_DATA`  | [Andmete levitamine](30-andmete-levitamine.md)               |
+| EnergyReportResult           | `POST` `/api /{version}/meter-data/status`                                            | [Mõõteandmed](12-mooteandmed.md)                             |
+| NetworkBill                  | `POST` ja `PUT` `/api/{version}/network-bill`                                         | [Võrguteenuse arve](13-vorguteenuse-arve.md)                 |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = NETWORK_BILL`   | [Andmete levitamine](30-andmete-levitamine.md)               |
+| RequestMeteringDataHistory   | `POST` `/api/{version}/meter-data/search`                                             | [Mõõteandmed](12-mooteandmed.md)                             |
+| NotifyCustomerAuthorization  | `POST` `/api/customer-authorization/search`                                           | [Ligipääsuõigus](15-ligipääsuõigus.md)                       |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = PERMISSION`     | [Andmete levitamine](30-andmete-levitamine.md)               |
+| NotifyJointInvoiceAgreement  | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = JOINT_INVOICE`       | [Lepingud](06-lepingud.md)                                   |
+|                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`      | [Andmete levitamine](30-andmete-levitamine.md)               |
+| NotifyPortfolioAgreement     | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = PORTFOLIO_SUPPLIER`  | [Lepingud](06-lepingud.md)                                   |
+|                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`      | [Andmete levitamine](30-andmete-levitamine.md)               |
+| NotifyNamedSupplierAgreement | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = NAMED_SUPPLIER`      | [Lepingud](06-lepingud.md)                                   |
+|                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |
+|                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`      | [Andmete levitamine](30-andmete-levitamine.md)               |
+| RequestAgreementCoordination | *teenus on valmimisel*                                                                | -                                                            |
+| ReplyAgreementCoordination   | *teenus on valmimisel*                                                                | -                                                            |
+| ConfirmAgreementCoordination | *teenus on valmimisel*                                                                | -                                                            |
+| ForwardInvoice               | `POST` ja `PUT` `/api/{version}/joint-invoice`                                        | [Ühisarve](14-yhisarve.md)                                   |
+|                              | `POST` `/api/{version}/joint-invoice/search`                                          |                                                              |
+|                              | `POST` `/api/{version}/joint-invoice/download`                                        |                                                              |
+| RequestConnectionState       | `POST` `/api/{version}/connection-state/initiate`                                     | [Välja- ja sisselülitamine](21-valja-ja-sisse-lylitamine.md) |
+|                              | `POST` `/api/{version}/connection-state/search`                                       |                                                              |
+| ReplyRequestConnectionState  | `POST` `/api/{version}/connection-state/message`                                      |                                                              |
+|                              | `POST` `/api/{version}/connection-state/message-history`                              |                                                              |
+|                              | `POST` `/api/{version}/connection-state/search`                                       |                                                              |
+| SendMessage                  | *teenus on valmimisel*                                                                | -                                                            |
+| BalanceState                 | `POST /api/{version}/balance-settlement-point/change`                                 | [Bilansipiirkond](10-bilansipiirkond.md)                     |
+| AggregatedMeteringDataReport | Vaata sektsiooni "Report"                                                             | [Raportid](20-raportid.md)                                   |
+| Report                       | `POST /api/{version}/report/search`                                                   | [Raportid](20-raportid.md)                                   |
+|                              | `POST /api/{version}/report/export/xlsx`                                              | -                                                            |
+|                              | `POST /api/{version}/report/export/json`                                              | -                                                            |
 
 API-de valmimise kohta leiab lisainformatsiooni [siit](50-tegevuskava.md)
 
@@ -80,3 +92,5 @@ Võrreldes varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel
 - Andmeladu genereerib GENERAL_SERVICE lepinguid automaatselt ja levitab seda infot võrguettevõtjale ja nimetatud müüjale.
 - API kasutamiseks vajalike tehniliste kasutajakontode toe loomine.
 - Mõõteandmete vastuvõtmise ja töötlemise protsess on muutunud asünkroonseks. Töötlemise tulemuse saab pärida teenusest `/meter-data/status`
+- Raporteid on võimalik alla laadida ka JSON formaadis
+- Ühel turuosalisel saab olla ka mitu EIC koodide vahemikku

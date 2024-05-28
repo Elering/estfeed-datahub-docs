@@ -60,11 +60,12 @@ Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andme
 
 Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasutusel samad sõnumid ja andmestruktuurid. Küll aga tasub tähele panna, et erinevatel lepingutel on erinevad reeglid ja seega ka erinev nõutud ja lubatud andmekoosseis.
 
-| Sõnum                                        | Eesmärk                      |
-|----------------------------------------------|------------------------------|
-| `POST /api/{version}/agreement`              | Lepingu loomine              |
-| `PUT /api/{version}/agreement`               | Lepingu uuendamine           |
-| `POST /api/{version}/agreement/delete`       | Lepingu kustutamine          |
+| Sõnum                                  | Eesmärk                       |
+|----------------------------------------|-------------------------------|
+| `POST /api/{version}/agreement`        | Lepingu loomine               |
+| `PUT /api/{version}/agreement`         | Lepingu uuendamine            |
+| `POST /api/{version}/agreement/delete` | Lepingu kustutamine           |
+| `POST /api/{version}/agreement-bulk`   | Mitme lepingu loomine korraga |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 

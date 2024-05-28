@@ -44,7 +44,7 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 - The metering point operators sends a new or changed metering data message using the `meter-data` service.
 - Since the processing of metering data in the Datahub is asynchronous, the Datahub first gives a quick response whether the message was received or not.
 - The Datahub then queues the message.
-- The metering point operator verifies the result of processing, using `meter-data/status` service. Possible results are:
+- The metering point operator verifies the result of processing, using `meter-data/status` service (at the `originalDocumentIdentification` position of the message, the value of the attribute of the same name that was in the `header` of the previously transmitted metering data message must be transmitted. The UUID value must not be reused). Possible results are:
   - `PROCESSING` - processing not finished
   - `SUCCESSFUL` - processing finised successfully
   - `ÈRROR` - processing finised with errors.
@@ -139,11 +139,11 @@ For a description of message structures and validations, see [Datahub descriptio
 
 #### Message rules
 
-- Read more about the relationship between metering data and metering point resolution in [Metering points](04-metering-points.md#message-rules).
+- The resolution value must match the global resolution applied in the given time period. For example, if the entire market switches to a resolution of 15 minutes on date X, then from date X the resolution value must be 15 minutes in the message.
 - The time period value must be consistent with the resolution. For example:
   - if the resolution is one hour, the start time of the period must be the beginning of the hour (hh:00);
   - if the resolution is 15 minutes, the start time of the period must be a quarter of the hour (hh:00, hh:15, hh:30, hh:45).
-- Electricity metering data are always transmitted in kWh to three decimal places.
+- Electricity metering data are always transmitted in kWh to three decimal places. 
 - Gas metering data are transmitted in both kWh and cubic metres to three decimal places.
 - The direction of the metering data is always presented as viewed by the metering point operator:
   - in – energy entering the grid (generation);

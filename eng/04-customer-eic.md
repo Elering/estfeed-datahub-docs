@@ -96,7 +96,7 @@ One identity can have multiple extension. For example if the `identityType` valu
 
 #### Additional rules
 
-- Only grid operators are allowed to add or modify customer data.
+- Only grid operators and active named suppliers are allowed to add or modify customer data.
 - When adding or changing a physical person, the following information is mandatory:
   - first name and last name;
   - country;
@@ -155,7 +155,7 @@ One identity can have multiple extension. For example if the `identityType` valu
     - in the case of `SELF_SERVICE` or `B2B_BILL`, there are no additional data required
 - Estonian personal identification codes and Estonian registry code are subject to a format check.
 - For foreign IDs, no format check applies.
-- When registering a new customer, the `customerType + identityType + identityValue + extensionType(COUNTRY)` combination must be unique. If it is not, the customer is an existing customer and the system will treat the add request as a customer update request and will update the customer’s details if possible.
+- When registering a new customer, the `customerType + identityType + identityValue + extensionType(COUNTRY)` combination must be unique. If it is not, the customer is an existing customer and data updates are allowed with `PUT`service.
 
 ### Find customer
 

@@ -109,7 +109,7 @@ Automaatne infovahetus (masinliidestus) toimub Andmelao ja kliendi infosüsteemi
 
 Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad järgmiselt:
 
-- [Test Swagger](https://test-datahub.elering.ee/swagger-ui/index.html) keskkonnas on nähtav versioon, mis on rakenduses realiseeritud. Selles keskkonnas on võimalik Swagger interaktiivse keskkonna abil rakendusele päris sõnumeid saata.
+- [Test Swagger](https://public-test-datahub.elering.ee/swagger-ui/index.html) keskkonnas on nähtav versioon, mis on rakenduses realiseeritud. Selles keskkonnas on võimalik Swagger interaktiivse keskkonna abil rakendusele päris sõnumeid saata.
 - [Github](https://github.com/Elering/Estfeed-API) keskkonnas on nähtav tuleviku visioon. Liides on kirjeldatud OpenAPI formaadis.
 
 > **Note**

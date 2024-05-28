@@ -2,27 +2,25 @@
 
 ## Sisukord
 
-- [Võrguühenduse välja- ja sisselülitamine](#võrguühenduse-välja--ja-sisselülitamine)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Väljalülitamise ja sisselülitamise taotlus ja kinnitus](#väljalülitamise-ja-sisselülitamise-taotlus-ja-kinnitus)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid)
-      - [Sõnumid](#sõnumid)
-      - [Sõnumite reeglid](#sõnumite-reeglid)
+<!-- TOC -->
+* [Võrguühenduse välja- ja sisselülitamine](#võrguühenduse-välja--ja-sisselülitamine)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Väljalülitamise ja sisselülitamise taotlus ja kinnitus](#väljalülitamise-ja-sisselülitamise-taotlus-ja-kinnitus)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid)
+      * [Sõnumid](#sõnumid)
+      * [Sõnumite reeglid](#sõnumite-reeglid)
+<!-- TOC -->
 
 ## Sissejuhatus
 
 Kui Võrguteenuse osutaja ja avatud tarnija on sõlminud ühisarve lepingu, siis saadetakse turuosalisele alati ühisarve (turuosaline ei saa seda valida) ja avatud tarnijal tekib õigus nõuda võrguühenduse väljalülitamist juhul, kui turuosaline ei ole oma ühisarvet tasunud.
 
-> **Warning**
-> 
-> Kogu käesolevas dokumendis kirjeldatud funktsionaalsus on esialgsest skoobist välja arvatud.
-
 ## Väljalülitamise ja sisselülitamise taotlus ja kinnitus
 
 Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-1. Avatud tarnija saadab välja- või sisselülitamise taotluse, kaqsutades teenust `initiate` ja määrates soovitud tegevuse (`CONNECT` või `DISCONNECT`.)
+1. Avatud tarnija saadab välja- või sisselülitamise taotluse, kasutades teenust `initiate` ja määrates soovitud tegevuse (`CONNECT` või `DISCONNECT`.)
 2. Andmeladu kontrollib, et määratud adressaadi ja saatja vahel on kehtiv (või on viimase 6 kuu jooksul olnud) ühisarve leping ning kas määratud kliendil selles mõõtepunktis on kehtiv avatud tarne leping saatjaga (või on olnud kehtiv viimase 12 kuu jooksul) ja kas määratud kliendi ja mõõtepunkti kombinatsioonil on kehtiv (või on olnud kehtiv viimase 12 kuu jooksul) võrguleping adresaadiga:
    - kui ei ole, siis Andmeladu vastab veateatega;
    - kui on, siis Andmeladu salvestab andmed andmebaasi.
@@ -31,11 +29,14 @@ Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on lood
 5. Võrguettevõtja otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
 6. Võrguettevõtja muudab taotluse olekut kasutades teenust `message`. Võimalikud variandid on:
    - mõõtepunkti välja- või sisselülitamise plaani võtmine (`PLANNED`);
-   - mõõtepunkti välja- või sisselülitamisest keeldumine (`REFUSED`);
-   - mõõtepunkti välja- või sisselülitamine (`CONNECTED` või `DISCONNECTED`).
+   - mõõtepunkti väljalülitamisest keeldumine (`REFUSED`);
+   - mõõtepunkti välja- või sisselülitamise kinnitamine (`CONNECTED` või `DISCONNECTED`).
 7. Avatud tarnija skaneerib võrguettevõtja vastuseid kasutades teenust `connection-state/search`.
 8. Avatud tarnija otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
 9. Võrguettecõtja ja avatud tarnija saavad pärida välja- või sisselülitamise taotluse sõnumite ja vastuste ajalugu kasutades teenust `message-history`
+
+Sõnumiga `message` saadetavate olekute diagramm:
+![connection_state_stastuses.png](../diagrams/connection-state/connection_state_statuses.png)
 
 ### Masinliidese sõnumid
 

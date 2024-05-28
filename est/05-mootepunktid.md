@@ -72,7 +72,7 @@ Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliide
 | production             | Production                             | kas mõõtepunktis toimub energia tootmist | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                      |
 | productionSource       | Production Source                      | energia tootmise allikas                 | ei           | Üks neist: SOLAR (päike), WIND (tuul), HYDRO (vesi), BIOGAS (biogaas), BIOMASS (biomass), NATURAL_GAS (gaas), OIL_SHALE (põlevkivi), OTHER_RENEWABLE (muu taastuv), OTHER_NON_RENEWABLE (muu mittetaastuv) |
 | transmissionNetworkEic | Transmission Network EIC               | ülekandevõrgu 16 kohaline EIC kood       | jah          | Määratud ülekandevõrgu EIC kood peab eksisteerima süsteemis                            |
-| apartmentAssociation   | Apartment Association                  | kas seotud korteriga                     | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                      |
+| apartmentAssociation   | Apartment Association                  | kas tegu on korteriühistuga              | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                      |
 
 - Elektri mõõtepunkti spetsiifilised metaandmed:
 
@@ -178,7 +178,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 #### Sõnumite reeglid
 
-- Mõõtepunkti EIC kood peab jääma võrguettevõtja EIC koodide vahemikku.
+- Mõõtepunkti EIC kood peab jääma võrguettevõtja mõne EIC koodide vahemiku piiresse
 - Mõõtepunki sõnumi `marketParticipantContext.commodityType` määrab mõõtepunkti energiakandja liigi ning sellest tulenevalt lubatud metaandmestiku:
   - väärtuse `ELECTRICITY` puhul - lubatud ja nõutud on elektri või agregeerimise metaandmestik;
   - väärtuse `NATURAL_GAS` puhul - lubatud ja nõutud on gaasi või agregeerimise metaandmestik;
@@ -219,7 +219,8 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 | `POST /api/{version}/meter/search/customer` | Mõõtepunkti otsing kliendi EIC koodi alusel |
 | `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                     |
 | `POST /api/{version}/meter/export`          | Mõõtepunktide eksportimine                  |
-| `POST /api/{version}/eic/range`             | EIC vahemikust vabade EIC koodide otsing    |
+| `POST /api/{version}/eic/amount`            | EIC vahemikust vabade EIC koodide otsing    |
+| `POST /api/{version}/eic/range`             | Turusalise EIC koodi vahemike otsing        |
 
 > **Warning**
 > 

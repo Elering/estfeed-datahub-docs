@@ -55,11 +55,12 @@ Agreements can be transmitted to the Datahub using both a web interface and an a
 
 In the Datahub, the transmission interface of various agreements is harmonised and thus the same messages and data structures are used. However, it is worth noting that agreements have different rules and therefore a different required and permitted data composition.
 
-| Message                                      | Objective                         |
-|----------------------------------------------|-----------------------------------|
-| `POST /api/{version}/agreement`              | Create agreement                  |
-| `PUT /api/{version}/agreement`               | Update agreement                  |
-| `POST /api/{version}/agreement/delete`       | Delete agreement                  |
+| Message                                | Objective                          |
+|----------------------------------------|------------------------------------|
+| `POST /api/{version}/agreement`        | Create agreement                   |
+| `PUT /api/{version}/agreement`         | Update agreement                   |
+| `POST /api/{version}/agreement/delete` | Delete agreement                   |
+| `POST /api/{version}/agreement-bulk`   | Create multiple agreements at once |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 

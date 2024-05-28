@@ -95,7 +95,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 
 #### Täiendavad reeglid
 
-- Kliendi andmeid on lubatud lisada või muuta ainult võrguettevõtjal.
+- Kliendi andmeid on lubatud lisada või muuta ainult võrguettevõtjal ja aktiivsel nimetatud müüjal.
 - Füüsilise isiku lisamisel või muutmisel järgmised andmed kohustuslikud:
   - ees- ja perenimi;
   - riik;
@@ -155,7 +155,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
     - väärtuse `SELF_SERVICE` või `B2B_BILL` korral täiendavad nõutavad andmed puuduvad
 - Eesti isikukoodi ja äriregistri koodi puhul rakendub formaadi kontroll.
 - Välismaiste ID-de puhul formaadi kontrolli ei rakendu.
-- Uue kliendi registreerimisel peab `customerType + identityType + identityValue + extensionType(COUNTRY)` kombinatsioon peab olema unikaalne. Kui ei ole, siis on tegu olemasoleva kliendiga ning süsteem kohtleb lisamise päringut kliendi andmete uuendamise päringuna ning võimalusel uuendab kliendi andmed.
+- Uue kliendi registreerimisel peab `customerType + identityType + identityValue + extensionType(COUNTRY)` kombinatsioon peab olema unikaalne. Kui ei ole, siis on tegu olemasoleva kliendiga ning andmete uuendamiseks tuleb kasutada `PUT` teenust.
 
 ### Kliendi ja tema metaandmete otsing
 
