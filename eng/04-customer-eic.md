@@ -35,7 +35,7 @@ Relevant Datahub services have been set up to transmit and request customer data
 ## API messages
 
 | Message                                              | Objective                                                   | Description and rules                                                               |
-| ---------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+|------------------------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | `POST /api/{version}/customer`                       | Create Customer with metadata                               | [Create or update customer with metadata](#create-or-update-customer-with-metadata) |
 | `PUT /api/{version}/customer`                        | Update customer with metadata                               | [Create or update customer with metadata](#create-or-update-customer-with-metadata) |
 | `POST /api/{version}/customer/search`                | Find a customer by identity                                 | [Find customer](#find-customer)                                                     |
@@ -60,7 +60,7 @@ For a description of message structures and validations, see [Datahub descriptio
 - The data of a customer is:
 
 | Attribute in the API | Explanation                 | Mandatory? | Other rules                                         |
-| -------------------- | --------------------------- | ---------- | --------------------------------------------------- |
+|----------------------|-----------------------------|------------|-----------------------------------------------------|
 | customerType         | Type of the customer        | yes        | One of: PHYSICAL_PERSON, LEGAL_PERSON, ORGANIZATION |
 | customerMetadata     | Metadata of the customer    | yes        | Attributes described in sections below              |
 | customerIdentifiers  | Identifiers of the customer | yes        | Attributes described in sections below              |
@@ -69,12 +69,12 @@ For a description of message structures and validations, see [Datahub descriptio
 
 Metadata is modelled as key-value pairs, where the "key" is `metadataType` and the "value" is `metadataValue`. Those key-value pairs can have validity. One customer can have more than one metadata value. In this case, this section needs to be multiplied.
 
-| Attribute in the API | Explanation                    | Mandatory?   | Other rules                                                                                                    |
-|----------------------|--------------------------------|--------------|----------------------------------------------------------------------------------------------------------------|
-| metadataType         | Type of the metadata           | yes          | One of: FIRST_NAME, LAST_NAME, COMPANY_NAME, PHONE, EMAIL, ORGANIZATION_NAME, MOBILE_PHONE, BILLING_ADDRESS, BILLING_BANK_NAME, BILLING_BANK_ACCOUNT, BILLING_METHOD |
-| metadataValue        | Value of the metadata          | yes          | |
-| validFrom            | Validity start of the metadata | no           | Cannot be empty if `validTo` is provided. Usual value is `now`, because it's hard for grid operators to identify the exact date of creation. But if it's known, then grid operator can provide more accurate datetime |
-| validTo              | Validity start of the metadata | no           | Must be bigger, than `validFrom`. Used to "end" some metadata value. For example, the `PHONE`is not used anymore. |
+| Attribute in the API | Explanation                    | Mandatory? | Other rules                                                                                                                                                                                                           |
+|----------------------|--------------------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| metadataType         | Type of the metadata           | yes        | One of: FIRST_NAME, LAST_NAME, COMPANY_NAME, PHONE, EMAIL, ORGANIZATION_NAME, MOBILE_PHONE, BILLING_ADDRESS, BILLING_BANK_NAME, BILLING_BANK_ACCOUNT, BILLING_METHOD                                                  |
+| metadataValue        | Value of the metadata          | yes        |                                                                                                                                                                                                                       |
+| validFrom            | Validity start of the metadata | no         | Cannot be empty if `validTo` is provided. Usual value is `now`, because it's hard for grid operators to identify the exact date of creation. But if it's known, then grid operator can provide more accurate datetime |
+| validTo              | Validity start of the metadata | no         | Must be bigger, than `validFrom`. Used to "end" some metadata value. For example, the `PHONE`is not used anymore.                                                                                                     |
 
 - customerIdentifiers:
 
@@ -113,7 +113,7 @@ One identity can have multiple extension. For example if the `identityType` valu
 - Customer type and identity type have the following allowed combinations:
 
 |             | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
-| ----------- | ------------ | --------------- | ------------ |
+|-------------|--------------|-----------------|--------------|
 | PERSONAL_ID | -            | ✓               | -            |
 | COMPANY_ID  | ✓            | -               | ✓            |
 | DOCUMENT_ID | ✓            | ✓               | -            |
@@ -122,7 +122,7 @@ One identity can have multiple extension. For example if the `identityType` valu
 - Identity type and identity extension type have the following allowed combinations:
 
 |             | COUNTRY | ISSUER |
-| ----------- | ------- | ------ |
+|-------------|---------|--------|
 | PERSONAL_ID | ✓       | ✓      |
 | COMPANY_ID  | ✓       | ✓      |
 | DOCUMENT_ID | ✓       | ✓      |
@@ -131,7 +131,7 @@ One identity can have multiple extension. For example if the `identityType` valu
 - Customer type and metadata type have the following allowed combinations:
 
 |                      | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
-|----------------------| ------------ | --------------- | ------------ |
+|----------------------|--------------|-----------------|--------------|
 | ORGANIZATION_NAME    | ✓            | -               | -            |
 | FIRST_NAME           | -            | ✓               | -            |
 | LAST_NAME            | -            | ✓               | -            |

@@ -22,7 +22,7 @@
 The system allows the user to add the following agreements:
 
 | Agreement                                             | Code               |
-| ----------------------------------------------------- | ------------------ |
+|-------------------------------------------------------|--------------------|
 | grid agreement                                        | GRID               |
 | border metering point grid agreement                  | BORDER_GRID        |
 | open supply agreement                                 | SUPPLY             |
@@ -113,7 +113,7 @@ There are 2 different business cases where agreements are searched:
 ### API messages
 
 | Message                                      | Objective                                                                       |
-| -------------------------------------------- | ------------------------------------------------------------------------------- |
+|----------------------------------------------|---------------------------------------------------------------------------------|
 | `POST /api/{version}/agreement/search`       | Find agreements, where the market participant is a service provider or customer |
 | `POST /api/{version}/agreement/search/meter` | Find agreements by Metering Point during new agreement registration             |
 | `POST /api/{version}/agreement/export`       | Export agreements by attributes                                                 |

@@ -78,7 +78,7 @@ Compared to the previous Datahub, the new Datahub has the following new function
 - Adding and updating a customer is separated from agreement.
 - There is a new concept of a master metering point.
 - Location data now include ADS’s ADR_ID and comment.
-- A 15 min resolution has been added to reading resolutions.
+- A 15-min resolution has been added to reading resolutions.
 - There are new customer types: ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR.
 - The existence and type of production: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE.
 - Numerical values: storage capacity (storageCapacity), storage energy (storageEnergy), production capacity (productionCapacity) and transmission capacity (transmissionCapacity).

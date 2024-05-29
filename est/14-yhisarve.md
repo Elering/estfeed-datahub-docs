@@ -35,11 +35,11 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 
 ## Masinliidese sõnumid
 
-| Sõnum                                        | Eesmärk                 | Kirjeldus ja reeglid                                          |
-|----------------------------------------------|-------------------------| ------------------------------------------------------------- |
-| `POST /api/{version}/joint-invoice`          | Ühisarve lisamine       | [Ühisarve lisamine](#ühisarve-lisamine-ja-muutmine)         |
-| `PUT /api/{version}/joint-invoice`           | Ühisarve muutmine       | [Ühisarve muutmine](#ühisarve-lisamine-ja-muutmine)         |
-| `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing         | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine) |
+| Sõnum                                        | Eesmärk                 | Kirjeldus ja reeglid                                                        |
+|----------------------------------------------|-------------------------|-----------------------------------------------------------------------------|
+| `POST /api/{version}/joint-invoice`          | Ühisarve lisamine       | [Ühisarve lisamine](#ühisarve-lisamine-ja-muutmine)                         |
+| `PUT /api/{version}/joint-invoice`           | Ühisarve muutmine       | [Ühisarve muutmine](#ühisarve-lisamine-ja-muutmine)                         |
+| `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing         | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine)             |
 | `POST /api/{version}/joint-invoice/download` | Ühisarve alla laadimine | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
@@ -62,15 +62,15 @@ Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisalda
 
 - Päise andmed on:
 
-| Atribuut teenuses | Selgitus                                     | Kohustuslik? | Muud reeglid                           |
-| ----------------- | -------------------------------------------- | ------------ | -------------------------------------- |
-| senderEic         | Ühisarve saatja EIC kood                     | jah          |                                        |
-| receiverEic       | Ühisarve adressaadi EIC kood                 | jah          |                                        |
-| commodityType     | Energiakandja liik                           | jah          | Üks neist: ELECTRICITY, NATURAL_GAS    |
-| customerEic       | Mõõtepunkti kliendi EIC kood                 | jah          |                                        |
-| meterEics         | Mõõtepunkti(de) EIC koodid                   | jah          |                                        |
-| dataPeriodStart   | Ühisarve arveldusperioodi algus              | jah          |                                        |
-| dataPeriodEnd     | Ühisarve arveldusperioodi lõpp               | jah          |                                        |
+| Atribuut teenuses | Selgitus                                     | Kohustuslik? | Muud reeglid                                                                         |
+|-------------------|----------------------------------------------|--------------|--------------------------------------------------------------------------------------|
+| senderEic         | Ühisarve saatja EIC kood                     | jah          |                                                                                      |
+| receiverEic       | Ühisarve adressaadi EIC kood                 | jah          |                                                                                      |
+| commodityType     | Energiakandja liik                           | jah          | Üks neist: ELECTRICITY, NATURAL_GAS                                                  |
+| customerEic       | Mõõtepunkti kliendi EIC kood                 | jah          |                                                                                      |
+| meterEics         | Mõõtepunkti(de) EIC koodid                   | jah          |                                                                                      |
+| dataPeriodStart   | Ühisarve arveldusperioodi algus              | jah          |                                                                                      |
+| dataPeriodEnd     | Ühisarve arveldusperioodi lõpp               | jah          |                                                                                      |
 | fileName          | positsioonil "invoice" edastatava faili nimi | jah          | Peab ühe sõnumi piires olema unikaalne ja vastama failinimele positsioonil `invoice` |
 
 #### Täiendavad reeglid
@@ -89,7 +89,7 @@ Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisalda
 Ühisarveid on võimalik otsida erinevate tunnuste alusel:
 
 | Atribuut teenuses | Selgitus                                                                    | Kohustuslik? | Muud reeglid                                            |
-| ----------------- | --------------------------------------------------------------------------- | ------------ | ------------------------------------------------------- |
+|-------------------|-----------------------------------------------------------------------------|--------------|---------------------------------------------------------|
 | invoiceId         | Ühisarve faili ID, mis saadi vastuseks ühisarve lisamise käigus             | ei           | Võimaldab otsida konkreetset ühisarvet                  |
 | commodityType     | Energiakandja liik                                                          | jah          | Üks neist: ELECTRICITY, NATURAL_GAS                     |
 | createdTimeFrom   | Ühisarve lisamise aeg alates                                                | jah          |                                                         |

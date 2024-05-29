@@ -139,11 +139,11 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 #### Sõnumite reeglid
 
-- Resolutsiooni väärtus peab vastama antud ajaperioodil rakendatud globaalse resolutsiooniga. Nt, kui kogu turg läheb kuupäeval X üle 15min resolutsioonile, siis alates X kuupäevast peab sõnumis olema resolutsiooni väärtuseks 15min.
+- Resolutsiooni väärtus peab vastama antud ajaperioodil rakendatud globaalse resolutsiooniga. Nt, kui kogu turg läheb kuupäeval X üle 15min resolutsioonile, siis mõõteandmetele alates X kuupäevast peab sõnumis olema resolutsiooni väärtuseks 15min
 - Perioodi ajaperioodi väärtus peab olema vastavuses resolutsiooniga. Näiteks:
   - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00);
   - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45).
-- Elektri mõõtekogused esitatakse alati kWh-des täpsusega 3 kohta peale koma.
+- Elektri mõõtekogused esitatakse alati kWh-des täpsusega kuni 3 kohta peale koma.
 - Gaasi mõõtekogused esitatakse nii kWh-des kui ka kuupmeetrites täpsusega 3 kohta peale koma.
 - Mõõteandmete suund esitatakse alati mõõtva mõõtepunkti halduri poolt vaadatuna:
   - in – võrku sisenev energia (tootmine);

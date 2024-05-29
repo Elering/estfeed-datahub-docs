@@ -63,7 +63,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 ### Teenus `change`
 
 | Atribuut teenuses    | Selgitus                                 | Kohustuslik? | Muud reeglid                                                                                                                                 |
-| -------------------- | ---------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------|------------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | updatePeriodStart    | Muudatuse alguse kuupäev                 | ei           | Võimaldab otsida vabalt valitud kuupäeva muudatusi. Kellaja väärtust ignoreeritakse. Kui täitmata, siis süsteem väärtustab tänase kuupäevaga |
 | meteringPointActions | Muudatuse tüüp                           | ei           | ADDED - lisatud; REMOVED - eemaldatud                                                                                                        |
 | includeParticipants  | Kas vastusesse kaasata lepingu osapooled | ei           | Väärtuse "true" puhul on vastuses täidetud positsioon `serviceProviders`                                                                     |

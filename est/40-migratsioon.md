@@ -39,7 +39,7 @@ Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt 
 | NetworkBill                  | `POST` ja `PUT` `/api/{version}/network-bill`                                         | [Võrguteenuse arve](13-vorguteenuse-arve.md)                 |
 |                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = NETWORK_BILL`   | [Andmete levitamine](30-andmete-levitamine.md)               |
 | RequestMeteringDataHistory   | `POST` `/api/{version}/meter-data/search`                                             | [Mõõteandmed](12-mooteandmed.md)                             |
-| NotifyCustomerAuthorization  | `POST` `/api/customer-authorization/search`                                           | [Ligipääsuõigus](15-ligipääsuõigus.md)                       |
+| NotifyCustomerAuthorization  | `POST` `/api/customer-authorization/search`                                           | [Ligipääsuõigus](15-ligipaasuoigus.md)                       |
 |                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = PERMISSION`     | [Andmete levitamine](30-andmete-levitamine.md)               |
 | NotifyJointInvoiceAgreement  | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = JOINT_INVOICE`       | [Lepingud](06-lepingud.md)                                   |
 |                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |

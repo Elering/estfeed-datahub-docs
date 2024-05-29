@@ -63,8 +63,8 @@ The header contains the metadata and invoice contains the base64 of the joint in
 
 - Header data:
 
-| Atribute        | Description                               | Mandatory? | Other rules                                                       |
-| --------------- | ----------------------------------------- | ---------- | ----------------------------------------------------------------- |
+| Attribute       | Description                               | Mandatory? | Other rules                                                       |
+|-----------------|-------------------------------------------|------------|-------------------------------------------------------------------|
 | senderEic       | EIC code of the sender                    | yes        |                                                                   |
 | receiverEic     | EIC code of the receiver                  | yes        |                                                                   |
 | commodityType   | Commodity type                            | yes        | One of: ELECTRICITY, NATURAL_GAS                                  |
@@ -90,7 +90,7 @@ Separate services have been created to search and download a joint invoice. The 
 It is possible to search for joint invoices based on various characteristics:
 
 | Attribute       | Description                                                                       | Mandatory? | Other rules                                      |
-| --------------- | --------------------------------------------------------------------------------- | ---------- | ------------------------------------------------ |
+|-----------------|-----------------------------------------------------------------------------------|------------|--------------------------------------------------|
 | invoiceId       | ID of the file received in response during joint invoice addition                 | no         | Allows to search for a specific joint invoice    |
 | commodityType   | Commodity type                                                                    | yes        | One of them: ELECTRICITY, NATURAL_GAS            |
 | createdTimeFrom | Joint invoice creation time from                                                  | yes        |                                                  |

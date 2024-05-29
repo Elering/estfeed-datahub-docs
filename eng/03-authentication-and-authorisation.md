@@ -36,10 +36,10 @@ The previously created technical user `client_id` and `client_secret` must be us
 
 Authentication process:
 
-|Step|Result|
-|----|-------|
-|Sending an authentication request to the address provided by Elering|The Datahub validates the account, creates the session and returns a JWT valid for the length of the session|
-|A JWT is added to each subsequent API message|The Datahub validates the JWT. If it is missing or invalid, an error code 401 (unauthorised) is returned. If it is valid, an authorisation follows, which you can read about in the next chapter|
+| Step                                                                 | Result                                                                                                                                                                                           |
+|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Sending an authentication request to the address provided by Elering | The Datahub validates the account, creates the session and returns a JWT valid for the length of the session                                                                                     |
+| A JWT is added to each subsequent API message                        | The Datahub validates the JWT. If it is missing or invalid, an error code 401 (unauthorised) is returned. If it is valid, an authorisation follows, which you can read about in the next chapter |
 
 Keycloak variables:
 - Public test environment:
@@ -136,11 +136,11 @@ The `marketParticipantContext` section consists of the following attributes:
 
 Attributes description:
 
-|Attribute|Description|
-|--------|--------|
-|marketParticipantIdentification|The EIC X code of the market participant sending the message. Must refer to the same market participant defined in the JWT.|
-|marketParticipantRole|The role in which the market participant sends the message. E.g. if the open supplier is also a grid operator, then the request must define which role is currently being used. For example, an open supplier can request data in the OPEN_SUPPLIER role|
-|commodityType|Type of energy product (electricity or gas). Important for companies that are involved in both the electricity and gas markets.|
+| Attribute                       | Description                                                                                                                                                                                                                                              |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| marketParticipantIdentification | The EIC X code of the market participant sending the message. Must refer to the same market participant defined in the JWT.                                                                                                                              |
+| marketParticipantRole           | The role in which the market participant sends the message. E.g. if the open supplier is also a grid operator, then the request must define which role is currently being used. For example, an open supplier can request data in the OPEN_SUPPLIER role |
+| commodityType                   | Type of energy product (electricity or gas). Important for companies that are involved in both the electricity and gas markets.                                                                                                                          |
 
 If the defined `marketParticipantContext` does not match the rest of the message (e.g. tries to register a new metering point in the role ‘Open supplier’), the Datahub will respond with an error code.
 

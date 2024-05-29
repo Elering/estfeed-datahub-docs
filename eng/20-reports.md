@@ -74,13 +74,13 @@ Frequency:
 
 Data:
 
-- aggregated metering data of the amount that entered the grid through the grid operator’s border points (report page „GO_IN_LOSSES_PORTFOLIO“);
+- aggregated metering data of the amount that entered the grid through the grid operator’s border points (report page "GO_IN_LOSSES_PORTFOLIO");
 - the amounts leaving the grid operator’s grid, indicated separately:
-  - final amounts per open supplier – not including border metering points where the customer of the grid agreement is another grid operator + the grid operator’s grid loss metering point. The grid operator itself is also indicated as an open supplier if it acts as a seller and has sales agreements with market participants (report page „GO_OS_OUT“);
-  - the amount of the general service (there is a grid agreement in the standard metering point, but no sales agreement) (report page „GO_OS_OUT“);
-  - amounts per grid operator – sum of the border metering points per grid operator (report page „GO_GO_OUT“);
-- grid operator grid loss calculation: amounts entering – amounts leaving the grid (report page „GO_IN_LOSSES_PORTFOLIO“);
-- the aggregated amount of the grid operator’s own = own sales portfolio + general service + grid losses (report page „GO_IN_LOSSES_PORTFOLIO“).
+  - final amounts per open supplier – not including border metering points where the customer of the grid agreement is another grid operator + the grid operator’s grid loss metering point. The grid operator itself is also indicated as an open supplier if it acts as a seller and has sales agreements with market participants (report page "GO_OS_OUT");
+  - the amount of the general service (there is a grid agreement in the standard metering point, but no sales agreement) (report page "GO_OS_OUT");
+  - amounts per grid operator – sum of the border metering points per grid operator (report page "GO_GO_OUT");
+- grid operator grid loss calculation: amounts entering – amounts leaving the grid (report page "GO_IN_LOSSES_PORTFOLIO");
+- the aggregated amount of the grid operator’s own = own sales portfolio + general service + grid losses (report page "GO_IN_LOSSES_PORTFOLIO").
 
 Column descriptions:
 
@@ -256,8 +256,8 @@ Data:
 
 - aggregated data from balance settlement metering points of the balance responsible party + open suppliers in its portfolio, which are included in the balance settlement area of the balance responsible party (so-called IN metering points);
 - sales deducted from the balance settlement portfolio of the balance responsible party of the grid operator, gas agreements in the portfolios of other balancing responsible parties (so-called OUT border metering points);
-- page „BP_OS“ – aggregated data from balance settlement metering points of the balance responsible party and open suppliers in its portfolio, which are included in the balance settlement area of the balance responsible party (so-called IN balance settlement metering points);
-- page „BP_GO“ = sales deducted from the balance settlement portfolio of the balance responsible party of the grid operator, gas sales agreements in the portfolios of other balancing responsible parties (so-called OUT balance settlement metering points).
+- page "BP_OS" – aggregated data from balance settlement metering points of the balance responsible party and open suppliers in its portfolio, which are included in the balance settlement area of the balance responsible party (so-called IN balance settlement metering points);
+- page "BP_GO" = sales deducted from the balance settlement portfolio of the balance responsible party of the grid operator, gas sales agreements in the portfolios of other balancing responsible parties (so-called OUT balance settlement metering points).
 
 Column descriptions:
 
@@ -300,8 +300,8 @@ Frequency:
 
 Data:
 
-- Page „BH_OS_GO“ – the amounts of the open suppliers of the balance responsible party and those in its portfolio, by grid operators’ grid areas.
-- Page „BH_GO_OS_GO“ – the amounts of the general service customers of the grid operators in the balance responsible party’s portfolio and the amount of grid losses.
+- Page "BH_OS_GO" – the amounts of the open suppliers of the balance responsible party and those in its portfolio, by grid operators’ grid areas.
+- Page "BH_GO_OS_GO" – the amounts of the general service customers of the grid operators in the balance responsible party’s portfolio and the amount of grid losses.
 
 Column descriptions:
 

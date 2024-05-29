@@ -41,7 +41,7 @@ For this, new information needs to be delivered to the systems of market partici
 Unlike the old Datahub, the new Datahub does not send messages to integrated parties but requires the integrated system to check whether it has new messages. For this purpose, a dedicated update
 pulling API `/data-distribution/search ` has been created, which works in a standard way:
 
-- The system of the integrated market participant sends a request defining time period and dataobject type.
+- The system of the integrated market participant sends a request defining time period and data object type.
 - The Datahub finds previously created data distribution messages addressed to the Market Participant and where the attributes match with the search criteria.
 - The Datahub returns new or changed data objects together with the reason of change.
 
@@ -77,9 +77,9 @@ development. Market participants will be informed in a timely and thorough manne
 
 Every data distribution response message consists of common and resource type specific attributes:
 
-| Atribute     | Type     | Always present? | Comments                                                                                        |
+| Attribute    | Type     | Always present? | Comments                                                                                        |
 |--------------|----------|-----------------|-------------------------------------------------------------------------------------------------|
-| id           | int      | yes             | Unique message ID, that is increasin in the time.                                               |
+| id           | int      | yes             | Unique message ID, that is increasing in the time.                                              |
 | createdTime  | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message |
 | resourceType | string   | yes             | Resource type                                                                                   |
 | reason       | string   | no              | One of: CREATE, UPDATE, DELETE. Can be missing                                                  |
@@ -322,17 +322,17 @@ Customer's metadata data-distribution message contains of following sections:
     },
     {
       "metadataType": "FIRST_NAME",
-      "metadataValue": "Einars",
+      "metadataValue": "Mari",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
       "metadataType": "LAST_NAME",
-      "metadataValue": "Arros",
+      "metadataValue": "Maasikas",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
       "metadataType": "PHONE",
-      "metadataValue": "6128888",
+      "metadataValue": "55667788",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
@@ -347,12 +347,12 @@ Customer's metadata data-distribution message contains of following sections:
     },
     {
       "metadataType": "EMAIL",
-      "metadataValue": "einar@srini.ee",
+      "metadataValue": "mari.maasikas@gmail.com",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
       "metadataType": "MOBILE_PHONE",
-      "metadataValue": "+37258092567",
+      "metadataValue": "+37255667788",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
@@ -388,21 +388,21 @@ Customer's metadata data-distribution message contains of following sections:
 
 #### Attributes
 
-| Attribute           | Type     | Always present? | Description                                                                                                                                                                                                                                                                                                                     |
-|---------------------|----------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| mandateCustomerEic  | string   | YES             | 16-characters long EIC code of the market participant                                                                                                                                                                                                                                                                           |
-| mandateCustomerType | string   | YES             | One of: PRIVATE, LEGAL                                                                                                                                                                                                                                                                                                          |
-| meteringPointEic    | string   | YES             | 16-characters long EIC code of the metering point                                                                                                                                                                                                                                                                               |
-| ownerCustomerEic    | string   | YES             | 16-characters long EIC code of the customer                                                                                                                                                                                                                                                                                     |
-| ownerCustomerType   | string   | YES             | One of: PRIVATE, LEGAL                                                                                                                                                                                                                                                                                                          |
-| participantRoleType | string   | YES             | For open supplier always OPEN_SUPPLIER; for aggregator always AGGREGATOR; for energy service provider always ENERGY_SERVICE_PROVIDER                                                                                                                                                                                            |
-| permissionType      | string   | YES             | Always ACCESS                                                                                                                                                                                                                                                                                                                   |
-| purpose             | string   | YES             | For open supplier always ENERGY_SUPPLY_OFFER, for aggregator always AGGREGATION_OFFER, for energy service provider one of: METERING_DATA_ANALYSIS_AND_MONITORING, MEASUREWAY_ANALYSIS_AND_ENERGY_SAVING, TELIA_IOT_SERVICE, INFORMANT_CALCULATIONS_AND_ANALYSIS, TARKVENT_CONSUMPTION_MONITORING, R8TECH_CONSUMPTION_MONITORING |
-| status              | string   | YES             | Always APPROVED                                                                                                                                                                                                                                                                                                                 |
-| subjectPeriodFrom   | datetime | YES             | The beginning of the time period to which the customer authorization gives access                                                                                                                                                                                                                                               |
-| subjectPeriodTo     | datetime | YES             | The end of the time period to which the customer authorization gives access                                                                                                                                                                                                                                                     |
-| validFrom           | datetime | YES             | Validity start of the customer authorization                                                                                                                                                                                                                                                                                    |
-| validTo             | datetime | NO              | Validity end of the customer authorization                                                                                                                                                                                                                                                                                      |
+| Attribute           | Type     | Always present? | Description                                                                                                                          |
+|---------------------|----------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| mandateCustomerEic  | string   | YES             | 16-characters long EIC code of the market participant                                                                                |
+| mandateCustomerType | string   | YES             | One of: PRIVATE, LEGAL                                                                                                               |
+| meteringPointEic    | string   | YES             | 16-characters long EIC code of the metering point                                                                                    |
+| ownerCustomerEic    | string   | YES             | 16-characters long EIC code of the customer                                                                                          |
+| ownerCustomerType   | string   | YES             | One of: PRIVATE, LEGAL                                                                                                               |
+| participantRoleType | string   | YES             | For open supplier always OPEN_SUPPLIER; for aggregator always AGGREGATOR; for energy service provider always ENERGY_SERVICE_PROVIDER |
+| permissionType      | string   | YES             | Always ACCESS                                                                                                                        |
+| purpose             | string   | YES             | For open supplier always ENERGY_SUPPLY_OFFER, for aggregator always AGGREGATION_OFFER, for energy service provider various values    |
+| status              | string   | YES             | Always APPROVED                                                                                                                      |
+| subjectPeriodFrom   | datetime | YES             | The beginning of the time period to which the customer authorization gives access                                                    |
+| subjectPeriodTo     | datetime | YES             | The end of the time period to which the customer authorization gives access                                                          |
+| validFrom           | datetime | YES             | Validity start of the customer authorization                                                                                         |
+| validTo             | datetime | NO              | Validity end of the customer authorization                                                                                           |
 
 #### Examples
 

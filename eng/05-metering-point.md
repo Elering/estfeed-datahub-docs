@@ -63,16 +63,16 @@ The data of metering point is the same in all interfaces. The data of a metering
 
 - Specific data for electricity and gas metering points:
 
-| Attribute in the API   | Column name in mass import template | Explanation                               | Mandatory? | Other rules                                                                                               |
-|------------------------|-------------------------------------|-------------------------------------------|------------|-----------------------------------------------------------------------------------------------------------|
-| consumptionScale       | Consumption Scale                   |                                           | yes        | One of: SMALL, LARGE                                                                                      |
-| connectionState        | Conection State                     |                                           | yes        | One of: CONNECTED, DISCONNECTED                                                                           |
-| resolution             | Resolution                          |                                           | yes        | One of: PT15M (15 minutes), PT1H (1 hour)                                                                 |
+| Attribute in the API   | Column name in mass import template | Explanation                               | Mandatory? | Other rules                                                                                                                    |
+|------------------------|-------------------------------------|-------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------|
+| consumptionScale       | Consumption Scale                   |                                           | yes        | One of: SMALL, LARGE                                                                                                           |
+| connectionState        | Conection State                     |                                           | yes        | One of: CONNECTED, DISCONNECTED                                                                                                |
+| resolution             | Resolution                          |                                           | yes        | One of: PT15M (15 minutes), PT1H (1 hour)                                                                                      |
 | customerType           | Customer Type                       |                                           | yes        | One of: CONSUMER, GRID_OPERATOR, PRODUCER, MICRO (micro producer), LINE_OPERATOR, ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR |
-| production             | Production                          | is any production in metering point?      | yes        | One of: TRUE (yes), FALSE (no)                                                                            |
-| productionSource       | Production Source                   |                                           | no         | One of: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE |
-| transmissionNetworkEic | Transmission Network EIC            | 16 digit EIC code of transmission network | yes        | EIC code of transmission network must be registered in the Datahub                                        |
-| apartmentAssociation   | Apartment Association               | is it an apartment association?           | yes        | One of: TRUE (yes), FALSE (no)                                                                            |
+| production             | Production                          | is any production in metering point?      | yes        | One of: TRUE (yes), FALSE (no)                                                                                                 |
+| productionSource       | Production Source                   |                                           | no         | One of: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE                      |
+| transmissionNetworkEic | Transmission Network EIC            | 16 digit EIC code of transmission network | yes        | EIC code of transmission network must be registered in the Datahub                                                             |
+| apartmentAssociation   | Apartment Association               | is it an apartment association?           | yes        | One of: TRUE (yes), FALSE (no)                                                                                                 |
 
 - Specific data for electricity metering points:
 
@@ -95,7 +95,7 @@ The data of metering point is the same in all interfaces. The data of a metering
 - Common address data for all metering point types:
 
 | Attribute in the API | Column name in mass import template | Explanation                                   | Mandatory?                               | Other rules                                                                                                                                                            |
-| -------------------- | ----------------------------------- | --------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------|-------------------------------------|-----------------------------------------------|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | adrId                | Adr ID                              | Address ID (ADR_ID) of Land Board ADS system  | yes if county and municipality are empty | Must be an integer                                                                                                                                                     |
 | comment              | Comment                             |                                               | no                                       |                                                                                                                                                                        |
 | county               | County                              | ADS level 1                                   | yes                                      |                                                                                                                                                                        |
@@ -142,7 +142,7 @@ Metering point mass import is possible by navigating to "Metering points" -> "Me
 On the "Metering points" page it is possible to use the search functionality to find the needed metering points.
 
 1. If needed 1 or more search requirements can be added.
-2. Without any search requirements all metering points are shown. Otherwise the results are shown based on the given search requirements.
+2. Without any search requirements all metering points are shown. Otherwise, the results are shown based on the given search requirements.
 3. It is possible to use more search categories by opening the detailed search.
 
 ![Metering point search](../images/opp-ui/metering-point/meter-point-search.png)

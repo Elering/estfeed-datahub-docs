@@ -68,12 +68,12 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on `metadataType` ja "väärtus" on `metadataValue`. Võti-väärtus paaridel saab olla kehtivusaeg. Ühel kliendil saab olla rohkem kui üks metaandmestik. Sellisel juhul on käesolevat sektsiooni sõnumis mitu korda.
 
-| Atribuut teenuses    | Selgitus                      | Kohustuslik? | Muud reeglid                                                                                                   |
-|----------------------|-------------------------------|--------------|----------------------------------------------------------------------------------------------------------------|
-| metadataType         | Metaandmestiku tüüp           | jah          | Üks neist: FIRST_NAME, LAST_NAME, COMPANY_NAME, PHONE, EMAIL, ORGANIZATION_NAME, MOBILE_PHONE, BILLING_ADDRESS, BILLING_BANK_NAME, BILLING_BANK_ACCOUNT, BILLING_METHOD |
-| metadataValue        | Metaandmestiku väärtus        | jah          | |
-| validFrom            | Metaandmestiku kehtivuse algus| ei           | Ei tohi puududa, kui `validTo` on täidetud. Tavapärane väärtus on `now`, kuna täpse alguskuupäeva tuvastamine on võrguettevõtja jaoks keeruline. Aga kui see on teada, siis võib võrguettevõtja määrata täpse kuupäeva ja kellaaja |
-| validTo              | Metaandmestiku kehtivuse lõpp | ei           | Peab olema suurem, kui `validFrom`. Kasutatakse mõne metaandmestiku lõpetamiseks. Näiteks, kui `PHONE`ei ole enam kasutusel. |
+| Atribuut teenuses | Selgitus                       | Kohustuslik? | Muud reeglid                                                                                                                                                                                                                       |
+|-------------------|--------------------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| metadataType      | Metaandmestiku tüüp            | jah          | Üks neist: FIRST_NAME, LAST_NAME, COMPANY_NAME, PHONE, EMAIL, ORGANIZATION_NAME, MOBILE_PHONE, BILLING_ADDRESS, BILLING_BANK_NAME, BILLING_BANK_ACCOUNT, BILLING_METHOD                                                            |
+| metadataValue     | Metaandmestiku väärtus         | jah          |                                                                                                                                                                                                                                    |
+| validFrom         | Metaandmestiku kehtivuse algus | ei           | Ei tohi puududa, kui `validTo` on täidetud. Tavapärane väärtus on `now`, kuna täpse alguskuupäeva tuvastamine on võrguettevõtja jaoks keeruline. Aga kui see on teada, siis võib võrguettevõtja määrata täpse kuupäeva ja kellaaja |
+| validTo           | Metaandmestiku kehtivuse lõpp  | ei           | Peab olema suurem, kui `validFrom`. Kasutatakse mõne metaandmestiku lõpetamiseks. Näiteks, kui `PHONE`ei ole enam kasutusel.                                                                                                       |
 
 - customerIdentifiers:
 
@@ -112,7 +112,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 - Kliendi tüübi ja identiteedi tüübi lubatud kombinatsioonid on:
 
 |             | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
-| ----------- | ------------ | --------------- | ------------ |
+|-------------|--------------|-----------------|--------------|
 | PERSONAL_ID | -            | ✓               | -            |
 | COMPANY_ID  | ✓            | -               | ✓            |
 | DOCUMENT_ID | ✓            | ✓               | -            |
@@ -121,7 +121,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 - Identitedi tüübi ja identiteedi laienduse tüübi lubatud kombinatsioonid on:
 
 |             | COUNTRY | ISSUER |
-| ----------- | ------- | ------ |
+|-------------|---------|--------|
 | PERSONAL_ID | ✓       | ✓      |
 | COMPANY_ID  | ✓       | ✓      |
 | DOCUMENT_ID | ✓       | ✓      |
@@ -130,7 +130,7 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 - Kliendi tüübi ja tema metaandmestiku tüübi lubatud kombinatsioonid on:
 
 |                      | ORGANIZATION | PHYSICAL_PERSON | LEGAL_PERSON |
-|----------------------| ------------ | --------------- | ------------ |
+|----------------------|--------------|-----------------|--------------|
 | ORGANIZATION_NAME    | ✓            | -               | -            |
 | FIRST_NAME           | -            | ✓               | -            |
 | LAST_NAME            | -            | ✓               | -            |

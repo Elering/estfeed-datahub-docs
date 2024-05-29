@@ -322,17 +322,17 @@ Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
     },
     {
       "metadataType": "FIRST_NAME",
-      "metadataValue": "Einars",
+      "metadataValue": "Mari",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
       "metadataType": "LAST_NAME",
-      "metadataValue": "Arros",
+      "metadataValue": "Maasikas",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
       "metadataType": "PHONE",
-      "metadataValue": "6128888",
+      "metadataValue": "55667788",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
@@ -347,12 +347,12 @@ Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
     },
     {
       "metadataType": "EMAIL",
-      "metadataValue": "einar@srini.ee",
+      "metadataValue": "mari.maasikas@gmail.com",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
       "metadataType": "MOBILE_PHONE",
-      "metadataValue": "+37258092567",
+      "metadataValue": "+37255667788",
       "validFrom": "2024-05-27T12:40:14.657518Z"
     },
     {
@@ -388,21 +388,21 @@ Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
 
 #### Atribuudid
 
-| Atribuut            | Tüüp     | Alati väljundis? | Kirjeldus                                                                                                                                                                                                                                                                                                                             |
-|---------------------|----------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| mandateCustomerEic  | string   | JAH              | 16-kohaline turuosalise EIC kood                                                                                                                                                                                                                                                                                                      |
-| mandateCustomerType | string   | JAH              | Üks järgnevatest: PRIVATE, LEGAL                                                                                                                                                                                                                                                                                                      |
-| meteringPointEic    | string   | JAH              | 16-kohaline mõõtepunkti EIC kood                                                                                                                                                                                                                                                                                                      |
-| ownerCustomerEic    | string   | JAH              | 16-kohaline kliendi EIC kood                                                                                                                                                                                                                                                                                                          |
-| ownerCustomerType   | string   | JAH              | Üks järgnevatest: PRIVATE, LEGAL                                                                                                                                                                                                                                                                                                      |
-| participantRoleType | string   | JAH              | Avatud tarnija puhul alati OPEN_SUPPLIER; agregaatori puhul alati AGGREGATOR, energiateenuse puhul alati ENERGY_SERVICE_PROVIDER                                                                                                                                                                                                      |
-| permissionType      | string   | JAH              | Alati ACCESS                                                                                                                                                                                                                                                                                                                          |
-| purpose             | string   | JAH              | Avatud tarnija puhul alati ENERGY_SUPPLY_OFFER; agregaatori puhul alati AGGREGATION_OFFER; energiateenuse puhul üks järgmistest: METERING_DATA_ANALYSIS_AND_MONITORING, MEASUREWAY_ANALYSIS_AND_ENERGY_SAVING, TELIA_IOT_SERVICE, INFORMANT_CALCULATIONS_AND_ANALYSIS, TARKVENT_CONSUMPTION_MONITORING, R8TECH_CONSUMPTION_MONITORING |
-| status              | string   | JAH              | Alati APPROVED                                                                                                                                                                                                                                                                                                                        |
-| subjectPeriodFrom   | datetime | JAH              | Ajaperioodi algus, mille andmetele ligipääsuõigus ligipääsu annab                                                                                                                                                                                                                                                                     |
-| subjectPeriodTo     | datetime | JAH              | Ajaperioodi algus, mille andmetele ligipääsuõigus ligipääsu annab                                                                                                                                                                                                                                                                     |
-| validFrom           | datetime | JAH              | Ligipääsuõiguse kehtivuse algus                                                                                                                                                                                                                                                                                                       |
-| validTo             | datetime | EI               | Ligipääsuõiguse kehtivuse lõpp                                                                                                                                                                                                                                                                                                        |
+| Atribuut            | Tüüp     | Alati väljundis? | Kirjeldus                                                                                                                           |
+|---------------------|----------|------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| mandateCustomerEic  | string   | JAH              | 16-kohaline turuosalise EIC kood                                                                                                    |
+| mandateCustomerType | string   | JAH              | Üks järgnevatest: PRIVATE, LEGAL                                                                                                    |
+| meteringPointEic    | string   | JAH              | 16-kohaline mõõtepunkti EIC kood                                                                                                    |
+| ownerCustomerEic    | string   | JAH              | 16-kohaline kliendi EIC kood                                                                                                        |
+| ownerCustomerType   | string   | JAH              | Üks järgnevatest: PRIVATE, LEGAL                                                                                                    |
+| participantRoleType | string   | JAH              | Avatud tarnija puhul alati OPEN_SUPPLIER; agregaatori puhul alati AGGREGATOR, energiateenuse puhul alati ENERGY_SERVICE_PROVIDER    |
+| permissionType      | string   | JAH              | Alati ACCESS                                                                                                                        |
+| purpose             | string   | JAH              | Avatud tarnija puhul alati ENERGY_SUPPLY_OFFER; agregaatori puhul alati AGGREGATION_OFFER; energiateenuse puhul erinevad väärtused  |
+| status              | string   | JAH              | Alati APPROVED                                                                                                                      |
+| subjectPeriodFrom   | datetime | JAH              | Ajaperioodi algus, mille andmetele ligipääsuõigus ligipääsu annab                                                                   |
+| subjectPeriodTo     | datetime | JAH              | Ajaperioodi algus, mille andmetele ligipääsuõigus ligipääsu annab                                                                   |
+| validFrom           | datetime | JAH              | Ligipääsuõiguse kehtivuse algus                                                                                                     |
+| validTo             | datetime | EI               | Ligipääsuõiguse kehtivuse lõpp                                                                                                      |
 
 #### Näited
 

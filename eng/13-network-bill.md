@@ -26,7 +26,7 @@ Relevant Datahub services have been set up to transmit and request a network bil
 - Datahub stores the network bill into the database
 - The open supplier searches for new network bills using the `search` service
 
-In ordert to update a network bill, new `network-bill` message with same period values and updated `calculationTimestamp` value must be sent.
+In order to update a network bill, new `network-bill` message with same period values and updated `calculationTimestamp` value must be sent.
 
 ## API messages
 

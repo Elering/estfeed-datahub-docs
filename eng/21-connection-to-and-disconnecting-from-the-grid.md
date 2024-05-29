@@ -36,7 +36,7 @@ Relevant Datahub services have been set up to transmit the request and confirmat
 9. The grid operator and the open supplier can query the message history of the connection and disconnection request using the `message-history` service.
 
 State diagram of statuses for `message` service:
-![connection_state_stastuses.png](../diagrams/connection-state/connection_state_statuses.png)
+![connection_state_statuses.png](../diagrams/connection-state/connection_state_statuses.png)
 
 ### API messages
 

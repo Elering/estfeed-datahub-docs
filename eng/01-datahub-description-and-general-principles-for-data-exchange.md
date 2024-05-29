@@ -61,7 +61,7 @@ Energy service providers will only be granted access to data if a market partici
 
 A customer portal has been created where end-users are able to access their data, administer their representation rights, grant access rights to other persons and view the logs related to data requests regarding their metering points.
 
-In order to use the Datahub, a agreement must be entered into with the system operator for the use of the Datahub (except for end-users), which defines the rights and obligations between the parties for entering and requesting data in accordance with legislation.
+In order to use the Datahub, an agreement must be entered into with the system operator for the use of the Datahub (except for end-users), which defines the rights and obligations between the parties for entering and requesting data in accordance with legislation.
 
 **The system operator will ensure that operators can use the Datahub, by doing the following:**
 
@@ -138,7 +138,7 @@ message cannot be processed and will not be accepted at the receiving end.
 
 ### Date and time submission rules
 
-- All dates and times are submitted in [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) format. The system supports both UTC and time zone offsets. Thus both `2023-04-01T00:00Z` and `2023-04-01T00:00+03:00` are allowed.
+- All dates and times are submitted in [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) format. The system supports both UTC and time zone offsets. Thus, both `2023-04-01T00:00Z` and `2023-04-01T00:00+03:00` are allowed.
 
 ### Response codes
 

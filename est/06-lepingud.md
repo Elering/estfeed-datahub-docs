@@ -115,7 +115,7 @@ Lepinguid otsitakse kahes äriprotsessis:
 Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasutusel samad sõnumid ja andmestruktuurid. Küll aga tasub tähele panna, et erinevatel lepingutel on erinevad reeglid ja seega ka erinev nõutud ja lubatud andmekoosseis.
 
 | Sõnum                                        | Eesmärk                                                            |
-| -------------------------------------------- | ------------------------------------------------------------------ |
+|----------------------------------------------|--------------------------------------------------------------------|
 | `POST /api/{version}/agreement/search`       | Lepingute otsing, kus turuosaline on kas teenusepakkuja või klient |
 | `POST /api/{version}/agreement/search/meter` | Mõõtepunkti teiste lepingute otsing uue lepingu lisamisel          |
 | `POST /api/{version}/agreement/export`       | Lepingute eksport                                                  |

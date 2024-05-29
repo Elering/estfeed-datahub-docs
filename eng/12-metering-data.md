@@ -46,8 +46,8 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 - The Datahub then queues the message.
 - The metering point operator verifies the result of processing, using `meter-data/status` service (at the `originalDocumentIdentification` position of the message, the value of the attribute of the same name that was in the `header` of the previously transmitted metering data message must be transmitted. The UUID value must not be reused). Possible results are:
   - `PROCESSING` - processing not finished
-  - `SUCCESSFUL` - processing finised successfully
-  - `ÈRROR` - processing finised with errors.
+  - `SUCCESSFUL` - processing finished successfully
+  - `ÈRROR` - processing finished with errors.
 - If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the `data-distribution/search` service. For more details, see [Data distribution](30-data-distribution.md).
 - If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
@@ -64,7 +64,7 @@ For easier metering data transmitting it is possible to download the template. T
 
 ![Generating the template](../images/opp-ui/metering-data/metering-data-template1.png)
 
-![Fillin in the template](../images/opp-ui/metering-data/metering-data-template2.png)
+![Filling in the template](../images/opp-ui/metering-data/metering-data-template2.png)
 
 To import metering data "Import" button needs to be clicked on the "Metering data" page. After that it is possible to add the metering data file. 
 
@@ -72,7 +72,7 @@ To import metering data "Import" button needs to be clicked on the "Metering dat
 
 In case there is a mistake in the file the system will notify the user:
 1. Metering data can be added to several MS Excel file sheets. The system will tell the user on which sheet the problem is located.
-2. In addition it is possible to see the row where the problem is.
+2. In addition, it is possible to see the row where the problem is.
 3. Error description helps to understand the issue.
 4. After the problem is found and fixed "Cancel" should be clicked and import process should be repeated.
 
@@ -119,7 +119,7 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 
 > **Warning**
 > 
-> The resolution of the data is rigidly fixed by the Datahub – for both electricity and gas, the resolution is one hour. In 2024, electricity will switch to the 15 minute resolution.
+> The resolution of the data is rigidly fixed by the Datahub – for both electricity and gas, the resolution is one hour. In 2024, electricity will switch to the 15-minute resolution.
 > 
 > In the case of gas, it is also allowed to transmit daily data. In this case, the daily metering data must be added to the suitable gas day hour.
 
@@ -139,11 +139,11 @@ For a description of message structures and validations, see [Datahub descriptio
 
 #### Message rules
 
-- The resolution value must match the global resolution applied in the given time period. For example, if the entire market switches to a resolution of 15 minutes on date X, then from date X the resolution value must be 15 minutes in the message.
+- The resolution value must match the global resolution applied in the given time period. For example, if the entire market switches to a resolution of 15 minutes on date X, then for metering data from date X the resolution value must be 15 minutes in the message.
 - The time period value must be consistent with the resolution. For example:
   - if the resolution is one hour, the start time of the period must be the beginning of the hour (hh:00);
   - if the resolution is 15 minutes, the start time of the period must be a quarter of the hour (hh:00, hh:15, hh:30, hh:45).
-- Electricity metering data are always transmitted in kWh to three decimal places. 
+- Electricity metering data are always transmitted in kWh up to three decimal places. 
 - Gas metering data are transmitted in both kWh and cubic metres to three decimal places.
 - The direction of the metering data is always presented as viewed by the metering point operator:
   - in – energy entering the grid (generation);

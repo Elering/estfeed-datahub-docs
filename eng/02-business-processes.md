@@ -30,7 +30,7 @@
 
 This document describes the main Datahub related business processes and thereby tries to give an overview about the connection between different API-s and business processes.
 
-The diagrams are composed in an object oriented way, where complex processes reuse simpler processes. For example, the process "Register new grid agreement" reuses the following processes:
+The diagrams are composed in an object-oriented way, where complex processes reuse simpler processes. For example, the process "Register new grid agreement" reuses the following processes:
 
 - Register new customer
 - Update metadata of a customer

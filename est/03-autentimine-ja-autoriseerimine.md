@@ -36,10 +36,10 @@ Masinliideses autentimiseks tuleb kasutada eelnevalt loodud tehnilise kasutaja `
 
 Autentimise protsess:
 
-|Samm|Tulemus|
-|----|-------|
-|Autentimispäringu saatmine Eleringi poolt antud aadressile|Andmeladu valideerib konto, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse|
-|JWT tokeni lisamine igale järgnevale API sõnumile|Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist|
+| Samm                                                       | Tulemus                                                                                                                                                                              |
+|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Autentimispäringu saatmine Eleringi poolt antud aadressile | Andmeladu valideerib konto, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse                                                                                      |
+| JWT tokeni lisamine igale järgnevale API sõnumile          | Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist |
 
 Keycloak muutujad:
 - Public test keskkond:
@@ -136,11 +136,11 @@ Sektsioon `marketParticipantContext` koosneb järgmistest atribuutidest:
 
 Atribuutide selgitus:
 
-|Atribuut|Selgitus|
-|--------|--------|
-|marketParticipantIdentification|Turuosalise EIC X-kood, kes sõnumit saadab. Peab viitama samale turuosalisele, kes on defineeritud JWT tokenis.|
-|marketParticipantRole|Roll, milles turuosaline sõnumit saadab. Nt kui avatud tarnija on üksiti ka võrguettevõtja, siis tuleb päringu saatmised defineerida, mis rolli hetkel selle sõnumiga täidetakse.Näiteks avatud tarnija saab andmeid pärida OPEN_SUPPLIER rollis|
-|commodityType|Energiatoote tüüp (elekter või gaas). Oluline nende ettevõtete jaoks, kes osalevad nii elektri kui gaasi turul.|
+| Atribuut                        | Selgitus                                                                                                                                                                                                                                         |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| marketParticipantIdentification | Turuosalise EIC X-kood, kes sõnumit saadab. Peab viitama samale turuosalisele, kes on defineeritud JWT tokenis.                                                                                                                                  |
+| marketParticipantRole           | Roll, milles turuosaline sõnumit saadab. Nt kui avatud tarnija on üksiti ka võrguettevõtja, siis tuleb päringu saatmised defineerida, mis rolli hetkel selle sõnumiga täidetakse.Näiteks avatud tarnija saab andmeid pärida OPEN_SUPPLIER rollis |
+| commodityType                   | Energiatoote tüüp (elekter või gaas). Oluline nende ettevõtete jaoks, kes osalevad nii elektri kui gaasi turul.                                                                                                                                  |
 
 Kui defineeritud `marketParticipantContext` ei lähe kokku sõnumi ülejäänud sisuga (nt proovib uut mõõtepunkti registreerida rollis "Avatud tarnija"), siis Andmeladu vastab veakoodiga.
 
