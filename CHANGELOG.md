@@ -1,3 +1,39 @@
+## [EDH-2485] Release 0.6.1
+
+- __2024-05-09__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type | Priority|                              Title                             |
+|-----------|------|---------|----------------------------------------------------------------|
+|  EDH-2486 |  Bug |  Medium |  OPP UI - The Modify agreement process does not work on the UI |
+
+## [EDH-2480] Release 0.6.0
+
+- __2024-05-09__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  |  Priority |                                                   Title                                                  |
+|-----------|--------|-----------|----------------------------------------------------------------------------------------------------------|
+|  EDH-2434 |   Bug  |   Medium  |                                Cannot modify PORTFOLIO agreement in the UI                               |
+|  EDH-2432 |   Bug  |   Medium  |                              Cannot modify JOINT_INVOICE agreement in the UI                             |
+|  EDH-2361 |   Bug  |   Medium  |                       Modifying functionality missing for named supplier agreement                       |
+|  EDH-2402 |   Bug  |   Medium  |                       "validFrom is not a valid property" while adding new Customer                      |
+|  EDH-2401 |   Bug  |   Medium  |     Metering points UI doesn't display Customer EIC even if there's an active customer with agreement    |
+|  EDH-2309 |   Bug  |   Medium  |                                 Metering points not found by Customer EIC                                |
+|  EDH-2035 |   Bug  |   Medium  |                           Error description metering data status is low quality                          |
+|  EDH-2444 |   Bug  |  Critical |              Overlapping OS agreements can be created by extending the previous OS agreement             |
+|  EDH-2366 |   Bug  |   Medium  |                                    Generate EIC returns used  EIC-code                                   |
+|  EDH-2293 |   Bug  |   Lowest  |                       After successfully adding a new agreement EIC fields turn red                      |
+|  EDH-2445 |   Bug  |   Medium  |                     NAMED_SUPPLY and PORTFOLIO_SUPPLY agreements are not distributed                     |
+|  EDH-2440 |   Bug  |   Medium  |                              Missing DD-s after adding OPEN_SUPPLY agreement                             |
+|  EDH-2204 |   Bug  |   Medium  |                                      DD not created for GS agreement                                     |
+|  EDH-344  |  Story |   Medium  |                                 [OPP-BE] Metering points import via file                                 |
+|  EDH-2115 |  Story |   Medium  |  POST /agreement/search/meter - access restriction, response and aggregator metering point logic updates |
+|  EDH-711  |  Story |   Medium  |                              [OPP-BE][MPD] Generate Balance Provider report                              |
+|  EDH-2248 |  Story |   Medium  |                               Generate free EIC values when multiple ranges                              |
+|  EDH-2123 |  Story |   Medium  |                            Active named supplier can update customer metadata                            |
+|  EDH-2020 |  Story |   Lowest  |                             Create customer - validate business registry code                            |
+|  EDH-2291 |  Story |   Medium  |                Join IN and OUT measurements together in the /network-bill/search response                |
+|  EDH-2286 |  Story |   Medium  |                                      Networkbill day/night optional                                      |
+
 ## [EDH-2426] Release 0.5.3
 
 - __2024-05-16__ - released to __TEST-PUBLIC__
