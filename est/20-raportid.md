@@ -2,20 +2,22 @@
 
 ## Sisukord
 
-- [Raportid](#raportid)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Raportite genereerimine](#raportite-genereerimine)
-  - [Raportite edastamine](#raportite-edastamine)
-    - [Masinliidese sõnumid](#masinliidese-sõnumid)
-      - [Sõnumid](#sõnumid)
-  - [Raportite kirjeldused](#raportite-kirjeldused)
-    - [Võrguettevõtja raport](#võrguettevõtja-raport)
-    - [Avatud tarnija raport](#avatud-tarnija-raport)
-    - [Avatud tarnija koondraport](#avatud-tarnija-koondraport)
-    - [Võrguettevõtja avatud tarnija raport](#võrguettevõtja-avatud-tarnija-raport)
-    - [Bilansihalduse raport](#bilansihalduse-raport)
-    - [Bilansihalduri raport No2](#bilansihalduri-raport-no2)
+<!-- TOC -->
+* [Raportid](#raportid)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Raportite genereerimine](#raportite-genereerimine)
+  * [Raportite edastamine](#raportite-edastamine)
+    * [Masinliidese sõnumid](#masinliidese-sõnumid)
+      * [Sõnumid](#sõnumid)
+  * [Raportite kirjeldused](#raportite-kirjeldused)
+    * [Võrguettevõtja raport](#võrguettevõtja-raport)
+    * [Avatud tarnija raport](#avatud-tarnija-raport)
+    * [Avatud tarnija koondraport](#avatud-tarnija-koondraport)
+    * [Võrguettevõtja avatud tarnija raport](#võrguettevõtja-avatud-tarnija-raport)
+    * [Bilansihalduse raport](#bilansihalduse-raport)
+    * [Bilansihalduri raport No2](#bilansihalduri-raport-no2)
+<!-- TOC -->
 
 ## Sissejuhatus
 
@@ -42,9 +44,9 @@ Näide koondmõõteandmete arvutuse aegadest bilansiaruannete jaoks:
 ## Raportite edastamine
 
 - Raportid on osapooltele kättesaadavad nii veebi- kui ka masinliidese vahendusel.
-- Operaatoril on võimalik seadistada, kas ta soovib raporteid saada e-posti, API kaudu või ei soovi nende edastamist nende kanalite kaudu üldse.
-- Operaator saab sisestada eraldi e-posti aadressi raportite jaoks, kui ta on valinud saamise viisiks e-posti. API puhul saadetakse raportid olemasoleva seadistuse alusel.
-- Operaatoril on võimalik igat raportit XML või EXCEL’i formaadis alla laadida.
+- Operaatoril on võimalik raporteid alla laadida järgmiselt:
+  - Masinliidese vahendusel JSON või EXCEL formaadis
+  - Veebiliidese vahendusel EXCEL formaadis
   
 ### Masinliidese sõnumid
 

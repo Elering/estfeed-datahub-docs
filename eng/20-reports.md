@@ -2,20 +2,22 @@
 
 ## Table of contents
 
-- [Reports](#reports)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Generating reports](#generating-reports)
-  - [Transmitting reports](#transmitting-reports)
-    - [API messages](#api-messages)
-      - [Messages](#messages)
-  - [Report descriptions](#report-descriptions)
-    - [Grid operator report](#grid-operator-report)
-    - [Open supplier report](#open-supplier-report)
-    - [Open supplier summary report](#open-supplier-summary-report)
-    - [Grid operator open supplier report](#grid-operator-open-supplier-report)
-    - [Balance management report](#balance-management-report)
-    - [Balance responsible party report No. 2](#balance-responsible-party-report-no-2)
+<!-- TOC -->
+* [Reports](#reports)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Generating reports](#generating-reports)
+  * [Transmitting reports](#transmitting-reports)
+    * [API messages](#api-messages)
+      * [Messages](#messages)
+  * [Report descriptions](#report-descriptions)
+    * [Grid operator report](#grid-operator-report)
+    * [Open supplier report](#open-supplier-report)
+    * [Open supplier summary report](#open-supplier-summary-report)
+    * [Grid operator open supplier report](#grid-operator-open-supplier-report)
+    * [Balance management report](#balance-management-report)
+    * [Balance responsible party report No. 2](#balance-responsible-party-report-no-2)
+<!-- TOC -->
 
 ## Introduction
 
@@ -42,9 +44,9 @@ Example of calculation times of aggregated data for balance reports:
 ## Transmitting reports
 
 - The reports are available to the parties through both the web interface and API.
-- Operators can configure whether they want to receive reports via e-mail, API or not at all.
-- Operators can enter a separate e-mail address for the reports if they have chosen e-mail as the method of receipt. In the case of the API, reports are sent based on the existing configuration.
-- Operators can download each report in XML or Excel format.
+- Operators can download each report as follows:
+  - Using the API in JSON or EXCEL format
+  - Using the web interface in EXCEL format
 
 ### API messages
 
