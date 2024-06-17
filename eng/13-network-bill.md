@@ -48,12 +48,12 @@ For a description of message structures and validations, see [Datahub descriptio
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 - Rules for adding network bills:
-  - Only grid operator (GO) or closed distribution network operator (ISO) can add network bills
+  - Only grid operator (GO) or closed distribution network operator (CDN) can add network bills
   - The `periodStart` cannot be smaller than the validity start of grid agreement
   - and `periodEnd` cannot be bigger than the validity end of grid agreement
   - The maximum network billing period is one month.
   - The period start and end month value must be the same (if the open supplier does not change at the turn of the month, then the grid operator must transmit two separate network bills).
 - If the market participant uses the general service, the transmission of the network bills to the Datahub is optional.
 - Rules for searching network bills:
-  - grid operator (GO) and closed distribution network operator (ISO) can search for network bills, that they added.
+  - grid operator (GO) and closed distribution network operator (CDN) can search for network bills, that they added.
   - open supplier can search for those network bills, where the `periodStart` and `periodEnd` are covered with such open supply agreement, where the open supplier is the service provider.

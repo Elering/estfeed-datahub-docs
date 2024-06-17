@@ -49,12 +49,12 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 
 - Võrguarve edastamise reeglid:
-  - Võrguarvet saab lisada võrguettevõtja (GO) või suletud jaotusvõrgu ettevõtja (ISO)
+  - Võrguarvet saab lisada võrguettevõtja (GO) või suletud jaotusvõrgu ettevõtja (CDN)
   - Võrguarve `periodStart` ei tohi olla väiksem, kui võrgulepingu kehtivuse algus
   - Võrguarve `periodEnd` ei tohi olla suurem, kui võrgulepingu kehtivuse lõpp
   - Maksimaalne võrguarve koostamise periood on üks kuu.
   - Perioodi alguse ja lõpu kuu väärtus peab olema võrdne (juhul, kui avatud tarnija ei vahetu kuu vahetusel, siis võrguettevõtja peab edastama 2 eraldi võrguteenuse arvet).
 - Juhul kui turuosaline kasutab üldteenust, on võrguteenuste arve edastamine Andmelattu vabatahtlik.
 - Võrguarvete otsimise reeglid:
-  - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (ISO) saavad otsida ainult neid võrguarveid, mida nad ise lisasid
+  - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (CDN) saavad otsida ainult neid võrguarveid, mida nad ise lisasid
   - avatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise avatud tarne lepinguga, kus avatud tarnija on teenusepakkuja.
