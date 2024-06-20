@@ -1,3 +1,11 @@
+## [EDH-2548] Release 0.7.0
+
+- __2024-05-30__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type | Priority|                       Title                      |
+|-----------|------|---------|--------------------------------------------------|
+|  EDH-2432 |  Bug |  Medium |  Cannot modify JOINT_INVOICE agreement in the UI |
+
 ## [EDH-2485] Release 0.6.1
 
 - __2024-05-30__ - released to __TEST-PUBLIC__
