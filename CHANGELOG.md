@@ -1,10 +1,44 @@
+## [EDH-2591] Release 0.7.1
+
+- __2024-06-20__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type |  Priority |                                                          Title                                                          |
+|-----------|------|-----------|-------------------------------------------------------------------------------------------------------------------------|
+|  EDH-2590 |  Bug |   Medium  |  In Search customer data flow (/api/v1/customer/search), the response does not contain the validFrom and validTo values |
+|  EDH-2555 |  Bug |  Critical |                            [OPP] Error during GRID_OPERATORS_OPEN_SUPPLIER report generation                            |
+
 ## [EDH-2548] Release 0.7.0
 
-- __2024-05-30__ - released to __TEST-PUBLIC__
+- __2024-06-20__ - released to __TEST-PUBLIC__
 
-|   Issue   | Type | Priority|                       Title                      |
-|-----------|------|---------|--------------------------------------------------|
-|  EDH-2432 |  Bug |  Medium |  Cannot modify JOINT_INVOICE agreement in the UI |
+|   Issue   |  Type  |  Priority |                                       Title                                       |
+|-----------|--------|-----------|-----------------------------------------------------------------------------------|
+|  EDH-2500 |   Bug  |   Medium  |              [TEMP] NullPointerException: General Service generation              |
+|  EDH-2474 |   Bug  |   Medium  |               Named supplier can now submit connection state request              |
+|  EDH-2432 |   Bug  |   Medium  |                  Cannot modify JOINT_INVOICE agreement in the UI                  |
+|  EDH-2427 |   Bug  |   Medium  |  Cannot update GRID agreement's validTo to less than SUPPLY agreement's validFrom |
+|  EDH-1864 |   Bug  |   Medium  |    Fixed bug when searching joint invoices by dataPeriodStart and dataPeriodEnd   |
+|  EDH-2550 |   Bug  |  Critical |                 Open Supplier and Grid Operator report is failing                 |
+|  EDH-2526 |   Bug  |   Lowest  |                 Aggregator meter data icon tooltip text is missing                |
+|  EDH-2498 |   Bug  |   Medium  |     OS role should not see "template" button under "metering data" menu point     |
+|  EDH-2478 |   Bug  |  Highest  |                        Metering data not updated via import                       |
+|  EDH-712  |  Story |   Medium  |                  [OPP-BE][MPD] Generate Balance Provider 2 report                 |
+|  EDH-2257 |  Story |   Medium  |      [OPP-BE][MPM] POST /meter/search/customer should not use past agreements     |
+|  EDH-2243 |  Story |   Medium  |                [TEMP] Multiple EIC ranges for one company supported               |
+|  EDH-2637 |  Story |   Medium  |                Reports are still in ALPHA state / not tested enough               |
+|  EDH-1815 |  Story |   Medium  |               Metering data is data distributed after import from UI              |
+|  EDH-967  |  Story |   Medium  |                         [OPP] Balance Settlement Point API                        |
+|  EDH-897  |  Story |   Medium  |                       [OPP-UI] Balance settlement points UI                       |
+|  EDH-2370 |  Story |  Highest  |        When adding new Supply agreement, you can search for metering data         |
+|  EDH-2146 |  Story |   Medium  |                 [OPP-UI] Create multiple agreements simultaneously                |
+
+## [EDH-2510] Release 0.6.2
+
+- __2024-06-20__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  | Priority|                                   Title                                   |
+|-----------|--------|---------|---------------------------------------------------------------------------|
+|  EDH-2257 |  Story |  Medium |  [OPP-BE][MPM] POST /meter/search/customer should not use past agreements |
 
 ## [EDH-2485] Release 0.6.1
 
@@ -30,6 +64,7 @@
 |  EDH-2444 |   Bug  |  Critical |              Overlapping OS agreements can be created by extending the previous OS agreement             |
 |  EDH-2366 |   Bug  |   Medium  |                                    Generate EIC returns used  EIC-code                                   |
 |  EDH-2293 |   Bug  |   Lowest  |                       After successfully adding a new agreement EIC fields turn red                      |
+|  EDH-2447 |   Bug  |   Medium  |                            GO gets DD message if he updated the MP - Now fixed                           |
 |  EDH-2445 |   Bug  |   Medium  |                     NAMED_SUPPLY and PORTFOLIO_SUPPLY agreements are not distributed                     |
 |  EDH-2440 |   Bug  |   Medium  |                              Missing DD-s after adding OPEN_SUPPLY agreement                             |
 |  EDH-2204 |   Bug  |   Medium  |                                      DD not created for GS agreement                                     |
