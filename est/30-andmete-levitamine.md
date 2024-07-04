@@ -68,6 +68,29 @@ Maksimaalne päritava perioodi pikkus on:
 > **Note**
 > Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
 
+Vastussõnum sisaldab muudatuse põhjust (reason). See väärtus aitab turuosalistel mõista, miks see muudatus toimus. Väärtuseid on kahte tüüpi:
+
+- Fikseeritud väärtused - need väärtused on alati samad. Nii öelda "hard coded" ja käituvad nagu loend (enum). Võimalikud väärtused on:
+  - `CREATE` - andmeobjekt loodi
+  - `UPDATE` - andmeobjekt uuendati
+  - `DELETE` - andmeobjekt kustutati
+- Dünaamilised väärtused - need väärtused on dünaamilised, kuna muudatuse algpõhjus oli kaudne. Andmeobjekt loodi, uuendati või kustutati seoses mõne operatsiooniga teise andmeobjektiga. Näiteks, kui SUPPLY lepingut muudetakse GRID lepingu muutmise tõttu. Hetkel teadaolevad võimalikud kombinatsioonid on:
+  - `UPDATE_BC_SUPPLY_CREATE` - andmeobjekt uuendati, kuna SUPPLY leping loodi
+  - `UPDATE_BC_GRID_UPDATE` - andmeobjekt uuendati, kuna GRID lepingut uuendati
+  - `DELETE_BC_GRID_UPDATE` - andmeobjekt kustutati, kuna GRID lepingut uuendati
+  - `DELETE_BC_GRID_DELETE` - andmeobjekt kustutati, kuna GRID leping kustutati
+  - `CREATE_BC_PORTFOLIO_SUPPLIER_CREATE` - andmeobjekt loodi, kuna PORTFOLIO_SUPPLIER leping loodi
+  - `UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE` - andmeobjekt uuendati, kuna PORTFOLIO_SUPPLIER lepingut uuendati
+  - `DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE` - andmeobjekt kustutati, kuna PORTFOLIO_SUPPLIER lepingut uuendati
+  - `DELETE_BC_PORTFOLIO_SUPPLIER_DELETE` - andmeobjekt kustutati, kuna PORTFOLIO_SUPPLIER leping kustutati
+  - `CREATE_BC_BORDER_GRID_CREATE` - andmeobjekt loodi, kuna GRID leping loodi
+  - `UPDATE_BC_BORDER_GRID_UPDATE` - andmeobjekt uuendati, kuna GRID lepingut uuendati
+  - `DELETE_BC_BORDER_GRID_UPDATE` - andmeobjekt kustutati, kuna GRID lepingut uuendati
+  - `DELETE_BC_BORDER_GRID_DELETE` - andmeobjekt kustutati, kuna GRID leping kustutati
+
+> **Note**
+> Dünaamiliste väärtuste formaat järgib mustrit: “mis juhtus sõnumis oleva andmeobjektiga” + BC (sest) + “mis tehti andmeobjektiga, mis põhjustas muudatuse”
+
 ## Andmeuuenduste levitamine
 
 Eleringi meeskond arutab erinevaid tehnilisi lahendusi, kuidas võimaldada võimekamatel liidestunud süsteemidel saada andmeuuendusi kiiremini ja ilma skaneerimiseta. Konkreetne tehniline lahendus on

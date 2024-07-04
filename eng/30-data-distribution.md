@@ -68,6 +68,29 @@ Maximum allowed period in the query depends on the resource type:
 > **Note**
 > To request messages for a longer period of time, it is possible to send several different requests for different periods. For example, the first message for the period 02.01.2024-03.01.2024 and the second for the period 01.01.2024-02.01.2024.
 
+The response message contains the "reason for change". This value helps the market participants to understand, why this change has happened. There are two types of values:
+
+- Fixed values - these values are always the same. They are so called "hard coded" and behave like an enum. Possible values are:
+  - `CREATE` - data object got created
+  - `UPDATE` - data object got updated
+  - `DELETE` - data object got deleted
+- Dynamic values - these values are dynamic, because the root cause of the change was indirect. The data object got created, updated or deleted because of some operation with another data object. For example, when SUPPLY agreement gets modified because of the modification of the GRID agreement. Known possible values are:
+  - `UPDATE_BC_SUPPLY_CREATE` - data object got updated, because SUPPLY agreement was created
+  - `UPDATE_BC_GRID_UPDATE` - data object got updated, because GRID agreement was updated
+  - `DELETE_BC_GRID_UPDATE` - data object got deleted, because GRID agreement was updated
+  - `DELETE_BC_GRID_DELETE` - data object got deleted, because GRID agreement was deleted
+  - `CREATE_BC_PORTFOLIO_SUPPLIER_CREATE` - data object got created, because PORTFOLIO_SUPPLIER agreement was created
+  - `UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE` - data object got updated, because PORTFOLIO_SUPPLIER agreement was updated
+  - `DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE` - data object got deleted, because PORTFOLIO_SUPPLIER agreement was updated
+  - `DELETE_BC_PORTFOLIO_SUPPLIER_DELETE` - data object got deleted, because PORTFOLIO_SUPPLIER agreement was deleted
+  - `CREATE_BC_BORDER_GRID_CREATE` - data object got created, because BORDER_GRID agreement was created
+  - `UPDATE_BC_BORDER_GRID_UPDATE` - data object got updated, because BORDER_GRID agreement was updated
+  - `DELETE_BC_BORDER_GRID_UPDATE` - data object got deleted, because BORDER_GRID agreement was updated
+  - `DELETE_BC_BORDER_GRID_DELETE` - data object got deleted, because BORDER_GRID agreement was deleted
+
+> **Note**
+> The format of the dynamic values follow a pattern: "what happened to the data object in the message" + BC (because) + "what was done with the data object causing the change"
+
 ## Distributing data updates
 
 Elering’s team is discussing various technical solutions to enable more capable integrated systems to receive data updates faster and without scanning. A specific technical solution is still under
