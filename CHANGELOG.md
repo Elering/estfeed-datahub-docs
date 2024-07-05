@@ -1,3 +1,29 @@
+## [EDH-2669] Release 0.8.1
+
+- __2024-06-20__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type |  Priority |                     Title                    |
+|-----------|------|-----------|----------------------------------------------|
+|  EDH-2678 |  Bug |  Highest  |  [DD] authentication of technical user fails |
+|  EDH-2643 |  Bug |  Critical |       Agreements - search doesn't fail       |
+
+## [EDH-2657] Release 0.8.0
+
+- __2024-06-20__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  |  Priority |                                                    Title                                                   |
+|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------|
+|  EDH-1866 |   Bug  |   Medium  |                      Create Joint Invoice API: added traceID to unsuccessful request                       |
+|  EDH-2601 |   Bug  |  Critical |                           SUPPLY agreement can start earlier, than GRID agreement                          |
+|  EDH-2493 |  Story |   Medium  |                           DD - change who can access info about Service Provider                           |
+|  EDH-2490 |  Story |   Medium  |                                 [DD] Agreement change reason to be accurate                                |
+|  EDH-2582 |  Story |  Critical |                             "transmissionNetworkEic" update should be possible                             |
+|  EDH-2521 |  Story |  Highest  |                                    Joint Invoice - removed PUT endpoint                                    |
+|  EDH-2371 |  Story |   Medium  |  [OPP-BE] Improve import metering data from excel for Market Participants with large Metering Point number |
+|  EDH-2368 |  Story |   Medium  |               [OPP-BE] Add legalConsent functionality to metering data query for LEGAL_PERSON              |
+|  EDH-2253 |  Story |   Medium  |              [OPP-BE][MPM] Avoid considering GENERAL_SERVICE agreements being valid in future              |
+|  EDH-1682 |  Story |   Medium  |                           Extend Search agreements flow with connected agreements                          |
+
 ## [EDH-2591] Release 0.7.1
 
 - __2024-06-20__ - released to __TEST-PUBLIC__
