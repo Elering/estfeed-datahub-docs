@@ -52,8 +52,7 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 - If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
 
-> **Warning**
->
+> [!WARNING]
 > **PLEASE NOTE! The Datahub transmits the metering data entered by the grid operators in unaltered form. The Datahub does not check the content of the metering data.**
 
 ### Transmitting metering data via the web interface
@@ -117,8 +116,7 @@ Explanation of abbreviations used in the API service:
 
 The Datahub does not check whether every one hour or 15 minute interval is filled with metering data. 
 
-> **Warning**
-> 
+> [!NOTE] 
 > The resolution of the data is rigidly fixed by the Datahub – for both electricity and gas, the resolution is one hour. In 2024, electricity will switch to the 15-minute resolution.
 > 
 > In the case of gas, it is also allowed to transmit daily data. In this case, the daily metering data must be added to the suitable gas day hour.
@@ -134,7 +132,7 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-> **Note**
+> [!NOTE]
 > A collection of sample messages is being created
 
 #### Message rules
@@ -152,7 +150,7 @@ For a description of message structures and validations, see [Datahub descriptio
 - It is permitted to correct metering data retroactively for up to 12 months.
 - The `import` service requires the same template, that the service `export` returns.
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ## Metering data requests
@@ -181,10 +179,14 @@ Metering data can be requested by navigating to "Metering data" page. There mete
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-> **Note**
+> [!NOTE]
 > A collection of sample messages is being created
 
 #### Message rules
 
-> **Note**
+- When searching for the Metering Data, the Market Participant can define the observation type and time. Following options are available:
+  - READING_TIME - when observation time is provided, then system finds stored metering data by sent reading time values. 
+  - SNAPSHOT_TIME - when observation time is provided, then system finds stored metering data by creation time in the Datahub.
+
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

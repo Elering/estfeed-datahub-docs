@@ -55,7 +55,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Teenus annab vastuse ainult bilansihalduritele (kellel on portfellileping TSO-ga). Teistele bilansipuu portfelliteenuse pakkujatele andmeid ei väljastata.
 - `change` sõnumiga saab pärida ainult ühe kuupäeva muudatusi. Pikema perioodi muudatuste pärimiseks tuleb sõnumit saata mitu korda soovitud perioodi kuupäevadega.
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ## Sõnumite atribuutide reeglid

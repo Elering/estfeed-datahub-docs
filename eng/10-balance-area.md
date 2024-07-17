@@ -55,7 +55,7 @@ For a description of message structures and validations, see [Datahub descriptio
 - The service only responds to balance responsible parties (who have a portfolio agreement with the TSO). No data is issued to other portfolio providers in the balance tree.
 - Only one day changes can be requested with a `change` message. To request changes of a longer period, the message must be sent several times with the date of the desired period.
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ## Attribute specific rules

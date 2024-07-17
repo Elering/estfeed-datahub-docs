@@ -38,8 +38,7 @@ For the purpose of this document, they are collectively referred to as **meterin
 
 Metering point operators are responsible for adding and updating metering point data for the metering points in their area in the Datahub.
 
-> **Warning**
-> 
+> [!WARNING] 
 > Please note! Metering point operators are obliged to update the metering point data as soon as possible.
 
 ## Transmitting metering point data
@@ -63,28 +62,28 @@ The data of metering point is the same in all interfaces. The data of a metering
 
 - Specific data for electricity and gas metering points:
 
-| Attribute in the API   | Column name in mass import template | Explanation                               | Mandatory? | Other rules                                                                                                                    |
-|------------------------|-------------------------------------|-------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------|
-| consumptionScale       | Consumption Scale                   |                                           | yes        | One of: SMALL, LARGE                                                                                                           |
-| connectionState        | Conection State                     |                                           | yes        | One of: CONNECTED, DISCONNECTED                                                                                                |
-| resolution             | Resolution                          |                                           | yes        | One of: PT15M (15 minutes), PT1H (1 hour)                                                                                      |
-| customerType           | Customer Type                       |                                           | yes        | One of: CONSUMER, GRID_OPERATOR, PRODUCER, MICRO (micro producer), LINE_OPERATOR, ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR |
-| production             | Production                          | is any production in metering point?      | yes        | One of: TRUE (yes), FALSE (no)                                                                                                 |
-| productionSource       | Production Source                   |                                           | no         | One of: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE                      |
-| transmissionNetworkEic | Transmission Network EIC            | 16 digit EIC code of transmission network | yes        | EIC code of transmission network must be registered in the Datahub                                                             |
-| apartmentAssociation   | Apartment Association               | is it an apartment association?           | yes        | One of: TRUE (yes), FALSE (no)                                                                                                 |
+| Attribute in the API   | Column name in mass import template | Explanation                               | Mandatory? | Other rules                                                                                                                     |
+|------------------------|-------------------------------------|-------------------------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------|
+| consumptionScale       | Consumption Scale                   |                                           | yes        | One of: SMALL, LARGE                                                                                                            |
+| connectionState        | Conection State                     |                                           | yes        | One of: CONNECTED, DISCONNECTED                                                                                                 |
+| resolution             | Resolution                          |                                           | yes        | One of: PT15M (15 minutes), PT1H (1 hour)                                                                                       |
+| customerType           | Customer Type                       |                                           | yes        | One of: CONSUMER, GRID_OPERATOR, PRODUCER, MICRO (micro producer), LINE_OPERATOR, ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR  |
+| production             | Production                          | is any production in metering point?      | yes        | One of: TRUE (yes), FALSE (no)                                                                                                  |
+| productionSource       | Production Source                   |                                           | no         | One of: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE                       |
+| transmissionNetworkEic | Transmission Network EIC            | 16 digit EIC code of transmission network | yes        | EIC code of transmission network must be registered in the Datahub. Commodity type has to match Metering Point's commodity type |
+| apartmentAssociation   | Apartment Association               | is it an apartment association?           | yes        | One of: TRUE (yes), FALSE (no)                                                                                                  |
 
 - Specific data for electricity metering points:
 
-| Attribute in the API  | Column name in mass import template | Explanation                                | Mandatory? | Other rules                                                                                   |
-|-----------------------|-------------------------------------|--------------------------------------------|------------|-----------------------------------------------------------------------------------------------|
-| isolatedMeteringPoint | Isolated Metering Point             | is isolated metering point?                | yes        | One of: TRUE (yes), FALSE (no)                                                                |
-| electricalHeating     | Electrical Heating                  | electrical heating used in metering point? | yes        | One of: TRUE (yes), FALSE (no)                                                                |
-| chargingPoint         | Charging Point                      | is charging point?                         | yes        | One of: TRUE (yes), FALSE (no)                                                                |
-| storageCapacity       | Storage Capacity                    | storage capacity in kW                     | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
-| storageEnergy         | Storage Energy                      | storage capacity  energy in kWh            | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
-| productionCapacity    | Production Capacity                 | production capacity in kW                  | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
-| transmissionCapacity  | Transmission Capacity               | transmission capacity in kW                | no         | Must be integer or floating (max. 2 positions after comma) number. Enter value 0 if no value. |
+| Attribute in the API  | Column name in mass import template | Explanation                                | Mandatory? | Other rules                                                                                 |
+|-----------------------|-------------------------------------|--------------------------------------------|------------|---------------------------------------------------------------------------------------------|
+| isolatedMeteringPoint | Isolated Metering Point             | is isolated metering point?                | yes        | One of: TRUE (yes), FALSE (no)                                                              |
+| electricalHeating     | Electrical Heating                  | electrical heating used in metering point? | yes        | One of: TRUE (yes), FALSE (no)                                                              |
+| chargingPoint         | Charging Point                      | is charging point?                         | yes        | One of: TRUE (yes), FALSE (no)                                                              |
+| storageCapacity       | Storage Capacity                    | storage capacity in kW                     | no         | Must be integer or floating (max. 2 positions after comma) number. Leave empty if no value. |
+| storageEnergy         | Storage Energy                      | storage capacity  energy in kWh            | no         | Must be integer or floating (max. 2 positions after comma) number. Leave empty if no value. |
+| productionCapacity    | Production Capacity                 | production capacity in kW                  | no         | Must be integer or floating (max. 2 positions after comma) number. Leave empty if no value. |
+| transmissionCapacity  | Transmission Capacity               | transmission capacity in kW                | no         | Must be integer or floating (max. 2 positions after comma) number. Leave empty if no value. |
 
 - Specific data for aggregation metering points:
 
@@ -107,7 +106,7 @@ The data of metering point is the same in all interfaces. The data of a metering
 | longitude            | Longitude                           | latitude of coordinates                       | no                                       | In case LEST97, the value must be 6 positions before and 1-3 positions after comma. In case WGS84, the value must be 2 positions before and 4-8 positions after comma. |
 | coordinateSystem     | Coordinate Sytem                    |                                               | yes if coordinates are provided          | One of: WGS84, LEST97                                                                                                                                                  |
 
-> **Note**
+> [!NOTE]
 > The structure and validation rules of address attributes are under development
 
 ### Web interface
@@ -180,7 +179,7 @@ For a description of message structures and validations, see [Datahub descriptio
 
 #### Message rules
 
-- The EIC of the metering point must be within one of the ranges of the grid operator’s EICs.
+- The EIC of the metering point must be within one of the ranges of the grid operator’s EIC ranges.
 - The `marketParticipantContext.commodityType` of the message defines the commodity type of the metering point and consequently the allowed metadata:
   - for `ELECTRICITY` value - electricity or aggregation metadata is allowed and required;
   - for `NATURAL_GAS` value - gas or aggregation metadata is allowed and required;
@@ -192,19 +191,21 @@ For a description of message structures and validations, see [Datahub descriptio
   - XY coordinates are not mandatory
   - Values must be numerical, that can contain positions after comma
   - Values must fit inside the bounding box of Estonia
-- For electricity metering point, the `marketParticipantRole` value must be one of:
+- For electricity regular metering point, the `marketParticipantRole` value must be one of:
   - GRID_OPERATOR
   - LINE_OPERATOR
   - CLOSED_DISTRIBUTION_NETWORK
   - PRODUCER_OPERATOR
   - CHARGING_POINT_OPERATOR
-- For gas metering point, the `marketParticipantRole` value must be one of:
+- For gas regular metering point, the `marketParticipantRole` value must be one of:
   - GRID_OPERATOR
   - PRODUCER_OPERATOR
-- For electricity metering point, the `marketParticipantRole` value must be AGGREGATOR
+- For any border metering point, the `marketParticipantRole` value must be one of:
+  - GRID_OPERATOR
+- For any aggregation metering point, the `marketParticipantRole` value must be AGGREGATOR
 - For data quality reasons, please use the official [EHAK classification](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) (county, municipality and settlement unit designations) for addresses submitted as text.
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ## Requesting metering point data
@@ -222,24 +223,33 @@ In general, all authorised users can request metering point data using the `sear
 | `POST /api/{version}/meter/search/border`   | Get border Metering Points by customer |
 | `POST /api/{version}/meter/export`          | Export Metering Points by attributes   |
 
-> **Warning**
-> 
+> [!CAUTION] 
 > Service `POST /api/{version}/meter/search/customer` is allowed to use only when adding new agreement. Legitimate usage of this service is monitored 
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-> **Note**
+> [!NOTE]
 > A collection of sample messages is being created
 
 #### Message rules
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
-- If the data requester has the necessary right to see the customer’s data, the search service only returns the EIC.
-- The Datahub issues metering point data without an address if a verification is carried out in accordance with subsection 8 (5) of the Network Code on the Operation of the Electricity Market.
-- If the user has access rights, the Datahub outputs the entire data set of the metering point.
+##### `meter/search` rules
 
-##### `meter/search/customer` additional rules
+- The Datahub returns all data of the Metering Point if:
+  - requester is the owner of the Metering Point
+  - requester has the customer authorization, given by the Customer via the Self Service Portal
+  - requester is the open/named supplier and has currently active (or had in the last 12 months) open supply or general service agreement with the Metering Point
+  - requester is the aggregator and has currently active (or had in the last 12 months) aggregation agreement with one of the child Metering Points
+  - requester is the owner of the parent Metering Point and request the data of some child aggregation Metering Point
+- In all other cases Datahub returns no data
 
-- attribute `legalConsent` can be used, when searching by legal person or organization. Cannot be used, when searching by physical person
+##### `meter/search/customer` rules
+
+- The Datahub returns all data of the Metering Point if:
+  - requester has the customer authorization, given by the Customer via the Self Service Portal
+  - requester is the open/named supplier and has currently active (or had in the last 12 months) open supply or general service agreement with the Metering Point
+  - requester is requesting the metering points of the legal person or organization and confirms, that he has authorization in a form enabling written reproduction from the Customer (`legalConsent` is set to `true`)
+- In all other cases Datahub returns  only EIC code of the Metering Point

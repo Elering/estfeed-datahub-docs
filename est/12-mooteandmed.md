@@ -52,8 +52,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 - Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile teenuse `meter-data/status` vastuses.
 - Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
 
-> **Warning**
->
+> [!WARNING]
 > **NB! Andmeladu edastab võrguettevõtjate poolt sisestatud mõõteandmed muutmata kujul. Andmeladu ei kontrolli mõõteandmete sisu**
 
 ### Mõõteandmete edastamine veebiliidese kaudu
@@ -117,8 +116,7 @@ API teenuses kasutatavate lühendite selgitused:
 
 Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandmetega täidetud. 
 
-> **Warning**
-> 
+> [!NOTE] 
 > Andmete resolutsioon on Andmelao poolt jäigalt fikseeritud - nii elektri kui gaasi puhul on resolutsiooniks 1 tund. 2024 aastal läheb elekter üle resolutsioonile 15 minutit.
 > 
 > Gaasi puhul on lubatud edastada ka päeva andmeid. Sellisel juhul tuleb päeva mõõteandmed lisada enda poolt sobivasse gaasipäeva tundi.
@@ -134,7 +132,7 @@ Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandme
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 #### Sõnumite reeglid
@@ -152,7 +150,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
 - Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export`
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ## Mõõteandmete päringud
@@ -181,10 +179,14 @@ Mõõteandmeid saab otsida navigeerides "Metering data" lehele. Selleks tuleb si
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 #### Sõnumite reeglid
 
-> **Note**
+- Mõõteandmete otsimisel on turuosalisel võimalik defineerida andmete vaatlemise aeg ja aja tüüp (observation type). Kasutusel on järgmised valikud:
+  - READING_TIME - kui andmete vaatlemise aeg on sõnumis defineeritud, siis süsteem leiab mõõteandmed andmete lugemise aja alusel (reading time)
+  - SNAPSHOT_TIME - kui andmete vaatlemise aeg on sõnumis defineeritud, siis süsteem leiab mõõteandmed andmete süsteemi salvestamise aja alusel
+
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

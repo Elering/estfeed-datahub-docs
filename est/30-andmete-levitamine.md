@@ -65,7 +65,7 @@ Maksimaalne päritava perioodi pikkus on:
 - mõõteandmed: 1 tund
 - muud andmed: 1 päev
 
-> **Note**
+> [!TIP]
 > Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
 
 Vastussõnum sisaldab muudatuse põhjust (reason). See väärtus aitab turuosalistel mõista, miks see muudatus toimus. Väärtuseid on kahte tüüpi:
@@ -88,7 +88,7 @@ Vastussõnum sisaldab muudatuse põhjust (reason). See väärtus aitab turuosali
   - `DELETE_BC_BORDER_GRID_UPDATE` - andmeobjekt kustutati, kuna GRID lepingut uuendati
   - `DELETE_BC_BORDER_GRID_DELETE` - andmeobjekt kustutati, kuna GRID leping kustutati
 
-> **Note**
+> [!NOTE]
 > Dünaamiliste väärtuste formaat järgib mustrit: “mis juhtus sõnumis oleva andmeobjektiga” + BC (sest) + “mis tehti andmeobjektiga, mis põhjustas muudatuse”
 
 ## Andmeuuenduste levitamine
@@ -105,12 +105,9 @@ Iga andmete levitamise vastussõnum koosneb ühis- ja andmetüübi spetsiifilist
 | id           | int      | jah            | Unikaalne sõnumi ID, mis on ajas kasvav                                                      |
 | createdTime  | datetime | jah            | Andmete levitamise sõnumi (mitte selle sõnumi, mis andmete levitamise põhjustas) loomise aeg |
 | resourceType | string   | jah            | Andmeobjekti tüüp                                                                            |
-| reason       | string   | ei             | Võimalikud väärtused: CREATE, UPDATE, DELETE. Võib olla ka tühi.                             |
+| reason       | string   | jah            | Võimalikud väärtused: CREATE, UPDATE, DELETE                                                 |
 | content      | string   | jah            | Sõnumi sisu vastavalt andmetüübile (vt kirjeldus allpool)                                    |
 | pagination   | object   | jah            | Standardsed pagineerimise elemendid                                                          |
-
-> **Note**
-> "reason" atribuudi käitumise muutmine on arenduses (et seda paremaks muuta)
 
 Näide vastussõnumist:
 
@@ -121,6 +118,7 @@ Näide vastussõnumist:
       "id": 4656,
       "createdTime": "2024-05-23T10:08:44.320005900Z",
       "resourceType": "AGREEMENT",
+      "reason": "CREATE",
       "content": "[{\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"GENERAL_SERVICE\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-05-22T21:00Z\",\"validTo\":\"2024-05-31T21:00Z\"}]"
     },
     {

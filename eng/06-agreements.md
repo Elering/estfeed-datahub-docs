@@ -64,10 +64,10 @@ In the Datahub, the transmission interface of various agreements is harmonised a
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
-> **Note**
+> [!NOTE]
 > A collection of sample messages is being created
 
 #### Message rules
@@ -79,7 +79,7 @@ Dependencies and rules between agreements:
 - A grid operator can only add grid agreements if they have a valid portfolio agreement (i.e. when the grid operator is in someone’s portfolio). The validity period is not taken into account.
 - An aggregator can only add aggregation agreements if they have a valid portfolio agreement (i.e. when the aggregator is in someone’s portfolio). The validity period is not taken into account.
 - An open supply agreement cannot be entered into without a valid grid agreement at the metering point. The duration of the open supply agreement cannot exceed the duration of the grid agreement at either end point.
-- An aggregation agreement cannot be entered into without a valid grid agreement at the grid metering point (also called the master metering point). The duration of the aggregation agreement cannot exceed the duration of the grid agreement at either end point.
+- An aggregation agreement cannot be entered into without a valid grid agreement at the parent metering point. The duration of the aggregation agreement cannot exceed the duration of the grid agreement at either end point.
 
 Other rules:
 
@@ -96,11 +96,11 @@ Other rules:
 - The end date of the agreement must be later than the start date.
 - It is not permitted to *delete* a valid or expired agreement. It is possible to close a valid agreement by updating the value of the end date of the agreement.
 - The type of energy indicated in the agreement must be the same as the type of energy at the metering point indicated in the agreement (if the type of agreement provides for this information).
-- For agreements, only the operator ID and the end date of the agreement can be changed. Changing the remaining data is not allowed.
+- For agreements, only the operator's agreement ID and the end date of the agreement can be changed. Changing the remaining data is not allowed.
 
 ### Web interface
 
-> **Note**
+> [!NOTE]
 > Transmitting agreements using the web interface is described in the sub-pages.
 
 ## Searching and exporting agreements
@@ -120,18 +120,17 @@ There are 2 different business cases where agreements are searched:
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-> **Note**
+> [!NOTE]
 > A collection of sample messages is being created
 
 #### Message rules
 
-> **Warning**
-> 
+> [!CAUTION] 
 > Using the `/agreement/search/meter` API endpoint is allowed only during new agreement registration process. The use of the service and the legality of use are monitored.
 
 - The metering point agreements search API returns the full data of agreements only if the requester is a service provider of the agreement or if the customer of the metering point has authorized the market participant.
 
 ### Web interface
 
-> **Note**
+> [!NOTE]
 > Searching and exporting agreements using the web interface is described in the sub-pages.

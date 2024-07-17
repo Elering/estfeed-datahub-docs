@@ -38,18 +38,15 @@ Kliendi andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused
 | `POST /api/{version}/customer`                       | Kliendi ja tema metaandmete lisamine | [Kliendi ja tema metaandmete lisamine ja muutmine](#kliendi-ja-tema-metaandmete-lisamine-ja-muutmine) |
 | `PUT /api/{version}/customer`                        | Kliendi metaandmete muutmine         | [Kliendi ja tema metaandmete lisamine ja muutmine](#kliendi-ja-tema-metaandmete-lisamine-ja-muutmine) |
 | `POST /api/{version}/customer/search`                | Kliendi ja tema metaandmete otsing   | [Kliendi ja tema metaandmete otsing](#kliendi-ja-tema-metaandmete-otsing)                             |
-| `POST /api/{version}/customer/search/representative` | Äriregistri esindusõiguste otsing    |                                                                                                       |
-| `POST /api/{version}/customer/search/agreement`      | Kliendi lepingute otsing             |                                                                                                       |
-| `POST /api/{version}/customer/search/meter`          | Kliendi mõõtepunktide otsing         |                                                                                                       |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 ## Sõnumite reeglid
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ### Kliendi ja tema metaandmete lisamine ja muutmine
@@ -169,20 +166,19 @@ Metaandmed on süsteemis modelleeritud võti-väärtus paaridena, kus "võti" on
 
 - Kliendi otsingu teenus tagastab ainult kliendi EIC koodi juhul, kui andmete pärijal puudub vastav õigus.
 - Nime järgi saab otsida juriidilisi isikuid ja organisatsioone. Füüsilisi isikuid nime järgi otsida ei saa.
-- Metaandmeid `BILLING_*`, `PHONE`, `MOBILE_PHONE` ja `EMAIL` väljastatakse ainult juhul, kui pärijaks on on nimetatud müüja, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne)
-  üldteenuse leping antud kliendiga.
+- Metaandmeid `BILLING_*`, `PHONE`, `MOBILE_PHONE` ja `EMAIL` väljastatakse ainult juhul, kui:
+  - pärijaks on on nimetatud müüja, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) üldteenuse leping antud kliendiga.
+  - pärijaks on võrguoperaator või suletus jaotusvõrgu operaator kellel on või on olnud võrgu või piirimõõtepunkti võrgu leping antud kliendiga.
 
 ### Äriregistri esindusõiguste otsing
 
-> **Note**
+> [!NOTE]
 > Dokumentatsioon on loomisel
 
 ### Kliendi lepingute otsing
 
-> **Note**
-> Dokumentatsioon on loomisel
+Loe täpsemalt peatükist [Lepingud](06-lepingud.md)
 
 ### Kliendi mõõtepunktide otsing
 
-> **Note**
-> Dokumentatsioon on loomisel
+Loe täpsemalt peatükist [Mõõtepunktid](05-mootepunktid.md)

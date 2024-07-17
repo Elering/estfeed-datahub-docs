@@ -38,7 +38,7 @@ Näide koondmõõteandmete arvutuse aegadest bilansiaruannete jaoks:
 | Esialgne bilansiaruanne | 08. veebr                         | 08. märts                          | 08. aprill                      |
 | Lõplik bilansiaruanne   | 1. aprill                         | 1. mai                             | 1. juuni                        |
 
-> **Note**
+> [!NOTE]
 > Raportid arvutatakse kõikidele operaatoritele samal ajal
 
 ## Raportite edastamine
@@ -117,8 +117,7 @@ Veergude kirjeldus:
 
 ### Avatud tarnija raport
 
-> **Warning**
-> 
+> [!WARNING] 
 > Avatud tarnija ei ole esialgses skoobis
 
 Saajad:
@@ -151,8 +150,7 @@ Veergude kirjeldus:
 
 ### Avatud tarnija koondraport
 
-> **Warning**
-> 
+> [!WARNING] 
 > Avatud tarnija koondraport ei ole esialgses skoobis
 
 Saajad:

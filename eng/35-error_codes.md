@@ -45,7 +45,7 @@ Error messages have always the same structure:
 - `traceId` is the unique ID, that can be used by the Elering technical team to trace the root cause of the error
 - `args` contains additional information in case it's needed. Can also be empty
 
-> **Note**
+> [!NOTE]
 > Error codes that begin with a different prefix, such as "mpd" and "mpm", are not covered in this document. These error codes are temporary and will be fixed during development
 
 ## /agreement
@@ -73,6 +73,7 @@ Business errors:
 Authentication errors:
 
 - `opp.error.technical.authentication`: 'An error has occurred during authentication process'
+- `opp.error.technical.ip-address-not-allowed`: 'IP address is not allowed'
 - `opp.error.technical.jwt-format`: 'Incorrect JWT format'
 - `opp.error.technical.jwt-processing`: 'An error occurred while processing the contents of the JWT token'
 - `opp.error.technical.unprocessable-market-participant-context`: 'An error occurred while processing marketParticipantContext'
@@ -106,15 +107,7 @@ Business errors:
 - `opp.error.business.missing-agreement-between-os-and-cust`: 'Open Supplier and Customer has no valid agreement.'
 - `opp.error.business.missing-agreement-between-go-and-cust`: 'Grid Operator and Customer has no valid agreement.'
 
-Technical errors:
-
-- `opp.error.technical.not-found.resource`: 'Resource not found'
-
 ## /customer
-
-Validation errors:
-
-- `opp.error.validation.missing-metadata-for-billing-method`: 'Missing metadata for billing method'
 
 Business errors:
 
@@ -123,15 +116,33 @@ Business errors:
 - `opp.error.business.customer-type-identity-type-mismatch`: 'This Customer type cannot have the given Identity type'
 - `opp.error.business.customer-type-metadata-type-mismatch`: 'This Customer type cannot have the given Metadata type'
 - `opp.error.business.internal-id-resolve-error`: 'Internal ID of the Service Provider cannot be resolved.'
-- `opp.error.business.only-market-participants-can-be-searched-by-name`: 'Only Market Participants can be searched by name'
+- `opp.error.business.search-by-name-is-not-supported-for-these-customers`: 'Customer search by name is not supported by the given customer types'
 - `opp.error.business.customer-metadata-not-found`: 'Customer metadata not found'
+- `opp.error.business.country-extension-required`: 'Country extension is required for identity types: PERSONAL_ID, COMPANY_ID, DOCUMENT_ID, EMBASSY_ID'
+- `opp.error.business.personal-id-and-document-id-cannot-be-included-in-one-request`: 'PERSONAL_ID and DOCUMENT_ID cannot be included in one request'
+- `opp.error.business.eic-cannot-be-created-via-request`: 'EIC cannot be created via request'
+- `opp.error.business.no-duplicate-country-extensions-allowed`: 'Duplicates of country extension is not allowed for the same identity'
+- `opp.error.business.country-code-must-be-filled`: 'For COUNTRY extension, country code must be filled'
+- `opp.error.business.market-participant-cannot-update-customer`: 'Market participant cannot update customer due to missing agreement or insufficient role'
+- `opp.error.business.already-exists`: '{0} value with {1} business object type and {2} identity type already exists'
+
 
 ## /data-distribution
 
 Validation errors:
 
-- `opp.error.validation.data-distribution-created-time-period-max-one-day`: 'Created time period maximum value can be one day'
-- `opp.error.validation.data-distribution-created-time-period-max-one-hour`: 'Created time period maximum value can be one hour'
+- `dd.error.validation.data-distribution-created-time-period-max-one-day`: 'Created time period maximum value can be one day'
+- `dd.error.validation.data-distribution-created-time-period-max-one-hour`: 'Created time period maximum value can be one hour'
+- `dd.error.validation.data-distribution-id-range-or-time-interval-is-required`: 'Id range or created time period is required'
+- `dd.error.validation.data-distribution-id-from-can-not-be-bigger-than-id-to`: 'Id from can not be greater than id to'
+- `dd.error.validation.data-distribution-id-can-not-be-negative-number`: 'Id can not be a negative number'
+- `dd.error.validation.data-distribution-id-range-exceeds-max-number`: 'Id range exceeds maximum number'
+- `dd.error.validation.data-distribution-provide-from-and-to-params-together`: 'From and To parameters must be provided together'
+
+Business errors:
+
+- `dd.error.business.overlapping-agreements`: 'Agreements have overlapping validity dates for the same meter'
+
 
 ## /joint-invoice
 
@@ -163,6 +174,8 @@ Validation errors:
 
 Business errors:
 
+- `opp.error.business.legal-consent-with-incorrect-role`: 'Only Market Participants with Open Supplier or Aggregator role can view Metering Data by accepting legal consent'
+- `opp.error.business.legal-consent-with-incorrect-customer-type`: 'Only Legal Person or Organization can view Metering Data by accepting legal consent'
 - `opp.error.business.meter-data-cannot-be-retrieved`: 'Meter data cannot be retrieved'
 - `opp.error.business.market-participant-mismatch-error`: 'Only meterOwnerInternalId of Metering Point can send measurement data to Metering Point'
 - `opp.error.business.metering-data-with-this-commodity-type-cannot-be-created-with-this-market-participant-role`: 'Metering Data with this commodity type cannot be created with this Market Participant Role.'
@@ -171,6 +184,7 @@ Business errors:
 - `opp.error.business.wrong-resolution`: 'Resolution of metering data is incorrect'
 - `opp.error.business.timestamp-of-hourly-resolution-wrong-format`: 'Timestamp of hourly resolution can have the following format: yyyy-MM-ddTHH:00:00Z'
 - `opp.error.business.timestamp-of-quarterly-resolution-wrong-format`: 'Timestamp of quarterly resolution can have the following format: yyyy-MM-ddTHH:00:00Z, yyyy-MM-ddTHH:15:00Z, yyyy-MM-ddTHH:30:00Z,yyyy-MM-ddTHH:45:00Z'
+- `opp.error.business.timestamp-of-daily-resolution-wrong-format`: 'Timestamp of daily resolution can have the following format: yyyy-MM-ddTHH:07:00Z or yyyy-MM-ddTHH:00:00Z based on the selected commodity type'
 
 ## /meter
 
@@ -200,7 +214,7 @@ Business errors:
 - `opp.error.business.eic-range-error`: 'Eic code is not in range of Market Participant'
 - `opp.error.business.incorrect-market-participant-role`: 'Metering Point cannot be created or updated with this Market Participant Role Type'
 - `opp.error.business.source-type-error`: 'Market Participant with this role cannot access Metering Point with some of the requested source types'
-- `opp.error.business.legal-consent-only-for-legal-person`: 'Legal consent can only be given, when the customer''s business object type is legal person'
+- `opp.error.business.legal-consent-is-not-required-for-the-given-customer`: 'Legal consent can only be given, when the customer''s business object type is legal person or organization'
 
 ## /network-bill
 
@@ -237,16 +251,19 @@ Validation errors:
 Business errors:
 
 - `opp.error.business.report-header-not-found`: 'Report header not found'
+- `opp.error.business.service-provider-market-role-does-not-exist`: 'Necessary market roles for service providers not found'
 
 ## /authorization
 
 Validation errors:
 
+- `authz.error.validation.missing.%s`: 'Missing from request: %s'
 - `authz.error.validation.max-length.%s`: '%s cannot be longer than %d characters'
 - `authz.error.validation.invalid-enum.%s`: '%s can be %s'
 - `authz.error.validation.unparseable.%s`: 'Field %s can not be parsed for value %s'
 - `authz.error.validation.wrong-order.%s`: '%s cannot be after %s'
 - `authz.error.validation.role-cannot-be-assigned`: 'The selected role cannot be assigned'
+- `authz.error.validation.self-authorization-not-permitted`: 'Adding or removing roles to self is not permitted'
 
 Business errors:
 
@@ -268,7 +285,9 @@ Business errors:
 
 Technical errors:
 
+- `authz.error.technical.general`: 'An error has occurred while processing the request'
 - `authz.error.technical.general.no-response`: 'No valid response from server'
+- `authz.error.technical.not-found.header`: 'No header data found'
 
 ## Common codes
 
@@ -317,6 +336,7 @@ Technical errors:
 - `opp.error.technical.general`: 'An error has occurred while processing the request'
 - `opp.error.technical.excel-generation-exception`:` 'Unexpected error happened during excel generation'
 - `opp.error.technical.not-found.resource-file`: 'Resource file not found'
+- `opp.error.technical.not-found.resource`: 'Resource not found'
 - `opp.error.technical.json-processing-exception`: 'An error occurred while processing JSON'
 - `opp.error.technical.no-response`: 'No valid response from server'
 - `opp.error.technical.not-found.header`: 'No header data found'

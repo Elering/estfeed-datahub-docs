@@ -30,7 +30,7 @@ Relevant Datahub services have been set up to request the customer authorization
 
 ### Web interface
 
-> **Note**
+> [!NOTE]
 > The web interface is being developed.
 
 ### API messages
@@ -45,5 +45,5 @@ For a description of message structures and validations, see [Datahub descriptio
 
 #### Message rules
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

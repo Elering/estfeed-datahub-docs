@@ -53,7 +53,7 @@ Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andme
 
 ### Veebiliidese abil
 
-> **Note**
+> [!NOTE]
 > Lepingute loomine veebiliidese abil on kirjeldatud alamlehtedel.
 
 ### Masinliidese sõnumid
@@ -69,7 +69,7 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 #### Sõnumite reeglid
@@ -81,7 +81,7 @@ Lepingute omavahelised sõltuvused ja reeglid:
 - Võrguettevõtja saab võrgulepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  võrguettevõtja on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Agregaator saab agregeerimislepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  agregaator on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Avatud tarne lepingu sõlmimise aluseks on kehtiv võrguleping mõõtepunktis. Avatud tarne lepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
-- Agregeerimislepingu sõlmimise aluseks on kehtiv võrguleping võrgu mõõtepunktis (mida nimetatakse ka ülemmõõtepunktiks). Agregeerimislepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
+- Agregeerimislepingu sõlmimise aluseks on kehtiv võrguleping võrgu ülemmõõtepunktis. Agregeerimislepingu kehtivus ei tohi kummastki otspunktist ületada ülemmõõtepunkti võrgulepingu kehtivust.
 
 Muud reeglid:
 
@@ -98,9 +98,9 @@ Muud reeglid:
 - Lepingu lõpu kuupäev peab olema hilisem alguskuupäevast.
 - Kehtivat ega kehtivuse kaotanud lepingut kustutada (*delete*) ei ole lubatud. Kehtivat lepingut on võimalik sulgeda, uuendades lepingu lõppemise kuupäeva väärtust.
 - Lepingus märgitud energia liik peab olema sama lepingus märgitud mõõtepunkti energia liigiga (juhul, kui lepingu tüüp neid andmeid ette näeb).
-- Lepingute puhul on lubatud muuta ainult operaatoripoolset ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
+- Lepingute puhul on lubatud muuta ainult operaatoripoolset lepingu ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ## Lepingute otsimine ja eksport
@@ -122,18 +122,17 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 #### Sõnumite reeglid
 
-> **Warning**
-> 
+> [!CAUTION] 
 > Teenuse `/agreement/search/meter` kasutamine on lubatud ainult uue lepingu loomise protsessis. Teenuse kasutamist ja kasutamise õiguspärastust monitooritakse.
 
 - Mõõtepunkti lepingute otsingu teenus tagastab lepinguite täisandmestiku ainult juhul, kui otsingu teostaja on lepingu teenusepakkuja või kui mõõtepunkti klient on andnud turuosalisele esindusõiguse
 
 ### Veebiliidese abil
 
-> **Note**
+> [!NOTE]
 > Lepingute loomine veebiliidese abil on kirjeldatud alamlehtedel.

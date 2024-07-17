@@ -14,8 +14,7 @@
 
 Võrguteenuse koostamise sõnum abil edastab võrguettevõtja info selle kohta, millisel hetkel ja milliste andmete alusel koostas võrguettevõtja kliendile võrguteenuse arve. Antud sõnumis olev info võimaldab müüjatel esitada klientidele müügiarve samade energiakoguste eest nagu võrguteenuse arve. Andmeladu edastab võrguettevõtja saadetud sõnumi mõõtepunkti avatud tarnijale.
 
-> **Warning**
-> 
+> [!WARNING] 
 > Andmeladu ei vastuta sõnumis toodud energiakoguste andmete kvaliteedi eest
 
 ## Võrguteenuse arve edastamine ja pärimine
@@ -39,14 +38,13 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 ### Sõnumite reeglid
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
-
 
 - Võrguarve edastamise reeglid:
   - Võrguarvet saab lisada võrguettevõtja (GO) või suletud jaotusvõrgu ettevõtja (CDN)
@@ -58,3 +56,4 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Võrguarvete otsimise reeglid:
   - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (CDN) saavad otsida ainult neid võrguarveid, mida nad ise lisasid
   - avatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise avatud tarne lepinguga, kus avatud tarnija on teenusepakkuja.
+  - nimetatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise üldteenuse lepinguga, kus nimetatud tarnija on teenusepakkuja.

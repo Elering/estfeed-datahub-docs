@@ -59,5 +59,5 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - `message` teenuses on võrguettevõtjale lubatud edastada `PLANNED`, `REFUSED`, `CONNECTED` ja `DICONNECTED` olekuid.
 - Kui välja- või sisselülitamise taotluse olek on `CONNECTED`, `DISCONNECTED`, `REFUSED` või `CANCELLED`, siis täiendavate `message` sõnumite saatmine ei ole võimalik.
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

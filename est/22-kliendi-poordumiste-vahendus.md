@@ -1,7 +1,6 @@
 # Kliendi pöördumiste vahendus
 
-> **Warning**
-> 
+> [!WARNING] 
 > Konsultatsioonid turuosalistega selle teenuste paketi realiseerimise üle alles käivad. Allpool olev kirjeldus on kõigest esialgne nägemus.
 
 ## Sisukord
@@ -19,8 +18,7 @@
 
 Kliendi pöördumiste vahenduse protsessi eesmärk on klientide võrguteenusega seotud pöördumiste vahendamine müüjalt võrguettevõtjale. Kliendi pöördumiste vahendus on kasutatav vaid müüja ja võrguettevõtja vaheliste sõnumitena. Kliendi pöördumiste funktsionaalsus sisaldab võrguettevõtjate ja müüjate omavahelist infovahetust standardiseeritud kujul.
 
-> **Warning**
-> 
+> [!WARNING] 
 > Kogu käesolevas dokumendis kirjeldatud funktsionaalsus on esialgsest skoobist välja arvatud.
 
 ## Kliendi pöördumise edastamine ja vastamine
@@ -40,7 +38,7 @@ Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu 
 
 ### Veebiliides
 
-> **Note**
+> [!NOTE]
 > Veebiliides on loomisel
 
 ### Masinliidese sõnumid
@@ -61,5 +59,5 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 - Pöördumise adressaati Andmeladu ei valideeri. Õigete andmete väärtustamise eest vastutab avatud tarnija.
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

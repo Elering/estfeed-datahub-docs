@@ -112,7 +112,7 @@ Sõnumite struktuuride ja validatsioonide kirjeldused on leitavad järgmiselt:
 - [Test Swagger](https://public-test-datahub.elering.ee/swagger-ui/index.html) keskkonnas on nähtav versioon, mis on rakenduses realiseeritud. Selles keskkonnas on võimalik Swagger interaktiivse keskkonna abil rakendusele päris sõnumeid saata.
 - [Github](https://github.com/Elering/Estfeed-API) keskkonnas on nähtav tuleviku visioon. Liides on kirjeldatud OpenAPI formaadis.
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 ### Keskkonnad
@@ -126,6 +126,7 @@ Andmelao masinliidese otspunktid:
 
 - Avalik test keskkond:
   - Andmete levitamise teenused: `https://public-test-dd-datahub.elering.ee`
+  - Raportite teenused: `https://public-test-rpt-datahub.elering.ee`
   - Ülejäänud teenused: `https://public-test-datahub.elering.ee`
 - Live keskkond: `https://datahub.elering.ee`
 
@@ -133,6 +134,7 @@ Andmelao OpenApi teenuste kirjeldused:
 
 - Avalik test keskkond:
   - [Andmete levitamise teenused](https://public-test-dd-datahub.elering.ee/swagger-ui/index.html)
+  - [Raportite teenused](https://public-test-rpt-datahub.elering.ee/swagger-ui/index.html)
   - [Ülejäänud teenused](https://public-test-datahub.elering.ee/swagger-ui/index.html)
 - [Live keskkond](https://datahub.elering.ee/swagger-ui/index.html)
 

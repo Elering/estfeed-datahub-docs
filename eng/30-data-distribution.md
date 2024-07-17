@@ -65,7 +65,7 @@ Maximum allowed period in the query depends on the resource type:
 - metering data: 1 hour
 - other types: 1 day
 
-> **Note**
+> [!TIP]
 > To request messages for a longer period of time, it is possible to send several different requests for different periods. For example, the first message for the period 02.01.2024-03.01.2024 and the second for the period 01.01.2024-02.01.2024.
 
 The response message contains the "reason for change". This value helps the market participants to understand, why this change has happened. There are two types of values:
@@ -88,7 +88,7 @@ The response message contains the "reason for change". This value helps the mark
   - `DELETE_BC_BORDER_GRID_UPDATE` - data object got deleted, because BORDER_GRID agreement was updated
   - `DELETE_BC_BORDER_GRID_DELETE` - data object got deleted, because BORDER_GRID agreement was deleted
 
-> **Note**
+> [!NOTE]
 > The format of the dynamic values follow a pattern: "what happened to the data object in the message" + BC (because) + "what was done with the data object causing the change"
 
 ## Distributing data updates
@@ -105,12 +105,8 @@ Every data distribution response message consists of common and resource type sp
 | id           | int      | yes             | Unique message ID, that is increasing in the time.                                              |
 | createdTime  | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message |
 | resourceType | string   | yes             | Resource type                                                                                   |
-| reason       | string   | no              | One of: CREATE, UPDATE, DELETE. Can be missing                                                  |
+| reason       | string   | jah             | One of: CREATE, UPDATE, DELETE                                                                  |
 | content      | string   | yes             | Content of the message, depending on the resource type (see next paragraphs)                    |
-
-> **Note**
-> The behaviour of "reason" is under development (to make it better)
-
 
 Example of the response message:
 
@@ -121,6 +117,7 @@ Example of the response message:
       "id": 4656,
       "createdTime": "2024-05-23T10:08:44.320005900Z",
       "resourceType": "AGREEMENT",
+      "reason": "CREATE",
       "content": "[{\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"GENERAL_SERVICE\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-05-22T21:00Z\",\"validTo\":\"2024-05-31T21:00Z\"}]"
     },
     {

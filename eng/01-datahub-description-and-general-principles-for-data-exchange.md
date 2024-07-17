@@ -87,7 +87,7 @@ The Datahub as a system covers the following key processes:
 7. calculation and transmission of aggregated summary reports of balance settlements;
 8. transmission of aggregation agreements and metering data of consumption management.
 
-![Figure 1: Datahub key processes](../images/andmeladu.png)
+![Figure 1: Datahub key processes](../images/datahub.png)
 *Figure 1: Datahub key processes*
 
 ## EICs
@@ -118,6 +118,7 @@ Datahub API endpoints:
 
 - Public test environment:
   - Data Distribution API-s: `https://public-test-dd-datahub.elering.ee`
+  - Reporting API-s: `https://public-test-rpt-datahub.elering.ee`
   - All other API-s: `https://public-test-datahub.elering.ee`
 - Live environment: `https://datahub.elering.ee`
 
@@ -125,6 +126,7 @@ Datahub OpenApi decriptions:
 
 - Public test environment:
   - [Data Distribution API-s](https://public-test-dd-datahub.elering.ee/swagger-ui/index.html)
+  - [Reporting API-s](https://public-test-rpt-datahub.elering.ee/swagger-ui/index.html)
   - [All other API-s](https://public-test-datahub.elering.ee/swagger-ui/index.html)
 - [Live environment](https://datahub.elering.ee/swagger-ui/index.html)
 

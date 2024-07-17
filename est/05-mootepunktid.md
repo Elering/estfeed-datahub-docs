@@ -38,8 +38,7 @@ Käesolevas dokumendis nimetatakse neid ühisnimetajaga **Mõõtepunkti haldur**
 
 Mõõtepunkti haldur vastutab Andmelaos tema piirkonnas olevate mõõtepunktid kohta mõõtepunkti andmete lisamise ja uuendamise eest.
 
-> **Warning**
-> 
+> [!WARNING] 
 > NB! Mõõtepunkti haldur on kohustatud mõõtepunkti andmeid uuendama esimesel võimalusel.
 
 ## Mõõtepunkti andmete edastamine
@@ -71,20 +70,20 @@ Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliide
 | customerType           | Customer Type                          | tarbimise tüüp mõõtepunktis              | jah          | Üks neist:  CONSUMER (tarbija), GRID_OPERATOR (võrguettevõtja), PRODUCER (tootja), MICRO (mikrotootja), LINE_OPERATOR (liinivaldaja), ENERGY_STORAGE_UNIT (salvestusjaam), CHARGING_POINT_OPERATOR (laadimispunkti operaator) |
 | production             | Production                             | kas mõõtepunktis toimub energia tootmist | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                                                                                                                                                             |
 | productionSource       | Production Source                      | energia tootmise allikas                 | ei           | Üks neist: SOLAR (päike), WIND (tuul), HYDRO (vesi), BIOGAS (biogaas), BIOMASS (biomass), NATURAL_GAS (gaas), OIL_SHALE (põlevkivi), OTHER_RENEWABLE (muu taastuv), OTHER_NON_RENEWABLE (muu mittetaastuv)                    |
-| transmissionNetworkEic | Transmission Network EIC               | ülekandevõrgu 16 kohaline EIC kood       | jah          | Määratud ülekandevõrgu EIC kood peab eksisteerima süsteemis                                                                                                                                                                   |
+| transmissionNetworkEic | Transmission Network EIC               | ülekandevõrgu 16 kohaline EIC kood       | jah          | Määratud ülekandevõrgu EIC kood peab eksisteerima süsteemis. Energiakandja tüüp peab ühtima mõõtepunkti omaga.                                                                                                                |
 | apartmentAssociation   | Apartment Association                  | kas tegu on korteriühistuga              | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                                                                                                                                                             |
 
 - Elektri mõõtepunkti spetsiifilised metaandmed:
 
-| Atribuut teenuses     | Tulba nimetus masslaadimise templiidis | Selgitus                                  | Kohustuslik? | Muud reeglid                                                                                     |
-|-----------------------|----------------------------------------|-------------------------------------------|--------------|--------------------------------------------------------------------------------------------------|
-| isolatedMeteringPoint | Isolated Metering Point                | kas tegemist on isoleeritud mõõtepunktiga | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                                |
-| electricalHeating     | Electrical Heating                     | kas mõõtepunktis toimub elektriga kütmist | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                                |
-| chargingPoint         | Charging Point                         | kas mõõtepunktis toimub elektri laadimist | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                                |
-| storageCapacity       | Storage Capacity                       | energiasalvestusvõimsus (kW)              | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel sisestada number 0 |
-| storageEnergy         | Storage Energy                         | energiasalvesti mahtuvus (kWh)            | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel sisestada number 0 |
-| productionCapacity    | Production Capacity                    | tootmise maht (kW)                        | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel sisestada number 0 |
-| transmissionCapacity  | Transmission Capacity                  | ülekande maht (kW)                        | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel sisestada number 0 |
+| Atribuut teenuses     | Tulba nimetus masslaadimise templiidis | Selgitus                                  | Kohustuslik? | Muud reeglid                                                                                |
+|-----------------------|----------------------------------------|-------------------------------------------|--------------|---------------------------------------------------------------------------------------------|
+| isolatedMeteringPoint | Isolated Metering Point                | kas tegemist on isoleeritud mõõtepunktiga | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                           |
+| electricalHeating     | Electrical Heating                     | kas mõõtepunktis toimub elektriga kütmist | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                           |
+| chargingPoint         | Charging Point                         | kas mõõtepunktis toimub elektri laadimist | jah          | Üks neist: TRUE (jah), FALSE (ei)                                                           |
+| storageCapacity       | Storage Capacity                       | energiasalvestusvõimsus (kW)              | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel jätta tühjaks |
+| storageEnergy         | Storage Energy                         | energiasalvesti mahtuvus (kWh)            | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel jätta tühjaks |
+| productionCapacity    | Production Capacity                    | tootmise maht (kW)                        | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel jätta tühjaks |
+| transmissionCapacity  | Transmission Capacity                  | ülekande maht (kW)                        | ei           | Peab olema täis- või komakohaga (max. 2 komakohta)number. Väärtuse puudumisel jätta tühjaks |
 
 - Agregeerimise mõõtepunkti spetsiifilised metaandmed:
 
@@ -107,7 +106,7 @@ Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliide
 | longitude         | Longitude                              | koordinaadi pikkuskraad                               | ei                                      | LEST97 puhul peab väärtus olema olema 6 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enne ja 4-8 kohta peale koma |
 | coordinateSystem  | Coordinate Sytem                       | koordinaatsüsteem                                     | jah, kui koordinaadid on antud          | Üks neist: WGS84, LEST97                                                                                                                        |
 
-> **Note**
+> [!NOTE]
 > Aadressi andmete struktuur ja validatsioonid on täiendamisel
 
 ### Veebiliides
@@ -190,19 +189,21 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
   - XY koordinaadid ei ole nõutud;
   - XY koordinaadid peavad olema numbrid, mis võivad sisaldada komakohtasid;
   - XY koordinaadid peavad jääma Eestit ümbritseva mõttelise ristküliku sisse;
-- Elektri mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema üks neist:
+- Elektri tava mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema üks neist:
   - GRID_OPERATOR
   - LINE_OPERATOR
   - CLOSED_DISTRIBUTION_NETWORK
   - PRODUCER_OPERATOR
   - CHARGING_POINT_OPERATOR
-- Gaasi mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema üks neist:
+- Gaasi tava mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema üks neist:
   - GRID_OPERATOR
   - PRODUCER_OPERATOR
+- Piiri mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema üks neist:
+  - GRID_OPERATOR
 - Agregeerimise mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema AGGREGATOR
 - Aadressi tekstilisel kujul saatmise korral on andmekvaliteedi huvides palve kasutada ametlikke [EHAK klassifikaatoris](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) toodud maakonna, omavalitsuse ja asutusüksuse nimekujusid.
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ## Mõõtepunkti andmete küsimine
@@ -222,24 +223,33 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 | `POST /api/{version}/eic/amount`            | EIC vahemikust vabade EIC koodide otsing    |
 | `POST /api/{version}/eic/range`             | Turusalise EIC koodi vahemike otsing        |
 
-> **Warning**
-> 
+> [!CAUTION] 
 > Teenust `POST /api/{version}/meter/search/customer` on lubatud kasutada ainult uue lepingu loomisel ja selle õiguspärast kasutamist monitooritakse
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
-> **Note**
+> [!NOTE]
 > Sõnumite näidiste kogumik on loomisel
 
 #### Sõnumite reeglid
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
-- Kui andmete pärijal puudub vajalik kliendi andmete nägemise õigus, siis otsingu teenus tagastab ainult EIC koodi.
-- Andmeladu väljastab mõõtepunkti andmed ilma aadressita, kui teostatakse võrgueeskirja §8 lg 5 järgset kontrolli.
-- Ligipääsuõiguste olemasolul väljastab Andmeladu kogu mõõtepunkti andmestiku.
+##### `meter/search` reeglid
 
-##### `meter/search/customer` täiendavad reeglid
+- Andmeladu väljastab kõik mõõtepunkti andmed juhul kui:
+  - andmete pärija on mõõtepunkti omanik
+  - andmete pärijal on Kliendiportaali kaudu väljastatud ligipääsuõigus
+  - andmete pärija on avatud või nimetatud tarnija, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) avatud või nimetatud tarne leping antud mõõtepunktis
+  - andmete pärija on agregaator, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) agregeerimise leping mõnes antud mõõtepunkti alammõõtepunktis
+  - andmete pärija on ülemmõõtepunkti omanik ja päritakse mõne alammõõtepunkti andmeid
+- Ülejäänud juhtudel andmeid ei tagastata
 
-- atribuute `legalConsent` saab kasutada juriidilise isiku ja organisatsiooni järgi otsides. Füüsilise isiku järgi otsides seda atribuuti kasutada ei saa
+##### `meter/search/customer` reeglid
+
+- Andmeladu väljastab kõik mõõtepunkti andmed juhul kui:
+  - andmete pärijal on Kliendiportaali kaudu väljastatud ligipääsuõigus
+  - andmete pärija on avatud või nimetatud tarnija, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) avatud või nimetatud tarne leping antud mõõtepunktis
+  - andmete pärija otsib juriidilise isiku või organisatsiooni mõõtepunkte ja kinnitab, et tal on süsteemiväline kirjalikku taasesitust võimaldavas vormis volitus (`legalConsent` väärtus on `true`)
+- Ülejäänud juhtudel tagastatakse ainult mõõtepunkti EIC kood

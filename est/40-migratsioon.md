@@ -94,3 +94,4 @@ Võrreldes varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel
 - Mõõteandmete vastuvõtmise ja töötlemise protsess on muutunud asünkroonseks. Töötlemise tulemuse saab pärida teenusest `/meter-data/status`
 - Raporteid on võimalik alla laadida ka JSON formaadis
 - Ühel turuosalisel saab olla ka mitu EIC koodide vahemikku
+- _Billing sequence_ asemel on nüüd kasutusel _reading time_. GO saab mõõteandmete edastamisel defineerida _reading time_ väärtuse ja OS/NS saavad selle väärtuse järgi mõõteandmeid otsida

@@ -38,7 +38,7 @@ Example of calculation times of aggregated data for balance reports:
 | Initial balance report | 8 February                           | 8 March                               | 8 April                            |
 | Final balance report   | 1 April                              | 1 May                                 | 1 June                             |
 
-> **Note**
+> [!NOTE]
 > Reports are calculated for all operators simultaneously.
 
 ## Transmitting reports
@@ -117,8 +117,7 @@ Column descriptions:
 
 ### Open supplier report
 
-> **Warning**
-> 
+> [!WARNING] 
 > Open suppliers are not in the initial scope
 
 Recipients:
@@ -151,8 +150,7 @@ Column descriptions:
 
 ### Open supplier summary report
 
-> **Warning**
-> 
+> [!WARNING] 
 > Open supplier summary report is not in the initial scope
 
 Recipients:

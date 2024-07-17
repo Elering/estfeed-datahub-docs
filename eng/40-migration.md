@@ -94,3 +94,4 @@ Compared to the previous Datahub, the new Datahub has the following new function
 - The process of receiving and processing metering data has become asynchronous. The processing result can be obtained from the `/meter-data/status` service.
 - Reports can be downloaded in JSON format
 - Market Participant can have more than one EIC range
+- Reading time replaces the previous billing sequence. GO can define the reading time of the Metering Data and OS/NS can search for Metering Data by that reading time

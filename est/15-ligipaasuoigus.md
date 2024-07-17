@@ -30,7 +30,7 @@ Ligipääsuõiguse edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
 
 ### Veebiliides
 
-> **Note**
+> [!NOTE]
 > Veebiliides on loomisel.
 
 ### Masinliidese sõnumid
@@ -45,5 +45,5 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 #### Sõnumite reeglid
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

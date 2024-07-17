@@ -15,10 +15,13 @@ Tegemist on puhtalt tehnilise lahendusega, et üldteenuse algust ja lõppu ekspl
 Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale `data-distribution/search` teenuse abil 48 tundi enne aktiveerumist.
 Teenuse väljundis on GENERAL_SERVICE lepingu andmed.
 
+> [!NOTE]
+> Andmeladu ei hoia GENERAL_SERVICE lepingute muudatusi. Muudatuste puhul vanad lepingud kustutatakse ja luuakse uued
+
 Üldteenuse rakendumisel sõltub edasine andmevahetuse sellest, kas võrguettevõtjal on sõlmitud nimetatud tarnija leping või mitte:
 
 - Kui ei ole, siis täiendavat andmevahetust pole ette nähtud.
 - Kui on, siis Andmeladu võimaldab võrguettevõtjal ja nimetatud müüjal vahetada kliendi meta- ja arveldusandmete uuendusi kasutades teenust `PUT customer`
 
-> **Note**
+> [!NOTE]
 > Tasub tähele panna, et antud protsessis on Andmeladu lihtsalt sõnumivahendaja ning kliendi täiendavate metaandmete edastamine on vabatahtlik.

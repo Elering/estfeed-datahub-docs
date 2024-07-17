@@ -30,23 +30,22 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 
 ## Veebiliides
 
-> **Note**
+> [!NOTE]
 > Veebiliides on loomisel.
 
 ## Masinliidese sõnumid
 
-| Sõnum                                        | Eesmärk                 | Kirjeldus ja reeglid                                                        |
-|----------------------------------------------|-------------------------|-----------------------------------------------------------------------------|
-| `POST /api/{version}/joint-invoice`          | Ühisarve lisamine       | [Ühisarve lisamine](#ühisarve-lisamine-ja-muutmine)                         |
-| `PUT /api/{version}/joint-invoice`           | Ühisarve muutmine       | [Ühisarve muutmine](#ühisarve-lisamine-ja-muutmine)                         |
-| `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing         | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine)             |
-| `POST /api/{version}/joint-invoice/download` | Ühisarve alla laadimine | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
+| Sõnum                                        | Eesmärk                    | Kirjeldus ja reeglid                                                        |
+|----------------------------------------------|----------------------------|-----------------------------------------------------------------------------|
+| `POST /api/{version}/joint-invoice`          | Ühisarve lisamine/muutmine | [Ühisarve lisamine ja muutmine](#ühisarve-lisamine-ja-muutmine)             |
+| `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing            | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
+| `POST /api/{version}/joint-invoice/download` | Ühisarve alla laadimine    | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
 
 Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
 
 ## Sõnumite reeglid
 
-> **Note**
+> [!NOTE]
 > Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ### Ühisarve lisamine ja muutmine
@@ -57,6 +56,8 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - `invoice`
 
 Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisaldab ühisarvet ennast base64 kujul.
+
+Ühisarve muutmine ei ole võimalik. Muudatuste edastamiseks saadab võrguettevõtja või suletud jaotusvõrgu operaator uue kreedit ühisarve XML-i ja vajadusel täiendava ühisarve
 
 #### Sõnumi atribuutide reeglid
 

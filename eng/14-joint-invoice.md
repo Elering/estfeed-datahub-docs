@@ -21,33 +21,32 @@
 
 The prerequisite for sending a joint invoice is a joint invoice agreement in the Datahub. For more information, see [Joint invoice agreement](14-joint-invoice.md)
 
-The details of the network bill to be sent are taken from the e-invoice standard ([Estonian e-invoice guide](https://media.voog.com/0000/0042/1620/files/Eesti_e-arve_kirjelduse_juhend_E_arve_saatmine%20ja%20presenteeerimine%20pangas_ver_1_0.pdf)).
+The details of the joint invoice to be sent are taken from the e-invoice standard ([Estonian e-invoice guide](https://media.voog.com/0000/0042/1620/files/Eesti_e-arve_kirjelduse_juhend_E_arve_saatmine%20ja%20presenteeerimine%20pangas_ver_1_0.pdf)).
 
 ## Transmitting requesting a network bill
 
-Network bills can be transmitted via both the API and the web interface (a form for small grid operators) and downloaded (for sellers).
+Joint invoices can be transmitted via both the API and the web interface (a form for small grid operators) and downloaded (for sellers).
 
 Relevant Datahub services have been set up to transmit and request joint invoices. The intended use process can be found in [Business processes](02-business-processes.md#joint-invoice-management)
 
 ## Web interface
 
-> **Note**
+> [!NOTE]
 > The web interface is being developed.
 
 ## API messages
 
-| Message                                      | Objective                | Description and rules                                               |
-|----------------------------------------------|--------------------------|---------------------------------------------------------------------|
-| `POST /api/{version}/joint-invoice`          | Create a joint invoice   | [Create joint invoice](#create-or-update-joint-invoice)             |
-| `PUT /api/{version}/joint-invoice`           | Update a joint invoice   | [Update joint invoice](#create-or-update-joint-invoice)             |
-| `POST /api/{version}/joint-invoice/search`   | Find a joint invoice     | [Create or update joint invoice](#create-or-update-joint-invoice)   |
-| `POST /api/{version}/joint-invoice/download` | Download a joint invoice | [Find and download joint invoice](#find-and-download-joint-invoice) |
+| Message                                      | Objective                     | Description and rules                                               |
+|----------------------------------------------|-------------------------------|---------------------------------------------------------------------|
+| `POST /api/{version}/joint-invoice`          | Create/update a joint invoice | [Create or update joint invoice](#create-or-update-joint-invoice)   |
+| `POST /api/{version}/joint-invoice/search`   | Find a joint invoice          | [Find and download joint invoice](#find-and-download-joint-invoice) |
+| `POST /api/{version}/joint-invoice/download` | Download a joint invoice      | [Find and download joint invoice](#find-and-download-joint-invoice) |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
 ## API message rules
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ### Create or update joint invoice
@@ -58,6 +57,8 @@ Joint invoice contains of 2 sections:
 - `invoice`
 
 The header contains the metadata and invoice contains the base64 of the joint invoice.
+
+Joint invoices cannot be updated. In case of need for correction, the grid operator or closed distribution network operator will send new joint invoice message containing credit joint invoice XML and if needed a new joint invoice
 
 #### Attribute specific rules
 
@@ -77,8 +78,8 @@ The header contains the metadata and invoice contains the base64 of the joint in
 #### Additional rules
 
 - There must be a valid joint invoice agreement between the sender and the recipient, the validity of which covers the validity of the joint invoice.
-- There must be a valid network agreement between the sender and the customer, the validity of which covers the validity of the joint invoice.
-- There must be a valid open supply contract between the receiver and the customer, the validity of which covers the validity of the joint invoice.
+- There must be a valid grid agreement between the sender and the customer, the validity of which covers the validity of the joint invoice.
+- There must be a valid open supply agreement between the receiver and the customer, the validity of which covers the validity of the joint invoice.
 - There must be exactly the same amount of headers and files in the message
 
 ### Find and download joint invoice

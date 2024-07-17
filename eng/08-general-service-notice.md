@@ -15,10 +15,13 @@ This solution is purely technical, to store the start and end date of the genera
 Datahub makes the general service agreements available to the grid operator and to the named supplier via the `data-distribution/search` service 48 hours before activation.
 The response contains data of GENERAL_SERVICE agreement.
 
+> [!NOTE]
+> The Datahub doesn't track the changes of the GENERAL_SERVICE agreements. In case of any changes the old agreements are deleted and new ones created
+
 Upon the activation of the general service, further data exchange will depend on whether the grid operator has a named supplier agreement or not:
 
 - If not, no additional data exchange is foreseen.
 - If so, the Datahub will allow the grid operator ja named supplier to exchange customer's meta- and billing data updates using the `PUT customer` service.
 
-> **Note**
+> [!NOTE]
 > In this process, the Datahub is acting only as data exchanger. Using the service is purely optional.

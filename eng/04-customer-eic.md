@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-<!-- TOC -->
+<!-- T OC -->
 * [Customer EIC](#customer-eic)
   * [Table of contents](#table-of-contents)
   * [Introduction](#introduction)
@@ -39,18 +39,15 @@ Relevant Datahub services have been set up to transmit and request customer data
 | `POST /api/{version}/customer`                       | Create Customer with metadata                               | [Create or update customer with metadata](#create-or-update-customer-with-metadata) |
 | `PUT /api/{version}/customer`                        | Update customer with metadata                               | [Create or update customer with metadata](#create-or-update-customer-with-metadata) |
 | `POST /api/{version}/customer/search`                | Find a customer by identity                                 | [Find customer](#find-customer)                                                     |
-| `POST /api/{version}/customer/search/representative` | Find Estonian Business Registry representations of Customer |                                                                                     |
-| `POST /api/{version}/customer/search/agreement`      | Search Customer agreements                                  |                                                                                     |
-| `POST /api/{version}/customer/search/meter`          | Search Customer metering points                             |                                                                                     |
 
 For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
 
-> **Note**
+> [!NOTE]
 > A collection of sample messages is being created
 
 ## API message rules
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ### Create or update customer with metadata
@@ -171,20 +168,19 @@ One identity can have multiple extension. For example if the `identityType` valu
 
 - If the data requester does not have the corresponding right, the customer search service only returns the customer’s EIC.
 - Only legal persons and organizations can be searched by name. Physical persons cannot be searched by name.
-- Metadata `BILLING_*`, `PHONE`, `MOBILE_PHONE` and `EMAIL` is returned only if the requester is the Named Supplier, who has currently active (or had in the last 12 months) general service agreement
-  with the customer
+- Metadata `BILLING_*`, `PHONE`, `MOBILE_PHONE` and `EMAIL` is returned only if the requester:
+  - is the Named Supplier, who has currently active (or had in the last 12 months) general service agreement with the customer.
+  - is the Grid Operator or Closed Distribution Network Operator, who has or had grid or border grid agreement with the customer.
 
 ### Find Estonian Business Registry representations of Customer
 
-> **Note**
+> [!NOTE]
 > Documentation under development
 
 ### Search Customer agreements
 
-> **Note**
-> Documentation under development
+Read more in paragraph [Agreements](06-agreements.md)
 
 ### Search Customer metering points
 
-> **Note**
-> Documentation under development
+Read more in paragraph [Metering Point](05-metering-point.md)

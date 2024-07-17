@@ -1,7 +1,6 @@
 ﻿# Customer enquiries
 
-> **Warning**
-> 
+> [!WARNING] 
 > Talks with market participants on the implementation of this service package are still ongoing. The description below is only a preliminary vision.
 
 ## Table of contents
@@ -19,8 +18,7 @@
 
 The purpose of the customer enquiry transmission process is to transmit customer enquiries related to the grid service from suppliers to grid operators. Customer enquiries can only be transmitted as messages between a supplier and a grid operator. The functionality of customer enquiries involves information exchange between grid operators and suppliers in a standardised form.
 
-> **Warning**
-> 
+> [!WARNING] 
 > All functionality described in this document is excluded from the original scope.
 
 ## Transmitting and replying to a customer enquiry
@@ -40,7 +38,7 @@ The grid operator or open supplier can use the `search` service to search for en
 
 ### Web interface
 
-> **Note**
+> [!NOTE]
 > The web interface is being developed
 
 ### API messages
@@ -61,5 +59,5 @@ For a description of message structures and validations, see [Datahub descriptio
 
 - The Datahub does not check the recipient of enquiries. It is the responsibility of the open supplier to provide correct data.
 
-> **Note**
+> [!NOTE]
 > The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
