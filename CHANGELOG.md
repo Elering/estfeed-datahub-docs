@@ -1,3 +1,13 @@
+## [EDH-2721] Release 0.9.0
+
+- __2024-07-17__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  |  Priority |                                  Title                                  |
+|-----------|--------|-----------|-------------------------------------------------------------------------|
+|  EDH-2670 |   Bug  |  Critical |       Existing agreements are not displayed in New agreement form       |
+|  EDH-892  |  Story |   Medium  |  [OPP-UI][OPP-BE][MPD] Metering data search to support data aggregation |
+|  EDH-2541 |  Story |   Medium  |               datahub.elering.ee Cookiebot implementation               |
+
 ## [EDH-2669] Release 0.8.1
 
 - __2024-07-05__ - released to __TEST-PUBLIC__
