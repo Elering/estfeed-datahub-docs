@@ -1,3 +1,16 @@
+## [EDH-2766] Release 0.10.0
+
+- __2024-07-30__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  |  Priority |                                              Title                                              |
+|-----------|--------|-----------|-------------------------------------------------------------------------------------------------|
+|  EDH-2740 |   Bug  |  Highest  |                          [DD] GS agreement is not distributed properly                          |
+|  EDH-2507 |   Bug  |  Critical |                         Admin role can delete estfeed admin role via UI                         |
+|  EDH-2715 |   Bug  |  Critical |                        Cannot remove ValidTo from a border grid agreement                       |
+|  EDH-2626 |  Story |  Highest  |                           [RPT] Move Reporting features to new service                          |
+|  EDH-2322 |  Story |   Medium  |             [OPP-BE][MPD] Define observationTime value when gathering Metering Data             |
+|  EDH-2533 |  Story |   Medium  |  [OPP][TEMP] Implement solution for updating existing identities with new business object types |
+
 ## [EDH-2721] Release 0.9.0
 
 - __2024-07-17__ - released to __TEST-PUBLIC__
@@ -23,6 +36,7 @@
 
 |   Issue   |  Type  |  Priority |                                                    Title                                                   |
 |-----------|--------|-----------|------------------------------------------------------------------------------------------------------------|
+|  EDH-2507 |   Bug  |  Critical |                               Admin role can delete estfeed admin role via UI                              |
 |  EDH-1866 |   Bug  |   Medium  |                      Create Joint Invoice API: added traceID to unsuccessful request                       |
 |  EDH-2601 |   Bug  |  Critical |                           SUPPLY agreement can start earlier, than GRID agreement                          |
 |  EDH-2493 |  Story |   Medium  |                           DD - change who can access info about Service Provider                           |
@@ -57,7 +71,7 @@
 |  EDH-2550 |   Bug  |  Critical |                 Open Supplier and Grid Operator report is failing                 |
 |  EDH-2526 |   Bug  |   Lowest  |                 Aggregator meter data icon tooltip text is missing                |
 |  EDH-2498 |   Bug  |   Medium  |     OS role should not see "template" button under "metering data" menu point     |
-|  EDH-2478 |   Bug  |  Highest  |                        Metering data not updated via import                       |
+|  EDH-2478 |   Bug  |  Critical |                        Metering data not updated via import                       |
 |  EDH-712  |  Story |   Medium  |                  [OPP-BE][MPD] Generate Balance Provider 2 report                 |
 |  EDH-2257 |  Story |   Medium  |      [OPP-BE][MPM] POST /meter/search/customer should not use past agreements     |
 |  EDH-2243 |  Story |   Medium  |                [TEMP] Multiple EIC ranges for one company supported               |
