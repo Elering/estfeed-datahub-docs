@@ -1,3 +1,17 @@
+## [EDH-2829] Release 0.11.0
+
+- __2024-07-17__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  |  Priority |                                                                            Title                                                                           |
+|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  EDH-2818 |   Bug  |  Highest  |                          [DD] Agreement distribution shows up as an object in the search response, but swagger says it is an array                         |
+|  EDH-2717 |   Bug  |  Critical |  DD is not sent to Open Supplier when GRID agreement date has changed, Internal ID of Service Provider cannot be resolved, queue: dd_distribute_data_req_q |
+|  EDH-2806 |   Bug  |   Medium  |                                              In Estonian UI, date next to person's name is not shown correctly                                             |
+|  EDH-2381 |   Bug  |  Highest  |              "mpm.error.business.not-exists.metering-point" error in case adding agreement, where validFrom is in past and MP is created today             |
+|  EDH-2535 |  Story |  Highest  |                                                                 Estonian translation for UI                                                                |
+|  EDH-1684 |  Story |   Medium  |                                           [OPP-UI][OPP-BE] Extend Search metering point flow with implicit access                                          |
+|  EDH-2713 |  Story |   Medium  |                                              [OPP-BE] Limit number of Metering Points to be exported to 50 000                                             |
+
 ## [EDH-2766] Release 0.10.0
 
 - __2024-07-30__ - released to __TEST-PUBLIC__
@@ -15,11 +29,12 @@
 
 - __2024-07-17__ - released to __TEST-PUBLIC__
 
-|   Issue   |  Type  |  Priority |                                  Title                                  |
-|-----------|--------|-----------|-------------------------------------------------------------------------|
-|  EDH-2670 |   Bug  |  Critical |       Existing agreements are not displayed in New agreement form       |
-|  EDH-892  |  Story |   Medium  |  [OPP-UI][OPP-BE][MPD] Metering data search to support data aggregation |
-|  EDH-2541 |  Story |   Medium  |               datahub.elering.ee Cookiebot implementation               |
+|   Issue   |  Type  |  Priority |                                                                            Title                                                                           |
+|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  EDH-2670 |   Bug  |  Critical |                                                 Existing agreements are not displayed in New agreement form                                                |
+|  EDH-2717 |   Bug  |  Critical |  DD is not sent to Open Supplier when GRID agreement date has changed, Internal ID of Service Provider cannot be resolved, queue: dd_distribute_data_req_q |
+|  EDH-892  |  Story |   Medium  |                                           [OPP-UI][OPP-BE][MPD] Metering data search to support data aggregation                                           |
+|  EDH-2541 |  Story |   Medium  |                                                        datahub.elering.ee Cookiebot implementation                                                         |
 
 ## [EDH-2669] Release 0.8.1
 
