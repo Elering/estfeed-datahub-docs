@@ -1,10 +1,31 @@
+## [EDH-2920] Release 0.12.0
+
+- __2024-08-23__ - released to __TEST-PUBLIC__
+
+|   Issue   |  Type  |  Priority |                                         Title                                        |
+|-----------|--------|-----------|--------------------------------------------------------------------------------------|
+|  EDH-2538 |   Bug  |  Critical |                      Wrong DD message for OS about GS agreement                      |
+|  EDH-3001 |   Bug  |   Medium  |                       UI Copying generated EICs message: empty                       |
+|  EDH-2897 |   Bug  |   Medium  |                    Excel imports give empty success message on UI                    |
+|  EDH-2873 |   Bug  |  Critical |             Connection request "read" doesn't update automatically on UI             |
+|  EDH-2967 |   Bug  |   Medium  |  Metering data processing gets Successful status, but the metering data is not saved |
+|  EDH-2775 |   Bug  |   Medium  |           Joint invoice processing error msg is not mapped to API response           |
+|  EDH-2670 |   Bug  |  Critical |              Existing agreements are not displayed in New agreement form             |
+|  EDH-2292 |   Bug  |   Medium  |                 Adding organization with ID Type results in an error                 |
+|  EDH-2770 |   Bug  |   Medium  |                    Unclear error message for new supply agreement                    |
+|  EDH-2850 |   Bug  |  Critical |    Metering data upload (Excel) produces incorrect metering type and reading time    |
+|  EDH-720  |  Story |   Medium  |                       Implement scheduling of report generation                      |
+|  EDH-2789 |  Story |  Highest  |     [DD] Improve deleted agreement distribution receiver based on portfolio tree     |
+|  EDH-2788 |  Story |  Highest  |          [DD] Restrict agreement distribution based on endUserAgreementType          |
+|  EDH-2522 |  Story |   Medium  |                              Portfolio agreement UI view                             |
+
 ## [EDH-2829] Release 0.11.0
 
 - __2024-08-14__ - released to __TEST-PUBLIC__
 
 |   Issue   |  Type  |  Priority |                                                                            Title                                                                           |
 |-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2818 |   Bug  |  Highest  |                          [DD] Agreement distribution shows up as an object in the search response, but swagger says it is an array                         |
+|  EDH-2818 |   Bug  |  Critical |                          [DD] Agreement distribution shows up as an object in the search response, but swagger says it is an array                         |
 |  EDH-2717 |   Bug  |  Critical |  DD is not sent to Open Supplier when GRID agreement date has changed, Internal ID of Service Provider cannot be resolved, queue: dd_distribute_data_req_q |
 |  EDH-2806 |   Bug  |   Medium  |                                              In Estonian UI, date next to person's name is not shown correctly                                             |
 |  EDH-2381 |   Bug  |  Highest  |              "mpm.error.business.not-exists.metering-point" error in case adding agreement, where validFrom is in past and MP is created today             |
@@ -20,6 +41,7 @@
 |-----------|--------|-----------|-------------------------------------------------------------------------------------------------|
 |  EDH-2740 |   Bug  |  Highest  |                          [DD] GS agreement is not distributed properly                          |
 |  EDH-2507 |   Bug  |  Critical |                         Admin role can delete estfeed admin role via UI                         |
+|  EDH-2873 |   Bug  |  Critical |                   Connection request "read" doesn't update automatically on UI                  |
 |  EDH-2715 |   Bug  |  Critical |                        Cannot remove ValidTo from a border grid agreement                       |
 |  EDH-2626 |  Story |  Highest  |                           [RPT] Move Reporting features to new service                          |
 |  EDH-2322 |  Story |   Medium  |             [OPP-BE][MPD] Define observationTime value when gathering Metering Data             |
@@ -33,6 +55,7 @@
 |-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  EDH-2670 |   Bug  |  Critical |                                                 Existing agreements are not displayed in New agreement form                                                |
 |  EDH-2717 |   Bug  |  Critical |  DD is not sent to Open Supplier when GRID agreement date has changed, Internal ID of Service Provider cannot be resolved, queue: dd_distribute_data_req_q |
+|  EDH-2538 |   Bug  |  Critical |                                                         Wrong DD message for OS about GS agreement                                                         |
 |  EDH-892  |  Story |   Medium  |                                           [OPP-UI][OPP-BE][MPD] Metering data search to support data aggregation                                           |
 |  EDH-2541 |  Story |   Medium  |                                                        datahub.elering.ee Cookiebot implementation                                                         |
 
@@ -185,6 +208,7 @@
 |  EDH-2093 |  Story |  Medium |                                 [OPP-BE] Return customer's billing data only to named supplier                                 |
 |  EDH-1985 |  Story |  Medium |                                 [OPP-BE] Metering data import with file produces import report                                 |
 |  EDH-1610 |  Story |  Medium |       Display related agreements for found MP-s, while adding/modifying (border)grid, open supply or aggreation agreement      |
+|  EDH-720  |  Story |  Medium |                                            Implement scheduling of report generation                                           |
 |  EDH-344  |  Story |  Medium |                                            [OPP-BE] Metering points import via file                                            |
 
 ## [EDH-2369] Release 0.4.2
