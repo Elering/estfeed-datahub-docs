@@ -2,12 +2,12 @@
 
 - __2024-09-03__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                          Title                                         |
-|------------------------------------------------------------------------|--------|-----------|----------------------------------------------------------------------------------------|
-|                                EDH-2917                                |   Bug  |  Critical |         TraceId missing from reporting endpoints after the move to rpt service         |
-|  [EDH-2951](https://github.com/Elering/estfeed-datahub-docs/issues/50) |   Bug  |  Critical |                    Wrong METERING_DATA DD messages to OPEN_SUPPLIER                    |
-|                                EDH-2955                                |  Story |   Medium  |                 [OPP] Remove version from joint invoice search response                |
-|                                EDH-2750                                |  Story |  Highest  |  [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign |
+|   Issue   |  Type  |  Priority |                                              Title                                              |
+|-----------|--------|-----------|-------------------------------------------------------------------------------------------------|
+|  EDH-2917 |   Bug  |  Critical |              TraceId missing from reporting endpoints after the move to rpt service             |
+|  EDH-2951 |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
+|  EDH-2955 |  Story |   Medium  |  [OPP] Remove version from joint invoice search response and latestVersionOnly from the request |
+|  EDH-2750 |  Story |  Highest  |      [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign      |
 
 ## [EDH-2920] Release 0.12.0
 
