@@ -25,7 +25,7 @@ The details of the joint invoice to be sent are taken from the e-invoice standar
 
 ## Transmitting requesting a network bill
 
-Joint invoices can be transmitted via both the API and the web interface (a form for small grid operators) and downloaded (for sellers).
+Joint invoices can be transmitted via the API. In the future the possibility to add it via the web interface will be added - a form for small grid operators and download for sellers.
 
 Relevant Datahub services have been set up to transmit and request joint invoices. The intended use process can be found in [Business processes](02-business-processes.md#joint-invoice-management)
 

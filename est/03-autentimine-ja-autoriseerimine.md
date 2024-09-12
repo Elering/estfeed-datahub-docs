@@ -101,7 +101,7 @@ echo "==========================================================================
 import requests
 import config
 
-url = f'{config.keycloakHost}/auth/realms/{config.keycloakVhost}/protocol/openid-connect/token'
+url = f'{config.keycloakHost}/realms/{config.keycloakVhost}/protocol/openid-connect/token'
 headers = {'Content-type': 'application/x-www-form-urlencoded'}
 body = f'client_id={config.keycloakClientId}&grant_type=client_credentials&client_secret={config.keycloakClientSecret}&scope=openid'
 

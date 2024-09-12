@@ -74,7 +74,8 @@ For a description of message structures and validations, see [Datahub descriptio
 
 Dependencies and rules between agreements:
 
-- At any one time, there can be only one valid agreement of the same type between the same parties.
+- Validity periods of portfolio, joint invoice or named supplier agreement between the same parties cannot overlap
+- Validity periods of (border) grid, (border) supply, aggregation or general service agreement between the same parties and the same metering point cannot overlap
 - An open supplier can only add open supply agreements if they have a valid portfolio agreement (i.e. when the open supplier is in someone’s portfolio). The validity period is not taken into account.
 - A grid operator can only add grid agreements if they have a valid portfolio agreement (i.e. when the grid operator is in someone’s portfolio). The validity period is not taken into account.
 - An aggregator can only add aggregation agreements if they have a valid portfolio agreement (i.e. when the aggregator is in someone’s portfolio). The validity period is not taken into account.

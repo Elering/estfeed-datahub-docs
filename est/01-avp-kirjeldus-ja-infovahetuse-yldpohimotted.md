@@ -155,3 +155,31 @@ sõnum töötlematuks ja seda ei aktsepteerita vastuvõtval poolel.
 Kasutusel on klassikalised REST API vastuskoodid. Veaolukordade korral tagastab süsteem võimalusel info vea põhjuse kohta. Vea kirjeldused on nii inim- kui masinloatavas formaadis.
 
 Loe täpsemalt dokumendist [Andmevahetusliidese veakoodid](35-veakoodid.md)
+
+### Vastuste lehitsemine
+
+Paljud teenused, mis võimaldavad andmeid otsida pakuvad andmete lehitsemise (paging) võimalust. Lehitsemisega on võimalik piirata korraga päritavate andmete hulka ja vaadelda andmeid lehtede kaupa.
+Standardne lehitsemise sektsioon päringus on järgmine:
+
+```json
+"pagination": {
+  "page": 0,
+  "pageSize": 500
+}
+```
+
+* `page`ehk leheküljenumber algab 0-st. Iga järgneva päringuga saab väärtust 1 võrra tõsta ja seega teostada andmete sirvimist lehekülgede kaupa
+* `pageSize` on maksimaalne lubatud kirjete arv ühel lehel. Swaggeris on dokumenteeritud maksimaalsed väärtused.
+
+Teenused, mis võimaldavad lehitsemist, annavad vastussõnumis infot, mis lehe andmeid hetkel kuvatakse (`page`) ning palju lehti kokku tuvastati (`totalPages`):
+
+```json
+"pagination": {
+  "page": 0,
+  "totalPages": 1
+}
+```
+
+## Kasutajaliidese üldpõhimõtted
+
+Käesoleva dokumentatsiooni teised lehed ja lõigud sisaldavad täpsemaid juhiseid kasutajaliidese kasutamiseks. Kuid me soovitame esmalt vaadata sissejuhatavat videot: [The new Estfeed data exchange platform user interface workshop, 21.08.2024](https://www.youtube.com/watch?v=YTClvPhINEg)

@@ -41,7 +41,7 @@ For this, new information needs to be delivered to the systems of market partici
 Unlike the old Datahub, the new Datahub does not send messages to integrated parties but requires the integrated system to check whether it has new messages. For this purpose, a dedicated update
 pulling API `/data-distribution/search ` has been created, which works in a standard way:
 
-- The system of the integrated market participant sends a request defining time period and data object type.
+- The system of the integrated market participant sends a request defining time period (or message ID start and end) and data object type.
 - The Datahub finds previously created data distribution messages addressed to the Market Participant and where the attributes match with the search criteria.
 - The Datahub returns new or changed data objects together with the reason of change.
 
@@ -50,6 +50,17 @@ The system of the integrated market participant scans the data distribution API 
 - it is recommended that slowly added and changing data (e.g. metering points) are scanned 1-4 times a day;
 - it is recommended that rapidly added and changing data (e.g. metering data) are scanned with the same frequency as data are added – for example, every hour or more frequently. This will help the
   Datahub cope better with peak loads.
+
+Attributes of the request
+
+| Attribute       | Type | Required?                                  | Comments                                                                                  |
+|-----------------|------|--------------------------------------------|-------------------------------------------------------------------------------------------|
+| createdTimeFrom | int  | yes, if idFrom/idTo  are not defined       | Start of the creation time of the data distribution message                               |
+| createdTimeTo   | int  | yes, if idFrom/idTo  are not defined       | End of the creation time of the data distribution message                                 |
+| idFrom          | int  | yes, if createdTimeFrom/To are not defined | Start of the message ID                                                                   |
+| idTo            | int  | yes, if createdTimeFrom/To are not defined | End of the message ID                                                                     |
+| resourceType    | int  | yes                                        | One of: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
+| pagination      | int  | yes                                        | Standard pagination section                                                               |
 
 Resource types are:
 
@@ -64,6 +75,8 @@ Maximum allowed period in the query depends on the resource type:
 
 - metering data: 1 hour
 - other types: 1 day
+
+Maximum allowed range of the ID-s (`idTo` minus `idFrom`) is 10000.
 
 > [!TIP]
 > To request messages for a longer period of time, it is possible to send several different requests for different periods. For example, the first message for the period 02.01.2024-03.01.2024 and the second for the period 01.01.2024-02.01.2024.

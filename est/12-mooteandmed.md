@@ -26,7 +26,7 @@ Mõõteandmed on konkreetse mõõtepunktiga seotud prognoositud või mõõdetud 
 
 Mõõtepunkti haldur tagab tema mõõtepunktide aktiivenergia koguse kindlaksmääramise ning esitab Andmelattu kahesuunalised tunnipõhised aktiivenergia koguste mõõteandmed.
 
-Agregaator edastab vähendatud tarbimise energia kogused.
+Agregaator edastab tarbimise juhtimise energia kogused.
 
 Mõõtepunkti haldurid edastavad mõõtepunktide lõikes mõõteandmed järgmistel tingimustel:
 

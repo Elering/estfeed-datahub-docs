@@ -26,7 +26,7 @@ Metering data is the predicted or measured active energy consumption data associ
 
 The metering point operator determines the active energy amounts in its metering points and transmits two-way hourly active energy amount data to the Datahub.
 
-The aggregator transmits the energy amounts of reduced consumption.
+The aggregator transmits the energy quantities of demand response management.
 
 Metering point operators transmit metering data per metering point under the following conditions:
 

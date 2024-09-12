@@ -147,3 +147,31 @@ message cannot be processed and will not be accepted at the receiving end.
 The Datahub uses classic REST API response codes. In the event of an error, the system will return information on the cause of the error if possible. Error descriptions are in both human-readable and machine-readable formats.
 
 Read more in document [API error codes](35-error_codes.md)
+
+### Paging
+
+Many services that allow searching for data offer the possibility of paging. By paging, it is possible to limit the amount of data that can be retrieved at once and view the data by pages.
+A standard paging section in a request message is:
+
+```json
+"pagination": {
+  "page": 0,
+  "pageSize": 500
+}
+```
+
+* `page`, i.e. page number starts from 0. With each subsequent request, the value can be increased by 1 and thus data browsing can be performed page by page
+* `pageSize` is the maximum number of entries allowed on one page. Maximum values are documented in Swagger.
+
+Services that enable paging provide information in the response message, which page data is currently displayed (`page`) and how many pages were detected in total (`totalPages`):
+
+```json
+"pagination": {
+  "page": 0,
+  "totalPages": 1
+}
+```
+
+## General principles of user interface
+
+The other pages and paragraphs contain more detailed guidelines for using the Datahub's user interface. But we recommend to watch the introduction video first: [The new Estfeed data exchange platform user interface workshop, 21.08.2024](https://www.youtube.com/watch?v=YTClvPhINEg)

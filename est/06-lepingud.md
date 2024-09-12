@@ -76,7 +76,8 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 Lepingute omavahelised sõltuvused ja reeglid:
 
-- Ühel ajahetkel saab samade osapoolte vahel olla ainult üks kehtiv sama tüüpi leping.
+- Portfelli, ühisarve või nimetatud tarnija lepingu kehtivusajad samade osapoolte vahel ei tohi kattuda
+- (Piirmõõtepunkti) võrgulepingu, (piirmõõtepunkti) avatud tarne lepingu, agregeerimislepingu või üldteenuse lepingute kehtivusajad samade osapoolte vahel ja samas mõõtepunktis ei tohi kattuda
 - Avatud tarnija saab avatud tarne lepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk avatud tarnija on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Võrguettevõtja saab võrgulepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  võrguettevõtja on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Agregaator saab agregeerimislepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  agregaator on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
@@ -130,7 +131,7 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 > [!CAUTION] 
 > Teenuse `/agreement/search/meter` kasutamine on lubatud ainult uue lepingu loomise protsessis. Teenuse kasutamist ja kasutamise õiguspärastust monitooritakse.
 
-- Mõõtepunkti lepingute otsingu teenus tagastab lepinguite täisandmestiku ainult juhul, kui otsingu teostaja on lepingu teenusepakkuja või kui mõõtepunkti klient on andnud turuosalisele esindusõiguse
+- Mõõtepunkti lepingute otsingu teenus tagastab lepingute täisandmestiku ainult juhul, kui otsingu teostaja on lepingu teenusepakkuja või kui mõõtepunkti klient on andnud turuosalisele esindusõiguse.
 
 ### Veebiliidese abil
 

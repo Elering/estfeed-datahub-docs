@@ -24,7 +24,7 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 
 ## Ühisarve edastamine ja pärimine
 
-Ühisarvet on võimalik edastada nii masinliidese kui ka veebiliidese vahendusel (vorm väikestele võrguettevõtjatele) ning allalaadimiseks (müüjatele).
+Ühisarvet on võimalik edastada masinliidese vahendusel. Tulevikus tekib võimalus selleks ka veebiliidese vahendusel (vorm väikestele võrguettevõtjatele) ning allalaadimiseks (müüjatele).
 
 Ühisarvete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on leitav lehelt [Äriprotsessid](02-äriprotsessid.md#ühisarve-haldus)
 

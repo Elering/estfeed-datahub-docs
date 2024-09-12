@@ -41,7 +41,7 @@ Selleks on vaja uus info turuosaliste süsteemideni toimetada. Käesolev dokumen
 Erinevalt vanast Andmelaost, uus Andmeladu sõnumeid liidestuvatatele osapooltele ei saada vaid eeldab, et liidestuv süsteem kontrollib kas talle on uus sõnumeid. Selleks on loodud spetsiaalne
 uuenduste tõmbamise API liides `/data-distribution/search `, mis toimib standardsel moel:
 
-- liidestunud turuosalise süsteem saadab päringu defineerides ajavahemiku ja andmeobjekti tüübi.
+- liidestunud turuosalise süsteem saadab päringu defineerides ajavahemiku (või sõnumi ID alguse ja lõpu) ja andmeobjekti tüübi.
 - Andmeladu leiab eelnevalt genereeritud andmete levitamise sõnumid, mille adressaat on sõnumi saatnud turuosaline ning mis vastavad päringu tingimustele.
 - Andmeladu tagastab uued või muutunud andmeobjektide andmed koos muudatuse põhjendusega.
 
@@ -50,6 +50,17 @@ Liidestunud turuosalise süsteem skaneerib muudatuste API-t endale sobiva interv
 - aeglaselt lisanduvaid ja muutuvaid andmeid (nt mõõtepunktid) on sobilik skaneerida näiteks 1-4 korda ööpäevas.
 - kiiresti lisanduvaid ja muutuvaid andmeid (nt mõõteandmed) on sobilik skaneerida sama tihendusega, nagu on ette nähtud andmete lisandumine - näiteks iga tund või tihedamalt. See aitab Andmelaol
   koormuste tippudega paremini toime tulla.
+
+Päringu atribuudid
+
+| Atribuut        | Tüüp | Kohustuslik?                               | Märkused                                                                                            |
+|-----------------|------|--------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| createdTimeFrom | int  | yes, if idFrom/idTo  are not defined       | Sõnumi loomisaja algus                                                                              |
+| createdTimeTo   | int  | yes, if idFrom/idTo  are not defined       | Sõnumi loomisajal lõpp                                                                              |
+| idFrom          | int  | yes, if createdTimeFrom/To are not defined | Sõnumi ID algus                                                                                     |
+| idTo            | int  | yes, if createdTimeFrom/To are not defined | Sõnumi ID lõpp                                                                                      |
+| resourceType    | int  | yes                                        | Üks järgnevatest: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
+| pagination      | int  | yes                                        | Standardne pagineerimise sektsioon                                                                  |
 
 Andmeobjekti tüübid on:
 
@@ -64,6 +75,8 @@ Maksimaalne päritava perioodi pikkus on:
 
 - mõõteandmed: 1 tund
 - muud andmed: 1 päev
+
+Maksimaalne lubatud sõnumi ID-de vahemik (`idTo` miinus `idFrom`) on 10000
 
 > [!TIP]
 > Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
