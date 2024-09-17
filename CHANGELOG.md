@@ -1,3 +1,15 @@
+## [EDH-3099] Release 0.14.0
+
+- __2024-09-17__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                 |  Type  |  Priority |                                         Title                                        |
+|------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------|
+|                                EDH-3028                                |   Bug  |   Medium  |          Role OPEN_SUPPLIER missing role type VIEW_BALANCE_SETTLEMENT_POINT          |
+|  [EDH-2890](https://github.com/Elering/estfeed-datahub-docs/issues/46) |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
+|                                EDH-3075                                |   Bug  |  Critical |                    GENERAL_SERVICE agreement has no valid_to date                    |
+|  [EDH-2970](https://github.com/Elering/estfeed-datahub-docs/issues/54) |   Bug  |   Medium  |      Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP     |
+|                                EDH-2900                                |  Story |  Highest  |                       [RPT-BE] Improve performance of Reporting                      |
+
 ## [EDH-3012] Release 0.13.0
 
 - __2024-09-03__ - released to __TEST-PUBLIC__
@@ -6,6 +18,7 @@
 |------------------------------------------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------|
 |                                EDH-2917                                |   Bug  |  Critical |              TraceId missing from reporting endpoints after the move to rpt service             |
 |  [EDH-2951](https://github.com/Elering/estfeed-datahub-docs/issues/50) |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
+|  [EDH-2970](https://github.com/Elering/estfeed-datahub-docs/issues/54) |   Bug  |   Medium  |           Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP           |
 |                                EDH-2955                                |  Story |   Medium  |  [OPP] Remove version from joint invoice search response and latestVersionOnly from the request |
 |                                EDH-2750                                |  Story |  Highest  |      [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign      |
 
@@ -15,6 +28,7 @@
 
 |                                  Issue                                 |  Type  |  Priority |                                         Title                                        |
 |------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------|
+|  [EDH-2890](https://github.com/Elering/estfeed-datahub-docs/issues/46) |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
 |                                EDH-2917                                |   Bug  |  Critical |        TraceId missing from reporting endpoints after the move to rpt service        |
 |                                EDH-2538                                |   Bug  |  Critical |                      Wrong DD message for OS about GS agreement                      |
 |  [EDH-2897](https://github.com/Elering/estfeed-datahub-docs/issues/51) |   Bug  |   Medium  |                    Excel imports give empty success message on UI                    |
@@ -74,28 +88,28 @@
 
 - __2024-07-05__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 | Type |  Priority |                     Title                    |
-|------------------------------------------------------------------------|------|-----------|----------------------------------------------|
-|                                EDH-2678                                |  Bug |  Highest  |  [DD] authentication of technical user fails |
-|  [EDH-2643](https://github.com/Elering/estfeed-datahub-docs/issues/41) |  Bug |  Critical |       Agreements - search doesn't fail       |
+|   Issue   | Type |  Priority |                     Title                    |
+|-----------|------|-----------|----------------------------------------------|
+|  EDH-2678 |  Bug |  Highest  |  [DD] authentication of technical user fails |
+|  EDH-2643 |  Bug |  Critical |       Agreements - search doesn't fail       |
 
 ## [EDH-2657] Release 0.8.0
 
 - __2024-07-05__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                                    Title                                                   |
-|------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------|
-|                                EDH-2507                                |   Bug  |  Critical |                               Admin role can delete estfeed admin role via UI                              |
-|                                EDH-1866                                |   Bug  |   Medium  |                      Create Joint Invoice API: added traceID to unsuccessful request                       |
-|  [EDH-2601](https://github.com/Elering/estfeed-datahub-docs/issues/38) |   Bug  |  Critical |                           SUPPLY agreement can start earlier, than GRID agreement                          |
-|                                EDH-2493                                |  Story |   Medium  |                           DD - change who can access info about Service Provider                           |
-|                                EDH-2490                                |  Story |   Medium  |                                 [DD] Agreement change reason to be accurate                                |
-|  [EDH-2582](https://github.com/Elering/estfeed-datahub-docs/issues/37) |  Story |  Critical |                             "transmissionNetworkEic" update should be possible                             |
-|                                EDH-2521                                |  Story |  Highest  |                                    Joint Invoice - removed PUT endpoint                                    |
-|                                EDH-2371                                |  Story |   Medium  |  [OPP-BE] Improve import metering data from excel for Market Participants with large Metering Point number |
-|                                EDH-2368                                |  Story |   Medium  |               [OPP-BE] Add legalConsent functionality to metering data query for LEGAL_PERSON              |
-|                                EDH-2253                                |  Story |   Medium  |              [OPP-BE][MPM] Avoid considering GENERAL_SERVICE agreements being valid in future              |
-|                                EDH-1682                                |  Story |   Medium  |                           Extend Search agreements flow with connected agreements                          |
+|   Issue   |  Type  |  Priority |                                                    Title                                                   |
+|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------|
+|  EDH-2507 |   Bug  |  Critical |                               Admin role can delete estfeed admin role via UI                              |
+|  EDH-1866 |   Bug  |   Medium  |                      Create Joint Invoice API: added traceID to unsuccessful request                       |
+|  EDH-2601 |   Bug  |  Critical |                           SUPPLY agreement can start earlier, than GRID agreement                          |
+|  EDH-2493 |  Story |   Medium  |                           DD - change who can access info about Service Provider                           |
+|  EDH-2490 |  Story |   Medium  |                                 [DD] Agreement change reason to be accurate                                |
+|  EDH-2582 |  Story |  Critical |                             "transmissionNetworkEic" update should be possible                             |
+|  EDH-2521 |  Story |  Highest  |                                    Joint Invoice - removed PUT endpoint                                    |
+|  EDH-2371 |  Story |   Medium  |  [OPP-BE] Improve import metering data from excel for Market Participants with large Metering Point number |
+|  EDH-2368 |  Story |   Medium  |               [OPP-BE] Add legalConsent functionality to metering data query for LEGAL_PERSON              |
+|  EDH-2253 |  Story |   Medium  |              [OPP-BE][MPM] Avoid considering GENERAL_SERVICE agreements being valid in future              |
+|  EDH-1682 |  Story |   Medium  |                           Extend Search agreements flow with connected agreements                          |
 
 ## [EDH-2591] Release 0.7.1
 
