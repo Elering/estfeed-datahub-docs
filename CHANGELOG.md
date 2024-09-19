@@ -1,3 +1,17 @@
+## [EDH-3127] Release 0.15.0
+
+- __2024-09-19__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                 |  Type  |  Priority |                                                        Title                                                        |
+|------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------------|
+|  [EDH-3000](https://github.com/Elering/estfeed-datahub-docs/issues/55) |   Bug  |   Medium  |                  Generate metering point EIC codes "Copy" button gives empty success message on UI                  |
+|  [EDH-2914](https://github.com/Elering/estfeed-datahub-docs/issues/70) |   Bug  |   Medium  |  [UI] Connection state change reply as Open Supplier gets error about preferredDate that is not displayed in the UI |
+|                                EDH-2890                                |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
+|                                EDH-3102                                |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
+|  [EDH-3084](https://github.com/Elering/estfeed-datahub-docs/issues/68) |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
+|                                EDH-3156                                |  Story |  Critical |        BREAKING CHANGE in next (0.16.0) release: DD limit findDataDistributions response max pageSize to 100        |
+|                                EDH-3081                                |  Story |  Critical |                          Metering data read pagination needs to cover 1 year metering data                          |
+
 ## [EDH-3099] Release 0.14.0
 
 - __2024-09-17__ - released to __TEST-PUBLIC__
@@ -5,7 +19,7 @@
 |                                  Issue                                 |  Type  |  Priority |                                         Title                                        |
 |------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------|
 |                                EDH-3028                                |   Bug  |   Medium  |          Role OPEN_SUPPLIER missing role type VIEW_BALANCE_SETTLEMENT_POINT          |
-|  [EDH-2890](https://github.com/Elering/estfeed-datahub-docs/issues/46) |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
+|                                EDH-2890                                |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
 |                                EDH-3075                                |   Bug  |  Critical |                    GENERAL_SERVICE agreement has no valid_to date                    |
 |  [EDH-2970](https://github.com/Elering/estfeed-datahub-docs/issues/54) |   Bug  |   Medium  |      Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP     |
 |                                EDH-2900                                |  Story |  Highest  |                       [RPT-BE] Improve performance of Reporting                      |
@@ -28,11 +42,11 @@
 
 |                                  Issue                                 |  Type  |  Priority |                                         Title                                        |
 |------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------|
-|  [EDH-2890](https://github.com/Elering/estfeed-datahub-docs/issues/46) |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
+|                                EDH-2890                                |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
 |                                EDH-2917                                |   Bug  |  Critical |        TraceId missing from reporting endpoints after the move to rpt service        |
 |                                EDH-2538                                |   Bug  |  Critical |                      Wrong DD message for OS about GS agreement                      |
 |  [EDH-2897](https://github.com/Elering/estfeed-datahub-docs/issues/51) |   Bug  |   Medium  |                    Excel imports give empty success message on UI                    |
-|  [EDH-2873](https://github.com/Elering/estfeed-datahub-docs/issues/43) |   Bug  |  Critical |             Connection request "read" doesn't update automatically on UI             |
+|                                EDH-2873                                |   Bug  |  Critical |             Connection request "read" doesn't update automatically on UI             |
 |                                EDH-2967                                |   Bug  |   Medium  |  Metering data processing gets Successful status, but the metering data is not saved |
 |                                EDH-2775                                |   Bug  |   Medium  |           Joint invoice processing error msg is not mapped to API response           |
 |                                EDH-2670                                |   Bug  |  Critical |              Existing agreements are not displayed in New agreement form             |
@@ -62,15 +76,15 @@
 
 - __2024-07-30__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                              Title                                              |
-|------------------------------------------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------|
-|                                EDH-2740                                |   Bug  |  Highest  |                          [DD] GS agreement is not distributed properly                          |
-|                                EDH-2507                                |   Bug  |  Critical |                         Admin role can delete estfeed admin role via UI                         |
-|  [EDH-2873](https://github.com/Elering/estfeed-datahub-docs/issues/43) |   Bug  |  Critical |                   Connection request "read" doesn't update automatically on UI                  |
-|                                EDH-2715                                |   Bug  |  Critical |                        Cannot remove ValidTo from a border grid agreement                       |
-|                                EDH-2626                                |  Story |  Highest  |                           [RPT] Move Reporting features to new service                          |
-|                                EDH-2322                                |  Story |   Medium  |             [OPP-BE][MPD] Define observationTime value when gathering Metering Data             |
-|                                EDH-2533                                |  Story |   Medium  |  [OPP][TEMP] Implement solution for updating existing identities with new business object types |
+|   Issue   |  Type  |  Priority |                                              Title                                              |
+|-----------|--------|-----------|-------------------------------------------------------------------------------------------------|
+|  EDH-2740 |   Bug  |  Highest  |                          [DD] GS agreement is not distributed properly                          |
+|  EDH-2507 |   Bug  |  Critical |                         Admin role can delete estfeed admin role via UI                         |
+|  EDH-2873 |   Bug  |  Critical |                   Connection request "read" doesn't update automatically on UI                  |
+|  EDH-2715 |   Bug  |  Critical |                        Cannot remove ValidTo from a border grid agreement                       |
+|  EDH-2626 |  Story |  Highest  |                           [RPT] Move Reporting features to new service                          |
+|  EDH-2322 |  Story |   Medium  |             [OPP-BE][MPD] Define observationTime value when gathering Metering Data             |
+|  EDH-2533 |  Story |   Medium  |  [OPP][TEMP] Implement solution for updating existing identities with new business object types |
 
 ## [EDH-2721] Release 0.9.0
 
