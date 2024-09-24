@@ -7,6 +7,11 @@ assignees: egertmitt, elinasirk, kristjanZ
 
 ---
 
+### *Reported by*
+
+_Market participant (company's name)_
+
+
 ## *Problem* 
 
 _Please describe what happened and what is broken. If possible then also add examples, logs, link to documentation, screen recording or screenshot etc._
