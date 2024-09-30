@@ -35,6 +35,11 @@ Relevant Datahub services have been set up to transmit the request and confirmat
 8. The open supplier can search for the connection and disconnection requests using the `search` service.
 9. The grid operator and the open supplier can query the message history of the connection and disconnection request using the `message-history` service.
 
+> [!TIP]
+> If the `message-history` service is called by the market participant who had not created the last message (who is the recipient of the message), the messages are set as read. 
+> The `read` attribute can therefore be used to filter which connection state requests have read or unread messages.
+> If new messages are added to the same connection state request, the `read` flag is set to `false` again.
+
 State diagram of statuses for `message` service:
 ![connection_state_statuses.png](../diagrams/connection-state/connection_state_statuses.png)
 

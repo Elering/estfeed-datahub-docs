@@ -23,7 +23,7 @@ The prerequisite for sending a joint invoice is a joint invoice agreement in the
 
 The details of the joint invoice to be sent are taken from the e-invoice standard ([Estonian e-invoice guide](https://media.voog.com/0000/0042/1620/files/Eesti_e-arve_kirjelduse_juhend_E_arve_saatmine%20ja%20presenteeerimine%20pangas_ver_1_0.pdf)).
 
-## Transmitting requesting a network bill
+## Transmitting and requesting a network bill
 
 Joint invoices can be transmitted via the API. In the future the possibility to add it via the web interface will be added - a form for small grid operators and download for sellers.
 
@@ -85,6 +85,8 @@ Joint invoices cannot be updated. In case of need for correction, the grid opera
 ### Find and download joint invoice
 
 Separate services have been created to search and download a joint invoice. The search API returns invoice IDs that can be used in the download service.
+
+Joint invoices can also be searched and downloaded via the user interface.
 
 #### Attribute specific rules
 

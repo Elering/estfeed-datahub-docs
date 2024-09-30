@@ -41,10 +41,14 @@ Authentication process:
 | Sending an authentication request to the address provided by Elering | The Datahub validates the account, creates the session and returns a JWT valid for the length of the session                                                                                     |
 | A JWT is added to each subsequent API message                        | The Datahub validates the JWT. If it is missing or invalid, an error code 401 (unauthorised) is returned. If it is valid, an authorisation follows, which you can read about in the next chapter |
 
-Keycloak variables:
+**Keycloak variables:**
+
 - Public test environment:
   - host: https://test-kc.elering.ee
   - vhost: `estfeed-public`
+- Live environment:
+  - host: https://kc.elering.ee
+  - vhost: `estfeed`
 
 ### Examples of JWT requests
 

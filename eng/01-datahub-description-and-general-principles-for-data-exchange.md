@@ -15,6 +15,8 @@
     * [General rules](#general-rules)
     * [Date and time submission rules](#date-and-time-submission-rules)
     * [Response codes](#response-codes)
+    * [Paging](#paging)
+  * [General principles of user interface](#general-principles-of-user-interface)
 <!-- TOC -->
 
 ## Data exchange platform in the context of electricity market
@@ -120,7 +122,10 @@ Datahub API endpoints:
   - Data Distribution API-s: `https://public-test-dd-datahub.elering.ee`
   - Reporting API-s: `https://public-test-rpt-datahub.elering.ee`
   - All other API-s: `https://public-test-datahub.elering.ee`
-- Live environment: `https://datahub.elering.ee`
+- Live environment:
+  - Data Distribution API-s: `https://dd-datahub.elering.ee`
+  - Reporting API-s: `https://rpt-datahub.elering.ee`
+  - All other API-s: `https://datahub.elering.ee`
 
 Datahub OpenApi decriptions:
 
@@ -128,7 +133,10 @@ Datahub OpenApi decriptions:
   - [Data Distribution API-s](https://public-test-dd-datahub.elering.ee/swagger-ui/index.html)
   - [Reporting API-s](https://public-test-rpt-datahub.elering.ee/swagger-ui/index.html)
   - [All other API-s](https://public-test-datahub.elering.ee/swagger-ui/index.html)
-- [Live environment](https://datahub.elering.ee/swagger-ui/index.html)
+- Live environment
+  - [Data Distribution API-s](https://dd-datahub.elering.ee/swagger-ui/index.html)
+  - [Reporting API-s](https://rpt-datahub.elering.ee/swagger-ui/index.html)
+  - [All other API-s](https://datahub.elering.ee/swagger-ui/index.html)
 
 ### General rules
 

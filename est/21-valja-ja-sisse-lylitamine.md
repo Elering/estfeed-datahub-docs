@@ -35,6 +35,11 @@ Väljalülitamise ja sisselülitamise taotluse ja kinnituse edastamiseks on lood
 8. Avatud tarnija otsib vajadusel välja- või sisselülitamise taotlusi kasutades teenust `search`.
 9. Võrguettecõtja ja avatud tarnija saavad pärida välja- või sisselülitamise taotluse sõnumite ja vastuste ajalugu kasutades teenust `message-history`
 
+> [!TIP]
+> Kui teenuse `message-history` poole pöördub see turuosaline, kes ei olnud viimast sõnumit loonud (kes on sõnumi adressaat), siis sätitakse sõnumid loetuks. 
+> Atribuudi `read` abil saab seega filtreerida loetud ja lugemata sõnumitega välja- või sisselülitamise taotlusi.
+> Kui sama taotluse juurde lisatakse uusi sõnumeid, siis sätitakse sõnumid jälle mitte loetuks.
+
 Sõnumiga `message` saadetavate olekute diagramm:
 ![connection_state_stastuses.png](../diagrams/connection-state/connection_state_statuses.png)
 

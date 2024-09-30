@@ -171,30 +171,26 @@ Süsteem kasutab sama struktuuri ja atribuute, nagu `POST /api/{version}/agreeme
 #### Näited
 
 ```json
-[
-    {
-        "agreementId": "einar-2024-04-03T16:25:08.569885+03:00-EST",
-        "meterEic": "38ZGO-1000001B-X",
-        "agreementType": "SUPPLY",
-        "preliminaryTerminationFee": false,
-        "commodityType": "ELECTRICITY",
-        "validFrom": "2024-04-03T21:00:00Z",
-        "validTo": "2024-04-17T21:00:00Z"
-    }
-]
+{
+  "agreementId": "einar-2024-04-03T16:25:08.569885+03:00-EST",
+  "meterEic": "38ZGO-1000001B-X",
+  "agreementType": "SUPPLY",
+  "preliminaryTerminationFee": false,
+  "commodityType": "ELECTRICITY",
+  "validFrom": "2024-04-03T21:00:00Z",
+  "validTo": "2024-04-17T21:00:00Z"
+}
 ```
 
 ```json
-[
-  {
-    "agreementType": "JOINT_INVOICE",
-    "preliminaryTerminationFee": false,
-    "commodityType": "ELECTRICITY",
-    "validFrom": "2024-05-31T21:00Z",
-    "serviceProviderEic": "38X-EIN-NS-----R",
-    "customerEic": "38X-EIN-ALL----B"
-  }
-]
+{
+  "agreementType": "JOINT_INVOICE",
+  "preliminaryTerminationFee": false,
+  "commodityType": "ELECTRICITY",
+  "validFrom": "2024-05-31T21:00Z",
+  "serviceProviderEic": "38X-EIN-NS-----R",
+  "customerEic": "38X-EIN-ALL----B"
+}
 ```
 
 ### Mõõtepunkt

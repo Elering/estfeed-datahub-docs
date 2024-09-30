@@ -41,10 +41,14 @@ Autentimise protsess:
 | Autentimispäringu saatmine Eleringi poolt antud aadressile | Andmeladu valideerib konto, loob sessiooni ja tagastab JWT tokeni, mis kehtib sessiooni pikkuse                                                                                      |
 | JWT tokeni lisamine igale järgnevale API sõnumile          | Andmeladu valideerib JWT tokeni. Kui puudub või kehtetu, siis tagastab veakoodi 401 (unauthorized). Kui valiidne, siis järgneb autoriseerimine, mille kohta loe järgmisest peatükist |
 
-Keycloak muutujad:
+**Keycloak muutujad:**
+
 - Public test keskkond:
   - host: https://test-kc.elering.ee
   - vhost: `estfeed-public`
+- Live keskkond:
+  - host: https://kc.elering.ee
+  - vhost: `estfeed`
 
 ### Näited JWT tokeni küsimiseks
 

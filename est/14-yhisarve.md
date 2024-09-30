@@ -85,6 +85,8 @@ Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisalda
 
 Ühisarve otsimiseks ja arve allalaadimiseks on loodud eraldi teenused. Otsingu teenus tagastab arvete ID-d, mida saab kasutada allalaadimise teenuses.
 
+Ühisarveid on võimalik otsida ja alla laadida ka veebiliidese vahendusel.
+
 #### Sõnumi atribuutide reeglid
 
 Ühisarveid on võimalik otsida erinevate tunnuste alusel:

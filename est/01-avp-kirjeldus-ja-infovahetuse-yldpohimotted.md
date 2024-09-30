@@ -15,6 +15,8 @@
     * [Üldreeglid](#üldreeglid)
     * [Aja esitamise reeglid](#aja-esitamise-reeglid)
     * [Vastussõnumite koodid](#vastussõnumite-koodid)
+    * [Vastuste lehitsemine](#vastuste-lehitsemine)
+  * [Kasutajaliidese üldpõhimõtted](#kasutajaliidese-üldpõhimõtted)
 <!-- TOC -->
 
 ## Andmevahetusplatvorm elektrituru kontekstis
@@ -128,7 +130,10 @@ Andmelao masinliidese otspunktid:
   - Andmete levitamise teenused: `https://public-test-dd-datahub.elering.ee`
   - Raportite teenused: `https://public-test-rpt-datahub.elering.ee`
   - Ülejäänud teenused: `https://public-test-datahub.elering.ee`
-- Live keskkond: `https://datahub.elering.ee`
+- Live keskkond:
+  - Andmete levitamise teenused: `https://dd-datahub.elering.ee`
+  - Raportite teenused: `https://rpt-datahub.elering.ee`
+  - Ülejäänud teenused: `https://datahub.elering.ee`
 
 Andmelao OpenApi teenuste kirjeldused:
 
@@ -136,7 +141,10 @@ Andmelao OpenApi teenuste kirjeldused:
   - [Andmete levitamise teenused](https://public-test-dd-datahub.elering.ee/swagger-ui/index.html)
   - [Raportite teenused](https://public-test-rpt-datahub.elering.ee/swagger-ui/index.html)
   - [Ülejäänud teenused](https://public-test-datahub.elering.ee/swagger-ui/index.html)
-- [Live keskkond](https://datahub.elering.ee/swagger-ui/index.html)
+- Live keskkond:
+  - [Andmete levitamise teenused](https://dd-datahub.elering.ee/swagger-ui/index.html)
+  - [Raportite teenused](https://rpt-datahub.elering.ee/swagger-ui/index.html)
+  - [Ülejäänud teenused](https://datahub.elering.ee/swagger-ui/index.html)
 
 ### Üldreeglid
 

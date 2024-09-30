@@ -53,5 +53,5 @@
 | Reports                                | `POST` | /api/v1/report/search                    | Find reports                                                                     | Deployed   |
 | Joint Invoice                          | `PUT`  | /api/v1/joint-invoice                    | Update a forwarded invoice                                                       | Deployed   |
 | Data Distribution                      | `POST` | /api/v1/data-distribution/search         | Returns changes of different entities based on search params                     | Deployed   |
-| Agr. amendments requiring coordination | -      | -                                        | -                                                                                | 22.10.2024 |
-| Customer enquiries                     | -      | -                                        | -                                                                                | 22.10.2024 |
+| Agr. amendments requiring coordination | -      | -                                        | -                                                                                | 2024.01    |
+| Customer enquiries                     | -      | -                                        | -                                                                                | 2026       |
