@@ -1,3 +1,42 @@
+## [EDH-3250] Release 0.17.1
+
+- __2024-10-08__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type |  Priority |                                          Title                                          |
+|-----------|------|-----------|-----------------------------------------------------------------------------------------|
+|  EDH-3216 |  Bug |  Critical |  createBulkMeterData fails immediately when TimescaleDB deadlocked during MDM data send |
+
+## [EDH-3239] Release 0.17.0
+
+- __2024-10-08__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                 |  Type  |  Priority |                                                      Title                                                      |
+|------------------------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------|
+|                                EDH-2971                                |   Bug  |   Medium  |                                Some metering points not found based on Client EIC                               |
+|  [EDH-3208](https://github.com/Elering/estfeed-datahub-docs/issues/80) |   Bug  |  Critical |                           [TEMP] DD message creation fails silently for unknown reason                          |
+|  [EDH-3171](https://github.com/Elering/estfeed-datahub-docs/issues/79) |   Bug  |  Critical |                            For some grid agreements ValidTo can't be removed/changed                            |
+|  [EDH-3147](https://github.com/Elering/estfeed-datahub-docs/issues/75) |  Story |  Highest  |                     Border point customer has no access border metering point metering data                     |
+|                                EDH-3087                                |  Story |  Critical |           [BREAKING CHANGE] hasContent (boolean) has been added to Data distribution search response            |
+|                                EDH-2883                                |  Story |   Medium  |  [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully |
+|                                EDH-3195                                |  Story |  Highest  |                           [DD] Distribute deleted GS agreement first and create after                           |
+
+## [EDH-3196] Release 0.16.0
+
+- __2024-10-08__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                 |  Type  |  Priority |                                                     Title                                                     |
+|------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------|
+|  [EDH-3020](https://github.com/Elering/estfeed-datahub-docs/issues/59) |   Bug  |   Medium  |                        Missing DD messages (GRID change deletes SUPPLY and changes GS)                        |
+|                                EDH-3038                                |   Bug  |   Medium  |      When downloading metering data for longer period of time only 3,5 months worth of data is downloaded     |
+|                                EDH-2975                                |   Bug  |  Critical |                    Cannot upload metering data on autumn clock change (03 hour duplicated)                    |
+|                                EDH-2898                                |   Bug  |   Minor   |                         Meter data template quantity values should be in 0,000 format                         |
+|  [EDH-3157](https://github.com/Elering/estfeed-datahub-docs/issues/78) |   Bug  |  Critical |                           Grid agreement can't be added in roles PO, LO, CO and CDN                           |
+|  [EDH-3016](https://github.com/Elering/estfeed-datahub-docs/issues/58) |   Bug  |   Medium  |                             Not possible to add grid agreement with 1 day duration                            |
+|                                EDH-2664                                |   Bug  |   Medium  |                                 Delete data duplication in swagger definitions                                |
+|  [EDH-3064](https://github.com/Elering/estfeed-datahub-docs/issues/62) |   Bug  |  Critical |              "meter/search/customer" returns different amount of MP-s if legalConsent=true/false              |
+|                                EDH-2928                                |   Bug  |   Medium  |  /agreement/search/meter serviceProviderName history displays only the latest version of the name in response |
+|                                EDH-2815                                |  Story |  Highest  |                               [OPP-BE] Improve performance of Meter Data Export                               |
+
 ## [EDH-3127] Release 0.15.0
 
 - __2024-09-19__ - released to __TEST-PUBLIC__
@@ -10,7 +49,7 @@
 |                                EDH-2890                                |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
 |                                EDH-3102                                |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
 |  [EDH-3084](https://github.com/Elering/estfeed-datahub-docs/issues/68) |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
-|                                EDH-3156                                |  Story |  Critical |        BREAKING CHANGE in next (0.16.0) release: DD limit findDataDistributions response max pageSize to 100        |
+|                                EDH-3156                                |  Story |  Critical |                    [BREAKING CHANGE] DD limit findDataDistributions response max pageSize to 100                    |
 |                                EDH-3024                                |  Story |  Highest  |                           Update DD rules for SUPPLY agreement in case of automatic delete                          |
 |                                EDH-3017                                |  Story |  Highest  |                                   DD messages about (BORDER_)GRID agreement delete                                  |
 |                                EDH-3081                                |  Story |  Critical |                          Metering data read pagination needs to cover 1 year metering data                          |
@@ -34,7 +73,7 @@
 |                                  Issue                                 |  Type  |  Priority |                                              Title                                              |
 |------------------------------------------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------|
 |                                EDH-2917                                |   Bug  |  Critical |              TraceId missing from reporting endpoints after the move to rpt service             |
-|  [EDH-2951](https://github.com/Elering/estfeed-datahub-docs/issues/50) |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
+|                                EDH-2951                                |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
 |  [EDH-2970](https://github.com/Elering/estfeed-datahub-docs/issues/54) |   Bug  |   Medium  |           Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP           |
 |                                EDH-2955                                |  Story |   Medium  |  [OPP] Remove version from joint invoice search response and latestVersionOnly from the request |
 |                                EDH-2750                                |  Story |  Highest  |      [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign      |
@@ -43,23 +82,22 @@
 
 - __2024-08-23__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                         Title                                        |
-|------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------|
-|                                EDH-2890                                |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
-|                                EDH-2917                                |   Bug  |  Critical |        TraceId missing from reporting endpoints after the move to rpt service        |
-|                                EDH-2538                                |   Bug  |  Critical |                      Wrong DD message for OS about GS agreement                      |
-|  [EDH-2897](https://github.com/Elering/estfeed-datahub-docs/issues/51) |   Bug  |   Medium  |                    Excel imports give empty success message on UI                    |
-|                                EDH-2873                                |   Bug  |  Critical |             Connection request "read" doesn't update automatically on UI             |
-|                                EDH-2967                                |   Bug  |   Medium  |  Metering data processing gets Successful status, but the metering data is not saved |
-|                                EDH-2775                                |   Bug  |   Medium  |           Joint invoice processing error msg is not mapped to API response           |
-|                                EDH-2670                                |   Bug  |  Critical |              Existing agreements are not displayed in New agreement form             |
-|                                EDH-2292                                |   Bug  |   Medium  |                 Adding organization with ID Type results in an error                 |
-|                                EDH-2770                                |   Bug  |   Medium  |                    Unclear error message for new supply agreement                    |
-|                                EDH-2850                                |   Bug  |  Critical |    Metering data upload (Excel) produces incorrect metering type and reading time    |
-|                                 EDH-720                                |  Story |   Medium  |                       Implement scheduling of report generation                      |
-|                                EDH-2789                                |  Story |  Highest  |     [DD] Improve deleted agreement distribution receiver based on portfolio tree     |
-|                                EDH-2788                                |  Story |  Highest  |          [DD] Restrict agreement distribution based on endUserAgreementType          |
-|                                EDH-2522                                |  Story |   Medium  |                              Portfolio agreement UI view                             |
+|   Issue   |  Type  |  Priority |                                         Title                                        |
+|-----------|--------|-----------|--------------------------------------------------------------------------------------|
+|  EDH-2890 |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
+|  EDH-2917 |   Bug  |  Critical |        TraceId missing from reporting endpoints after the move to rpt service        |
+|  EDH-2538 |   Bug  |  Critical |                      Wrong DD message for OS about GS agreement                      |
+|  EDH-2897 |   Bug  |   Medium  |                    Excel imports give empty success message on UI                    |
+|  EDH-2873 |   Bug  |  Critical |             Connection request "read" doesn't update automatically on UI             |
+|  EDH-2775 |   Bug  |   Medium  |           Joint invoice processing error msg is not mapped to API response           |
+|  EDH-2670 |   Bug  |  Critical |              Existing agreements are not displayed in New agreement form             |
+|  EDH-2292 |   Bug  |   Medium  |                 Adding organization with ID Type results in an error                 |
+|  EDH-2770 |   Bug  |   Medium  |                    Unclear error message for new supply agreement                    |
+|  EDH-2850 |   Bug  |  Critical |    Metering data upload (Excel) produces incorrect metering type and reading time    |
+|  EDH-720  |  Story |   Medium  |                       Implement scheduling of report generation                      |
+|  EDH-2789 |  Story |  Highest  |     [DD] Improve deleted agreement distribution receiver based on portfolio tree     |
+|  EDH-2788 |  Story |  Highest  |          [DD] Restrict agreement distribution based on endUserAgreementType          |
+|  EDH-2522 |  Story |   Medium  |                              Portfolio agreement UI view                             |
 
 ## [EDH-2829] Release 0.11.0
 
