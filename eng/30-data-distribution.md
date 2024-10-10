@@ -134,10 +134,12 @@ Different business rules have been implemented in the Datahub regarding when and
 - When adding/modifying/deleting an aggregation agreement, it is checked whether there is a temporal overlap with the parent metering point's GENERAL_SERVICE, SUPPLY, or BORDER_SUPPLY agreements.
   - If not, no data distribution follows after adding/modifying/deleting the aggregation agreement.
   - If there is, distribution follows.
+- GENERAL_SERVICE agreements are distributed only after their activation
 
 | Condition                                                                                                  | Distribution                                                                                                             |
 |------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| The system creates or deletes a GENERAL_SERVICE agreement where the named supplier is the service provider | named supplier                                                                                                           |
+| The system creates or deletes a GENERAL_SERVICE agreement where the named supplier is the service provider | named supplier, grid operator                                                                                            |
+| The system creates or deletes a GENERAL_SERVICE agreement where the grid operator is the service provider  | Grid operator                                                                                                            |
 | Modification/deletion of GRID or BORDER_GRID agreement                                                     | Active or future open supplier, aggregator of aggregation metering point                                                 |
 | Modification of GRID agreement affecting SUPPLY agreement(s)                                               | Open supplier(s)                                                                                                         |
 | Addition/modification/deletion of SUPPLY agreement                                                         | Metering point operator                                                                                                  |

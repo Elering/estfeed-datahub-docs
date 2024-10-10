@@ -12,8 +12,7 @@ Andmeladu tuvastab perioodid, millal klient kasutab või hakkab kasutama üldtee
 Tuvastatud (alam)perioodide kohta koostab Andmeladu tehnilised üldteenuse (`GENERAL_SERVICE`) lepingud ja määrab teenusepakkujaks kas võrguettevõtja või nimetatud müüja. 
 Tegemist on puhtalt tehnilise lahendusega, et üldteenuse algust ja lõppu eksplitsiitselt talletada. Tegemist ei ole juriidilises mõttes lepinguga.
 
-Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale `data-distribution/search` teenuse abil 48 tundi enne aktiveerumist.
-Teenuse väljundis on GENERAL_SERVICE lepingu andmed.
+Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale `data-distribution/search` teenuse abil. Loe täpsemalt GENERAL_SERVICE lepingute levitamisest lehelt [Andmete levitamine](30-andmete-levitamine.md)
 
 > [!NOTE]
 > Andmeladu ei hoia GENERAL_SERVICE lepingute muudatusi. Muudatuste puhul vanad lepingud kustutatakse ja luuakse uued

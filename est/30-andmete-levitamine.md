@@ -143,10 +143,12 @@ liiguvad, siis siin on üldistatul kujul loetelu tähtsamatest reeglitest.
 - Agregeerimise lepingu lisamisel/muutmisel/kustutamisel kontrollitakse, kas on ajalist kattuvust ülemmõõtepunkti GENERAL_SERVICE või SUPPLY või BORDER_SUPPLY lepingutega.
   - Kui ei ole, siis mingit andmete levitamist agregeerimise lepingu lisamisele/muutmisele/kustutamisele ei järgne
   - Kui on, siis järgneb
+- GENERAL_SERVICE lepingud levitatakse alles peale nende aktiveerumist
 
 | Tingimus                                                                                          | Levitamine                                                                                              |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| Süsteem loob või kustutab GENERAL_SERVICE lepingu, kus teenusepakkujaks on nimetatud müüja        | Nimetatud müüja                                                                                         |
+| Süsteem loob või kustutab GENERAL_SERVICE lepingu, kus teenusepakkujaks on nimetatud müüja        | Nimetatud müüja, võrguoperaator                                                                         |
+| Süsteem loob või kustutab GENERAL_SERVICE lepingu, kus teenusepakkujaks on võrguoperaator         | Võrguoperaator                                                                                          |
 | GRID või BORDER_GRID lepingu muutmine/kustutamine                                                 | Aktiivne või tuleviku avatud tarnija, agregeerimise mõõtepunkti agregaator                              |
 | GRID lepingu muutmine selliselt, et see mõjutab SUPPLY lepingut(uid)                              | Avatud tarnija(d)                                                                                       |
 | SUPPLY lepingu lisamine/muutmine/kustutamine                                                      | Mõõtepunkti haldur                                                                                      |

@@ -12,8 +12,7 @@ Datahub identifies all periods, where the customer is or will be using the gener
 Datahub will create general service (`GENERAL_SERVICE`) agreements for all those identified (sub)periods and sets the grid operator or named supplier as the service provider. 
 This solution is purely technical, to store the start and end date of the general service in more explicit manner. Those agreements are not legally valid agreements.
 
-Datahub makes the general service agreements available to the grid operator and to the named supplier via the `data-distribution/search` service 48 hours before activation.
-The response contains data of GENERAL_SERVICE agreement.
+Datahub makes the general service agreements available to the grid operator and to the named supplier via the `data-distribution/search` service. Read more about the data distribution on page [Data Distribution](30-data-distribution.md)
 
 > [!NOTE]
 > The Datahub doesn't track the changes of the GENERAL_SERVICE agreements. In case of any changes the old agreements are deleted and new ones created
