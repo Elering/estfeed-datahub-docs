@@ -16,7 +16,8 @@
     * [API messages](#api-messages-1)
       * [Messages](#messages-1)
       * [Message rules](#message-rules-1)
-        * [`meter/search/customer` additional rules](#metersearchcustomer-additional-rules)
+        * [`meter/search` rules](#metersearch-rules)
+        * [`meter/search/customer` rules](#metersearchcustomer-rules)
 <!-- TOC -->
 
 ## Introduction
@@ -175,8 +176,6 @@ The data of the metering point is described in paragraph [Transmitting metering 
 | `POST /api/{version}/eic/amount`     | Get a list of unused EICs from a range             |
 | `POST /api/{version}/eic/range`      | Get a list of EIC ranges of the Market Participant |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
 #### Message rules
 
 - The EIC of the metering point must be within one of the ranges of the grid operator’s EIC ranges.
@@ -205,9 +204,6 @@ For a description of message structures and validations, see [Datahub descriptio
 - For any aggregation metering point, the `marketParticipantRole` value must be AGGREGATOR
 - For data quality reasons, please use the official [EHAK classification](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) (county, municipality and settlement unit designations) for addresses submitted as text.
 
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
-
 ## Requesting metering point data
 
 In general, all authorised users can request metering point data using the `search` services, but open suppliers and balance responsible parties can also request updates of new and changed metering point data using the `data-distribution/search` service.
@@ -216,25 +212,19 @@ In general, all authorised users can request metering point data using the `sear
 
 #### Messages
 
-| Message                                     | Objective                              |
-|---------------------------------------------|----------------------------------------|
-| `POST /api/{version}/meter/search`          | Find a Metering Point by attributes    |
-| `POST /api/{version}/meter/search/customer` | Find a Metering Point by Customer EIC  |
-| `POST /api/{version}/meter/search/border`   | Get border Metering Points by customer |
-| `POST /api/{version}/meter/export`          | Export Metering Points by attributes   |
+| Message                                     | Objective                                                                                                                                             |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `POST /api/{version}/meter/search`          | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code's §8(5) check) |
+| `POST /api/{version}/meter/search/customer` | Find any Metering Point by Customer EIC **to create a new SUPPLY agreement**                                                                          |
+| `POST /api/{version}/meter/search/border`   | Get border Metering Points by customer                                                                                                                |
+| `POST /api/{version}/meter/export`          | Export **own** Metering Points by attributes                                                                                                          |
+| `POST /api/{version}/eic/amount`            | Find unused EIC codes from **own** EIC range                                                                                                          |
+| `POST /api/{version}/eic/range`             | Find **own** EIC ranges                                                                                                                               |
 
 > [!CAUTION] 
-> Service `POST /api/{version}/meter/search/customer` is allowed to use only when adding new agreement. Legitimate usage of this service is monitored 
-
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
+> Service `POST /api/{version}/meter/search/customer` is allowed to use only when adding new agreement. Legitimate usage of this service is monitored
 
 #### Message rules
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ##### `meter/search` rules
 

@@ -54,8 +54,6 @@ Sõnumiga `message` saadetavate olekute diagramm:
 | `POST /api/{version}/connection-state/message`         | Sisse- või väljalülitamise taotlusele jätkusõnumite edastamine   |
 | `POST /api/{version}/connection-state/message-history` | Sisse- või väljalülitamise taotluste jätkusõnumite ajaloo otsing |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
 #### Sõnumite reeglid
 
 - `initiate` teenuses on ainukesed lubatud olekud `CONNECT` või `DISCONNECT`.
@@ -63,6 +61,3 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - `message` teenuses on avatud tarnijale lubatud edastada ainult `CANCELLED` olekut.
 - `message` teenuses on võrguettevõtjale lubatud edastada `PLANNED`, `REFUSED`, `CONNECTED` ja `DICONNECTED` olekuid.
 - Kui välja- või sisselülitamise taotluse olek on `CONNECTED`, `DISCONNECTED`, `REFUSED` või `CANCELLED`, siis täiendavate `message` sõnumite saatmine ei ole võimalik.
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

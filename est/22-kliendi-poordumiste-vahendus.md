@@ -53,11 +53,6 @@ Võrguettevõtja või avatud tarnija võib kasutada `search` teenust Andmelattu 
 | `POST /api/{version}/direct-messages/response` | Võimaldab registreerida uue kliendi pöördumise tagasiside                                |
 | `PUT /api/{version}/direct-messages/response`  | Võimaldab muuta olemasoleva kliendi pöördumise tagasiside andmeid                        |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
 #### Sõnumite reeglid
 
 - Pöördumise adressaati Andmeladu ei valideeri. Õigete andmete väärtustamise eest vastutab avatud tarnija.
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

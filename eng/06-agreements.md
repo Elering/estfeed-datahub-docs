@@ -62,14 +62,6 @@ In the Datahub, the transmission interface of various agreements is harmonised a
 | `POST /api/{version}/agreement/delete` | Delete agreement                   |
 | `POST /api/{version}/agreement-bulk`   | Create multiple agreements at once |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
-
 #### Message rules
 
 Dependencies and rules between agreements:
@@ -118,11 +110,6 @@ There are 2 different business cases where agreements are searched:
 | `POST /api/{version}/agreement/search`       | Find agreements, where the market participant is a service provider or customer |
 | `POST /api/{version}/agreement/search/meter` | Find agreements by Metering Point during new agreement registration             |
 | `POST /api/{version}/agreement/export`       | Export agreements by attributes                                                 |
-
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
 
 #### Message rules
 

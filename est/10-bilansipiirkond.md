@@ -48,15 +48,10 @@ Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toi
 | `POST /api/{version}/balance-settlement-point/change` | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi           |
 | `POST /api/{version}/balance-settlement-point/search` | Võimaldab otsida bilansiselgituse mõõtepunkte soovitud ajaperioodil |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
 ## Sõnumite reeglid
 
 - Teenus annab vastuse ainult bilansihalduritele (kellel on portfellileping TSO-ga). Teistele bilansipuu portfelliteenuse pakkujatele andmeid ei väljastata.
 - `change` sõnumiga saab pärida ainult ühe kuupäeva muudatusi. Pikema perioodi muudatuste pärimiseks tuleb sõnumit saata mitu korda soovitud perioodi kuupäevadega.
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ## Sõnumite atribuutide reeglid
 

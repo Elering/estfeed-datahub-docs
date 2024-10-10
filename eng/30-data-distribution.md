@@ -106,20 +106,80 @@ The response message contains the "reason for change". This value helps the mark
 
 ## Distributing data updates
 
-Elering’s team is discussing various technical solutions to enable more capable integrated systems to receive data updates faster and without scanning. A specific technical solution is still under
+Different business rules have been implemented in the Datahub regarding when and to whom data updates are distributed. This document does not describe all the rules, but to give an idea of how data primarily flows, here is a general list of the most important rules.
+
+### General rules
+
+- The Datahub identifies the parties to be notified based on the data in the agreements.
+- The notified parties are divided into two categories:
+  - Direct parties – their right to notifications derives from a direct end-user agreement.
+  - Portfolio providers – their right to notifications derives from portfolio agreements.
+- Changes are not reflected back to the data senders/modifiers through data distribution.
+- All portfolio providers at different levels are notified uniformly.
+- In general, portfolio providers are the recipients of various data distribution notifications. Only in a few cases, only the direct party is notified. **In the following sections, portfolio providers are not listed separately.**
+
+### Metering point rules
+
+- No changes are distributed for a metering point without valid or future-valid agreements.
+
+| Condition                                    | Distribution                                                            |
+|----------------------------------------------|-------------------------------------------------------------------------|
+| Border metering point data is changed        | Customer                                                                |
+| Metering point data is changed               | Open supplier, named supplier, aggregator of aggregation metering point |
+
+### Agreement rules
+
+- The service provider's portfolio provider is always a subject of data distribution.
+- The system decides based on business rules whether the full or partial agreement data is distributed.
+- When adding/modifying/deleting an aggregation agreement, it is checked whether there is a temporal overlap with the parent metering point's GENERAL_SERVICE, SUPPLY, or BORDER_SUPPLY agreements.
+  - If not, no data distribution follows after adding/modifying/deleting the aggregation agreement.
+  - If there is, distribution follows.
+
+| Condition                                                                                                  | Distribution                                                                                                             |
+|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| The system creates or deletes a GENERAL_SERVICE agreement where the named supplier is the service provider | named supplier                                                                                                           |
+| Modification/deletion of GRID or BORDER_GRID agreement                                                     | Active or future open supplier, aggregator of aggregation metering point                                                 |
+| Modification of GRID agreement affecting SUPPLY agreement(s)                                               | Open supplier(s)                                                                                                         |
+| Addition/modification/deletion of SUPPLY agreement                                                         | Metering point operator                                                                                                  |
+| Addition/modification/deletion of SUPPLY agreement the way, that it affects other SUPPLY agreement(s)      | Metering point operator , other opeen supplier                                                                           |
+| Addition/modification/deletion of AGGREGATION agreement                                                    | According to overlapping agreements in the parent metering point: open supplier, named supplier, metering point operator |
+
+### Metering data rules
+
+- Upon receiving metering data, the Datahub checks whether all the submitted data (one message may contain data for several metering points over multiple periods) can be forwarded one-to-one to the corresponding recipients or not. If not, the Datahub splits the data so that only the intended data reaches the recipients.
+- Data distribution directly depends on the SUPPLY, BORDER_SUPPLY, GENERAL_SERVICE, AGGREGATION agreements of the metering point and the overlap of the agreement validity periods with the periods in the submitted data. If the period in the metering data message overlaps with any such agreement, metering data is distributed to the service provider of that agreement.
+
+### Network bill rules
+
+- Upon receiving the network bill, the Datahub checks whether all the submitted data can be forwarded one-to-one to the corresponding recipients or not. If not, the Datahub splits the data so that only the intended data reaches the recipients.
+- The recipient of data distribution can be either the open supplier or named supplier, or both, depending on the SUPPLY or GENERAL_SERVICE agreement.
+
+### Customer metadata rules
+
+- Updates to the customer's BILLING metadata are distributed to the named supplier who currently has or had a valid GENERAL_SERVICE agreement with the customer within the last 12 months (provided that the named supplier did not change the data themselves).
+- Updates to the customer's name are distributed to active service providers.
+
+### Customer authorization rules
+
+- A new customer authorization is always distributed to the subject of the customer authorization.
+
+> [!NOTE]
+> Elering’s team is discussing various technical solutions to enable more capable integrated systems to receive data updates faster and without scanning. A specific technical solution is still under
 development. Market participants will be informed in a timely and thorough manner when it is ready.
 
 ## Structure of the message
 
 Every data distribution response message consists of common and resource type specific attributes:
 
-| Attribute    | Type     | Always present? | Comments                                                                                        |
-|--------------|----------|-----------------|-------------------------------------------------------------------------------------------------|
-| id           | int      | yes             | Unique message ID, that is increasing in the time.                                              |
-| createdTime  | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message |
-| resourceType | string   | yes             | Resource type                                                                                   |
-| reason       | string   | jah             | One of: CREATE, UPDATE, DELETE                                                                  |
-| content      | string   | yes             | Content of the message, depending on the resource type (see next paragraphs)                    |
+| Attribute    | Type     | Always present? | Comments                                                                                                    |
+|--------------|----------|-----------------|-------------------------------------------------------------------------------------------------------------|
+| id           | int      | yes             | Unique message ID, that is increasing in the time.                                                          |
+| createdTime  | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message             |
+| resourceType | string   | yes             | Resource type                                                                                               |
+| reason       | string   | jah             | One of: CREATE, UPDATE, DELETE                                                                              |
+| hasContent   | bool     | jah             | If "true", then position "content" has content. If "false", then content is missing (for technical reasons) |
+| content      | string   | yes             | Content of the message, depending on the resource type (see next paragraphs)                                |
+| pagination   | object   | jah             | Standard pagination elements                                                                                |
 
 Example of the response message:
 
@@ -131,6 +191,7 @@ Example of the response message:
       "createdTime": "2024-05-23T10:08:44.320005900Z",
       "resourceType": "AGREEMENT",
       "reason": "CREATE",
+      "hasContent": true,
       "content": "[{\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"GENERAL_SERVICE\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-05-22T21:00Z\",\"validTo\":\"2024-05-31T21:00Z\"}]"
     },
     {
@@ -138,6 +199,7 @@ Example of the response message:
       "createdTime": "2024-05-23T10:10:13.682197100Z",
       "resourceType": "AGREEMENT",
       "reason": "CREATE",
+      "hasContent": true,
       "content": "[{\"agreementId\":\"einar-2024-05-23T13:08:42.936268+03:00-EST\",\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"SUPPLY\",\"preliminaryTerminationFee\":true,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-05-22T21:00Z\",\"validTo\":\"2024-06-30T21:00Z\",\"serviceProviderEic\":\"38X-EIN-OS-----J\",\"customerEic\":\"38X-AVP-ZW6700C6\"}]"
     },
     {
@@ -145,6 +207,7 @@ Example of the response message:
       "createdTime": "2024-05-23T10:10:13.682552100Z",
       "resourceType": "AGREEMENT",
       "reason": "CREATE",
+      "hasContent": true,
       "content": "[{\"agreementId\":\"einar-2024-05-23T13:10:12.799579+03:00-EST\",\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"SUPPLY\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-06-30T21:00Z\"}]"
     }
   ],

@@ -36,15 +36,7 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
 | `POST /api/{version}/network-bill`        | Võrguteenuse arve lisamine |
 | `POST /api/{version}/network-bill/search` | Võrguteenuse arve otsing   |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
-
 ### Sõnumite reeglid
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 - Võrguarve edastamise reeglid:
   - Võrguarvet saab lisada võrguettevõtja (GO) või suletud jaotusvõrgu ettevõtja (CDN)

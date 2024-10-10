@@ -67,11 +67,6 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 | `POST /api/{version}/agreement/delete` | Lepingu kustutamine           |
 | `POST /api/{version}/agreement-bulk`   | Mitme lepingu loomine korraga |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
-
 #### Sõnumite reeglid
 
 Lepingute omavahelised sõltuvused ja reeglid:
@@ -101,9 +96,6 @@ Muud reeglid:
 - Lepingus märgitud energia liik peab olema sama lepingus märgitud mõõtepunkti energia liigiga (juhul, kui lepingu tüüp neid andmeid ette näeb).
 - Lepingute puhul on lubatud muuta ainult operaatoripoolset lepingu ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
 
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
-
 ## Lepingute otsimine ja eksport
 
 Lepinguid otsitakse kahes äriprotsessis:
@@ -120,11 +112,6 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 | `POST /api/{version}/agreement/search`       | Lepingute otsing, kus turuosaline on kas teenusepakkuja või klient |
 | `POST /api/{version}/agreement/search/meter` | Mõõtepunkti teiste lepingute otsing uue lepingu lisamisel          |
 | `POST /api/{version}/agreement/export`       | Lepingute eksport                                                  |
-
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
 
 #### Sõnumite reeglid
 

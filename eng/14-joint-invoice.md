@@ -42,12 +42,7 @@ Relevant Datahub services have been set up to transmit and request joint invoice
 | `POST /api/{version}/joint-invoice/search`   | Find a joint invoice          | [Find and download joint invoice](#find-and-download-joint-invoice) |
 | `POST /api/{version}/joint-invoice/download` | Download a joint invoice      | [Find and download joint invoice](#find-and-download-joint-invoice) |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
 ## API message rules
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ### Create or update joint invoice
 

@@ -39,15 +39,7 @@ Kliendi andmete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused
 | `PUT /api/{version}/customer`                        | Kliendi metaandmete muutmine         | [Kliendi ja tema metaandmete lisamine ja muutmine](#kliendi-ja-tema-metaandmete-lisamine-ja-muutmine) |
 | `POST /api/{version}/customer/search`                | Kliendi ja tema metaandmete otsing   | [Kliendi ja tema metaandmete otsing](#kliendi-ja-tema-metaandmete-otsing)                             |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
-
 ## Sõnumite reeglid
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ### Kliendi ja tema metaandmete lisamine ja muutmine
 

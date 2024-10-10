@@ -36,15 +36,7 @@ In order to update a network bill, new `network-bill` message with same period v
 | `POST /api/{version}/network-bill`        | Create or update network bill data |
 | `POST /api/{version}/network-bill/search` | Find network bill data             |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
-
 ### Message rules
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 - Rules for adding network bills:
   - Only grid operator (GO) or closed distribution network operator (CDN) can add network bills

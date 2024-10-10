@@ -152,7 +152,7 @@ Roles:
 
 | Role                                 | `marketParticipantIdentification` code |
 |--------------------------------------|----------------------------------------|
-| Open supplier                        | OPEN_SUPPLIER                          |
+| Open or named supplier               | OPEN_SUPPLIER                          |
 | Grid operator                        | GRID_OPERATOR                          |
 | Closed distribution network operator | CLOSED_DISTRIBUTION_NETWORK            |
 | Line operator                        | LINE_OPERATOR                          |

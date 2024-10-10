@@ -40,15 +40,7 @@ Relevant Datahub services have been set up to transmit and request customer data
 | `PUT /api/{version}/customer`                        | Update customer with metadata                               | [Create or update customer with metadata](#create-or-update-customer-with-metadata) |
 | `POST /api/{version}/customer/search`                | Find a customer by identity                                 | [Find customer](#find-customer)                                                     |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
-
 ## API message rules
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
 
 ### Create or update customer with metadata
 

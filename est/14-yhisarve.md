@@ -41,12 +41,7 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 | `POST /api/{version}/joint-invoice/search`   | Ühisarve otsing            | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
 | `POST /api/{version}/joint-invoice/download` | Ühisarve alla laadimine    | [Ühisarvete otsing ja alla laadimine](#ühisarvete-otsing-ja-alla-laadimine) |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
 ## Sõnumite reeglid
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ### Ühisarve lisamine ja muutmine
 

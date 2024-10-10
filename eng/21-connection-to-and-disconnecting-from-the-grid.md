@@ -54,8 +54,6 @@ State diagram of statuses for `message` service:
 | `POST /api/{version}/connection-state/message`         | Create connection state message       |
 | `POST /api/{version}/connection-state/message-history` | Find connection state message history |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
 #### Message rules
 
 - Allowed states for `initiate` message are `CONNECT` or `DISCONNECT`
@@ -63,6 +61,3 @@ For a description of message structures and validations, see [Datahub descriptio
 - The open supplier is allowed to send only `CANCELLED` state in the `message` service.
 - The grid operator is allowed to send `PLANNED`, `REFUSED`, `CONNECTED` and `DICONNECTED` states in the `message` service.
 - If the state of the connection and disconnection request is `CONNECTED`, `DISCONNECTED`, `REFUSED` or `CANCELLED`, then no additional messages can be sent in the `message` service.
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

@@ -40,10 +40,3 @@ Relevant Datahub services have been set up to request the customer authorization
 | Message                                             | Objective                                                            |
 |-----------------------------------------------------|----------------------------------------------------------------------|
 | `POST /api/{version}/customer-authorization/search` | Search for authorizations given by the Customer in the Client Portal |
-
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-#### Message rules
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

@@ -40,10 +40,3 @@ Ligipääsuõiguse edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
 | Sõnum                                               | Eesmärk                                        |
 |-----------------------------------------------------|------------------------------------------------|
 | `POST /api/{version}/customer-authorization/search` | Kliendiportaalis antud ligipääsuõiguste otsing |
-
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-#### Sõnumite reeglid
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

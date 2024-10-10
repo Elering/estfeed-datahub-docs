@@ -8,6 +8,13 @@
   * [Sissejuhatus](#sissejuhatus)
   * [Andmeuuenduste skaneerimine](#andmeuuenduste-skaneerimine)
   * [Andmeuuenduste levitamine](#andmeuuenduste-levitamine)
+    * [Üldreeglid](#üldreeglid)
+    * [Mõõtepunkti reeglid](#mõõtepunkti-reeglid)
+    * [Lepingute reeglid](#lepingute-reeglid)
+    * [Mõõteandmete reeglid](#mõõteandmete-reeglid)
+    * [Võrguteenuse arve reeglid](#võrguteenuse-arve-reeglid)
+    * [Kliendi metaandmete reeglid](#kliendi-metaandmete-reeglid)
+    * [Ligipääsuõiguste reeglid](#ligipääsuõiguste-reeglid)
   * [Sõnumi struktuur](#sõnumi-struktuur)
   * [Andmetüübid](#andmetüübid)
     * [Leping](#leping)
@@ -106,21 +113,83 @@ Vastussõnum sisaldab muudatuse põhjust (reason). See väärtus aitab turuosali
 
 ## Andmeuuenduste levitamine
 
-Eleringi meeskond arutab erinevaid tehnilisi lahendusi, kuidas võimaldada võimekamatel liidestunud süsteemidel saada andmeuuendusi kiiremini ja ilma skaneerimiseta. Konkreetne tehniline lahendus on
+Andmelaos on realiseeritud erinevad ärireeglid, millal ja kellele andmeuuendusi levitatakse. Käesolevas dokumendis kõiki reegleid ei kirjeldata, kuid selleks, et aimu anda, mismoodi andmed peamiselt
+liiguvad, siis siin on üldistatul kujul loetelu tähtsamatest reeglitest.
+
+### Üldreeglid
+
+- Andmeladu tuvastab teavitatavad osapooled vastavalt lepingutes olevatele andmetele. 
+- Teavitatavad osapooled jagunevad kaheks:
+  - Otsesed osapooled - nende õigus teavitustele tuleneb otsesest lõppkasutaja lepingust
+  - Portfellipakkujad - nende õigus teavitustele tuleneb portfelli lepingutest.
+- Andmete saatjatele/muutjatele muudatust andmelevituse kaudu tagasi ei peegeldata
+- Kõiki portfellipakkujaid erinevates tasemetes teavitatakse ühelaadselt
+- Üldiselt on portfellipakkujad erinevate muudatuste teavituste adressaadid. Ainult mõnel üksikul juhul teavitatakse ainult otsest osapoolt. **Alljärgnevates sektsioonides portfellipakkujaid eraldi välja ei tooda**
+
+### Mõõtepunkti reeglid
+
+- Mõõtepunkti, millel puuduvad kehtivad või tulevikus kehtima hakkavad lepingud, muudatusi ei levitata
+
+| Tingimus                                     | Levitamine                                                            |
+|----------------------------------------------|-----------------------------------------------------------------------|
+| Piirimõõtepunkti andmeid muudetakse          | Klient                                                                |
+| Mõõtepunkti andmeid muudetakse               | Avatud tarnija, nimetatud müüja, agregeerimise mõõtepunkti agregaator |
+
+
+### Lepingute reeglid
+
+- Teenusepakkuja portfellihaldur on alati andmete levitamise subjekt.
+- Süsteem otsustab vastavalt ärireeglitele, kas levitatakse lepingu täis- või osaline andmestik.
+- Agregeerimise lepingu lisamisel/muutmisel/kustutamisel kontrollitakse, kas on ajalist kattuvust ülemmõõtepunkti GENERAL_SERVICE või SUPPLY või BORDER_SUPPLY lepingutega.
+  - Kui ei ole, siis mingit andmete levitamist agregeerimise lepingu lisamisele/muutmisele/kustutamisele ei järgne
+  - Kui on, siis järgneb
+
+| Tingimus                                                                                          | Levitamine                                                                                              |
+|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Süsteem loob või kustutab GENERAL_SERVICE lepingu, kus teenusepakkujaks on nimetatud müüja        | Nimetatud müüja                                                                                         |
+| GRID või BORDER_GRID lepingu muutmine/kustutamine                                                 | Aktiivne või tuleviku avatud tarnija, agregeerimise mõõtepunkti agregaator                              |
+| GRID lepingu muutmine selliselt, et see mõjutab SUPPLY lepingut(uid)                              | Avatud tarnija(d)                                                                                       |
+| SUPPLY lepingu lisamine/muutmine/kustutamine                                                      | Mõõtepunkti haldur                                                                                      |
+| SUPPLY lepingu lisamine/muutmine/kustutamine selliselt, et see mõjutab teist SUPPLY lepingut(uid) | Mõõtepunkti haldur, teine avatud tarnija                                                                |
+| AGGREGATION lepingu lisamine/muutmine/kustutamine                                                 | Vastavalt ülemmõõtepunktis kattuvatele lepingutele: avatud tarnija, nimetatud müüja, mõõtepunkti haldur |
+
+### Mõõteandmete reeglid
+
+- Mõõteandmete laekumisel kontrollib Andmeladu, kas kõik edastatud andmed (ühes sõnumis võib olla mitme mõõtepunkti mitme perioodi andmed) on võimalik üks-ühele vastavatele adressaatidele edasi saata või mitte. Kui mitte, siis tükeldab Andmeladu andmed selliselt, et adressaatideni jõuaks ainult neile mõeldud andmed.
+- Andmete levitamine sõltub otselt mõõtepunkti SUPPLY, BORDER_SUPPLY, GENERAL_SERVICE, AGGREGATION, lepingutest ja lepingute kehtivusaegade kattuvusest saadetud andmete perioodidega. Kui mõõteandmete sõnumis edastatud periood kattub mõne sellise lepinguga, siis lepingu teenusepakkujale levitatakse mõõteandmeid
+
+### Võrguteenuse arve reeglid
+
+- Võrguteenuse arve laekumisel kontrollib Andmeladu, kas kõik edastatud andmed on võimalik üks-ühele vastavatele adressaatidele edasi saata või mitte. Kui mitte, siis tükeldab Andmeladu andmed selliselt, et adressaatideni jõuaks ainult neile mõeldud andmed.
+- Andmete levitamise adressaat saab olla vastavalt SUPPLY või GENERAL_SERVICE lepingule kas avatud tarnija või nimetatud müüja või mõlemad.
+
+### Kliendi metaandmete reeglid
+
+- Kliendi BILLING metaandmete uuendusi levitatakse nimetatud müüjale, kellel on hetkel kehtiv või oli viimase 12 kuu jooksul kehtinud GENERAL_SERVICE leping kliendiga (eeldusel, et andmeid ei muutnud nimetatud müüja ise)
+- Kliendi nime uuendusi levitatakse aktiivsetele teenusepakkujatele
+
+### Ligipääsuõiguste reeglid
+
+- Ligipääsuõiguse subjektile toimub alati uue ligipääsuõiguse levitamine
+
+
+> [!NOTE]
+> Eleringi meeskond arutab erinevaid tehnilisi lahendusi, kuidas võimaldada võimekamatel liidestunud süsteemidel saada andmeuuendusi kiiremini ja ilma skaneerimiseta. Konkreetne tehniline lahendus on
 alles välja töötamisel. Selle tekkimisel teavitatakse turuosalisi aegsasti ja põhjalikult.
 
 ## Sõnumi struktuur
 
 Iga andmete levitamise vastussõnum koosneb ühis- ja andmetüübi spetsiifilistest atribuutidest:
 
-| Atribuut     | Tüüp     | Alati sõnumis? | Märkused                                                                                     |
-|--------------|----------|----------------|----------------------------------------------------------------------------------------------|
-| id           | int      | jah            | Unikaalne sõnumi ID, mis on ajas kasvav                                                      |
-| createdTime  | datetime | jah            | Andmete levitamise sõnumi (mitte selle sõnumi, mis andmete levitamise põhjustas) loomise aeg |
-| resourceType | string   | jah            | Andmeobjekti tüüp                                                                            |
-| reason       | string   | jah            | Võimalikud väärtused: CREATE, UPDATE, DELETE                                                 |
-| content      | string   | jah            | Sõnumi sisu vastavalt andmetüübile (vt kirjeldus allpool)                                    |
-| pagination   | object   | jah            | Standardsed pagineerimise elemendid                                                          |
+| Atribuut     | Tüüp     | Alati sõnumis? | Märkused                                                                                             |
+|--------------|----------|----------------|------------------------------------------------------------------------------------------------------|
+| id           | int      | jah            | Unikaalne sõnumi ID, mis on ajas kasvav                                                              |
+| createdTime  | datetime | jah            | Andmete levitamise sõnumi (mitte selle sõnumi, mis andmete levitamise põhjustas) loomise aeg         |
+| resourceType | string   | jah            | Andmeobjekti tüüp                                                                                    |
+| reason       | string   | jah            | Võimalikud väärtused: CREATE, UPDATE, DELETE                                                         |
+| hasContent   | bool     | jah            | Kui "true", siis on positsioonil "content" sisu. Kui "false", siis sisu puudub (tehnilisel põhjusel) |
+| content      | string   | jah            | Sõnumi sisu vastavalt andmetüübile (vt kirjeldus allpool)                                            |
+| pagination   | object   | jah            | Standardsed pagineerimise elemendid                                                                  |
 
 Näide vastussõnumist:
 
@@ -132,6 +201,7 @@ Näide vastussõnumist:
       "createdTime": "2024-05-23T10:08:44.320005900Z",
       "resourceType": "AGREEMENT",
       "reason": "CREATE",
+      "hasContent": true,
       "content": "[{\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"GENERAL_SERVICE\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-05-22T21:00Z\",\"validTo\":\"2024-05-31T21:00Z\"}]"
     },
     {
@@ -139,6 +209,7 @@ Näide vastussõnumist:
       "createdTime": "2024-05-23T10:10:13.682197100Z",
       "resourceType": "AGREEMENT",
       "reason": "CREATE",
+      "hasContent": true,
       "content": "[{\"agreementId\":\"einar-2024-05-23T13:08:42.936268+03:00-EST\",\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"SUPPLY\",\"preliminaryTerminationFee\":true,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-05-22T21:00Z\",\"validTo\":\"2024-06-30T21:00Z\",\"serviceProviderEic\":\"38X-EIN-OS-----J\",\"customerEic\":\"38X-AVP-ZW6700C6\"}]"
     },
     {
@@ -146,6 +217,7 @@ Näide vastussõnumist:
       "createdTime": "2024-05-23T10:10:13.682552100Z",
       "resourceType": "AGREEMENT",
       "reason": "CREATE",
+      "hasContent": true,
       "content": "[{\"agreementId\":\"einar-2024-05-23T13:10:12.799579+03:00-EST\",\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"SUPPLY\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-06-30T21:00Z\"}]"
     }
   ],

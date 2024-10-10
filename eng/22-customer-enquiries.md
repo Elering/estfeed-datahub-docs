@@ -53,11 +53,6 @@ The grid operator or open supplier can use the `search` service to search for en
 | `POST /api/{version}/direct-messages/response` | Allows the user to register a new response to a customer enquiry                                |
 | `PUT /api/{version}/direct-messages/response`  | Allows the user to change the data of an existing response to a customer enquiry                |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
 #### Message rules
 
 - The Datahub does not check the recipient of enquiries. It is the responsibility of the open supplier to provide correct data.
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

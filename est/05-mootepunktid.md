@@ -16,7 +16,8 @@
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
       * [Sõnumid](#sõnumid-1)
       * [Sõnumite reeglid](#sõnumite-reeglid-1)
-        * [`meter/search/customer` täiendavad reeglid](#metersearchcustomer-täiendavad-reeglid)
+        * [`meter/search` reeglid](#metersearch-reeglid)
+        * [`meter/search/customer` reeglid](#metersearchcustomer-reeglid)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -173,8 +174,6 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 | `POST /api/{version}/template/meter` | Mõõtepunktide masslisamise templiidi alla laadimine |
 | `POST /api/{version}/meter/import`   | Mõõtepunktide massimport templiidi abil             |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
 #### Sõnumite reeglid
 
 - Mõõtepunkti EIC kood peab jääma võrguettevõtja mõne EIC koodide vahemiku piiresse
@@ -203,9 +202,6 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 - Agregeerimise mõõtepunkti loomiseks peab `marketParticipantRole` väärtus olema AGGREGATOR
 - Aadressi tekstilisel kujul saatmise korral on andmekvaliteedi huvides palve kasutada ametlikke [EHAK klassifikaatoris](https://klassifikaatorid.stat.ee/Item/stat.ee/c4c47742-12d7-4fea-bc8c-5aeca9112e2a/88) toodud maakonna, omavalitsuse ja asutusüksuse nimekujusid.
 
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
-
 ## Mõõtepunkti andmete küsimine
 
 Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades teenust `data-distribution/search`.
@@ -214,27 +210,19 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
 
 #### Sõnumid
 
-| Sõnum                                       | Eesmärk                                     |
-|---------------------------------------------|---------------------------------------------|
-| `POST /api/{version}/meter/search`          | Mõõtepunkti otsing                          |
-| `POST /api/{version}/meter/search/customer` | Mõõtepunkti otsing kliendi EIC koodi alusel |
-| `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                     |
-| `POST /api/{version}/meter/export`          | Mõõtepunktide eksportimine                  |
-| `POST /api/{version}/eic/amount`            | EIC vahemikust vabade EIC koodide otsing    |
-| `POST /api/{version}/eic/range`             | Turusalise EIC koodi vahemike otsing        |
+| Sõnum                                       | Eesmärk                                                                                                                                                                                                         |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `POST /api/{version}/meter/search`          | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks) |
+| `POST /api/{version}/meter/search/customer` | Kliendi kõikide mõõtepunktide otsing **uue SUPPLY lepingu loomiseks**                                                                                                                                           |
+| `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                                                                                                                                                                                         |
+| `POST /api/{version}/meter/export`          | **Enda** mõõtepunktide eksportimine                                                                                                                                                                             |
+| `POST /api/{version}/eic/amount`            | **Enda** EIC vahemikust vabade EIC koodide otsing                                                                                                                                                               |
+| `POST /api/{version}/eic/range`             | Turusalise **enda** EIC koodi vahemike otsing                                                                                                                                                                   |
 
 > [!CAUTION] 
 > Teenust `POST /api/{version}/meter/search/customer` on lubatud kasutada ainult uue lepingu loomisel ja selle õiguspärast kasutamist monitooritakse
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
-
 #### Sõnumite reeglid
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 ##### `meter/search` reeglid
 

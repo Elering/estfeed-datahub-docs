@@ -12,10 +12,10 @@
       * [Sõnumid](#sõnumid)
       * [Sõnumite reeglid](#sõnumite-reeglid)
   * [Mõõteandmete päringud](#mõõteandmete-päringud)
+    * [Aja tüüp](#aja-tüüp)
     * [Mõõteandmete otsimine veebiliidese kaudu](#mõõteandmete-otsimine-veebiliidese-kaudu)
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
       * [Sõnumid](#sõnumid-1)
-      * [Sõnumite reeglid](#sõnumite-reeglid-1)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -47,7 +47,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 - Mõõtepunkti haldur kontrollib andmete töötluse tulemust, kasutades teenust `meter-data/status`(sõnumi positsioonil `originalDocumentIdentification` tuleb edastada eelnevalt edastatud mõõteandmete sõnumi `header`-is olnud samanimelise atribuudi väärtus. UUID väärtust ei tohi taaskasutada). Võimalikud tulemused on:
   - `PROCESSING` - töötlus ei ole veel lõppenud
   - `SUCCESSFUL` - töötlus lõppes vigadeta
-  - `ÈRROR` - töötlus lõppes vigadega
+  - `ERROR` - töötlus lõppes vigadega
 - Kui sõnumi töötlemine õnnestub vigadeta, siis andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `data-distribution/search` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
 - Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile teenuse `meter-data/status` vastuses.
 - Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
@@ -130,11 +130,6 @@ Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandme
 | `POST /api/{version}/meter-data/import`   | Mõõteandmete masslaadimine templiidi abil                            |
 | `POST /api/{version}/template/meter-data` | Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine |
 
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
-
 #### Sõnumite reeglid
 
 - Resolutsiooni väärtus peab vastama antud ajaperioodil rakendatud globaalse resolutsiooniga. Nt, kui kogu turg läheb kuupäeval X üle 15min resolutsioonile, siis mõõteandmetele alates X kuupäevast peab sõnumis olema resolutsiooni väärtuseks 15min
@@ -148,19 +143,38 @@ Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [And
   - out – võrgust väljuv energia (tarbimine).
 - Siseneva ja väljuva energia koguseid võib edastada ka eraldi sõnumitega.
 - Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
-- Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export`
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
+- Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export` või `template/meter-data`
 
 ## Mõõteandmete päringud
 
-Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligipääs on piiratud. Reeglid on  kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
+Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligipääs on piiratud. Reeglid on  kirjeldatud dokumendis [Rollipõhised ligipääsuõigused](03.01-rollipohised-ligipaasuoigused.md)
 
 Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
-- Avatud tarnija skaneerib mõõteandmete muudatusi kasutades teenust `data-distribution/search`
+- Avatud tarnija, nimetatud müüja ja portfelliteenuse pakkuja skaneerib mõõteandmete muudatusi kasutades teenust `data-distribution/search`
 - Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
+
+### Aja tüüp
+
+Võrreldes vana süsteemiga on kadunud `billingSequence` kontseptsioon. Selle asemel edastab mõõtepunkti haldur koos mõõteandmetega mõõtmise aja (ing. **reading time**). 
+Mõõteandmete vastuvõtmisel lisab Andmeladu andmetele salvestamise aja (ing. **snapshot time**).
+
+Kuna mõlemad ajaväärtused on Andmelao süsteemis olemas, siis võimaldab Andmeladu mõõteandmeid otsida nende ajaväärtuste alusel. Näited:
+
+1. Avatud tarnija on huvitatud viimasest teadaolevast mõõteandmete seisust mõõtepunktis X. Selleks on tal 2 võimalust:
+  * Jätab atrbibuudid `observationTimeType` ja `observationTime` sõnumisse lisamata
+  * väärtustab ta sõnumis atribuudid:
+  * `observationTimeType` = `SNAPSHOT_TIME`.
+  * `observationTime` = hetke kuupäev ja kellaaeg
+2. Avatud tarnija on huvitatud mõõteandmete seisust mõõtepunktis X kuupäeva 01.01.2024 00:00 seisuga. Selleks väärtustab ta sõnumis atribuudid:
+  * `observationTimeType` = `SNAPSHOT_TIME`
+  * `observationTime` = `2024-01-01T00:00:00+02:00`
+3. Avatud tarnija on huvitatud mõõteandmete seisust mõõtepunktis X, kus mõõtmise aeg ei ole suurem kui 31.12.2023 23:59. Selleks väärtustab ta sõnumis atribuudid:
+  * `observationTimeType` = `READING_TIME`
+  * `observationTime` = `2023-12-31T23:59:59+02:00`
+
+> [!WARNING]
+> Hetkel pole toetatud `observationTimeType` = `SNAPSHOT_TIME` ja `observationTime` koos kasutamine (näide nr 2). Vastav arendus on defineeritud ja hetkeseisuga planeeritud aastasse 2024.
 
 ### Mõõteandmete otsimine veebiliidese kaudu
 
@@ -176,17 +190,3 @@ Mõõteandmeid saab otsida navigeerides "Metering data" lehele. Selleks tuleb si
 |-----------------------------------------|---------------------------|
 | `POST /api/{version}/meter-data/search` | Mõõteandmete otsing       |
 | `POST /api/{version}/meter-data/export` | Mõõteandmete eksportimine |
-
-Sõnumite struktuuride ja validatsioonide kirjelduste kohta loe dokumendist [Andmelao kirjeldus ja infovahetuse üldpõhimõtted](01-avp-kirjeldus-ja-infovahetuse-yldpohimotted.md)
-
-> [!NOTE]
-> Sõnumite näidiste kogumik on loomisel
-
-#### Sõnumite reeglid
-
-- Mõõteandmete otsimisel on turuosalisel võimalik defineerida andmete vaatlemise aeg ja aja tüüp (observation type). Kasutusel on järgmised valikud:
-  - READING_TIME - kui andmete vaatlemise aeg on sõnumis defineeritud, siis süsteem leiab mõõteandmed andmete lugemise aja alusel (reading time)
-  - SNAPSHOT_TIME - kui andmete vaatlemise aeg on sõnumis defineeritud, siis süsteem leiab mõõteandmed andmete süsteemi salvestamise aja alusel
-
-> [!NOTE]
-> Andmete saatmise ja pärimise õigused on kirjeldatud dokumendis [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)

@@ -12,10 +12,10 @@
       * [Messages](#messages)
       * [Message rules](#message-rules)
   * [Metering data requests](#metering-data-requests)
+    * [Observation time type](#observation-time-type)
     * [Requesting metering data via the web interface](#requesting-metering-data-via-the-web-interface)
     * [API messages](#api-messages-1)
       * [Messages](#messages-1)
-      * [Message rules](#message-rules-1)
 <!-- TOC -->
 
 ## Introduction
@@ -47,7 +47,7 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 - The metering point operator verifies the result of processing, using `meter-data/status` service (at the `originalDocumentIdentification` position of the message, the value of the attribute of the same name that was in the `header` of the previously transmitted metering data message must be transmitted. The UUID value must not be reused). Possible results are:
   - `PROCESSING` - processing not finished
   - `SUCCESSFUL` - processing finished successfully
-  - `ÈRROR` - processing finished with errors.
+  - `ERROR` - processing finished with errors.
 - If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the `data-distribution/search` service. For more details, see [Data distribution](30-data-distribution.md).
 - If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
@@ -130,11 +130,6 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 | `POST /api/{version}/meter-data/import`   | Bulk import of metering data                                        |
 | `POST /api/{version}/template/meter-data` | Generate and download the template for bulk import of metering data |
 
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
-
 #### Message rules
 
 - The resolution value must match the global resolution applied in the given time period. For example, if the entire market switches to a resolution of 15 minutes on date X, then for metering data from date X the resolution value must be 15 minutes in the message.
@@ -148,19 +143,38 @@ For a description of message structures and validations, see [Datahub descriptio
   - out – energy leaving the grid (consumption).
 - The amounts of incoming and outgoing energy can also be transmitted in separate messages.
 - It is permitted to correct metering data retroactively for up to 12 months.
-- The `import` service requires the same template, that the service `export` returns.
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)
+- The `import` service requires the same template, that the service `export` or `template/meter-data` returns.
 
 ## Metering data requests
 
-Relevant Datahub services have been set up to transmit metering data. Access to data is limited. The rules are described in [Authentication and authorisation](03-authentication-and-authorisation.md).
+Relevant Datahub services have been set up to transmit metering data. Access to data is limited. The rules are described in [Role-based access rights](03.01-role-based-access-rights.md).
 
 The following options are available for making metering data requests:
 
-- Open suppliers can scan metering data changes using the `data-distribution/search` service.
+- Open suppliers, named suppliers and portfolio providers can scan metering data changes using the `data-distribution/search` service.
 - Authorised users can request metering data using the `search` service.
+
+### Observation time type
+
+Compared to the old system, the `billingSequence` concept has disappeared. Instead, the metering point manager transmits the reading time (**reading time**) together with the metering data.
+When receiving metering data, the Datahub adds a data storing time (**snapshot time**) to the data.
+
+Since both time values are available in the Datahub, the Datahub allows to search for metering data based on these time values. Examples:
+
+1. The open supplier is interested in the last known metering data at metering point X. For this, he has 2 options:
+  * Omits `observationTimeType` and `observationTime` attributes in the message
+  * sets the attributes in the message:
+    * `observationTimeType` = `SNAPSHOT_TIME`.
+    * `observationTime` = current date and time
+2. The open supplier is interested of metering data at metering point X as of 01.01.2024 00:00. To do this, it sets the attributes in the message:
+  * `observationTimeType` = `SNAPSHOT_TIME`
+  * `observationTime` = `2024-01-01T00:00:00+02:00`
+3. The open supplier is interested of the metering data at the metering point X, where the reading time is not greater than 31.12.2023 23:59. To do this, it sets the attributes in the message:
+  * `observationTimeType` = `READING_TIME`
+  * `observationTime` = `2023-12-31T23:59:59+02:00`
+
+> [!WARNING]
+> At the moment, the `observationTimeType` = `SNAPSHOT_TIME` and `observationTime` combination (example nr 2) is not supported. Development task is created and planned to be finished during year 2024.
 
 ### Requesting metering data via the web interface
 
@@ -176,17 +190,3 @@ Metering data can be requested by navigating to "Metering data" page. There mete
 |-----------------------------------------|-------------------|
 | `POST /api/{version}/meter-data/search` | Find meter data   |
 | `POST /api/{version}/meter-data/export` | Export meter data |
-
-For a description of message structures and validations, see [Datahub description and general principles for data exchange](01-datahub-description-and-general-principles-for-data-exchange.md)
-
-> [!NOTE]
-> A collection of sample messages is being created
-
-#### Message rules
-
-- When searching for the Metering Data, the Market Participant can define the observation type and time. Following options are available:
-  - READING_TIME - when observation time is provided, then system finds stored metering data by sent reading time values. 
-  - SNAPSHOT_TIME - when observation time is provided, then system finds stored metering data by creation time in the Datahub.
-
-> [!NOTE]
-> The rights for transmitting and requesting data are described in [Authentication and authorisation](03-authentication-and-authorisation.md)

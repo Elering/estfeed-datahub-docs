@@ -152,7 +152,7 @@ Rollid:
 
 | Roll                          | `marketParticipantIdentification` kood |
 |-------------------------------|----------------------------------------|
-| Avatud tarnija                | OPEN_SUPPLIER                          |
+| Avatud või nimetatud tarnija  | OPEN_SUPPLIER                          |
 | Võrguettevõtja                | GRID_OPERATOR                          |
 | Suletud jaotusvõrgu ettevõtja | CLOSED_DISTRIBUTION_NETWORK            |
 | Liinivaldaja                  | LINE_OPERATOR                          |
