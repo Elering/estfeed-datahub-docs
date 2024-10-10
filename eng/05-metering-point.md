@@ -214,10 +214,10 @@ In general, all authorised users can request metering point data using the `sear
 
 | Message                                     | Objective                                                                                                                                             |
 |---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code's §8(5) check) |
-| `POST /api/{version}/meter/search/customer` | Find any Metering Point by Customer EIC **to create a new SUPPLY agreement**                                                                          |
+| `POST /api/{version}/meter/search`          | Find Metering Points by attributes (check paragraph below for rules)                                                                                  |
+| `POST /api/{version}/meter/search/customer` | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code's §8(5) check) |
 | `POST /api/{version}/meter/search/border`   | Get border Metering Points by customer                                                                                                                |
-| `POST /api/{version}/meter/export`          | Export **own** Metering Points by attributes                                                                                                          |
+| `POST /api/{version}/meter/export`          | Export Metering Points by attributes (check paragraph below for rules)                                                                                |
 | `POST /api/{version}/eic/amount`            | Find unused EIC codes from **own** EIC range                                                                                                          |
 | `POST /api/{version}/eic/range`             | Find **own** EIC ranges                                                                                                                               |
 
@@ -226,7 +226,7 @@ In general, all authorised users can request metering point data using the `sear
 
 #### Message rules
 
-##### `meter/search` rules
+##### `meter/search` and `meter/export` rules
 
 - The Datahub returns all data of the Metering Point if:
   - requester is the owner of the Metering Point

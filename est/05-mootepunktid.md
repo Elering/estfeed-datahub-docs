@@ -212,10 +212,10 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 | Sõnum                                       | Eesmärk                                                                                                                                                                                                         |
 |---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks) |
-| `POST /api/{version}/meter/search/customer` | Kliendi kõikide mõõtepunktide otsing **uue SUPPLY lepingu loomiseks**                                                                                                                                           |
+| `POST /api/{version}/meter/search`          | Mõõtepunktide otsing erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                        |
+| `POST /api/{version}/meter/search/customer` | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks) |
 | `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                                                                                                                                                                                         |
-| `POST /api/{version}/meter/export`          | **Enda** mõõtepunktide eksportimine                                                                                                                                                                             |
+| `POST /api/{version}/meter/export`          | Mõõtepunktide eksportimine erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                  |
 | `POST /api/{version}/eic/amount`            | **Enda** EIC vahemikust vabade EIC koodide otsing                                                                                                                                                               |
 | `POST /api/{version}/eic/range`             | Turusalise **enda** EIC koodi vahemike otsing                                                                                                                                                                   |
 
@@ -224,7 +224,7 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 #### Sõnumite reeglid
 
-##### `meter/search` reeglid
+##### `meter/search` ja `meter/export` reeglid
 
 - Andmeladu väljastab kõik mõõtepunkti andmed juhul kui:
   - andmete pärija on mõõtepunkti omanik
