@@ -1,3 +1,20 @@
+## [EDH-3299] Release 0.18.1
+
+- __2024-10-14__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type | Priority|                  Title                 |
+|-----------|------|---------|----------------------------------------|
+|  EDH-3291 |  Bug |  Medium |  ERROR: Metering data processing fails |
+
+## [EDH-3275] Release 0.18.0
+
+- __2024-10-14__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type | Priority|                                         Title                                         |
+|-----------|------|---------|---------------------------------------------------------------------------------------|
+|  EDH-2636 |  Bug |  Medium |                  Estonian Customer can be created without PERSONAL_ID                 |
+|  EDH-2623 |  Bug |  Minor  |  Latitude/Longitute coordinate fields not shown in the "Edit" modal of Metering Point |
+
 ## [EDH-3250] Release 0.17.1
 
 - __2024-10-08__ - released to __TEST-PUBLIC__
@@ -26,14 +43,14 @@
 
 |                                  Issue                                 |  Type  |  Priority |                                                     Title                                                     |
 |------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------|
-|  [EDH-3020](https://github.com/Elering/estfeed-datahub-docs/issues/59) |   Bug  |   Medium  |                        Missing DD messages (GRID change deletes SUPPLY and changes GS)                        |
+|                                EDH-3020                                |   Bug  |   Medium  |                        Missing DD messages (GRID change deletes SUPPLY and changes GS)                        |
 |                                EDH-3038                                |   Bug  |   Medium  |      When downloading metering data for longer period of time only 3,5 months worth of data is downloaded     |
 |                                EDH-2975                                |   Bug  |  Critical |                    Cannot upload metering data on autumn clock change (03 hour duplicated)                    |
 |                                EDH-2898                                |   Bug  |   Minor   |                         Meter data template quantity values should be in 0,000 format                         |
 |  [EDH-3157](https://github.com/Elering/estfeed-datahub-docs/issues/78) |   Bug  |  Critical |                           Grid agreement can't be added in roles PO, LO, CO and CDN                           |
-|  [EDH-3016](https://github.com/Elering/estfeed-datahub-docs/issues/58) |   Bug  |   Medium  |                             Not possible to add grid agreement with 1 day duration                            |
+|                                EDH-3016                                |   Bug  |   Medium  |                             Not possible to add grid agreement with 1 day duration                            |
 |                                EDH-2664                                |   Bug  |   Medium  |                                 Delete data duplication in swagger definitions                                |
-|  [EDH-3064](https://github.com/Elering/estfeed-datahub-docs/issues/62) |   Bug  |  Critical |              "meter/search/customer" returns different amount of MP-s if legalConsent=true/false              |
+|                                EDH-3064                                |   Bug  |  Critical |              "meter/search/customer" returns different amount of MP-s if legalConsent=true/false              |
 |                                EDH-2928                                |   Bug  |   Medium  |  /agreement/search/meter serviceProviderName history displays only the latest version of the name in response |
 |                                EDH-2815                                |  Story |  Highest  |                               [OPP-BE] Improve performance of Meter Data Export                               |
 
@@ -44,7 +61,7 @@
 |                                  Issue                                 |  Type  |  Priority |                                                        Title                                                        |
 |------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------------|
 |                                EDH-3100                                |   Bug  |  Critical |                               Reports fail due to not being able to handle meter data                               |
-|  [EDH-3000](https://github.com/Elering/estfeed-datahub-docs/issues/55) |   Bug  |   Medium  |                  Generate metering point EIC codes "Copy" button gives empty success message on UI                  |
+|                                EDH-3000                                |   Bug  |   Medium  |                  Generate metering point EIC codes "Copy" button gives empty success message on UI                  |
 |  [EDH-2914](https://github.com/Elering/estfeed-datahub-docs/issues/70) |   Bug  |   Medium  |  [UI] Connection state change reply as Open Supplier gets error about preferredDate that is not displayed in the UI |
 |                                EDH-2890                                |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
 |                                EDH-3102                                |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
@@ -58,25 +75,25 @@
 
 - __2024-09-17__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                         Title                                        |
-|------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------------------------------|
-|                                EDH-3028                                |   Bug  |   Medium  |          Role OPEN_SUPPLIER missing role type VIEW_BALANCE_SETTLEMENT_POINT          |
-|                                EDH-2890                                |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
-|                                EDH-3075                                |   Bug  |  Critical |                    GENERAL_SERVICE agreement has no valid_to date                    |
-|  [EDH-2970](https://github.com/Elering/estfeed-datahub-docs/issues/54) |   Bug  |   Medium  |      Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP     |
-|                                EDH-2900                                |  Story |  Highest  |                       [RPT-BE] Improve performance of Reporting                      |
+|   Issue   |  Type  |  Priority |                                         Title                                        |
+|-----------|--------|-----------|--------------------------------------------------------------------------------------|
+|  EDH-3028 |   Bug  |   Medium  |          Role OPEN_SUPPLIER missing role type VIEW_BALANCE_SETTLEMENT_POINT          |
+|  EDH-2890 |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
+|  EDH-3075 |   Bug  |  Critical |                    GENERAL_SERVICE agreement has no valid_to date                    |
+|  EDH-2970 |   Bug  |   Medium  |      Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP     |
+|  EDH-2900 |  Story |  Highest  |                       [RPT-BE] Improve performance of Reporting                      |
 
 ## [EDH-3012] Release 0.13.0
 
 - __2024-09-03__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                              Title                                              |
-|------------------------------------------------------------------------|--------|-----------|-------------------------------------------------------------------------------------------------|
-|                                EDH-2917                                |   Bug  |  Critical |              TraceId missing from reporting endpoints after the move to rpt service             |
-|                                EDH-2951                                |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
-|  [EDH-2970](https://github.com/Elering/estfeed-datahub-docs/issues/54) |   Bug  |   Medium  |           Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP           |
-|                                EDH-2955                                |  Story |   Medium  |  [OPP] Remove version from joint invoice search response and latestVersionOnly from the request |
-|                                EDH-2750                                |  Story |  Highest  |      [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign      |
+|   Issue   |  Type  |  Priority |                                              Title                                              |
+|-----------|--------|-----------|-------------------------------------------------------------------------------------------------|
+|  EDH-2917 |   Bug  |  Critical |              TraceId missing from reporting endpoints after the move to rpt service             |
+|  EDH-2951 |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
+|  EDH-2970 |   Bug  |   Medium  |           Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP           |
+|  EDH-2955 |  Story |   Medium  |  [OPP] Remove version from joint invoice search response and latestVersionOnly from the request |
+|  EDH-2750 |  Story |  Highest  |      [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign      |
 
 ## [EDH-2920] Release 0.12.0
 
@@ -275,7 +292,7 @@
 
 |   Issue   |  Type  | Priority|                                                              Title                                                             |
 |-----------|--------|---------|--------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2367 |   Bug  |  Medium |                                             [DD] swagger sample does not contain id                                            |
+|  EDH-2367 |   Bug  |  Medium |                                        [MPM] Improve agreement sync flow with new status                                       |
 |  EDH-2209 |   Bug  |  Medium |                                     [DD] SUPPLY agreement is distributed to named supplier                                     |
 |  EDH-1926 |   Bug  |  Minor  |                                [MPD] NetworkBill for ELECTRICITY allows "measurementUnit": "M3"                                |
 |  EDH-2279 |   Bug  |  Minor  |                               POST /meter/search/customer response contains versions information                               |
