@@ -1,3 +1,13 @@
+## [EDH-3315] Release 0.18.2
+
+- __2024-10-16__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                 |  Type  |  Priority |                                      Title                                      |
+|------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------|
+|  [EDH-3308](https://github.com/Elering/estfeed-datahub-docs/issues/90) |   Bug  |  Critical |                 "POST /meter-data" has random lags in processing                |
+|  [EDH-3321](https://github.com/Elering/estfeed-datahub-docs/issues/96) |   Bug  |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
+|  [EDH-3319](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |                 Data distribution search is slow in GO-LIVE test                |
+
 ## [EDH-3299] Release 0.18.1
 
 - __2024-10-14__ - released to __TEST-PUBLIC__
@@ -65,7 +75,7 @@
 |  [EDH-2914](https://github.com/Elering/estfeed-datahub-docs/issues/70) |   Bug  |   Medium  |  [UI] Connection state change reply as Open Supplier gets error about preferredDate that is not displayed in the UI |
 |                                EDH-2890                                |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
 |                                EDH-3102                                |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
-|  [EDH-3084](https://github.com/Elering/estfeed-datahub-docs/issues/68) |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
+|                                EDH-3084                                |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
 |                                EDH-3156                                |  Story |  Critical |                    [BREAKING CHANGE] DD limit findDataDistributions response max pageSize to 100                    |
 |                                EDH-3024                                |  Story |  Highest  |                           Update DD rules for SUPPLY agreement in case of automatic delete                          |
 |                                EDH-3017                                |  Story |  Highest  |                                   DD messages about (BORDER_)GRID agreement delete                                  |
