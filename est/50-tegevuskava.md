@@ -53,5 +53,5 @@
 | Raport                               | `POST` | /api/v1/report/search                    | Raportite otsing                                                 | Valmis    |
 | Ühisarve võrguarve                   | `PUT`  | /api/v1/joint-invoice                    | Ühisarve võrguarve muutmine                                      | Valmis    |
 | Andmete levitamine                   | `POST` | /api/v1/data-distribution/search         | Erinevate andmeobjektide muudatuste teavitused                   | Valmis    |
-| Kooskõlastusega lepingute muudatused | -      | -                                        | -                                                                | 2024.01   |
+| Kooskõlastusega lepingute muudatused | -      | -                                        | -                                                                | 2025.01   |
 | Kliendi pöördumised                  | -      | -                                        | -                                                                | 2025      |
