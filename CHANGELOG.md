@@ -2,11 +2,11 @@
 
 - __2024-10-16__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                      Title                                      |
-|------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------|
-|  [EDH-3308](https://github.com/Elering/estfeed-datahub-docs/issues/90) |   Bug  |  Critical |                 "POST /meter-data" has random lags in processing                |
-|  [EDH-3321](https://github.com/Elering/estfeed-datahub-docs/issues/96) |   Bug  |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
-|  [EDH-3319](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |                 Data distribution search is slow in GO-LIVE test                |
+|                                  Issue                                 | Type |  Priority |                                      Title                                      |
+|------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
+|  [EDH-3308](https://github.com/Elering/estfeed-datahub-docs/issues/90) |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
+|  [EDH-3321](https://github.com/Elering/estfeed-datahub-docs/issues/96) |  Bug |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
+|  [EDH-3319](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
 
 ## [EDH-3299] Release 0.18.1
 
@@ -68,18 +68,18 @@
 
 - __2024-09-19__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                                        Title                                                        |
-|------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------------|
-|                                EDH-3100                                |   Bug  |  Critical |                               Reports fail due to not being able to handle meter data                               |
-|                                EDH-3000                                |   Bug  |   Medium  |                  Generate metering point EIC codes "Copy" button gives empty success message on UI                  |
-|  [EDH-2914](https://github.com/Elering/estfeed-datahub-docs/issues/70) |   Bug  |   Medium  |  [UI] Connection state change reply as Open Supplier gets error about preferredDate that is not displayed in the UI |
-|                                EDH-2890                                |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
-|                                EDH-3102                                |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
-|                                EDH-3084                                |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
-|                                EDH-3156                                |  Story |  Critical |                    [BREAKING CHANGE] DD limit findDataDistributions response max pageSize to 100                    |
-|                                EDH-3024                                |  Story |  Highest  |                           Update DD rules for SUPPLY agreement in case of automatic delete                          |
-|                                EDH-3017                                |  Story |  Highest  |                                   DD messages about (BORDER_)GRID agreement delete                                  |
-|                                EDH-3081                                |  Story |  Critical |                          Metering data read pagination needs to cover 1 year metering data                          |
+|   Issue   |  Type  |  Priority |                                                        Title                                                        |
+|-----------|--------|-----------|---------------------------------------------------------------------------------------------------------------------|
+|  EDH-3100 |   Bug  |  Critical |                               Reports fail due to not being able to handle meter data                               |
+|  EDH-3000 |   Bug  |   Medium  |                  Generate metering point EIC codes "Copy" button gives empty success message on UI                  |
+|  EDH-2914 |   Bug  |   Medium  |  [UI] Connection state change reply as Open Supplier gets error about preferredDate that is not displayed in the UI |
+|  EDH-2890 |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
+|  EDH-3102 |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
+|  EDH-3084 |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
+|  EDH-3156 |  Story |  Critical |                    [BREAKING CHANGE] DD limit findDataDistributions response max pageSize to 100                    |
+|  EDH-3024 |  Story |  Highest  |                           Update DD rules for SUPPLY agreement in case of automatic delete                          |
+|  EDH-3017 |  Story |  Highest  |                                   DD messages about (BORDER_)GRID agreement delete                                  |
+|  EDH-3081 |  Story |  Critical |                          Metering data read pagination needs to cover 1 year metering data                          |
 
 ## [EDH-3099] Release 0.14.0
 
