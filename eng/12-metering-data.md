@@ -48,12 +48,18 @@ Relevant Datahub services have been set up to transmit metering data. The intend
   - `PROCESSING` - processing not finished
   - `SUCCESSFUL` - processing finished successfully
   - `ERROR` - processing finished with errors.
+  - `PARTIALLY_SUCCESSFUL` - processing finished partially successfully (for example, the message contained multiple metering points and processing of some metering point's data failed)
 - If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the `data-distribution/search` service. For more details, see [Data distribution](30-data-distribution.md).
 - If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
 
 > [!WARNING]
 > **PLEASE NOTE! The Datahub transmits the metering data entered by the grid operators in unaltered form. The Datahub does not check the content of the metering data.**
+
+> [!NOTE]
+> It is worth knowing that there is a very small, but in theory still possible situation where the Data Warehouse receives a metering data message and responds with a "processing started" response, but in reality the message remains unprocessed and no ´meter_data_status´ record is created about it either.
+> The metering point manager should keep track of what has been received from each metering data message and whether the processing ended with a result. If some of the metering data messages do not receive any result, it must be assumed that an unexpected problem occurred in the Datahub when processing the metering data (e.g. unexpected shut down of the application) and the metering data must be transmitted again.
+> There are different options for monitoring the results. E.g. check the status one by one based on `originalDocumentIdentification` (in case the data volumes are small) or scan the `SUCCESSFUL` and `ERROR` statuses and internally keep track of which messages have reached the final state
 
 ### Transmitting metering data via the web interface
 
