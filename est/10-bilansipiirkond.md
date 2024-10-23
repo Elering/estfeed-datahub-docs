@@ -43,6 +43,9 @@ Kasutatakse bilansihaldurile ja süsteemihaldurile bilansihalduri piirkonnas toi
 
 ## Masinliidese sõnumid
 
+> [!IMPORTANT]
+> Teenus `change` on ajutiselt suletud. 
+
 | Sõnum                                                 | Eesmärk                                                             |
 |-------------------------------------------------------|---------------------------------------------------------------------|
 | `POST /api/{version}/balance-settlement-point/change` | Võimaldab otsida bilansiselgituse mõõtepunktide muudatusi           |

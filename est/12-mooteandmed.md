@@ -12,6 +12,7 @@
       * [Sõnumid](#sõnumid)
       * [Sõnumite reeglid](#sõnumite-reeglid)
   * [Mõõteandmete päringud](#mõõteandmete-päringud)
+    * [legalConsent](#legalconsent)
     * [Aja tüüp](#aja-tüüp)
     * [Mõõteandmete otsimine veebiliidese kaudu](#mõõteandmete-otsimine-veebiliidese-kaudu)
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
@@ -159,6 +160,17 @@ Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
 - Avatud tarnija, nimetatud müüja ja portfelliteenuse pakkuja skaneerib mõõteandmete muudatusi kasutades teenust `data-distribution/search`
 - Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
+
+### legalConsent
+
+Nii füüsiline kui ka juriidiline isik saab läbi kliendiportaali anda andmetele ligipääsuõiguse, nagu kirjeldatud peatükis [Rollipõhised ligipääsuõigused](03.01-rollipohised-ligipaasuoigused.md)
+
+Kui füüsiliste isikute ligipääsuõigus on oma olemuselt absoluutne, siis juriidiliste isikute puhul on võimalik ka alternatiivne töövoog, kus juriidiline isik on andnud ligipääsuõiguse Andmelao ja kliendiportaali väliselt, kuid kirjalikus taasesitamist võimaldavad vormis otse avatud tarnijale.
+
+Sellise olukorra olemasolu saab avatud tarnija `search` teenuses kinnitada, lisades päringusse `"legalConsent": true`. Sellisel juhul on avatud tarnijal võimalik pärida mistahes mõõtepunkti mõõteandmeid eeldusel, et mõõtepunkti võrgulepingu kliendiks on juriidiline isik või organisatsioon.
+
+> [!CAUTION] 
+> `"legalConsent": true` kasutamine on lubatud vaid kliendi volituse olemasolul ja selle õiguspärast kasutamist monitooritakse
 
 ### Aja tüüp
 

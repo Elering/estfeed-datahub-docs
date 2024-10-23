@@ -12,6 +12,7 @@
       * [Messages](#messages)
       * [Message rules](#message-rules)
   * [Metering data requests](#metering-data-requests)
+    * [legalConsent](#legalconsent)
     * [Observation time type](#observation-time-type)
     * [Requesting metering data via the web interface](#requesting-metering-data-via-the-web-interface)
     * [API messages](#api-messages-1)
@@ -159,6 +160,17 @@ The following options are available for making metering data requests:
 
 - Open suppliers, named suppliers and portfolio providers can scan metering data changes using the `data-distribution/search` service.
 - Authorised users can request metering data using the `search` service.
+
+### legalConsent
+
+Both physical and legal persons can grant access rights to data through the client portal. The rules are described in [Role-based access rights](03.01-role-based-access-rights.md).
+
+Physical person data can only be queried when the client has given access rights through the client portal. For legal persons and organizations there is an alternative workflow where the legal person or organization gives access outside the system. In this case the right has to be given in written form and the open supplier needs to be able to prove it exists.
+
+In this case Open Supplier can add `"legalConsent": true` to `search` service. This allows metering data to be requested for any metering point, as long as the customer that has grid agreement is a legal person or organization.
+
+> [!CAUTION] 
+> It is only allowed to use `"legalConsent": true` when open supplier has customer's written authorization to request data. Legitimate usage of this service is monitored.
 
 ### Observation time type
 

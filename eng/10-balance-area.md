@@ -43,6 +43,9 @@ Used to forward changes in the area of the balance responsible party to the bala
 
 ## API messages
 
+> [!IMPORTANT]
+> `change` service is temporarily disabled.
+
 | Message                                               | Objective                                                                            |
 |-------------------------------------------------------|--------------------------------------------------------------------------------------|
 | `POST /api/{version}/balance-settlement-point/change` | Allows the user to search for the balance area changes                               |
