@@ -17,6 +17,7 @@
     * [Grid operator open supplier report](#grid-operator-open-supplier-report)
     * [Balance management report](#balance-management-report)
     * [Balance responsible party report No. 2](#balance-responsible-party-report-no-2)
+    * [BHT report](#bht-report)
 <!-- TOC -->
 
 ## Introduction
@@ -27,7 +28,7 @@ The Datahub regularly generates reports for open suppliers, grid operators and b
 
 Summary reports are calculated and forwarded according to the following schedule:
 
-- Daily reports by 14:00 with the previous day’s metering data (including metering data from the beginning of the current calendar month).
+- Daily reports approximately by 14:00 with the previous day’s metering data (including metering data from the beginning of the current calendar month).
 - On the 1st day of the calendar month, the metering data from two and three months back are calculated retrospectively per calendar month.
 - On the 8th day of the calendar month (00:00-01:00 in the first balance period), the metering data for the previous calendar month are calculated, which form the basis for the initial balance report.
 
@@ -64,15 +65,18 @@ All reports contain data for one calendar month. Most of the reports have been p
 
 ### Grid operator report
 
+> [!WARNING] 
+> Grid Operator report currently has partly wrong values, fix is not part of the MVP. Issue can be seen [here](https://github.com/Elering/estfeed-datahub-docs/issues/83).
+
 Recipients:
 
 - **Grid operators**.
 
 Frequency:
 
-- Once a day, D+1 data are aggregated at 11:00 (transmission at 11:00).
-- Once a month, on the 8th of the month, the M+1 data are aggregated at 03:00 (transmission at 10:00).
-- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 03:00 (transmission at 07:00).
+- Once a day, D+1 data are aggregated at 10:00 (transmission approximately at 14:00).
+- Once a month, on the 8th of the month, the M+1 data are aggregated at 00:00 (transmission approximately at 10:00).
+- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 00:00 (transmission approximately at 07:00).
 
 Data:
 
@@ -117,18 +121,15 @@ Column descriptions:
 
 ### Open supplier report
 
-> [!WARNING] 
-> Open suppliers are not in the initial scope
-
 Recipients:
 
 - **Open suppliers**
 
 Frequency:
 
-- Once a day, D+1 data are aggregated at 11:00 (transmission at 11:00).
-- Once a month, on the 8th of the month, the M+1 data are aggregated at 03:00 (transmission at 10:00).
-- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 03:00 (transmission at 07:00).
+- Once a day, D+1 data are aggregated at 10:00 (transmission approximately at 14:00).
+- Once a month, on the 8th of the month, the M+1 data are aggregated at 00:00 (transmission approximately at 10:00).
+- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 00:00 (transmission approximately at 07:00).
 
 Data:
 
@@ -189,9 +190,9 @@ Recipients:
 
 Frequency:
 
-- Once a day, D+1 data are aggregated at 11:00 (transmission at 11:00).
-- Once a month, on the 8th of the month, the M+1 data are aggregated at 03:00 (transmission at 10:00).
-- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 03:00 (transmission at 07:00).
+- Once a day, D+1 data are aggregated at 10:00 (transmission approximately at 14:00).
+- Once a month, on the 8th of the month, the M+1 data are aggregated at 00:00 (transmission approximately at 10:00).
+- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 00:00 (transmission approximately at 07:00).
 
 Data:
 
@@ -248,9 +249,9 @@ Recipients:
 
 Frequency:
 
-- Once a day, D+1 data are aggregated at 11:00 (transmission at 11:00).
-- Once a month, on the 8th of the month, the M+1 data are aggregated at 03:00 (transmission at 10:00).
-- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 03:00 (transmission at 07:00).
+- Once a day, D+1 data are aggregated at 10:00 (transmission approximately at 14:00).
+- Once a month, on the 8th of the month, the M+1 data are aggregated at 00:00 (transmission approximately at 10:00).
+- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 00:00 (transmission approximately at 07:00).
 
 Data:
 
@@ -294,9 +295,9 @@ Recipients:
 
 Frequency:
 
-- Once a day, D+1 data are aggregated at 11:00 (transmission at 11:00).
-- Once a month, on the 8th of the month, the M+1 data are aggregated at 03:00 (transmission at 10:00).
-- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 03:00 (transmission at 07:00).
+- Once a day, D+1 data are aggregated at 10:00 (transmission approximately at 14:00).
+- Once a month, on the 8th of the month, the M+1 data are aggregated at 00:00 (transmission approximately at 10:00).
+- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 00:00 (transmission approximately at 07:00).
 
 Data:
 
@@ -324,3 +325,30 @@ Column descriptions:
   - Amounts leaving a grid of a GO in the balance responsible party’s portfolio to a general service end customer with a grid agreement, kWh – Pout amount leaving the grid of the grid operator (consumption) (outQtyPortfolioLastResortSupply)
   - Grid loss of a GO in the balance responsible party’s portfolio (qtyLosses)
   - Number of metering points, pcs (meteringPointsTotal)
+
+### BHT report
+
+> [!NOTE]
+> BHT report is primarly meant for Elering however balance providers can access their BHT reports.
+
+Recipients:
+
+- **Balance responsible parties**
+- **Elering AS**
+
+Frequency:
+
+- Once a month, on the 8th of the month, the M+1 data are aggregated at 00:00 (transmission approximately at 10:00).
+- Once a month, on the 1st of the month, M+2 and M+3 data are aggregated at 00:00 (transmission approximately at 07:00).
+
+Column descriptions:
+
+BHT report values are calculated based on Balance Provider report.
+
+- **PAGE "USS_RAPORT"**
+  - Balance responsible party EIC (balanceProviderEic)
+  - Balance period – time (date + time) marking the beginning of the balance period (DateTime)
+  - Production - Production in metering points that belong to the balance provider portfolio but grid operator belong to another portfolio. From these values metering points where grid operator belongs to the balance provider portfolio but open supplier does not are subtracted. Isolated metering points are counted as well. (Portfolio Production)
+  - Consumption - Consumption in metering points that belong to the balance provider portfolio but grid operator belong to another portfolio. From these values metering points where grid operator belongs to the balance provider portfolio but open supplier does not are subtracted. Isolated metering points are counted as well. (Portfolio Consumption)
+  - Saldo - is being calculated based on previous columns: Portfolio Production - Portfolio Consumption (Portfolio Saldo)
+  

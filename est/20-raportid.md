@@ -17,6 +17,7 @@
     * [Võrguettevõtja avatud tarnija raport](#võrguettevõtja-avatud-tarnija-raport)
     * [Bilansihalduse raport](#bilansihalduse-raport)
     * [Bilansihalduri raport No2](#bilansihalduri-raport-no2)
+    * [BHT raport](#bht-raport)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -27,7 +28,7 @@ Andmeladu koostab regulaarselt avatud tarnijale, võrguettevõtjale ja bilansiha
 
 Koondraportid arvutatakse ja edastatakse järgmise ajakavaga:
 
-- Iga päev kella 14.00ks eelmise päeva mõõteandmetega raportid (sh on mõõteandmeid kehtiva kalendrikuu algusest alates);
+- Iga päev orienteeruvalt kella 14.00ks eelmise päeva mõõteandmetega raportid (sh on mõõteandmeid kehtiva kalendrikuu algusest alates);
 - Kalendrikuu 1. kuupäeval arvutatakse tagasiulatuvalt kaks kuud ja kolm kuud tagasi mõõteandmed kalendrikuu kohta;
 - Kalendrikuu 8. kuupäeval (esimesel bilansiperioodil 00.00-01.00) arvutatakse eelmise kalendrikuu mõõteandmed, mis on aluseks esialgseks bilansiaruandeks.
 
@@ -64,15 +65,18 @@ Kõik raportid sisaldavad ühe kalendrikuu andmeid. Enamus raportid on koostatud
 
 ### Võrguettevõtja raport
 
+> [!WARNING] 
+> Võrguettevõtja raport sisaldab osaliselt vale infot, parandus valmib hiljem. Probleem on kirjeldatud [siin](https://github.com/Elering/estfeed-datahub-docs/issues/83).
+
 Saajad:
 
 - **Võrguettevõtjad**.
 
 Sagedus:
 
-- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00).
-- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00).
-- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00).
+- Kord ööpäevas toimub D+1 andmete agregeerimine kell 10.00 (saatmine orienteeruvalt kell 14.00).
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 07.00).
 
 Andmed:
 
@@ -117,18 +121,15 @@ Veergude kirjeldus:
 
 ### Avatud tarnija raport
 
-> [!WARNING] 
-> Avatud tarnija ei ole esialgses skoobis
-
 Saajad:
 
 - **Avatud tarnijad**
 
 Sagedus:
 
-- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00).
-- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00).
-- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00).
+- Kord ööpäevas toimub D+1 andmete agregeerimine kell 10.00 (saatmine orienteeruvalt kell 14.00).
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 07.00).
 
 Andmed:
 
@@ -189,9 +190,9 @@ Saajad:
 
 Sagedus:
 
-- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00).
-- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00).
-- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00).
+- Kord ööpäevas toimub D+1 andmete agregeerimine kell 10.00 (saatmine orienteeruvalt kell 14.00).
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 07.00).
 
 Andmed:
 
@@ -248,9 +249,9 @@ Saajad:
 
 Sagedus:
 
-- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00).
-- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00).
-- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00).
+- Kord ööpäevas toimub D+1 andmete agregeerimine kell 10.00 (saatmine orienteeruvalt kell 14.00).
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 07.00).
 
 Andmed:
 
@@ -294,9 +295,9 @@ Saajad:
 
 Sagedus:
 
-- Kord ööpäevas toimub D+1 andmete agregeerimine kell 11.00 (saatmine kell 11.00).
-- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 03.00 (saatmine kell 10.00).
-- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 03.00 (saatmine kell 07.00).
+- Kord ööpäevas toimub D+1 andmete agregeerimine kell 10.00 (saatmine orienteeruvalt kell 14.00).
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 07.00).
 
 Andmed:
 
@@ -324,3 +325,29 @@ Veergude kirjeldus:
   - BH portfellis GO võrgust väljunud kogus võrgulepinguga üldteenuse lõppkliendile, kWh – võrguettevõtja võrgust väljunud kogus Pout (tarbimine) (outQtyPortfolioLastResortSupply)
   - BH portfellis GO võrgukadu (qtyLosses)
   - Mõõtepunktide arv, tk (meteringPointsTotal)
+
+### BHT raport
+
+> [!NOTE]
+> BHT raport on mõeldud Eleringile, kuid bilansihalduritel on ligipääs enda BHT raportitele
+
+Saajad:
+
+- **Bilansihaldurid**
+- **Elering AS**
+
+Sagedus:
+
+- Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 10.00).
+- Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine kell 00.00 (saatmine orienteeruvalt kell 07.00).
+
+Veergude kirjeldus:
+
+BHT raporti väärtused tulenevad bilansihalduri raportist.
+
+- **Leht "USS_RAPORT"**
+  - Bilansihalduri EIC – bilansihalduri EIC kood (balanceProviderEic)
+  - Bilansiperiood – bilansiperioodi algust tähistav aeg (kuupäev + kellaaeg) (DateTime)
+  - Tootmine - Tootmine mõõtepunktides, mis on bilansihalduri portfellis, kuid võrguettevõtja ei ole samas portfellis. Sellest lahutatakse kogused, kus võrguettevõtja kuulub bilansihalduri portfelli, kuid avatud tarnija kuulub teise bilansihalduri portfelli. Arvesse võetakse ka isoleeritud mõõtepunktide kogused. (Portfolio Production)
+  - Tarbimine - Tarbimine mõõtepunktides, mis on bilansihalduri portfellis, kuid võrguettevõtja ei ole samas portfellis. Sellest lahutatakse kogused, kus võrguettevõtja kuulub bilansihalduri portfelli, kuid avatud tarnija kuulub teise bilansihalduri portfelli. Arvesse võetakse ka isoleeritud mõõtepunktide kogused. (Portfolio Consumption)
+  - Saldo - arvutatakse eelnevate veergude põhjal valemiga: Portfolio Production - Portfolio Consumption (Portfolio Saldo)

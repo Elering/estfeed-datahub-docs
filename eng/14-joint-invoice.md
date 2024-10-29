@@ -5,13 +5,14 @@
 * [Joint invoice](#joint-invoice)
   * [Table of contents](#table-of-contents)
   * [Introduction](#introduction)
-  * [Transmitting requesting a network bill](#transmitting-requesting-a-network-bill)
+  * [Transmitting and requesting a network bill](#transmitting-and-requesting-a-network-bill)
   * [Web interface](#web-interface)
   * [API messages](#api-messages)
   * [API message rules](#api-message-rules)
     * [Create or update joint invoice](#create-or-update-joint-invoice)
       * [Attribute specific rules](#attribute-specific-rules)
       * [Additional rules](#additional-rules)
+      * [Example messages](#example-messages)
     * [Find and download joint invoice](#find-and-download-joint-invoice)
       * [Attribute specific rules](#attribute-specific-rules-1)
       * [Additional rules](#additional-rules-1)
@@ -46,10 +47,11 @@ Relevant Datahub services have been set up to transmit and request joint invoice
 
 ### Create or update joint invoice
 
-Joint invoice contains of 2 sections:
+Joint invoice contains of these sections:
 
-- `jointInvoiceHeader`
-- `invoice`
+- `marketParticipantContext` section as for every REST message
+- `jointInvoiceHeadersList` - list of `jointInvoiceHeaders`. Contains the metadata of the joint invoice
+- `invoiceList` - list of `invoice` files in base64 format 
 
 The header contains the metadata and invoice contains the base64 of the joint invoice.
 
@@ -57,7 +59,7 @@ Joint invoices cannot be updated. In case of need for correction, the grid opera
 
 #### Attribute specific rules
 
-- Header data:
+- `jointInvoiceHeaders` header data:
 
 | Attribute       | Description                               | Mandatory? | Other rules                                                       |
 |-----------------|-------------------------------------------|------------|-------------------------------------------------------------------|
@@ -65,10 +67,14 @@ Joint invoices cannot be updated. In case of need for correction, the grid opera
 | receiverEic     | EIC code of the receiver                  | yes        |                                                                   |
 | commodityType   | Commodity type                            | yes        | One of: ELECTRICITY, NATURAL_GAS                                  |
 | customerEic     | EIC code of the customer                  | yes        |                                                                   |
-| meterEics       | EIC code(s) of the metering point(s)      | yes        |                                                                   |
+| meterEics       | EIC code(s) of the metering point(s)      | yes        | EIC codes of the metering point on the invoice                    |
 | dataPeriodStart | Start date and time of the invoice period | yes        |                                                                   |
 | dataPeriodEnd   | End date and time of the invoice period   | yes        |                                                                   |
 | fileName        | Name of the file on position "invoice"    | yes        | Has to be unique per message and match the file name of `invoice` |
+
+- `invoice` - i.e. the data of the file are:
+  - file name - must correspond to the value at position `jointInvoiceHeadersList.object.fileName` so that the system can match the file and its header together. Eg "joint_invoice.xml"
+  - file content - e-invoice XML encoded in base64 format
 
 #### Additional rules
 
@@ -76,6 +82,139 @@ Joint invoices cannot be updated. In case of need for correction, the grid opera
 - There must be a valid grid agreement between the sender and the customer, the validity of which covers the validity of the joint invoice.
 - There must be a valid open supply agreement between the receiver and the customer, the validity of which covers the validity of the joint invoice.
 - There must be exactly the same amount of headers and files in the message
+
+#### Example messages
+
+Since the `joint-invoice` message is in the `multipart/form-data` format, the sample messages below are not in exact but pseudo structure to convey the rules and logic of message delivery.
+
+<details>
+
+<summary>Example "One metering point, one invoice"</summary>
+
+```json
+"marketParticipantContext": {
+    "marketParticipantIdentification": "38X-EIN-GO-----0",
+    "marketParticipantRole": "GRID_OPERATOR",
+    "commodityType": "ELECTRICITY"
+},
+"jointInvoiceHeadersList": [
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-ZW6700C6",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-1000006K-N",
+        ],
+        "dataPeriodStart": "2024-10-23T00:00:00+03:00",
+        "dataPeriodEnd": "2024-10-24T00:00:00+03:00",
+        "fileName": "joint_invoice_1.xml"
+    }
+],
+"invoiceList": [
+    {
+        filename="joint_invoice_1.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    }
+]
+```
+
+</details>
+
+<details>
+
+<summary>Example "Multiple metering points on one invoice"</summary>
+
+```json
+"marketParticipantContext": {
+    "marketParticipantIdentification": "38X-EIN-GO-----0",
+    "marketParticipantRole": "GRID_OPERATOR",
+    "commodityType": "ELECTRICITY"
+},
+"jointInvoiceHeadersList": [
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-ZW6700C6",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-1000006K-N",
+            "38ZGO-1000006P-8"
+        ],
+        "dataPeriodStart": "2024-10-23T00:00:00+03:00",
+        "dataPeriodEnd": "2024-10-24T00:00:00+03:00",
+        "fileName": "joint_invoice_1.xml"
+    }
+],
+"invoiceList": [
+    {
+        filename="joint_invoice_1.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    }
+]
+```
+
+</details>
+
+<details>
+
+<summary>Example "Multiple invoices"</summary>
+
+```json
+"marketParticipantContext": {
+    "marketParticipantIdentification": "38X-EIN-GO-----0",
+    "marketParticipantRole": "GRID_OPERATOR",
+    "commodityType": "ELECTRICITY"
+},
+"jointInvoiceHeadersList": [
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-ZW6700C6",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-1000006K-N"
+        ],
+        "dataPeriodStart": "2024-10-23T00:00:00+03:00",
+        "dataPeriodEnd": "2024-10-24T00:00:00+03:00",
+        "fileName": "joint_invoice_1.xml"
+    },
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-V8JG00C9",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-10000030-L",
+            "38ZGO-10000031-I",
+            "38ZGO-10000032-F"
+        ],
+        "dataPeriodStart": "2024-10-01T00:00:00+03:00",
+        "dataPeriodEnd": "2024-11-01T00:00:00+03:00",
+        "fileName": "joint_invoice_2.xml"
+    }
+],
+"invoiceList": [
+    {
+        filename="joint_invoice_1.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    },
+    {
+        filename="joint_invoice_2.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    },
+]
+```
+
+</details>
 
 ### Find and download joint invoice
 

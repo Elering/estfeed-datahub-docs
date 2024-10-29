@@ -7,7 +7,15 @@
   * [Table of contents](#table-of-contents)
   * [Introduction](#introduction)
   * [Scanning data updates](#scanning-data-updates)
+    * [Reason](#reason)
   * [Distributing data updates](#distributing-data-updates)
+    * [General rules](#general-rules)
+    * [Metering point rules](#metering-point-rules)
+    * [Agreement rules](#agreement-rules)
+    * [Metering data rules](#metering-data-rules)
+    * [Network bill rules](#network-bill-rules)
+    * [Customer metadata rules](#customer-metadata-rules)
+    * [Customer authorization rules](#customer-authorization-rules)
   * [Structure of the message](#structure-of-the-message)
   * [Resource types](#resource-types)
     * [Agreement](#agreement)
@@ -81,7 +89,12 @@ Maximum allowed range of the ID-s (`idTo` minus `idFrom`) is 10000.
 > [!TIP]
 > To request messages for a longer period of time, it is possible to send several different requests for different periods. For example, the first message for the period 02.01.2024-03.01.2024 and the second for the period 01.01.2024-02.01.2024.
 
-The response message contains the "reason for change". This value helps the market participants to understand, why this change has happened. There are two types of values:
+### Reason
+
+The response message always has a `reason` attribute, which for AGREEMENT and METERING_POINT resource types helps to understand why this change occurred (since they can be changed).
+For the rest of the resource types, the value may be missing or always be `CREATE` because they have no lifecycle.
+
+The reasons for the change are as follows:
 
 - Fixed values - these values are always the same. They are so called "hard coded" and behave like an enum. Possible values are:
   - `CREATE` - data object got created

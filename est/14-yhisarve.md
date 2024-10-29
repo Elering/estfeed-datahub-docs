@@ -45,18 +45,17 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 
 ### Ühisarve lisamine ja muutmine
 
-Ühisarve sõnum koosneb kahest osast:
+Ühisarve sõnum koosneb järgmistest osadest:
 
-- `jointInvoiceHeader`
-- `invoice`
-
-Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisaldab ühisarvet ennast base64 kujul.
+- `marketParticipantContext` sektsioon nagu igal sõnumil
+- `jointInvoiceHeadersList` - nimekiri `jointInvoiceHeaders` ehk päise andmetest. Sisaldab ühisarve metaandmeid
+- `invoiceList` - nimekiri `invoice` ehk arve failidest base64 kujul
 
 Ühisarve muutmine ei ole võimalik. Muudatuste edastamiseks saadab võrguettevõtja või suletud jaotusvõrgu operaator uue kreedit ühisarve XML-i ja vajadusel täiendava ühisarve
 
 #### Sõnumi atribuutide reeglid
 
-- Päise andmed on:
+- `jointInvoiceHeaders` ehk päise andmed on:
 
 | Atribuut teenuses | Selgitus                                     | Kohustuslik? | Muud reeglid                                                                         |
 |-------------------|----------------------------------------------|--------------|--------------------------------------------------------------------------------------|
@@ -64,10 +63,14 @@ Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisalda
 | receiverEic       | Ühisarve adressaadi EIC kood                 | jah          |                                                                                      |
 | commodityType     | Energiakandja liik                           | jah          | Üks neist: ELECTRICITY, NATURAL_GAS                                                  |
 | customerEic       | Mõõtepunkti kliendi EIC kood                 | jah          |                                                                                      |
-| meterEics         | Mõõtepunkti(de) EIC koodid                   | jah          |                                                                                      |
+| meterEics         | Mõõtepunkti(de) EIC koodid                   | jah          | Arvel olevate mõõtepunktide EIC koodid                                               |
 | dataPeriodStart   | Ühisarve arveldusperioodi algus              | jah          |                                                                                      |
 | dataPeriodEnd     | Ühisarve arveldusperioodi lõpp               | jah          |                                                                                      |
 | fileName          | positsioonil "invoice" edastatava faili nimi | jah          | Peab ühe sõnumi piires olema unikaalne ja vastama failinimele positsioonil `invoice` |
+
+- `invoice` - ehk faili andmed on:
+  - faili nimi - peab vastama positsioonil `jointInvoiceHeadersList.object.fileName` väärtusele, et süsteem saaks faili ja tema päise omavahel kokku viia. Nt "joint_invoice.xml"
+  - faili sisu - base64 formaadis kodeeritud e-arve XML
 
 #### Täiendavad reeglid
 
@@ -75,6 +78,140 @@ Header ehk päis sisaldab ühisarve metaandmeid ja invoice ehk arve fail sisalda
 - Saatja ja kliendi vahel peab olema kehtiv võrguleping, mille kehtivus katab ühisarve kehtivuse.
 - Adressaadi ja kliendi vahel peab olema kehtiv avatud tarne leping, mille kehtivus katab ühisarve kehtivuse.
 - Päiseid ja faile peab sõnumis olema täpsel samas koguses
+
+#### Näidissõnumid
+
+Kuivõrd `joint-invoice` sõnum on `multipart/form-data` formaadis, siis alljärgnevad näidissõnumid pole täpses vaid pseudo struktuuris, et edasi anda sõnumi edastamise reegleid ja loogikat.
+
+<details>
+
+<summary>Näide "Üks mõõtepunkt, üks arve"</summary>
+
+```json
+"marketParticipantContext": {
+    "marketParticipantIdentification": "38X-EIN-GO-----0",
+    "marketParticipantRole": "GRID_OPERATOR",
+    "commodityType": "ELECTRICITY"
+},
+"jointInvoiceHeadersList": [
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-ZW6700C6",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-1000006K-N",
+        ],
+        "dataPeriodStart": "2024-10-23T00:00:00+03:00",
+        "dataPeriodEnd": "2024-10-24T00:00:00+03:00",
+        "fileName": "joint_invoice_1.xml"
+    }
+],
+"invoiceList": [
+    {
+        filename="joint_invoice_1.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    }
+]
+```
+
+</details>
+
+<details>
+
+<summary>Näide "Mitu mõõtepunkti ühel arvel"</summary>
+
+```json
+"marketParticipantContext": {
+    "marketParticipantIdentification": "38X-EIN-GO-----0",
+    "marketParticipantRole": "GRID_OPERATOR",
+    "commodityType": "ELECTRICITY"
+},
+"jointInvoiceHeadersList": [
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-ZW6700C6",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-1000006K-N",
+            "38ZGO-1000006P-8"
+        ],
+        "dataPeriodStart": "2024-10-23T00:00:00+03:00",
+        "dataPeriodEnd": "2024-10-24T00:00:00+03:00",
+        "fileName": "joint_invoice_1.xml"
+    }
+],
+"invoiceList": [
+    {
+        filename="joint_invoice_1.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    }
+]
+```
+
+</details>
+
+<details>
+
+<summary>Näide "Mitu arvet"</summary>
+
+```json
+"marketParticipantContext": {
+    "marketParticipantIdentification": "38X-EIN-GO-----0",
+    "marketParticipantRole": "GRID_OPERATOR",
+    "commodityType": "ELECTRICITY"
+},
+"jointInvoiceHeadersList": [
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-ZW6700C6",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-1000006K-N"
+        ],
+        "dataPeriodStart": "2024-10-23T00:00:00+03:00",
+        "dataPeriodEnd": "2024-10-24T00:00:00+03:00",
+        "fileName": "joint_invoice_1.xml"
+    },
+    {
+        "senderEic": "38X-EIN-GO-----0",
+        "receiverEic": "38X-EIN-OS-----J",
+        "customerEic": "38X-AVP-V8JG00C9",
+        "commodityType": "ELECTRICITY",
+        "meterEics": [
+            "38ZGO-10000030-L",
+            "38ZGO-10000031-I",
+            "38ZGO-10000032-F"
+        ],
+        "dataPeriodStart": "2024-10-01T00:00:00+03:00",
+        "dataPeriodEnd": "2024-11-01T00:00:00+03:00",
+        "fileName": "joint_invoice_2.xml"
+    }
+],
+"invoiceList": [
+    {
+        filename="joint_invoice_1.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    },
+    {
+        filename="joint_invoice_2.xml"
+
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVfSW52b2ljZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6bm9OY
+        W1lc3BhY2VTY2hlbWFMb2NhdGlvbj0iZS0KaW52b2ljZV92ZXIxLjExLnhzZCI+CjwvRV9JbnZvaWNlPg==
+    },
+]
+```
+
+</details>
+
 
 ### Ühisarvete otsing ja alla laadimine
 

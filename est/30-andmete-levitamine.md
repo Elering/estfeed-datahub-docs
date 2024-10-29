@@ -7,6 +7,7 @@
   * [Sisukord](#sisukord)
   * [Sissejuhatus](#sissejuhatus)
   * [Andmeuuenduste skaneerimine](#andmeuuenduste-skaneerimine)
+    * [Muudatuse põhjus (reason)](#muudatuse-põhjus-reason)
   * [Andmeuuenduste levitamine](#andmeuuenduste-levitamine)
     * [Üldreeglid](#üldreeglid)
     * [Mõõtepunkti reeglid](#mõõtepunkti-reeglid)
@@ -60,14 +61,14 @@ Liidestunud turuosalise süsteem skaneerib muudatuste API-t endale sobiva interv
 
 Päringu atribuudid
 
-| Atribuut        | Tüüp | Kohustuslik?                               | Märkused                                                                                            |
-|-----------------|------|--------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| createdTimeFrom | int  | yes, if idFrom/idTo  are not defined       | Sõnumi loomisaja algus                                                                              |
-| createdTimeTo   | int  | yes, if idFrom/idTo  are not defined       | Sõnumi loomisajal lõpp                                                                              |
-| idFrom          | int  | yes, if createdTimeFrom/To are not defined | Sõnumi ID algus                                                                                     |
-| idTo            | int  | yes, if createdTimeFrom/To are not defined | Sõnumi ID lõpp                                                                                      |
-| resourceType    | int  | yes                                        | Üks järgnevatest: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
-| pagination      | int  | yes                                        | Standardne pagineerimise sektsioon                                                                  |
+| Atribuut        | Tüüp | Kohustuslik?                         | Märkused                                                                                            |
+|-----------------|------|--------------------------------------|-----------------------------------------------------------------------------------------------------|
+| createdTimeFrom | int  | jah, kui idFrom/idTo puuduvad        | Sõnumi loomisaja algus                                                                              |
+| createdTimeTo   | int  | jah, if idFrom/idTo  puuduvad        | Sõnumi loomisajal lõpp                                                                              |
+| idFrom          | int  | jah, kui createdTimeFrom/To puuduvad | Sõnumi ID algus                                                                                     |
+| idTo            | int  | jah, kui createdTimeFrom/To puuduvad | Sõnumi ID lõpp                                                                                      |
+| resourceType    | int  | jah                                  | Üks järgnevatest: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
+| pagination      | int  | jah                                  | Standardne pagineerimise sektsioon                                                                  |
 
 Andmeobjekti tüübid on:
 
@@ -88,7 +89,12 @@ Maksimaalne lubatud sõnumi ID-de vahemik (`idTo` miinus `idFrom`) on 10000
 > [!TIP]
 > Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
 
-Vastussõnum sisaldab muudatuse põhjust (reason). See väärtus aitab turuosalistel mõista, miks see muudatus toimus. Väärtuseid on kahte tüüpi:
+### Muudatuse põhjus (reason)
+
+Vastussõnumis on alati atribuut `reason`, mis AGREEMENT ja METERING_POINT andmeobjekti puhul aitab mõista, miks see muudatus toimus (kuna neid saab muuta). 
+Ülejäänud andmeobjektide tüüpide puhul võib väärtus puududa või olla alati `CREATE`, sest nendel puudub elutsükkel.
+
+Muudatuse põhjused jagunevad järgmiselt:
 
 - Fikseeritud väärtused - need väärtused on alati samad. Nii öelda "hard coded" ja käituvad nagu loend (enum). Võimalikud väärtused on:
   - `CREATE` - andmeobjekt loodi
