@@ -65,9 +65,6 @@ Kõik raportid sisaldavad ühe kalendrikuu andmeid. Enamus raportid on koostatud
 
 ### Võrguettevõtja raport
 
-> [!WARNING] 
-> Võrguettevõtja raport sisaldab osaliselt vale infot, parandus valmib hiljem. Probleem on kirjeldatud [siin](https://github.com/Elering/estfeed-datahub-docs/issues/83).
-
 Saajad:
 
 - **Võrguettevõtjad**.
@@ -104,11 +101,11 @@ Veergude kirjeldus:
 - **LEHT "GO OS OUT"**:
   - Võrguettevõtja EIC – võrguettevõtja EIC kood (gridOperatorEIC)
   - Võrguettevõtja – võrguettevõtja nimi (gridOperatorName)
-  - Avatud tarnija EIC – võrgulepingu mõõtepunktis avatud tarnija EIC kood, üldteenuse korral „TÜHI“ (openSupplierEIC)
-  - Avatud tarnija – võrgulepingu mõõtepunktis avatud tarnija nimi , üldteenuse korral „TÜHI“ (openSupplierName)
+  - Avatud tarnija EIC – võrgulepingu mõõtepunktis avatud tarnija EIC kood (openSupplierEIC)
+  - Avatud tarnija – võrgulepingu mõõtepunktis avatud tarnija nimi (openSupplierName)
   - Bilansiperiood – bilansiperioodi algust tähistav aeg (kuupäev + kellaaeg) (DateTime)
-  - Võrku sisenenud kogus, kWh – võrguettevõtja võrku sisenenud kogus mõõtepunktidest, kus on kehtiv võrguleping ja ei ole piiripunkt (Pin) (inQuantityPortfolio)
-  - Võrgust väljunud kogus, kWh – võrguettevõtja võrgust väljunud kogus, kus on kehtiv võrguleping ja ei ole piiripunkt (Pout) (outQuantityPortfolio)
+  - Võrku sisenenud kogus, kWh – võrguettevõtja võrku sisenenud kogus mõõtepunktidest, kus on kehtiv võrguleping ja ei ole piiripunkt. Arvesse võetakse ka üldteenus. (Pin) (inQuantityPortfolio)
+  - Võrgust väljunud kogus, kWh – võrguettevõtja võrgust väljunud kogus, kus on kehtiv võrguleping ja ei ole piiripunkt. Arvesse võetakse ka üldteenus. (Pout) (outQuantityPortfolio)
   - Mõõtepunktide arv, tk – võrgulepinguga mõõtepunktide arv (meteringPointsTotal)
 - **LEHT "GO_IN_LOSSES_PORTFOLIO":**
   - Võrguettevõtja EIC – võrguettevõtja EIC kood (gridOperatorEIC)

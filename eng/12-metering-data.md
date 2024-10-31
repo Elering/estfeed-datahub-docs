@@ -8,6 +8,8 @@
   * [Introduction](#introduction)
   * [Transmitting metering data](#transmitting-metering-data)
     * [Transmitting metering data via the web interface](#transmitting-metering-data-via-the-web-interface)
+    * [Transmitting metering data via Excel](#transmitting-metering-data-via-excel)
+      * [Possible errors when filling out Excel](#possible-errors-when-filling-out-excel)
     * [API messages](#api-messages)
       * [Messages](#messages)
       * [Message rules](#message-rules)
@@ -72,7 +74,7 @@ For easier metering data transmitting it is possible to download the template. T
 
 ![Filling in the template](../images/opp-ui/metering-data/metering-data-template2.png)
 
-To import metering data "Import" button needs to be clicked on the "Metering data" page. After that it is possible to add the metering data file. 
+To import metering data "Import" button needs to be clicked on the "Metering data" page. After that it is possible to add the metering data file. Guide how to fill the Excel file can be found here: [Transmitting metering data via Excel](#transmitting-metering-data-via-excel).
 
 ![Metering data import](../images/opp-ui/metering-data/metering-data-import.png)
 
@@ -83,6 +85,42 @@ In case there is a mistake in the file the system will notify the user:
 4. After the problem is found and fixed "Cancel" should be clicked and import process should be repeated.
 
 ![Import error](../images/opp-ui/metering-data/metering-data-error.png)
+
+### Transmitting metering data via Excel
+
+Metering data can be sent using an Excel file. It can be uploaded via [the web interface](#transmitting-metering-data-via-web-interface) or by using the API `meter-data/import` service.
+
+To send metering data, start by downloading the metering data template from the web interface. Instructions for this can be found here: [transmitting metering data via the web interface](#transmitting-metering-data-via-web-interface).
+
+Below are the descriptions and examples of Excel columns:
+
+| Column Name      | Description               | Example | Required?                   |
+|------------------|---------------------------|---------------------------| ---------------------------|
+| Meter EIC        | EIC code of the metering point. The code must be added to all rows in the table. The market participant must own the metering point. Data for multiple metering points can be sent in one file, either in sequence on one sheet or split across multiple Excel sheets. | 38ZEE-1000009--Z | Yes
+| Period Start     | Start of the period. The time associated with the consumption/production amounts. It is recommended to use the date format provided in the template; an incorrect date format will prevent data from being added. The correct format is dd.mm.yyyy hh:mm. | 01.11.2024 00:00:00 | Yes
+| Resolution       | The resolution of metering data, whether it is 15-minute data or 1-hour data. In the Excel template, the appropriate option can be selected from a dropdown menu by clicking in the cell and pressing the arrow that appears next to it. | 15 MINUTES or HOURLY | Yes
+| Quantity KWH IN  | Incoming energy amount. | 1,234 | No, if "Quantity KWH OUT" amount is provided
+| Quantity KWH OUT | Outgoing energy amount. | 1,234 | No, if "Quantity KWH IN" amount is provided
+| Reading Type IN  | Incoming energy amount type, either measured or estimated. In the Excel template, the correct option can be selected from a dropdown menu by clicking in the cell and pressing the arrow that appears next to it. | METERED or ESTIMATED | Yes, if the "Quantity KWH IN" cell is filled
+| Reading Type OUT | Outgoing energy amount type, either measured or estimated. In the Excel template, the correct option can be selected from a dropdown menu by clicking in the cell and pressing the arrow that appears next to it. | METERED or ESTIMATED | Yes, if the "Quantity KWH OUT" cell is filled
+| Reading Time IN  | Time of measurement for the incoming energy amount. | 02.11.2024 08:00:00 | Yes, if the "Quantity KWH IN" cell is filled
+| Reading Time OUT | Time of measurement for the amount taken from the grid. | 02.11.2024 08:00:00 | Yes, if the "Quantity KWH OUT" cell is filled
+
+For successful transmission of metering data, it is essential that the Excel file is completed correctly and meets all requirements.
+
+#### Possible errors when filling out Excel
+
+| Issue                              | Solution                                                         |
+|------------------------------------|-------------------------------------------------------------------|
+| The metering data resolution is incorrect. | After switching to a 15-minute data exchange period, only 15-minute resolution data can be sent. Prior to the switch, only 1-hour resolution data can be sent. |
+| The metering point does not belong to the market participant. | The market participant can only send metering data to metering points they own. |
+| The file contains empty Excel sheets. | Although metering data can be divided across multiple sheets, ensure that the Excel file does not contain completely empty or otherwise unnecessary sheets. |
+| The file contains formulas. | Data should be entered in plain text format - without formulas. |
+| The time and resolution do not match. | For 1-hour resolution, period start times should correspond to full hours. For 15-minute resolution, period start times should correspond to quarter hours. |
+| The time is in the wrong format. | The "Period start" time format must match that used in the template. The "Reading time" format must match the "Period start" time format. |
+| All mandatory columns are not filled. | The table above indicates which fields are required. |
+| Some rows are missing the metering point EIC code. | The metering point EIC code must be added to all rows in the table. |
+| The Excel file is sent using an incorrect market role. | Metering data can only be sent by the grid operator, line operator, closed distribution network, and charging point operator. If a market participant operates in multiple roles, the appropriate role must be selected at the time of sending. |
 
 ### API messages
 

@@ -103,7 +103,7 @@ Seda saab teha võrguettevõtja, agregaatori või suletud jaotusvõrgu rollides.
 Mõõteandmete Estfeedi üles laadimine:
 
 - 'Mõõteandmed' -> 'Mall' -> vali sobivad parameetrid (*tunni andmete puhul peavad kellaajad olema täistunnid või 15 min andmete puhul veerandtunnid*) -> 'Laadi alla'
-- Täida alla laetud mall ära üles laetavate mõõteandmetega ja salvesta oma arvutisse
+- Täida alla laetud mall ära üles laetavate mõõteandmetega ja salvesta oma arvutisse, Exceli täitmise juhendi leiab siit: [Mõõteandmete edastamine Exceli teel](#mõõteandmete-edastamine-exceli-teel)
 - 'Mõõteandmed' -> 'Impordi' -> vali fail, mida üles laadida -> 'Impordi'
 - Kui fail oli ilma vigadeta, siis peaks mõõteandmed olema üles laetud või üles laadimisel
 - Kas mõõteandmed said üles laetud saab kontrollida kahte moodi:

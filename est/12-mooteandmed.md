@@ -8,6 +8,8 @@
   * [Sissejuhatus](#sissejuhatus)
   * [Mõõteandmete edastamine](#mõõteandmete-edastamine)
     * [Mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu)
+    * [Mõõteandmete edastamine Exceli teel](#mõõteandmete-edastamine-exceli-teel)
+      * [Võimalikud vead Exceli täitmisel](#võimalikud-vead-exceli-täitmisel)
     * [Masinliidese sõnumid](#masinliidese-sõnumid)
       * [Sõnumid](#sõnumid)
       * [Sõnumite reeglid](#sõnumite-reeglid)
@@ -72,6 +74,8 @@ Mõõteandmete mugavamaks edastamiseks on võimalik alla laadida template. Templ
 
 ![Template seadistamine](../images/opp-ui/metering-data/metering-data-template2.png)
 
+Exceli täitmise juhendi leiab siit: [Mõõteandmete edastamine Exceli teel](#mõõteandmete-edastamine-exceli-teel)
+
 Mõõteandmete importimiseks tuleks vajutada "Metering data" lehel nuppu "Import". Seejärel on võimalik võimalik lisada mõõteandmete fail. 
 
 ![Mõõteandmete edastamine](../images/opp-ui/metering-data/metering-data-import.png)
@@ -83,6 +87,42 @@ Kui faili on juhtunud mõni viga annab süsteem sellest teada.
 4. Kui probleem on leitud ja fail parandatud peaks vajutama "Cancel" ning importimise protsessi kordama.
 
 ![Error mõõteandmete edastamisel](../images/opp-ui/metering-data/metering-data-error.png)
+
+### Mõõteandmete edastamine Exceli teel
+
+Mõõteandmete saatmiseks on võimalik kasutada Exceli faili. Seda saab saata [veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu) või kasutades API `meter-data/import` teenust.
+
+Mõõteandmete edastamiseks tuleks alustuseks veebiliidesest alla laadida mõõteandmete mall. Selleks leiab juhendi siit: [mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu).
+
+Järgnevalt on välja toodud Exceli veergude kirjeldused ja näidised:
+
+| Veeru nimi       | Kirjeldus                 | Näidis | Kohustuslik?                  
+|------------------|---------------------------|---------------------------| ---------------------------|
+| Meter EIC        | Mõõtepunkti EIC kood. Kood peab olema lisatud kõigile tabeli ridadele. Turuosaline peab olema mõõtepunkti omanik. Ühes failis võib saata mitme mõõtepunkti mõõteandmed, need võivad olla üksteise järel ühel lehel või jagatud mitme Exceli lehe vahel.      | 38ZEE-1000009--Z | Jah
+| Period Start     | Perioodi algus. Kellaaeg, mis aja tarbimise / tootmise kogustega on tegu. Soovitus on kasutada mallis sisalduvat kuupäeva vormingut, vale kuupäeva vorminguga ei ole võimalik mõõteandmeid lisada. Õige vorming on dd.mm.yyyy hh:mm.  | 01.11.2024 00:00:00 | Jah
+| Resolution       | Mõõtandmete resolutsioon, kas tegu on 15 minuti mõõteandmetega või 1 tunni mõõteandmetega. Exceli mallis on võimalik rippmenüüst valida sobiv valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale.  | 15 MINUTES või HOURLY | Jah
+| Quantity KWH IN  | Võrku antud kogus. | 1,234 | Ei, kui "Quantity KWH OUT" kogus on lisatud
+| Quantity KWH OUT | Võrgust võetud kogus.      | 1,234 | Ei, kui "Quantity KWH IN" kogus on lisatud
+| Reading Type IN  | Võrku antud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale. | METERED või ESTIMATED | Jah, kui "Quantity KWH IN" lahter on täidetud.
+| Reading Type OUT | Võrgust võetud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale.  | METERED või ESTIMATED | Jah, kui "Quantity KWH OUT" lahter on täidetud.
+| Reading Time IN  | Võrku antud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH IN" lahter on täidetud. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH IN" lahter on täidetud.
+| Reading Time OUT  | Võrgust võetud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH OUT" lahter on täidetud. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH OUT" lahter on täidetud.
+
+Edukaks mõõteandmete saatmiseks on oluline, et Excel oleks täidetud korrektselt ja vastaks reeglitele.
+
+#### Võimalikud vead Exceli täitmisel
+
+| Probleem       | Lahendus
+|------------------|---------------------------
+| Mõõteandmete resolutsioon on vale. | Peale 15-minuti andmevahetusperioodile üleminemist on võimalik saata vaid 15 minuti resolutsiooniga andmeid. Enne üleminekut on võimalik saata vaid ühe tunni resolutsiooniga mõõteandmeid.
+| Mõõtepunkt ei kuulu turuosalisele. | Turuosaline saab saata mõõteandmeid vaid neile kuuluvatesse mõõtepunktidesse.
+| Fail sisaldab tühjasid Exceli lehtesid. | Kuigi Excelisse võib lisada mõõteandmed mitmele lehele jaotatuna peab jälgima, et Exceli fail ei sisaldaks täiesti tühjasid või muud informatsiooni sisaldavaid Exceli lehti.
+| Fail sisaldab valemeid. | Andmed peaksid olema sisestatud puhtas teksti vormingus - ilma valemiteta.
+| Kellaaeg ja resolutsioon ei ole vastavuses. | 1 tunni resolutsiooni korral peaksid perioodi algusajad vastama täistundidele. 15 minuti resolutsiooni korral peaksid perioodi algusajad vastama veerandtundidele.
+| Kellaaeg on vales vormingus. | "Period start" aja vorming peab olema sama, mida kasutatakse mallis. "Reading time" aja vorming peab olema sama, mis "Period start" aja vorming.
+| Kõik kohustuslikud veerud ei ole täidetud | Eelnevalt toodud tabelis on välja toodud, millised väljad on kohustuslikud.
+| Mõõtepunkti EIC kood puudub osadelt ridadelt | Mõõtepunkti EIC kood peab olema lisatud kõigile tabeli ridadele.
+| Excelit proovitakse saata vales tururollis tegutsedes | Mõõteandmeid saavad saata võrguettevõtja, liinivaldaja, suletud jaotusvõrk ja laadimispunkti operaator. Teistes rollides pole mõõteandmeid võimalik saata. Kui turuosaline tegutseb mitmes rollis peab saatmise hetkel olema valitud sobiv roll.
 
 ### Masinliidese sõnumid
 

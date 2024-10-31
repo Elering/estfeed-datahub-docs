@@ -65,9 +65,6 @@ All reports contain data for one calendar month. Most of the reports have been p
 
 ### Grid operator report
 
-> [!WARNING] 
-> Grid Operator report currently has partly wrong values, fix is not part of the MVP. Issue can be seen [here](https://github.com/Elering/estfeed-datahub-docs/issues/83).
-
 Recipients:
 
 - **Grid operators**.
@@ -104,11 +101,11 @@ Column descriptions:
 - **PAGE "GO OS OUT"**:
   - Grid operator EIC – EIC code of the grid operator (gridOperatorEIC)
   - Grid operator – name of the grid operator (gridOperatorName)
-  - Open supplier EIC – open supplier’s EIC at the metering point of the grid agreement, empty in the case of the general service (openSupplierEIC)
-  - Open supplier – open supplier at the metering point of the grid agreement, empty in the case of the general service (openSupplierName)
+  - Open supplier EIC – open supplier’s EIC at the metering point of the grid agreement. (openSupplierEIC)
+  - Open supplier – open supplier at the metering point of the grid agreement. (openSupplierName)
   - Balance period – time (date + time) marking the beginning of the balance period (DateTime)
-  - Amounts entering the grid, kWh – amounts entering the grid of a grid operator from metering points that have a valid grid agreement and are not border metering points (Pin) (inQuantityPortfolio)
-  - Amounts leaving the grid, kWh – amounts leaving the grid of a grid operator from metering points that have a valid grid agreement and are not border metering points (Pout) (outQuantityPortfolio)
+  - Amounts entering the grid, kWh – amounts entering the grid of a grid operator from metering points that have a valid grid agreement and are not border metering points. Also general service is counted. (Pin) (inQuantityPortfolio)
+  - Amounts leaving the grid, kWh – amounts leaving the grid of a grid operator from metering points that have a valid grid agreement and are not border metering points. Also general service is counted. (Pout) (outQuantityPortfolio)
   - Number of metering points, pcs – number of metering points with a grid agreement (meteringPointsTotal)
 - **PAGE "GO_IN_LOSSES_PORTFOLIO":**
   - Grid operator EIC – EIC code of the grid operator (gridOperatorEIC)
