@@ -1,6 +1,26 @@
+## [EDH-3374] Release 0.20.0
+
+- __2024-11-01__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                  | Type | Priority|                                                        Title                                                       |
+|-------------------------------------------------------------------------|------|---------|--------------------------------------------------------------------------------------------------------------------|
+|  [EDH-3340](https://github.com/Elering/estfeed-datahub-docs/issues/102) |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
+|  [EDH-3333](https://github.com/Elering/estfeed-datahub-docs/issues/101) |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
+
+## [EDH-3334] Release 0.19.0
+
+- __2024-11-01__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                  | Type |  Priority |                             Title                            |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
+|  [EDH-3249](https://github.com/Elering/estfeed-datahub-docs/issues/100) |  Bug |  Critical |  Portfolio agreement change fails (both sync and async part) |
+|  [EDH-3301](https://github.com/Elering/estfeed-datahub-docs/issues/86)  |  Bug |  Critical |          Can't give authorization to technical user          |
+
 ## [EDH-3315] Release 0.18.2
 
 - __2024-10-16__ - released to __TEST-PUBLIC__
+
+- __2024-10-16__ - released to __LIVE__
 
 |                                  Issue                                 | Type |  Priority |                                      Title                                      |
 |------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
@@ -37,32 +57,32 @@
 
 - __2024-10-08__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                                      Title                                                      |
-|------------------------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------------------------------------|
-|                                EDH-2971                                |   Bug  |   Medium  |                                Some metering points not found based on Client EIC                               |
-|  [EDH-3208](https://github.com/Elering/estfeed-datahub-docs/issues/80) |   Bug  |  Critical |                           [TEMP] DD message creation fails silently for unknown reason                          |
-|  [EDH-3171](https://github.com/Elering/estfeed-datahub-docs/issues/79) |   Bug  |  Critical |                            For some grid agreements ValidTo can't be removed/changed                            |
-|  [EDH-3147](https://github.com/Elering/estfeed-datahub-docs/issues/75) |  Story |  Highest  |                     Border point customer has no access border metering point metering data                     |
-|                                EDH-3087                                |  Story |  Critical |           [BREAKING CHANGE] hasContent (boolean) has been added to Data distribution search response            |
-|                                EDH-2883                                |  Story |   Medium  |  [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully |
-|                                EDH-3195                                |  Story |  Highest  |                           [DD] Distribute deleted GS agreement first and create after                           |
+|   Issue   |  Type  |  Priority |                                                      Title                                                      |
+|-----------|--------|-----------|-----------------------------------------------------------------------------------------------------------------|
+|  EDH-2971 |   Bug  |   Medium  |                                Some metering points not found based on Client EIC                               |
+|  EDH-3208 |   Bug  |  Critical |                           [TEMP] DD message creation fails silently for unknown reason                          |
+|  EDH-3171 |   Bug  |  Critical |                            For some grid agreements ValidTo can't be removed/changed                            |
+|  EDH-3147 |  Story |  Highest  |                     Border point customer has no access border metering point metering data                     |
+|  EDH-3087 |  Story |  Critical |           [BREAKING CHANGE] hasContent (boolean) has been added to Data distribution search response            |
+|  EDH-2883 |  Story |   Medium  |  [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully |
+|  EDH-3195 |  Story |  Highest  |                           [DD] Distribute deleted GS agreement first and create after                           |
 
 ## [EDH-3196] Release 0.16.0
 
 - __2024-10-08__ - released to __TEST-PUBLIC__
 
-|                                  Issue                                 |  Type  |  Priority |                                                     Title                                                     |
-|------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------------------------------------------------------|
-|                                EDH-3020                                |   Bug  |   Medium  |                        Missing DD messages (GRID change deletes SUPPLY and changes GS)                        |
-|                                EDH-3038                                |   Bug  |   Medium  |      When downloading metering data for longer period of time only 3,5 months worth of data is downloaded     |
-|                                EDH-2975                                |   Bug  |  Critical |                    Cannot upload metering data on autumn clock change (03 hour duplicated)                    |
-|                                EDH-2898                                |   Bug  |   Minor   |                         Meter data template quantity values should be in 0,000 format                         |
-|  [EDH-3157](https://github.com/Elering/estfeed-datahub-docs/issues/78) |   Bug  |  Critical |                           Grid agreement can't be added in roles PO, LO, CO and CDN                           |
-|                                EDH-3016                                |   Bug  |   Medium  |                             Not possible to add grid agreement with 1 day duration                            |
-|                                EDH-2664                                |   Bug  |   Medium  |                                 Delete data duplication in swagger definitions                                |
-|                                EDH-3064                                |   Bug  |  Critical |              "meter/search/customer" returns different amount of MP-s if legalConsent=true/false              |
-|                                EDH-2928                                |   Bug  |   Medium  |  /agreement/search/meter serviceProviderName history displays only the latest version of the name in response |
-|                                EDH-2815                                |  Story |  Highest  |                               [OPP-BE] Improve performance of Meter Data Export                               |
+|   Issue   |  Type  |  Priority |                                                     Title                                                     |
+|-----------|--------|-----------|---------------------------------------------------------------------------------------------------------------|
+|  EDH-3020 |   Bug  |   Medium  |                        Missing DD messages (GRID change deletes SUPPLY and changes GS)                        |
+|  EDH-3038 |   Bug  |   Medium  |      When downloading metering data for longer period of time only 3,5 months worth of data is downloaded     |
+|  EDH-2975 |   Bug  |  Critical |                    Cannot upload metering data on autumn clock change (03 hour duplicated)                    |
+|  EDH-2898 |   Bug  |   Minor   |                         Meter data template quantity values should be in 0,000 format                         |
+|  EDH-3157 |   Bug  |  Critical |                           Grid agreement can't be added in roles PO, LO, CO and CDN                           |
+|  EDH-3016 |   Bug  |   Medium  |                             Not possible to add grid agreement with 1 day duration                            |
+|  EDH-2664 |   Bug  |   Medium  |                                 Delete data duplication in swagger definitions                                |
+|  EDH-3064 |   Bug  |  Critical |              "meter/search/customer" returns different amount of MP-s if legalConsent=true/false              |
+|  EDH-2928 |   Bug  |   Medium  |  /agreement/search/meter serviceProviderName history displays only the latest version of the name in response |
+|  EDH-2815 |  Story |  Highest  |                               [OPP-BE] Improve performance of Meter Data Export                               |
 
 ## [EDH-3127] Release 0.15.0
 
