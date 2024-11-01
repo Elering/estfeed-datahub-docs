@@ -2,6 +2,8 @@
 
 - __2024-11-01__ - released to __TEST-PUBLIC__
 
+- __2024-11-01__ - released to __LIVE__
+
 |                                  Issue                                  | Type | Priority|                                                        Title                                                       |
 |-------------------------------------------------------------------------|------|---------|--------------------------------------------------------------------------------------------------------------------|
 |  [EDH-3340](https://github.com/Elering/estfeed-datahub-docs/issues/102) |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
@@ -10,6 +12,8 @@
 ## [EDH-3334] Release 0.19.0
 
 - __2024-11-01__ - released to __TEST-PUBLIC__
+
+- __2024-11-01__ - released to __LIVE__
 
 |                                  Issue                                  | Type |  Priority |                             Title                            |
 |-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
