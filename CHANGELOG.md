@@ -1,3 +1,11 @@
+## [EDH-3416] Release 0.21.0
+
+- __2024-11-04__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                 |  Type  |  Priority |                             Title                            |
+|------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------|
+|  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - I. |
+
 ## [EDH-3374] Release 0.20.0
 
 - __2024-11-01__ - released to __TEST-PUBLIC__
@@ -30,7 +38,7 @@
 |------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
 |  [EDH-3308](https://github.com/Elering/estfeed-datahub-docs/issues/90) |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
 |  [EDH-3321](https://github.com/Elering/estfeed-datahub-docs/issues/96) |  Bug |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
-|  [EDH-3319](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
+|                                EDH-3319                                |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
 
 ## [EDH-3299] Release 0.18.1
 
