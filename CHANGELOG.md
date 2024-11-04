@@ -2,6 +2,8 @@
 
 - __2024-11-04__ - released to __TEST-PUBLIC__
 
+- __2024-11-04__ - released to __LIVE__
+
 |                                  Issue                                 |  Type  |  Priority |                             Title                            |
 |------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------|
 |  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - I. |
