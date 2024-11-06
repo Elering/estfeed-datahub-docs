@@ -1,3 +1,14 @@
+## [EDH-3421] Release 0.22.0
+
+- __2024-11-06__ - released to __TEST-PUBLIC__
+
+- __2024-11-06__ - released to __LIVE__
+
+|   Issue   |  Type  | Priority |                     Title                    |
+|-----------|--------|----------|----------------------------------------------|
+|  EDH-3359 |  Story |  Highest |  [RPT] Adjust BRP report and BHT calculation |
+|  EDH-3371 |  Story |  Highest |     [RPT] Adjust BRP 2 report calculation    |
+
 ## [EDH-3416] Release 0.21.0
 
 - __2024-11-04__ - released to __TEST-PUBLIC__
@@ -6,6 +17,7 @@
 
 |                                  Issue                                 |  Type  |  Priority |                             Title                            |
 |------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------|
+|                                EDH-3319                                |   Bug  |  Critical |       Data distribution search is slow in GO-LIVE test       |
 |  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - I. |
 
 ## [EDH-3374] Release 0.20.0
