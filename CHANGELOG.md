@@ -1,12 +1,29 @@
+## [EDH-3440] Release 0.23.0
+
+- __2024-11-13__ - released to __TEST-PUBLIC__
+
+- __2024-11-13__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  |  Priority |                                                          Title                                                         |
+|-------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------|
+|  [EDH-3317](https://github.com/Elering/estfeed-datahub-docs/issues/94)  |   Bug  |   Medium  |              /api/v1/meter/search/customer is slow (20+ s) when customer has more than 100 metering points             |
+|  [EDH-3390](https://github.com/Elering/estfeed-datahub-docs/issues/109) |   Bug  |   Medium  |                     DD of GRID agreement to the current OPEN_SUPPLIER doesn't contain "customerId"                     |
+|  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
+|                                 EDH-3155                                |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
+|  [EDH-3306](https://github.com/Elering/estfeed-datahub-docs/issues/89)  |  Story |  Highest  |                                  Change the logic of createdTime in /meter-data/status                                 |
+|  [EDH-3331](https://github.com/Elering/estfeed-datahub-docs/issues/97)  |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
+|                                 EDH-3195                                |  Story |  Highest  |                               [DD] Distribute deleted GS agreement first and create after                              |
+|                                 EDH-3087                                |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
+
 ## [EDH-3434] Release 0.22.1
 
 - __2024-11-08__ - released to __TEST-PUBLIC__
 
 - __2024-11-08__ - released to __LIVE__
 
-|                                  Issue                                 |  Type  |  Priority |                             Title                            |
-|------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------|
-|  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - II |
+|                                  Issue                                 |  Type  |  Priority |                              Title                             |
+|------------------------------------------------------------------------|--------|-----------|----------------------------------------------------------------|
+|  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - I-II |
 
 ## [EDH-3421] Release 0.22.0
 
@@ -25,10 +42,10 @@
 
 - __2024-11-04__ - released to __LIVE__
 
-|                                  Issue                                 |  Type  |  Priority |                             Title                            |
-|------------------------------------------------------------------------|--------|-----------|--------------------------------------------------------------|
-|                                EDH-3319                                |   Bug  |  Critical |       Data distribution search is slow in GO-LIVE test       |
-|  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - II |
+|                                  Issue                                 |  Type  |  Priority |                              Title                             |
+|------------------------------------------------------------------------|--------|-----------|----------------------------------------------------------------|
+|                                EDH-3319                                |   Bug  |  Critical |        Data distribution search is slow in GO-LIVE test        |
+|  [EDH-3352](https://github.com/Elering/estfeed-datahub-docs/issues/95) |  Story |  Critical |  [DD] Data distribution search performance improvements - I-II |
 
 ## [EDH-3374] Release 0.20.0
 
@@ -93,15 +110,15 @@
 
 - __2024-10-08__ - released to __TEST-PUBLIC__
 
-|   Issue   |  Type  |  Priority |                                                      Title                                                      |
-|-----------|--------|-----------|-----------------------------------------------------------------------------------------------------------------|
-|  EDH-2971 |   Bug  |   Medium  |                                Some metering points not found based on Client EIC                               |
-|  EDH-3208 |   Bug  |  Critical |                           [TEMP] DD message creation fails silently for unknown reason                          |
-|  EDH-3171 |   Bug  |  Critical |                            For some grid agreements ValidTo can't be removed/changed                            |
-|  EDH-3147 |  Story |  Highest  |                     Border point customer has no access border metering point metering data                     |
-|  EDH-3087 |  Story |  Critical |           [BREAKING CHANGE] hasContent (boolean) has been added to Data distribution search response            |
-|  EDH-2883 |  Story |   Medium  |  [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully |
-|  EDH-3195 |  Story |  Highest  |                           [DD] Distribute deleted GS agreement first and create after                           |
+|   Issue   |  Type  |  Priority |                                                          Title                                                         |
+|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------|
+|  EDH-2971 |   Bug  |   Medium  |                                   Some metering points not found based on Client EIC                                   |
+|  EDH-3208 |   Bug  |  Critical |                              [TEMP] DD message creation fails silently for unknown reason                              |
+|  EDH-3171 |   Bug  |  Critical |                                For some grid agreements ValidTo can't be removed/changed                               |
+|  EDH-3147 |  Story |  Highest  |                         Border point customer has no access border metering point metering data                        |
+|  EDH-3087 |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
+|  EDH-2883 |  Story |   Medium  |     [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully     |
+|  EDH-3195 |  Story |  Highest  |                               [DD] Distribute deleted GS agreement first and create after                              |
 
 ## [EDH-3196] Release 0.16.0
 
@@ -240,7 +257,6 @@
 |  EDH-2507 |   Bug  |  Critical |                               Admin role can delete estfeed admin role via UI                              |
 |  EDH-1866 |   Bug  |   Medium  |                      Create Joint Invoice API: added traceID to unsuccessful request                       |
 |  EDH-2601 |   Bug  |  Critical |                           SUPPLY agreement can start earlier, than GRID agreement                          |
-|  EDH-2493 |  Story |   Medium  |                           DD - change who can access info about Service Provider                           |
 |  EDH-2490 |  Story |   Medium  |                                 [DD] Agreement change reason to be accurate                                |
 |  EDH-2582 |  Story |  Critical |                             "transmissionNetworkEic" update should be possible                             |
 |  EDH-2521 |  Story |  Highest  |                                    Joint Invoice - removed PUT endpoint                                    |
@@ -262,26 +278,26 @@
 
 - __2024-06-20__ - released to __TEST-PUBLIC__
 
-|   Issue   |  Type  |  Priority |                                       Title                                       |
-|-----------|--------|-----------|-----------------------------------------------------------------------------------|
-|  EDH-2500 |   Bug  |   Medium  |              [TEMP] NullPointerException: General Service generation              |
-|  EDH-2474 |   Bug  |   Medium  |               Named supplier can now submit connection state request              |
-|  EDH-2432 |   Bug  |   Medium  |                  Cannot modify JOINT_INVOICE agreement in the UI                  |
-|  EDH-2427 |   Bug  |   Medium  |  Cannot update GRID agreement's validTo to less than SUPPLY agreement's validFrom |
-|  EDH-1864 |   Bug  |   Medium  |    Fixed bug when searching joint invoices by dataPeriodStart and dataPeriodEnd   |
-|  EDH-2550 |   Bug  |  Critical |                 Open Supplier and Grid Operator report is failing                 |
-|  EDH-2526 |   Bug  |   Lowest  |                 Aggregator meter data icon tooltip text is missing                |
-|  EDH-2498 |   Bug  |   Medium  |     OS role should not see "template" button under "metering data" menu point     |
-|  EDH-2478 |   Bug  |  Critical |                        Metering data not updated via import                       |
-|  EDH-712  |  Story |   Medium  |                  [OPP-BE][MPD] Generate Balance Provider 2 report                 |
-|  EDH-2257 |  Story |   Medium  |      [OPP-BE][MPM] POST /meter/search/customer should not use past agreements     |
-|  EDH-2243 |  Story |   Medium  |                [TEMP] Multiple EIC ranges for one company supported               |
-|  EDH-2637 |  Story |   Medium  |                Reports are still in ALPHA state / not tested enough               |
-|  EDH-1815 |  Story |   Medium  |               Metering data is data distributed after import from UI              |
-|  EDH-967  |  Story |   Medium  |                         [OPP] Balance Settlement Point API                        |
-|  EDH-897  |  Story |   Medium  |                       [OPP-UI] Balance settlement points UI                       |
-|  EDH-2370 |  Story |  Highest  |        When adding new Supply agreement, you can search for metering data         |
-|  EDH-2146 |  Story |   Medium  |                 [OPP-UI] Create multiple agreements simultaneously                |
+|                                  Issue                                 |  Type  |  Priority |                                       Title                                       |
+|------------------------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------|
+|                                EDH-2500                                |   Bug  |   Medium  |              [TEMP] NullPointerException: General Service generation              |
+|                                EDH-2474                                |   Bug  |   Medium  |               Named supplier can now submit connection state request              |
+|                                EDH-2432                                |   Bug  |   Medium  |                  Cannot modify JOINT_INVOICE agreement in the UI                  |
+|                                EDH-2427                                |   Bug  |   Medium  |  Cannot update GRID agreement's validTo to less than SUPPLY agreement's validFrom |
+|                                EDH-1864                                |   Bug  |   Medium  |    Fixed bug when searching joint invoices by dataPeriodStart and dataPeriodEnd   |
+|                                EDH-2550                                |   Bug  |  Critical |                 Open Supplier and Grid Operator report is failing                 |
+|                                EDH-2526                                |   Bug  |   Lowest  |                 Aggregator meter data icon tooltip text is missing                |
+|                                EDH-2498                                |   Bug  |   Medium  |     OS role should not see "template" button under "metering data" menu point     |
+|                                EDH-2478                                |   Bug  |  Critical |                        Metering data not updated via import                       |
+|                                 EDH-712                                |  Story |   Medium  |                  [OPP-BE][MPD] Generate Balance Provider 2 report                 |
+|                                EDH-2257                                |  Story |   Medium  |      [OPP-BE][MPM] POST /meter/search/customer should not use past agreements     |
+|                                EDH-2243                                |  Story |   Medium  |                [TEMP] Multiple EIC ranges for one company supported               |
+|                                EDH-2637                                |  Story |   Medium  |                Reports are still in ALPHA state / not tested enough               |
+|                                EDH-1815                                |  Story |   Medium  |               Metering data is data distributed after import from UI              |
+|  [EDH-967](https://github.com/Elering/estfeed-datahub-docs/issues/111) |  Story |   Medium  |                         [OPP] Balance Settlement Point API                        |
+|                                 EDH-897                                |  Story |   Medium  |                       [OPP-UI] Balance settlement points UI                       |
+|                                EDH-2370                                |  Story |  Highest  |        When adding new Supply agreement, you can search for metering data         |
+|                                EDH-2146                                |  Story |   Medium  |                 [OPP-UI] Create multiple agreements simultaneously                |
 
 ## [EDH-2510] Release 0.6.2
 
@@ -303,30 +319,30 @@
 
 - __2024-05-30__ - released to __TEST-PUBLIC__
 
-|   Issue   |  Type  |  Priority |                                                   Title                                                  |
-|-----------|--------|-----------|----------------------------------------------------------------------------------------------------------|
-|  EDH-2434 |   Bug  |   Medium  |                                Cannot modify PORTFOLIO agreement in the UI                               |
-|  EDH-2432 |   Bug  |   Medium  |                              Cannot modify JOINT_INVOICE agreement in the UI                             |
-|  EDH-2361 |   Bug  |   Medium  |                       Modifying functionality missing for named supplier agreement                       |
-|  EDH-2402 |   Bug  |   Medium  |                       "validFrom is not a valid property" while adding new Customer                      |
-|  EDH-2401 |   Bug  |   Medium  |     Metering points UI doesn't display Customer EIC even if there's an active customer with agreement    |
-|  EDH-2309 |   Bug  |   Medium  |                                 Metering points not found by Customer EIC                                |
-|  EDH-2035 |   Bug  |   Medium  |                           Error description metering data status is low quality                          |
-|  EDH-2444 |   Bug  |  Critical |              Overlapping OS agreements can be created by extending the previous OS agreement             |
-|  EDH-2366 |   Bug  |   Medium  |                                    Generate EIC returns used  EIC-code                                   |
-|  EDH-2293 |   Bug  |   Lowest  |                       After successfully adding a new agreement EIC fields turn red                      |
-|  EDH-2447 |   Bug  |   Medium  |                            GO gets DD message if he updated the MP - Now fixed                           |
-|  EDH-2445 |   Bug  |   Medium  |                     NAMED_SUPPLY and PORTFOLIO_SUPPLY agreements are not distributed                     |
-|  EDH-2440 |   Bug  |   Medium  |                              Missing DD-s after adding OPEN_SUPPLY agreement                             |
-|  EDH-2204 |   Bug  |   Medium  |                                      DD not created for GS agreement                                     |
-|  EDH-344  |  Story |   Medium  |                                 [OPP-BE] Metering points import via file                                 |
-|  EDH-2115 |  Story |   Medium  |  POST /agreement/search/meter - access restriction, response and aggregator metering point logic updates |
-|  EDH-711  |  Story |   Medium  |                              [OPP-BE][MPD] Generate Balance Provider report                              |
-|  EDH-2248 |  Story |   Medium  |                               Generate free EIC values when multiple ranges                              |
-|  EDH-2123 |  Story |   Medium  |                            Active named supplier can update customer metadata                            |
-|  EDH-2020 |  Story |   Lowest  |                             Create customer - validate business registry code                            |
-|  EDH-2291 |  Story |   Medium  |                Join IN and OUT measurements together in the /network-bill/search response                |
-|  EDH-2286 |  Story |   Medium  |                                      Networkbill day/night optional                                      |
+|                                                                 Issue                                                                |  Type  |  Priority |                                                   Title                                                  |
+|--------------------------------------------------------------------------------------------------------------------------------------|--------|-----------|----------------------------------------------------------------------------------------------------------|
+|                                                               EDH-2434                                                               |   Bug  |   Medium  |                                Cannot modify PORTFOLIO agreement in the UI                               |
+|                                                               EDH-2432                                                               |   Bug  |   Medium  |                              Cannot modify JOINT_INVOICE agreement in the UI                             |
+|                                                               EDH-2361                                                               |   Bug  |   Medium  |                       Modifying functionality missing for named supplier agreement                       |
+|                                                               EDH-2402                                                               |   Bug  |   Medium  |                       "validFrom is not a valid property" while adding new Customer                      |
+|                                                               EDH-2401                                                               |   Bug  |   Medium  |     Metering points UI doesn't display Customer EIC even if there's an active customer with agreement    |
+|                                                               EDH-2309                                                               |   Bug  |   Medium  |                                 Metering points not found by Customer EIC                                |
+|                                                               EDH-2035                                                               |   Bug  |   Medium  |                           Error description metering data status is low quality                          |
+|                                                               EDH-2444                                                               |   Bug  |  Critical |              Overlapping OS agreements can be created by extending the previous OS agreement             |
+|                                                               EDH-2366                                                               |   Bug  |   Medium  |                                    Generate EIC returns used  EIC-code                                   |
+|                                                               EDH-2293                                                               |   Bug  |   Lowest  |                       After successfully adding a new agreement EIC fields turn red                      |
+|                                                               EDH-2447                                                               |   Bug  |   Medium  |                            GO gets DD message if he updated the MP - Now fixed                           |
+|                                                               EDH-2445                                                               |   Bug  |   Medium  |                     NAMED_SUPPLY and PORTFOLIO_SUPPLY agreements are not distributed                     |
+|                                                               EDH-2440                                                               |   Bug  |   Medium  |                              Missing DD-s after adding OPEN_SUPPLY agreement                             |
+|                                                               EDH-2204                                                               |   Bug  |   Medium  |                                      DD not created for GS agreement                                     |
+|  [[EDH-344](https://github.com/Elering/estfeed-datahub-docs/issues/114)](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Story |   Medium  |                                 [OPP-BE] Metering points import via file                                 |
+|                                                               EDH-2115                                                               |  Story |   Medium  |  POST /agreement/search/meter - access restriction, response and aggregator metering point logic updates |
+|                                                                EDH-711                                                               |  Story |   Medium  |                              [OPP-BE][MPD] Generate Balance Provider report                              |
+|                                                               EDH-2248                                                               |  Story |   Medium  |                               Generate free EIC values when multiple ranges                              |
+|                                                               EDH-2123                                                               |  Story |   Medium  |                            Active named supplier can update customer metadata                            |
+|                                                               EDH-2020                                                               |  Story |   Lowest  |                             Create customer - validate business registry code                            |
+|                                                               EDH-2291                                                               |  Story |   Medium  |                Join IN and OUT measurements together in the /network-bill/search response                |
+|                                                               EDH-2286                                                               |  Story |   Medium  |                                      Networkbill day/night optional                                      |
 
 ## [EDH-2426] Release 0.5.3
 
@@ -356,23 +372,23 @@
 
 - __2024-05-09__ - released to __TEST-PUBLIC__
 
-|   Issue   |  Type  | Priority|                                                              Title                                                             |
-|-----------|--------|---------|--------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2367 |   Bug  |  Medium |                                        [MPM] Improve agreement sync flow with new status                                       |
-|  EDH-2209 |   Bug  |  Medium |                                     [DD] SUPPLY agreement is distributed to named supplier                                     |
-|  EDH-1926 |   Bug  |  Minor  |                                [MPD] NetworkBill for ELECTRICITY allows "measurementUnit": "M3"                                |
-|  EDH-2279 |   Bug  |  Minor  |                               POST /meter/search/customer response contains versions information                               |
-|  EDH-2292 |   Bug  |  Medium |                                      Adding organization with ID Type results in an error                                      |
-|  EDH-2271 |   Bug  |  Medium |  /meter/search/customer returns "opp.error.technical.general" if "legalConsent": true while searching by physical person's EIC |
-|  EDH-2278 |   Bug  |  Medium |                                      "Modify" button visible for General Service agreement                                     |
-|  EDH-2262 |  Story |  Medium |                                              [CDM] Add new billing method B2B_BILL                                             |
-|  EDH-2109 |  Story |  Medium |                              Identifier + country combination must be unique while adding identity                             |
-|  EDH-2406 |  Story |  Medium |                                            Reports now available, but not tested yet                                           |
-|  EDH-2093 |  Story |  Medium |                                 [OPP-BE] Return customer's billing data only to named supplier                                 |
-|  EDH-1985 |  Story |  Medium |                                 [OPP-BE] Metering data import with file produces import report                                 |
-|  EDH-1610 |  Story |  Medium |       Display related agreements for found MP-s, while adding/modifying (border)grid, open supply or aggreation agreement      |
-|  EDH-720  |  Story |  Medium |                                            Implement scheduling of report generation                                           |
-|  EDH-344  |  Story |  Medium |                                            [OPP-BE] Metering points import via file                                            |
+|                                                                 Issue                                                                |  Type  | Priority|                                                              Title                                                             |
+|--------------------------------------------------------------------------------------------------------------------------------------|--------|---------|--------------------------------------------------------------------------------------------------------------------------------|
+|                                                               EDH-2367                                                               |   Bug  |  Medium |                                        [MPM] Improve agreement sync flow with new status                                       |
+|                                                               EDH-2209                                                               |   Bug  |  Medium |                                     [DD] SUPPLY agreement is distributed to named supplier                                     |
+|                                                               EDH-1926                                                               |   Bug  |  Minor  |                                [MPD] NetworkBill for ELECTRICITY allows "measurementUnit": "M3"                                |
+|                                                               EDH-2279                                                               |   Bug  |  Minor  |                               POST /meter/search/customer response contains versions information                               |
+|                                                               EDH-2292                                                               |   Bug  |  Medium |                                      Adding organization with ID Type results in an error                                      |
+|                                                               EDH-2271                                                               |   Bug  |  Medium |  /meter/search/customer returns "opp.error.technical.general" if "legalConsent": true while searching by physical person's EIC |
+|                                                               EDH-2278                                                               |   Bug  |  Medium |                                      "Modify" button visible for General Service agreement                                     |
+|                                                               EDH-2262                                                               |  Story |  Medium |                                              [CDM] Add new billing method B2B_BILL                                             |
+|                                                               EDH-2109                                                               |  Story |  Medium |                              Identifier + country combination must be unique while adding identity                             |
+|                                                               EDH-2406                                                               |  Story |  Medium |                                            Reports now available, but not tested yet                                           |
+|                                                               EDH-2093                                                               |  Story |  Medium |                                 [OPP-BE] Return customer's billing data only to named supplier                                 |
+|                                                               EDH-1985                                                               |  Story |  Medium |                                 [OPP-BE] Metering data import with file produces import report                                 |
+|                                                               EDH-1610                                                               |  Story |  Medium |       Display related agreements for found MP-s, while adding/modifying (border)grid, open supply or aggreation agreement      |
+|                                                                EDH-720                                                               |  Story |  Medium |                                            Implement scheduling of report generation                                           |
+|  [[EDH-344](https://github.com/Elering/estfeed-datahub-docs/issues/114)](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Story |  Medium |                                            [OPP-BE] Metering points import via file                                            |
 
 ## [EDH-2369] Release 0.4.2
 
