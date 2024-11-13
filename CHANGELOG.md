@@ -1,3 +1,13 @@
+## [EDH-3471] Release 0.23.1
+
+- __2024-11-13__ - released to __TEST-PUBLIC__
+
+- __2024-11-13__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                 Title                |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------------|
+|  [EDH-3464](https://github.com/Elering/estfeed-datahub-docs/issues/115) |  Bug |  Critical |  In UI user modify modal not opening |
+
 ## [EDH-3440] Release 0.23.0
 
 - __2024-11-13__ - released to __TEST-PUBLIC__
@@ -67,7 +77,7 @@
 |                                  Issue                                  | Type |  Priority |                             Title                            |
 |-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
 |  [EDH-3249](https://github.com/Elering/estfeed-datahub-docs/issues/100) |  Bug |  Critical |  Portfolio agreement change fails (both sync and async part) |
-|  [EDH-3301](https://github.com/Elering/estfeed-datahub-docs/issues/86)  |  Bug |  Critical |          Can't give authorization to technical user          |
+|                                 EDH-3301                                |  Bug |  Critical |          Can't give authorization to technical user          |
 
 ## [EDH-3315] Release 0.18.2
 
@@ -294,7 +304,7 @@
 |                                EDH-2243                                |  Story |   Medium  |                [TEMP] Multiple EIC ranges for one company supported               |
 |                                EDH-2637                                |  Story |   Medium  |                Reports are still in ALPHA state / not tested enough               |
 |                                EDH-1815                                |  Story |   Medium  |               Metering data is data distributed after import from UI              |
-|  [EDH-967](https://github.com/Elering/estfeed-datahub-docs/issues/111) |  Story |   Medium  |                         [OPP] Balance Settlement Point API                        |
+|  [EDH-967](https://github.com/Elering/estfeed-datahub-docs/issues/111) |  Story |   Medium  |                     [OPP] Balance Settlement Point search API                     |
 |                                 EDH-897                                |  Story |   Medium  |                       [OPP-UI] Balance settlement points UI                       |
 |                                EDH-2370                                |  Story |  Highest  |        When adding new Supply agreement, you can search for metering data         |
 |                                EDH-2146                                |  Story |   Medium  |                 [OPP-UI] Create multiple agreements simultaneously                |
