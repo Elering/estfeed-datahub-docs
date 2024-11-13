@@ -82,7 +82,7 @@ Andmeobjekti tüübid on:
 Maksimaalne päritava perioodi pikkus on:
 
 - mõõteandmed: 1 tund
-- muud andmed: 1 päev
+- muud andmed: 24 tundi (sügisese kellakeeramise ajal on see erisus oluline, kuna lokaalne (mitte UTC) päev on 25h pikk)
 
 Maksimaalne lubatud sõnumi ID-de vahemik (`idTo` miinus `idFrom`) on 10000
 
@@ -189,15 +189,22 @@ alles välja töötamisel. Selle tekkimisel teavitatakse turuosalisi aegsasti ja
 
 Iga andmete levitamise vastussõnum koosneb ühis- ja andmetüübi spetsiifilistest atribuutidest:
 
-| Atribuut     | Tüüp     | Alati sõnumis? | Märkused                                                                                             |
-|--------------|----------|----------------|------------------------------------------------------------------------------------------------------|
-| id           | int      | jah            | Unikaalne sõnumi ID, mis on ajas kasvav                                                              |
-| createdTime  | datetime | jah            | Andmete levitamise sõnumi (mitte selle sõnumi, mis andmete levitamise põhjustas) loomise aeg         |
-| resourceType | string   | jah            | Andmeobjekti tüüp                                                                                    |
-| reason       | string   | jah            | Võimalikud väärtused: CREATE, UPDATE, DELETE                                                         |
-| hasContent   | bool     | jah            | Kui "true", siis on positsioonil "content" sisu. Kui "false", siis sisu puudub (tehnilisel põhjusel) |
-| content      | string   | jah            | Sõnumi sisu vastavalt andmetüübile (vt kirjeldus allpool)                                            |
-| pagination   | object   | jah            | Standardsed pagineerimise elemendid                                                                  |
+| Atribuut             | Tüüp     | Alati sõnumis? | Märkused                                                                                             |
+|----------------------|----------|----------------|------------------------------------------------------------------------------------------------------|
+| id                   | int      | jah            | Unikaalne sõnumi ID, mis on ajas kasvav                                                              |
+| createdTime          | datetime | jah            | Andmete levitamise sõnumi (mitte selle sõnumi, mis andmete levitamise põhjustas) loomise aeg         |
+| resourceType         | string   | jah            | Andmeobjekti tüüp                                                                                    |
+| reason               | string   | jah            | Võimalikud väärtused: CREATE, UPDATE, DELETE                                                         |
+| hasContent           | bool     | jah            | Kui "true", siis on positsioonil "content" sisu. Kui "false", siis sisu puudub (tehnilisel põhjusel) |
+| content              | string   | jah            | Sõnumi sisu vastavalt andmetüübile (vt kirjeldus allpool)                                            |
+| contentMissingReason | string   | ei             | Inimloetav põhjendus, miks atribuut "content" on tühi.                                               |
+| pagination           | object   | jah            | Standardsed pagineerimise elemendid                                                                  |
+
+Võimalikud `contentMissingReason` väärtused:
+
+* "File not found at the specified path"
+* "Unexpected error while getting file from MinIO"
+* "The path value is null"
 
 Näide vastussõnumist:
 
@@ -223,10 +230,11 @@ Näide vastussõnumist:
     {
       "id": 4661,
       "createdTime": "2024-05-23T10:10:13.682552100Z",
-      "resourceType": "AGREEMENT",
-      "reason": "CREATE",
-      "hasContent": true,
-      "content": "[{\"agreementId\":\"einar-2024-05-23T13:10:12.799579+03:00-EST\",\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"SUPPLY\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-06-30T21:00Z\"}]"
+      "resourceType": "METERING_POINT",
+      "reason": "",
+      "content": "",
+      "hasContent": false,
+      "contentMissingReason": "File not found at the specified path"
     }
   ],
   "pagination": {

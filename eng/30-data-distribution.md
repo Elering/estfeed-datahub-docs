@@ -82,7 +82,7 @@ Resource types are:
 Maximum allowed period in the query depends on the resource type:
 
 - metering data: 1 hour
-- other types: 1 day
+- other types: 24 hours (this distinction is important during the autumn winter/summer time change, as the local (not UTC) day is 25 hours long)
 
 Maximum allowed range of the ID-s (`idTo` minus `idFrom`) is 10000.
 
@@ -186,15 +186,22 @@ development. Market participants will be informed in a timely and thorough manne
 
 Every data distribution response message consists of common and resource type specific attributes:
 
-| Attribute    | Type     | Always present? | Comments                                                                                                    |
-|--------------|----------|-----------------|-------------------------------------------------------------------------------------------------------------|
-| id           | int      | yes             | Unique message ID, that is increasing in the time.                                                          |
-| createdTime  | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message             |
-| resourceType | string   | yes             | Resource type                                                                                               |
-| reason       | string   | jah             | One of: CREATE, UPDATE, DELETE                                                                              |
-| hasContent   | bool     | jah             | If "true", then position "content" has content. If "false", then content is missing (for technical reasons) |
-| content      | string   | yes             | Content of the message, depending on the resource type (see next paragraphs)                                |
-| pagination   | object   | jah             | Standard pagination elements                                                                                |
+| Attribute            | Type     | Always present? | Comments                                                                                                    |
+|----------------------|----------|-----------------|-------------------------------------------------------------------------------------------------------------|
+| id                   | int      | yes             | Unique message ID, that is increasing in the time.                                                          |
+| createdTime          | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message             |
+| resourceType         | string   | yes             | Resource type                                                                                               |
+| reason               | string   | jah             | One of: CREATE, UPDATE, DELETE.                                                                             |
+| hasContent           | bool     | jah             | If "true", then position "content" has content. If "false", then content is missing (for technical reasons) |
+| content              | string   | yes             | Content of the message, depending on the resource type (see next paragraphs)                                |
+| contentMissingReason | string   | no              | Human readable explanation about the reason, why the attribute "content" is empty                           |
+| pagination           | object   | jah             | Standard pagination elements                                                                                |
+
+Possible `contentMissingReason` values:
+
+* "File not found at the specified path"
+* "Unexpected error while getting file from MinIO"
+* "The path value is null"
 
 Example of the response message:
 
@@ -220,10 +227,11 @@ Example of the response message:
     {
       "id": 4661,
       "createdTime": "2024-05-23T10:10:13.682552100Z",
-      "resourceType": "AGREEMENT",
-      "reason": "CREATE",
-      "hasContent": true,
-      "content": "[{\"agreementId\":\"einar-2024-05-23T13:10:12.799579+03:00-EST\",\"meterEic\":\"38ZGO-1000001U-D\",\"agreementType\":\"SUPPLY\",\"preliminaryTerminationFee\":false,\"commodityType\":\"ELECTRICITY\",\"validFrom\":\"2024-06-30T21:00Z\"}]"
+      "resourceType": "METERING_POINT",
+      "reason": "",
+      "content": "",
+      "hasContent": false,
+      "contentMissingReason": "File not found at the specified path"
     }
   ],
   "pagination": {
