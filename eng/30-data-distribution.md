@@ -257,13 +257,14 @@ The system uses the same data structure and attributes as described in the respo
 
 ```json
 {
-  "agreementId": "einar-2024-04-03T16:25:08.569885+03:00-EST",
-  "meterEic": "38ZGO-1000001B-X",
-  "agreementType": "SUPPLY",
+  "meterEic": "38ZGO-10000074-U",
+  "agreementType": "GENERAL_SERVICE",
   "preliminaryTerminationFee": false,
   "commodityType": "ELECTRICITY",
-  "validFrom": "2024-04-03T21:00:00Z",
-  "validTo": "2024-04-17T21:00:00Z"
+  "validFrom": "2024-11-12T22:00Z",
+  "validTo": "2024-11-30T22:00Z",
+  "serviceProviderEic": "38X-EIN-GO-----0",
+  "customerEic": "38X-AVP-ZW6700C6"
 }
 ```
 
