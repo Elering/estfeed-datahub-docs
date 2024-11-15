@@ -1,12 +1,25 @@
+## [EDH-3488] Release 0.23.3
+
+- __2024-11-15__ - released to __TEST-PUBLIC__
+
+- __2024-11-15__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                      Title                     |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------|
+|  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |    DD is not handling zoned datetime values    |
+|  [EDH-3446](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Bug |  Critical |  DD createdTime is not compliant with ISO-8601 |
+
 ## [EDH-3478] Release 0.23.2
 
 - __2024-11-15__ - released to __TEST-PUBLIC__
 
 - __2024-11-15__ - released to __LIVE__
 
-|                                  Issue                                 | Type |  Priority |                               Title                               |
-|------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------|
-|  [EDH-3339](https://github.com/Elering/estfeed-datahub-docs/issues/99) |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
+|                                  Issue                                  | Type |  Priority |                               Title                               |
+|-------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------|
+|  [EDH-3339](https://github.com/Elering/estfeed-datahub-docs/issues/99)  |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
+|  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |              DD is not handling zoned datetime values             |
+|  [EDH-3446](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
 
 ## [EDH-3471] Release 0.23.1
 
