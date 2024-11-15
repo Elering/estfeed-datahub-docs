@@ -1,3 +1,13 @@
+## [EDH-3478] Release 0.23.2
+
+- __2024-11-15__ - released to __TEST-PUBLIC__
+
+- __2024-11-15__ - released to __LIVE__
+
+|                                  Issue                                 | Type |  Priority |                               Title                               |
+|------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------|
+|  [EDH-3339](https://github.com/Elering/estfeed-datahub-docs/issues/99) |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
+
 ## [EDH-3471] Release 0.23.1
 
 - __2024-11-13__ - released to __TEST-PUBLIC__
