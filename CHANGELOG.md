@@ -1,3 +1,23 @@
+## [EDH-3495] Release 0.23.5
+
+- __2024-11-18__ - released to __TEST-PUBLIC__
+
+- __2024-11-18__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  | Priority |                                 Title                                |
+|-------------------------------------------------------------------------|--------|----------|----------------------------------------------------------------------|
+|  [EDH-3441](https://github.com/Elering/estfeed-datahub-docs/issues/114) |  Story |  Highest |  Remove flows from parent border MP-s from Balance Provider 2 report |
+
+## [EDH-3492] Release 0.23.4
+
+- __2024-11-18__ - released to __TEST-PUBLIC__
+
+- __2024-11-18__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority|                                    Title                                    |
+|-------------------------------------------------------------------------|------|---------|-----------------------------------------------------------------------------|
+|  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |  Bug |  Medium |  GS agreement regenerated and DDs are sent about long expired GS agreements |
+
 ## [EDH-3488] Release 0.23.3
 
 - __2024-11-15__ - released to __TEST-PUBLIC__
@@ -455,43 +475,4 @@
 |  EDH-1880 |  Story |  Medium  |                         [OPP-BE] Improve Metering Data Excel export & import by supporting multiple sheets                        |
 |  EDH-507  |  Story |  Medium  |                        [OPP-UI][OPP-BE] Add Customer IDs to search filters in agreement search and download                       |
 |  EDH-2108 |  Story |  Medium  |                                       [OPP-UI] Search for EMBASSY while adding new agreement                                      |
-
-## [EDH-2158] Release 0.3.0
-
-- __2024-04-23__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                         Title                                         |
-|-----------|--------|-----------|---------------------------------------------------------------------------------------|
-|  EDH-2125 |   Bug  |   Medium  |                Metering data UI doesn't display quantity if qty = 0.00                |
-|  EDH-2101 |   Bug  |   Minor   |        [OPP-UI] Connection state - allows to request disconnection on past date       |
-|  EDH-1964 |   Bug  |   Minor   |         List of tech. users - the heading is sometimes not rendered correctly         |
-|  EDH-2104 |   Bug  |  Critical |               [TEMP-API] findAllMeteringPointsWithAgreements OutOfMemory              |
-|  EDH-960  |  Story |   Medium  |                 Add new supply, (border)grid or aggregation agreement                 |
-|  EDH-1985 |  Story |   Medium  |             [OPP-BE] Metering data import with file produces import report            |
-|  EDH-507  |  Story |   Medium  |  [OPP-UI][OPP-BE] Add Customer IDs to search filters in agreement search and download |
-|  EDH-713  |  Story |   Medium  |                      [OPP-BE][MPD] Generate Grid Operator report                      |
-|  EDH-1912 |  Story |  Highest  |                         [DD] Create Data distribution service                         |
-
-## [EDH-2156] Release 0.2.0
-
-|   Issue   |  Type  | Priority|                                               Title                                              |
-|-----------|--------|---------|--------------------------------------------------------------------------------------------------|
-|  EDH-1169 |   Bug  |  Medium |          System generates BORDER_SUPPLY agreement with no actual validity period length          |
-|  EDH-2021 |   Bug  |  Medium |                             Sending metering data to non-existent MP                             |
-|  EDH-2073 |   Bug  |  Medium |                             [OPP-UI] Connection state creation fails                             |
-|  EDH-1968 |  Story |  Medium |  [OPP-UI][OPP-BE][TEMP] Introduce location filter in Metering Point /search and /export endpoint |
-|  EDH-1960 |  Story |  Medium |             [OPP-BE] Remove customer and service provider from agreement distribution            |
-|  EDH-1882 |  Story |  Medium |               [OPP-BE] Introduce portfolio tree for data distribution - agreements               |
-|  EDH-1302 |  Story |  Medium |                           [OPP-BE] Search Customer agreements REST API                           |
-|  EDH-640  |  Story |  Medium |                   [OPP-BE] Distribute agreement create, update, delete payloads                  |
-|  EDH-464  |  Story |  Medium |                                 [OPP-BE] EIC API /eic/range flow                                 |
-|  EDH-2002 |  Story |  Medium |                               [OPP-UI] Show error messages on Modal                              |
-
-## [EDH-2129] Release 0.1.1 - test public only
-
-- __2024-03-26__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type |  Priority |                                   Title                                   |
-|-----------|------|-----------|---------------------------------------------------------------------------|
-|  EDH-2034 |  Bug |  Critical |  /api/v1/meter returning that ProductionSource is mandatory even if false |
 
