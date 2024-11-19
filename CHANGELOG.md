@@ -1,3 +1,13 @@
+## [EDH-3502] Release 0.23.7
+
+- __2024-11-20__ - released to __TEST-PUBLIC__
+
+- __2024-11-19__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority|                                        Title                                        |
+|-------------------------------------------------------------------------|------|---------|-------------------------------------------------------------------------------------|
+|  [EDH-3467](https://github.com/Elering/estfeed-datahub-docs/issues/116) |  Bug |  Medium |  Connection request search receives an error if no valid results are found / notMVP |
+
 ## [EDH-3495] Release 0.23.5
 
 - __2024-11-18__ - released to __TEST-PUBLIC__
@@ -458,21 +468,4 @@
 |   Issue   | Type |  Priority |                                       Title                                       |
 |-----------|------|-----------|-----------------------------------------------------------------------------------|
 |  EDH-2337 |  Bug |  Critical |  Using ee.. username JWT authentication token fails to authN in Data Distribution |
-
-## [EDH-2284] Release 0.4.0
-
-- __2024-04-23__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  | Priority |                                                               Title                                                               |
-|-----------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2016 |   Bug  |  Medium  |                                     New SUPPLY agreement doesn't end previous SUPPLY agreement                                    |
-|  EDH-2328 |  Story |  Highest |  IMPORTANT: Data distribution got it's own separate Swagger UI: https://public-test-dd-datahub.elering.ee/swagger-ui/index.html#/ |
-|  EDH-2142 |  Story |  Medium  |                                          [DD] DD records are not in chronological order.                                          |
-|  EDH-1965 |  Story |  Medium  |                                  [OPP-UI][OPP-BE][AUTHZ] Display assignable roles for admin users                                 |
-|  EDH-713  |  Story |  Medium  |                                            [OPP-BE][MPD] Generate Grid Operator report                                            |
-|  EDH-2124 |  Story |  Medium  |                                             Add new BILLING_METHOD value: SELF_SERVICE                                            |
-|  EDH-2321 |  Story |  Highest |                              IMPORTANT: Username format has changed from pnoee-394xx.. to ee394xxz..                              |
-|  EDH-1880 |  Story |  Medium  |                         [OPP-BE] Improve Metering Data Excel export & import by supporting multiple sheets                        |
-|  EDH-507  |  Story |  Medium  |                        [OPP-UI][OPP-BE] Add Customer IDs to search filters in agreement search and download                       |
-|  EDH-2108 |  Story |  Medium  |                                       [OPP-UI] Search for EMBASSY while adding new agreement                                      |
 
