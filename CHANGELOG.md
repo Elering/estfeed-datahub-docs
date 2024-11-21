@@ -73,7 +73,7 @@
 |  [EDH-3390](https://github.com/Elering/estfeed-datahub-docs/issues/109) |   Bug  |   Medium  |                     DD of GRID agreement to the current OPEN_SUPPLIER doesn't contain "customerId"                     |
 |  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
 |                                 EDH-3155                                |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
-|  [EDH-3306](https://github.com/Elering/estfeed-datahub-docs/issues/89)  |  Story |  Highest  |                                  Change the logic of createdTime in /meter-data/status                                 |
+|                                 EDH-3306                                |  Story |  Highest  |                                  Change the logic of createdTime in /meter-data/status                                 |
 |  [EDH-3331](https://github.com/Elering/estfeed-datahub-docs/issues/97)  |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
 |                                 EDH-3195                                |  Story |  Highest  |                               [DD] Distribute deleted GS agreement first and create after                              |
 |                                 EDH-3087                                |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
@@ -140,7 +140,7 @@
 
 |                                  Issue                                 | Type |  Priority |                                      Title                                      |
 |------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
-|  [EDH-3308](https://github.com/Elering/estfeed-datahub-docs/issues/90) |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
+|                                EDH-3308                                |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
 |  [EDH-3321](https://github.com/Elering/estfeed-datahub-docs/issues/96) |  Bug |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
 |                                EDH-3319                                |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
 
@@ -460,12 +460,4 @@
 |   Issue   | Type |  Priority |             Title             |
 |-----------|------|-----------|-------------------------------|
 |  EDH-2345 |  Bug |  Critical |  Some data distribution fixes |
-
-## [EDH-2349] Release 0.4.1
-
-- __2024-04-25__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type |  Priority |                                       Title                                       |
-|-----------|------|-----------|-----------------------------------------------------------------------------------|
-|  EDH-2337 |  Bug |  Critical |  Using ee.. username JWT authentication token fails to authN in Data Distribution |
 
