@@ -94,7 +94,7 @@ This action can be performed by Grid Operator, Aggregator and Closed Distributio
 
 Importing metering data to Estfeed:
 - 'Metering data' -> 'Template' -> choose the parameters needed for uploading metering data (*for uploading hour-resolution data the timestamps need to be full hours and for uploading 15-min-resolution data the timestamps need to be full 15 minutes(:00, :15, :30, :45)*) -> 'Download'
-- Fill all of the columns in the downloaded tempelate and save in your computer. Guide how to fill the Excel file can be found here: [Transmitting metering data via Excel](#transmitting-metering-data-via-excel).
+- Fill all of the columns in the downloaded tempelate and save in your computer. Guide how to fill the Excel file can be found here: [Transmitting metering data via Excel](12-metering-data.md#transmitting-metering-data-via-excel).
 - 'Metering data' -> 'Import' -> choose the file to upload -> 'Import'
 - If the file has no mistakes then the metering data is imported on is being importated
 - To see if the metering data has beed imported can be checked by two flows:

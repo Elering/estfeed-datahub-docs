@@ -238,6 +238,8 @@ Metering data can be requested by navigating to "Metering data" page. There mete
 
 ![Searching metering data](../images/opp-ui/metering-data/metering-data-search.png)
 
+In order to download metering data to Excel file first "Search" button has to be clicked. After that the "Download" button will be active.
+
 ### API messages
 
 #### Messages

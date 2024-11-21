@@ -240,6 +240,8 @@ Mõõteandmeid saab otsida navigeerides "Metering data" lehele. Selleks tuleb si
 
 ![Mõõteandmete otsimine](../images/opp-ui/metering-data/metering-data-search.png)
 
+Mõõteandmete Excelisse laadimiseks on vaja alustuseks vajutada "Otsi" nuppu, seejärel muutub "Laadi alla" nupp aktiivseks.
+
 ### Masinliidese sõnumid
 
 #### Sõnumid

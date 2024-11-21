@@ -117,6 +117,9 @@ The reasons for the change are as follows:
 > [!NOTE]
 > The format of the dynamic values follow a pattern: "what happened to the data object in the message" + BC (because) + "what was done with the data object causing the change"
 
+> [!WARNING]
+> Vanemaid kui 7 päeva andmeid pole võimalik tagantjärele lugeda.
+
 ## Distributing data updates
 
 Different business rules have been implemented in the Datahub regarding when and to whom data updates are distributed. This document does not describe all the rules, but to give an idea of how data primarily flows, here is a general list of the most important rules.
