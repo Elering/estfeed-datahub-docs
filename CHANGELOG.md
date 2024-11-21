@@ -1,3 +1,13 @@
+## [EDH-3526] Release 0.23.10
+
+- __2024-11-21__ - released to __TEST-PUBLIC__
+
+- __2024-11-21__ - released to __LIVE__
+
+|   Issue   |  Type  |  Priority |                          Title                         |
+|-----------|--------|-----------|--------------------------------------------------------|
+|  EDH-3306 |  Story |  Critical |  Change the logic of createdTime in /meter-data/status |
+
 ## [EDH-3502] Release 0.23.7
 
 - __2024-11-20__ - released to __TEST-PUBLIC__
@@ -73,7 +83,7 @@
 |  [EDH-3390](https://github.com/Elering/estfeed-datahub-docs/issues/109) |   Bug  |   Medium  |                     DD of GRID agreement to the current OPEN_SUPPLIER doesn't contain "customerId"                     |
 |  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
 |                                 EDH-3155                                |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
-|                                 EDH-3306                                |  Story |  Highest  |                                  Change the logic of createdTime in /meter-data/status                                 |
+|                                 EDH-3306                                |  Story |  Critical |                                  Change the logic of createdTime in /meter-data/status                                 |
 |  [EDH-3331](https://github.com/Elering/estfeed-datahub-docs/issues/97)  |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
 |                                 EDH-3195                                |  Story |  Highest  |                               [DD] Distribute deleted GS agreement first and create after                              |
 |                                 EDH-3087                                |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
@@ -452,12 +462,4 @@
 |                                                               EDH-1610                                                               |  Story |  Medium |       Display related agreements for found MP-s, while adding/modifying (border)grid, open supply or aggreation agreement      |
 |                                                                EDH-720                                                               |  Story |  Medium |                                            Implement scheduling of report generation                                           |
 |  [[EDH-344](https://github.com/Elering/estfeed-datahub-docs/issues/114)](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Story |  Medium |                                            [OPP-BE] Metering points import via file                                            |
-
-## [EDH-2369] Release 0.4.2
-
-- __2024-05-09__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type |  Priority |             Title             |
-|-----------|------|-----------|-------------------------------|
-|  EDH-2345 |  Bug |  Critical |  Some data distribution fixes |
 
