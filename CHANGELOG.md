@@ -1,3 +1,13 @@
+## [EDH-3547] Release 0.23.16
+
+- __2024-11-22__ - released to __TEST-PUBLIC__
+
+- __2024-11-22__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                       Title                      |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------|
+|  [EDH-3544](https://github.com/Elering/estfeed-datahub-docs/issues/125) |  Bug |  Critical |  POST customer-authorization/search doesn't work |
+
 ## [EDH-3546] Release 0.23.15
 
 - __2024-11-22__ - released to __TEST-PUBLIC__
