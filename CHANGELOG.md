@@ -1,3 +1,13 @@
+## [EDH-3553] Release 0.23.18
+
+- __2024-11-24__ - released to __TEST-PUBLIC__
+
+- __2024-11-24__ - released to __LIVE__
+
+|   Issue   | Type |  Priority |                              Title                              |
+|-----------|------|-----------|-----------------------------------------------------------------|
+|  EDH-3356 |  Bug |  Critical |  Service provider sees metering points based on past PARM right |
+
 ## [EDH-3552] Release 0.23.17
 
 - __2024-11-24__ - released to __TEST-PUBLIC__
