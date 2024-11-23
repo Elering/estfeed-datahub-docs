@@ -1,12 +1,23 @@
+## [EDH-3552] Release 0.23.17
+
+- __2024-11-24__ - released to __TEST-PUBLIC__
+
+- __2024-11-24__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                    Title                                    |
+|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------------------------------------|
+|  [EDH-3545](https://github.com/Elering/estfeed-datahub-docs/issues/123) |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
+
 ## [EDH-3547] Release 0.23.16
 
 - __2024-11-22__ - released to __TEST-PUBLIC__
 
 - __2024-11-22__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                       Title                      |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------|
-|  [EDH-3544](https://github.com/Elering/estfeed-datahub-docs/issues/125) |  Bug |  Critical |  POST customer-authorization/search doesn't work |
+|                                  Issue                                  | Type |  Priority |                                     Title                                    |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------|
+|                                 EDH-3550                                |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
+|  [EDH-3544](https://github.com/Elering/estfeed-datahub-docs/issues/125) |  Bug |  Critical |                POST customer-authorization/search doesn't work               |
 
 ## [EDH-3546] Release 0.23.15
 
@@ -14,9 +25,9 @@
 
 - __2024-11-22__ - released to __LIVE__
 
-|   Issue   | Type |  Priority |                                                             Title                                                            |
-|-----------|------|-----------|------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-3539 |  Bug |  Critical |  Meter data processing ERROR. Error code: opp.error.technical.general MPD tries to update one metering data twice per INSERT |
+|                                  Issue                                  | Type |  Priority |                                                             Title                                                            |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------------------------------------------------------|
+|  [EDH-3539](https://github.com/Elering/estfeed-datahub-docs/issues/122) |  Bug |  Critical |  Meter data processing ERROR. Error code: opp.error.technical.general MPD tries to update one metering data twice per INSERT |
 
 ## [EDH-3526] Release 0.23.10
 
@@ -391,12 +402,4 @@
 |                                 EDH-897                                |  Story |   Medium  |                       [OPP-UI] Balance settlement points UI                       |
 |                                EDH-2370                                |  Story |  Highest  |        When adding new Supply agreement, you can search for metering data         |
 |                                EDH-2146                                |  Story |   Medium  |                 [OPP-UI] Create multiple agreements simultaneously                |
-
-## [EDH-2510] Release 0.6.2
-
-- __2024-06-20__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  | Priority|                                   Title                                   |
-|-----------|--------|---------|---------------------------------------------------------------------------|
-|  EDH-2257 |  Story |  Medium |  [OPP-BE][MPM] POST /meter/search/customer should not use past agreements |
 
