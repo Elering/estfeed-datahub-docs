@@ -1,3 +1,13 @@
+## [EDH-3554] Release 0.23.19
+
+- __2024-11-25__ - released to __TEST-PUBLIC__
+
+- __2024-11-25__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                    Title                                    |
+|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------------------------------------|
+|  [EDH-3545](https://github.com/Elering/estfeed-datahub-docs/issues/123) |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
+
 ## [EDH-3553] Release 0.23.18
 
 - __2024-11-24__ - released to __TEST-PUBLIC__
@@ -26,7 +36,7 @@
 
 |                                  Issue                                  | Type |  Priority |                                     Title                                    |
 |-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------|
-|                                 EDH-3550                                |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
+|  [EDH-3550](https://github.com/Elering/estfeed-datahub-docs/issues/126) |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
 |  [EDH-3544](https://github.com/Elering/estfeed-datahub-docs/issues/125) |  Bug |  Critical |                POST customer-authorization/search doesn't work               |
 
 ## [EDH-3546] Release 0.23.15
@@ -189,11 +199,11 @@
 
 - __2024-10-16__ - released to __LIVE__
 
-|                                  Issue                                 | Type |  Priority |                                      Title                                      |
-|------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
-|                                EDH-3308                                |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
-|  [EDH-3321](https://github.com/Elering/estfeed-datahub-docs/issues/96) |  Bug |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
-|                                EDH-3319                                |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
+|   Issue   | Type |  Priority |                                      Title                                      |
+|-----------|------|-----------|---------------------------------------------------------------------------------|
+|  EDH-3308 |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
+|  EDH-3321 |  Bug |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
+|  EDH-3319 |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
 
 ## [EDH-3299] Release 0.18.1
 
@@ -378,38 +388,4 @@
 |  EDH-2368 |  Story |   Medium  |               [OPP-BE] Add legalConsent functionality to metering data query for LEGAL_PERSON              |
 |  EDH-2253 |  Story |   Medium  |              [OPP-BE][MPM] Avoid considering GENERAL_SERVICE agreements being valid in future              |
 |  EDH-1682 |  Story |   Medium  |                           Extend Search agreements flow with connected agreements                          |
-
-## [EDH-2591] Release 0.7.1
-
-- __2024-06-20__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type |  Priority |                                                          Title                                                          |
-|-----------|------|-----------|-------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2590 |  Bug |   Medium  |  In Search customer data flow (/api/v1/customer/search), the response does not contain the validFrom and validTo values |
-|  EDH-2555 |  Bug |  Critical |                            [OPP] Error during GRID_OPERATORS_OPEN_SUPPLIER report generation                            |
-
-## [EDH-2548] Release 0.7.0
-
-- __2024-06-20__ - released to __TEST-PUBLIC__
-
-|                                  Issue                                 |  Type  |  Priority |                                       Title                                       |
-|------------------------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------------------|
-|                                EDH-2500                                |   Bug  |   Medium  |              [TEMP] NullPointerException: General Service generation              |
-|                                EDH-2474                                |   Bug  |   Medium  |               Named supplier can now submit connection state request              |
-|                                EDH-2432                                |   Bug  |   Medium  |                  Cannot modify JOINT_INVOICE agreement in the UI                  |
-|                                EDH-2427                                |   Bug  |   Medium  |  Cannot update GRID agreement's validTo to less than SUPPLY agreement's validFrom |
-|                                EDH-1864                                |   Bug  |   Medium  |    Fixed bug when searching joint invoices by dataPeriodStart and dataPeriodEnd   |
-|                                EDH-2550                                |   Bug  |  Critical |                 Open Supplier and Grid Operator report is failing                 |
-|                                EDH-2526                                |   Bug  |   Lowest  |                 Aggregator meter data icon tooltip text is missing                |
-|                                EDH-2498                                |   Bug  |   Medium  |     OS role should not see "template" button under "metering data" menu point     |
-|                                EDH-2478                                |   Bug  |  Critical |                        Metering data not updated via import                       |
-|                                 EDH-712                                |  Story |   Medium  |                  [OPP-BE][MPD] Generate Balance Provider 2 report                 |
-|                                EDH-2257                                |  Story |   Medium  |      [OPP-BE][MPM] POST /meter/search/customer should not use past agreements     |
-|                                EDH-2243                                |  Story |   Medium  |                [TEMP] Multiple EIC ranges for one company supported               |
-|                                EDH-2637                                |  Story |   Medium  |                Reports are still in ALPHA state / not tested enough               |
-|                                EDH-1815                                |  Story |   Medium  |               Metering data is data distributed after import from UI              |
-|  [EDH-967](https://github.com/Elering/estfeed-datahub-docs/issues/111) |  Story |   Medium  |                     [OPP] Balance Settlement Point search API                     |
-|                                 EDH-897                                |  Story |   Medium  |                       [OPP-UI] Balance settlement points UI                       |
-|                                EDH-2370                                |  Story |  Highest  |        When adding new Supply agreement, you can search for metering data         |
-|                                EDH-2146                                |  Story |   Medium  |                 [OPP-UI] Create multiple agreements simultaneously                |
 
