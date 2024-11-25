@@ -1,3 +1,13 @@
+## [EDH-3559] Release 0.23.20
+
+- __2024-11-25__ - released to __TEST-PUBLIC__
+
+- __2024-11-25__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                       Title                       |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------|
+|  [EDH-3543](https://github.com/Elering/estfeed-datahub-docs/issues/124) |  Bug |  Critical |  UPDATE_BC_SUPPLY_CREATE DD message to future BRP |
+
 ## [EDH-3554] Release 0.23.19
 
 - __2024-11-25__ - released to __TEST-PUBLIC__
