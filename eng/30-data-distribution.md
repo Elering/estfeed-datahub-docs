@@ -118,7 +118,8 @@ The reasons for the change are as follows:
 > The format of the dynamic values follow a pattern: "what happened to the data object in the message" + BC (because) + "what was done with the data object causing the change"
 
 > [!WARNING]
-> Vanemaid kui 7 päeva andmeid pole võimalik tagantjärele lugeda.
+> 
+> Data older than 7 days cannot be read retrospectively.
 
 ## Distributing data updates
 
