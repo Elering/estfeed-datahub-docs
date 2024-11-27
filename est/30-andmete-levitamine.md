@@ -90,7 +90,7 @@ Maksimaalne lubatud sõnumi ID-de vahemik (`idTo` miinus `idFrom`) on 10000
 > Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
 
 > [!WARNING]
-> Data older than 7 days cannot be read retrospectively.
+> Vanemaid kui 7 päeva andmeid pole võimalik tagantjärele lugeda.
 
 ### Muudatuse põhjus (reason)
 
