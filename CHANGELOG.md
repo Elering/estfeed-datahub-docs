@@ -1,3 +1,13 @@
+## [EDH-3583] Release 0.23.23
+
+- __2024-11-28__ - released to __TEST-PUBLIC__
+
+- __2024-11-28__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                      Title                     |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------|
+|  [EDH-3567](https://github.com/Elering/estfeed-datahub-docs/issues/127) |  Bug |  Critical |  No DELETE_BC_SUPPLY_CREATE message for old OS |
+
 ## [EDH-3559] Release 0.23.20
 
 - __2024-11-25__ - released to __TEST-PUBLIC__
@@ -118,7 +128,7 @@
 
 |                                  Issue                                  | Type |  Priority |                               Title                               |
 |-------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------|
-|  [EDH-3339](https://github.com/Elering/estfeed-datahub-docs/issues/99)  |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
+|                                 EDH-3339                                |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
 |  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |              DD is not handling zoned datetime values             |
 |  [EDH-3446](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
 
@@ -145,7 +155,7 @@
 |  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
 |                                 EDH-3155                                |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
 |                                 EDH-3306                                |  Story |  Critical |                                  Change the logic of createdTime in /meter-data/status                                 |
-|  [EDH-3331](https://github.com/Elering/estfeed-datahub-docs/issues/97)  |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
+|                                 EDH-3331                                |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
 |                                 EDH-3195                                |  Story |  Highest  |                               [DD] Distribute deleted GS agreement first and create after                              |
 |                                 EDH-3087                                |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
 
@@ -190,7 +200,7 @@
 |                                  Issue                                  | Type | Priority|                                                        Title                                                       |
 |-------------------------------------------------------------------------|------|---------|--------------------------------------------------------------------------------------------------------------------|
 |  [EDH-3340](https://github.com/Elering/estfeed-datahub-docs/issues/102) |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
-|  [EDH-3333](https://github.com/Elering/estfeed-datahub-docs/issues/101) |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
+|                                 EDH-3333                                |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
 
 ## [EDH-3334] Release 0.19.0
 
@@ -198,10 +208,10 @@
 
 - __2024-11-01__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                             Title                            |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
-|  [EDH-3249](https://github.com/Elering/estfeed-datahub-docs/issues/100) |  Bug |  Critical |  Portfolio agreement change fails (both sync and async part) |
-|                                 EDH-3301                                |  Bug |  Critical |          Can't give authorization to technical user          |
+|   Issue   | Type |  Priority |                             Title                            |
+|-----------|------|-----------|--------------------------------------------------------------|
+|  EDH-3249 |  Bug |  Critical |  Portfolio agreement change fails (both sync and async part) |
+|  EDH-3301 |  Bug |  Critical |          Can't give authorization to technical user          |
 
 ## [EDH-3315] Release 0.18.2
 
@@ -381,21 +391,4 @@
 |-----------|------|-----------|----------------------------------------------|
 |  EDH-2678 |  Bug |  Highest  |  [DD] authentication of technical user fails |
 |  EDH-2643 |  Bug |  Critical |       Agreements - search doesn't fail       |
-
-## [EDH-2657] Release 0.8.0
-
-- __2024-07-05__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                                    Title                                                   |
-|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------|
-|  EDH-2507 |   Bug  |  Critical |                               Admin role can delete estfeed admin role via UI                              |
-|  EDH-1866 |   Bug  |   Medium  |                      Create Joint Invoice API: added traceID to unsuccessful request                       |
-|  EDH-2601 |   Bug  |  Critical |                           SUPPLY agreement can start earlier, than GRID agreement                          |
-|  EDH-2490 |  Story |   Medium  |                                 [DD] Agreement change reason to be accurate                                |
-|  EDH-2582 |  Story |  Critical |                             "transmissionNetworkEic" update should be possible                             |
-|  EDH-2521 |  Story |  Highest  |                                    Joint Invoice - removed PUT endpoint                                    |
-|  EDH-2371 |  Story |   Medium  |  [OPP-BE] Improve import metering data from excel for Market Participants with large Metering Point number |
-|  EDH-2368 |  Story |   Medium  |               [OPP-BE] Add legalConsent functionality to metering data query for LEGAL_PERSON              |
-|  EDH-2253 |  Story |   Medium  |              [OPP-BE][MPM] Avoid considering GENERAL_SERVICE agreements being valid in future              |
-|  EDH-1682 |  Story |   Medium  |                           Extend Search agreements flow with connected agreements                          |
 
