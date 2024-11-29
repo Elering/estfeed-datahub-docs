@@ -1,3 +1,13 @@
+## [EDH-3602] Release 0.23.25
+
+- __2024-11-29__ - released to __TEST-PUBLIC__
+
+- __2024-11-29__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                              Title                              |
+|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------------------------|
+|  [EDH-3572](https://github.com/Elering/estfeed-datahub-docs/issues/129) |  Bug |  Critical |  /api/v1/meter/search/customer is slow for specific customerEic |
+
 ## [EDH-3583] Release 0.23.23
 
 - __2024-11-28__ - released to __TEST-PUBLIC__
@@ -197,10 +207,10 @@
 
 - __2024-11-01__ - released to __LIVE__
 
-|                                  Issue                                  | Type | Priority|                                                        Title                                                       |
-|-------------------------------------------------------------------------|------|---------|--------------------------------------------------------------------------------------------------------------------|
-|  [EDH-3340](https://github.com/Elering/estfeed-datahub-docs/issues/102) |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
-|                                 EDH-3333                                |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
+|   Issue   | Type | Priority|                                                        Title                                                       |
+|-----------|------|---------|--------------------------------------------------------------------------------------------------------------------|
+|  EDH-3340 |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
+|  EDH-3333 |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
 
 ## [EDH-3334] Release 0.19.0
 
@@ -370,25 +380,4 @@
 |  EDH-2626 |  Story |  Highest  |                           [RPT] Move Reporting features to new service                          |
 |  EDH-2322 |  Story |   Medium  |             [OPP-BE][MPD] Define observationTime value when gathering Metering Data             |
 |  EDH-2533 |  Story |   Medium  |  [OPP][TEMP] Implement solution for updating existing identities with new business object types |
-
-## [EDH-2721] Release 0.9.0
-
-- __2024-07-17__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                                                            Title                                                                           |
-|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2670 |   Bug  |  Critical |                                                 Existing agreements are not displayed in New agreement form                                                |
-|  EDH-2717 |   Bug  |  Critical |  DD is not sent to Open Supplier when GRID agreement date has changed, Internal ID of Service Provider cannot be resolved, queue: dd_distribute_data_req_q |
-|  EDH-2538 |   Bug  |  Critical |                                                         Wrong DD message for OS about GS agreement                                                         |
-|  EDH-892  |  Story |   Medium  |                                           [OPP-UI][OPP-BE][MPD] Metering data search to support data aggregation                                           |
-|  EDH-2541 |  Story |   Medium  |                                                        datahub.elering.ee Cookiebot implementation                                                         |
-
-## [EDH-2669] Release 0.8.1
-
-- __2024-07-05__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type |  Priority |                     Title                    |
-|-----------|------|-----------|----------------------------------------------|
-|  EDH-2678 |  Bug |  Highest  |  [DD] authentication of technical user fails |
-|  EDH-2643 |  Bug |  Critical |       Agreements - search doesn't fail       |
 
