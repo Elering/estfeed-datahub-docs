@@ -6,6 +6,7 @@
 
 |                                  Issue                                  | Type |  Priority |                                   Title                                  |
 |-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------------------|
+|  [EDH-3575](https://github.com/Elering/estfeed-datahub-docs/issues/128) |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
 |  [EDH-3592](https://github.com/Elering/estfeed-datahub-docs/issues/130) |  Bug |  Critical |  Permissions given to suppliers do not get APPROVED status automatically |
 
 ## [EDH-3602] Release 0.23.25
