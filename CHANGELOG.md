@@ -1,3 +1,13 @@
+## [EDH-3650] Release 0.23.33
+
+- __2024-12-04__ - released to __TEST-PUBLIC__
+
+- __2024-12-04__ - released to __LIVE__
+
+|   Issue   |  Type  |  Priority |                             Title                            |
+|-----------|--------|-----------|--------------------------------------------------------------|
+|  EDH-3195 |  Story |  Critical |  [DD] Distribute deleted GS agreement first and create after |
+
 ## [EDH-3633] Release 0.23.32
 
 - __2024-12-04__ - released to __TEST-PUBLIC__
@@ -324,38 +334,4 @@
 |  EDH-3087 |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
 |  EDH-2883 |  Story |   Medium  |     [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully     |
 |  EDH-3195 |  Story |  Critical |                               [DD] Distribute deleted GS agreement first and create after                              |
-
-## [EDH-3196] Release 0.16.0
-
-- __2024-10-08__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                                     Title                                                     |
-|-----------|--------|-----------|---------------------------------------------------------------------------------------------------------------|
-|  EDH-3020 |   Bug  |   Medium  |                        Missing DD messages (GRID change deletes SUPPLY and changes GS)                        |
-|  EDH-3038 |   Bug  |   Medium  |      When downloading metering data for longer period of time only 3,5 months worth of data is downloaded     |
-|  EDH-2975 |   Bug  |  Critical |                    Cannot upload metering data on autumn clock change (03 hour duplicated)                    |
-|  EDH-2898 |   Bug  |   Minor   |                         Meter data template quantity values should be in 0,000 format                         |
-|  EDH-3157 |   Bug  |  Critical |                           Grid agreement can't be added in roles PO, LO, CO and CDN                           |
-|  EDH-3016 |   Bug  |   Medium  |                             Not possible to add grid agreement with 1 day duration                            |
-|  EDH-2664 |   Bug  |   Medium  |                                 Delete data duplication in swagger definitions                                |
-|  EDH-3064 |   Bug  |  Critical |              "meter/search/customer" returns different amount of MP-s if legalConsent=true/false              |
-|  EDH-2928 |   Bug  |   Medium  |  /agreement/search/meter serviceProviderName history displays only the latest version of the name in response |
-|  EDH-2815 |  Story |  Highest  |                               [OPP-BE] Improve performance of Meter Data Export                               |
-
-## [EDH-3127] Release 0.15.0
-
-- __2024-09-19__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                                        Title                                                        |
-|-----------|--------|-----------|---------------------------------------------------------------------------------------------------------------------|
-|  EDH-3100 |   Bug  |  Critical |                               Reports fail due to not being able to handle meter data                               |
-|  EDH-3000 |   Bug  |   Medium  |                  Generate metering point EIC codes "Copy" button gives empty success message on UI                  |
-|  EDH-2914 |   Bug  |   Medium  |  [UI] Connection state change reply as Open Supplier gets error about preferredDate that is not displayed in the UI |
-|  EDH-2890 |   Bug  |  Critical |                 Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM                 |
-|  EDH-3102 |   Bug  |   Medium  |                  (GRID) agreement can be extended to overlap other existing GRID agreement in a MP                  |
-|  EDH-3084 |   Bug  |  Highest  |                                    EIC generator generates out of range EIC codes                                   |
-|  EDH-3156 |  Story |  Critical |                    [BREAKING CHANGE] DD limit findDataDistributions response max pageSize to 100                    |
-|  EDH-3024 |  Story |  Highest  |                           Update DD rules for SUPPLY agreement in case of automatic delete                          |
-|  EDH-3017 |  Story |  Highest  |                                   DD messages about (BORDER_)GRID agreement delete                                  |
-|  EDH-3081 |  Story |  Critical |                          Metering data read pagination needs to cover 1 year metering data                          |
 
