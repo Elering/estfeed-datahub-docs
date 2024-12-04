@@ -1,3 +1,33 @@
+## [EDH-3630] Release 0.23.31
+
+- __2024-12-03__ - released to __TEST-PUBLIC__
+
+- __2024-12-03__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                Title                                |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------|
+|  [EDH-3618](https://github.com/Elering/estfeed-datahub-docs/issues/136) |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
+
+## [EDH-3629] Release 0.23.30
+
+- __2024-12-03__ - released to __TEST-PUBLIC__
+
+- __2024-12-03__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                             Title                             |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------|
+|  [EDH-3603](https://github.com/Elering/estfeed-datahub-docs/issues/132) |  Bug |  Critical |  Wrong response for OPEN_SUPPLIER in "agreement/search/meter" |
+
+## [EDH-3624] Release 0.23.29
+
+- __2024-12-02__ - released to __TEST-PUBLIC__
+
+- __2024-12-02__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                Title                                |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------|
+|  [EDH-3618](https://github.com/Elering/estfeed-datahub-docs/issues/136) |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
+
 ## [EDH-3613] Release 0.23.27
 
 - __2024-12-02__ - released to __TEST-PUBLIC__
@@ -126,9 +156,9 @@
 
 - __2024-11-18__ - released to __LIVE__
 
-|                                  Issue                                  | Type | Priority|                                    Title                                    |
-|-------------------------------------------------------------------------|------|---------|-----------------------------------------------------------------------------|
-|  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |  Bug |  Medium |  GS agreement regenerated and DDs are sent about long expired GS agreements |
+|   Issue   | Type | Priority|                                    Title                                    |
+|-----------|------|---------|-----------------------------------------------------------------------------|
+|  EDH-3265 |  Bug |  Medium |  GS agreement regenerated and DDs are sent about long expired GS agreements |
 
 ## [EDH-3488] Release 0.23.3
 
@@ -169,16 +199,16 @@
 
 - __2024-11-13__ - released to __LIVE__
 
-|                                  Issue                                  |  Type  |  Priority |                                                          Title                                                         |
-|-------------------------------------------------------------------------|--------|-----------|------------------------------------------------------------------------------------------------------------------------|
-|                                 EDH-3317                                |   Bug  |   Medium  |              /api/v1/meter/search/customer is slow (20+ s) when customer has more than 100 metering points             |
-|  [EDH-3390](https://github.com/Elering/estfeed-datahub-docs/issues/109) |   Bug  |   Medium  |                     DD of GRID agreement to the current OPEN_SUPPLIER doesn't contain "customerId"                     |
-|  [EDH-3265](https://github.com/Elering/estfeed-datahub-docs/issues/107) |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
-|                                 EDH-3155                                |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
-|                                 EDH-3306                                |  Story |  Critical |                                  Change the logic of createdTime in /meter-data/status                                 |
-|                                 EDH-3331                                |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
-|                                 EDH-3195                                |  Story |  Critical |                               [DD] Distribute deleted GS agreement first and create after                              |
-|                                 EDH-3087                                |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
+|   Issue   |  Type  |  Priority |                                                          Title                                                         |
+|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------|
+|  EDH-3317 |   Bug  |   Medium  |              /api/v1/meter/search/customer is slow (20+ s) when customer has more than 100 metering points             |
+|  EDH-3390 |   Bug  |   Medium  |                     DD of GRID agreement to the current OPEN_SUPPLIER doesn't contain "customerId"                     |
+|  EDH-3265 |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
+|  EDH-3155 |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
+|  EDH-3306 |  Story |  Critical |                                  Change the logic of createdTime in /meter-data/status                                 |
+|  EDH-3331 |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
+|  EDH-3195 |  Story |  Critical |                               [DD] Distribute deleted GS agreement first and create after                              |
+|  EDH-3087 |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
 
 ## [EDH-3434] Release 0.22.1
 
@@ -318,28 +348,4 @@
 |  EDH-3024 |  Story |  Highest  |                           Update DD rules for SUPPLY agreement in case of automatic delete                          |
 |  EDH-3017 |  Story |  Highest  |                                   DD messages about (BORDER_)GRID agreement delete                                  |
 |  EDH-3081 |  Story |  Critical |                          Metering data read pagination needs to cover 1 year metering data                          |
-
-## [EDH-3099] Release 0.14.0
-
-- __2024-09-17__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                         Title                                        |
-|-----------|--------|-----------|--------------------------------------------------------------------------------------|
-|  EDH-3028 |   Bug  |   Medium  |          Role OPEN_SUPPLIER missing role type VIEW_BALANCE_SETTLEMENT_POINT          |
-|  EDH-2890 |   Bug  |  Critical |  Automatic empty MP search when starting a new agreement (GO), can cause opp-api OOM |
-|  EDH-3075 |   Bug  |  Critical |                    GENERAL_SERVICE agreement has no valid_to date                    |
-|  EDH-2970 |   Bug  |   Medium  |      Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP     |
-|  EDH-2900 |  Story |  Highest  |                       [RPT-BE] Improve performance of Reporting                      |
-
-## [EDH-3012] Release 0.13.0
-
-- __2024-09-03__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                              Title                                              |
-|-----------|--------|-----------|-------------------------------------------------------------------------------------------------|
-|  EDH-2917 |   Bug  |  Critical |              TraceId missing from reporting endpoints after the move to rpt service             |
-|  EDH-2951 |   Bug  |  Critical |                         Wrong METERING_DATA DD messages to OPEN_SUPPLIER                        |
-|  EDH-2970 |   Bug  |   Medium  |           Impossible to add/change agreements when PARENT MP has more than 1 CHILD MP           |
-|  EDH-2955 |  Story |   Medium  |  [OPP] Remove version from joint invoice search response and latestVersionOnly from the request |
-|  EDH-2750 |  Story |  Highest  |      [TEMP] Improve Meter EIC generation algorithm - 15th char doesn't have to be "-" sign      |
 
