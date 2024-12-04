@@ -1,8 +1,18 @@
+## [EDH-3656] Release 0.23.34
+
+- __2024-12-05__ - released to __TEST-PUBLIC__
+
+- __2024-12-05__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                     Title                     |
+|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------|
+|  [EDH-3653](https://github.com/Elering/estfeed-datahub-docs/issues/141) |  Bug |  Critical |  "Name is null" error in PERMISSION DD search |
+
 ## [EDH-3650] Release 0.23.33
 
-- __2024-12-04__ - released to __TEST-PUBLIC__
+- __2024-12-05__ - released to __TEST-PUBLIC__
 
-- __2024-12-04__ - released to __LIVE__
+- __2024-12-05__ - released to __LIVE__
 
 |   Issue   |  Type  |  Priority |                             Title                            |
 |-----------|--------|-----------|--------------------------------------------------------------|
