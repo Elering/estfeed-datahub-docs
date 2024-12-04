@@ -1,3 +1,13 @@
+## [EDH-3633] Release 0.23.32
+
+- __2024-12-04__ - released to __TEST-PUBLIC__
+
+- __2024-12-04__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                             Title                            |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
+|  [EDH-3611](https://github.com/Elering/estfeed-datahub-docs/issues/137) |  Bug |  Critical |  Customer EIC creation not possible if customer exists in db |
+
 ## [EDH-3630] Release 0.23.31
 
 - __2024-12-03__ - released to __TEST-PUBLIC__
