@@ -1,13 +1,3 @@
-## [EDH-3672] Release 0.23.38
-
-- __2024-12-04__ - released to __TEST-PUBLIC__
-
-- __2024-12-04__ - released to __LIVE__
-
-|                                  Issue                                  | Type |  Priority |              Title             |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------|
-|  [EDH-3649](https://github.com/Elering/estfeed-datahub-docs/issues/140) |  Bug |  Critical |  Joint-invoice files not found |
-
 ## [EDH-3670] Release 0.23.37
 
 - __2024-12-06__ - released to __TEST-PUBLIC__
