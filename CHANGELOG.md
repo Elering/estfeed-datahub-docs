@@ -1,3 +1,23 @@
+## [EDH-3672] Release 0.23.38
+
+- __2024-12-04__ - released to __TEST-PUBLIC__
+
+- __2024-12-04__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |              Title             |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------|
+|  [EDH-3649](https://github.com/Elering/estfeed-datahub-docs/issues/140) |  Bug |  Critical |  Joint-invoice files not found |
+
+## [EDH-3670] Release 0.23.37
+
+- __2024-12-06__ - released to __TEST-PUBLIC__
+
+- __2024-12-06__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |              Title             |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------|
+|  [EDH-3649](https://github.com/Elering/estfeed-datahub-docs/issues/140) |  Bug |  Critical |  Joint-invoice files not found |
+
 ## [EDH-3656] Release 0.23.34
 
 - __2024-12-05__ - released to __TEST-PUBLIC__
@@ -176,9 +196,9 @@
 
 - __2024-11-18__ - released to __LIVE__
 
-|                                  Issue                                  |  Type  | Priority |                                 Title                                |
-|-------------------------------------------------------------------------|--------|----------|----------------------------------------------------------------------|
-|  [EDH-3441](https://github.com/Elering/estfeed-datahub-docs/issues/114) |  Story |  Highest |  Remove flows from parent border MP-s from Balance Provider 2 report |
+|   Issue   |  Type  | Priority |                                 Title                                |
+|-----------|--------|----------|----------------------------------------------------------------------|
+|  EDH-3441 |  Story |  Highest |  Remove flows from parent border MP-s from Balance Provider 2 report |
 
 ## [EDH-3492] Release 0.23.4
 
@@ -199,7 +219,7 @@
 |                                  Issue                                  | Type |  Priority |                      Title                     |
 |-------------------------------------------------------------------------|------|-----------|------------------------------------------------|
 |  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |    DD is not handling zoned datetime values    |
-|  [EDH-3446](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Bug |  Critical |  DD createdTime is not compliant with ISO-8601 |
+|                                 EDH-3446                                |  Bug |  Critical |  DD createdTime is not compliant with ISO-8601 |
 
 ## [EDH-3478] Release 0.23.2
 
@@ -211,7 +231,7 @@
 |-------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------|
 |                                 EDH-3339                                |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
 |  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |              DD is not handling zoned datetime values             |
-|  [EDH-3446](https://github.com/Elering/estfeed-datahub-docs/issues/112) |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
+|                                 EDH-3446                                |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
 
 ## [EDH-3471] Release 0.23.1
 
@@ -219,9 +239,9 @@
 
 - __2024-11-13__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                 Title                |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------------|
-|  [EDH-3464](https://github.com/Elering/estfeed-datahub-docs/issues/115) |  Bug |  Critical |  In UI user modify modal not opening |
+|   Issue   | Type |  Priority |                 Title                |
+|-----------|------|-----------|--------------------------------------|
+|  EDH-3464 |  Bug |  Critical |  In UI user modify modal not opening |
 
 ## [EDH-3440] Release 0.23.0
 
@@ -322,26 +342,4 @@
 |-----------|------|---------|---------------------------------------------------------------------------------------|
 |  EDH-2636 |  Bug |  Medium |                  Estonian Customer can be created without PERSONAL_ID                 |
 |  EDH-2623 |  Bug |  Minor  |  Latitude/Longitute coordinate fields not shown in the "Edit" modal of Metering Point |
-
-## [EDH-3250] Release 0.17.1
-
-- __2024-10-08__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type |  Priority |                                          Title                                          |
-|-----------|------|-----------|-----------------------------------------------------------------------------------------|
-|  EDH-3216 |  Bug |  Critical |  createBulkMeterData fails immediately when TimescaleDB deadlocked during MDM data send |
-
-## [EDH-3239] Release 0.17.0
-
-- __2024-10-08__ - released to __TEST-PUBLIC__
-
-|   Issue   |  Type  |  Priority |                                                          Title                                                         |
-|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------|
-|  EDH-2971 |   Bug  |   Medium  |                                   Some metering points not found based on Client EIC                                   |
-|  EDH-3208 |   Bug  |  Critical |                              [TEMP] DD message creation fails silently for unknown reason                              |
-|  EDH-3171 |   Bug  |  Critical |                                For some grid agreements ValidTo can't be removed/changed                               |
-|  EDH-3147 |  Story |  Highest  |                         Border point customer has no access border metering point metering data                        |
-|  EDH-3087 |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
-|  EDH-2883 |  Story |   Medium  |     [OPP-BE][TEMP] Adjust customer update rules to eliminate error message when a customer is created successfully     |
-|  EDH-3195 |  Story |  Critical |                               [DD] Distribute deleted GS agreement first and create after                              |
 
