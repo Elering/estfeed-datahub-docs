@@ -1,3 +1,13 @@
+## [EDH-3672] Release 0.23.38
+
+- __2024-12-09__ - released to __TEST-PUBLIC__
+
+- __2024-12-09__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                  Title                                 |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------|
+|  [EDH-3651](https://github.com/Elering/estfeed-datahub-docs/issues/142) |  Bug |  Critical |  POST /api/v1/agreement/search/meter doesn't work every time correctly |
+
 ## [EDH-3670] Release 0.23.37
 
 - __2024-12-06__ - released to __TEST-PUBLIC__
@@ -323,13 +333,4 @@
 |   Issue   | Type | Priority|                  Title                 |
 |-----------|------|---------|----------------------------------------|
 |  EDH-3291 |  Bug |  Medium |  ERROR: Metering data processing fails |
-
-## [EDH-3275] Release 0.18.0
-
-- __2024-10-14__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type | Priority|                                         Title                                         |
-|-----------|------|---------|---------------------------------------------------------------------------------------|
-|  EDH-2636 |  Bug |  Medium |                  Estonian Customer can be created without PERSONAL_ID                 |
-|  EDH-2623 |  Bug |  Minor  |  Latitude/Longitute coordinate fields not shown in the "Edit" modal of Metering Point |
 
