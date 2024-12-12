@@ -1,3 +1,13 @@
+## [EDH-3708] Release 0.23.43
+
+- __2024-12-12__ - released to __TEST-PUBLIC__
+
+- __2024-12-12__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                        Title                       |
+|-------------------------------------------------------------------------|------|-----------|----------------------------------------------------|
+|  [EDH-3686](https://github.com/Elering/estfeed-datahub-docs/issues/147) |  Bug |  Critical |  SUPPLY.validFrom can be more than 48h in the past |
+
 ## [EDH-3672] Release 0.23.38
 
 - __2024-12-09__ - released to __TEST-PUBLIC__
@@ -186,9 +196,9 @@
 
 - __2024-11-19__ - released to __LIVE__
 
-|                                  Issue                                  | Type | Priority|                                        Title                                        |
-|-------------------------------------------------------------------------|------|---------|-------------------------------------------------------------------------------------|
-|  [EDH-3467](https://github.com/Elering/estfeed-datahub-docs/issues/116) |  Bug |  Medium |  Connection request search receives an error if no valid results are found / notMVP |
+|   Issue   | Type | Priority|                                        Title                                        |
+|-----------|------|---------|-------------------------------------------------------------------------------------|
+|  EDH-3467 |  Bug |  Medium |  Connection request search receives an error if no valid results are found / notMVP |
 
 ## [EDH-3495] Release 0.23.5
 
@@ -216,10 +226,10 @@
 
 - __2024-11-15__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                      Title                     |
-|-------------------------------------------------------------------------|------|-----------|------------------------------------------------|
-|  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |    DD is not handling zoned datetime values    |
-|                                 EDH-3446                                |  Bug |  Critical |  DD createdTime is not compliant with ISO-8601 |
+|   Issue   | Type |  Priority |                      Title                     |
+|-----------|------|-----------|------------------------------------------------|
+|  EDH-3468 |  Bug |  Critical |    DD is not handling zoned datetime values    |
+|  EDH-3446 |  Bug |  Critical |  DD createdTime is not compliant with ISO-8601 |
 
 ## [EDH-3478] Release 0.23.2
 
@@ -227,11 +237,11 @@
 
 - __2024-11-15__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                               Title                               |
-|-------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------|
-|                                 EDH-3339                                |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
-|  [EDH-3468](https://github.com/Elering/estfeed-datahub-docs/issues/117) |  Bug |  Critical |              DD is not handling zoned datetime values             |
-|                                 EDH-3446                                |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
+|   Issue   | Type |  Priority |                               Title                               |
+|-----------|------|-----------|-------------------------------------------------------------------|
+|  EDH-3339 |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
+|  EDH-3468 |  Bug |  Critical |              DD is not handling zoned datetime values             |
+|  EDH-3446 |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
 
 ## [EDH-3471] Release 0.23.1
 
@@ -302,35 +312,4 @@
 |-----------|------|---------|--------------------------------------------------------------------------------------------------------------------|
 |  EDH-3340 |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
 |  EDH-3333 |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
-
-## [EDH-3334] Release 0.19.0
-
-- __2024-11-01__ - released to __TEST-PUBLIC__
-
-- __2024-11-01__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                             Title                            |
-|-----------|------|-----------|--------------------------------------------------------------|
-|  EDH-3249 |  Bug |  Critical |  Portfolio agreement change fails (both sync and async part) |
-|  EDH-3301 |  Bug |  Critical |          Can't give authorization to technical user          |
-
-## [EDH-3315] Release 0.18.2
-
-- __2024-10-16__ - released to __TEST-PUBLIC__
-
-- __2024-10-16__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                      Title                                      |
-|-----------|------|-----------|---------------------------------------------------------------------------------|
-|  EDH-3308 |  Bug |  Critical |                 "POST /meter-data" has random lags in processing                |
-|  EDH-3321 |  Bug |  Critical |  Data distribution search 500, Could not open JPA EntityManager for transaction |
-|  EDH-3319 |  Bug |  Critical |                 Data distribution search is slow in GO-LIVE test                |
-
-## [EDH-3299] Release 0.18.1
-
-- __2024-10-14__ - released to __TEST-PUBLIC__
-
-|   Issue   | Type | Priority|                  Title                 |
-|-----------|------|---------|----------------------------------------|
-|  EDH-3291 |  Bug |  Medium |  ERROR: Metering data processing fails |
 
