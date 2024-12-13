@@ -8,6 +8,16 @@
 |-------------------------------------------------------------------------|------|-----------|----------------------------------------------------|
 |  [EDH-3686](https://github.com/Elering/estfeed-datahub-docs/issues/147) |  Bug |  Critical |  SUPPLY.validFrom can be more than 48h in the past |
 
+## [EDH-3680] Release 0.23.40
+
+- __2024-12-13__ - released to __TEST-PUBLIC__
+
+- __2024-12-13__ - released to __LIVE__
+
+|   Issue   | Type | Priority|                         Title                         |
+|-----------|------|---------|-------------------------------------------------------|
+|  EDH-2826 |  Bug |  Medium |  Imperfect metering data excels not imported / notMVP |
+
 ## [EDH-3672] Release 0.23.38
 
 - __2024-12-09__ - released to __TEST-PUBLIC__
