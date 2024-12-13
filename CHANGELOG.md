@@ -2,7 +2,7 @@
 
 - __2024-12-12__ - released to __TEST-PUBLIC__
 
-- __2024-12-12__ - released to __LIVE__
+- __2024-12-13__ - released to __LIVE__
 
 |                                  Issue                                  | Type |  Priority |                        Title                       |
 |-------------------------------------------------------------------------|------|-----------|----------------------------------------------------|
@@ -301,15 +301,4 @@
 |-----------|--------|-----------|----------------------------------------------------------------|
 |  EDH-3319 |   Bug  |  Critical |        Data distribution search is slow in GO-LIVE test        |
 |  EDH-3352 |  Story |  Critical |  [DD] Data distribution search performance improvements - I-II |
-
-## [EDH-3374] Release 0.20.0
-
-- __2024-11-01__ - released to __TEST-PUBLIC__
-
-- __2024-11-01__ - released to __LIVE__
-
-|   Issue   | Type | Priority|                                                        Title                                                       |
-|-----------|------|---------|--------------------------------------------------------------------------------------------------------------------|
-|  EDH-3340 |  Bug |  Medium |  Infinispan - Metering data cannot be downloaded - error 500 - Aggregator. unknown alias aggregatorCharacteristics |
-|  EDH-3333 |  Bug |  Medium |                               Error, when some BRP searches balance settlement points                              |
 
