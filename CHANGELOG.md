@@ -1,3 +1,13 @@
+## [EDH-3720] Release 0.23.44
+
+- __2024-12-13__ - released to __TEST-PUBLIC__
+
+- __2024-12-13__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  |  Priority |                                 Title                                 |
+|-------------------------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------|
+|  [EDH-3599](https://github.com/Elering/estfeed-datahub-docs/issues/152) |  Story |  Critical |  The PP of the owner of the  MP should not get access to MD or its DD |
+
 ## [EDH-3708] Release 0.23.43
 
 - __2024-12-12__ - released to __TEST-PUBLIC__
@@ -145,9 +155,9 @@
 
 - __2024-11-25__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                    Title                                    |
-|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------------------------------------|
-|  [EDH-3545](https://github.com/Elering/estfeed-datahub-docs/issues/123) |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
+|   Issue   | Type |  Priority |                                    Title                                    |
+|-----------|------|-----------|-----------------------------------------------------------------------------|
+|  EDH-3545 |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
 
 ## [EDH-3553] Release 0.23.18
 
@@ -165,9 +175,9 @@
 
 - __2024-11-24__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                    Title                                    |
-|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------------------------------------|
-|  [EDH-3545](https://github.com/Elering/estfeed-datahub-docs/issues/123) |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
+|   Issue   | Type |  Priority |                                    Title                                    |
+|-----------|------|-----------|-----------------------------------------------------------------------------|
+|  EDH-3545 |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
 
 ## [EDH-3547] Release 0.23.16
 
@@ -186,9 +196,9 @@
 
 - __2024-11-22__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                                             Title                                                            |
-|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------------------------------------------------------|
-|  [EDH-3539](https://github.com/Elering/estfeed-datahub-docs/issues/122) |  Bug |  Critical |  Meter data processing ERROR. Error code: opp.error.technical.general MPD tries to update one metering data twice per INSERT |
+|   Issue   | Type |  Priority |                                                             Title                                                            |
+|-----------|------|-----------|------------------------------------------------------------------------------------------------------------------------------|
+|  EDH-3539 |  Bug |  Critical |  Meter data processing ERROR. Error code: opp.error.technical.general MPD tries to update one metering data twice per INSERT |
 
 ## [EDH-3526] Release 0.23.10
 
