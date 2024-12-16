@@ -1,3 +1,13 @@
+## [EDH-3724] Release 0.23.45
+
+- __2024-12-16__ - released to __TEST-PUBLIC__
+
+- __2024-12-16__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                       Title                                      |
+|-------------------------------------------------------------------------|------|-----------|----------------------------------------------------------------------------------|
+|  [EDH-3713](https://github.com/Elering/estfeed-datahub-docs/issues/150) |  Bug |  Critical |  Search metering points by customerEIC does not take into account commodity type |
+
 ## [EDH-3720] Release 0.23.44
 
 - __2024-12-13__ - released to __TEST-PUBLIC__
