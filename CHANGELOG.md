@@ -1,3 +1,13 @@
+## [EDH-3772] Release 1.0.2
+
+- __2024-12-20__ - released to __TEST-PUBLIC__
+
+- __2024-12-27__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                Title                               |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------------|
+|  [EDH-3742](https://github.com/Elering/estfeed-datahub-docs/issues/154) |  Bug |  Critical |  Previous SUPPLY should not be restored when new SUPPLY is deleted |
+
 ## [EDH-3724] Release 0.23.45
 
 - __2024-12-16__ - released to __TEST-PUBLIC__
@@ -126,7 +136,7 @@
 
 |                                  Issue                                  | Type |  Priority |                                   Title                                  |
 |-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------------------|
-|  [EDH-3575](https://github.com/Elering/estfeed-datahub-docs/issues/128) |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
+|                                 EDH-3575                                |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
 |  [EDH-3592](https://github.com/Elering/estfeed-datahub-docs/issues/130) |  Bug |  Critical |  Permissions given to suppliers do not get APPROVED status automatically |
 
 ## [EDH-3602] Release 0.23.25
@@ -135,9 +145,9 @@
 
 - __2024-11-29__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                              Title                              |
-|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------------------------|
-|  [EDH-3572](https://github.com/Elering/estfeed-datahub-docs/issues/129) |  Bug |  Critical |  /api/v1/meter/search/customer is slow for specific customerEic |
+|   Issue   | Type |  Priority |                              Title                              |
+|-----------|------|-----------|-----------------------------------------------------------------|
+|  EDH-3572 |  Bug |  Critical |  /api/v1/meter/search/customer is slow for specific customerEic |
 
 ## [EDH-3583] Release 0.23.23
 
@@ -145,9 +155,9 @@
 
 - __2024-11-28__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                      Title                     |
-|-------------------------------------------------------------------------|------|-----------|------------------------------------------------|
-|  [EDH-3567](https://github.com/Elering/estfeed-datahub-docs/issues/127) |  Bug |  Critical |  No DELETE_BC_SUPPLY_CREATE message for old OS |
+|   Issue   | Type |  Priority |                      Title                     |
+|-----------|------|-----------|------------------------------------------------|
+|  EDH-3567 |  Bug |  Critical |  No DELETE_BC_SUPPLY_CREATE message for old OS |
 
 ## [EDH-3559] Release 0.23.20
 
@@ -155,9 +165,9 @@
 
 - __2024-11-25__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                       Title                       |
-|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------|
-|  [EDH-3543](https://github.com/Elering/estfeed-datahub-docs/issues/124) |  Bug |  Critical |  UPDATE_BC_SUPPLY_CREATE DD message to future BRP |
+|   Issue   | Type |  Priority |                       Title                       |
+|-----------|------|-----------|---------------------------------------------------|
+|  EDH-3543 |  Bug |  Critical |  UPDATE_BC_SUPPLY_CREATE DD message to future BRP |
 
 ## [EDH-3554] Release 0.23.19
 
@@ -195,10 +205,10 @@
 
 - __2024-11-22__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                     Title                                    |
-|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------|
-|  [EDH-3550](https://github.com/Elering/estfeed-datahub-docs/issues/126) |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
-|  [EDH-3544](https://github.com/Elering/estfeed-datahub-docs/issues/125) |  Bug |  Critical |                POST customer-authorization/search doesn't work               |
+|   Issue   | Type |  Priority |                                     Title                                    |
+|-----------|------|-----------|------------------------------------------------------------------------------|
+|  EDH-3550 |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
+|  EDH-3544 |  Bug |  Critical |                POST customer-authorization/search doesn't work               |
 
 ## [EDH-3546] Release 0.23.15
 
@@ -299,36 +309,4 @@
 |  EDH-3331 |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
 |  EDH-3195 |  Story |  Critical |                               [DD] Distribute deleted GS agreement first and create after                              |
 |  EDH-3087 |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
-
-## [EDH-3434] Release 0.22.1
-
-- __2024-11-08__ - released to __TEST-PUBLIC__
-
-- __2024-11-08__ - released to __LIVE__
-
-|   Issue   |  Type  |  Priority |                              Title                             |
-|-----------|--------|-----------|----------------------------------------------------------------|
-|  EDH-3352 |  Story |  Critical |  [DD] Data distribution search performance improvements - I-II |
-
-## [EDH-3421] Release 0.22.0
-
-- __2024-11-06__ - released to __TEST-PUBLIC__
-
-- __2024-11-06__ - released to __LIVE__
-
-|   Issue   |  Type  | Priority |                     Title                    |
-|-----------|--------|----------|----------------------------------------------|
-|  EDH-3359 |  Story |  Highest |  [RPT] Adjust BRP report and BHT calculation |
-|  EDH-3371 |  Story |  Highest |     [RPT] Adjust BRP 2 report calculation    |
-
-## [EDH-3416] Release 0.21.0
-
-- __2024-11-04__ - released to __TEST-PUBLIC__
-
-- __2024-11-04__ - released to __LIVE__
-
-|   Issue   |  Type  |  Priority |                              Title                             |
-|-----------|--------|-----------|----------------------------------------------------------------|
-|  EDH-3319 |   Bug  |  Critical |        Data distribution search is slow in GO-LIVE test        |
-|  EDH-3352 |  Story |  Critical |  [DD] Data distribution search performance improvements - I-II |
 
