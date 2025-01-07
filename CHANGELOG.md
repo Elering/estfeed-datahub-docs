@@ -1,3 +1,13 @@
+## [EDH-3818] Release 1.0.4
+
+- __2025-01-07__ - released to __TEST-PUBLIC__
+
+- __2025-01-07__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  | Priority |                  Title                 |
+|-------------------------------------------------------------------------|--------|----------|----------------------------------------|
+|  [EDH-3636](https://github.com/Elering/estfeed-datahub-docs/issues/157) |  Story |  Highest |  Allow to end the GRID agreement today |
+
 ## [EDH-3772] Release 1.0.2
 
 - __2024-12-20__ - released to __TEST-PUBLIC__
@@ -134,10 +144,10 @@
 
 - __2024-12-02__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                   Title                                  |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------------------|
-|                                 EDH-3575                                |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
-|  [EDH-3592](https://github.com/Elering/estfeed-datahub-docs/issues/130) |  Bug |  Critical |  Permissions given to suppliers do not get APPROVED status automatically |
+|   Issue   | Type |  Priority |                                   Title                                  |
+|-----------|------|-----------|--------------------------------------------------------------------------|
+|  EDH-3575 |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
+|  EDH-3592 |  Bug |  Critical |  Permissions given to suppliers do not get APPROVED status automatically |
 
 ## [EDH-3602] Release 0.23.25
 
@@ -259,54 +269,4 @@
 |   Issue   | Type | Priority|                                    Title                                    |
 |-----------|------|---------|-----------------------------------------------------------------------------|
 |  EDH-3265 |  Bug |  Medium |  GS agreement regenerated and DDs are sent about long expired GS agreements |
-
-## [EDH-3488] Release 0.23.3
-
-- __2024-11-15__ - released to __TEST-PUBLIC__
-
-- __2024-11-15__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                      Title                     |
-|-----------|------|-----------|------------------------------------------------|
-|  EDH-3468 |  Bug |  Critical |    DD is not handling zoned datetime values    |
-|  EDH-3446 |  Bug |  Critical |  DD createdTime is not compliant with ISO-8601 |
-
-## [EDH-3478] Release 0.23.2
-
-- __2024-11-15__ - released to __TEST-PUBLIC__
-
-- __2024-11-15__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                               Title                               |
-|-----------|------|-----------|-------------------------------------------------------------------|
-|  EDH-3339 |  Bug |  Critical |  Portfolio agreement modify - Type of customer is incorrect error |
-|  EDH-3468 |  Bug |  Critical |              DD is not handling zoned datetime values             |
-|  EDH-3446 |  Bug |  Critical |           DD createdTime is not compliant with ISO-8601           |
-
-## [EDH-3471] Release 0.23.1
-
-- __2024-11-13__ - released to __TEST-PUBLIC__
-
-- __2024-11-13__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                 Title                |
-|-----------|------|-----------|--------------------------------------|
-|  EDH-3464 |  Bug |  Critical |  In UI user modify modal not opening |
-
-## [EDH-3440] Release 0.23.0
-
-- __2024-11-13__ - released to __TEST-PUBLIC__
-
-- __2024-11-13__ - released to __LIVE__
-
-|   Issue   |  Type  |  Priority |                                                          Title                                                         |
-|-----------|--------|-----------|------------------------------------------------------------------------------------------------------------------------|
-|  EDH-3317 |   Bug  |   Medium  |              /api/v1/meter/search/customer is slow (20+ s) when customer has more than 100 metering points             |
-|  EDH-3390 |   Bug  |   Medium  |                     DD of GRID agreement to the current OPEN_SUPPLIER doesn't contain "customerId"                     |
-|  EDH-3265 |   Bug  |   Medium  |                       GS agreement regenerated and DDs are sent about long expired GS agreements                       |
-|  EDH-3155 |   Bug  |  Highest  |                         Balance Provider 2 report is generated for all Open Suppliers / notMVP                         |
-|  EDH-3306 |  Story |  Critical |                                  Change the logic of createdTime in /meter-data/status                                 |
-|  EDH-3331 |  Story |  Critical |                                            Agreement's DD reason is missing                                            |
-|  EDH-3195 |  Story |  Critical |                               [DD] Distribute deleted GS agreement first and create after                              |
-|  EDH-3087 |  Story |  Critical |  [BREAKING CHANGE] hasContent (boolean) and contentMissingReason have been added to Data distribution search response  |
 
