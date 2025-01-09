@@ -1,3 +1,13 @@
+## [EDH-3835] Release 1.0.6
+
+- __2025-01-08__ - released to __TEST-PUBLIC__
+
+- __2025-01-09__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                                      Title                                      |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
+|  [EDH-3687](https://github.com/Elering/estfeed-datahub-docs/issues/146) |  Bug |  Critical |  POST /api/v1/meter/search searching by customers, doesn't give correct results |
+
 ## [EDH-3818] Release 1.0.4
 
 - __2025-01-07__ - released to __TEST-PUBLIC__
@@ -259,14 +269,4 @@
 |   Issue   |  Type  | Priority |                                 Title                                |
 |-----------|--------|----------|----------------------------------------------------------------------|
 |  EDH-3441 |  Story |  Highest |  Remove flows from parent border MP-s from Balance Provider 2 report |
-
-## [EDH-3492] Release 0.23.4
-
-- __2024-11-18__ - released to __TEST-PUBLIC__
-
-- __2024-11-18__ - released to __LIVE__
-
-|   Issue   | Type | Priority|                                    Title                                    |
-|-----------|------|---------|-----------------------------------------------------------------------------|
-|  EDH-3265 |  Bug |  Medium |  GS agreement regenerated and DDs are sent about long expired GS agreements |
 
