@@ -2,6 +2,8 @@
 
 - __2025-01-16__ - released to __TEST-PUBLIC__
 
+- __2025-01-16__ - released to __LIVE__
+
 |                                  Issue                                  |  Type  |  Priority |                  Title                 |
 |-------------------------------------------------------------------------|--------|-----------|----------------------------------------|
 |  [EDH-3636](https://github.com/Elering/estfeed-datahub-docs/issues/157) |  Story |  Critical |  Allow to end the GRID agreement today |
