@@ -1,8 +1,14 @@
+## [EDH-3886] Release 1.0.13
+
+- __2025-01-16__ - released to __TEST-PUBLIC__
+
+|                                  Issue                                  |  Type  |  Priority |                  Title                 |
+|-------------------------------------------------------------------------|--------|-----------|----------------------------------------|
+|  [EDH-3636](https://github.com/Elering/estfeed-datahub-docs/issues/157) |  Story |  Critical |  Allow to end the GRID agreement today |
+
 ## [EDH-3835] Release 1.0.6
 
 - __2025-01-08__ - released to __TEST-PUBLIC__
-
-- __2025-01-09__ - released to __LIVE__
 
 |                                  Issue                                  | Type |  Priority |                                      Title                                      |
 |-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
@@ -14,9 +20,9 @@
 
 - __2025-01-07__ - released to __LIVE__
 
-|                                  Issue                                  |  Type  | Priority |                  Title                 |
-|-------------------------------------------------------------------------|--------|----------|----------------------------------------|
-|  [EDH-3636](https://github.com/Elering/estfeed-datahub-docs/issues/157) |  Story |  Highest |  Allow to end the GRID agreement today |
+|                                  Issue                                  |  Type  |  Priority |                  Title                 |
+|-------------------------------------------------------------------------|--------|-----------|----------------------------------------|
+|  [EDH-3636](https://github.com/Elering/estfeed-datahub-docs/issues/157) |  Story |  Critical |  Allow to end the GRID agreement today |
 
 ## [EDH-3772] Release 1.0.2
 
@@ -239,34 +245,4 @@
 |   Issue   | Type |  Priority |                                                             Title                                                            |
 |-----------|------|-----------|------------------------------------------------------------------------------------------------------------------------------|
 |  EDH-3539 |  Bug |  Critical |  Meter data processing ERROR. Error code: opp.error.technical.general MPD tries to update one metering data twice per INSERT |
-
-## [EDH-3526] Release 0.23.10
-
-- __2024-11-21__ - released to __TEST-PUBLIC__
-
-- __2024-11-21__ - released to __LIVE__
-
-|   Issue   |  Type  |  Priority |                          Title                         |
-|-----------|--------|-----------|--------------------------------------------------------|
-|  EDH-3306 |  Story |  Critical |  Change the logic of createdTime in /meter-data/status |
-
-## [EDH-3502] Release 0.23.7
-
-- __2024-11-20__ - released to __TEST-PUBLIC__
-
-- __2024-11-19__ - released to __LIVE__
-
-|   Issue   | Type | Priority|                                        Title                                        |
-|-----------|------|---------|-------------------------------------------------------------------------------------|
-|  EDH-3467 |  Bug |  Medium |  Connection request search receives an error if no valid results are found / notMVP |
-
-## [EDH-3495] Release 0.23.5
-
-- __2024-11-18__ - released to __TEST-PUBLIC__
-
-- __2024-11-18__ - released to __LIVE__
-
-|   Issue   |  Type  | Priority |                                 Title                                |
-|-----------|--------|----------|----------------------------------------------------------------------|
-|  EDH-3441 |  Story |  Highest |  Remove flows from parent border MP-s from Balance Provider 2 report |
 
