@@ -1,3 +1,14 @@
+## [EDH-3899] Release 1.0.14
+
+- __2025-01-22__ - released to __TEST-PUBLIC__
+
+- __2025-01-22__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority |                                Title                                |
+|-------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------|
+|  [EDH-3690](https://github.com/Elering/estfeed-datahub-docs/issues/148) |  Bug |  Highest |  Error if searching for Metering Data and Customer.type has changed |
+|  [EDH-3711](https://github.com/Elering/estfeed-datahub-docs/issues/149) |  Bug |  Medium  |            Wrong DD about GRID agreement update to old OS           |
+
 ## [EDH-3886] Release 1.0.13
 
 - __2025-01-16__ - released to __TEST-PUBLIC__
@@ -7,6 +18,16 @@
 |                                  Issue                                  |  Type  |  Priority |                  Title                 |
 |-------------------------------------------------------------------------|--------|-----------|----------------------------------------|
 |  [EDH-3636](https://github.com/Elering/estfeed-datahub-docs/issues/157) |  Story |  Critical |  Allow to end the GRID agreement today |
+
+## [EDH-3860] Release 1.0.11
+
+- __2025-01-22__ - released to __TEST-PUBLIC__
+
+- __2025-01-22__ - released to __LIVE__
+
+|   Issue   | Type | Priority|                           Title                           |
+|-----------|------|---------|-----------------------------------------------------------|
+|  EDH-2653 |  Bug |  Medium |  System doesn't show the latest metadata on various pages |
 
 ## [EDH-3835] Release 1.0.6
 
