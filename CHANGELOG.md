@@ -1,3 +1,13 @@
+## [EDH-3925] Release 1.0.15
+
+- __2025-01-23__ - released to __TEST-PUBLIC__
+
+- __2025-01-23__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority |                   Title                   |
+|-------------------------------------------------------------------------|------|----------|-------------------------------------------|
+|  [EDH-3641](https://github.com/Elering/estfeed-datahub-docs/issues/143) |  Bug |  Highest |  Duplicated metering points in the tables |
+
 ## [EDH-3899] Release 1.0.14
 
 - __2025-01-22__ - released to __TEST-PUBLIC__
@@ -258,14 +268,4 @@
 |-----------|------|-----------|------------------------------------------------------------------------------|
 |  EDH-3550 |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
 |  EDH-3544 |  Bug |  Critical |                POST customer-authorization/search doesn't work               |
-
-## [EDH-3546] Release 0.23.15
-
-- __2024-11-22__ - released to __TEST-PUBLIC__
-
-- __2024-11-22__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                                             Title                                                            |
-|-----------|------|-----------|------------------------------------------------------------------------------------------------------------------------------|
-|  EDH-3539 |  Bug |  Critical |  Meter data processing ERROR. Error code: opp.error.technical.general MPD tries to update one metering data twice per INSERT |
 
