@@ -1,3 +1,13 @@
+## [EDH-3942] Release 1.0.18
+
+- __2025-01-27__ - released to __TEST-PUBLIC__
+
+- __2025-01-27__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  |  Priority |                     Title                    |
+|-------------------------------------------------------------------------|--------|-----------|----------------------------------------------|
+|  [EDH-3839](https://github.com/Elering/estfeed-datahub-docs/issues/162) |  Story |  Critical |  DD sequence in case of OPEN_SUPPLIER change |
+
 ## [EDH-3925] Release 1.0.15
 
 - __2025-01-23__ - released to __TEST-PUBLIC__
@@ -173,9 +183,9 @@
 
 - __2024-12-03__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                             Title                             |
-|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------|
-|  [EDH-3603](https://github.com/Elering/estfeed-datahub-docs/issues/132) |  Bug |  Critical |  Wrong response for OPEN_SUPPLIER in "agreement/search/meter" |
+|   Issue   | Type |  Priority |                             Title                             |
+|-----------|------|-----------|---------------------------------------------------------------|
+|  EDH-3603 |  Bug |  Critical |  Wrong response for OPEN_SUPPLIER in "agreement/search/meter" |
 
 ## [EDH-3624] Release 0.23.29
 
@@ -247,25 +257,4 @@
 |   Issue   | Type |  Priority |                              Title                              |
 |-----------|------|-----------|-----------------------------------------------------------------|
 |  EDH-3356 |  Bug |  Critical |  Service provider sees metering points based on past PARM right |
-
-## [EDH-3552] Release 0.23.17
-
-- __2024-11-24__ - released to __TEST-PUBLIC__
-
-- __2024-11-24__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                    Title                                    |
-|-----------|------|-----------|-----------------------------------------------------------------------------|
-|  EDH-3545 |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
-
-## [EDH-3547] Release 0.23.16
-
-- __2024-11-22__ - released to __TEST-PUBLIC__
-
-- __2024-11-22__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                     Title                                    |
-|-----------|------|-----------|------------------------------------------------------------------------------|
-|  EDH-3550 |  Bug |   Minor   |  OPP-UI Access permissions returns misleading error in case of nothing found |
-|  EDH-3544 |  Bug |  Critical |                POST customer-authorization/search doesn't work               |
 
