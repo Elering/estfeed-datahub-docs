@@ -1,3 +1,13 @@
+## [EDH-3969] Release 1.0.20
+
+- __2025-01-30__ - released to __TEST-PUBLIC__
+
+- __2025-01-31__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority |          Title         |
+|-------------------------------------------------------------------------|------|----------|------------------------|
+|  [EDH-3844](https://github.com/Elering/estfeed-datahub-docs/issues/161) |  Bug |  Highest |  rTime missing from DD |
+
 ## [EDH-3942] Release 1.0.18
 
 - __2025-01-27__ - released to __TEST-PUBLIC__
@@ -227,34 +237,4 @@
 |   Issue   | Type |  Priority |                      Title                     |
 |-----------|------|-----------|------------------------------------------------|
 |  EDH-3567 |  Bug |  Critical |  No DELETE_BC_SUPPLY_CREATE message for old OS |
-
-## [EDH-3559] Release 0.23.20
-
-- __2024-11-25__ - released to __TEST-PUBLIC__
-
-- __2024-11-25__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                       Title                       |
-|-----------|------|-----------|---------------------------------------------------|
-|  EDH-3543 |  Bug |  Critical |  UPDATE_BC_SUPPLY_CREATE DD message to future BRP |
-
-## [EDH-3554] Release 0.23.19
-
-- __2024-11-25__ - released to __TEST-PUBLIC__
-
-- __2024-11-25__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                    Title                                    |
-|-----------|------|-----------|-----------------------------------------------------------------------------|
-|  EDH-3545 |  Bug |  Critical |  Agreement editor role alone doesn't allow to create new  SUPPLY agreements |
-
-## [EDH-3553] Release 0.23.18
-
-- __2024-11-24__ - released to __TEST-PUBLIC__
-
-- __2024-11-24__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                              Title                              |
-|-----------|------|-----------|-----------------------------------------------------------------|
-|  EDH-3356 |  Bug |  Critical |  Service provider sees metering points based on past PARM right |
 
