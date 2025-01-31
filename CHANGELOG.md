@@ -28,6 +28,16 @@
 |-------------------------------------------------------------------------|------|----------|-------------------------------------------|
 |  [EDH-3641](https://github.com/Elering/estfeed-datahub-docs/issues/143) |  Bug |  Highest |  Duplicated metering points in the tables |
 
+## [EDH-3921] Release 1.0.19
+
+- __2025-01-31__ - released to __TEST-PUBLIC__
+
+- __2025-01-31__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority |                                                  Title                                                  |
+|-------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------------------------------------------|
+|  [EDH-3666](https://github.com/Elering/estfeed-datahub-docs/issues/145) |  Bug |  Highest |  RPT: technical user cant receive reports when making request POST {{rptRestHost}}/api/v1/report/search |
+
 ## [EDH-3899] Release 1.0.14
 
 - __2025-01-22__ - released to __TEST-PUBLIC__
