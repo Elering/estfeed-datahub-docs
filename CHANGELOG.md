@@ -1,3 +1,24 @@
+## [EDH-3998] Release 1.0.24
+
+- __2025-01-31__ - released to __TEST-PUBLIC__
+
+- __2025-01-31__ - released to __LIVE__
+
+|                                  Issue                                  | Type | Priority |                                       Title                                      |
+|-------------------------------------------------------------------------|------|----------|----------------------------------------------------------------------------------|
+|                                 EDH-3453                                |  Bug |  Medium  |  Metering data Excels have doubled rows with wrong period time and no quantities |
+|  [EDH-3760](https://github.com/Elering/estfeed-datahub-docs/issues/158) |  Bug |  Highest |       System accepts and distributes m3 measurements for EL metering point       |
+
+## [EDH-3970] Release 1.0.21
+
+- __2025-01-31__ - released to __TEST-PUBLIC__
+
+- __2025-01-31__ - released to __LIVE__
+
+|   Issue   | Type | Priority |                       Title                       |
+|-----------|------|----------|---------------------------------------------------|
+|  EDH-3501 |  Bug |  Highest |  Customer and SP EICs missing from the DD message |
+
 ## [EDH-3969] Release 1.0.20
 
 - __2025-01-30__ - released to __TEST-PUBLIC__
@@ -48,6 +69,7 @@
 |-------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------|
 |  [EDH-3690](https://github.com/Elering/estfeed-datahub-docs/issues/148) |  Bug |  Highest |  Error if searching for Metering Data and Customer.type has changed |
 |  [EDH-3711](https://github.com/Elering/estfeed-datahub-docs/issues/149) |  Bug |  Medium  |            Wrong DD about GRID agreement update to old OS           |
+|  [EDH-3635](https://github.com/Elering/estfeed-datahub-docs/issues/138) |  Bug |  Highest |  System distributes Metering Data with not existing datetime value  |
 
 ## [EDH-3886] Release 1.0.13
 
