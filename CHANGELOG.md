@@ -1,3 +1,13 @@
+## [EDH-4062] Release 1.0.25
+
+- __2025-02-10__ - released to __TEST-PUBLIC__
+
+- __2025-02-10__ - released to __LIVE__
+
+|                                  Issue                                  | Type |  Priority |                             Title                             |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------|
+|  [EDH-4030](https://github.com/Elering/estfeed-datahub-docs/issues/167) |  Bug |  Critical |  [OPP] joint/invoice download produces deadlock on MSSQL side |
+
 ## [EDH-3998] Release 1.0.24
 
 - __2025-01-31__ - released to __TEST-PUBLIC__
@@ -69,7 +79,7 @@
 |-------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------|
 |  [EDH-3690](https://github.com/Elering/estfeed-datahub-docs/issues/148) |  Bug |  Highest |  Error if searching for Metering Data and Customer.type has changed |
 |  [EDH-3711](https://github.com/Elering/estfeed-datahub-docs/issues/149) |  Bug |  Medium  |            Wrong DD about GRID agreement update to old OS           |
-|  [EDH-3635](https://github.com/Elering/estfeed-datahub-docs/issues/138) |  Bug |  Highest |  System distributes Metering Data with not existing datetime value  |
+|                                 EDH-3635                                |  Bug |  Highest |  System distributes Metering Data with not existing datetime value  |
 
 ## [EDH-3886] Release 1.0.13
 
@@ -205,9 +215,9 @@
 
 - __2024-12-04__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                             Title                            |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
-|  [EDH-3611](https://github.com/Elering/estfeed-datahub-docs/issues/137) |  Bug |  Critical |  Customer EIC creation not possible if customer exists in db |
+|   Issue   | Type |  Priority |                             Title                            |
+|-----------|------|-----------|--------------------------------------------------------------|
+|  EDH-3611 |  Bug |  Critical |  Customer EIC creation not possible if customer exists in db |
 
 ## [EDH-3630] Release 0.23.31
 
@@ -215,9 +225,9 @@
 
 - __2024-12-03__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                Title                                |
-|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------|
-|  [EDH-3618](https://github.com/Elering/estfeed-datahub-docs/issues/136) |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
+|   Issue   | Type |  Priority |                                Title                                |
+|-----------|------|-----------|---------------------------------------------------------------------|
+|  EDH-3618 |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
 
 ## [EDH-3629] Release 0.23.30
 
@@ -235,9 +245,9 @@
 
 - __2024-12-02__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |                                Title                                |
-|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------|
-|  [EDH-3618](https://github.com/Elering/estfeed-datahub-docs/issues/136) |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
+|   Issue   | Type |  Priority |                                Title                                |
+|-----------|------|-----------|---------------------------------------------------------------------|
+|  EDH-3618 |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
 
 ## [EDH-3613] Release 0.23.27
 
@@ -259,14 +269,4 @@
 |   Issue   | Type |  Priority |                              Title                              |
 |-----------|------|-----------|-----------------------------------------------------------------|
 |  EDH-3572 |  Bug |  Critical |  /api/v1/meter/search/customer is slow for specific customerEic |
-
-## [EDH-3583] Release 0.23.23
-
-- __2024-11-28__ - released to __TEST-PUBLIC__
-
-- __2024-11-28__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                      Title                     |
-|-----------|------|-----------|------------------------------------------------|
-|  EDH-3567 |  Bug |  Critical |  No DELETE_BC_SUPPLY_CREATE message for old OS |
 
