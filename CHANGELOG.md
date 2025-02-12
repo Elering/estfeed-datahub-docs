@@ -1,3 +1,13 @@
+## [EDH-4076] Release 1.0.27
+
+- __2025-02-12__ - released to __TEST-PUBLIC__
+
+- __2025-02-12__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  |  Priority |                             Title                             |
+|-------------------------------------------------------------------------|--------|-----------|---------------------------------------------------------------|
+|  [EDH-3947](https://github.com/Elering/estfeed-datahub-docs/issues/151) |  Story |  Critical |  Joint invoice GRID/SUPPLY/GENERAL_SERVICE validation removal |
+
 ## [EDH-4062] Release 1.0.25
 
 - __2025-02-10__ - released to __TEST-PUBLIC__
@@ -259,14 +269,4 @@
 |-----------|------|-----------|--------------------------------------------------------------------------|
 |  EDH-3575 |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
 |  EDH-3592 |  Bug |  Critical |  Permissions given to suppliers do not get APPROVED status automatically |
-
-## [EDH-3602] Release 0.23.25
-
-- __2024-11-29__ - released to __TEST-PUBLIC__
-
-- __2024-11-29__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                              Title                              |
-|-----------|------|-----------|-----------------------------------------------------------------|
-|  EDH-3572 |  Bug |  Critical |  /api/v1/meter/search/customer is slow for specific customerEic |
 
