@@ -24,14 +24,17 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 
 ## Ühisarve edastamine ja pärimine
 
-Ühisarvet on võimalik edastada masinliidese vahendusel. Tulevikus tekib võimalus selleks ka veebiliidese vahendusel (vorm väikestele võrguettevõtjatele) ning allalaadimiseks (müüjatele).
+Ühisarvet on võimalik edastada masinliidese vahendusel. Tulevikus tekib võimalus selleks ka veebiliidese vahendusel (vorm väikestele võrguettevõtjatele).
 
 Ühisarvete edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on leitav lehelt [Äriprotsessid](02-äriprotsessid.md#ühisarve-haldus)
 
 ## Veebiliides
 
 > [!NOTE]
-> Veebiliides on loomisel.
+> Ühisarvete lisamise veebiliides on loomisel.
+
+> [!NOTE]
+> Ühisarvete otsimise ja allalaadimise veebiliidese juhend on loomisel.
 
 ## Masinliidese sõnumid
 
@@ -75,8 +78,6 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 #### Täiendavad reeglid
 
 - Saatja ja adressaadi vahel peab olema kehtiv ühisarve leping, mille kehtivus katab ühisarve kehtivuse.
-- Saatja ja kliendi vahel peab olema kehtiv võrguleping, mille kehtivus katab ühisarve kehtivuse.
-- Adressaadi ja kliendi vahel peab olema kehtiv avatud tarne leping, mille kehtivus katab ühisarve kehtivuse.
 - Päiseid ja faile peab sõnumis olema täpsel samas koguses
 
 #### Näidissõnumid

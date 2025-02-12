@@ -2,29 +2,30 @@
 
 ## Table of contents
 
-- [Business processes](#business-processes)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Metering point management](#metering-point-management)
-    - [Register new metering point](#register-new-metering-point)
-    - [Update metadata of a metering point](#update-metadata-of-a-metering-point)
-  - [Customer management](#customer-management)
-    - [Register new customer](#register-new-customer)
-    - [Update metadata of a customer](#update-metadata-of-a-customer)
-  - [Agreement management](#agreement-management)
-    - [Register new grid agreement](#register-new-grid-agreement)
-    - [Register new open supply agreement](#register-new-open-supply-agreement)
-    - [Generate and distribute general service agreements](#generate-and-distribute-general-service-agreements)
-    - [Exchange customer's billing information from grid operator to named supplier](#exchange-customers-billing-information-from-grid-operator-to-named-supplier)
-  - [Connecting to and disconnecting from the grid](#connecting-to-and-disconnecting-from-the-grid)
-    - [Disconnecting](#disconnecting)
-    - [Reconnecting](#reconnecting)
-  - [Joint invoice management](#joint-invoice-management)
-    - [Add joint invoice](#add-joint-invoice)
-    - [Update joint invoice](#update-joint-invoice)
-  - [Network bill management](#network-bill-management)
-    - [Add network bill](#add-network-bill)
-    - [Update network bill](#update-network-bill)
+<!-- TOC -->
+* [Business processes](#business-processes)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Metering point management](#metering-point-management)
+    * [Register new metering point](#register-new-metering-point)
+    * [Update metadata of a metering point](#update-metadata-of-a-metering-point)
+  * [Customer management](#customer-management)
+    * [Register new customer](#register-new-customer)
+    * [Update metadata of a customer](#update-metadata-of-a-customer)
+  * [Agreement management](#agreement-management)
+    * [Register new grid agreement](#register-new-grid-agreement)
+    * [Register new open supply agreement](#register-new-open-supply-agreement)
+    * [Generate and distribute general service agreements](#generate-and-distribute-general-service-agreements)
+    * [Exchange customer's billing information from grid operator to named supplier](#exchange-customers-billing-information-from-grid-operator-to-named-supplier)
+  * [Connecting to and disconnecting from the grid](#connecting-to-and-disconnecting-from-the-grid)
+    * [Disconnecting](#disconnecting)
+    * [Reconnecting](#reconnecting)
+  * [Joint invoice management](#joint-invoice-management)
+    * [Add joint invoice](#add-joint-invoice)
+  * [Network bill management](#network-bill-management)
+    * [Add network bill](#add-network-bill)
+    * [Update network bill](#update-network-bill)
+<!-- TOC -->
 
 ## Introduction
 
@@ -99,10 +100,6 @@ Additional diagram, that helps to clarify how general service agreements are gen
 ### Add joint invoice
 
 ![Add joint invoice](../diagrams/joint-invoice/add-joint-invoice.svg)
-
-### Update joint invoice
-
-*Process is under development*
 
 ## Network bill management
 

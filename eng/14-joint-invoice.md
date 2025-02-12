@@ -5,7 +5,7 @@
 * [Joint invoice](#joint-invoice)
   * [Table of contents](#table-of-contents)
   * [Introduction](#introduction)
-  * [Transmitting and requesting a network bill](#transmitting-and-requesting-a-network-bill)
+  * [Transmitting and requesting a joint invoice](#transmitting-and-requesting-a-joint-invoice)
   * [Web interface](#web-interface)
   * [API messages](#api-messages)
   * [API message rules](#api-message-rules)
@@ -20,20 +20,23 @@
 
 ## Introduction
 
-The prerequisite for sending a joint invoice is a joint invoice agreement in the Datahub. For more information, see [Joint invoice agreement](14-joint-invoice.md)
+The prerequisite for sending a joint invoice is a joint invoice agreement in the Datahub. For more information, see [Joint invoice agreement](06.7-joint-invoice-agreement.md)
 
 The details of the joint invoice to be sent are taken from the e-invoice standard ([Estonian e-invoice guide](https://media.voog.com/0000/0042/1620/files/Eesti_e-arve_kirjelduse_juhend_E_arve_saatmine%20ja%20presenteeerimine%20pangas_ver_1_0.pdf)).
 
-## Transmitting and requesting a network bill
+## Transmitting and requesting a joint invoice
 
-Joint invoices can be transmitted via the API. In the future the possibility to add it via the web interface will be added - a form for small grid operators and download for sellers.
+Joint invoices can be transmitted via the API. In the future the possibility to add it via the web interface will be added - a form for small grid operators.
 
 Relevant Datahub services have been set up to transmit and request joint invoices. The intended use process can be found in [Business processes](02-business-processes.md#joint-invoice-management)
 
 ## Web interface
 
 > [!NOTE]
-> The web interface is being developed.
+> The web interface for adding joint invoices is being developed.
+
+> [!NOTE]
+> The guide for searching and downloading joint invoices in the web interface is under development.
 
 ## API messages
 
@@ -79,8 +82,6 @@ Joint invoices cannot be updated. In case of need for correction, the grid opera
 #### Additional rules
 
 - There must be a valid joint invoice agreement between the sender and the recipient, the validity of which covers the validity of the joint invoice.
-- There must be a valid grid agreement between the sender and the customer, the validity of which covers the validity of the joint invoice.
-- There must be a valid open supply agreement between the receiver and the customer, the validity of which covers the validity of the joint invoice.
 - There must be exactly the same amount of headers and files in the message
 
 #### Example messages

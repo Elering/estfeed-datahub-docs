@@ -2,29 +2,30 @@
 
 ## Sisukord
 
-- [Äriprotsessid](#äriprotsessid)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [Mõõtepunkti haldus](#mõõtepunkti-haldus)
-    - [Mõõtepunkti registreerimine](#mõõtepunkti-registreerimine)
-    - [Mõõtepunkti metaandmete uuendamine](#mõõtepunkti-metaandmete-uuendamine)
-  - [Klientide haldus](#klientide-haldus)
-    - [Kliendi registreerimine](#kliendi-registreerimine)
-    - [Kliendi metaandmete uuendamine](#kliendi-metaandmete-uuendamine)
-  - [Lepingute haldus](#lepingute-haldus)
-    - [Võrgulepingu registreerimine](#võrgulepingu-registreerimine)
-    - [Avatud tarne lepingu registreerimine](#avatud-tarne-lepingu-registreerimine)
-    - [Üldteenuse lepingute genereerimine ja levitamine](#üldteenuse-lepingute-genereerimine-ja-levitamine)
-    - [Kliendi arveldusandmete vahendamine võrguettevõtjalt nimetatud müüjale](#kliendi-arveldusandmete-vahendamine-võrguettevõtjalt-nimetatud-müüjale)
-  - [Võrguühenduse välja- ja sisselülitamine](#võrguühenduse-välja--ja-sisselülitamine)
-    - [Lahti ühendamine](#lahti-ühendamine)
-    - [Sisse lülitamine](#sisse-lülitamine)
-  - [Ühisarve haldus](#ühisarve-haldus)
-    - [Ühisarve lisamine](#ühisarve-lisamine)
-    - [Ühisarve muutmine](#ühisarve-muutmine)
-  - [Võrguteenuse arve haldus](#võrguteenuse-arve-haldus)
-    - [Võrguteenuse arve lisamine](#võrguteenuse-arve-lisamine)
-    - [Võrguteenuse arve muutmine](#võrguteenuse-arve-muutmine)
+<!-- TOC -->
+* [Äriprotsessid](#äriprotsessid)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+  * [Mõõtepunkti haldus](#mõõtepunkti-haldus)
+    * [Mõõtepunkti registreerimine](#mõõtepunkti-registreerimine)
+    * [Mõõtepunkti metaandmete uuendamine](#mõõtepunkti-metaandmete-uuendamine)
+  * [Klientide haldus](#klientide-haldus)
+    * [Kliendi registreerimine](#kliendi-registreerimine)
+    * [Kliendi metaandmete uuendamine](#kliendi-metaandmete-uuendamine)
+  * [Lepingute haldus](#lepingute-haldus)
+    * [Võrgulepingu registreerimine](#võrgulepingu-registreerimine)
+    * [Avatud tarne lepingu registreerimine](#avatud-tarne-lepingu-registreerimine)
+    * [Üldteenuse lepingute genereerimine ja levitamine](#üldteenuse-lepingute-genereerimine-ja-levitamine)
+    * [Kliendi arveldusandmete vahendamine võrguettevõtjalt nimetatud müüjale](#kliendi-arveldusandmete-vahendamine-võrguettevõtjalt-nimetatud-müüjale)
+  * [Võrguühenduse välja- ja sisselülitamine](#võrguühenduse-välja--ja-sisselülitamine)
+    * [Lahti ühendamine](#lahti-ühendamine)
+    * [Sisse lülitamine](#sisse-lülitamine)
+  * [Ühisarve haldus](#ühisarve-haldus)
+    * [Ühisarve lisamine](#ühisarve-lisamine)
+  * [Võrguteenuse arve haldus](#võrguteenuse-arve-haldus)
+    * [Võrguteenuse arve lisamine](#võrguteenuse-arve-lisamine)
+    * [Võrguteenuse arve muutmine](#võrguteenuse-arve-muutmine)
+<!-- TOC -->
 
 ## Sissejuhatus
 
@@ -97,10 +98,6 @@ Alljärgnev diagram aitab paremini mõista protsessi, kuidas üldteenuse lepingu
 ### Ühisarve lisamine
 
 ![Ühisarve lisamine](../diagrams/joint-invoice/yhisarve-lisamine.svg)
-
-### Ühisarve muutmine
-
-*protsessi kirjeldus on loomisel*
 
 ## Võrguteenuse arve haldus
 
