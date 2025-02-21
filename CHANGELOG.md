@@ -1,3 +1,13 @@
+## [EDH-4151] Release 1.0.34
+
+- __2025-02-20__ - released to __TEST-PUBLIC__
+
+- __2025-02-21__ - released to __LIVE__
+
+|                                  Issue                                  |  Type  | Priority |                 Title                 |
+|-------------------------------------------------------------------------|--------|----------|---------------------------------------|
+|  [EDH-4037](https://github.com/Elering/estfeed-datahub-docs/issues/166) |  Story |  Highest |  networkBill for Border Meteringpoint |
+
 ## [EDH-4076] Release 1.0.27
 
 - __2025-02-12__ - released to __TEST-PUBLIC__
@@ -195,9 +205,9 @@
 
 - __2024-12-06__ - released to __LIVE__
 
-|                                  Issue                                  | Type |  Priority |              Title             |
-|-------------------------------------------------------------------------|------|-----------|--------------------------------|
-|  [EDH-3649](https://github.com/Elering/estfeed-datahub-docs/issues/140) |  Bug |  Critical |  Joint-invoice files not found |
+|   Issue   | Type |  Priority |              Title             |
+|-----------|------|-----------|--------------------------------|
+|  EDH-3649 |  Bug |  Critical |  Joint-invoice files not found |
 
 ## [EDH-3656] Release 0.23.34
 
@@ -218,55 +228,4 @@
 |   Issue   |  Type  |  Priority |                             Title                            |
 |-----------|--------|-----------|--------------------------------------------------------------|
 |  EDH-3195 |  Story |  Critical |  [DD] Distribute deleted GS agreement first and create after |
-
-## [EDH-3633] Release 0.23.32
-
-- __2024-12-04__ - released to __TEST-PUBLIC__
-
-- __2024-12-04__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                             Title                            |
-|-----------|------|-----------|--------------------------------------------------------------|
-|  EDH-3611 |  Bug |  Critical |  Customer EIC creation not possible if customer exists in db |
-
-## [EDH-3630] Release 0.23.31
-
-- __2024-12-03__ - released to __TEST-PUBLIC__
-
-- __2024-12-03__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                Title                                |
-|-----------|------|-----------|---------------------------------------------------------------------|
-|  EDH-3618 |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
-
-## [EDH-3629] Release 0.23.30
-
-- __2024-12-03__ - released to __TEST-PUBLIC__
-
-- __2024-12-03__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                             Title                             |
-|-----------|------|-----------|---------------------------------------------------------------|
-|  EDH-3603 |  Bug |  Critical |  Wrong response for OPEN_SUPPLIER in "agreement/search/meter" |
-
-## [EDH-3624] Release 0.23.29
-
-- __2024-12-02__ - released to __TEST-PUBLIC__
-
-- __2024-12-02__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                Title                                |
-|-----------|------|-----------|---------------------------------------------------------------------|
-|  EDH-3618 |  Bug |  Critical |  opp-api fails to process create meter data requests and loses data |
-
-## [EDH-3613] Release 0.23.27
-
-- __2024-12-02__ - released to __TEST-PUBLIC__
-
-- __2024-12-02__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |                                   Title                                  |
-|-----------|------|-----------|--------------------------------------------------------------------------|
-|  EDH-3575 |  Bug |  Critical |      Agreement DELETE throws error, but delete is actually performed     |
-|  EDH-3592 |  Bug |  Critical |  Permissions given to suppliers do not get APPROVED status automatically |
 
