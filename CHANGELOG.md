@@ -1,3 +1,11 @@
+## [EDH-4173] Release 1.0.35
+
+- __2025-02-25__ - released to __TEST-PUBLIC__
+
+|   Issue   | Type | Priority|                       Title                      |
+|-----------|------|---------|--------------------------------------------------|
+|  EDH-3594 |  Bug |  Medium |  No DELETE/UPDATE GRID to OS (future agreements) |
+
 ## [EDH-4151] Release 1.0.34
 
 - __2025-02-20__ - released to __TEST-PUBLIC__
@@ -218,14 +226,4 @@
 |                                  Issue                                  | Type |  Priority |                     Title                     |
 |-------------------------------------------------------------------------|------|-----------|-----------------------------------------------|
 |  [EDH-3653](https://github.com/Elering/estfeed-datahub-docs/issues/141) |  Bug |  Critical |  "Name is null" error in PERMISSION DD search |
-
-## [EDH-3650] Release 0.23.33
-
-- __2024-12-05__ - released to __TEST-PUBLIC__
-
-- __2024-12-05__ - released to __LIVE__
-
-|   Issue   |  Type  |  Priority |                             Title                            |
-|-----------|--------|-----------|--------------------------------------------------------------|
-|  EDH-3195 |  Story |  Critical |  [DD] Distribute deleted GS agreement first and create after |
 
