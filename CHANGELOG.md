@@ -2,6 +2,8 @@
 
 - __2025-02-25__ - released to __TEST-PUBLIC__
 
+- __2025-02-26__ - released to __LIVE__
+
 |   Issue   | Type | Priority|                       Title                      |
 |-----------|------|---------|--------------------------------------------------|
 |  EDH-3594 |  Bug |  Medium |  No DELETE/UPDATE GRID to OS (future agreements) |
