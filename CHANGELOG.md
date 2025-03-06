@@ -1,3 +1,13 @@
+## [EDH-4245] Release 1.0.46
+
+- __2025-03-06__ - released to __TEST-PUBLIC__
+
+- __2025-03-06__ - released to __LIVE__
+
+|   Issue   | Type | Priority|                               Title                               |
+|-----------|------|---------|-------------------------------------------------------------------|
+|  EDH-3022 |  Bug |  Medium |  Missing General Service DD messages when deleting GRID (NS-case) |
+
 ## [EDH-4173] Release 1.0.35
 
 - __2025-02-25__ - released to __TEST-PUBLIC__
@@ -168,64 +178,4 @@
 |                                  Issue                                  | Type |  Priority |                                       Title                                      |
 |-------------------------------------------------------------------------|------|-----------|----------------------------------------------------------------------------------|
 |  [EDH-3713](https://github.com/Elering/estfeed-datahub-docs/issues/150) |  Bug |  Critical |  Search metering points by customerEIC does not take into account commodity type |
-
-## [EDH-3720] Release 0.23.44
-
-- __2024-12-13__ - released to __TEST-PUBLIC__
-
-- __2024-12-13__ - released to __LIVE__
-
-|                                  Issue                                  |  Type  |  Priority |                                 Title                                 |
-|-------------------------------------------------------------------------|--------|-----------|-----------------------------------------------------------------------|
-|  [EDH-3599](https://github.com/Elering/estfeed-datahub-docs/issues/152) |  Story |  Critical |  The PP of the owner of the  MP should not get access to MD or its DD |
-
-## [EDH-3708] Release 0.23.43
-
-- __2024-12-12__ - released to __TEST-PUBLIC__
-
-- __2024-12-13__ - released to __LIVE__
-
-|                                  Issue                                  | Type |  Priority |                        Title                       |
-|-------------------------------------------------------------------------|------|-----------|----------------------------------------------------|
-|  [EDH-3686](https://github.com/Elering/estfeed-datahub-docs/issues/147) |  Bug |  Critical |  SUPPLY.validFrom can be more than 48h in the past |
-
-## [EDH-3680] Release 0.23.40
-
-- __2024-12-13__ - released to __TEST-PUBLIC__
-
-- __2024-12-13__ - released to __LIVE__
-
-|   Issue   | Type | Priority|                         Title                         |
-|-----------|------|---------|-------------------------------------------------------|
-|  EDH-2826 |  Bug |  Medium |  Imperfect metering data excels not imported / notMVP |
-
-## [EDH-3672] Release 0.23.38
-
-- __2024-12-09__ - released to __TEST-PUBLIC__
-
-- __2024-12-09__ - released to __LIVE__
-
-|                                  Issue                                  | Type |  Priority |                                  Title                                 |
-|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------|
-|  [EDH-3651](https://github.com/Elering/estfeed-datahub-docs/issues/142) |  Bug |  Critical |  POST /api/v1/agreement/search/meter doesn't work every time correctly |
-
-## [EDH-3670] Release 0.23.37
-
-- __2024-12-06__ - released to __TEST-PUBLIC__
-
-- __2024-12-06__ - released to __LIVE__
-
-|   Issue   | Type |  Priority |              Title             |
-|-----------|------|-----------|--------------------------------|
-|  EDH-3649 |  Bug |  Critical |  Joint-invoice files not found |
-
-## [EDH-3656] Release 0.23.34
-
-- __2024-12-05__ - released to __TEST-PUBLIC__
-
-- __2024-12-05__ - released to __LIVE__
-
-|                                  Issue                                  | Type |  Priority |                     Title                     |
-|-------------------------------------------------------------------------|------|-----------|-----------------------------------------------|
-|  [EDH-3653](https://github.com/Elering/estfeed-datahub-docs/issues/141) |  Bug |  Critical |  "Name is null" error in PERMISSION DD search |
 
