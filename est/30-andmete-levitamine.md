@@ -197,7 +197,7 @@ Iga andmete levitamise vastussõnum koosneb ühis- ja andmetüübi spetsiifilist
 | id                   | int      | jah            | Unikaalne sõnumi ID, mis on ajas kasvav                                                              |
 | createdTime          | datetime | jah            | Andmete levitamise sõnumi (mitte selle sõnumi, mis andmete levitamise põhjustas) loomise aeg         |
 | resourceType         | string   | jah            | Andmeobjekti tüüp                                                                                    |
-| reason               | string   | jah            | Võimalikud väärtused: CREATE, UPDATE, DELETE                                                         |
+| reason               | string   | jah            | Väärtused on kirjeldatud peatükis [Muudatuse põhjus (reason)](#muudatuse-põhjus-reason)              |
 | hasContent           | bool     | jah            | Kui "true", siis on positsioonil "content" sisu. Kui "false", siis sisu puudub (tehnilisel põhjusel) |
 | content              | string   | jah            | Sõnumi sisu vastavalt andmetüübile (vt kirjeldus allpool)                                            |
 | contentMissingReason | string   | ei             | Inimloetav põhjendus, miks atribuut "content" on tühi.                                               |

@@ -1,12 +1,12 @@
-# Estfeed user manual
+ # Estfeed user manual
 
 ## Contents
 
 <!-- TOC -->
 
-  * [Registering a new user](#registering-a-new-user)
-  * [Creating a new techincal user](#creating-a-new-technical-user)
-  * [Adding or changing user rights](#adding-or-changing-user-rights)
+  * [Adding a regular user and assigning roles](#adding-a-regular-user-and-assigning-roles)
+    * [Adding a new regular user to your company](#adding-a-new-regular-user-to-your-company)
+    * [Modifying roles for a user](#modifying-roles-for-a-user)
   * [Creating a new metering point](#creating-a-new-metering-point)
   * [Metering point search](#metering-point-search)
   * [Metering point bulk import](#metering-point-bulk-import)
@@ -18,45 +18,75 @@
     * [Supply agreement](#supply-agreement)
     * [Joint invoice agreement](#joint-invoice-agreement)
   * [Agreement search](#agreement-search)
+  * [Joint invoices](#joint-invoices)
   * [Connection requests](#connection-requests)
     * [Sending a connection request](#sending-a-connection-request)
     * [Reading a connection request](#reading-a-connection-request)
     * [Answering to a connection request](#answering-to-a-connection-request)
 
-## Registering a new user
+## Adding a regular user and assigning roles
 
- - 'Home' -> 'Users'
- - 'New authorization' or 'Register user'
-    - Choosing 'Register user' -> fill all of the manditory fields -> 'Register' (*with this action a new user is created but it won't have any rights, the rights need to be added manually, see [Adding or changing user rights](#adding-or-changing-user-rights)*)
-    - Choosing 'New autorization' -> 'Regular user' -> fill all the mandotory fields -> choose the rights you wish the user to have -> 'Assign' -> fill the "First name" and "Last name" fields -> 'Register and assign'
-- A new user is registered
+### Adding a new regular user to your company
 
-## Creating a new technical user
+- 'Home' -> 'Users & Roles'
+- 'Add user' -> select 'Regular user' as user type
+- Add personal code and country of the person, who is being added as a new user
+- Choose role or roles for that user (Admin role contains all of the other roles; each user can grant a maximum of the same rights as they have)
+- 'Assign'
+- Chosen user has been granted the preferred roles
 
-- 'Home' -> 'Technical users' -> 'New'
-- Enter the suffix that will defina this technical user
-- 'Create'
-- New technical user is created 
+### Modifying roles for a regular user
+
+- 'Home' -> 'Users & Roles'
+- (if needed specify the search with a name and/or a personal code) -> 'Search'
+- Choose a user whose rights need to be changed
+- Click on the black icon "Modify" on the right side of the chosen row
+- Add, remove or change the roles as needed
+- 'Assign'
+- Roles for this regular user have been updated
+
+More informaion about user types: [Users management](03.02-users-management.md)
+
+
+## Creating a technical user and assigning roles
+
+### Creating a new technical user
+
+- 'Home' -> 'Users & Roles'
+- 'Add user' -> select 'Technical user' as user type
+- Check the box "Or create new"
+- Enter the suffix
+- Choose the roles for this technical user
+- 'Create & Assign'
+- Copy the "Client ID" and "Client Secret" to your personal notes **right away** 
+- Close the module window, the technical user has been created and it has been assigned the required roles
 
 > **NB!**
 >
->In the module window there are shown User ID and Seceret ID that you need to copy somewhere, because **later there is no way to get them from anywhere!!!**
+> "Client ID" and "Client Secret" which are shown in the module window after creating a new technical user need to be copied somewhere right away, because "Client Secret" **can't be retrieved later!**
 
-## Adding or changing user rights
+### Assigning or modifying roles for an existing technical user
 
-Adding rights to the new (technial) user:
-- 'Home' -> 'Users & Roles' -> 'New authorization'
-- Choose the type of user and fill all of the necessary fields
-- Choose rights for the user
+There are two possibilities for that.
+
+Using "Add user" module:
+- 'Home' -> 'Users & Roles'
+- 'Add user' -> select 'Technical user' as user type
+- Select a technical user (if there is only one existing technical user, it is chosen automatically; if there are many, the technical user needs to be chosen from the drop-down selection)
+- Add, remove or change the roles as needed
 - 'Assign'
-- The rights have been added to the user
+- Roles for this technical user have been updated
 
-Changing already existing rights:
-- 'Home' -> 'Users & Roles' -> *(specify the search based on your needs)* -> 'Search'
-- Choose the row with the selected user -> scroll right -> 'Change'
-- Add or remove rights based on your needs
+Using search:
+- 'Home' -> 'Users & Roles'
+- 'Search'
+- Choose a technical user
+- Click on the black icon "Modify" on the right side of the chosen row
+- Add, remove or change the roles as needed
 - 'Assign'
-- Users rights are updated
+- Roles for this technical user have been updated
+
+More informaion about user types: [Users management](03.02-users-management.md)
 
 ## Creating a new metering point
 
@@ -74,6 +104,9 @@ This action can be performed by Grid Operator, Aggregator and Closed Distributio
 > -> **Grid Operator** and **Closed Network Distribution** roles need to have "Transmission network EIC"
 > -> **Aggregator** role needs to have a "Parent Metering Point EIC", under which the agregation metering point will be 
 
+More information: [Web interface](05-metering-point.md)
+
+
 ## Metering point search
 
 - 'Metering points' 
@@ -81,6 +114,7 @@ This action can be performed by Grid Operator, Aggregator and Closed Distributio
 - 'Search'
 - Search results show the metering points that 
 
+More information: [Web interface](05-metering-point.md)
 
 ## Metering point bulk import
 
@@ -89,6 +123,7 @@ This action can be performed by Grid Operator, Aggregator and Closed Distributio
 - 'Import' -> 'Search' -> choose the filled file -> 'Import'
 - In case of a successful importing all of the metering points described in the file, have been added to the system. To check it go to the metering point search (see [Metering point search](#metering-point-search)) and search for some of the metering points that were just imported.
 
+More information: [Web interface](05-metering-point.md)
 
 ## Importing and downloading metering data
 
@@ -100,6 +135,8 @@ Importing metering data to Estfeed:
 - To see if the metering data has beed imported can be checked by two flows:
   - 'Metering data' -> 'Metering Data Status' -> choose a time period -> 'Search'
   - 'Metering data' -> 'Fill the necessary fields' -> 'Search' -> Check if the metering data you uploaded comes up in the search
+
+More information: [Transmitting metering data via the web interface](12-metering-data.md)
 
 Downloading the metering data:
 - 'Metering data' -> fill all of the necessary fields -> 'Search' -> 'Download'
@@ -113,6 +150,8 @@ Downloading the metering data:
 - 'Search'
 - The metering data corresponding to the entered search is displayed in the search results
 
+More information: [Transmitting metering data via the web interface](12-metering-data.md)
+
 
 ## Registering a new customer to the system
 
@@ -124,6 +163,8 @@ This action can only be performed by Grid Operator role.
 - Fill all of the mandatory fields
 - 'Save'
 - New customer is registered into the system so now new agreements can be formed with them
+
+More information: [Web interface](06.2-grid-agreement.md)
 
 ## Creating a new agreement
 
@@ -142,6 +183,8 @@ This action can only be performed by Grid Operator role.
 - 'Register new agreement'
 - New agreement is registered
 
+More information: [Web interface](06.2-grid-agreement.md)
+
 ### Supply agreement
 
 This action can only be performed by Open Supplier role.
@@ -154,6 +197,8 @@ This action can only be performed by Open Supplier role.
 - 'Register new agreement'
 - New agreement is registered
 
+More information: [Web interface](06.3-open-supply-agreement.md)
+
 ### Joint invoice agreement
 
 This action can be prformed by Grid Operator or Closed Network Distribution roles.
@@ -164,6 +209,7 @@ This action can be prformed by Grid Operator or Closed Network Distribution role
 - 'OK'
 - Joint invoice agreement has been registered
 
+More information: [Transmitting joint invoice agreements via web interface](06.7-joint-invoice-agreement.md)
 
 ## Agreement search
 
@@ -171,6 +217,22 @@ This action can be prformed by Grid Operator or Closed Network Distribution role
 - Fill the fields to specify the search (more options under 'Detailed search')
 - 'Search'
 - Agreements corresponding to the chosen parameters are displayed in the search results
+
+## Joint invoices
+Joint invoices can be seen by Grid Operator (who is sending) and Open Supplier (who is receiving).
+
+Searchin for joint invoices:
+- 'Joint invoices'
+- Choose the preferred time period ('Creation Date From' and 'Creation Date To')
+- 'Search'
+
+If there are joint invoices in the chosen time period, they will be shown in the search results.
+
+Downloading joint invoices:
+- Search for joint invoices in the preferred time period
+- Choose a joint invoice to download -> click on the downloading icon which is far right on the chosen invoices row
+- Chosen invoice is dovnloaded to the device and it will be marked as "Read" whe the Open Supplier has downloaded this invoice
+
 
 ## Connection requests
 

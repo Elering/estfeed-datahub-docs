@@ -4,8 +4,12 @@
 
 <!-- TOC -->
 
-  * [Uue kasutaja lisamine](#uue-kasutaja-lisamine)
-  * [Tehnilise kasutaja loomine](#tehnilise-kasutaja-loomine)
+  * [Tavakasutaja lisamine ning õiguste andmine](#tavakasutaja-lisamine-ning-õiguste-andmine)
+    * [Uue kasutaja lisamine ettevõtte alla](#uue-kasutaja-lisamine-ettevõtte-alla)
+    * [Kasutaja õiguste muutmine](#kasutaja-õiguste-muutmine)
+  * [Tehnilise kasutaja loomine ning õigused](#tehnilise-kasutaja-loomine-ning-õigused)
+    * [Uue tehnilise kasutaja loomine](#uue-tehnilise-kasutaja-loomine)
+    * [Olemasolevale tehnilisele kasutajale õiguste andmine või nende muutmine](#olemasolevale-tehnilisele-kasutajale-õiguste-andmine-või-nende-muutmine)
   * [Kasutaja õiguste lisamine või muutmine](#kasutaja-õiguste-lisamine-või-muutmine)
   * [Uue mõõtepunkti loomine](#uue-mõõtepunkti-loomine)
   * [Mõõtepunktide otsing](#mõõtepunktide-otsing)
@@ -18,50 +22,76 @@
     * [Avatud tarne leping](#avatud-tarne-leping)
     * [Ühisarve leping](#ühisarve-leping)
   * [Lepingute otsing](#lepingute-otsing)
+  * [Ühisarved](#ühisarved)
   * [Võrguühenduse sisse või välja lülitamine](#võrguühenduse-sisse-või-välja-lülitamine)
     * [Taotluse saatmine](#taotluse-saatmine)
     * [Taotluste lugemine](#taotluste-lugemine)
     * [Taotlusele vastamine](#taotlusele-vastamine)
 
 
-## Uue kasutaja lisamine
+## Tavakasutaja lisamine ning õiguste andmine
 
-- 'Avaleht' -> 'Kasutajad'
-- 'Uus kasutaja' või 'Registreeri kasutaja'
-  - Valides 'Registreeri kasutaja' -> täida vajalikud väljad -> 'Registreeri' (*sellega luuakse kasutaja kuid ei anta õiguseid, need tuleb eraldi lisada, vt [Kasutaja õiguste lisamine või muutmine](#kasutaja-õiguste-lisamine-või-muutmine)*)
-  - Valides 'Uus kasutaja' -> 'Tavakasutaja' -> täida vajalikud väljad -> vali soovitud õigused -> 'Määra' -> täida lahtrid "Eesnimi" ning "Perekonnanimi" -> 'Registreeri ja määra'
-- Uus kasutaja on loodud
+### Uue kasutaja lisamine ettevõtte alla
+
+- 'Avaleht' -> 'Kasutajad ja õigused'
+- 'Uus kasutaja' -> vali kasutaja tüübiks 'Tavakasutaja' 
+- Sisesta selle inimese isikukood ja riik, kellele ligipääse anda
+- Vali soovitud õigused (Administraator sisaldab kõiki õiguseid; iga kasutaja saab anda maksimaalselt endaga samaväärseid õiguseid)
+- 'Määra'
+- Soovitud õigused on isikule antud
+
+### Kasutaja õiguste muutmine
+
+- 'Avaleht' -> 'Kasutajad ja õigused'
+- (soovi korral täpsusta otsingut nime ja/või isikukoodiga) -> 'Otsi'
+- Vali kasutaja, kelle õiguseid muuta
+- Kliki vastava rea parema oleval mustal ikoonil "Muuda" 
+- Lisa, eemalda või vaheta kasutaja õiguseid vastavalt soovile
+- 'Määra'
+- Kasutaja õigused on uuendatud
+
+Rohkem selgitusi kasutajatüüpide ja muu kohta: [Kasutajate haldus](03.02-kasutajate-haldus.md)
 
 
-## Tehnilise kasutaja loomine
+## Tehnilise kasutaja loomine ning õigused
 
-- 'Avaleht' -> 'Tehnilised kasutajad' -> 'Uus'
-- Sisesta järelliide, mis hakkab seda tehnilist kasutajat eristama
-- 'Loo'
-- Tehniline kasutaja on loodud.
+### Uue tehnilise kasutaja loomine
+
+- 'Avaleht' -> 'Kasutajad ja õigused'
+- 'Uus kasutaja' -> vali kasutaja tüübiks 'Tehniline kasutaja'
+- Märgi linnuke 'Või loo uus' ette
+- Sisesta soovitud järellliide
+- Vali õigused, mida on soov sellele tehnilisele kasutajale anda
+- 'Lisa kasutaja'
+- Kopeeri "Kliendi ID" ning "Kliendi saladus" kuhugi omale **koheselt** ära
+- Sulge moodulaken, tehniline kasutaja on loodud ning sellele on õigused antud
 
 > **Pane tähele!** 
 > 
->Moodul aknal kuvatakse loodud tehnilise kasutaja ID ja Secret, mis tuleb koheselt omale kuhugi kopeerida, sest **hiljem neid mitte kusagilt kätte ei saa!!!**
+>Moodulaknal kuvatakse loodud tehnilise "Kliendi ID" ja "Kliendi Saladus", mis tuleb koheselt omale kuhugi kopeerida, sest "Kliendi Saladust" **hiljem mitte kusagilt kätte ei saa!**
 
+### Olemasolevale tehnilisele kasutajale õiguste andmine või nende muutmine
 
-## Kasutaja õiguste lisamine või muutmine
+Selle jaoks on kaks võimalust.
 
-Uuele (tehnilisele) kasutajale õiguste lisamine:
-
-- 'Avaleht' -> 'Kasutajad' -> 'Uus volitus'
-- Vali kasutaja tüüp ning täida vajalikud väljad
-- Vali õigused, mida soovite kasutajale anda
+Uue kasutaja mooduli kaudu:
+- 'Avaleht' -> 'Kasutajad ja õigused'
+- 'Uus kasutaja' -> vali kasutaja tüübiks 'Tehniline kasutaja'
+- Vali tehniline kasutaja (kui tehnilisi kasutajaid on üks, valitakse see automaatselt, kui neid on mitu tuleb avada rippmenüü ning valida üks)
+- Lisa, eemalda või vaheta tehilise kasutaja õiguseid vastavalt soovile
 - 'Määra'
-- Kasutajale on õigused antud
+- Tehnilise kasutaja õigused on uuendatud
 
-Olemasoleva (tehnilise) kasutaja õiguste muutmine:
-
-- 'Avaleht' -> 'Kasutajad' -> (*soovi korral täpsustage otsingut*) -> 'Otsi'
-- Valige vastava kasutaja rida -> kerige paremale -> 'Muuda'
-- Lisage ja eelmaldage õiguseid vastavalt soovile
+Otsingu kaudu:
+- 'Avaleht' -> 'Kasutajad ja õigused'
+- 'Otsi'
+- Vali tehniline kasutaja, mille õiguseid muuta
+- Kliki vastava rea parema oleval mustal ikoonil "Muuda" 
+- Lisa, eemalda või vaheta tehilise kasutaja õiguseid vastavalt soovile
 - 'Määra'
-- Kasutaja õigused on muudetud
+- Tehnilise kasutaja õigused on uuendatud
+
+Rohkem selgitusi kasutajatüüpide ja muu kohta:  [Kasutajate haldus](03.02-kasutajate-haldus.md)
 
 
 ## Uue mõõtepunkti loomine
@@ -81,6 +111,8 @@ Seda saab teha võrguettevõtja, agregaatori või suletud jaotusvõrgu rollides.
 > 
 > -> **Agregaatori** rollis on vajalik "Ülemmõõtepunkti EIC koodi", mille alla loodav agregeerimispunkt kuuluma hakkab.
 
+Rohkem selgitusi: [Veebiliideses](05-mootepunktid.md)
+
 
 ## Mõõtepunktide otsing
 
@@ -89,6 +121,8 @@ Seda saab teha võrguettevõtja, agregaatori või suletud jaotusvõrgu rollides.
 - 'Otsi'
 - Otsingutulemustes näidatakse otsingu parameetritele vastavaid mõõtepunkte.
 
+Rohkem selgitusi: [Veebiliideses](05-mootepunktid.md)
+
 
 ## Mõõtepunktide masslaadimine
 
@@ -96,6 +130,8 @@ Seda saab teha võrguettevõtja, agregaatori või suletud jaotusvõrgu rollides.
 - Täitke alla laetud fail ära soovitud mõõtepunktide andmetega ning salvestage see arvutisse
 - 'Impordi' -> 'Otsi' -> valige eelnevalt täidetud fail -> 'Impordi'
 - Eduka importimise korral on kõik failis kirjeldatud mõõtepunktid süsteemi lisatud. Seda saab kontrollida kui minna mõõtepunktide otsingusse (vt [Mõõtepunktide otsing](#mõõtepunktide-otsing)) ning otsida mõnda mõõtepunki, mis just üles laeti.
+
+Rohkem selgitusi: [Veebiliideses](05-mootepunktid.md)
 
 
 ## Mõõteandmete üles ja alla laadimine
@@ -110,6 +146,8 @@ Mõõteandmete Estfeedi üles laadimine:
   -  'Mõõteandmed' -> 'Mõõteandmete olek' -> vali ajavahemik -> 'Otsi'
   - 'Mõõteandmed' -> täida vastavad väljad -> 'Otsi' -> vaata kas üles laetud mõõteandmed tagastatakse otsingu tulemustes
 
+  Rohkem selgitusi: [Mõõteandmete edastamine veebiliidese kaudu](12-mooteandmed.md)
+
 Mõõteandmete alla laadimine:
 - 'Mõõteandmed' -> täida nõutud väljad -> 'Otsi' -> 'Laadi alla'
 - Fail soovitud mõõteandmetega laetakse alla
@@ -121,6 +159,8 @@ Mõõteandmete alla laadimine:
 - Sisesta "Mõõtepunkti EIC kood" ja "Perioodi algus" (otsingut saab täpsustada kasutades erinevaid parameetreid)
 - 'Otsi'
 - Sisestatud otsingule vastavad mõõteandmed on kuvatud otsingu tulemustes
+
+Rohkem selgitusi: [Mõõteandmete otsimine veebiliidese kaudu](12-mooteandmed.md)
 
 
 ## Uue kliendi lisamine süsteemi
@@ -134,6 +174,8 @@ Seda saab teha ainult võrguettevõtja rollis.
 - Täida nõutud väljad
 - 'Salvesta'
 - Uus klient on süsteemi lisatud ning temaga saab nüüd lepinguid vormistada
+
+Rohkem selgitusi: [Veebiliideses](06.2-vorguleping.md)
 
 
 ## Uue lepingu loomine
@@ -151,6 +193,7 @@ Seda saab teha vaid võrguettevõtja rollis.
 - 'Registreeri uus leping'
 - Uus leping on lisatud
 
+Rohkem selgitusi: [Veebiliideses](06.2-vorguleping.md)
 
 
 ### Avatud tarne leping:
@@ -163,6 +206,8 @@ Seda saab teha vaid avatud tarnija rollis.
 - 'Registreeri uus leping'
 - Uus leping on lisatud
 
+Rohkem selgitusi: [Veebiliideses](06.3-avatud-tarne-leping.md)
+
 
 ### Ühisarve leping:
 Seda saab teha vaid suletud jaotusvõrgu või võrguettevõtja rollides. 
@@ -172,6 +217,8 @@ Seda saab teha vaid suletud jaotusvõrgu või võrguettevõtja rollides.
 - 'OK'
 - Ühisarve leping on lisatud
 
+Rohkem selgitusi: [Ühisarve lepingute edastamine veebiliidese kaudu](06.7-yhisarve-leping.md)
+
 
 ## Lepingute otsing
 
@@ -179,6 +226,23 @@ Seda saab teha vaid suletud jaotusvõrgu või võrguettevõtja rollides.
 - Täida soovitud väljad, et täpsustada otsingut (rohkem valikuid 'Üksikasjalik otsing' all)
 - 'Otsi'
 - Valitud parameetritele vastavad lepingud on kuvatud otsingu tulemustes
+
+
+## Ühisarved
+Ühisarveid näevad ainult võrguettevõtja (kes saadab) ning avatud tarnija (kellele saadetakse).
+
+Ühisarvete otsimine:
+- 'Ühisarved'
+- Vali ajavahemik ('Loomise alguskuupäev' ja 'Loomiselõppkuupäev')
+- 'Otsi'
+
+Kui otsitavas ajavahemikus on olemas ühisarved, siis on need otsingutulemustes kuvatud.
+
+Ühisarvete alla laadimine:
+- Otsi soovitud ajavahemikus ühisarveid
+- Vali ühisarve, mida alla laadida -> klikka valitud rea kõige paremal olevale alla laadimise ikoonile
+- Valitud ühisarve laetakse seadmesse alla ning märgitakse süsteemis "Loetud", kui avatud tarnija on selle arve alla laadinud
+
 
 ## Võrguühenduse sisse või välja lülitamine
 
@@ -188,7 +252,7 @@ Võrguühenduse sisse või välja lülitamise taotluse saatmise eelduseks on vas
 
 ***Joonis 1.** Võrguühenduse lülituste eelduste skeem*
 
-### Taotluse saatmine:
+### Taotluse saatmine
 
 Seda saab teha vaid avatud tarnija rollis. Kui kõik eelduseks olevad lepingud on olemas, siis:
 
@@ -201,7 +265,7 @@ Seda saab teha vaid avatud tarnija rollis. Kui kõik eelduseks olevad lepingud o
 - 'Saada'
 - Võrguühenduse sisse või välja lülitamise taotlus on saadetud
 
-### Taotluste lugemine:
+### Taotluste lugemine
 
 Seda saab teha avatud tarnija, suletud jaotusvõrgu või võrguettevõtja rollis.
 

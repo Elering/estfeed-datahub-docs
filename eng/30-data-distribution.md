@@ -195,7 +195,7 @@ Every data distribution response message consists of common and resource type sp
 | id                   | int      | yes             | Unique message ID, that is increasing in the time.                                                          |
 | createdTime          | datetime | yes             | Creation time of the data distribution (not the message, that caused data distribution) message             |
 | resourceType         | string   | yes             | Resource type                                                                                               |
-| reason               | string   | jah             | One of: CREATE, UPDATE, DELETE.                                                                             |
+| reason               | string   | jah             | Values described in section [Reason](#reason).                                                              |
 | hasContent           | bool     | jah             | If "true", then position "content" has content. If "false", then content is missing (for technical reasons) |
 | content              | string   | yes             | Content of the message, depending on the resource type (see next paragraphs)                                |
 | contentMissingReason | string   | no              | Human readable explanation about the reason, why the attribute "content" is empty                           |
