@@ -1,3 +1,9 @@
+## 2025-03-11
+
+|                                  Issue                                  | Type |  Priority |                             Title                            |
+|-------------------------------------------------------------------------|------|-----------|--------------------------------------------------------------|
+|  [EDH-4242](https://github.com/Elering/estfeed-datahub-docs/issues/171) |  Bug |  Critical |  legalConsent only allows to query 365 days of metering data |
+
 ## 2025-03-06
 
 |                                  Issue                                 | Type | Priority|                               Title                               |
