@@ -7,6 +7,7 @@
   * [Sisukord](#sisukord)
   * [Sissejuhatus](#sissejuhatus)
   * [Mõõteandmete edastamine](#mõõteandmete-edastamine)
+    * [Mõõteandmete vastuvõtmise juhtimine](#mõõteandmete-vastuvõtmise-juhtimine)
     * [Mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu)
     * [Mõõteandmete edastamine Exceli teel](#mõõteandmete-edastamine-exceli-teel)
       * [Võimalikud vead Exceli täitmisel](#võimalikud-vead-exceli-täitmisel)
@@ -66,6 +67,25 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 > Tasub teada, et eksisteerib üliväike, kuid teoorias siiski võimalik olukord, kus Andmeladu võtab mõõteandmete sõnumi vastu ja vastab "protsessimine alustatud" vastusega, kuid tegelikkuses jääb sõnum töötlemata ja selle kohta ei looda ka ´meter_data_status´ kirjet.
 > Mõõtepunkti haldur peaks pidama järge, mis igast mõõteandmete sõnumist on saanud ja kas töötlus lõppes mingi tulemusega. Kui mõnele mõõteandmete sõnumile ei tekigi tõpptulemust, siis tuleb eeldada, et Andmelaos tekkis mõõteandmete töötlemisel ootamatu probleem (nt rakenduse ootamatu sulgumine) ja edastada mõõteandmed uuesti.
 > Tulemuste jälgimiseks on erinevaid võimalusi. Nt pärida staatust ükshaaval `originalDocumentIdentification` alusel (juhul, kui andmemahud on väikesed) või skanneerida `SUCCESSFUL` ja `ERROR` staatuseid ja pidada sisemiselt järge, millised sõnumid on lõppolekusse jõudnud
+
+### Mõõteandmete vastuvõtmise juhtimine
+
+Vastuvõetud mõõteandmete töötlemine on 2 etapiline protsess:
+- mõõtetulemus võetakse vastu (200) ja pannakse töötlemise järjekorda;
+- mõõteandmete töötleja võtab järjekorrast mõõtetulemuse, märgib staatuse, salvestab andmebaasi ja uuendab staatuse.
+
+Kui mõõteandmete töötlmine toimub aeglasemalt kui uusi tulemusi vastu võetakse hakkab töötlemise järjekord kasvama.
+
+Kui järjekorda on juba kogunenud 50 000 päringu andmed, siis POST /meter-data päring vastab päringu tegijale
+- HTTP status 503
+- HTTP header Retry-After: 300 
+
+ning peatab vastuvõtmise 5 minutiks.
+
+Lahendus põhineb spetsifikatsioonidel:
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
+
 
 ### Mõõteandmete edastamine veebiliidese kaudu
 

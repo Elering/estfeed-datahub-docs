@@ -7,6 +7,7 @@
   * [Table of contents](#table-of-contents)
   * [Introduction](#introduction)
   * [Transmitting metering data](#transmitting-metering-data)
+    * [Throttling of metering data input](#throttling-of-metering-data-input)
     * [Transmitting metering data via the web interface](#transmitting-metering-data-via-the-web-interface)
     * [Transmitting metering data via Excel](#transmitting-metering-data-via-excel)
       * [Possible errors when filling out Excel](#possible-errors-when-filling-out-excel)
@@ -66,6 +67,24 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 > It is worth knowing that there is a very small, but in theory still possible situation where the Data Warehouse receives a metering data message and responds with a "processing started" response, but in reality the message remains unprocessed and no ´meter_data_status´ record is created about it either.
 > The metering point manager should keep track of what has been received from each metering data message and whether the processing ended with a result. If some of the metering data messages do not receive any result, it must be assumed that an unexpected problem occurred in the Datahub when processing the metering data (e.g. unexpected shut down of the application) and the metering data must be transmitted again.
 > There are different options for monitoring the results. E.g. check the status one by one based on `originalDocumentIdentification` (in case the data volumes are small) or scan the `SUCCESSFUL` and `ERROR` statuses and internally keep track of which messages have reached the final state
+
+### Throttling of metering data input
+
+Processing of received meteringdata is a 2-step process:
+- the metering result is received (200) and placed in the processing queue;
+- the metering data processor takes the metering results from the queue, writes the status, saves metering data to the database and updates the status.
+
+If the measurement data processing is slower than new results are received, the processing queue starts to grow.
+
+If the queue already has data of 50,000 requests, then the POST /meter-data endpoint responds with
+- HTTP status 503
+- HTTP header Retry-After: 300
+
+and stops receiving for 5 minutes.
+
+The solution is based on the specifications:
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
 
 ### Transmitting metering data via the web interface
 
