@@ -1,3 +1,9 @@
+## 2025-03-19
+
+|                                  Issue                                  | Type |  Priority |                                     Title                                     |
+|-------------------------------------------------------------------------|------|-----------|-------------------------------------------------------------------------------|
+|  [EDH-4300](https://github.com/Elering/estfeed-datahub-docs/issues/172) |  Bug |  Critical |  first-date-too-early error for supply agreement creation validFrom 1.04.2025 |
+
 ## 2025-03-17
 
 |                                  Issue                                  | Type |Priority|                       Title                       |
