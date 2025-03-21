@@ -1,3 +1,9 @@
+## 2025-03-21
+
+|                                  Issue                                  | Type |  Priority |                         Title                         |
+|-------------------------------------------------------------------------|------|-----------|-------------------------------------------------------|
+|  [EDH-4057](https://github.com/Elering/estfeed-datahub-docs/issues/169) |  Bug |  Critical |  OPP joint-invoice search can take more than a minute |
+
 ## 2025-03-19
 
 |                                  Issue                                  | Type |  Priority |                                     Title                                     |
