@@ -1,3 +1,9 @@
+## 2025-03-24
+
+|                                  Issue                                 |  Type  | Priority|                    Title                    |
+|------------------------------------------------------------------------|--------|---------|---------------------------------------------|
+|  [EDH-2950](https://github.com/Elering/estfeed-datahub-docs/issues/71) |  Story |  Medium |  Show Service Provider in the Agreements UI |
+
 ## 2025-03-20
 
 |                                  Issue                                  | Type |  Priority |                         Title                         |
