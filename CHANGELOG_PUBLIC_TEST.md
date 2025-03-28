@@ -1,3 +1,9 @@
+## 2025-03-28
+
+|                                  Issue                                  | Type |Priority|                                  Title                                  |
+|-------------------------------------------------------------------------|------|--------|-------------------------------------------------------------------------|
+|  [EDH-3639](https://github.com/Elering/estfeed-datahub-docs/issues/139) |  Bug |  High  |  Wrong response for OPEN_SUPPLIER in "agreement/search/meter" vol2 (GS) |
+
 ## 2025-03-24
 
 |                                  Issue                                 |  Type  | Priority|                    Title                    |
