@@ -1,3 +1,9 @@
+## 2025-04-09
+
+|                                  Issue                                 | Type | Priority|                                    Title                                    |
+|------------------------------------------------------------------------|------|---------|-----------------------------------------------------------------------------|
+|  [EDH-2751](https://github.com/Elering/estfeed-datahub-docs/issues/52) |  Bug |  Medium |  [UI] Search for agreement 'valid from' and 'valid to' is not working right |
+
 ## 2025-03-31
 
 |                                  Issue                                  | Type |Priority|                                      Title                                     |
