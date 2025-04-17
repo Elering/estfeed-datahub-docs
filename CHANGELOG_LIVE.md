@@ -1,3 +1,9 @@
+## 2025-04-17
+
+|                                  Issue                                  |  Type  |Priority|                           Title                           |
+|-------------------------------------------------------------------------|--------|--------|-----------------------------------------------------------|
+|  [EDH-4170](https://github.com/Elering/estfeed-datahub-docs/issues/177) |  Story |  High  |  Allow overlapping AGG agreements for the same Aggregator |
+
 ## 2025-04-10
 
 |                                  Issue                                 | Type | Priority|                                    Title                                    |

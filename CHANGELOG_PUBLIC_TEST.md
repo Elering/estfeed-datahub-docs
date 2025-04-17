@@ -1,3 +1,10 @@
+## 2025-04-17
+
+|                                  Issue                                  |  Type  | Priority|                           Title                           |
+|-------------------------------------------------------------------------|--------|---------|-----------------------------------------------------------|
+|  [EDH-4170](https://github.com/Elering/estfeed-datahub-docs/issues/177) |  Story |   High  |  Allow overlapping AGG agreements for the same Aggregator |
+|  [EDH-3767](https://github.com/Elering/estfeed-datahub-docs/issues/178) |  Story |  Medium |     Allow missing reading time in metering data import    |
+
 ## 2025-04-09
 
 |                                  Issue                                 | Type | Priority|                                    Title                                    |
