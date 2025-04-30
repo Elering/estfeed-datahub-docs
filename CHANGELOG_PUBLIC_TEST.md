@@ -1,3 +1,9 @@
+## 2025-04-30
+
+|                                  Issue                                  | Type | Priority |                                            Title                                           |
+|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------------------|
+|  [EDH-4407](https://github.com/Elering/estfeed-datahub-docs/issues/179) |  Bug |  Highest |  api/v1/authorization/search is slow in public-test and does questionable automatic search |
+
 ## 2025-04-17
 
 |                                  Issue                                  |  Type  | Priority|                           Title                           |

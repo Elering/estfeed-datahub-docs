@@ -1,9 +1,20 @@
-## 2025-04-17
+## 2025-04-30
 
-|                                  Issue                                  |  Type  | Priority|                           Title                           |
-|-------------------------------------------------------------------------|--------|---------|-----------------------------------------------------------|
-|  [EDH-4170](https://github.com/Elering/estfeed-datahub-docs/issues/177) |  Story |   High  |  Allow overlapping AGG agreements for the same Aggregator |
-|  [EDH-3767](https://github.com/Elering/estfeed-datahub-docs/issues/178) |  Story |  Medium |     Allow missing reading time in metering data import    |
+|                                  Issue                                  | Type | Priority |                                            Title                                           |
+|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------------------|
+|  [EDH-4407](https://github.com/Elering/estfeed-datahub-docs/issues/179) |  Bug |  Highest |  api/v1/authorization/search is slow in public-test and does questionable automatic search |
+
+## 2025-04-20
+
+|                                  Issue                                  |  Type  | Priority|                        Title                        |
+|-------------------------------------------------------------------------|--------|---------|-----------------------------------------------------|
+|  [EDH-3767](https://github.com/Elering/estfeed-datahub-docs/issues/178) |  Story |  Medium |  Allow missing reading time in metering data import |
+
+## 2025-04-18
+
+|                                  Issue                                  |  Type  |Priority|                           Title                           |
+|-------------------------------------------------------------------------|--------|--------|-----------------------------------------------------------|
+|  [EDH-4170](https://github.com/Elering/estfeed-datahub-docs/issues/177) |  Story |  High  |  Allow overlapping AGG agreements for the same Aggregator |
 
 ## 2025-04-10
 
