@@ -1,3 +1,9 @@
+## 2025-06-09
+
+|                                  Issue                                  |  Type  | Priority |                                     Title                                     |
+|-------------------------------------------------------------------------|--------|----------|-------------------------------------------------------------------------------|
+|  [EDH-4390](https://github.com/Elering/estfeed-datahub-docs/issues/173) |  Story |  Highest |  Distribute related SUPPLY agreement changes from GRID agreement update to GO |
+
 ## 2025-04-30
 
 |                                  Issue                                  | Type | Priority |                                            Title                                           |
@@ -24,9 +30,9 @@
 
 ## 2025-03-31
 
-|                                  Issue                                  | Type |Priority|                                          Title                                         |
-|-------------------------------------------------------------------------|------|--------|----------------------------------------------------------------------------------------|
-|  [EDH-3342](https://github.com/Elering/estfeed-datahub-docs/issues/103) |  Bug |  High  |  BLOCKED Customer EIC is displayed in MP search when no contractual relationship to OS |
+|                                  Issue                                  | Type | Priority |                                      Title                                     |
+|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------|
+|  [EDH-3342](https://github.com/Elering/estfeed-datahub-docs/issues/146) |  Bug |  Highest |  Customer EIC is displayed in MP search when no contractual relationship to OS |
 
 ## 2025-03-28
 
@@ -135,9 +141,9 @@
 
 ## 2025-01-09
 
-|                                  Issue                                  | Type |  Priority |                                      Title                                      |
-|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
-|  [EDH-3687](https://github.com/Elering/estfeed-datahub-docs/issues/146) |  Bug |  Critical |  POST /api/v1/meter/search searching by customers, doesn't give correct results |
+|   Issue   | Type |  Priority |                                      Title                                      |
+|-----------|------|-----------|---------------------------------------------------------------------------------|
+|  EDH-3687 |  Bug |  Critical |  POST /api/v1/meter/search searching by customers, doesn't give correct results |
 
 ## 2025-01-02
 
@@ -147,9 +153,9 @@
 
 ## 2024-12-30
 
-|                                  Issue                                  | Type |  Priority |                                      Title                                      |
-|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------|
-|  [EDH-3687](https://github.com/Elering/estfeed-datahub-docs/issues/146) |  Bug |  Critical |  POST /api/v1/meter/search searching by customers, doesn't give correct results |
+|   Issue   | Type |  Priority |                                      Title                                      |
+|-----------|------|-----------|---------------------------------------------------------------------------------|
+|  EDH-3687 |  Bug |  Critical |  POST /api/v1/meter/search searching by customers, doesn't give correct results |
 
 ## 2024-12-20
 
@@ -727,3 +733,4 @@
 |   Issue   | Type |  Priority |                                  Title                                 |
 |-----------|------|-----------|------------------------------------------------------------------------|
 |  EDH-1123 |  Bug |  Critical |  [MPM] Update SUPPLY agreement - allows termination on the current day |
+
