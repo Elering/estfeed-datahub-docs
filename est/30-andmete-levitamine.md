@@ -159,7 +159,7 @@ liiguvad, siis siin on üldistatul kujul loetelu tähtsamatest reeglitest.
 | Süsteem loob või kustutab GENERAL_SERVICE lepingu, kus teenusepakkujaks on nimetatud müüja        | Nimetatud müüja, võrguoperaator                                                                         |
 | Süsteem loob või kustutab GENERAL_SERVICE lepingu, kus teenusepakkujaks on võrguoperaator         | Võrguoperaator                                                                                          |
 | GRID või BORDER_GRID lepingu muutmine/kustutamine                                                 | Aktiivne või tuleviku avatud tarnija, agregeerimise mõõtepunkti agregaator                              |
-| GRID lepingu muutmine selliselt, et see mõjutab SUPPLY lepingut(uid)                              | Avatud tarnija(d)                                                                                       |
+| GRID lepingu muutmine selliselt, et see mõjutab SUPPLY lepingut(uid)                              | Avatud tarnija(d), Mõõtepunkti haldur                                                                   |
 | SUPPLY lepingu lisamine/muutmine/kustutamine                                                      | Mõõtepunkti haldur                                                                                      |
 | SUPPLY lepingu lisamine/muutmine/kustutamine selliselt, et see mõjutab teist SUPPLY lepingut(uid) | Mõõtepunkti haldur, teine avatud tarnija                                                                |
 | AGGREGATION lepingu lisamine/muutmine/kustutamine                                                 | Vastavalt ülemmõõtepunktis kattuvatele lepingutele: avatud tarnija, nimetatud müüja, mõõtepunkti haldur |
