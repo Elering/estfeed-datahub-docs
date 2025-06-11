@@ -1,3 +1,9 @@
+## 2025-06-11
+
+|                                  Issue                                  | Type | Priority |                                      Title                                     |
+|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------|
+|  [EDH-3342](https://github.com/Elering/estfeed-datahub-docs/issues/146) |  Bug |  Highest |  Customer EIC is displayed in MP search when no contractual relationship to OS |
+
 ## 2025-06-09
 
 |                                  Issue                                  |  Type  | Priority |                                     Title                                     |
@@ -27,12 +33,6 @@
 |                                  Issue                                 | Type | Priority|                                    Title                                    |
 |------------------------------------------------------------------------|------|---------|-----------------------------------------------------------------------------|
 |  [EDH-2751](https://github.com/Elering/estfeed-datahub-docs/issues/52) |  Bug |  Medium |  [UI] Search for agreement 'valid from' and 'valid to' is not working right |
-
-## 2025-03-31
-
-|                                  Issue                                  | Type | Priority |                                      Title                                     |
-|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------|
-|  [EDH-3342](https://github.com/Elering/estfeed-datahub-docs/issues/146) |  Bug |  Highest |  Customer EIC is displayed in MP search when no contractual relationship to OS |
 
 ## 2025-03-28
 
