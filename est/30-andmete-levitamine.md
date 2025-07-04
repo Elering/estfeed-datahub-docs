@@ -5,9 +5,6 @@
 <!-- TOC -->
 * [Andmete levitamine](#andmete-levitamine)
   * [Sisukord](#sisukord)
-  * [Sissejuhatus](#sissejuhatus)
-  * [Andmeuuenduste skaneerimine](#andmeuuenduste-skaneerimine)
-    * [Muudatuse põhjus (reason)](#muudatuse-põhjus-reason)
   * [Andmeuuenduste levitamine](#andmeuuenduste-levitamine)
     * [Üldreeglid](#üldreeglid)
     * [Mõõtepunkti reeglid](#mõõtepunkti-reeglid)
@@ -16,109 +13,37 @@
     * [Võrguteenuse arve reeglid](#võrguteenuse-arve-reeglid)
     * [Kliendi metaandmete reeglid](#kliendi-metaandmete-reeglid)
     * [Ligipääsuõiguste reeglid](#ligipääsuõiguste-reeglid)
-  * [Sõnumi struktuur](#sõnumi-struktuur)
-  * [Andmetüübid](#andmetüübid)
-    * [Leping](#leping)
-      * [Atribuudid](#atribuudid)
-      * [Näited](#näited)
-    * [Mõõtepunkt](#mõõtepunkt)
-      * [Atribuudid](#atribuudid-1)
-      * [Näited](#näited-1)
-    * [Mõõteandmed](#mõõteandmed)
-      * [Atribuudid](#atribuudid-2)
-      * [Näited](#näited-2)
-    * [Võrguteenuse arve](#võrguteenuse-arve)
-      * [Atribuudid](#atribuudid-3)
-      * [Näited](#näited-3)
-    * [Kliendi metaandmed](#kliendi-metaandmed)
-      * [Atribuudid](#atribuudid-4)
-      * [Näited](#näited-4)
-    * [Ligipääsuõigused](#ligipääsuõigused)
-      * [Atribuudid](#atribuudid-5)
-      * [Näited](#näited-5)
+    * [Kooskõlastusega lepingute muudatuste reeglid](#kooskõlastusega-lepingute-muudatuste-reeglid)
+  * [Andmeuuenduste skaneerimine](#andmeuuenduste-skaneerimine)
+    * [Muudatuse põhjus (reason)](#muudatuse-põhjus-reason)
+      * [Lihtväärtused](#lihtväärtused)
+      * [Liitväärtused](#liitväärtused)
+  * [Sõnumid](#sõnumid)
+    * [Versioonid](#versioonid)
+    * [Uued teenused](#uued-teenused)
+    * [Vanad teenused](#vanad-teenused)
+      * [Päring](#päring)
+      * [Vastus](#vastus)
+      * [Andmetüübid](#andmetüübid)
+        * [Leping](#leping)
+          * [Atribuudid](#atribuudid)
+          * [Näited](#näited)
+        * [Mõõtepunkt](#mõõtepunkt)
+          * [Atribuudid](#atribuudid-1)
+          * [Näited](#näited-1)
+        * [Mõõteandmed](#mõõteandmed)
+          * [Atribuudid](#atribuudid-2)
+          * [Näited](#näited-2)
+        * [Võrguteenuse arve](#võrguteenuse-arve)
+          * [Atribuudid](#atribuudid-3)
+          * [Näited](#näited-3)
+        * [Kliendi metaandmed](#kliendi-metaandmed)
+          * [Atribuudid](#atribuudid-4)
+          * [Näited](#näited-4)
+        * [Ligipääsuõigused](#ligipääsuõigused)
+          * [Atribuudid](#atribuudid-5)
+          * [Näited](#näited-5)
 <!-- TOC -->
-
-## Sissejuhatus
-
-Äriprotsesside edukaks ja probleemidevabaks toimimiseks on vaja, et liidestunud turuosaliste süsteemid oleks teadlikud lisandunud ja muutunud informatsioonist.
-
-Selleks on vaja uus info turuosaliste süsteemideni toimetada. Käesolev dokument kirjeldab tehnilist lahendust, kuidas masinate vahelise liidese abil andmete uuendusi levitatakse.
-
-## Andmeuuenduste skaneerimine
-
-Erinevalt vanast Andmelaost, uus Andmeladu sõnumeid liidestuvatatele osapooltele ei saada vaid eeldab, et liidestuv süsteem kontrollib kas talle on uus sõnumeid. Selleks on loodud spetsiaalne
-uuenduste tõmbamise API liides `/data-distribution/search `, mis toimib standardsel moel:
-
-- liidestunud turuosalise süsteem saadab päringu defineerides ajavahemiku (või sõnumi ID alguse ja lõpu) ja andmeobjekti tüübi.
-- Andmeladu leiab eelnevalt genereeritud andmete levitamise sõnumid, mille adressaat on sõnumi saatnud turuosaline ning mis vastavad päringu tingimustele.
-- Andmeladu tagastab uued või muutunud andmeobjektide andmed koos muudatuse põhjendusega.
-
-Liidestunud turuosalise süsteem skaneerib muudatuste API-t endale sobiva intervalliga võttes arvesse andmeobjektide tekkimise ja muutumise tavapärast sagedust:
-
-- aeglaselt lisanduvaid ja muutuvaid andmeid (nt mõõtepunktid) on sobilik skaneerida näiteks 1-4 korda ööpäevas.
-- kiiresti lisanduvaid ja muutuvaid andmeid (nt mõõteandmed) on sobilik skaneerida sama tihendusega, nagu on ette nähtud andmete lisandumine - näiteks iga tund või tihedamalt. See aitab Andmelaol
-  koormuste tippudega paremini toime tulla.
-
-Päringu atribuudid
-
-| Atribuut        | Tüüp | Kohustuslik?                         | Märkused                                                                                            |
-|-----------------|------|--------------------------------------|-----------------------------------------------------------------------------------------------------|
-| createdTimeFrom | int  | jah, kui idFrom/idTo puuduvad        | Sõnumi loomisaja algus                                                                              |
-| createdTimeTo   | int  | jah, if idFrom/idTo  puuduvad        | Sõnumi loomisajal lõpp                                                                              |
-| idFrom          | int  | jah, kui createdTimeFrom/To puuduvad | Sõnumi ID algus                                                                                     |
-| idTo            | int  | jah, kui createdTimeFrom/To puuduvad | Sõnumi ID lõpp                                                                                      |
-| resourceType    | int  | jah                                  | Üks järgnevatest: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
-| pagination      | int  | jah                                  | Standardne pagineerimise sektsioon                                                                  |
-
-Andmeobjekti tüübid on:
-
-- METERING_POINT - mõõtepunkt
-- METERING_DATA - mõõteandmed
-- NETWORK_BILL - võrguteenuse arve
-- CUSTOMER_DATA - kliendi metaandmed (arveldamise andmete edastuseks nimetatud müüjale)
-- AGREEMENT - leping ja üldteenuse teavitus, mis on realiseeritud lepinguna
-- PERMISSION - ligipääsuõigused (antud Kliendiportaali kaudu)
-
-Maksimaalne päritava perioodi pikkus on:
-
-- mõõteandmed: 1 tund
-- muud andmed: 24 tundi (sügisese kellakeeramise ajal on see erisus oluline, kuna lokaalne (mitte UTC) päev on 25h pikk)
-
-Maksimaalne lubatud sõnumi ID-de vahemik (`idTo` miinus `idFrom`) on 10000
-
-> [!TIP]
-> Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
-
-> [!WARNING]
-> Vanemaid kui 7 päeva andmeid pole võimalik tagantjärele lugeda.
-
-### Muudatuse põhjus (reason)
-
-Vastussõnumis on alati atribuut `reason`, mis AGREEMENT ja METERING_POINT andmeobjekti puhul aitab mõista, miks see muudatus toimus (kuna neid saab muuta). 
-Ülejäänud andmeobjektide tüüpide puhul võib väärtus puududa või olla alati `CREATE`, sest nendel puudub elutsükkel.
-
-Muudatuse põhjused jagunevad järgmiselt:
-
-- Fikseeritud väärtused - need väärtused on alati samad. Nii öelda "hard coded" ja käituvad nagu loend (enum). Võimalikud väärtused on:
-  - `CREATE` - andmeobjekt loodi
-  - `UPDATE` - andmeobjekt uuendati
-  - `DELETE` - andmeobjekt kustutati
-- Dünaamilised väärtused - need väärtused on dünaamilised, kuna muudatuse algpõhjus oli kaudne. Andmeobjekt loodi, uuendati või kustutati seoses mõne operatsiooniga teise andmeobjektiga. Näiteks, kui SUPPLY lepingut muudetakse GRID lepingu muutmise tõttu. Hetkel teadaolevad võimalikud kombinatsioonid on:
-  - `UPDATE_BC_SUPPLY_CREATE` - andmeobjekt uuendati, kuna SUPPLY leping loodi
-  - `UPDATE_BC_GRID_UPDATE` - andmeobjekt uuendati, kuna GRID lepingut uuendati
-  - `DELETE_BC_GRID_UPDATE` - andmeobjekt kustutati, kuna GRID lepingut uuendati
-  - `DELETE_BC_GRID_DELETE` - andmeobjekt kustutati, kuna GRID leping kustutati
-  - `CREATE_BC_PORTFOLIO_SUPPLIER_CREATE` - andmeobjekt loodi, kuna PORTFOLIO_SUPPLIER leping loodi
-  - `UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE` - andmeobjekt uuendati, kuna PORTFOLIO_SUPPLIER lepingut uuendati
-  - `DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE` - andmeobjekt kustutati, kuna PORTFOLIO_SUPPLIER lepingut uuendati
-  - `DELETE_BC_PORTFOLIO_SUPPLIER_DELETE` - andmeobjekt kustutati, kuna PORTFOLIO_SUPPLIER leping kustutati
-  - `CREATE_BC_BORDER_GRID_CREATE` - andmeobjekt loodi, kuna GRID leping loodi
-  - `UPDATE_BC_BORDER_GRID_UPDATE` - andmeobjekt uuendati, kuna GRID lepingut uuendati
-  - `DELETE_BC_BORDER_GRID_UPDATE` - andmeobjekt kustutati, kuna GRID lepingut uuendati
-  - `DELETE_BC_BORDER_GRID_DELETE` - andmeobjekt kustutati, kuna GRID leping kustutati
-
-> [!NOTE]
-> Dünaamiliste väärtuste formaat järgib mustrit: “mis juhtus sõnumis oleva andmeobjektiga” + BC (sest) + “mis tehti andmeobjektiga, mis põhjustas muudatuse”
 
 ## Andmeuuenduste levitamine
 
@@ -127,7 +52,7 @@ liiguvad, siis siin on üldistatul kujul loetelu tähtsamatest reeglitest.
 
 ### Üldreeglid
 
-- Andmeladu tuvastab teavitatavad osapooled vastavalt lepingutes olevatele andmetele. 
+- Andmeladu tuvastab teavitatavad osapooled vastavalt lepingutes olevatele andmetele.
 - Teavitatavad osapooled jagunevad kaheks:
   - Otsesed osapooled - nende õigus teavitustele tuleneb otsesest lõppkasutaja lepingust
   - Portfellipakkujad - nende õigus teavitustele tuleneb portfelli lepingutest.
@@ -183,12 +108,175 @@ liiguvad, siis siin on üldistatul kujul loetelu tähtsamatest reeglitest.
 
 - Ligipääsuõiguse subjektile toimub alati uue ligipääsuõiguse levitamine
 
+### Kooskõlastusega lepingute muudatuste reeglid
 
-> [!NOTE]
-> Eleringi meeskond arutab erinevaid tehnilisi lahendusi, kuidas võimaldada võimekamatel liidestunud süsteemidel saada andmeuuendusi kiiremini ja ilma skaneerimiseta. Konkreetne tehniline lahendus on
-alles välja töötamisel. Selle tekkimisel teavitatakse turuosalisi aegsasti ja põhjalikult.
+> [!IMPORTANT]
+> Lepingute kooskõlastuste levitamise funktsionaalsus on arenduses
 
-## Sõnumi struktuur
+- Kõik kooskõlastajad saavad kooskõlastuse teavitusi, kui:
+  - Loodi uus kooskõlastus
+  - Kooskõlastus tühistati
+  - Kooskõlastus sai mõnelt kooskõlastajalt heakskiitva või tagasilükkava vastuse
+
+## Andmeuuenduste skaneerimine
+
+Erinevalt vanast Andmelaost, uus Andmeladu sõnumeid liidestuvatatele osapooltele ei saada vaid eeldab, et liidestuv süsteem kontrollib kas talle on uus sõnumeid. Selleks on loodud spetsiaalsed
+uuenduste tõmbamise API liidesed.
+
+Liidestunud turuosalise süsteem skaneerib muudatuste API-t endale sobiva intervalliga võttes arvesse andmeobjektide tekkimise ja muutumise tavapärast sagedust:
+
+- aeglaselt lisanduvaid ja muutuvaid andmeid (nt mõõtepunktid) on sobilik skaneerida näiteks 1-4 korda ööpäevas.
+- kiiresti lisanduvaid ja muutuvaid andmeid (nt mõõteandmed) on sobilik skaneerida sama tihendusega, nagu on ette nähtud andmete lisandumine - näiteks iga tund või tihedamalt. See aitab Andmelaol
+  koormuste tippudega paremini toime tulla.
+
+Andmeobjekti tüübid on:
+
+- METERING_POINT - mõõtepunkt
+- METERING_DATA - mõõteandmed
+- NETWORK_BILL - võrguteenuse arve
+- CUSTOMER_DATA - kliendi metaandmed (arveldamise andmete edastuseks nimetatud müüjale)
+- AGREEMENT - leping ja üldteenuse teavitus, mis on realiseeritud lepinguna
+- PERMISSION - ligipääsuõigused (antud Kliendiportaali kaudu)
+- AGREEMENT_COORDINATION - kooskõlastusega lepingute muudatuste taotlused
+
+> [!IMPORTANT]
+> Lepingute kooskõlastuste funktsionaalsus on arenduses
+
+Maksimaalne päritava perioodi pikkus on:
+
+- mõõteandmed: 1 tund
+- muud andmed: 24 tundi (sügisese kellakeeramise ajal on see erisus oluline, kuna lokaalne (mitte UTC) päev on 25h pikk)
+
+Maksimaalne lubatud sõnumi ID-de vahemik (`idTo` miinus `idFrom`) on 10000
+
+> [!TIP]
+> Pikema ajaperioodi sõnumite pärimiseks on võimalik saata mitu erinevat päringut erinevate perioodide kohta. Nt esimene sõnum 02.01.2024-03.01.2024 perioodi ja teine 01.01.2024-02.01.2024 perioodi kohta.
+
+> [!WARNING]
+> Vanemaid kui 7 päeva andmeid pole võimalik tagantjärele lugeda.
+
+### Muudatuse põhjus (reason)
+
+Vastussõnumis on alati atribuut `reason`, mis kirjeldab muudatuse olemust. Muudatuse põhjused jagunevad kahte suurde gruppi: lihtväärtused ja liitväärtused.
+
+#### Lihtväärtused
+
+Lihtväärtused on olemas kõigil andmeobjekti tüüpidel, millel esineb elustükkel. Osadel andmeobjektidel võivad osad väärtused puududa. Nt pole võimalik mõõtepunkti kustutada või võrguarvet uuendada.
+
+Lihtväärtused on:
+
+- `CREATE` - andmeobjekt loodi
+- `UPDATE` - andmeobjekt uuendati
+- `DELETE` - andmeobjekt kustutati
+
+#### Liitväärtused
+
+Liitväärtused on kasutusel ainult lepingutega seotud andmete levitamise sõnumites, kuna ühe lepingu muudatus võib kaasa tuua mõne teise lepingu või lausa mitme lepingu muudatuse. Näiteks, kui SUPPLY lepingut muudetakse GRID lepingu muutmise tõttu.
+
+Liitväärtused koosnevad alati järgmistest osadest: 
+
+| Mis juhtus sõnumis oleva lepinguga | Sest | Muudatuse põhjustanud lepingu tüüp                               | Muudatuse põhjustanud lepingu tegevus |
+|------------------------------------|------|------------------------------------------------------------------|---------------------------------------|
+| CREATE, UPDATE või DELETE          | BC   | GRID, BORDER_GRID, SUPPLY, PORTFOLIO_SUPPLIER või NAMED_SUPPLIER | CREATE, UPDATE või DELETE             |
+
+Täpne nimekiri kasutusel olevatest väärtustest on leitav Swagger teenuste kirjeldustest, kuid allpool on nimekiri mõnedest väärtustest
+
+| Kategooria                | Kood                                | Kirjeldus                                                                              |
+|---------------------------|-------------------------------------|----------------------------------------------------------------------------------------|
+| GRID impact               | CREATE_BC_GRID_CREATE               | Leping loodi, kuna loodi GRID leping                                                   |
+|                           | UPDATE_BC_GRID_CREATE               | Lepingut muudeti, kuna loodi GRID leping                                               |
+|                           | DELETE_BC_GRID_CREATE               | Leping kustutati, kuna loodi GRID leping                                               |
+|                           | CREATE_BC_GRID_UPDATE               | Leping loodi, kuna GRID lepingut muudeti                                               |
+|                           | UPDATE_BC_GRID_UPDATE               | Lepingut muudeti, kuna GRID lepingut muudeti                                           |
+|                           | DELETE_BC_GRID_UPDATE               | Leping kustutati, kuna GRID lepingut muudeti                                           |
+|                           | DELETE_BC_GRID_DELETE               | Leping kustutati, kuna GRID leping kustutati                                           |
+| BORDER_GRID impact        | CREATE_BC_BORDER_GRID_CREATE        | Leping loodi, kuna BORDER_GRID                                                         |
+|                           | UPDATE_BC_BORDER_GRID_CREATE        | Lepingut muudeti, kuna BORDER_GRID                                                     |
+|                           | DELETE_BC_BORDER_GRID_CREATE        | Leping kustutati, kuna BORDER_GRID                                                     |
+|                           | CREATE_BC_BORDER_GRID_UPDATE        | Leping loodi, kuna BORDER_GRID lepingut muudeti                                        |
+|                           | UPDATE_BC_BORDER_GRID_UPDATE        | Lepingut muudeti, kuna BORDER_GRID lepingut muudeti                                    |
+|                           | DELETE_BC_BORDER_GRID_UPDATE        | Leping kustutati, kuna BORDER_GRID lepingut muudeti                                    |
+|                           | CREATE_BC_BORDER_GRID_DELETE        | Leping loodi, kuna BORDER_GRID leping kustutati                                        |
+|                           | UPDATE_BC_BORDER_GRID_DELETE        | Lepingut muudeti, kuna BORDER_GRID leping kustutati                                    |
+|                           | DELETE_BC_BORDER_GRID_DELETE        | Leping kustutati, kuna BORDER_GRID leping kustutati                                    |
+| SUPPLY impact             | CREATE_BC_SUPPLY_CREATE             | Leping loodi, kuna loodi SUPPLY leping                                                 |
+|                           | UPDATE_BC_SUPPLY_CREATE             | Lepingut muudeti, kuna loodi SUPPLY leping                                             |
+|                           | DELETE_BC_SUPPLY_CREATE             | Leping kustutati, kuna loodi SUPPLY leping                                             |
+|                           | CREATE_BC_SUPPLY_UPDATE             | Leping loodi, kuna SUPPLY lepingut muudeti                                             |
+|                           | UPDATE_BC_SUPPLY_UPDATE             | Lepingut muudeti, kuna SUPPLY lepingut muudeti                                         |
+|                           | DELETE_BC_SUPPLY_UPDATE             | Leping kustutati, kuna SUPPLY lepingut muudeti                                         |
+|                           | CREATE_BC_SUPPLY_DELETE             | Leping loodi, kuna SUPPLY leping kustutati                                             |
+|                           | UPDATE_BC_SUPPLY_DELETE             | Lepingut muudeti, kuna SUPPLY leping kustutati                                         |
+|                           | DELETE_BC_SUPPLY_DELETE             | Leping kustutati, kuna SUPPLY leping kustutati                                         |
+|                           | UPDATE_BC_AGREEMENT_COORDINATION    | Lepingut muudeti, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu |
+|                           | DELETE_BC_AGREEMENT_COORDINATION    | Leping kustutati, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu |
+| PORTFOLIO_SUPPLIER impact | CREATE_BC_PORTFOLIO_SUPPLIER_CREATE | Leping loodi, kuna loodi PORTFOLIO_SUPPLIER leping                                     |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_CREATE | Lepingut muudeti, kuna loodi PORTFOLIO_SUPPLIER leping                                 |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_CREATE | Leping kustutati, kuna loodi PORTFOLIO_SUPPLIER leping                                 |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Leping loodi, kuna PORTFOLIO_SUPPLIER lepingut muudeti                                 |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Lepingut muudeti, kuna PORTFOLIO_SUPPLIER lepingut muudeti                             |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE | Leping kustutati, kuna PORTFOLIO_SUPPLIER lepingut muudeti                             |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_DELETE | Leping loodi, kuna PORTFOLIO_SUPPLIER leping kustutati                                 |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_DELETE | Lepingut muudeti, kuna PORTFOLIO_SUPPLIER leping kustutati                             |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_DELETE | Leping kustutati, kuna PORTFOLIO_SUPPLIER leping kustutati                             |
+| NAMED_SUPPLIER impact     | CREATE_BC_NAMED_SUPPLIER_CREATE     | Leping loodi, kuna loodi NAMED_SUPPLIER leping                                         |
+|                           | UPDATE_BC_NAMED_SUPPLIER_CREATE     | Lepingut muudeti, kuna loodi NAMED_SUPPLIER leping                                     |
+|                           | DELETE_BC_NAMED_SUPPLIER_CREATE     | Leping kustutati, kuna loodi NAMED_SUPPLIER leping                                     |
+|                           | CREATE_BC_NAMED_SUPPLIER_UPDATE     | Leping loodi, kuna NAMED_SUPPLIER lepingut muudeti                                     |
+|                           | UPDATE_BC_NAMED_SUPPLIER_UPDATE     | Lepingut muudeti, kuna NAMED_SUPPLIER lepingut muudeti                                 |
+|                           | DELETE_BC_NAMED_SUPPLIER_UPDATE     | Leping kustutati, kuna NAMED_SUPPLIER lepingut muudeti                                 |
+|                           | CREATE_BC_NAMED_SUPPLIER_DELETE     | Leping loodi, kuna NAMED_SUPPLIER leping kustutati                                     |
+|                           | UPDATE_BC_NAMED_SUPPLIER_DELETE     | Lepingut muudeti, kuna NAMED_SUPPLIER leping kustutati                                 |
+|                           | DELETE_BC_NAMED_SUPPLIER_DELETE     | Leping kustutati, kuna NAMED_SUPPLIER leping kustutati                                 |
+
+## Sõnumid
+
+### Versioonid
+
+Andmete levitamise teenuseid versioonitakse. Kui päringu või vastuse struktuuri muudetakse, muutub teenuse uus versioon kättesaadavaks.
+
+Oluline on mõista, et andmeobjekti peamise teenuse versioon võib erineda andmete levitamise teenuse versioonist. Näiteks kui lepingu otsingu teenuse päringu struktuuri uuendatakse, kuid vastus jääb samaks, siis pole andmete levitamise teenuse värskendamist vaja. Kuid kui näiteks lepingu andmeolemi struktuuri muudetakse, põhjustab see ka andmete levitamise teenuse versioonimuutuse.
+
+Uurige Swaggeris peamiste teenuste ja andmete levitamise teenuste struktuure, et leida sobivad vasted.
+
+### Uued teenused
+
+> [!IMPORTANT]
+> Lepingute ja kooskõlastuste levitamise teenused on arenduses
+
+Mõiste "uus" viitab asjaolule, et need teenused loodi pärast "vana" teenust. Need teenused on andmeobjekti spetsiifilised ja tagastavad andmeobjekti uue versiooni (V2 ja uuem).
+
+| Sõnum                                                   | Eesmärk                                                     |
+|---------------------------------------------------------|-------------------------------------------------------------|
+| `GET /api/v1/data-distributions/agreement`              | Leia lepingute muudatuste teateid                           |
+| `GET /api/v1/data-distributions/agreement-coordination` | Leia kooskõlastusega lepingute muudatuste taotluste teateid |
+
+Uued teenused on andmeobjekti tüübi spetsiifilised. Seega on sõnumite andmestruktuurid eksplitsiitselt kirjeldatud Swaggeris
+
+### Vanad teenused
+
+Mõiste "vana" viitab asjaolule, et see teenus loodi koos Andmelao esmase tarnimisega. See on ühine teenus kõigi andmeolemite tüüpide (välja arvatud kooskõlastusega lepingute muudatuste taotlused) jaoks.
+
+See teenus tagastab andmeobjektide V1 versiooni.
+
+| Sõnum                                   | Eesmärk                                            |
+|-----------------------------------------|----------------------------------------------------|
+| `POST /api/v1/data-distribution/search` | Leia kõigi andmeolemite tüüpide muudatuste teateid |
+
+#### Päring
+
+Atribuudid:
+
+| Atribuut        | Tüüp              | Kohustuslik?                         | Märkused                                                                                            |
+|-----------------|-------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------|
+| createdTimeFrom | string($datetime) | jah, kui idFrom/idTo puuduvad        | Sõnumi loomisaja algus                                                                              |
+| createdTimeTo   | string($datetime) | jah, if idFrom/idTo  puuduvad        | Sõnumi loomisajal lõpp                                                                              |
+| idFrom          | int               | jah, kui createdTimeFrom/To puuduvad | Sõnumi ID algus                                                                                     |
+| idTo            | int               | jah, kui createdTimeFrom/To puuduvad | Sõnumi ID lõpp                                                                                      |
+| resourceType    | int               | jah                                  | Üks järgnevatest: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
+| pagination      | int               | jah                                  | Standardne pagineerimise sektsioon                                                                  |
+
+#### Vastus
 
 Iga andmete levitamise vastussõnum koosneb ühis- ja andmetüübi spetsiifilistest atribuutidest:
 
@@ -248,18 +336,18 @@ Näide vastussõnumist:
 
 ```
 
-## Andmetüübid
+#### Andmetüübid
 
-### Leping
+##### Leping
 
-#### Atribuudid
+###### Atribuudid
 
 Süsteem kasutab sama struktuuri ja atribuute, nagu `POST /api/{version}/agreement` teenuse vastussõnumis, kuid esinevad järgmised erisused:
 
 - `agreementId`, `meterEic` ja `validTo` võivad puududa, kui need puuduvad algses lepingu sõnumis.
 - `serviceProviderEic` ja `customerEic` puuduvad, kui see informatsioon ei kuulu vastavalt ärireeglitele avalikustamisele.
 
-#### Näited
+###### Näited
 
 ```json
 {
@@ -285,13 +373,13 @@ Süsteem kasutab sama struktuuri ja atribuute, nagu `POST /api/{version}/agreeme
 }
 ```
 
-### Mõõtepunkt
+##### Mõõtepunkt
 
 Süsteem kasutab sama struktuuri ja atribuute, nagu `PUT /api/{version}/meter` teenuses.
 
-#### Atribuudid
+###### Atribuudid
 
-#### Näited
+###### Näited
 
 ```json
 {
@@ -333,13 +421,13 @@ Süsteem kasutab sama struktuuri ja atribuute, nagu `PUT /api/{version}/meter` t
 }
 ```
 
-### Mõõteandmed
+##### Mõõteandmed
 
-#### Atribuudid
+###### Atribuudid
 
 Mõõteandmete levitamise sõnumi struktuur on täpselt sama, nagu `POST /meter-data` sõnumil.
 
-#### Näited
+###### Näited
 
 ```json
 [
@@ -382,13 +470,13 @@ Mõõteandmete levitamise sõnumi struktuur on täpselt sama, nagu `POST /meter-
 ]
 ```
 
-### Võrguteenuse arve
+##### Võrguteenuse arve
 
-#### Atribuudid
+###### Atribuudid
 
 Võrguteenuse arve levitamise sõnumi struktuur on täpselt sama, nagu `POST /network-bill` sõnumil.
 
-#### Näited
+###### Näited
 
 ```json
 [
@@ -421,9 +509,9 @@ Võrguteenuse arve levitamise sõnumi struktuur on täpselt sama, nagu `POST /ne
 ]
 ```
 
-### Kliendi metaandmed
+##### Kliendi metaandmed
 
-#### Atribuudid
+###### Atribuudid
 
 Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
 
@@ -431,7 +519,7 @@ Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
 - `customerMetadata` - sama nagu teenuse `api/{version}/customer/search` vastussõnumis
 - `customerEic` - kliendi EIC kood
 
-#### Näited
+###### Näited
 
 ```json
 {
@@ -506,9 +594,9 @@ Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
 }
 ```
 
-### Ligipääsuõigused
+##### Ligipääsuõigused
 
-#### Atribuudid
+###### Atribuudid
 
 | Atribuut            | Tüüp     | Alati väljundis? | Kirjeldus                                                                                                                           |
 |---------------------|----------|------------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -526,7 +614,7 @@ Kliendi metaandmete levitamise sõnum koosneb järgmistest sektsioonidest:
 | validFrom           | datetime | JAH              | Ligipääsuõiguse kehtivuse algus                                                                                                     |
 | validTo             | datetime | EI               | Ligipääsuõiguse kehtivuse lõpp                                                                                                      |
 
-#### Näited
+###### Näited
 
 ```json
 {

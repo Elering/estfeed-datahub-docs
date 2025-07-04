@@ -53,7 +53,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
   - `SUCCESSFUL` - töötlus lõppes vigadeta
   - `ERROR` - töötlus lõppes vigadega
   - `PARTIALLY_SUCCESSFUL` - töötlus lõppes osaliselt vigadega (nt sõnumis olid mitme mõõtepunkti mõõteandmed ja ühe mõõtepunkti andmete lisamine õnnestus, aga teise oma mitte)
-- Kui sõnumi töötlemine õnnestub vigadeta, siis andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi `data-distribution/search` teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
+- Kui sõnumi töötlemine õnnestub vigadeta, siis andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi andmete levitamise teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
 - Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile teenuse `meter-data/status` vastuses.
 - Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
 
@@ -221,7 +221,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligi
 
 Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
-- Avatud tarnija, nimetatud müüja ja portfelliteenuse pakkuja skaneerib mõõteandmete muudatusi kasutades teenust `data-distribution/search`
+- Avatud tarnija, nimetatud müüja ja portfelliteenuse pakkuja skaneerib mõõteandmete muudatusi kasutades andmete levitamise teenust
 - Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
 
 ### legalConsent

@@ -18,7 +18,7 @@ Datahub will create general service (`GENERAL_SERVICE`) agreements for all those
 
 This solution is purely technical, to store the start and end date of the general service in more explicit manner. Those agreements are not legally valid agreements.
 
-Datahub makes the general service agreements available to the grid operator and to the named supplier via the `data-distribution/search` service right after their activation. **General service agreements, that activate in the future, are not distributed** nor can they be found via regular agreement searches. Read more about the data distribution GENERAL_SERVICE agreements on page [Data Distribution](30-data-distribution.md)
+Datahub makes the general service agreements available to the grid operator and to the named supplier via the data-distribution service right after their activation. **General service agreements, that activate in the future, are not distributed** nor can they be found via regular agreement searches. Read more about the data distribution GENERAL_SERVICE agreements on page [Data Distribution](30-data-distribution.md)
 
 > [!NOTE]
 > The Datahub doesn't track the changes of the GENERAL_SERVICE agreements. In case of any changes the old agreements are deleted and new ones created

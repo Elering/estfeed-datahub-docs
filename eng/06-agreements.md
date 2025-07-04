@@ -47,20 +47,25 @@ Balance responsibility is ensured through an uninterrupted open supply chain in 
 
 Agreements can be transmitted to the Datahub using both a web interface and an automatic data exchange message. Relevant Datahub services have been set up to transmit and request agreements. The intended use process is as follows:
 
-- The relevant market participant sends a new or changed agreement message using the `agreement` service.
-- Depending on the type of agreement, parties and other data, the Datahub may make additional or changed agreement data available through the `data-distribution/search` service.
-- The authorised user requests the agreement data from the `agreement/search` service and, if necessary, exports the agreements using the `agreement/export` service.
+- The relevant market participant sends a new or changed agreement message using the agreement service.
+- Depending on the type of agreement, parties and other data, the Datahub may make additional or changed agreement data available through the data distribution service.
+- The authorised user requests the agreement data from the search service and, if necessary, exports the agreements using the export service.
 
 ### API messages
 
 In the Datahub, the transmission interface of various agreements is harmonised and thus the same messages and data structures are used. However, it is worth noting that agreements have different rules and therefore a different required and permitted data composition.
 
-| Message                                | Objective                          |
-|----------------------------------------|------------------------------------|
-| `POST /api/{version}/agreement`        | Create agreement                   |
-| `PUT /api/{version}/agreement`         | Update agreement                   |
-| `POST /api/{version}/agreement/delete` | Delete agreement                   |
-| `POST /api/{version}/agreement-bulk`   | Create multiple agreements at once |
+| V1 message                      | V2 message                       | Objective                          |
+|---------------------------------|----------------------------------|------------------------------------|
+| `POST /api/v1/agreement`        | `POST /api/v2/agreements`        | Create agreement                   |
+| `POST /api/v1/agreement-bulk`   | `POST /api/v2/agreements/bulk`   | Create multiple agreements at once |
+| `PUT /api/v1/agreement`         | `PUT /api/v2/agreements/{id}`    | Update agreement                   |
+| `POST /api/v1/agreement/delete` | `DELETE /api/v2/agreements/{id}` | Delete agreement                   |
+
+> [!IMPORTANT]
+> Agreement V2 API-s are under development.
+> The implementation of agreement V2 API-s are a prerequisite for the market participant to receive coordinated changes to the agreements via the data distribution service (Data Distribution). To do this, market participants must request the IDs of all their agreements via the `GET /api/v2/agreements` service.
+
 
 #### Message rules
 
@@ -105,18 +110,21 @@ There are 2 different business cases where agreements are searched:
 
 ### API messages
 
-| Message                                      | Objective                                                                       |
-|----------------------------------------------|---------------------------------------------------------------------------------|
-| `POST /api/{version}/agreement/search`       | Find agreements, where the market participant is a service provider or customer |
-| `POST /api/{version}/agreement/search/meter` | Find agreements by Metering Point during new agreement registration             |
-| `POST /api/{version}/agreement/export`       | Export agreements by attributes                                                 |
+| V1 message                            | V2 message                                     | Objective                                                                       |
+|---------------------------------------|------------------------------------------------|---------------------------------------------------------------------------------|
+| `POST /api/v1/agreement/search`       | `GET /api/v2/agreements`                       | Find agreements, where the market participant is a service provider or customer |
+| -                                     | `GET /api/v2/agreements/{id}`                  | Find specific agreement by ID                                                   |
+| `POST /api/v1/agreement/search/meter` | `GET /api/v2/metering-points/{eic}/agreements` | Find agreements by Metering Point during new agreement registration             |
+| `POST /api/v1/agreement/export`       | `GET /api/v2/agreements/export`                | Export agreements by attributes                                                 |
+
+> [!IMPORTANT]
+> Agreement V2 API-s are under development.
+> The implementation of agreement V2 API-s are a prerequisite for the market participant to receive coordinated changes to the agreements via the data distribution service (Data Distribution). To do this, market participants must request the IDs of all their agreements via the `GET /api/v2/agreements` service.
 
 #### Message rules
 
 > [!CAUTION] 
-> Using the `/agreement/search/meter` API endpoint is allowed only during new agreement registration process. The use of the service and the legality of use are monitored.
-
-- The metering point agreements search API returns the full data of agreements only if the requester is a service provider of the agreement or if the customer of the metering point has authorized the market participant.
+> Using the `/agreement/search/meter` or `/metering-points/{eic}/agreements` API endpoint is allowed only during new agreement registration process. The use of the service and the legality of use are monitored.
 
 ### Web interface
 

@@ -18,7 +18,7 @@ Tuvastatud (alam)perioodide kohta koostab Andmeladu tehnilised üldteenuse (`GEN
 
 Tegemist on puhtalt tehnilise lahendusega, et üldteenuse algust ja lõppu eksplitsiitselt talletada. Tegemist ei ole juriidilises mõttes lepinguga.
 
-Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale `data-distribution/search` teenuse abil vahetult pärast selle aktiveerumist. **Tulevikus kehtima hakkavaid üldteenuse lepinguid ei levitata** ning samuti pole need leitavad tavaliste lepingute otsingutega. Loe täpsemalt GENERAL_SERVICE lepingute levitamisest lehelt [Andmete levitamine](30-andmete-levitamine.md)
+Andmeladu teeb üldteenuse lepingud kättesaadavaks võrguettevõtjale ja nimetatud müüjale andmete levitamise teenuse abil vahetult pärast selle aktiveerumist. **Tulevikus kehtima hakkavaid üldteenuse lepinguid ei levitata** ning samuti pole need leitavad tavaliste lepingute otsingutega. Loe täpsemalt GENERAL_SERVICE lepingute levitamisest lehelt [Andmete levitamine](30-andmete-levitamine.md)
 
 > [!NOTE]
 > Andmeladu ei hoia GENERAL_SERVICE lepingute muudatusi. Muudatuste puhul vanad lepingud kustutatakse ja luuakse uued.

@@ -53,7 +53,7 @@ Relevant Datahub services have been set up to transmit metering data. The intend
   - `SUCCESSFUL` - processing finished successfully
   - `ERROR` - processing finished with errors.
   - `PARTIALLY_SUCCESSFUL` - processing finished partially successfully (for example, the message contained multiple metering points and processing of some metering point's data failed)
-- If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the `data-distribution/search` service. For more details, see [Data distribution](30-data-distribution.md).
+- If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the data-distribution service. For more details, see [Data distribution](30-data-distribution.md).
 - If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
 
@@ -218,7 +218,7 @@ Relevant Datahub services have been set up to transmit metering data. Access to 
 
 The following options are available for making metering data requests:
 
-- Open suppliers, named suppliers and portfolio providers can scan metering data changes using the `data-distribution/search` service.
+- Open suppliers, named suppliers and portfolio providers can scan metering data changes using the data-distribution service.
 - Authorised users can request metering data using the `search` service.
 
 ### legalConsent

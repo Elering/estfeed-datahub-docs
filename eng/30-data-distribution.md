@@ -5,9 +5,6 @@
 <!-- TOC -->
 * [Data distribution](#data-distribution)
   * [Table of contents](#table-of-contents)
-  * [Introduction](#introduction)
-  * [Scanning data updates](#scanning-data-updates)
-    * [Reason](#reason)
   * [Distributing data updates](#distributing-data-updates)
     * [General rules](#general-rules)
     * [Metering point rules](#metering-point-rules)
@@ -16,110 +13,37 @@
     * [Network bill rules](#network-bill-rules)
     * [Customer metadata rules](#customer-metadata-rules)
     * [Customer authorization rules](#customer-authorization-rules)
-  * [Structure of the message](#structure-of-the-message)
-  * [Resource types](#resource-types)
-    * [Agreement](#agreement)
-      * [Attributes](#attributes)
-      * [Examples](#examples)
-    * [Metering Point](#metering-point)
-      * [Attributes](#attributes-1)
-      * [Examples](#examples-1)
-    * [Metering data](#metering-data)
-      * [Attributes](#attributes-2)
-      * [Examples](#examples-2)
-    * [Network bill](#network-bill)
-      * [Attributes](#attributes-3)
-      * [Examples](#examples-3)
-    * [Customer](#customer)
-      * [Attributes](#attributes-4)
-      * [Examples](#examples-4)
-    * [Customer authorizations](#customer-authorizations)
-      * [Attributes](#attributes-5)
-      * [Examples](#examples-5)
+    * [Agreement coordination rules](#agreement-coordination-rules)
+  * [Scanning data updates](#scanning-data-updates)
+    * [Reason](#reason)
+      * [Simple values](#simple-values)
+      * [Complex values](#complex-values)
+  * [API messages](#api-messages)
+    * [Versions](#versions)
+    * [New services](#new-services)
+    * [Old services](#old-services)
+      * [Request](#request)
+      * [Response](#response)
+      * [Resource types](#resource-types)
+        * [Agreement](#agreement)
+          * [Attributes](#attributes)
+          * [Examples](#examples)
+        * [Metering Point](#metering-point)
+          * [Attributes](#attributes-1)
+          * [Examples](#examples-1)
+        * [Metering data](#metering-data)
+          * [Attributes](#attributes-2)
+          * [Examples](#examples-2)
+        * [Network bill](#network-bill)
+          * [Attributes](#attributes-3)
+          * [Examples](#examples-3)
+        * [Customer](#customer)
+          * [Attributes](#attributes-4)
+          * [Examples](#examples-4)
+        * [Customer authorizations](#customer-authorizations)
+          * [Attributes](#attributes-5)
+          * [Examples](#examples-5)
 <!-- TOC -->
-
-## Introduction
-
-For business processes to run successfully and smoothly, the integrated systems of market participants need to be aware of new and changed information.
-
-For this, new information needs to be delivered to the systems of market participants. This document describes the technical solution for distributing data updates through the API interface.
-
-## Scanning data updates
-
-Unlike the old Datahub, the new Datahub does not send messages to integrated parties but requires the integrated system to check whether it has new messages. For this purpose, a dedicated update
-pulling API `/data-distribution/search ` has been created, which works in a standard way:
-
-- The system of the integrated market participant sends a request defining time period (or message ID start and end) and data object type.
-- The Datahub finds previously created data distribution messages addressed to the Market Participant and where the attributes match with the search criteria.
-- The Datahub returns new or changed data objects together with the reason of change.
-
-The system of the integrated market participant scans the data distribution API at a suitable interval, taking into account the usual frequency of data object addition and changing:
-
-- it is recommended that slowly added and changing data (e.g. metering points) are scanned 1-4 times a day;
-- it is recommended that rapidly added and changing data (e.g. metering data) are scanned with the same frequency as data are added – for example, every hour or more frequently. This will help the
-  Datahub cope better with peak loads.
-
-Attributes of the request
-
-| Attribute       | Type | Required?                                  | Comments                                                                                  |
-|-----------------|------|--------------------------------------------|-------------------------------------------------------------------------------------------|
-| createdTimeFrom | int  | yes, if idFrom/idTo  are not defined       | Start of the creation time of the data distribution message                               |
-| createdTimeTo   | int  | yes, if idFrom/idTo  are not defined       | End of the creation time of the data distribution message                                 |
-| idFrom          | int  | yes, if createdTimeFrom/To are not defined | Start of the message ID                                                                   |
-| idTo            | int  | yes, if createdTimeFrom/To are not defined | End of the message ID                                                                     |
-| resourceType    | int  | yes                                        | One of: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
-| pagination      | int  | yes                                        | Standard pagination section                                                               |
-
-Resource types are:
-
-- METERING_POINT - metering point
-- METERING_DATA - metering data
-- NETWORK_BILL - network bill
-- CUSTOMER_DATA - customer's metadata (billing data for named supplier)
-- AGREEMENT - agreement and general service, which is modelled as agreement
-- PERMISSION - customer authorizations (given in the Client Portal)
-
-Maximum allowed period in the query depends on the resource type:
-
-- metering data: 1 hour
-- other types: 24 hours (this distinction is important during the autumn winter/summer time change, as the local (not UTC) day is 25 hours long)
-
-Maximum allowed range of the ID-s (`idTo` minus `idFrom`) is 10000.
-
-> [!TIP]
-> To request messages for a longer period of time, it is possible to send several different requests for different periods. For example, the first message for the period 02.01.2024-03.01.2024 and the second for the period 01.01.2024-02.01.2024.
-
-### Reason
-
-The response message always has a `reason` attribute, which for AGREEMENT and METERING_POINT resource types helps to understand why this change occurred (since they can be changed).
-For the rest of the resource types, the value may be missing or always be `CREATE` because they have no lifecycle.
-
-The reasons for the change are as follows:
-
-- Fixed values - these values are always the same. They are so called "hard coded" and behave like an enum. Possible values are:
-  - `CREATE` - data object got created
-  - `UPDATE` - data object got updated
-  - `DELETE` - data object got deleted
-- Dynamic values - these values are dynamic, because the root cause of the change was indirect. The data object got created, updated or deleted because of some operation with another data object. For example, when SUPPLY agreement gets modified because of the modification of the GRID agreement. Known possible values are:
-  - `UPDATE_BC_SUPPLY_CREATE` - data object got updated, because SUPPLY agreement was created
-  - `UPDATE_BC_GRID_UPDATE` - data object got updated, because GRID agreement was updated
-  - `DELETE_BC_GRID_UPDATE` - data object got deleted, because GRID agreement was updated
-  - `DELETE_BC_GRID_DELETE` - data object got deleted, because GRID agreement was deleted
-  - `CREATE_BC_PORTFOLIO_SUPPLIER_CREATE` - data object got created, because PORTFOLIO_SUPPLIER agreement was created
-  - `UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE` - data object got updated, because PORTFOLIO_SUPPLIER agreement was updated
-  - `DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE` - data object got deleted, because PORTFOLIO_SUPPLIER agreement was updated
-  - `DELETE_BC_PORTFOLIO_SUPPLIER_DELETE` - data object got deleted, because PORTFOLIO_SUPPLIER agreement was deleted
-  - `CREATE_BC_BORDER_GRID_CREATE` - data object got created, because BORDER_GRID agreement was created
-  - `UPDATE_BC_BORDER_GRID_UPDATE` - data object got updated, because BORDER_GRID agreement was updated
-  - `DELETE_BC_BORDER_GRID_UPDATE` - data object got deleted, because BORDER_GRID agreement was updated
-  - `DELETE_BC_BORDER_GRID_DELETE` - data object got deleted, because BORDER_GRID agreement was deleted
-
-> [!NOTE]
-> The format of the dynamic values follow a pattern: "what happened to the data object in the message" + BC (because) + "what was done with the data object causing the change"
-
-> [!WARNING]
-> 
-> Data older than 7 days cannot be read retrospectively.
 
 ## Distributing data updates
 
@@ -182,11 +106,175 @@ Different business rules have been implemented in the Datahub regarding when and
 
 - A new customer authorization is always distributed to the subject of the customer authorization.
 
-> [!NOTE]
-> Elering’s team is discussing various technical solutions to enable more capable integrated systems to receive data updates faster and without scanning. A specific technical solution is still under
-development. Market participants will be informed in a timely and thorough manner when it is ready.
+### Agreement coordination rules
 
-## Structure of the message
+> [!IMPORTANT]
+> Data distribution of agreement coordination is under development
+
+- All coordination candidates get agreement coordination distribution messages if:
+  - New agreement coordination was created
+  - Existing agreement coordination was cancelled
+  - Agreement coordination got an approval or denial response from any candidate
+
+## Scanning data updates
+
+Unlike the old Datahub, the new Datahub does not send messages to integrated parties but requires the integrated system to check whether it has new messages. For this purpose, a dedicated update
+pulling API-s have been created.
+
+The system of the integrated market participant scans the data distribution API at a suitable interval, taking into account the usual frequency of data object addition and changing:
+
+- it is recommended that slowly added and changing data (e.g. metering points) are scanned 1-4 times a day;
+- it is recommended that rapidly added and changing data (e.g. metering data) are scanned with the same frequency as data are added – for example, every hour or more frequently. This will help the
+  Datahub cope better with peak loads.
+
+Resource types are:
+
+- METERING_POINT - metering point
+- METERING_DATA - metering data
+- NETWORK_BILL - network bill
+- CUSTOMER_DATA - customer's metadata (billing data for named supplier)
+- AGREEMENT - agreement and general service, which is modelled as agreement
+- PERMISSION - customer authorizations (given in the Client Portal)
+- AGREEMENT_COORDINATION - agreement coordination
+
+> [!IMPORTANT]
+> Agreement coordination is under development
+
+Maximum allowed period in the query depends on the resource type:
+
+- metering data: 1 hour
+- other types: 24 hours (this distinction is important during the autumn winter/summer time change, as the local (not UTC) day is 25 hours long)
+
+Maximum allowed range of the ID-s (`idTo` minus `idFrom`) is 10000.
+
+> [!TIP]
+> To request messages for a longer period of time, it is possible to send several different requests for different periods. For example, the first message for the period 02.01.2024-03.01.2024 and the second for the period 01.01.2024-02.01.2024.
+
+> [!WARNING]
+> Data older than 7 days cannot be read retrospectively.
+
+### Reason
+
+The response message always has a `reason` attribute, which describes the essence of the change. The reasons for the change are as follows:
+
+#### Simple values
+
+Simple values exist for all data object types that have lifecycle. Some data objects may lack some values. For example, it is not possible to delete a metering point or update a network bill.
+
+Simple values are:
+
+- `CREATE` - data object created
+- `UPDATE` - data object updated
+- `DELETE` - data object deleted
+
+#### Complex values
+
+Complex values are only used in agreement data-distribution messages, because a change to one agreement can lead to changes to another agreement or even multiple agreements. For example, if the SUPPLY agreement is changed due to a change to the GRID agreement.
+
+Complex values always consist of the following parts:
+
+| What happened to the agreement in the message | Because | Type of agreement that caused the change                        | Action of the agreement that caused the change |
+|-----------------------------------------------|---------|-----------------------------------------------------------------|------------------------------------------------|
+| CREATE, UPDATE or DELETE                      | BC      | GRID, BORDER_GRID, SUPPLY, PORTFOLIO_SUPPLIER or NAMED_SUPPLIER | CREATE, UPDATE or DELETE                       |
+
+The exact list of values used can be found in the Swagger descriptions, but below is a list of some values:
+
+| Category                  | Code                                | Description                                                                                         |
+|---------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------|
+| GRID impact               | CREATE_BC_GRID_CREATE               | Agreement created, because GRID agreement was created                                               |
+|                           | UPDATE_BC_GRID_CREATE               | Agreement updated, because GRID agreement was created                                               |
+|                           | DELETE_BC_GRID_CREATE               | Agreement deleted, because GRID agreement was created                                               |
+|                           | CREATE_BC_GRID_UPDATE               | Agreement created, because GRID agreement was updated                                               |
+|                           | UPDATE_BC_GRID_UPDATE               | Agreement updated, because GRID agreement was updated                                               |
+|                           | DELETE_BC_GRID_UPDATE               | Agreement deleted, because GRID agreement was updated                                               |
+|                           | DELETE_BC_GRID_DELETE               | Agreement deleted, because GRID agreement was deleted                                               |
+| BORDER_GRID impact        | CREATE_BC_BORDER_GRID_CREATE        | Agreement created, because BORDER_GRID agreement was created                                        |
+|                           | UPDATE_BC_BORDER_GRID_CREATE        | Agreement updated, because BORDER_GRID agreement was created                                        |
+|                           | DELETE_BC_BORDER_GRID_CREATE        | Agreement deleted, because BORDER_GRID agreement was created                                        |
+|                           | CREATE_BC_BORDER_GRID_UPDATE        | Agreement created, because BORDER_GRID agreement was updated                                        |
+|                           | UPDATE_BC_BORDER_GRID_UPDATE        | Agreement updated, because BORDER_GRID agreement was updated                                        |
+|                           | DELETE_BC_BORDER_GRID_UPDATE        | Agreement deleted, because BORDER_GRID agreement was updated                                        |
+|                           | CREATE_BC_BORDER_GRID_DELETE        | Agreement created, because BORDER_GRID agreement was deleted                                        |
+|                           | UPDATE_BC_BORDER_GRID_DELETE        | Agreement updated, because BORDER_GRID agreement was deleted                                        |
+|                           | DELETE_BC_BORDER_GRID_DELETE        | Agreement deleted, because BORDER_GRID agreement was deleted                                        |
+| SUPPLY impact             | CREATE_BC_SUPPLY_CREATE             | Agreement created, because SUPPLY agreement was created                                             |
+|                           | UPDATE_BC_SUPPLY_CREATE             | Agreement updated, because SUPPLY agreement was created                                             |
+|                           | DELETE_BC_SUPPLY_CREATE             | Agreement deleted, because SUPPLY agreement was created                                             |
+|                           | CREATE_BC_SUPPLY_UPDATE             | Agreement created, because SUPPLY agreement was updated                                             |
+|                           | UPDATE_BC_SUPPLY_UPDATE             | Agreement updated, because SUPPLY agreement was updated                                             |
+|                           | DELETE_BC_SUPPLY_UPDATE             | Agreement deleted, because SUPPLY agreement was updated                                             |
+|                           | CREATE_BC_SUPPLY_DELETE             | Agreement created, because SUPPLY agreement was deleted                                             |
+|                           | UPDATE_BC_SUPPLY_DELETE             | Agreement updated, because SUPPLY agreement was deleted                                             |
+|                           | DELETE_BC_SUPPLY_DELETE             | Agreement deleted, because SUPPLY agreement was deleted                                             |
+|                           | UPDATE_BC_AGREEMENT_COORDINATION    | Agreement updated, because other SUPPLY agreement was created or updated via agreement coordination |
+|                           | DELETE_BC_AGREEMENT_COORDINATION    | Agreement deleted, because other SUPPLY agreement was created or updated via agreement coordination |
+| PORTFOLIO_SUPPLIER impact | CREATE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement created, because PORTFOLIO_SUPPLIER was created                                           |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement updated, because PORTFOLIO_SUPPLIER was created                                           |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement deleted, because PORTFOLIO_SUPPLIER was created                                           |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement created, because PORTFOLIO_SUPPLIER was updated                                           |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement updated, because PORTFOLIO_SUPPLIER was updated                                           |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement deleted, because PORTFOLIO_SUPPLIER was updated                                           |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement created, because PORTFOLIO_SUPPLIER was deleted                                           |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement updated, because PORTFOLIO_SUPPLIER was deleted                                           |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement deleted, because PORTFOLIO_SUPPLIER was deleted                                           |
+| NAMED_SUPPLIER impact     | CREATE_BC_NAMED_SUPPLIER_CREATE     | Agreement created, because NAMED_SUPPLIER was created                                               |
+|                           | UPDATE_BC_NAMED_SUPPLIER_CREATE     | Agreement updated, because NAMED_SUPPLIER was created                                               |
+|                           | DELETE_BC_NAMED_SUPPLIER_CREATE     | Agreement deleted, because NAMED_SUPPLIER was created                                               |
+|                           | CREATE_BC_NAMED_SUPPLIER_UPDATE     | Agreement created, because NAMED_SUPPLIER was updated                                               |
+|                           | UPDATE_BC_NAMED_SUPPLIER_UPDATE     | Agreement updated, because NAMED_SUPPLIER was updated                                               |
+|                           | DELETE_BC_NAMED_SUPPLIER_UPDATE     | Agreement deleted, because NAMED_SUPPLIER was updated                                               |
+|                           | CREATE_BC_NAMED_SUPPLIER_DELETE     | Agreement created, because NAMED_SUPPLIER was deleted                                               |
+|                           | UPDATE_BC_NAMED_SUPPLIER_DELETE     | Agreement updated, because NAMED_SUPPLIER was deleted                                               |
+|                           | DELETE_BC_NAMED_SUPPLIER_DELETE     | Agreement deleted, because NAMED_SUPPLIER was deleted                                               |
+
+## API messages
+
+### Versions
+
+Data distribution API-s are versioned. When the structure of the request or the response is changed, then new version of the API becomes available.
+
+It is important to understand, that the main API version of the data object may be different, than the data-distribution API version. For example, if agreement search API request structure is updated, but the response remains the same, then there's no need to update the data-distribution API. But if for example the structure of the Agreement entity is changed, then it causes a version bump for data-distribution API also.
+
+Examine the structures of the main API-s and data-distribution API-s in the Swagger to identify matching ones.
+
+### New services
+
+> [!IMPORTANT]
+> Agreement and agreement coordination API-s are under development
+
+The term "New" refers to the fact, that these API-s were created after the "Old" API. These API-s are data object specific and return the new version (V2 and newer) of the data object.
+
+| Message                                                 | Objective                                                  |
+|---------------------------------------------------------|------------------------------------------------------------|
+| `GET /api/v1/data-distributions/agreement`              | Find data-distribution messages of agreements              |
+| `GET /api/v1/data-distributions/agreement-coordination` | Find data-distribution messages of agreement coordinations |
+
+New API-s are resource type specific. Therefore the description of the API-s can be found in the Swagger with explicit request and response structures.
+
+### Old services
+
+The term "Old" refers to the fact, that this API was created with the initial delivery of the Datahub. It's a unified API for all data object types (except agreement coordination). 
+
+This API returns the V1 version of the data objects.
+
+| Message                                      | Objective                                                |
+|----------------------------------------------|----------------------------------------------------------|
+| `POST /api/v1/data-distribution/search`      | Find data-distribution messages of all data object types |
+
+#### Request
+
+Attributes:
+
+| Attribute       | Type              | Required?                                  | Comments                                                                                  |
+|-----------------|-------------------|--------------------------------------------|-------------------------------------------------------------------------------------------|
+| createdTimeFrom | string($datetime) | yes, if idFrom/idTo  are not defined       | Start of the creation time of the data distribution message                               |
+| createdTimeTo   | string($datetime) | yes, if idFrom/idTo  are not defined       | End of the creation time of the data distribution message                                 |
+| idFrom          | int               | yes, if createdTimeFrom/To are not defined | Start of the message ID                                                                   |
+| idTo            | int               | yes, if createdTimeFrom/To are not defined | End of the message ID                                                                     |
+| resourceType    | int               | yes                                        | One of: METERING_POINT, METERING_DATA, NETWORK_BILL, CUSTOMER_DATA, AGREEMENT, PERMISSION |
+| pagination      | int               | yes                                        | Standard pagination section                                                               |
+
+#### Response
 
 Every data distribution response message consists of common and resource type specific attributes:
 
@@ -246,18 +334,18 @@ Example of the response message:
 
 ```
 
-## Resource types
+#### Resource types
 
-### Agreement
+##### Agreement
 
-#### Attributes
+###### Attributes
 
 The system uses the same data structure and attributes as described in the response message of  `POST /api/{version}/agreement` service, but the following differences may occur:
 
 - `agreementId`, `meterEic` and `validTo` can be not present if they are not set in the original agreement message.
 - `serviceProviderEic` and `customerEic` are missing, if the information should not be available (because of business rules) for the market participant
 
-#### Examples
+###### Examples
 
 ```json
 {
@@ -283,13 +371,13 @@ The system uses the same data structure and attributes as described in the respo
 }
 ```
 
-### Metering Point
+##### Metering Point
 
-#### Attributes
+###### Attributes
 
 The system uses the same structure and attributes as the `PUT /api/{version}/meter` service.
 
-#### Examples
+###### Examples
 
 ```json
 {
@@ -331,13 +419,13 @@ The system uses the same structure and attributes as the `PUT /api/{version}/met
 }
 ```
 
-### Metering data
+##### Metering data
 
-#### Attributes
+###### Attributes
 
 The structure of metering data distribution message is exactly the same as in `POST /meter-data` message.
 
-#### Examples
+###### Examples
 
 ```json
 [
@@ -380,13 +468,13 @@ The structure of metering data distribution message is exactly the same as in `P
 ]
 ```
 
-### Network bill
+##### Network bill
 
-#### Attributes
+###### Attributes
 
 The structure of network bill data distribution message is exactly the same as in `POST /network-bill` message.
 
-#### Examples
+###### Examples
 
 ```json
 [
@@ -419,9 +507,9 @@ The structure of network bill data distribution message is exactly the same as i
 ]
 ```
 
-### Customer
+##### Customer
 
-#### Attributes
+###### Attributes
 
 Customer's metadata data-distribution message contains of following sections:
 
@@ -429,7 +517,7 @@ Customer's metadata data-distribution message contains of following sections:
 - `customerMetadata` - same as in `api/{version}/customer/search` response message
 - `customerEic` - customer's EIC code
 
-#### Examples
+###### Examples
 
 ```json
 {
@@ -504,9 +592,9 @@ Customer's metadata data-distribution message contains of following sections:
 }
 ```
 
-### Customer authorizations
+##### Customer authorizations
 
-#### Attributes
+###### Attributes
 
 | Attribute           | Type     | Always present? | Description                                                                                                                          |
 |---------------------|----------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------|
@@ -524,7 +612,7 @@ Customer's metadata data-distribution message contains of following sections:
 | validFrom           | datetime | YES             | Validity start of the customer authorization                                                                                         |
 | validTo             | datetime | NO              | Validity end of the customer authorization                                                                                           |
 
-#### Examples
+###### Examples
 
 ```json
 {

@@ -47,9 +47,9 @@ Bilansivastutus tagatakse katkematu avatud tarne ahela kaudu alljärgnevas hiera
 
 Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andmevahetuse sõnumi abil. Lepingu edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Vastav turuosaline saadab uue või muutunud lepingu sõnumi kasutades teenust `agreement`.
-- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks `data-distribution/search` teenuse vahendusel.
-- Õigustatud kasutaja pärib lepingu andmed `agreement/search` teenusest ning vajadusel ekspordib lepinguid kasutades teenust `agreement/export`.
+- Vastav turuosaline saadab uue või muutunud lepingu sõnumi kasutades teenust vastavat teenust.
+- Sõltuvalt lepingu tüübist, osalistest ja muudest andmetest võib Andmeladu teha lisandunud või muutunud lepingu andmed kättesaadavaks andmete levitamise teenuse vahendusel.
+- Õigustatud kasutaja pärib lepingu andmed lepingute otsingu teenusest ning vajadusel ekspordib lepinguid kasutades lepingute eksportimise teenust.
 
 ### Veebiliidese abil
 
@@ -60,12 +60,17 @@ Lepinguid on võimalik Andmelattu edastada nii veebiliidese kui automaatse andme
 
 Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasutusel samad sõnumid ja andmestruktuurid. Küll aga tasub tähele panna, et erinevatel lepingutel on erinevad reeglid ja seega ka erinev nõutud ja lubatud andmekoosseis.
 
-| Sõnum                                  | Eesmärk                       |
-|----------------------------------------|-------------------------------|
-| `POST /api/{version}/agreement`        | Lepingu loomine               |
-| `PUT /api/{version}/agreement`         | Lepingu uuendamine            |
-| `POST /api/{version}/agreement/delete` | Lepingu kustutamine           |
-| `POST /api/{version}/agreement-bulk`   | Mitme lepingu loomine korraga |
+| V1 sõnum                        | V2 sõnum                         | Eesmärk                       |
+|---------------------------------|----------------------------------|-------------------------------|
+| `POST /api/v1/agreement`        | `POST /api/v2/agreements`        | Lepingu loomine               |
+| `POST /api/v1/agreement-bulk`   | `POST /api/v2/agreements/bulk`   | Mitme lepingu loomine korraga |
+| `PUT /api/v1/agreement`         | `PUT /api/v2/agreements/{id}`    | Lepingu uuendamine            |
+| `POST /api/v1/agreement/delete` | `DELETE /api/v2/agreements/{id}` | Lepingu kustutamine           |
+
+> [!IMPORTANT]
+> Lepingute V2 teenused on arenduses.
+> Lepingute V2 versiooni kasutuselevõtt on eelduseks, et turuosaline saaks kooskõlastatud lepingute muudatusi andmete levitamise teenuse (Data Distributioni) kaudu. Selleks peavad turuosalised GET /api/v2/agreements teenuse kaudu küsima endale kõikide enda lepingute ID-d.
+
 
 #### Sõnumite reeglid
 
@@ -107,18 +112,21 @@ Lepinguid otsitakse kahes äriprotsessis:
 
 Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasutusel samad sõnumid ja andmestruktuurid. Küll aga tasub tähele panna, et erinevatel lepingutel on erinevad reeglid ja seega ka erinev nõutud ja lubatud andmekoosseis.
 
-| Sõnum                                        | Eesmärk                                                            |
-|----------------------------------------------|--------------------------------------------------------------------|
-| `POST /api/{version}/agreement/search`       | Lepingute otsing, kus turuosaline on kas teenusepakkuja või klient |
-| `POST /api/{version}/agreement/search/meter` | Mõõtepunkti teiste lepingute otsing uue lepingu lisamisel          |
-| `POST /api/{version}/agreement/export`       | Lepingute eksport                                                  |
+| V1 sõnum                              | V2 sõnum                                       | Eesmärk                                                            |
+|---------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
+| `POST /api/v1/agreement/search`       | `GET /api/v2/agreements`                       | Lepingute otsing, kus turuosaline on kas teenusepakkuja või klient |
+| -                                     | `GET /api/v2/agreements/{id}`                  | Lepingu otsing ID alusel                                           |
+| `POST /api/v1/agreement/search/meter` | `GET /api/v2/metering-points/{eic}/agreements` | Mõõtepunkti lepingute otsing uue lepingu lisamisel                 |
+| `POST /api/v1/agreement/export`       | `GET /api/v2/agreements/export`                | Lepingute eksport                                                  |
+
+> [!IMPORTANT]
+> Lepingute V2 teenused on arenduses.
+> Lepingute V2 versiooni kasutuselevõtt on eelduseks, et turuosaline saaks kooskõlastatud lepingute muudatusi andmete levitamise teenuse (Data Distributioni) kaudu. Selleks peavad turuosalised `GET /api/v2/agreements` teenuse kaudu küsima endale kõikide enda lepingute ID-d.
 
 #### Sõnumite reeglid
 
 > [!CAUTION] 
-> Teenuse `/agreement/search/meter` kasutamine on lubatud ainult uue lepingu loomise protsessis. Teenuse kasutamist ja kasutamise õiguspärastust monitooritakse.
-
-- Mõõtepunkti lepingute otsingu teenus tagastab lepingute täisandmestiku ainult juhul, kui otsingu teostaja on lepingu teenusepakkuja või kui mõõtepunkti klient on andnud turuosalisele esindusõiguse.
+> Teenuse `/agreement/search/meter` või `/metering-points/{eic}/agreements` kasutamine on lubatud ainult uue lepingu loomise protsessis. Teenuse kasutamist ja kasutamise õiguspärastust monitooritakse.
 
 ### Veebiliidese abil
 

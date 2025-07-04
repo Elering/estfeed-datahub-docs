@@ -22,7 +22,7 @@ Ligipääsuõigus laiendab turuosalise ligipääsu andmetele ja võimaldab päri
 Ligipääsuõiguse edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
 - Klient siseneb kliendiportaali ja loob uue ligipääsuõiguse.
-- Volitatud turuosaline skanneerib uusi ligipääsuõigusi kasutades teenust `data-distribution/search` või otsib spetsiifilisi ligipääsuõigusi kasutades teenust `customer-authorization/search`.
+- Volitatud turuosaline skanneerib uusi ligipääsuõigusi kasutades andmete levitamise teenust või otsib spetsiifilisi ligipääsuõigusi kasutades teenust `customer-authorization/search`.
 - Volitatud turuosaline pärib järgmisi andmeid:
   - kliendi andmed - kirjeldatud dokumendis [Kliendid](04-kliendi-eic.md);
   - mõõtepunkti andmed - kirjeldatud dokumendis [Mõõtepunktid](05-mootepunktid.md);

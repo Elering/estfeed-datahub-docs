@@ -22,7 +22,7 @@ Customer authorization extends the access right of the market participant and ca
 Relevant Datahub services have been set up to request the customer authorizations. The intended use process is as follows:
 
 - The customer enters the client portal and creates new customer authorization
-- The authorized market participant scans for new customer authorizations using the `data-distribution/search` service or searches for specific customer authorization using the `customer-authorization/search` service.
+- The authorized market participant scans for new customer authorizations using the data-distribution service or searches for specific customer authorization using the `customer-authorization/search` service.
 - The authorized market participant can use messages to request the following data:
   - customer data – described in [Customers](04-customer-eic.md);
   - metering point data – described in [Metering points](05-metering-point.md);

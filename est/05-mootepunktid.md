@@ -204,7 +204,7 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 ## Mõõtepunkti andmete küsimine
 
-Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades teenust `data-distribution/search`.
+Üldiselt võivad kõik õigustatud kasutajad pärida mõõtepunktide andmeid kasutades `search` teenuseid, kuid avatud tarnija ja bilansihaldur saavad pärida ka uute ja muutunud mõõtepunktide andmete uuendusi kasutades andmete levitamise teenust.
 
 ### Masinliidese sõnumid
 

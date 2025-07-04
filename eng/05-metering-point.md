@@ -206,7 +206,7 @@ The data of the metering point is described in paragraph [Transmitting metering 
 
 ## Requesting metering point data
 
-In general, all authorised users can request metering point data using the `search` services, but open suppliers and balance responsible parties can also request updates of new and changed metering point data using the `data-distribution/search` service.
+In general, all authorised users can request metering point data using the `search` services, but open suppliers and balance responsible parties can also request updates of new and changed metering point data using the data-distribution service.
 
 ### API messages
 
