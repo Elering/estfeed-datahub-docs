@@ -1,3 +1,9 @@
+## 2025-07-16
+
+|                                  Issue                                  | Type | Priority |                                         Title                                         |
+|-------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------------------------|
+|  [EDH-5082](https://github.com/Elering/estfeed-datahub-docs/issues/184) |  Bug |  Highest |  When adding metering data, then timestamp milliseconds should not be bigger than 000 |
+
 ## 2025-06-11
 
 |                                  Issue                                  | Type | Priority |                                      Title                                     |
