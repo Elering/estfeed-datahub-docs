@@ -1,3 +1,9 @@
+## 2025-07-24
+
+|                                  Issue                                  | Type | Priority |                           Title                           |
+|-------------------------------------------------------------------------|------|----------|-----------------------------------------------------------|
+|  [EDH-4548](https://github.com/Elering/estfeed-datahub-docs/issues/180) |  Bug |  Highest |  [TEMP] Duplicate EIC codes allowed in idr_identity table |
+
 ## 2025-07-16
 
 |                                  Issue                                  | Type | Priority |                                         Title                                         |
