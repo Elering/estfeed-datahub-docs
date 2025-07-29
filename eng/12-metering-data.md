@@ -125,8 +125,8 @@ Below are the descriptions and examples of Excel columns:
 | Quantity KWH OUT | Outgoing energy amount. | 1,234 | No, if "Quantity KWH IN" amount is provided
 | Reading Type IN  | Incoming energy amount type, either measured or estimated. In the Excel template, the correct option can be selected from a dropdown menu by clicking in the cell and pressing the arrow that appears next to it. | METERED or ESTIMATED | Yes, if the "Quantity KWH IN" cell is filled
 | Reading Type OUT | Outgoing energy amount type, either measured or estimated. In the Excel template, the correct option can be selected from a dropdown menu by clicking in the cell and pressing the arrow that appears next to it. | METERED or ESTIMATED | Yes, if the "Quantity KWH OUT" cell is filled
-| Reading Time IN  | Time of measurement for the incoming energy amount. | 02.11.2024 08:00:00 | Yes, if the "Quantity KWH IN" cell is filled
-| Reading Time OUT | Time of measurement for the amount taken from the grid. | 02.11.2024 08:00:00 | Yes, if the "Quantity KWH OUT" cell is filled
+| Reading Time IN  | Time of measurement for the incoming energy amount. | 02.11.2024 08:00:00 | No, if left empty then the current time will be added
+| Reading Time OUT | Time of measurement for the amount taken from the grid. | 02.11.2024 08:00:00 | No, if left empty then the current time will be added
 
 For successful transmission of metering data, it is essential that the Excel file is completed correctly and meets all requirements.
 

@@ -128,8 +128,8 @@ Järgnevalt on välja toodud Exceli veergude kirjeldused ja näidised:
 | Quantity KWH OUT | Võrgust võetud kogus.      | 1,234 | Ei, kui "Quantity KWH IN" kogus on lisatud
 | Reading Type IN  | Võrku antud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale. | METERED või ESTIMATED | Jah, kui "Quantity KWH IN" lahter on täidetud.
 | Reading Type OUT | Võrgust võetud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale.  | METERED või ESTIMATED | Jah, kui "Quantity KWH OUT" lahter on täidetud.
-| Reading Time IN  | Võrku antud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH IN" lahter on täidetud. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH IN" lahter on täidetud.
-| Reading Time OUT  | Võrgust võetud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH OUT" lahter on täidetud. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH OUT" lahter on täidetud.
+| Reading Time IN  | Võrku antud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH IN" lahter on täidetud. | 02.11.2024 08:00:00 | Ei, jättes tühjaks lisab süsteem hetkeaja.
+| Reading Time OUT  | Võrgust võetud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Jah, kui "Quantity KWH OUT" lahter on täidetud. | 02.11.2024 08:00:00 | Ei, jättes tühjaks lisab süsteem hetkeaja.
 
 Edukaks mõõteandmete saatmiseks on oluline, et Excel oleks täidetud korrektselt ja vastaks reeglitele.
 
