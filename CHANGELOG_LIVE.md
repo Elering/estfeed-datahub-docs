@@ -1,3 +1,9 @@
+## 2025-09-12
+
+|                                  Issue                                  | Type |  Priority |                                                                    Title                                                                    |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------|
+|  [EDH-5938](https://github.com/Elering/estfeed-datahub-docs/issues/187) |  Bug |  Critical |  Creating new supply agreement does not update existing supply agreement in case new agreement validTo is sooner than old agreement valiTo  |
+
 ## 2025-07-24
 
 |                                  Issue                                  | Type | Priority |                           Title                           |
