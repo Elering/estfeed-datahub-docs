@@ -242,7 +242,7 @@ Uurige Swaggeris peamiste teenuste ja andmete levitamise teenuste struktuure, et
 ### Uued teenused
 
 > [!IMPORTANT]
-> Lepingute ja kooskõlastuste levitamise teenused on arenduses
+> Lepingute kooskõlastuste levitamise teenused on arenduses
 
 Mõiste "uus" viitab asjaolule, et need teenused loodi pärast "vana" teenust. Need teenused on andmeobjekti spetsiifilised ja tagastavad andmeobjekti uue versiooni (V2 ja uuem).
 

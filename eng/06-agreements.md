@@ -63,7 +63,6 @@ In the Datahub, the transmission interface of various agreements is harmonised a
 | `POST /api/v1/agreement/delete` | `DELETE /api/v2/agreements/{id}` | Delete agreement                   |
 
 > [!IMPORTANT]
-> Agreement V2 API-s are under development.
 > The implementation of agreement V2 API-s are a prerequisite for the market participant to receive coordinated changes to the agreements via the data distribution service (Data Distribution). To do this, market participants must request the IDs of all their agreements via the `GET /api/v2/agreements` service.
 
 
@@ -118,7 +117,6 @@ There are 2 different business cases where agreements are searched:
 | `POST /api/v1/agreement/export`       | `GET /api/v2/agreements/export`                | Export agreements by attributes                                                 |
 
 > [!IMPORTANT]
-> Agreement V2 API-s are under development.
 > The implementation of agreement V2 API-s are a prerequisite for the market participant to receive coordinated changes to the agreements via the data distribution service (Data Distribution). To do this, market participants must request the IDs of all their agreements via the `GET /api/v2/agreements` service.
 
 #### Message rules

@@ -2,26 +2,39 @@
 
 ## Sisukord
 
-- [Andmevahetusliidese veakoodid](#andmevahetusliidese-veakoodid)
-  - [Sisukord](#sisukord)
-  - [Sissejuhatus](#sissejuhatus)
-  - [/agreement](#agreement)
-  - [/authentication](#authentication)
-  - [/connection-state](#connection-state)
-  - [/customer](#customer)
-  - [/data-distribution](#data-distribution)
-  - [/joint-invoice](#joint-invoice)
-  - [/meter-data](#meter-data)
-  - [/meter](#meter)
-  - [/network-bill](#network-bill)
-  - [/technical-user](#technical-user)
-  - [/report](#report)
-  - [/authorization](#authorization)
-  - [Common codes](#common-codes)
+<!-- TOC -->
+* [Andmevahetusliidese veakoodid](#andmevahetusliidese-veakoodid)
+  * [Sisukord](#sisukord)
+  * [Sissejuhatus](#sissejuhatus)
+    * [Veasõnum V1](#veasõnum-v1)
+    * [Veasõnum V2](#veasõnum-v2)
+  * [/agreement](#agreement)
+  * [/authentication](#authentication)
+  * [/connection-state](#connection-state)
+  * [/customer](#customer)
+  * [/data-distribution](#data-distribution)
+  * [/joint-invoice](#joint-invoice)
+  * [/meter-data](#meter-data)
+  * [/meter](#meter)
+  * [/network-bill](#network-bill)
+  * [/technical-user](#technical-user)
+  * [/report](#report)
+  * [/authorization](#authorization)
+  * [Common codes](#common-codes)
+<!-- TOC -->
 
 ## Sissejuhatus
 
-Veaolukorra tekkimisel vastab Andmeladu sõnumile veakoodiga. Näide:
+Veaolukorra tekkimisel vastab Andmeladu sõnumile veakoodiga. 
+
+Veasõnumitel on alati sama struktuur:
+
+- `message` on inimkeelde tõlgitud veateade
+- `code` on tehniline veakood, mida liidestunud süsteem saab kasutada veaolukorra automaatsel käitlemisel
+- `traceId` on unikaalne ID, mida Eleringi tehniline meeskond saab kasutada vea põhjuse välja selgitamiseks
+- `args` sisaldab täiendavat informatsiooni. Võib olla tühi.
+
+### Veasõnum V1
 
 ```json
 {
@@ -38,12 +51,20 @@ Veaolukorra tekkimisel vastab Andmeladu sõnumile veakoodiga. Näide:
 }
 ```
 
-Veasõnumitel on alati sama struktuur:
+### Veasõnum V2
 
-- `message` on inimkeelde tõlgitud veateade
-- `code` on tehniline veakood, mida liidestunud süsteem saab kasutada veaolukorra automaatsel käitlemisel
-- `traceId` on unikaalne ID, mida Eleringi tehniline meeskond saab kasutada vea põhjuse välja selgitamiseks
-- `args` sisaldab täiendavat informatsiooni. Võib olla tühi.
+```json
+{
+  "id": "8e11eab4-e56c-431a-9e93-3dded6bd7368",
+  "message": "commodityType can be ELECTRICITY or NATURAL_GAS",
+  "code": "opp.error.validation.invalid-enum",
+  "traceId": "b59c423e058940c4abb27df5c83c97bc",
+  "args": [
+    "commodityType",
+    "ELECTRICITY or NATURAL_GAS"
+  ]
+}
+```
 
 > [!NOTE]
 > Käesolevas dokumendis on katmata veakoodid, mis algavad teise prefiksiga, nagu näiteks "mpd" ja "mpm". Need veakoodid on ajutised ning korrastatakse arenduste käigus

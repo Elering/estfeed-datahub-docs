@@ -68,7 +68,6 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 | `POST /api/v1/agreement/delete` | `DELETE /api/v2/agreements/{id}` | Lepingu kustutamine           |
 
 > [!IMPORTANT]
-> Lepingute V2 teenused on arenduses.
 > Lepingute V2 versiooni kasutuselevõtt on eelduseks, et turuosaline saaks kooskõlastatud lepingute muudatusi andmete levitamise teenuse (Data Distributioni) kaudu. Selleks peavad turuosalised GET /api/v2/agreements teenuse kaudu küsima endale kõikide enda lepingute ID-d.
 
 
@@ -120,7 +119,6 @@ Andmelaos on erinevate lepingute edastamise liides ühtlustatud ja seega on kasu
 | `POST /api/v1/agreement/export`       | `GET /api/v2/agreements/export`                | Lepingute eksport                                                  |
 
 > [!IMPORTANT]
-> Lepingute V2 teenused on arenduses.
 > Lepingute V2 versiooni kasutuselevõtt on eelduseks, et turuosaline saaks kooskõlastatud lepingute muudatusi andmete levitamise teenuse (Data Distributioni) kaudu. Selleks peavad turuosalised `GET /api/v2/agreements` teenuse kaudu küsima endale kõikide enda lepingute ID-d.
 
 #### Sõnumite reeglid

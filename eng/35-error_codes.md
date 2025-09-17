@@ -2,26 +2,39 @@
 
 ## Table of contents
 
-- [API error codes](#api-error-codes)
-  - [Table of contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [/agreement](#agreement)
-  - [/authentication](#authentication)
-  - [/connection-state](#connection-state)
-  - [/customer](#customer)
-  - [/data-distribution](#data-distribution)
-  - [/joint-invoice](#joint-invoice)
-  - [/meter-data](#meter-data)
-  - [/meter](#meter)
-  - [/network-bill](#network-bill)
-  - [/technical-user](#technical-user)
-  - [/report](#report)
-  - [/authorization](#authorization)
-  - [Common codes](#common-codes)
+<!-- TOC -->
+* [API error codes](#api-error-codes)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+    * [Error response V1](#error-response-v1)
+    * [Error response V2](#error-response-v2)
+  * [/agreement](#agreement)
+  * [/authentication](#authentication)
+  * [/connection-state](#connection-state)
+  * [/customer](#customer)
+  * [/data-distribution](#data-distribution)
+  * [/joint-invoice](#joint-invoice)
+  * [/meter-data](#meter-data)
+  * [/meter](#meter)
+  * [/network-bill](#network-bill)
+  * [/technical-user](#technical-user)
+  * [/report](#report)
+  * [/authorization](#authorization)
+  * [Common codes](#common-codes)
+<!-- TOC -->
 
 ## Introduction
 
-In case of different error situations, the Datahub responds with error message. Example:
+In case of different error situations, the Datahub responds with error message. 
+
+Error messages have always the same structure:
+
+- `message` is the description of the error
+- `code` is the technical error code, that can be used by the integrated system for automatic error handling
+- `traceId` is the unique ID, that can be used by the Elering technical team to trace the root cause of the error
+- `args` contains additional information in case it's needed. Can also be empty
+
+### Error response V1
 
 ```json
 {
@@ -38,12 +51,20 @@ In case of different error situations, the Datahub responds with error message. 
 }
 ```
 
-Error messages have always the same structure:
+### Error response V2
 
-- `message` is a translated description of the error
-- `code` is the technical error code, that can be used by the integrated system for automatic error handling
-- `traceId` is the unique ID, that can be used by the Elering technical team to trace the root cause of the error
-- `args` contains additional information in case it's needed. Can also be empty
+```json
+{
+  "id": "8e11eab4-e56c-431a-9e93-3dded6bd7368",
+  "message": "commodityType can be ELECTRICITY or NATURAL_GAS",
+  "code": "opp.error.validation.invalid-enum",
+  "traceId": "b59c423e058940c4abb27df5c83c97bc",
+  "args": [
+    "commodityType",
+    "ELECTRICITY or NATURAL_GAS"
+  ]
+}
+```
 
 > [!NOTE]
 > Error codes that begin with a different prefix, such as "mpd" and "mpm", are not covered in this document. These error codes are temporary and will be fixed during development
