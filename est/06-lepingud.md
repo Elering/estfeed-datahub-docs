@@ -97,6 +97,7 @@ Muud reeglid:
   - Lepingu lõpu kellaaeg peab olema lepingu lõpule järgneva päeva 00:00:00 Eesti aja järgi. Andmelagu tõlgendab esitatud kuupäeva väljaarvatuna (*exclusive*). Näiteks kui leping peaks lõppema 30.04.2024 südaööl, siis peab sõnumis olema märgitud `2024-05-01T00:00:00+03:00` või `2024-04-30T21:00:00Z`, mis Andmelao loogika järgi tähendab, et leping kehtis 30.04.2024 23:59:59 lõpuni.
 - Lepingu lõpu kuupäev peab olema võrdne või hilisem alguskuupäevast (ühepäevasel lepingul on alguse ja lõpu kuupäevad samad, kuid kellaajad erinevad).
 - Kehtivat ega kehtivuse kaotanud lepingut kustutada (*delete*) ei ole lubatud. Kehtivat lepingut on võimalik sulgeda, uuendades lepingu lõppemise kuupäeva väärtust.
+- Kehtivuse kaotanud lepingut muuta ei ole lubatud.
 - Lepingus märgitud energia liik peab olema sama lepingus märgitud mõõtepunkti energia liigiga (juhul, kui lepingu tüüp neid andmeid ette näeb).
 - Lepingute puhul on lubatud muuta ainult operaatoripoolset lepingu ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
 

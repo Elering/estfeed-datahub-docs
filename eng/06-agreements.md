@@ -92,6 +92,7 @@ Other rules:
   - The end time of the agreement must be 00:00:00 Estonian time of the day following the end of the agreement. The Datahub interprets the provided date and time as exclusive. For example, if the agreement should end at midnight on 30.04.2024, then `2024-05-01T00:00:00+03:00` or `2024-04-30T21:00:00Z` must be sent in the message, which according to the Datahub business logic means that the agreement was valid until 30.04.2024 23:59:59.
 - The end date of the agreement must be later or equal than the start date (one-day agreements have the same start and end date, but different time values).
 - It is not permitted to *delete* a valid or expired agreement. It is possible to close a valid agreement by updating the value of the end date of the agreement.
+- It is not permitted to modify expired agreement.
 - The type of energy indicated in the agreement must be the same as the type of energy at the metering point indicated in the agreement (if the type of agreement provides for this information).
 - For agreements, only the operator's agreement ID and the end date of the agreement can be changed. Changing the remaining data is not allowed.
 
