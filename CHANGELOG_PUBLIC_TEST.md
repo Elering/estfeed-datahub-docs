@@ -1,3 +1,9 @@
+## 2025-09-26
+
+|                                  Issue                                  | Type |Priority|                                     Title                                     |
+|-------------------------------------------------------------------------|------|--------|-------------------------------------------------------------------------------|
+|  [EDH-6085](https://github.com/Elering/estfeed-datahub-docs/issues/189) |  Bug |  High  |  [DD] OS does not receive DD about updated/deleted SUPPLY after AgCo approval |
+
 ## 2025-09-12
 
 |                                  Issue                                  | Type |  Priority |                                                                    Title                                                                    |
@@ -168,3 +174,4 @@
 |   Issue   | Type |  Priority |                                      Title                                      |
 |-----------|------|-----------|---------------------------------------------------------------------------------|
 |  EDH-3687 |  Bug |  Critical |  POST /api/v1/meter/search searching by customers, doesn't give correct results |
+

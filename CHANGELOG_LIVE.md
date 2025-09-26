@@ -751,3 +751,4 @@
 |   Issue   | Type |  Priority |                                  Title                                 |
 |-----------|------|-----------|------------------------------------------------------------------------|
 |  EDH-1123 |  Bug |  Critical |  [MPM] Update SUPPLY agreement - allows termination on the current day |
+
