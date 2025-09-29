@@ -181,53 +181,54 @@ Liitväärtused koosnevad alati järgmistest osadest:
 
 Täpne nimekiri kasutusel olevatest väärtustest on leitav Swagger teenuste kirjeldustest, kuid allpool on nimekiri mõnedest väärtustest
 
-| Kategooria                | Kood                                | Kirjeldus                                                                              |
-|---------------------------|-------------------------------------|----------------------------------------------------------------------------------------|
-| GRID impact               | CREATE_BC_GRID_CREATE               | Leping loodi, kuna loodi GRID leping                                                   |
-|                           | UPDATE_BC_GRID_CREATE               | Lepingut muudeti, kuna loodi GRID leping                                               |
-|                           | DELETE_BC_GRID_CREATE               | Leping kustutati, kuna loodi GRID leping                                               |
-|                           | CREATE_BC_GRID_UPDATE               | Leping loodi, kuna GRID lepingut muudeti                                               |
-|                           | UPDATE_BC_GRID_UPDATE               | Lepingut muudeti, kuna GRID lepingut muudeti                                           |
-|                           | DELETE_BC_GRID_UPDATE               | Leping kustutati, kuna GRID lepingut muudeti                                           |
-|                           | DELETE_BC_GRID_DELETE               | Leping kustutati, kuna GRID leping kustutati                                           |
-| BORDER_GRID impact        | CREATE_BC_BORDER_GRID_CREATE        | Leping loodi, kuna BORDER_GRID                                                         |
-|                           | UPDATE_BC_BORDER_GRID_CREATE        | Lepingut muudeti, kuna BORDER_GRID                                                     |
-|                           | DELETE_BC_BORDER_GRID_CREATE        | Leping kustutati, kuna BORDER_GRID                                                     |
-|                           | CREATE_BC_BORDER_GRID_UPDATE        | Leping loodi, kuna BORDER_GRID lepingut muudeti                                        |
-|                           | UPDATE_BC_BORDER_GRID_UPDATE        | Lepingut muudeti, kuna BORDER_GRID lepingut muudeti                                    |
-|                           | DELETE_BC_BORDER_GRID_UPDATE        | Leping kustutati, kuna BORDER_GRID lepingut muudeti                                    |
-|                           | CREATE_BC_BORDER_GRID_DELETE        | Leping loodi, kuna BORDER_GRID leping kustutati                                        |
-|                           | UPDATE_BC_BORDER_GRID_DELETE        | Lepingut muudeti, kuna BORDER_GRID leping kustutati                                    |
-|                           | DELETE_BC_BORDER_GRID_DELETE        | Leping kustutati, kuna BORDER_GRID leping kustutati                                    |
-| SUPPLY impact             | CREATE_BC_SUPPLY_CREATE             | Leping loodi, kuna loodi SUPPLY leping                                                 |
-|                           | UPDATE_BC_SUPPLY_CREATE             | Lepingut muudeti, kuna loodi SUPPLY leping                                             |
-|                           | DELETE_BC_SUPPLY_CREATE             | Leping kustutati, kuna loodi SUPPLY leping                                             |
-|                           | CREATE_BC_SUPPLY_UPDATE             | Leping loodi, kuna SUPPLY lepingut muudeti                                             |
-|                           | UPDATE_BC_SUPPLY_UPDATE             | Lepingut muudeti, kuna SUPPLY lepingut muudeti                                         |
-|                           | DELETE_BC_SUPPLY_UPDATE             | Leping kustutati, kuna SUPPLY lepingut muudeti                                         |
-|                           | CREATE_BC_SUPPLY_DELETE             | Leping loodi, kuna SUPPLY leping kustutati                                             |
-|                           | UPDATE_BC_SUPPLY_DELETE             | Lepingut muudeti, kuna SUPPLY leping kustutati                                         |
-|                           | DELETE_BC_SUPPLY_DELETE             | Leping kustutati, kuna SUPPLY leping kustutati                                         |
-|                           | UPDATE_BC_AGREEMENT_COORDINATION    | Lepingut muudeti, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu |
-|                           | DELETE_BC_AGREEMENT_COORDINATION    | Leping kustutati, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu |
-| PORTFOLIO_SUPPLIER impact | CREATE_BC_PORTFOLIO_SUPPLIER_CREATE | Leping loodi, kuna loodi PORTFOLIO_SUPPLIER leping                                     |
-|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_CREATE | Lepingut muudeti, kuna loodi PORTFOLIO_SUPPLIER leping                                 |
-|                           | DELETE_BC_PORTFOLIO_SUPPLIER_CREATE | Leping kustutati, kuna loodi PORTFOLIO_SUPPLIER leping                                 |
-|                           | CREATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Leping loodi, kuna PORTFOLIO_SUPPLIER lepingut muudeti                                 |
-|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Lepingut muudeti, kuna PORTFOLIO_SUPPLIER lepingut muudeti                             |
-|                           | DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE | Leping kustutati, kuna PORTFOLIO_SUPPLIER lepingut muudeti                             |
-|                           | CREATE_BC_PORTFOLIO_SUPPLIER_DELETE | Leping loodi, kuna PORTFOLIO_SUPPLIER leping kustutati                                 |
-|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_DELETE | Lepingut muudeti, kuna PORTFOLIO_SUPPLIER leping kustutati                             |
-|                           | DELETE_BC_PORTFOLIO_SUPPLIER_DELETE | Leping kustutati, kuna PORTFOLIO_SUPPLIER leping kustutati                             |
-| NAMED_SUPPLIER impact     | CREATE_BC_NAMED_SUPPLIER_CREATE     | Leping loodi, kuna loodi NAMED_SUPPLIER leping                                         |
-|                           | UPDATE_BC_NAMED_SUPPLIER_CREATE     | Lepingut muudeti, kuna loodi NAMED_SUPPLIER leping                                     |
-|                           | DELETE_BC_NAMED_SUPPLIER_CREATE     | Leping kustutati, kuna loodi NAMED_SUPPLIER leping                                     |
-|                           | CREATE_BC_NAMED_SUPPLIER_UPDATE     | Leping loodi, kuna NAMED_SUPPLIER lepingut muudeti                                     |
-|                           | UPDATE_BC_NAMED_SUPPLIER_UPDATE     | Lepingut muudeti, kuna NAMED_SUPPLIER lepingut muudeti                                 |
-|                           | DELETE_BC_NAMED_SUPPLIER_UPDATE     | Leping kustutati, kuna NAMED_SUPPLIER lepingut muudeti                                 |
-|                           | CREATE_BC_NAMED_SUPPLIER_DELETE     | Leping loodi, kuna NAMED_SUPPLIER leping kustutati                                     |
-|                           | UPDATE_BC_NAMED_SUPPLIER_DELETE     | Lepingut muudeti, kuna NAMED_SUPPLIER leping kustutati                                 |
-|                           | DELETE_BC_NAMED_SUPPLIER_DELETE     | Leping kustutati, kuna NAMED_SUPPLIER leping kustutati                                 |
+| Kategooria                | Kood                                | Kirjeldus                                                                                                                         |
+|---------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| GRID impact               | CREATE_BC_GRID_CREATE               | Leping loodi, kuna loodi GRID leping                                                                                              |
+|                           | UPDATE_BC_GRID_CREATE               | Lepingut muudeti, kuna loodi GRID leping                                                                                          |
+|                           | DELETE_BC_GRID_CREATE               | Leping kustutati, kuna loodi GRID leping                                                                                          |
+|                           | CREATE_BC_GRID_UPDATE               | Leping loodi, kuna GRID lepingut muudeti                                                                                          |
+|                           | UPDATE_BC_GRID_UPDATE               | Lepingut muudeti, kuna GRID lepingut muudeti                                                                                      |
+|                           | DELETE_BC_GRID_UPDATE               | Leping kustutati, kuna GRID lepingut muudeti                                                                                      |
+|                           | DELETE_BC_GRID_DELETE               | Leping kustutati, kuna GRID leping kustutati                                                                                      |
+| BORDER_GRID impact        | CREATE_BC_BORDER_GRID_CREATE        | Leping loodi, kuna BORDER_GRID                                                                                                    |
+|                           | UPDATE_BC_BORDER_GRID_CREATE        | Lepingut muudeti, kuna BORDER_GRID                                                                                                |
+|                           | DELETE_BC_BORDER_GRID_CREATE        | Leping kustutati, kuna BORDER_GRID                                                                                                |
+|                           | CREATE_BC_BORDER_GRID_UPDATE        | Leping loodi, kuna BORDER_GRID lepingut muudeti                                                                                   |
+|                           | UPDATE_BC_BORDER_GRID_UPDATE        | Lepingut muudeti, kuna BORDER_GRID lepingut muudeti                                                                               |
+|                           | DELETE_BC_BORDER_GRID_UPDATE        | Leping kustutati, kuna BORDER_GRID lepingut muudeti                                                                               |
+|                           | CREATE_BC_BORDER_GRID_DELETE        | Leping loodi, kuna BORDER_GRID leping kustutati                                                                                   |
+|                           | UPDATE_BC_BORDER_GRID_DELETE        | Lepingut muudeti, kuna BORDER_GRID leping kustutati                                                                               |
+|                           | DELETE_BC_BORDER_GRID_DELETE        | Leping kustutati, kuna BORDER_GRID leping kustutati                                                                               |
+| SUPPLY impact             | CREATE_BC_SUPPLY_CREATE             | Leping loodi, kuna loodi SUPPLY leping                                                                                            |
+|                           | UPDATE_BC_SUPPLY_CREATE             | Lepingut muudeti, kuna loodi SUPPLY leping                                                                                        |
+|                           | DELETE_BC_SUPPLY_CREATE             | Leping kustutati, kuna loodi SUPPLY leping                                                                                        |
+|                           | CREATE_BC_SUPPLY_UPDATE             | Leping loodi, kuna SUPPLY lepingut muudeti                                                                                        |
+|                           | UPDATE_BC_SUPPLY_UPDATE             | Lepingut muudeti, kuna SUPPLY lepingut muudeti                                                                                    |
+|                           | DELETE_BC_SUPPLY_UPDATE             | Leping kustutati, kuna SUPPLY lepingut muudeti                                                                                    |
+|                           | CREATE_BC_SUPPLY_DELETE             | Leping loodi, kuna SUPPLY leping kustutati                                                                                        |
+|                           | UPDATE_BC_SUPPLY_DELETE             | Lepingut muudeti, kuna SUPPLY leping kustutati                                                                                    |
+|                           | DELETE_BC_SUPPLY_DELETE             | Leping kustutati, kuna SUPPLY leping kustutati                                                                                    |
+|                           | CREATE_BC_AGREEMENT_COORDINATION    | Leping lisati, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu. Kasutatakse GENERAL_SERVICE lepingute puhul. |
+|                           | UPDATE_BC_AGREEMENT_COORDINATION    | Lepingut muudeti, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu                                            |
+|                           | DELETE_BC_AGREEMENT_COORDINATION    | Leping kustutati, kuna mõni teine SUPPLY leping lisati või muudeti kooskõlastuse kaudu                                            |
+| PORTFOLIO_SUPPLIER impact | CREATE_BC_PORTFOLIO_SUPPLIER_CREATE | Leping loodi, kuna loodi PORTFOLIO_SUPPLIER leping                                                                                |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_CREATE | Lepingut muudeti, kuna loodi PORTFOLIO_SUPPLIER leping                                                                            |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_CREATE | Leping kustutati, kuna loodi PORTFOLIO_SUPPLIER leping                                                                            |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Leping loodi, kuna PORTFOLIO_SUPPLIER lepingut muudeti                                                                            |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Lepingut muudeti, kuna PORTFOLIO_SUPPLIER lepingut muudeti                                                                        |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE | Leping kustutati, kuna PORTFOLIO_SUPPLIER lepingut muudeti                                                                        |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_DELETE | Leping loodi, kuna PORTFOLIO_SUPPLIER leping kustutati                                                                            |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_DELETE | Lepingut muudeti, kuna PORTFOLIO_SUPPLIER leping kustutati                                                                        |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_DELETE | Leping kustutati, kuna PORTFOLIO_SUPPLIER leping kustutati                                                                        |
+| NAMED_SUPPLIER impact     | CREATE_BC_NAMED_SUPPLIER_CREATE     | Leping loodi, kuna loodi NAMED_SUPPLIER leping                                                                                    |
+|                           | UPDATE_BC_NAMED_SUPPLIER_CREATE     | Lepingut muudeti, kuna loodi NAMED_SUPPLIER leping                                                                                |
+|                           | DELETE_BC_NAMED_SUPPLIER_CREATE     | Leping kustutati, kuna loodi NAMED_SUPPLIER leping                                                                                |
+|                           | CREATE_BC_NAMED_SUPPLIER_UPDATE     | Leping loodi, kuna NAMED_SUPPLIER lepingut muudeti                                                                                |
+|                           | UPDATE_BC_NAMED_SUPPLIER_UPDATE     | Lepingut muudeti, kuna NAMED_SUPPLIER lepingut muudeti                                                                            |
+|                           | DELETE_BC_NAMED_SUPPLIER_UPDATE     | Leping kustutati, kuna NAMED_SUPPLIER lepingut muudeti                                                                            |
+|                           | CREATE_BC_NAMED_SUPPLIER_DELETE     | Leping loodi, kuna NAMED_SUPPLIER leping kustutati                                                                                |
+|                           | UPDATE_BC_NAMED_SUPPLIER_DELETE     | Lepingut muudeti, kuna NAMED_SUPPLIER leping kustutati                                                                            |
+|                           | DELETE_BC_NAMED_SUPPLIER_DELETE     | Leping kustutati, kuna NAMED_SUPPLIER leping kustutati                                                                            |
 
 ## Sõnumid
 

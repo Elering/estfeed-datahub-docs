@@ -179,53 +179,54 @@ Complex values always consist of the following parts:
 
 The exact list of values used can be found in the Swagger descriptions, but below is a list of some values:
 
-| Category                  | Code                                | Description                                                                                         |
-|---------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------|
-| GRID impact               | CREATE_BC_GRID_CREATE               | Agreement created, because GRID agreement was created                                               |
-|                           | UPDATE_BC_GRID_CREATE               | Agreement updated, because GRID agreement was created                                               |
-|                           | DELETE_BC_GRID_CREATE               | Agreement deleted, because GRID agreement was created                                               |
-|                           | CREATE_BC_GRID_UPDATE               | Agreement created, because GRID agreement was updated                                               |
-|                           | UPDATE_BC_GRID_UPDATE               | Agreement updated, because GRID agreement was updated                                               |
-|                           | DELETE_BC_GRID_UPDATE               | Agreement deleted, because GRID agreement was updated                                               |
-|                           | DELETE_BC_GRID_DELETE               | Agreement deleted, because GRID agreement was deleted                                               |
-| BORDER_GRID impact        | CREATE_BC_BORDER_GRID_CREATE        | Agreement created, because BORDER_GRID agreement was created                                        |
-|                           | UPDATE_BC_BORDER_GRID_CREATE        | Agreement updated, because BORDER_GRID agreement was created                                        |
-|                           | DELETE_BC_BORDER_GRID_CREATE        | Agreement deleted, because BORDER_GRID agreement was created                                        |
-|                           | CREATE_BC_BORDER_GRID_UPDATE        | Agreement created, because BORDER_GRID agreement was updated                                        |
-|                           | UPDATE_BC_BORDER_GRID_UPDATE        | Agreement updated, because BORDER_GRID agreement was updated                                        |
-|                           | DELETE_BC_BORDER_GRID_UPDATE        | Agreement deleted, because BORDER_GRID agreement was updated                                        |
-|                           | CREATE_BC_BORDER_GRID_DELETE        | Agreement created, because BORDER_GRID agreement was deleted                                        |
-|                           | UPDATE_BC_BORDER_GRID_DELETE        | Agreement updated, because BORDER_GRID agreement was deleted                                        |
-|                           | DELETE_BC_BORDER_GRID_DELETE        | Agreement deleted, because BORDER_GRID agreement was deleted                                        |
-| SUPPLY impact             | CREATE_BC_SUPPLY_CREATE             | Agreement created, because SUPPLY agreement was created                                             |
-|                           | UPDATE_BC_SUPPLY_CREATE             | Agreement updated, because SUPPLY agreement was created                                             |
-|                           | DELETE_BC_SUPPLY_CREATE             | Agreement deleted, because SUPPLY agreement was created                                             |
-|                           | CREATE_BC_SUPPLY_UPDATE             | Agreement created, because SUPPLY agreement was updated                                             |
-|                           | UPDATE_BC_SUPPLY_UPDATE             | Agreement updated, because SUPPLY agreement was updated                                             |
-|                           | DELETE_BC_SUPPLY_UPDATE             | Agreement deleted, because SUPPLY agreement was updated                                             |
-|                           | CREATE_BC_SUPPLY_DELETE             | Agreement created, because SUPPLY agreement was deleted                                             |
-|                           | UPDATE_BC_SUPPLY_DELETE             | Agreement updated, because SUPPLY agreement was deleted                                             |
-|                           | DELETE_BC_SUPPLY_DELETE             | Agreement deleted, because SUPPLY agreement was deleted                                             |
-|                           | UPDATE_BC_AGREEMENT_COORDINATION    | Agreement updated, because other SUPPLY agreement was created or updated via agreement coordination |
-|                           | DELETE_BC_AGREEMENT_COORDINATION    | Agreement deleted, because other SUPPLY agreement was created or updated via agreement coordination |
-| PORTFOLIO_SUPPLIER impact | CREATE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement created, because PORTFOLIO_SUPPLIER was created                                           |
-|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement updated, because PORTFOLIO_SUPPLIER was created                                           |
-|                           | DELETE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement deleted, because PORTFOLIO_SUPPLIER was created                                           |
-|                           | CREATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement created, because PORTFOLIO_SUPPLIER was updated                                           |
-|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement updated, because PORTFOLIO_SUPPLIER was updated                                           |
-|                           | DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement deleted, because PORTFOLIO_SUPPLIER was updated                                           |
-|                           | CREATE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement created, because PORTFOLIO_SUPPLIER was deleted                                           |
-|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement updated, because PORTFOLIO_SUPPLIER was deleted                                           |
-|                           | DELETE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement deleted, because PORTFOLIO_SUPPLIER was deleted                                           |
-| NAMED_SUPPLIER impact     | CREATE_BC_NAMED_SUPPLIER_CREATE     | Agreement created, because NAMED_SUPPLIER was created                                               |
-|                           | UPDATE_BC_NAMED_SUPPLIER_CREATE     | Agreement updated, because NAMED_SUPPLIER was created                                               |
-|                           | DELETE_BC_NAMED_SUPPLIER_CREATE     | Agreement deleted, because NAMED_SUPPLIER was created                                               |
-|                           | CREATE_BC_NAMED_SUPPLIER_UPDATE     | Agreement created, because NAMED_SUPPLIER was updated                                               |
-|                           | UPDATE_BC_NAMED_SUPPLIER_UPDATE     | Agreement updated, because NAMED_SUPPLIER was updated                                               |
-|                           | DELETE_BC_NAMED_SUPPLIER_UPDATE     | Agreement deleted, because NAMED_SUPPLIER was updated                                               |
-|                           | CREATE_BC_NAMED_SUPPLIER_DELETE     | Agreement created, because NAMED_SUPPLIER was deleted                                               |
-|                           | UPDATE_BC_NAMED_SUPPLIER_DELETE     | Agreement updated, because NAMED_SUPPLIER was deleted                                               |
-|                           | DELETE_BC_NAMED_SUPPLIER_DELETE     | Agreement deleted, because NAMED_SUPPLIER was deleted                                               |
+| Category                  | Code                                | Description                                                                                                                              |
+|---------------------------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| GRID impact               | CREATE_BC_GRID_CREATE               | Agreement created, because GRID agreement was created                                                                                    |
+|                           | UPDATE_BC_GRID_CREATE               | Agreement updated, because GRID agreement was created                                                                                    |
+|                           | DELETE_BC_GRID_CREATE               | Agreement deleted, because GRID agreement was created                                                                                    |
+|                           | CREATE_BC_GRID_UPDATE               | Agreement created, because GRID agreement was updated                                                                                    |
+|                           | UPDATE_BC_GRID_UPDATE               | Agreement updated, because GRID agreement was updated                                                                                    |
+|                           | DELETE_BC_GRID_UPDATE               | Agreement deleted, because GRID agreement was updated                                                                                    |
+|                           | DELETE_BC_GRID_DELETE               | Agreement deleted, because GRID agreement was deleted                                                                                    |
+| BORDER_GRID impact        | CREATE_BC_BORDER_GRID_CREATE        | Agreement created, because BORDER_GRID agreement was created                                                                             |
+|                           | UPDATE_BC_BORDER_GRID_CREATE        | Agreement updated, because BORDER_GRID agreement was created                                                                             |
+|                           | DELETE_BC_BORDER_GRID_CREATE        | Agreement deleted, because BORDER_GRID agreement was created                                                                             |
+|                           | CREATE_BC_BORDER_GRID_UPDATE        | Agreement created, because BORDER_GRID agreement was updated                                                                             |
+|                           | UPDATE_BC_BORDER_GRID_UPDATE        | Agreement updated, because BORDER_GRID agreement was updated                                                                             |
+|                           | DELETE_BC_BORDER_GRID_UPDATE        | Agreement deleted, because BORDER_GRID agreement was updated                                                                             |
+|                           | CREATE_BC_BORDER_GRID_DELETE        | Agreement created, because BORDER_GRID agreement was deleted                                                                             |
+|                           | UPDATE_BC_BORDER_GRID_DELETE        | Agreement updated, because BORDER_GRID agreement was deleted                                                                             |
+|                           | DELETE_BC_BORDER_GRID_DELETE        | Agreement deleted, because BORDER_GRID agreement was deleted                                                                             |
+| SUPPLY impact             | CREATE_BC_SUPPLY_CREATE             | Agreement created, because SUPPLY agreement was created                                                                                  |
+|                           | UPDATE_BC_SUPPLY_CREATE             | Agreement updated, because SUPPLY agreement was created                                                                                  |
+|                           | DELETE_BC_SUPPLY_CREATE             | Agreement deleted, because SUPPLY agreement was created                                                                                  |
+|                           | CREATE_BC_SUPPLY_UPDATE             | Agreement created, because SUPPLY agreement was updated                                                                                  |
+|                           | UPDATE_BC_SUPPLY_UPDATE             | Agreement updated, because SUPPLY agreement was updated                                                                                  |
+|                           | DELETE_BC_SUPPLY_UPDATE             | Agreement deleted, because SUPPLY agreement was updated                                                                                  |
+|                           | CREATE_BC_SUPPLY_DELETE             | Agreement created, because SUPPLY agreement was deleted                                                                                  |
+|                           | UPDATE_BC_SUPPLY_DELETE             | Agreement updated, because SUPPLY agreement was deleted                                                                                  |
+|                           | DELETE_BC_SUPPLY_DELETE             | Agreement deleted, because SUPPLY agreement was deleted                                                                                  |
+|                           | CREATE_BC_AGREEMENT_COORDINATION    | Agreement created, because other SUPPLY agreement was created or updated via agreement coordination. Used for GENERAL_SERVICE agreements |
+|                           | UPDATE_BC_AGREEMENT_COORDINATION    | Agreement updated, because other SUPPLY agreement was created or updated via agreement coordination                                      |
+|                           | DELETE_BC_AGREEMENT_COORDINATION    | Agreement deleted, because other SUPPLY agreement was created or updated via agreement coordination                                      |
+| PORTFOLIO_SUPPLIER impact | CREATE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement created, because PORTFOLIO_SUPPLIER was created                                                                                |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement updated, because PORTFOLIO_SUPPLIER was created                                                                                |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_CREATE | Agreement deleted, because PORTFOLIO_SUPPLIER was created                                                                                |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement created, because PORTFOLIO_SUPPLIER was updated                                                                                |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement updated, because PORTFOLIO_SUPPLIER was updated                                                                                |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_UPDATE | Agreement deleted, because PORTFOLIO_SUPPLIER was updated                                                                                |
+|                           | CREATE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement created, because PORTFOLIO_SUPPLIER was deleted                                                                                |
+|                           | UPDATE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement updated, because PORTFOLIO_SUPPLIER was deleted                                                                                |
+|                           | DELETE_BC_PORTFOLIO_SUPPLIER_DELETE | Agreement deleted, because PORTFOLIO_SUPPLIER was deleted                                                                                |
+| NAMED_SUPPLIER impact     | CREATE_BC_NAMED_SUPPLIER_CREATE     | Agreement created, because NAMED_SUPPLIER was created                                                                                    |
+|                           | UPDATE_BC_NAMED_SUPPLIER_CREATE     | Agreement updated, because NAMED_SUPPLIER was created                                                                                    |
+|                           | DELETE_BC_NAMED_SUPPLIER_CREATE     | Agreement deleted, because NAMED_SUPPLIER was created                                                                                    |
+|                           | CREATE_BC_NAMED_SUPPLIER_UPDATE     | Agreement created, because NAMED_SUPPLIER was updated                                                                                    |
+|                           | UPDATE_BC_NAMED_SUPPLIER_UPDATE     | Agreement updated, because NAMED_SUPPLIER was updated                                                                                    |
+|                           | DELETE_BC_NAMED_SUPPLIER_UPDATE     | Agreement deleted, because NAMED_SUPPLIER was updated                                                                                    |
+|                           | CREATE_BC_NAMED_SUPPLIER_DELETE     | Agreement created, because NAMED_SUPPLIER was deleted                                                                                    |
+|                           | UPDATE_BC_NAMED_SUPPLIER_DELETE     | Agreement updated, because NAMED_SUPPLIER was deleted                                                                                    |
+|                           | DELETE_BC_NAMED_SUPPLIER_DELETE     | Agreement deleted, because NAMED_SUPPLIER was deleted                                                                                    |
 
 ## API messages
 
