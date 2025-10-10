@@ -1,3 +1,9 @@
+## 2025-10-10
+
+|                                  Issue                                  | Type | Priority |                                        Title                                        |
+|-------------------------------------------------------------------------|------|----------|-------------------------------------------------------------------------------------|
+|  [EDH-6276](https://github.com/Elering/estfeed-datahub-docs/issues/190) |  Bug |  Highest |  [UI] Search for agreement 'valid from' and 'valid to' is not working right with V2 |
+
 ## 2025-09-26
 
 |                                  Issue                                  | Type |Priority|                                     Title                                     |
