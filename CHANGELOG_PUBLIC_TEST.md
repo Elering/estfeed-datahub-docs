@@ -1,3 +1,9 @@
+## 2025-10-16
+
+|                                  Issue                                  |  Type | Priority |                            Title                            |
+|-------------------------------------------------------------------------|-------|----------|-------------------------------------------------------------|
+|  [EDH-4695](https://github.com/Elering/estfeed-datahub-docs/issues/191) |  Task |  Highest |  Investigate issue - some metering data periods are missing |
+
 ## 2025-10-10
 
 |                                  Issue                                  | Type | Priority |                                        Title                                        |
