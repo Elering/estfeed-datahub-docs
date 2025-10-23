@@ -5,7 +5,6 @@
 <!-- TOC -->
 * [Sissejuhatus](#sissejuhatus)
 * [Soovite raporteerida vea või vajate juhendamist](#soovite-raporteerida-vea-või-vajate-juhendamist)
-* [Tagasiulatuvad lepingute muudatused](#tagasiulatuvad-lepingute-muudatused)
 
 ## Sissejuhatus
 Probleemide või küsimuste korral palun kirjutage aadressile <datahub@elering.ee>. Enne meie poole pöördumist soovitame tutvuda käesoleva dokumentatsiooniga, kuhu oleme koondanud turuosalistele vajaliku informatsiooni ja juhendid. Teie probleemide uurimiseks vajame teilt põhjalikku sisendit, selleks kasutage palun allolevaid pöördumiste vormistamise templiite.
@@ -47,13 +46,5 @@ _x-b3-traceid vastuse header'ist või x-document-identification päringu header'
 
 _Palun kirjelda mõju suurust. Näiteks, kui tihti seda juhtub ja kui palju kliente on sellest mõjutatud ning kuidas?_
 
-## Tagasiulatuvad lepingute muudatused
-
-Kui soovite tagasiulatuvaid lepingute muudatusi palume need meile edastada tabeli kujul. Enne meile edastamist palun küsige praeguse üldteenuse või avatud tarne teenusepakkuja ja tema bilansihalduri kooskõlastus. Lisage kooskõlastused samasse meili. Järgnevalt lisan tabeli, mis teil tuleks vajaliku informatsiooniga täita.
-
-### Lepingute muudatuste tabel
-| Lepingu tüüp | Teenusepakkuja EIC | Mõõtepunkti EIC | Kliendi EIC | Soovitud alguskuupäev | Soovitud lõppkuupäev | Tegevus | Tasunõue
-| ------| -------| ------ | ------ | ------ | ------ | ------ | ------
-| SUPPLY, GRID või AGGREGATION | nt 10X1001A1001A39W | nt 38ZEE-00398376-V | nt 38X-AVP-CT8E09EG | nt 01.01.2025 | nt 31.12.2025 | Uus leping, uuendamine või kustutamine | jah või ei
 
 

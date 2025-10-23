@@ -5,7 +5,6 @@
 <!-- TOC -->
 * [Introduction](#introduction)
 * [Reporting an issue or requesting guidance](#reporting-an-issue-or-requesting-guidance)
-* [Agreement Coordination](#agreement-coordination)
 
 ## Introduction
 If you encounter any problems or have questions, please contact us at <datahub@elering.ee>. Before reaching out, we recommend reviewing this documentation, where we have compiled the necessary information and guidelines for market participants. To investigate your issues effectively, we require detailed input from you – please use the templates below for submitting your request.
@@ -45,17 +44,5 @@ _x-b3-traceid from response headers or x-document-identification from the reques
 ### *Impact*
 
 _If impact is known, then please add. Also how often this has happened, how many customers are affected and how?_
-
-## Agreement Coordination
-
-If you wish to submit agreement coordination requests, please send them to us in table format.  
-Before sending the request, please ask the current general service provider or open supplier and their balance provider's approval.  
-Include these approvals in the same email.  
-Below is the table you should fill with your request information.
-
-### Agreement table example
-| Agreement type | Service provider EIC | Metering point EIC | Client EIC | Valid from | Valid to | Action | Fee
-| ------| -------| ------ | ------ | ------ | ------ | ------ | ------
-| SUPPLY, GRID or AGGREGATION | e.g. 10X1001A1001A39W | e.g. 38ZEE-00398376-V | e.g. 38X-AVP-CT8E09EG | e.g. 01.01.2025 | e.g. 31.12.2025 | New agreement, update or delete |yes or no
 
 
