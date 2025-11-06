@@ -1,3 +1,9 @@
+## 2025-11-06
+
+|                                  Issue                                  | Type | Priority |                              Title                              |
+|-------------------------------------------------------------------------|------|----------|-----------------------------------------------------------------|
+|  [EDH-6690](https://github.com/Elering/estfeed-datahub-docs/issues/192) |  Bug |  Highest |  opp metering data search does not work for AGG metering points |
+
 ## 2025-10-16
 
 |                                  Issue                                  |  Type | Priority |                            Title                            |
