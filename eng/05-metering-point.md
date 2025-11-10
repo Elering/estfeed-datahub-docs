@@ -11,12 +11,14 @@
     * [Mass import](#mass-import)
     * [API messages](#api-messages)
       * [Messages](#messages)
+        * [Information of the versions](#information-of-the-versions)
       * [Message rules](#message-rules)
   * [Requesting metering point data](#requesting-metering-point-data)
     * [API messages](#api-messages-1)
       * [Messages](#messages-1)
+        * [Information of the versions](#information-of-the-versions-1)
       * [Message rules](#message-rules-1)
-        * [`meter/search` rules](#metersearch-rules)
+        * [`meter/search` and `meter/export` rules](#metersearch-and-meterexport-rules)
         * [`meter/search/customer` rules](#metersearchcustomer-rules)
 <!-- TOC -->
 
@@ -46,10 +48,8 @@ Metering point operators are responsible for adding and updating metering point 
 
 Metering point operators can transmit the technical data of metering points:
 
-- one by one using web interface
-- using mass import via web interface
-- one by one using `meter` service
-- using `import` service for mass import
+- one by one using web or API interface
+- using mass import via web or API interface
 
 The data of metering point is the same in all interfaces. The data of a metering point is:
 
@@ -88,24 +88,28 @@ The data of metering point is the same in all interfaces. The data of a metering
 
 - Specific data for aggregation metering points:
 
-| Attribute in the API | Column name in mass import template | Explanation                                | Mandatory? | Other rules                   |
-|----------------------|-------------------------------------|--------------------------------------------|------------|-------------------------------|
-| parentMeterEic       | Parent Metering Point EIC           | 16 digit EIC code of parent metering point | yes        | Must be registered in Datahub |
+| Attribute in the API      | Column name in mass import template | Explanation                                | Mandatory?                       | Other rules                                                                                                                                    |
+|---------------------------|-------------------------------------|--------------------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| parentMeterEic            | Parent Metering Point EIC           | 16 digit EIC code of parent metering point | yes                              | Must be registered in Datahub. Cannot be updated                                                                                               |
+| aggregationProductType    | Agregation product type             | Agregation product type                    | yes                              | One of: MFRR, AFRR, FCR, D1, D, LOCAL_PRODUCT. Can be changed only from "None" to actual value. Other updates are not allowed.                 |
+| assetType                 | Asset type                          | Asset type                                 | yes                              | One of: CONSUMPTION, PRODUCTION. Can be changed only from "None" to actual value. Other updates are not allowed.                               |
+| aggregationProductionType | Aggregation production type         | Metering point production type             | yes, if asset type is PRODUCTION | One of: BESS, BV, WIND, HYDRO, OTHER. Can be changed only from "None" to actual value and if asset type is PRODUCTION. Other updates are not allowed. |
+| resourceEic               | Resource EIC                        | 16 digit EIC code of the resource          | yes                              | Doesn't have to be registered in Datahub. Can be changed only from "None" to actual value. Other updates are not allowed.                      |
 
 - Common address data for all metering point types:
 
-| Attribute in the API | Column name in mass import template | Explanation                                   | Mandatory?                               | Other rules                                                                                                                                                            |
-|----------------------|-------------------------------------|-----------------------------------------------|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| adrId                | Adr ID                              | Address ID (ADR_ID) of Land Board ADS system  | yes if county and municipality are empty | Must be an integer                                                                                                                                                     |
-| comment              | Comment                             |                                               | no                                       |                                                                                                                                                                        |
-| county               | County                              | ADS level 1                                   | yes                                      |                                                                                                                                                                        |
-| municipality         | Municipality                        | ADS level 2                                   | yes                                      |                                                                                                                                                                        |
-| locality             | Locality                            | ADS level 3                                   | no                                       |                                                                                                                                                                        |
-| streetAddress        | Street Address                      | street, house, apartment etc (ADS levels 4-8) | yes                                      |                                                                                                                                                                        |
-| postcode             | Postcode                            |                                               | yes                                      | When the correct code is not known then 00000 should be used.                                                                                                                                                       |
-| latitude             | Latitude                            | latitude of coordinates                       | no                                       | In case LEST97, the value must be 7 positions before and 1-3 positions after comma. In case WGS84, the value must be 2 positions before and 4-8 positions after comma. |
-| longitude            | Longitude                           | latitude of coordinates                       | no                                       | In case LEST97, the value must be 6 positions before and 1-3 positions after comma. In case WGS84, the value must be 2 positions before and 4-8 positions after comma. |
-| coordinateSystem     | Coordinate Sytem                    |                                               | yes if coordinates are provided          | One of: WGS84, LEST97                                                                                                                                                  |
+| Attribute in the API | Column name in mass import template | Explanation                                   | Mandatory in V1 version?                 | Mandatory in V2 version?        | Other rules                                                                                                                                                            |
+|----------------------|-------------------------------------|-----------------------------------------------|------------------------------------------|:--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| adrId                | Adr ID                              | Address ID (ADR_ID) of Land Board ADS system  | yes if county and municipality are empty | no                              | Must be an integer                                                                                                                                                     |
+| comment              | Comment                             |                                               | no                                       | yes                             |                                                                                                                                                                        |
+| county               | County                              | ADS level 1                                   | yes                                      | yes                             |                                                                                                                                                                        |
+| municipality         | Municipality                        | ADS level 2                                   | yes                                      | yes                             |                                                                                                                                                                        |
+| locality             | Locality                            | ADS level 3                                   | no                                       | yes                             |                                                                                                                                                                        |
+| streetAddress        | Street Address                      | street, house, apartment etc (ADS levels 4-8) | yes                                      | yes                             |                                                                                                                                                                        |
+| postcode             | Postcode                            |                                               | yes                                      | yes                             | When the correct code is not known then 00000 should be used.                                                                                                          |
+| latitude             | Latitude                            | latitude of coordinates                       | no                                       | no                              | In case LEST97, the value must be 7 positions before and 1-3 positions after comma. In case WGS84, the value must be 2 positions before and 4-8 positions after comma. |
+| longitude            | Longitude                           | latitude of coordinates                       | no                                       | no                              | In case LEST97, the value must be 6 positions before and 1-3 positions after comma. In case WGS84, the value must be 2 positions before and 4-8 positions after comma. |
+| coordinateSystem     | Coordinate Sytem                    |                                               | yes if coordinates are provided          | yes if coordinates are provided | One of: WGS84, LEST97                                                                                                                                                  |
 
 > [!NOTE]
 > The structure and validation rules of address attributes are under development
@@ -167,14 +171,21 @@ The data of the metering point is described in paragraph [Transmitting metering 
 
 #### Messages
 
-| Message                              | Objective                                          |
-|--------------------------------------|----------------------------------------------------|
-| `POST /api/{version}/meter`          | Create meter with metadata                         |
-| `PUT /api/{version}/meter`           | Update meter metadata                              |
-| `POST /api/{version}/template/meter` | Get metering point mass import templates           |
-| `POST /api/{version}/meter/import`   | Mass import metering points with template          |
-| `POST /api/{version}/eic/amount`     | Get a list of unused EICs from a range             |
-| `POST /api/{version}/eic/range`      | Get a list of EIC ranges of the Market Participant |
+| V1 Message                    | V2 Message                    | Objective                                          |
+|-------------------------------|-------------------------------|----------------------------------------------------|
+| `POST /api/v1/meter`          | `POST /api/v2/meter`          | Create meter with metadata                         |
+| `PUT /api/v1/meter`           | `PUT /api/v2/meter`           | Update meter metadata                              |
+| `POST /api/v1/template/meter` | `POST /api/v2/template/meter` | Get metering point mass import templates           |
+| `POST /api/v1/meter/import`   | `POST /api/v2/meter/import`   | Mass import metering points with template          |
+| `POST /api/v1/eic/amount`     | -                             | Get a list of unused EICs from a range             |
+| `POST /api/v1/eic/range`      | -                             | Get a list of EIC ranges of the Market Participant |
+
+##### Information of the versions
+
+The following changes were made with the addition of the V2 version:
+- In the V2 version, 4 new attributes were added to the aggregation metering point: `aggregationProductType`, `assetType`, `aggregationProductionType` and `resourceType`
+- In the V2 version, the validation rules for location and electricity metering point specific attributes changed
+- In the V1 version, it is no longer possible to add or edit aggregation metering points
 
 #### Message rules
 
@@ -212,17 +223,20 @@ In general, all authorised users can request metering point data using the `sear
 
 #### Messages
 
-| Message                                     | Objective                                                                                                                                             |
-|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Find Metering Points by attributes (check paragraph below for rules)                                                                                  |
-| `POST /api/{version}/meter/search/customer` | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code's §8(5) check) |
-| `POST /api/{version}/meter/search/border`   | Get border Metering Points by customer                                                                                                                |
-| `POST /api/{version}/meter/export`          | Export Metering Points by attributes (check paragraph below for rules)                                                                                |
-| `POST /api/{version}/eic/amount`            | Find unused EIC codes from **own** EIC range                                                                                                          |
-| `POST /api/{version}/eic/range`             | Find **own** EIC ranges                                                                                                                               |
+| V1 Message                           | V2 Message                           | Objective                                                                                                                                             |
+|--------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `POST /api/v1/meter/search`          | `POST /api/v2/meter/search`          | Find Metering Points by attributes (check paragraph below for rules)                                                                                  |
+| `POST /api/v1/meter/search/customer` | `POST /api/v2/meter/search/customer` | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code's §8(5) check) |
+| `POST /api/v1/meter/search/border`   | -                                    | Get border Metering Points by customer                                                                                                                |
+| `POST /api/v1/meter/export`          | `POST /api/v2/meter/export`          | Export Metering Points by attributes (check paragraph below for rules)                                                                                |
+
 
 > [!CAUTION] 
 > Service `POST /api/{version}/meter/search/customer` is allowed to use only when adding new agreement. Legitimate usage of this service is monitored
+
+##### Information of the versions
+
+- In the V2 version, 4 new attributes were added to the aggregation metering point: `aggregationProductType`, `assetType`, `aggregationProductionType` and `resourceType`
 
 #### Message rules
 

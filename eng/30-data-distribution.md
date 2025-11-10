@@ -241,7 +241,7 @@ Examine the structures of the main API-s and data-distribution API-s in the Swag
 ### New services
 
 > [!IMPORTANT]
-> Agreement and agreement coordination API-s are under development
+> Agreement coordination API-s are under development
 
 The term "New" refers to the fact, that these API-s were created after the "Old" API. These API-s are data object specific and return the new version (V2 and newer) of the data object.
 

@@ -11,12 +11,14 @@
     * [Mõõtepunktide masslaadimine](#mõõtepunktide-masslaadimine)
     * [Masinliidese sõnumid](#masinliidese-sõnumid)
       * [Sõnumid](#sõnumid)
+        * [Versioonide info](#versioonide-info)
       * [Sõnumite reeglid](#sõnumite-reeglid)
   * [Mõõtepunkti andmete küsimine](#mõõtepunkti-andmete-küsimine)
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
       * [Sõnumid](#sõnumid-1)
+        * [Versioonide info](#versioonide-info-1)
       * [Sõnumite reeglid](#sõnumite-reeglid-1)
-        * [`meter/search` reeglid](#metersearch-reeglid)
+        * [`meter/search` ja `meter/export` reeglid](#metersearch-ja-meterexport-reeglid)
         * [`meter/search/customer` reeglid](#metersearchcustomer-reeglid)
 <!-- TOC -->
 
@@ -46,12 +48,10 @@ Mõõtepunkti haldur vastutab Andmelaos tema piirkonnas olevate mõõtepunktid k
 
 Mõõtepunkti haldur saab mõõtepunktide tehnilised andmed edastada Andmelattu:
 
-- ükshaaval veebiliidese kaudu
-- masslaadimisega veebiliidese kaudu
-- ükshaaval automaatse andmevahetuse sõnumiga `meter`
-- masslaadimisega automaatse andmevahetuse sõnumiga `import`
+- ükshaaval veebiliidese või vastava automaatse andmevahetuse liidese kaudu
+- masslaadimisega veebiliidese või vastava automaatse andmevahetuse liidese kaudu
 
-Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliides. Mõõtepunkti andmed on:
+Mõõtepunktide andmed on samalaadsed nii andmevahetuse teenustes kui ka veebiliides. Mõõtepunkti andmed on:
 
 - Ühised andmed kõikidele mõõtepunktidele:
 
@@ -88,24 +88,28 @@ Mõõtepunktide andmed samalaadsed nii andmevahetuse teenustes kui ka veebiliide
 
 - Agregeerimise mõõtepunkti spetsiifilised metaandmed:
 
-| Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus                             | Kohustuslik? | Muud reeglid                                             |
-|-------------------|----------------------------------------|--------------------------------------|--------------|----------------------------------------------------------|
-| parentMeterEic    | Parent Metering Point EIC              | ülemmõõtepunkti 16 kohaline EIC kood | jah          | Peab viitama Andmelaos registreeritud tava mõõtepunktile |
+| Atribuut teenuses         | Tulba nimetus masslaadimise templiidis | Selgitus                             | Kohustuslik?                     | Muud reeglid                                                                                                                              |
+|---------------------------|----------------------------------------|--------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| parentMeterEic            | Parent Metering Point EIC              | ülemmõõtepunkti 16 kohaline EIC kood | jah                              | Peab viitama Andmelaos registreeritud tava mõõtepunktile. Väärtuse muutmine ei ole lubatud.                                               |
+| aggregationProductType    | Agregation product type                | Agregeerimise toote tüüp             | jah                              | Üks neist: MFRR, AFRR, FCR, D1, D, LOCAL_PRODUCT. Väärtuse uuendamine on lubatud ainult siis, kui eelnev väärtus puudub.                  |
+| assetType                 | Asset type                             | Mõõtepunkti vara tüüp                | jah                              | Üks neist: CONSUMPTION, PRODUCTION. Väärtuse uuendamine on lubatud ainult siis, kui eelnev väärtus puudub.                                |
+| aggregationProductionType | Aggregation production type            | Mõõtepunkti tootmise tüüp            | jah, kui vara tüüp on PRODUCTION | Üks neist: BESS, BV, WIND, HYDRO, OTHER. Väärtuse uuendamine on lubatud ainult siis, kui eelnev väärtus puudub ja vara tüüp on PRODUCTION |
+| resourceEic               | Resource EIC                           | Ressursi EIC                         | jah                              | Ei pea viitama Andmelaos registreeritud EIC koodile. Väärtuse uuendamine on lubatud ainult siis, kui eelnev väärtus puudub.               |
 
 - Ühised aadressi andmed kõikidele mõõtepunktidele:
 
-| Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus                                              | Kohustuslik?                            | Muud reeglid                                                                                                                                    |
-|-------------------|----------------------------------------|-------------------------------------------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| adrId             | Adr ID                                 | Maaameti ADS süsteemi aadressi ID (ADR_ID)            | jah kui county ja municipality on puudu | Peab olema täisarv                                                                                                                              |
-| comment           | Comment                                | kommentaar                                            | ei                                      |                                                                                                                                                 |
-| county            | County                                 | maakond (ADS tase 1)                                  | jah                                     |                                                                                                                                                 |
-| municipality      | Municipality                           | vald, linn(ADS tase 2)                                | jah                                     |                                                                                                                                                 |
-| locality          | Locality                               | asustusüksus(ADS tase 3)                              | ei                                      |                                                                                                                                                 |
-| streetAddress     | Street Address                         | kohaadress (tänav, maja, korter jne, ADS tasemed 4-8) | jah                                     |                                                                                                                                                 |
-| postcode          | Postcode                               | sihtnumber                                            | jah                                     |  Õige sihtnumbri puudumisel tuleks kasutada sihtnumbrina 00000.                                                                                                                                              |
-| latitude          | Latitude                               | koordinaadi laiuskraad                                | ei                                      | LEST97 puhul peab väärtus olema olema 7 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enne ja 4-8 kohta peale koma |
-| longitude         | Longitude                              | koordinaadi pikkuskraad                               | ei                                      | LEST97 puhul peab väärtus olema olema 6 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enne ja 4-8 kohta peale koma |
-| coordinateSystem  | Coordinate Sytem                       | koordinaatsüsteem                                     | jah, kui koordinaadid on antud          | Üks neist: WGS84, LEST97                                                                                                                        |
+| Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus                                              | Kohustuslik V1 versioonis?              | Kohustuslik V2 versioonis?     | Muud reeglid                                                                                                                                    |
+|-------------------|----------------------------------------|-------------------------------------------------------|-----------------------------------------|:-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| adrId             | Adr ID                                 | Maaameti ADS süsteemi aadressi ID (ADR_ID)            | jah kui county ja municipality on puudu | ei                             | Peab olema täisarv                                                                                                                              |
+| comment           | Comment                                | kommentaar                                            | ei                                      | ei                             |                                                                                                                                                 |
+| county            | County                                 | maakond (ADS tase 1)                                  | jah                                     | jah                            |                                                                                                                                                 |
+| municipality      | Municipality                           | vald, linn(ADS tase 2)                                | jah                                     | jah                            |                                                                                                                                                 |
+| locality          | Locality                               | asustusüksus(ADS tase 3)                              | ei                                      | jah                            |                                                                                                                                                 |
+| streetAddress     | Street Address                         | kohaadress (tänav, maja, korter jne, ADS tasemed 4-8) | jah                                     | jah                            |                                                                                                                                                 |
+| postcode          | Postcode                               | sihtnumber                                            | jah                                     | jah                            | Õige sihtnumbri puudumisel tuleks kasutada sihtnumbrina 00000.                                                                                  |
+| latitude          | Latitude                               | koordinaadi laiuskraad                                | ei                                      | ei                             | LEST97 puhul peab väärtus olema olema 7 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enne ja 4-8 kohta peale koma |
+| longitude         | Longitude                              | koordinaadi pikkuskraad                               | ei                                      | ei                             | LEST97 puhul peab väärtus olema olema 6 kohta enne ja 1-3 kohta peale koma. WGS84 puhul peab väärtus olema 2 kohta enne ja 4-8 kohta peale koma |
+| coordinateSystem  | Coordinate Sytem                       | koordinaatsüsteem                                     | jah, kui koordinaadid on antud          | jah, kui koordinaadid on antud | Üks neist: WGS84, LEST97                                                                                                                        |
 
 > [!NOTE]
 > Aadressi andmete struktuur ja validatsioonid on täiendamisel
@@ -167,12 +171,21 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 #### Sõnumid
 
-| Sõnum                                | Eesmärk                                             |
-|--------------------------------------|-----------------------------------------------------|
-| `POST /api/{version}/meter`          | Mõõtepunkti lisamine                                |
-| `PUT /api/{version}/meter`           | Mõõtepunkti muutmine                                |
-| `POST /api/{version}/template/meter` | Mõõtepunktide masslisamise templiidi alla laadimine |
-| `POST /api/{version}/meter/import`   | Mõõtepunktide massimport templiidi abil             |
+| V1 Sõnum                      | V2 Sõnum                      | Eesmärk                                             |
+|-------------------------------|-------------------------------|-----------------------------------------------------|
+| `POST /api/v1/meter`          | `POST /api/v2/meter`          | Mõõtepunkti lisamine                                |
+| `PUT /api/v1/meter`           | `PUT /api/v2/meter`           | Mõõtepunkti muutmine                                |
+| `POST /api/v1/template/meter` | `POST /api/v2/template/meter` | Mõõtepunktide masslisamise templiidi alla laadimine |
+| `POST /api/v1/meter/import`   | `POST /api/v2/meter/import`   | Mõõtepunktide massimport templiidi abil             |
+| `POST /api/v1/eic/amount`     | -                             | **Enda** EIC vahemikust vabade EIC koodide otsing   |
+| `POST /api/v1/eic/range`      | -                             | Turusalise **enda** EIC koodi vahemike otsing       |
+
+##### Versioonide info
+
+V2 versiooni lisandumisel toimusid järgmised muudatused:
+  - V2 versioonis lisandusid agregeerimise mõõtepunktile 4 uut atribuuti: `aggregationProductType`, `assetType`, `aggregationProductionType` ja `resourceType`. 
+  - V2 versioonis muutusid asukoha ja elektri mõõtepunkti spetsiifiliste atribuutide kohustuslikkuse reeglid 
+  - V1 versioonis pole enam võimalik lisada ega muuta agregeerimise mõõtepunkte
 
 #### Sõnumite reeglid
 
@@ -210,17 +223,19 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 #### Sõnumid
 
-| Sõnum                                       | Eesmärk                                                                                                                                                                                                         |
-|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/{version}/meter/search`          | Mõõtepunktide otsing erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                        |
-| `POST /api/{version}/meter/search/customer` | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks) |
-| `POST /api/{version}/meter/search/border`   | Piirimõõtepunkti otsing                                                                                                                                                                                         |
-| `POST /api/{version}/meter/export`          | Mõõtepunktide eksportimine erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                  |
-| `POST /api/{version}/eic/amount`            | **Enda** EIC vahemikust vabade EIC koodide otsing                                                                                                                                                               |
-| `POST /api/{version}/eic/range`             | Turusalise **enda** EIC koodi vahemike otsing                                                                                                                                                                   |
+| V1 Sõnum                             | V2 Sõnum                             | Eesmärk                                                                                                                                                                                                         |
+|--------------------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `POST /api/v1/meter/search`          | `POST /api/v2/meter/search`          | Mõõtepunktide otsing erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                        |
+| `POST /api/v1/meter/search/customer` | `POST /api/v2/meter/search/customer` | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks) |
+| `POST /api/v1/meter/search/border`   | -                                    | Piirimõõtepunkti otsing                                                                                                                                                                                         |
+| `POST /api/v1/meter/export`          | `POST /api/v2/meter/export`          | Mõõtepunktide eksportimine erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                  |
 
 > [!CAUTION] 
 > Teenust `POST /api/{version}/meter/search/customer` on lubatud kasutada ainult uue lepingu loomisel ja selle õiguspärast kasutamist monitooritakse
+
+##### Versioonide info
+
+- V2 versioonis lisandusid agregeerimise mõõtepunktile 4 uut atribuuti: `aggregationProductType`, `assetType`, `aggregationProductionType` ja `resourceType`.
 
 #### Sõnumite reeglid
 
