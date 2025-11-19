@@ -1,3 +1,9 @@
+## 2025-11-19
+
+|                                  Issue                                  | Type | Priority |                                         Title                                        |
+|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------------|
+|  [EDH-6884](https://github.com/Elering/estfeed-datahub-docs/issues/193) |  Bug |  Highest |  DataDistribution search pagination validation bug for page and changed max pageSize |
+
 ## 2025-11-05
 
 |                                  Issue                                  | Type | Priority |                              Title                              |
