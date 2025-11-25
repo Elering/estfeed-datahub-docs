@@ -1,3 +1,15 @@
+## 2025-11-25
+
+|                                  Issue                                  | Type | Priority |                                                       Title                                                       |
+|-------------------------------------------------------------------------|------|----------|-------------------------------------------------------------------------------------------------------------------|
+|  [EDH-6901](https://github.com/Elering/estfeed-datahub-docs/issues/194) |  Bug |  Highest |  SerPro of potential GS (and its PP) are not in the list of approval candidates in case agreementAction is DELETE |
+
+## 2025-11-21
+
+|                                  Issue                                  | Type | Priority |                                         Title                                        |
+|-------------------------------------------------------------------------|------|----------|--------------------------------------------------------------------------------------|
+|  [EDH-6884](https://github.com/Elering/estfeed-datahub-docs/issues/193) |  Bug |  Highest |  DataDistribution search pagination validation bug for page and changed max pageSize |
+
 ## 2025-11-19
 
 |                                  Issue                                  | Type | Priority |                                         Title                                        |
