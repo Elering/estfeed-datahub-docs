@@ -1,3 +1,9 @@
+## 2025-11-28
+
+|                                  Issue                                  | Type |Priority|                                               Title                                              |
+|-------------------------------------------------------------------------|------|--------|--------------------------------------------------------------------------------------------------|
+|  [EDH-6996](https://github.com/Elering/estfeed-datahub-docs/issues/195) |  Bug |  High  |  Agreement coordination initiator is in the list of candidates when it is SerPro of potential GS |
+
 ## 2025-11-25
 
 |                                  Issue                                  | Type | Priority |                                                       Title                                                       |
