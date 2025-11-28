@@ -76,11 +76,9 @@ Vastuvõetud mõõteandmete töötlemine on 2 etapiline protsess:
 
 Kui mõõteandmete töötlmine toimub aeglasemalt kui uusi tulemusi vastu võetakse hakkab töötlemise järjekord kasvama.
 
-Kui järjekorda on juba kogunenud 50 000 päringu andmed, siis POST /meter-data päring vastab päringu tegijale
+Kui järjekorda on juba kogunenud 100 000 päringu andmed, siis POST /meter-data päring vastab päringu tegijale
 - HTTP status 503
-- HTTP header Retry-After: 300 
-
-ning peatab vastuvõtmise 5 minutiks.
+- HTTP header Retry-After: 300
 
 Lahendus põhineb spetsifikatsioonidel:
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503

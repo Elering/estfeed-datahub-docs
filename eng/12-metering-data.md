@@ -76,11 +76,9 @@ Processing of received meteringdata is a 2-step process:
 
 If the measurement data processing is slower than new results are received, the processing queue starts to grow.
 
-If the queue already has data of 50,000 requests, then the POST /meter-data endpoint responds with
+If the queue already has data of 100,000 requests, then the POST /meter-data endpoint responds with
 - HTTP status 503
 - HTTP header Retry-After: 300
-
-and stops receiving for 5 minutes.
 
 The solution is based on the specifications:
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
