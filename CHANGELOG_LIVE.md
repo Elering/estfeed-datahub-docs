@@ -1,3 +1,9 @@
+## 2025-12-01
+
+|                                  Issue                                  | Type | Priority |                                 Title                                 |
+|-------------------------------------------------------------------------|------|----------|-----------------------------------------------------------------------|
+|  [EDH-7031](https://github.com/Elering/estfeed-datahub-docs/issues/196) |  Bug |  Highest |  Error when initiating agreement coordination from New agreement page |
+
 ## 2025-11-28
 
 |                                  Issue                                  | Type |Priority|                                               Title                                              |
