@@ -184,9 +184,8 @@ API teenuses kasutatavate lühendite selgitused:
 
 Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandmetega täidetud. 
 
-> [!NOTE] 
-> Andmete resolutsioon on Andmelao poolt jäigalt fikseeritud - nii elektri kui gaasi puhul on resolutsiooniks 1 tund. 2024 aastal läheb elekter üle resolutsioonile 15 minutit.
-> 
+> [!NOTE]
+> Andmete resolutsioon on Andmelao poolt jäigalt fikseeritud - Alates 01.04.2025 on elektri resolutsiooniks 15minutit.ggaasi puhul on resolutsiooniks 1 tund.> 
 > Gaasi puhul on lubatud edastada ka päeva andmeid. Sellisel juhul tuleb päeva mõõteandmed lisada enda poolt sobivasse gaasipäeva tundi.
 
 #### Sõnumid
@@ -211,6 +210,7 @@ Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandme
   - out – võrgust väljuv energia (tarbimine).
 - Siseneva ja väljuva energia koguseid võib edastada ka eraldi sõnumitega.
 - Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
+- Mõõteandmeid on lubatud edastada tulevikku (periood on tulevikus). Hetkel on maksimaalne lubatud väärtus 45 päeva tulevikus. Iga mõõtetulemust valideeritaks eraldi. Kui ükski mõõtetulemus ei läbi validatsioone, vastab süsteem koodiga ERROR. Kui ainult mõned ei läbi, siis koodiga PARTIALLY_SUCCESSFUL. Mõlemal juhul on veakoodiks `period-start-too-far-in-future`.
 - Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export` või `template/meter-data`
 
 ## Mõõteandmete päringud

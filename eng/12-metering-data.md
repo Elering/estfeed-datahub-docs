@@ -181,9 +181,8 @@ Explanation of abbreviations used in the API service:
 
 The Datahub does not check whether every one hour or 15 minute interval is filled with metering data. 
 
-> [!NOTE] 
-> The resolution of the data is rigidly fixed by the Datahub – for both electricity and gas, the resolution is one hour. In 2024, electricity will switch to the 15-minute resolution.
-> 
+> [!NOTE]
+> The resolution of the data is rigidly fixed by the Datahub – electricity resolution is 15 minutes from 01.04.2025. The resolution for gas is one hour.> 
 > In the case of gas, it is also allowed to transmit daily data. In this case, the daily metering data must be added to the suitable gas day hour.
 
 #### Messages
@@ -208,6 +207,7 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
   - out – energy leaving the grid (consumption).
 - The amounts of incoming and outgoing energy can also be transmitted in separate messages.
 - It is permitted to correct metering data retroactively for up to 12 months.
+- The time period of the metering data is allowed to be in the future. The current limit is 45 days. Each measurement is validated separately. If all values are further in the future, then allowed, then system replies with ERROR. If only some, then system replies with PARTIALLY_SUCCESSFUL. In both cases the error code is `period-start-too-far-in-future`.
 - The `import` service requires the same template, that the service `export` or `template/meter-data` returns.
 
 ## Metering data requests
