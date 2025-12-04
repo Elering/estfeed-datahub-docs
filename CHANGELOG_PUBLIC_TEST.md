@@ -1,3 +1,15 @@
+## 2025-12-04
+
+|                                  Issue                                  | Type |  Priority |                                                 Title                                                |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------------------------------|
+|  [EDH-7055](https://github.com/Elering/estfeed-datahub-docs/issues/197) |  Bug |  Critical |  DD search metering data requests get error, are cut in half and the response takes 3 min 20 seconds |
+
+## 2025-12-02
+
+|                                  Issue                                  | Type |  Priority |                                                 Title                                                |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------------------------------|
+|  [EDH-7055](https://github.com/Elering/estfeed-datahub-docs/issues/197) |  Bug |  Critical |  DD search metering data requests get error, are cut in half and the response takes 3 min 20 seconds |
+
 ## 2025-12-01
 
 |                                  Issue                                  | Type | Priority |                                 Title                                 |
