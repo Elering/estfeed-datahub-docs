@@ -1,3 +1,9 @@
+## 2026-01-08
+
+|                                  Issue                                  | Type | Priority |                             Title                             |
+|-------------------------------------------------------------------------|------|----------|---------------------------------------------------------------|
+|  [EDH-7376](https://github.com/Elering/estfeed-datahub-docs/issues/198) |  Bug |  Highest |  meter-data/search has wrong value for totalPages in Response |
+
 ## 2025-12-04
 
 |                                  Issue                                  | Type |  Priority |                                                 Title                                                |
