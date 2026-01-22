@@ -1,3 +1,15 @@
+## 2026-01-21
+
+|                                  Issue                                  | Type |  Priority |                 Title                 |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------|
+|  [EDH-7584](https://github.com/Elering/estfeed-datahub-docs/issues/199) |  Bug |  Critical |  DD: MSSQL connection pool exhaustion |
+
+## 2026-01-15
+
+|                                  Issue                                  | Type |  Priority |                 Title                 |
+|-------------------------------------------------------------------------|------|-----------|---------------------------------------|
+|  [EDH-7584](https://github.com/Elering/estfeed-datahub-docs/issues/199) |  Bug |  Critical |  DD: MSSQL connection pool exhaustion |
+
 ## 2026-01-08
 
 |                                  Issue                                  | Type | Priority |                             Title                             |
