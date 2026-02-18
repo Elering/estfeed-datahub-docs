@@ -31,9 +31,6 @@ Vahendatava ühisarve rekvisiidid saadakse e-arve standardist ([Eesti e-arve kir
 ## Veebiliides
 
 > [!NOTE]
-> Ühisarvete lisamise veebiliides on loomisel.
-
-> [!NOTE]
 > Ühisarvete otsimise ja allalaadimise veebiliidese juhend on loomisel.
 
 ## Masinliidese sõnumid
@@ -219,6 +216,8 @@ Kuivõrd `joint-invoice` sõnum on `multipart/form-data` formaadis, siis alljär
 Ühisarve otsimiseks ja arve allalaadimiseks on loodud eraldi teenused. Otsingu teenus tagastab arvete ID-d, mida saab kasutada allalaadimise teenuses.
 
 Ühisarveid on võimalik otsida ja alla laadida ka veebiliidese vahendusel.
+
+Ühisarvete faile hoitakse Estfeed Datahubis 1 aasta, varasemaid faile pole võimalik alla laadida.
 
 #### Sõnumi atribuutide reeglid
 

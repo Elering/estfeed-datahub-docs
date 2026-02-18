@@ -34,9 +34,11 @@
         * [Mõõteandmed](#mõõteandmed)
           * [Atribuudid](#atribuudid-2)
           * [Näited](#näited-2)
+        * [Neto mõõdetud mõõteandmed](#neto-mõõdetud-mõõteandmed)
         * [Võrguteenuse arve](#võrguteenuse-arve)
           * [Atribuudid](#atribuudid-3)
           * [Näited](#näited-3)
+        * [Neto mõõdetud mõõteandmed võrguarvel](#neto-mõõdetud-mõõteandmed-võrguarvel)
         * [Kliendi metaandmed](#kliendi-metaandmed)
           * [Atribuudid](#atribuudid-4)
           * [Näited](#näited-4)
@@ -44,6 +46,9 @@
           * [Atribuudid](#atribuudid-5)
           * [Näited](#näited-5)
 <!-- TOC -->
+
+> [!WARNING]
+> Seoses neto mõõteandmete lisandumisega on tulemas ka uus versioon mõõteandmete pärimiseks andmete levitamise teenuse kaudu. Uus dokumentatsioon lisandub peagi.
 
 ## Andmeuuenduste levitamine
 
@@ -471,6 +476,90 @@ Mõõteandmete levitamise sõnumi struktuur on täpselt sama, nagu `POST /meter-
 ]
 ```
 
+##### Neto mõõdetud mõõteandmed
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
+
+> [!WARNING]
+> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
+
+> [!WARNING]
+> Erinevate andmestruktuuride tõttu ei ole uue versiooniga saadetud mõõteandmeid võimalik pärida vana versiooni andmete levitamise teenusest. Seetõttu pole alates 01.08.2026 võimalik kasutada V1 lahendust mõõteandmete pärimiseks ja vajalik on üleminek V2 versioonile.
+
+Uued API-d kasutavad V2 headereid.
+
+| Sõnum                                   | Eesmärk                   |
+|-----------------------------------------|---------------------------|
+| `GET /api/{version}/data-distributions/metering-data/electricity` | Mõõteandmete pärimine  |
+
+###### Näited
+```json
+{
+  "content": [
+    {
+      "id": 2347289,
+      "createdTime": "2024-01-10T07:43:54.038Z",
+      "reason": "CREATE",
+      "content": [
+        {
+          "meteringPointEic": "38ZGO-100000BP-P",
+          "periods": [
+            {
+              "r": "PT15M",
+              "aI": [
+                {
+                  "pS": "2026-11-01T00:00:00+02:00",
+                  "rTime": "2025-12-16T12:35:11.335582+02:00",
+                  "inQty": {
+                    "rType": "M",
+                    "kwh": 0
+                  },
+                  "outQty": {
+                    "rType": "M",
+                    "kwh": 0
+                  },
+                  "netQtyIn": 0,
+                  "netQtyOut": 0
+                },
+                {
+                  "pS": "2026-11-01T00:15:00+02:00",
+                  "rTime": "2025-12-16T12:35:11.335582+02:00",
+                  "inQty": {
+                    "rType": "E",
+                    "kwh": 1.234
+                  },
+                  "netQtyIn": 0,
+                  "netQtyOut": 3.4
+                },
+                {
+                  "pS": "2026-11-01T00:30:00+02:00",
+                  "rTime": "2025-12-16T12:35:11.335582+02:00",
+                  "inQty": {
+                    "rType": "M",
+                    "kwh": 1.234
+                  },
+                  "outQty": {
+                    "rType": "M",
+                    "kwh": 1.234
+                  },
+                  "netQtyIn": 0,
+                  "netQtyOut": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 500,
+    "number": 0,
+    "totalElements": 950,
+    "totalPages": 2
+  }
+}
+```
+
 ##### Võrguteenuse arve
 
 ###### Atribuudid
@@ -508,6 +597,78 @@ Võrguteenuse arve levitamise sõnumi struktuur on täpselt sama, nagu `POST /ne
         }
     }
 ]
+```
+
+##### Neto mõõdetud mõõteandmed võrguarvel
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
+
+> [!WARNING]
+> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
+
+> [!WARNING]
+> Erinevate andmestruktuuride tõttu ei ole saadetud sõnum saadaval mõlemast andmete levitamise versioonist (data distribution). V1 versioonis saadetud võrguarve on saadaval V1 andmete levitamise kaudu. V2 versioonis saadetud võrguarve on saadaval V2 andmete levitamise kaudu.
+
+Uued API-d kasutavad V2 headereid.
+
+| Sõnum                                   | Eesmärk                   |
+|-----------------------------------------|---------------------------|
+| `GET /api/{version}/data-distributions/network-bill` | Võrguarvete pärimine  |
+
+###### Näited
+```json
+{
+    "content": {
+        "id": 2347289,
+        "createdTime": "2024-01-10T07:43:54.038Z",
+        "eventTime": "2024-01-10T07:43:53.038Z",
+        "reason": "CREATE",
+        "content": {
+            "meteringPointEic": "34Z6B80RJXDW7UPQ",
+            "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+            "periodStart": "2023-10-17T07:13:11.076Z",
+            "periodEnd": "2023-10-17T07:13:11.076Z",
+            "containsCalculatedValues": true,
+            "quantities": [
+                {
+                    "direction": "IN",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                },
+                {
+                    "direction": "OUT",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                }
+            ],
+            "netQuantities": [
+                {
+                    "direction": "IN",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                },
+                {
+                    "direction": "OUT",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                }
+            ]
+        }
+    },
+    "page": {
+        "size": 500,
+        "number": 0,
+        "totalElements": 950,
+        "totalPages": 2
+    }
+}
 ```
 
 ##### Kliendi metaandmed

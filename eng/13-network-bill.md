@@ -9,6 +9,7 @@
   - [API messages](#api-messages)
     - [Messages](#messages)
     - [Message rules](#message-rules)
+  - [Net metering data in network bill message](#net-metering-data-in-network-bill-message)
 
 ## Introduction
 
@@ -49,3 +50,296 @@ In order to update a network bill, new `network-bill` message with same period v
   - grid operator (GO) and closed distribution network operator (CDN) can search for network bills, that they added.
   - open supplier can search for those network bills, where the `periodStart` and `periodEnd` are covered with such open supply agreement, where the open supplier is the service provider.
   - named supplier can search for those network bills, where the `periodStart` and `periodEnd` are covered with such GENERAL_SERVICE agreement, where the named supplier is the service provider.
+
+## Net metering data in network bill message
+
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Therefore, starting from the beginning of September, the grid operator must submit the network bill together with net measured quantities. For this purpose transition to new API version is needed. Testing in the test environment is possible starting from 01.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering. Initially, two API versions will remain in parallel use, but the V1 version does not support net measured quantities.
+
+New API messages:
+| Message                                     | Objective                      |
+|-------------------------------------------|----------------------------|
+| `POST /api/v2/network-bills/bulk`        | Create or update network bill data |
+| `GET /api/v2/network-bills` | Find network bill data   |
+
+> [!WARNING]
+> As this functionality is still under development, the new APIs are not yet described in Swagger.
+
+> [!WARNING]
+> Due to different data structures V1 network bill iis only transmitted via V1 data distribution. V2 network bill is transmitted via the new data distribution version.
+
+### Messages
+
+**Create or update network bill data**
+
+Example request:
+```json
+[
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    },
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    }
+]
+```
+Example response:
+```json
+{
+  "successful": [
+    {
+      "meteringPointEic": "34Z6B80RJXDW7UPQ",
+      "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+      "periodStart": "2023-10-17T07:13:11.076Z",
+      "periodEnd": "2023-10-17T07:13:11.076Z",
+      "containsCalculatedValues": true,
+      "quantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 10.123,
+          "night": 2.123,
+          "total": 12.236
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 10,
+          "night": 1.2,
+          "total": 11.2
+        }
+      ],
+      "netQuantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0.001,
+          "total": 0.001
+        }
+      ]
+    }
+  ],
+  "unsuccessful": [
+    {
+      "request": {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+          {
+            "direction": "IN",
+            "unit": "KWH",
+            "day": 0,
+            "night": 0,
+            "total": 0
+          },
+          {
+            "direction": "OUT",
+            "unit": "KWH",
+            "day": 0,
+            "night": 0,
+            "total": 0
+          }
+        ],
+        "netQuantities": [
+          {
+            "direction": "IN",
+            "unit": "KWH",
+            "day": 0.0000005,
+            "night": 0,
+            "total": 0
+          },
+          {
+            "direction": "OUT",
+            "unit": "KWH",
+            "day": 0,
+            "night": 0,
+            "total": 0
+          }
+        ]
+      },
+      "error": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "message": "Quantities must be up to 3 positions after comma",
+        "code": "opp.validation.3-positions-after-comma",
+        "traceId": "3fa85f6457174562b3fc2c963f66afa6",
+        "args": [
+          "string"
+        ]
+      }
+    }
+  ]
+}
+```
+**Search network bill data**
+
+Example request:
+```json
+GET /api/v2/network-bills?meteringPointEics=34Z6B80RJXDW7UPQ&meteringPointEics=38Z9A12BCDEF3456&periodStart=2023-10-01T00:00:00Z&periodEnd=2023-11-01T00:00:00Z&direction=IN&page=0&size=50
+```
+
+Example response:
+
+```json
+[
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    },
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    }
+]
+```

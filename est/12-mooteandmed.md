@@ -20,6 +20,7 @@
     * [Mõõteandmete otsimine veebiliidese kaudu](#mõõteandmete-otsimine-veebiliidese-kaudu)
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
       * [Sõnumid](#sõnumid-1)
+    * [Neto mõõdetud mõõteandmed](#neto-mõõdetud-mõõteandmed)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -271,3 +272,170 @@ Mõõteandmete Excelisse laadimiseks on vaja alustuseks vajutada "Otsi" nuppu, s
 |-----------------------------------------|---------------------------|
 | `POST /api/{version}/meter-data/search` | Mõõteandmete otsing       |
 | `POST /api/{version}/meter-data/export` | Mõõteandmete eksportimine |
+
+### Neto mõõdetud mõõteandmed
+
+#### Üldine sisu
+
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
+
+**Näide 1 (rohkem tootmist):**
+| Mõõteandme tüüp / suund | Kogus |
+|-----------------------------------------|---------------------------|
+| Tootmine (IN) | 15 kWh |
+| Tarbimine (OUT) | 10 kWh |
+| Neto - tootmine (suund - IN) | 5 kWh |
+| Neto - tarbimine (suund - OUT) | 0 kWh |
+
+**Näide 2 (rohkem tarbimist):**
+| Mõõteandme tüüp / suund | Kogus |
+|-----------------------------------------|---------------------------|
+| Tootmine (IN) | 10 kWh |
+| Tarbimine (OUT) | 15 kWh |
+| Neto - tootmine (suund - IN) | 0 kWh |
+| Neto - tarbimine (suund - OUT) | 5 kWh |
+
+#### Muudatused veebiliidese kasutajale
+
+Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub Exceli struktuur. Uut Exceli malli saab allalaadida veebiliidesest alates 01.08.2026.
+
+#### Muudatused API kasutajatele
+
+> [!WARNING]
+> `POST /api/v1/meter-data` sõnumit pole võrguettevõtetel võimalik kasutada alates 01.08.2026. Täpne ülemineku kellaaeg on täpsustumisel.
+
+> [!WARNING]
+> Uuenevad ka import ja template API lahendused, kuid tegu on veebiliidese jaoks mõeldud API-dega ja seetõttu ei ole need täpsemalt siin dokumentatsioonis kirjeldatud.
+
+> [!WARNING]
+> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
+
+**Uued API sõnumid:**
+
+Uued API-d kasutavad V2 headereid.
+
+| Sõnum                                   | Eesmärk                   |
+|-----------------------------------------|---------------------------|
+| `POST /api/v2/metering-data/electricity` | Mõõteandmete lisamine |
+| `GET /api/v2/metering-data/electricity` | Mõõteandmete otsing       |
+
+
+**Mõõteandmete lisamine**
+
+V1 API-st erinevad sõnumi reeglid:
+- Lisanduvad atribuudid `netInQty` ja `netOutQty`. Väärtuseid on võimalik saata vaid võrguettevõtja ja suletud jaotusvõrgu rollis. Väärtust pole võimalik saata, kui samas sõnumis ei ole lisaks tarbimise (`outQty`) ega tootmise (`inQty`) kogust.
+- Andmete lugemise aeg (`rTime`) ei tohi olla tulevikus. 
+- Andmete resolutsiooni päringus enam ei ole, sest tunni resolutsioonis andmeid enam saata pole lubatud. Andmete tagasiulatuv korrigeerimine on lubatud 12 kuud minevikku ja andmed on 15 minuti resolutsioonis alates 01.04.2025.
+
+Näidis päring (tarbimine + tootmine + neto):
+```json
+[
+  {
+    "meteringPointEic": "38ZGO-100000BP-P",
+    "periods": [
+      {
+        "pS": "2026-11-01T00:00:00+02:00",
+        "rTime": "2025-12-16T12:35:11.335582+02:00",
+        "inQty": {
+          "rType": "M",
+          "kwh": 0
+        },
+        "outQty": {
+          "rType": "M",
+          "kwh": 0
+        },
+        "netQtyIn": 0,
+        "netQtyOut": 0
+      }
+    ]
+  }
+]
+```
+
+Näidis päring (ainult tarbimine):
+```json
+[
+  {
+    "meteringPointEic": "38ZGO-100000BP-P",
+    "periods": [
+      {
+        "pS": "2026-11-01T00:15:00+02:00",
+        "outQty": {
+          "rType": "E",
+          "kwh": 29.564
+        },
+        "rTime": "2025-12-16T12:35:11.335582+02:00"
+      }
+    ]
+  }
+]
+```
+
+**Mõõteandmete otsing**
+
+Uues API päringus on lisaks eesmärgi atribuut (Purpose). Päringus peaks määrama ka päringu tegemise eesmärgi. Näiteks, kas päring tehakse arvelduse eesmärgil või päritakse enda mõõtepunkte. Esialgu selle väärtuse lisamine ei mõjuta päringu vastust, kuid tulevikus hakkab see mõjutama ka päringu vastust. Selle muudatuse eesmärk on muuta API päring kiiremaks. Energiateenuse osutaja ei tohiks lisada eesmärki, teistes rollides on see kohustuslik.
+
+Mõõteandmete otsimine on võimalik peale uue lahenduse kasutuselevõttu 6 kuud ka V1 API kaudu, kuid V1 API ei tagasta neto mõõdetud väärtuseid.
+
+Avatud tarnija rollis on võimalikud eesmärgid:
+- `OPEN_SUPPLY` ehk peamine viis avatud tarnijana mõõteandmete pärimiseks.
+- `PORTFOLIO` ehk bilansihaldurina mõõteandmete pärimine
+- `BILLING` ehk arvelduse eesmärgil andmete pärimine
+
+Mõõtepunkti halduri rollis on võimalikud eesmärgid
+- `OWN_MP_MANAGEMENT` ehk enda mõõtepunktide andmete pärimine
+- `OTHER` ehk teiste mõõtepunktide andmete pärimine
+
+Mõõteandmeid on esialgu võimalik otsida ühe mõõtepunkti kaupa, kuid tulevikus lisandub ka võimalus mitme mõõtepunkti andmete korraga pärimiseks.
+
+Näidis päring:
+```
+http://datahub.elering.ee/api/v2/metering-data/electricity?meteringPointEics=38ZGO-133300BP-P%2C28ZEE-10000001-7&purpose=OWN_MP_MANAGEMENT&customerEic=38X-IND-PHYS---Q&periodStart=2025-04-01T00%3A00%3A00Z&periodEnd=2025-05-01T00%3A00%3A00Z&resolution=PT15M&observationTime=2025-05-01T00%3A00%3A00Z&observationTimeType=SNAPSHOT_TIME&legalConsent=true
+```
+
+Näidis vastus:
+```json
+{
+  "successful": [
+    {
+      "meteringPointEic": "38ZGO-133300BP-P",
+      "periods": [
+        {
+          "r": "PT15M",
+          "aI": [
+            { 
+              "pS": "2025-04-01T00:00:00Z",
+              "inQty": {
+                "rTime": "2025-04-01T00:15:00Z",
+                "rType": "M",
+                "kwh": 0.000
+              },
+              "outQty": {
+                "rTime": "2025-04-01T00:15:00Z",
+                "rType": "M",
+                "kwh": 0.000
+              },
+              "netQtyIn": 0.000,
+              "netQtyOut": 0.000,
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unsuccessful": [
+    {
+      "meteringPointEic": "38ZGO-10000012-N",
+      "error": {
+        "id": "346ce43c-1d39-4df6-abd3-9834cc604c25",
+        "message": "Customer EIC code required",
+        "code": "opp.error.business.customer-eic-required",
+        "args": [],
+        "traceId": "346ce43c1d394df6abd39834cc604c25"
+      }
+    }
+  ]
+}
+
+```
+

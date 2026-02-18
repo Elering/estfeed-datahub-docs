@@ -9,6 +9,7 @@
   - [Masinliidese sõnumid](#masinliidese-sõnumid)
     - [Sõnumid](#sõnumid)
     - [Sõnumite reeglid](#sõnumite-reeglid)
+  - [Neto mõõdetud mõõteandmete lisandumine võrguarvele](#neto-mõõdetud-mõõteandmete-lisandumine-võrguarvele)
 
 ## Sissejuhatus
 
@@ -36,6 +37,8 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
 | `POST /api/{version}/network-bill`        | Võrguteenuse arve lisamine |
 | `POST /api/{version}/network-bill/search` | Võrguteenuse arve otsing   |
 
+
+
 ### Sõnumite reeglid
 
 - Võrguarve edastamise reeglid:
@@ -49,3 +52,296 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
   - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (CDN) saavad otsida ainult neid võrguarveid, mida nad ise lisasid
   - avatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise avatud tarne lepinguga, kus avatud tarnija on teenusepakkuja.
   - nimetatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise üldteenuse lepinguga, kus nimetatud tarnija on teenusepakkuja.
+
+## Neto mõõdetud mõõteandmete lisandumine võrguarvele
+
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Seetõttu tuleb võrguettevõtjal esitada septembri algusest võrguarve koos neto mõõdetud kogustega. Selleks tuleb võtta kasutusele uus API versioon. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee. Esialgu jäävad kaks API versiooni paralleelselt kasutusele, kuid V1 versioonis ei ole neto mõõdetud koguseid.
+
+Uued API sõnumid:
+| Sõnum                                     | Eesmärk                    |
+|-------------------------------------------|----------------------------|
+| `POST /api/v2/network-bills/bulk`        | Võrguteenuse arve lisamine |
+| `GET /api/v2/network-bills` | Võrguteenuse arve otsing   |
+
+> [!WARNING]
+> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
+
+> [!WARNING]
+> Erinevate andmestruktuuride tõttu ei ole saadetud sõnum saadaval mõlemast andmete levitamise versioonist (data distribution). V1 versioonis saadetud võrguarve on saadaval V1 andmete levitamise kaudu. V2 versioonis saadetud võrguarve on saadaval V2 andmete levitamise kaudu.
+
+### Sõnumid
+
+**Võrguteenuse arve lisamine**
+
+Näidis päring:
+```json
+[
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    },
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    }
+]
+```
+Näidis vastus:
+```json
+{
+  "successful": [
+    {
+      "meteringPointEic": "34Z6B80RJXDW7UPQ",
+      "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+      "periodStart": "2023-10-17T07:13:11.076Z",
+      "periodEnd": "2023-10-17T07:13:11.076Z",
+      "containsCalculatedValues": true,
+      "quantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 10.123,
+          "night": 2.123,
+          "total": 12.236
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 10,
+          "night": 1.2,
+          "total": 11.2
+        }
+      ],
+      "netQuantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0.001,
+          "total": 0.001
+        }
+      ]
+    }
+  ],
+  "unsuccessful": [
+    {
+      "request": {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+          {
+            "direction": "IN",
+            "unit": "KWH",
+            "day": 0,
+            "night": 0,
+            "total": 0
+          },
+          {
+            "direction": "OUT",
+            "unit": "KWH",
+            "day": 0,
+            "night": 0,
+            "total": 0
+          }
+        ],
+        "netQuantities": [
+          {
+            "direction": "IN",
+            "unit": "KWH",
+            "day": 0.0000005,
+            "night": 0,
+            "total": 0
+          },
+          {
+            "direction": "OUT",
+            "unit": "KWH",
+            "day": 0,
+            "night": 0,
+            "total": 0
+          }
+        ]
+      },
+      "error": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "message": "Quantities must be up to 3 positions after comma",
+        "code": "opp.validation.3-positions-after-comma",
+        "traceId": "3fa85f6457174562b3fc2c963f66afa6",
+        "args": [
+          "string"
+        ]
+      }
+    }
+  ]
+}
+```
+**Võrguteenuse arve otsing**
+
+Näidis päring:
+```json
+GET /api/v2/network-bills?meteringPointEics=34Z6B80RJXDW7UPQ&meteringPointEics=38Z9A12BCDEF3456&periodStart=2023-10-01T00:00:00Z&periodEnd=2023-11-01T00:00:00Z&direction=IN&page=0&size=50
+```
+
+Näidis vastus:
+
+```json
+[
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    },
+    {
+        "meteringPointEic": "34Z6B80RJXDW7UPQ",
+        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+        "periodStart": "2023-10-17T07:13:11.076Z",
+        "periodEnd": "2023-10-17T07:13:11.076Z",
+        "containsCalculatedValues": true,
+        "quantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ],
+        "netQuantities": [
+            {
+                "direction": "IN",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            },
+            {
+                "direction": "OUT",
+                "unit": "KWH",
+                "day": 0,
+                "night": 0,
+                "total": 0
+            }
+        ]
+    }
+]
+```

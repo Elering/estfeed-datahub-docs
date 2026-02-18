@@ -223,6 +223,8 @@ Separate services have been created to search and download a joint invoice. The 
 
 Joint invoices can also be searched and downloaded via the user interface.
 
+Joint invoice files are stored in Estfeed Datahub for 1 year. It is not possible to download older files.
+
 #### Attribute specific rules
 
 It is possible to search for joint invoices based on various characteristics:

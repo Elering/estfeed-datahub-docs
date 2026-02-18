@@ -34,9 +34,11 @@
         * [Metering data](#metering-data)
           * [Attributes](#attributes-2)
           * [Examples](#examples-2)
+        * [Net metering data](#net-metering-data)
         * [Network bill](#network-bill)
           * [Attributes](#attributes-3)
           * [Examples](#examples-3)
+        * [Net metering data on network billl](#net-metering-data-on-network-bill)
         * [Customer](#customer)
           * [Attributes](#attributes-4)
           * [Examples](#examples-4)
@@ -45,9 +47,13 @@
           * [Examples](#examples-5)
 <!-- TOC -->
 
+> [!WARNING]
+> Regarding the new additional net metering data there will be a new version of data distribution API. New documentation is coming soon.
+
 ## Distributing data updates
 
 Different business rules have been implemented in the Datahub regarding when and to whom data updates are distributed. This document does not describe all the rules, but to give an idea of how data primarily flows, here is a general list of the most important rules.
+
 
 ### General rules
 
@@ -469,6 +475,90 @@ The structure of metering data distribution message is exactly the same as in `P
 ]
 ```
 
+##### Net metering data
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 01.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
+
+> [!WARNING]
+> As this functionality is still under development, the new APIs are not yet described in Swagger.
+
+> [!WARNING]
+> Due to different data structures, metering data sent with the new version cannot be queried from the old version of the data distribution service. Therefore, starting from 01.08.2026, it will no longer be possible to use the V1 solution for querying metering data, and migration to version V2 is required.
+
+The new APIs use V2 headers.
+
+| Message                                   | Objective                   |
+|-----------------------------------------|---------------------------|
+| `GET /api/{version}/data-distributions/metering-data/electricity` | Metering data request  |
+
+###### Example
+```json
+{
+  "content": [
+    {
+      "id": 2347289,
+      "createdTime": "2024-01-10T07:43:54.038Z",
+      "reason": "CREATE",
+      "content": [
+        {
+          "meteringPointEic": "38ZGO-100000BP-P",
+          "periods": [
+            {
+              "r": "PT15M",
+              "aI": [
+                {
+                  "pS": "2026-11-01T00:00:00+02:00",
+                  "rTime": "2025-12-16T12:35:11.335582+02:00",
+                  "inQty": {
+                    "rType": "M",
+                    "kwh": 0
+                  },
+                  "outQty": {
+                    "rType": "M",
+                    "kwh": 0
+                  },
+                  "netQtyIn": 0,
+                  "netQtyOut": 0
+                },
+                {
+                  "pS": "2026-11-01T00:15:00+02:00",
+                  "rTime": "2025-12-16T12:35:11.335582+02:00",
+                  "inQty": {
+                    "rType": "E",
+                    "kwh": 1.234
+                  },
+                  "netQtyIn": 0,
+                  "netQtyOut": 3.4
+                },
+                {
+                  "pS": "2026-11-01T00:30:00+02:00",
+                  "rTime": "2025-12-16T12:35:11.335582+02:00",
+                  "inQty": {
+                    "rType": "M",
+                    "kwh": 1.234
+                  },
+                  "outQty": {
+                    "rType": "M",
+                    "kwh": 1.234
+                  },
+                  "netQtyIn": 0,
+                  "netQtyOut": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 500,
+    "number": 0,
+    "totalElements": 950,
+    "totalPages": 2
+  }
+}
+```
+
 ##### Network bill
 
 ###### Attributes
@@ -506,6 +596,79 @@ The structure of network bill data distribution message is exactly the same as i
         }
     }
 ]
+```
+
+
+##### Net metering data on network bill
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 01.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
+
+> [!WARNING]
+> As this functionality is still under development, the new APIs are not yet described in Swagger.
+
+> [!WARNING]
+> Due to different data structures, a sent message is not available from both versions of the data distribution service. A network bill sent in V1 is available via V1 data distribution. A network bill sent in V2 is available via V2 data distribution.
+
+The new APIs use V2 headers.
+
+| Message                                    | Objective                   |
+|-----------------------------------------|---------------------------|
+| `GET /api/{version}/data-distributions/network-bill` | Network bill request  |
+
+###### Example
+```json
+{
+    "content": {
+        "id": 2347289,
+        "createdTime": "2024-01-10T07:43:54.038Z",
+        "eventTime": "2024-01-10T07:43:53.038Z",
+        "reason": "CREATE",
+        "content": {
+            "meteringPointEic": "34Z6B80RJXDW7UPQ",
+            "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+            "periodStart": "2023-10-17T07:13:11.076Z",
+            "periodEnd": "2023-10-17T07:13:11.076Z",
+            "containsCalculatedValues": true,
+            "quantities": [
+                {
+                    "direction": "IN",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                },
+                {
+                    "direction": "OUT",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                }
+            ],
+            "netQuantities": [
+                {
+                    "direction": "IN",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                },
+                {
+                    "direction": "OUT",
+                    "unit": "KWH",
+                    "day": 0,
+                    "night": 0,
+                    "total": 0
+                }
+            ]
+        }
+    },
+    "page": {
+        "size": 500,
+        "number": 0,
+        "totalElements": 950,
+        "totalPages": 2
+    }
+}
 ```
 
 ##### Customer
