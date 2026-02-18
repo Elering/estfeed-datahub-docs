@@ -264,84 +264,98 @@ GET /api/v2/network-bills?meteringPointEics=34Z6B80RJXDW7UPQ&meteringPointEics=3
 Näidis vastus:
 
 ```json
-[
+{
+  "successful": [
     {
-        "meteringPointEic": "34Z6B80RJXDW7UPQ",
-        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-        "periodStart": "2023-10-17T07:13:11.076Z",
-        "periodEnd": "2023-10-17T07:13:11.076Z",
-        "containsCalculatedValues": true,
-        "quantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ],
-        "netQuantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ]
+      "meteringPointEic": "34Z6B80RJXDW7UPQ",
+      "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+      "periodStart": "2023-10-17T07:13:11.076Z",
+      "periodEnd": "2023-10-17T07:13:11.076Z",
+      "containsCalculatedValues": true,
+      "quantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        }
+      ],
+      "netQuantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        }
+      ]
     },
     {
-        "meteringPointEic": "34Z6B80RJXDW7UPQ",
-        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-        "periodStart": "2023-10-17T07:13:11.076Z",
-        "periodEnd": "2023-10-17T07:13:11.076Z",
-        "containsCalculatedValues": true,
-        "quantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ],
-        "netQuantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ]
+      "meteringPointEic": "34Z6B80RJXDW7UPQ",
+      "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+      "periodStart": "2023-10-17T07:13:11.076Z",
+      "periodEnd": "2023-10-17T07:13:11.076Z",
+      "containsCalculatedValues": true,
+      "quantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        }
+      ],
+      "netQuantities": [
+        {
+          "direction": "IN",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        },
+        {
+          "direction": "OUT",
+          "unit": "KWH",
+          "day": 0,
+          "night": 0,
+          "total": 0
+        }
+      ]
     }
-]
+  ],
+  "unsuccessful": [
+    {
+      "meteringPointEic": "38ZGO-10000012-N",
+      "error": {
+        "id": "346ce43c-1d39-4df6-abd3-9834cc604c25",
+        "message": "No SUPPLY agreement for requested period",
+        "code": "opp.error.business.no-supply-agreement-for-period",
+        "args": [],
+        "traceId": "346ce43c1d394df6abd39834cc604c25"
+      }
+    }
+  ]
+}
 ```
