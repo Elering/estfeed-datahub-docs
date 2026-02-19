@@ -58,10 +58,11 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
 Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Seetõttu tuleb võrguettevõtjal esitada septembri algusest võrguarve koos neto mõõdetud kogustega. Selleks tuleb võtta kasutusele uus API versioon. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee. Esialgu jäävad kaks API versiooni paralleelselt kasutusele, kuid V1 versioonis ei ole neto mõõdetud koguseid.
 
 Uued API sõnumid:
-| Sõnum                                     | Eesmärk                    |
-|-------------------------------------------|----------------------------|
-| `POST /api/v2/network-bills/bulk`        | Võrguteenuse arve lisamine |
-| `GET /api/v2/network-bills` | Võrguteenuse arve otsing   |
+
+| Sõnum                             | Eesmärk                    |
+|-----------------------------------|----------------------------|
+| `POST /api/v2/network-bills/bulk` | Võrguteenuse arve lisamine |
+| `GET /api/v2/network-bills`       | Võrguteenuse arve otsing   |
 
 > [!WARNING]
 > Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
@@ -76,84 +77,76 @@ Uued API sõnumid:
 Näidis päring:
 ```json
 [
-    {
-        "meteringPointEic": "34Z6B80RJXDW7UPQ",
-        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-        "periodStart": "2023-10-17T07:13:11.076Z",
-        "periodEnd": "2023-10-17T07:13:11.076Z",
-        "containsCalculatedValues": true,
-        "quantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ],
-        "netQuantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ]
-    },
-    {
-        "meteringPointEic": "34Z6B80RJXDW7UPQ",
-        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-        "periodStart": "2023-10-17T07:13:11.076Z",
-        "periodEnd": "2023-10-17T07:13:11.076Z",
-        "containsCalculatedValues": true,
-        "quantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ],
-        "netQuantities": [
-            {
-                "direction": "IN",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            },
-            {
-                "direction": "OUT",
-                "unit": "KWH",
-                "day": 0,
-                "night": 0,
-                "total": 0
-            }
-        ]
-    }
+  {
+    "meteringPointEic": "34Z6B80RJXDW7UPQ",
+    "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+    "periodStart": "2023-10-17T07:13:11.076Z",
+    "periodEnd": "2023-10-17T07:13:11.076Z",
+    "containsCalculatedValues": true,
+    "quantities": [
+      {
+        "direction": "IN",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      },
+      {
+        "direction": "OUT",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      }
+    ],
+    "netQuantities": [
+      {
+        "direction": "IN",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      },
+      {
+        "direction": "OUT",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      }
+    ]
+  },
+  {
+    "meteringPointEic": "34Z6B80RJXDW7UPQ",
+    "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+    "periodStart": "2023-10-17T07:13:11.076Z",
+    "periodEnd": "2023-10-17T07:13:11.076Z",
+    "containsCalculatedValues": true,
+    "quantities": [
+      {
+        "direction": "IN",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      },
+      {
+        "direction": "OUT",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      }
+    ],
+    "netQuantities": [
+      {
+        "direction": "IN",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      },
+      {
+        "direction": "OUT",
+        "day": 1.234,
+        "night": 0.000,
+        "total": 1.234
+      }
+    ]
+  }
 ]
 ```
 Näidis vastus:
@@ -169,33 +162,29 @@ Näidis vastus:
       "quantities": [
         {
           "direction": "IN",
-          "unit": "KWH",
-          "day": 10.123,
-          "night": 2.123,
-          "total": 12.236
-        },
-        {
-          "direction": "OUT",
-          "unit": "KWH",
-          "day": 10,
-          "night": 1.2,
-          "total": 11.2
-        }
-      ],
-      "netQuantities": [
-        {
-          "direction": "IN",
-          "unit": "KWH",
           "day": 0.123,
           "night": 1.1,
           "total": 1.223
         },
         {
           "direction": "OUT",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0.001,
-          "total": 0.001
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
+        }
+      ],
+      "netQuantities": [
+        {
+          "direction": "IN",
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
+        },
+        {
+          "direction": "OUT",
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         }
       ]
     }
@@ -211,33 +200,28 @@ Näidis vastus:
         "quantities": [
           {
             "direction": "IN",
-            "unit": "KWH",
-            "day": 0,
-            "night": 0,
-            "total": 0
+            "day": 0.123,
+            "night": 1.1,
+            "total": 1.223
           },
           {
             "direction": "OUT",
-            "unit": "KWH",
-            "day": 0,
-            "night": 0,
-            "total": 0
+            "day": 0.123,
+            "night": 1.1,
+            "total": 1.223
           }
         ],
         "netQuantities": [
           {
             "direction": "IN",
-            "unit": "KWH",
-            "day": 0.0000005,
-            "night": 0,
-            "total": 0
+            "day": 0.123,
+            "night": 1.1,
+            "total": 1.223
           },
           {
-            "direction": "OUT",
-            "unit": "KWH",
-            "day": 0,
-            "night": 0,
-            "total": 0
+            "day": 0.123,
+            "night": 1.1,
+            "total": 1.223
           }
         ]
       },
@@ -275,33 +259,29 @@ Näidis vastus:
       "quantities": [
         {
           "direction": "IN",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         },
         {
           "direction": "OUT",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         }
       ],
       "netQuantities": [
         {
           "direction": "IN",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         },
         {
           "direction": "OUT",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         }
       ]
     },
@@ -314,33 +294,29 @@ Näidis vastus:
       "quantities": [
         {
           "direction": "IN",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         },
         {
           "direction": "OUT",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         }
       ],
       "netQuantities": [
         {
           "direction": "IN",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         },
         {
           "direction": "OUT",
-          "unit": "KWH",
-          "day": 0,
-          "night": 0,
-          "total": 0
+          "day": 0.123,
+          "night": 1.1,
+          "total": 1.223
         }
       ]
     }

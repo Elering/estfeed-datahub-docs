@@ -503,48 +503,46 @@ Uued API-d kasutavad V2 headereid.
         {
           "meteringPointEic": "38ZGO-100000BP-P",
           "periods": [
+            // All values are zero
             {
-              "r": "PT15M",
-              "aI": [
-                {
-                  "pS": "2026-11-01T00:00:00+02:00",
-                  "rTime": "2025-12-16T12:35:11.335582+02:00",
-                  "inQty": {
-                    "rType": "M",
-                    "kwh": 0
-                  },
-                  "outQty": {
-                    "rType": "M",
-                    "kwh": 0
-                  },
-                  "netQtyIn": 0,
-                  "netQtyOut": 0
-                },
-                {
-                  "pS": "2026-11-01T00:15:00+02:00",
-                  "rTime": "2025-12-16T12:35:11.335582+02:00",
-                  "inQty": {
-                    "rType": "E",
-                    "kwh": 1.234
-                  },
-                  "netQtyIn": 0,
-                  "netQtyOut": 3.4
-                },
-                {
-                  "pS": "2026-11-01T00:30:00+02:00",
-                  "rTime": "2025-12-16T12:35:11.335582+02:00",
-                  "inQty": {
-                    "rType": "M",
-                    "kwh": 1.234
-                  },
-                  "outQty": {
-                    "rType": "M",
-                    "kwh": 1.234
-                  },
-                  "netQtyIn": 0,
-                  "netQtyOut": 0
-                }
-              ]
+              "pS": "2026-11-01T00:00:00+02:00",
+              "rTime": "2025-12-16T12:35:11.335582+02:00",
+              "inQty": {
+                "rType": "M",
+                "kwh": 0.000
+              },
+              "outQty": {
+                "rType": "M",
+                "kwh": 0.000
+              },
+              "netQtyIn": 0.000,
+              "netQtyOut": 0.000
+            },
+            // Only IN quantity with NET quantities. The OUT quantity is used for NET calculation by GO, therefore the NET quantity doesn't make any sense
+            {
+              "pS": "2026-11-01T00:15:00+02:00",
+              "rTime": "2025-12-16T12:35:11.335582+02:00",
+              "inQty": {
+                "rType": "E",
+                "kwh": 1.234
+              },
+              "netQtyIn": 0.000,
+              "netQtyOut": 3.400
+            },
+            // IN and OUT values are identical, therefore the NET is zero
+            {
+              "pS": "2026-11-01T00:30:00+02:00",
+              "rTime": "2025-12-16T12:35:11.335582+02:00",
+              "inQty": {
+                "rType": "M",
+                "kwh": 1.234
+              },
+              "outQty": {
+                "rType": "M",
+                "kwh": 1.234
+              },
+              "netQtyIn": 0.000,
+              "netQtyOut": 0.000
             }
           ]
         }

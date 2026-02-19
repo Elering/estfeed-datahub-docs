@@ -281,16 +281,16 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 |-----------------------------------------|---------------------------|
 | Production (IN)    | 15 kWh |
 | Consumption (OUT)   | 10 kWh |
-| Net – production (direction – IN) | 5 kWh |
-| Net – consumption (direction – OUT) | 0 kWh |
+| Net – production (NET IN) | 5 kWh |
+| Net – consumption (NET OUT) | 0 kWh |
 
 **Example 2 (more consumption):**
 | Metering data type / direction | Quantity |
 |-----------------------------------------|---------------------------|
 | Production (IN)    | 10 kWh |
 | Consumption (OUT) | 15 kWh |
-| Net – production (direction – IN) | 0 kWh |
-| Net – consumption (direction – OUT) | 5 kWh |
+| Net – production (NET IN) | 0 kWh |
+| Net – consumption (NET OUT) | 5 kWh |
 
 #### Changes for web interface user
 
@@ -299,7 +299,7 @@ Metering data can still be submitted via Excel, but the Excel structure will cha
 #### Changes for API user
 
 > [!WARNING]
->  Starting from 01.08.2026 grid operators can't use `POST /api/v1/meter-data` message to add metering data. Spesific transition time will be communicated later. Other roles, for example line operator or aggregator can continue to send metering data via V1 API for 6 months after the go live of this functionality. Teised rollid, näiteks liinivaldaja ja agregaator saavad V1 versiooni kasutamist veel 6 kuud peale uue versiooni kasutuselevõttu jätkata.
+>  Starting from 01.08.2026 grid operators can't use `POST /api/v1/meter-data` message to add metering data. Specific transition time will be communicated later. Other roles, for example line operator or aggregator can continue to send metering data via V1 API for 6 months after the go live of this functionality. 
 
 > [!WARNING]
 > The import and template API solutions will also be updated, but these APIs are intended for the web interface and therefore are not described in detail in this documentation.
@@ -311,15 +311,16 @@ Metering data can still be submitted via Excel, but the Excel structure will cha
 
 The new APIs use V2 headers.
 
-| Message                                   | Objective                     |
-|-----------------------------------------|---------------------------|
-| `POST /api/v2/metering-data/electricity` | Send metering data |
-| `GET /api/v2/metering-data/electricity` | Search metering data       |
+| Message                                  | Objective            |
+|------------------------------------------|----------------------|
+| `POST /api/v2/metering-data/electricity` | Send metering data   |
+| `GET /api/v2/metering-data/electricity`  | Search metering data |
 
 Differences compared to the V1 API message rules:
 - A new attributes `netInQty` and `netOutQty`  are added. This value can only be submitted in the network operator role. The value cannot be submitted unless either consumption (`outQty`) or production (`inQty`) quantity is also present in the same message.
 - The data reading time (`rTime`) must not be in the future.
-- Data resolution is now missing from the request because it is not allowed to send older data than 12 months to the past and 15 minute resolutsion is used since 01.04.2025.
+- Data resolution is now missing from the request because it is not allowed to send older data than 12 months to the past and 15 minute resolution is used since 01.04.2025.
+- All quantities must have exactly 3 positions after comma.
 
 
 Example request (consumption + production + net):
@@ -334,14 +335,14 @@ Example request (consumption + production + net):
         "rTime": "2025-12-16T12:35:11.335582+02:00",
         "inQty": {
           "rType": "M",
-          "kwh": 0
+          "kwh": 0.000
         },
         "outQty": {
           "rType": "M",
-          "kwh": 0
+          "kwh": 0.000
         },
-        "netQtyIn": 0,
-        "netQtyOut": 0
+        "netQtyIn": 0.000,
+        "netQtyOut": 0.000
       }
     ]
   }
@@ -357,11 +358,11 @@ Example request (consumption only):
     "periods": [
       {
         "pS": "2026-11-01T00:15:00+02:00",
+        "rTime": "2025-12-16T12:35:11.335582+02:00",
         "outQty": {
           "rType": "E",
           "kwh": 29.564
-        },
-        "rTime": "2025-12-16T12:35:11.335582+02:00"
+        }
       }
     ]
   }
@@ -370,14 +371,14 @@ Example request (consumption only):
 
 **Metering data search**
 
-In the new API request, an additional attribute `Purpose` is introduced. The purpose of the request should be specified, for example whether the request is made for billing purposes or for querying own metering points. Initially, adding this value does not affect the response, but in the future it will also influence the response. The purpose of this change is to make API queries faster. Energy service provider should not add the purpose to the request.
+In the new API request, an additional attribute `Purpose` is introduced. The purpose of the request should be specified, for example whether the request is made for billing purposes or for querying own metering points. Initially, adding this value does not affect the response, but in the future it will also influence the response. The purpose of this change is to make API queries faster and support querying by multiple metering point EIC codes. Energy service provider should not add the purpose to the request.
 
 Possible purposes in the open supplier role:
 - `OPEN_SUPPLY` – the primary way for open suppliers to query metering data
 - `PORTFOLIO` – querying metering data as a balance responsible party
 - `BILLING` – querying data for billing purposes
 
-Possible purposes in metering point manager rola:
+Possible purposes in metering point manager role:
 - `OWN_MP_MANAGEMENT` – querying data of own metering points
 - `OTHER` – querying data of other metering points
 
@@ -411,7 +412,7 @@ Example response:
                 "kwh": 0.000
               },
               "netQtyIn": 0.000,
-              "netQtyOut": 0.000,
+              "netQtyOut": 0.000
             }
           ]
         }
@@ -433,4 +434,3 @@ Example response:
 }
 
 ```
-

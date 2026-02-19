@@ -284,16 +284,16 @@ Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi 
 |-----------------------------------------|---------------------------|
 | Tootmine (IN) | 15 kWh |
 | Tarbimine (OUT) | 10 kWh |
-| Neto - tootmine (suund - IN) | 5 kWh |
-| Neto - tarbimine (suund - OUT) | 0 kWh |
+| Neto - tootmine (NETO IN) | 5 kWh |
+| Neto - tarbimine (NETO OUT) | 0 kWh |
 
 **Näide 2 (rohkem tarbimist):**
 | Mõõteandme tüüp / suund | Kogus |
 |-----------------------------------------|---------------------------|
 | Tootmine (IN) | 10 kWh |
 | Tarbimine (OUT) | 15 kWh |
-| Neto - tootmine (suund - IN) | 0 kWh |
-| Neto - tarbimine (suund - OUT) | 5 kWh |
+| Neto - tootmine (NETO IN) | 0 kWh |
+| Neto - tarbimine (NETO OUT) | 5 kWh |
 
 #### Muudatused veebiliidese kasutajale
 
@@ -302,7 +302,7 @@ Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub E
 #### Muudatused API kasutajatele
 
 > [!WARNING]
-> `POST /api/v1/meter-data` sõnumit pole võrguettevõtetel võimalik kasutada alates 01.08.2026. Täpne ülemineku kellaaeg on täpsustumisel.
+> `POST /api/v1/meter-data` sõnumit pole võrguettevõtetel võimalik kasutada alates 01.08.2026. Täpne ülemineku kellaaeg on täpsustumisel. Teised rollid, näiteks liinivaldaja ja agregaator saavad V1 versiooni kasutamist veel 6 kuud peale uue versiooni kasutuselevõttu jätkata.
 
 > [!WARNING]
 > Uuenevad ka import ja template API lahendused, kuid tegu on veebiliidese jaoks mõeldud API-dega ja seetõttu ei ole need täpsemalt siin dokumentatsioonis kirjeldatud.
@@ -314,10 +314,10 @@ Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub E
 
 Uued API-d kasutavad V2 headereid.
 
-| Sõnum                                   | Eesmärk                   |
-|-----------------------------------------|---------------------------|
+| Sõnum                                    | Eesmärk               |
+|------------------------------------------|-----------------------|
 | `POST /api/v2/metering-data/electricity` | Mõõteandmete lisamine |
-| `GET /api/v2/metering-data/electricity` | Mõõteandmete otsing       |
+| `GET /api/v2/metering-data/electricity`  | Mõõteandmete otsing   |
 
 
 **Mõõteandmete lisamine**
@@ -326,6 +326,7 @@ V1 API-st erinevad sõnumi reeglid:
 - Lisanduvad atribuudid `netInQty` ja `netOutQty`. Väärtuseid on võimalik saata vaid võrguettevõtja ja suletud jaotusvõrgu rollis. Väärtust pole võimalik saata, kui samas sõnumis ei ole lisaks tarbimise (`outQty`) ega tootmise (`inQty`) kogust.
 - Andmete lugemise aeg (`rTime`) ei tohi olla tulevikus. 
 - Andmete resolutsiooni päringus enam ei ole, sest tunni resolutsioonis andmeid enam saata pole lubatud. Andmete tagasiulatuv korrigeerimine on lubatud 12 kuud minevikku ja andmed on 15 minuti resolutsioonis alates 01.04.2025.
+- Kõik kogused peavad olema esitatud täpselt 3 kohta peale koma täpsusega.
 
 Näidis päring (tarbimine + tootmine + neto):
 ```json
@@ -373,7 +374,7 @@ Näidis päring (ainult tarbimine):
 
 **Mõõteandmete otsing**
 
-Uues API päringus on lisaks eesmärgi atribuut (Purpose). Päringus peaks määrama ka päringu tegemise eesmärgi. Näiteks, kas päring tehakse arvelduse eesmärgil või päritakse enda mõõtepunkte. Esialgu selle väärtuse lisamine ei mõjuta päringu vastust, kuid tulevikus hakkab see mõjutama ka päringu vastust. Selle muudatuse eesmärk on muuta API päring kiiremaks. Energiateenuse osutaja ei tohiks lisada eesmärki, teistes rollides on see kohustuslik.
+Uues API päringus on lisaks eesmärgi atribuut (Purpose). Päringus peaks määrama ka päringu tegemise eesmärgi. Näiteks, kas päring tehakse arvelduse eesmärgil või päritakse enda mõõtepunkte. Esialgu selle väärtuse lisamine ei mõjuta päringu vastust, kuid tulevikus hakkab see mõjutama ka päringu vastust. Selle muudatuse eesmärk on muuta API päring kiiremaks ja võimaldada pärida andmeid mitme mõõtepunkti EIC alusel. Energiateenuse osutaja ei tohiks lisada eesmärki, teistes rollides on see kohustuslik.
 
 Mõõteandmete otsimine on võimalik peale uue lahenduse kasutuselevõttu 6 kuud ka V1 API kaudu, kuid V1 API ei tagasta neto mõõdetud väärtuseid.
 
@@ -416,7 +417,7 @@ Näidis vastus:
                 "kwh": 0.000
               },
               "netQtyIn": 0.000,
-              "netQtyOut": 0.000,
+              "netQtyOut": 0.000
             }
           ]
         }
@@ -438,4 +439,3 @@ Näidis vastus:
 }
 
 ```
-
