@@ -240,7 +240,7 @@ Example response:
 
 Example request:
 ```json
-GET /api/v2/network-bills?meteringPointEics=34Z6B80RJXDW7UPQ&meteringPointEics=38Z9A12BCDEF3456&periodStart=2023-10-01T00:00:00Z&periodEnd=2023-11-01T00:00:00Z&direction=IN&page=0&size=50
+GET /api/v2/network-bills?meteringPointEics=34Z6B80RJXDW7UPQ&meteringPointEics=38Z9A12BCDEF3456&periodStart=2023-10-01T00:00:00Z&periodEnd=2023-11-01T00:00:00Z&direction=IN
 ```
 
 Example response:
