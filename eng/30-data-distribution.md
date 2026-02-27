@@ -495,7 +495,7 @@ The new APIs use V2 headers.
 {
   "content": [
     {
-      "id": 2347289,
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "createdTime": "2024-01-10T07:43:54.038Z",
       "reason": "CREATE",
       "content": [
@@ -616,7 +616,7 @@ The new APIs use V2 headers.
 ```json
 {
     "content": {
-        "id": 2347289,
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "createdTime": "2024-01-10T07:43:54.038Z",
         "eventTime": "2024-01-10T07:43:53.038Z",
         "reason": "CREATE",
