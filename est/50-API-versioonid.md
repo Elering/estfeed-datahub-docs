@@ -98,7 +98,6 @@ Iga API versioon läbib järgmised etapid:
 | POST   | /api/v1/network-bill                         | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
 | POST   | /api/v2/network-bills/bulk                         | v2       | tulemas | 01.08.2026       | -                | -                 |                                                                       |
 | POST   | /api/v1/network-bill/search                  | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
-| GET   | /api/v2/network-bills                         | v2       | tulemas | 01.08.2026       | -                | -                 |                                                                       |
 | POST   | /api/v1/joint-invoice                        | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
 | POST   | /api/v1/joint-invoice/search                 | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
 | POST   | /api/v1/joint-invoice/download               | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
