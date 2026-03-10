@@ -15,7 +15,7 @@
 
 Ligipääsuõigus antakse kliendi poolt avatud tarnijale või mõnele muule turuosalisele kliendiportaali vahendusel. Igal ligipääsuõigusel on oma kehtivusaeg ja ligipääsu ulatus.
 
-Ligipääsuõigus laiendab turuosalise ligipääsu andmetele ja võimaldab pärida selliseid andmeid, mida muidu ei õnnestuks pärida.
+Ligipääsuõigus laiendab turuosalise ligipääsu andmetele ja võimaldab pärida selliseid andmeid, mida muidu ei õnnestuks pärida. TEST
 
 ## Ligipääsuõiguste loomine ja pärimine
 
@@ -27,6 +27,7 @@ Ligipääsuõiguse edastamiseks ja pärimiseks on loodud vastavad Andmelao teenu
   - kliendi andmed - kirjeldatud dokumendis [Kliendid](04-kliendi-eic.md);
   - mõõtepunkti andmed - kirjeldatud dokumendis [Mõõtepunktid](05-mootepunktid.md);
   - mõõteandmed - kirjeldatud dokumendis [Mõõteandmed](12-mooteandmed.md).
+
 
 ### Veebiliides
 

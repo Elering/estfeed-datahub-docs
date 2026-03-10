@@ -57,10 +57,13 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 
 New API messages:
 
-| Message                           | Objective                          |
-|-----------------------------------|------------------------------------|
-| `POST /api/v2/network-bills/bulk` | Create or update network bill data |
-| `GET /api/v2/network-bills`       | Find network bill data             |
+| Message                      | Objective                          |
+|------------------------------|------------------------------------|
+| `POST /api/v2/network-bills` | Create or update network bill data |
+| `GET /api/v2/network-bills`  | Find network bill data             |
+
+> [!WARNING]
+> Network bill GET API is currently out of scope due to not being used. Network bills are returned by data distribution service.
 
 > [!WARNING]
 > As this functionality is still under development, the new APIs are not yet described in Swagger.
@@ -74,170 +77,77 @@ New API messages:
 
 Example request:
 ```json
-[
-  {
-    "meteringPointEic": "34Z6B80RJXDW7UPQ",
-    "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-    "periodStart": "2023-10-17T07:13:11.076Z",
-    "periodEnd": "2023-10-17T07:13:11.076Z",
-    "containsCalculatedValues": true,
-    "quantities": [
-      {
-        "direction": "IN",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      },
-      {
-        "direction": "OUT",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      }
-    ],
-    "netQuantities": [
-      {
-        "direction": "IN",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      },
-      {
-        "direction": "OUT",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      }
-    ]
-  },
-  {
-    "meteringPointEic": "34Z6B80RJXDW7UPQ",
-    "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-    "periodStart": "2023-10-17T07:13:11.076Z",
-    "periodEnd": "2023-10-17T07:13:11.076Z",
-    "containsCalculatedValues": true,
-    "quantities": [
-      {
-        "direction": "IN",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      },
-      {
-        "direction": "OUT",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      }
-    ],
-    "netQuantities": [
-      {
-        "direction": "IN",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      },
-      {
-        "direction": "OUT",
-        "day": 1.234,
-        "night": 0.000,
-        "total": 1.234
-      }
-    ]
-  }
-]
-```
-Example response:
-```json
 {
-  "successful": [
+  "meteringPointEic": "34Z6B80RJXDW7UPQ",
+  "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+  "periodStart": "2023-10-17T07:13:11.076Z",
+  "periodEnd": "2023-10-17T07:13:11.076Z",
+  "containsCalculatedValues": true,
+  "quantities": [
     {
-      "meteringPointEic": "34Z6B80RJXDW7UPQ",
-      "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-      "periodStart": "2023-10-17T07:13:11.076Z",
-      "periodEnd": "2023-10-17T07:13:11.076Z",
-      "containsCalculatedValues": true,
-      "quantities": [
-        {
-          "direction": "IN",
-          "day": 0.123,
-          "night": 1.1,
-          "total": 1.223
-        },
-        {
-          "direction": "OUT",
-          "day": 0.123,
-          "night": 1.1,
-          "total": 1.223
-        }
-      ],
-      "netQuantities": [
-        {
-          "direction": "IN",
-          "day": 0.123,
-          "night": 1.1,
-          "total": 1.223
-        },
-        {
-          "direction": "OUT",
-          "day": 0.123,
-          "night": 1.1,
-          "total": 1.223
-        }
-      ]
+      "direction": "IN",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
+    },
+    {
+      "direction": "OUT",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
     }
   ],
-  "unsuccessful": [
+  "netQuantities": [
     {
-      "request": {
-        "meteringPointEic": "34Z6B80RJXDW7UPQ",
-        "calculationTimestamp": "2023-10-17T07:13:11.076Z",
-        "periodStart": "2023-10-17T07:13:11.076Z",
-        "periodEnd": "2023-10-17T07:13:11.076Z",
-        "containsCalculatedValues": true,
-        "quantities": [
-          {
-            "direction": "IN",
-            "day": 0.123,
-            "night": 1.1,
-            "total": 1.223
-          },
-          {
-            "direction": "OUT",
-            "day": 0.123,
-            "night": 1.1,
-            "total": 1.223
-          }
-        ],
-        "netQuantities": [
-          {
-            "direction": "IN",
-            "day": 0.123,
-            "night": 1.1,
-            "total": 1.223
-          },
-          {
-            "day": 0.123,
-            "night": 1.1,
-            "total": 1.223
-          }
-        ]
-      },
-      "error": {
-        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "message": "Quantities must be up to 3 positions after comma",
-        "code": "opp.validation.3-positions-after-comma",
-        "traceId": "3fa85f6457174562b3fc2c963f66afa6",
-        "args": [
-          "string"
-        ]
-      }
+      "direction": "IN",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
+    },
+    {
+      "direction": "OUT",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
     }
   ]
 }
 ```
-**Search network bill data**
-
-> [!WARNING] 
-> Network bill GET API is currently out of scope due to not being used. Network bills are returned by data distribution service.
-
+Example response:
+```json
+{
+  "meteringPointEic": "34Z6B80RJXDW7UPQ",
+  "calculationTimestamp": "2023-10-17T07:13:11.076Z",
+  "periodStart": "2023-10-17T07:13:11.076Z",
+  "periodEnd": "2023-10-17T07:13:11.076Z",
+  "containsCalculatedValues": true,
+  "quantities": [
+    {
+      "direction": "IN",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
+    },
+    {
+      "direction": "OUT",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
+    }
+  ],
+  "netQuantities": [
+    {
+      "direction": "IN",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
+    },
+    {
+      "direction": "OUT",
+      "day": 1.234,
+      "night": 0.000,
+      "total": 1.234
+    }
+  ]
+}
+```
