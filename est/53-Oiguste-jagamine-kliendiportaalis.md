@@ -8,7 +8,7 @@
   * [Sissejuhatus](#sissejuhatus)
   * [Üldine õiguste jagamise protsess](#üldine-õiguste-jagamise-protsess)
     * [Õiguse jagamine füüsilisele isikule](#õiguse-jagamine-füüsilisele-isikule)
-    * [Õiguse jagamine teisele juriidilisele isikule](#õiguse-jagamine-teisele-juriidilisele-isikule-võimaldatud-ainult-juriidilistele-isikutele)
+    * [Õiguse jagamine teisele juriidilisele isikule](#õiguse-jagamine-teisele-juriidilisele-isikule)
     * [Õiguse jagamine energiamüüjale](#õiguse-jagamine-energiamüüjale)
     * [Õiguse jagamine energiateenusele](#õiguse-jagamine-energiateenusele)
     * [Õiguse jagamine agregaatorile](#õiguse-jagamine-agregaatorile)
@@ -48,7 +48,8 @@ Kliendiportaalis saab kasutaja hallata oma esindus- ja ligipääsuõigusi. Füü
 
 ### Õiguse jagamine teisele juriidilisele isikule
 
-Õiguse saaja on teine juriidiline isik, näiteks ettevõte või organisatsioon. Ainult juriidiline isik saab jagada õigusi teisele juriidilisele isikule.
+See valik on nähtav ainult juriidilise isiku rollis.
+Õigust saab jagada ainult teisele energiaturul tegutsevale ettevõtjale. Muudel juhtudel palume jagada õigus füüsilisele isikule.
 
 - 'Juriidlisele isikule' -> 'Alusta' -> sisesta registrikood ja kliki 'Edasi'
 - Vali õigus, mida soovid juriidilisele isikule jagada ja kliki 'Edasi'

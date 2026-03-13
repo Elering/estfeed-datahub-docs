@@ -8,7 +8,7 @@
   * [Introduction](#introduction)
   * [General rocess for sharing rights](#general-process-for-sharing-rights)
     * [Sharing rights with a private person](#sharing-rights-with-a-private-person)
-    * [Sharing rights with another legal entity (available only for legal entities)](#sharing-rights-with-another-legal-entity-available-only-for-legal-entities)
+    * [Sharing rights with another legal entity](#sharing-rights-with-another-legal-entity)
     * [Sharing rights with an energy supplier](#sharing-rights-with-an-energy-supplier)
     * [Sharing rights with an energy service provider](#sharing-rights-with-an-energy-service-provider)
     * [Sharing rights with an aggregator](#sharing-rights-with-an-aggregator)
@@ -48,9 +48,10 @@ The recipient of the right is a private person (i.e., an individual).
 - If the recipient accepts the customer authorization, the status changes to "Active".
 - A customer authorization with the status "Pending" can be revoked and its details viewed. A customer authorization with the status "Active" can be edited, deleted, and its permission details viewed. The customer authorization can be deleted by both the grantor and the recipient.
 
-### Sharing rights with another legal entity (available only for legal entities)
+### Sharing rights with another legal entity
 
-The recipient of the right is another legal entity, such as a company or organization. Only a legal entity can share rights with another legal entity.
+This option is visible only when acting in the role of a legal entity.
+Access can only be granted to another company operating in the energy market. In other cases, please grant access to a private person.
 
 - 'Share with legal entity' -> 'Start' -> enter the registry code and click 'Next'
 - Select the right you wish to grant to the legal entity and click 'Next'
