@@ -1,3 +1,9 @@
+## 2026-04-01
+
+|                                  Issue                                  |  Type  |Priority|                        Title                       |
+|-------------------------------------------------------------------------|--------|--------|----------------------------------------------------|
+|  [EDH-8242](https://github.com/Elering/estfeed-datahub-docs/issues/201) |  Story |  High  |  Change locality as optional for Metering Point v2 |
+
 ## 2026-01-21
 
 |                                  Issue                                  | Type |  Priority |                 Title                 |
