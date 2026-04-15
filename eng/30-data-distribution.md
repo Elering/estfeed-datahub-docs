@@ -482,7 +482,7 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 > As this functionality is still under development, the new APIs are not yet described in Swagger.
 
 > [!WARNING]
-> Due to different data structures, metering data sent with the new version cannot be queried from the old version of the data distribution service. Therefore, starting from 01.08.2026, it will no longer be possible to use the V1 solution for querying metering data, and migration to version V2 is required.
+> Due to different data structures, metering data sent with the new version cannot be queried from the old version of the data distribution service. Therefore, starting from 20.07.2026, it will no longer be possible to use the V1 solution to retrieve metering data sent by the grid operator, and migration to version V2 is required.
 
 The new APIs use V2 headers.
 

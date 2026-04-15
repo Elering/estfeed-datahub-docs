@@ -483,7 +483,7 @@ Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi 
 > Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
 
 > [!WARNING]
-> Erinevate andmestruktuuride tõttu ei ole uue versiooniga saadetud mõõteandmeid võimalik pärida vana versiooni andmete levitamise teenusest. Seetõttu pole alates 01.08.2026 võimalik kasutada V1 lahendust mõõteandmete pärimiseks ja vajalik on üleminek V2 versioonile.
+> Erinevate andmestruktuuride tõttu ei ole uue versiooniga saadetud mõõteandmeid võimalik pärida vana versiooni andmete levitamise teenusest. Seetõttu pole alates 20.07.2026 võimalik kasutada V1 lahendust võrguettevõtja poolt saadetud mõõteandmete pärimiseks ja vajalik on üleminek V2 versioonile.
 
 Uued API-d kasutavad V2 headereid.
 

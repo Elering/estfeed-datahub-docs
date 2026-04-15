@@ -277,7 +277,7 @@ Mõõteandmete Excelisse laadimiseks on vaja alustuseks vajutada "Otsi" nuppu, s
 
 #### Üldine sisu
 
-Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 04.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
 
 **Näide 1 (rohkem tootmist):**
 | Mõõteandme tüüp / suund | Kogus |
@@ -297,12 +297,12 @@ Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi 
 
 #### Muudatused veebiliidese kasutajale
 
-Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub Exceli struktuur. Uut Exceli malli saab allalaadida veebiliidesest alates 01.08.2026.
+Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub Exceli struktuur. Uut Exceli malli saab allalaadida veebiliidesest alates 20.07.2026.
 
 #### Muudatused API kasutajatele
 
 > [!WARNING]
-> `POST /api/v1/meter-data` sõnumit pole võrguettevõtetel võimalik kasutada alates 01.08.2026. Täpne ülemineku kellaaeg on täpsustumisel. Teised rollid, näiteks liinivaldaja ja agregaator saavad V1 versiooni kasutamist veel 6 kuud peale uue versiooni kasutuselevõttu jätkata.
+> `POST /api/v1/meter-data` sõnumit pole võrguettevõtetel võimalik kasutada alates 20.07.2026 11:00. Teised rollid, näiteks liinivaldaja ja agregaator saavad V1 versiooni kasutamist veel 6 kuud peale uue versiooni kasutuselevõttu jätkata.
 
 > [!WARNING]
 > Uuenevad ka import ja template API lahendused, kuid tegu on veebiliidese jaoks mõeldud API-dega ja seetõttu ei ole need täpsemalt siin dokumentatsioonis kirjeldatud.

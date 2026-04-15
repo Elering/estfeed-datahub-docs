@@ -274,7 +274,7 @@ In order to download metering data to Excel file first "Search" button has to be
 
 #### General description
 
-As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 01.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 04.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
 
 **Example 1 (more production):**
 | Metering data type / direction | Quantity |
@@ -294,12 +294,12 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 
 #### Changes for web interface user
 
-Metering data can still be submitted via Excel, but the Excel structure will change. The new Excel template will be available for download from the web interface starting from 01.08.2026.
+Metering data can still be submitted via Excel, but the Excel structure will change. The new Excel template will be available for download from the web interface starting from 20.07.2026.
 
 #### Changes for API user
 
 > [!WARNING]
->  Starting from 01.08.2026 grid operators can't use `POST /api/v1/meter-data` message to add metering data. Specific transition time will be communicated later. Other roles, for example line operator or aggregator can continue to send metering data via V1 API for 6 months after the go live of this functionality. 
+>  Starting from 20.07.2026 11:00 grid operators can't use `POST /api/v1/meter-data` message to add metering data. Other roles, for example line operator or aggregator can continue to send metering data via V1 API for 6 months after the go live of this functionality. 
 
 > [!WARNING]
 > The import and template API solutions will also be updated, but these APIs are intended for the web interface and therefore are not described in detail in this documentation.
