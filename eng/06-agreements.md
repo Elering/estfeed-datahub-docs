@@ -55,15 +55,13 @@ Agreements can be transmitted to the Datahub using both a web interface and an a
 
 In the Datahub, the transmission interface of various agreements is harmonised and thus the same messages and data structures are used. However, it is worth noting that agreements have different rules and therefore a different required and permitted data composition.
 
-| V1 message                      | V2 message                       | Objective                          |
-|---------------------------------|----------------------------------|------------------------------------|
-| `POST /api/v1/agreement`        | `POST /api/v2/agreements`        | Create agreement                   |
-| `POST /api/v1/agreement-bulk`   | `POST /api/v2/agreements/bulk`   | Create multiple agreements at once |
-| `PUT /api/v1/agreement`         | `PUT /api/v2/agreements/{id}`    | Update agreement                   |
-| `POST /api/v1/agreement/delete` | `DELETE /api/v2/agreements/{id}` | Delete agreement                   |
+| V2 message                       | Objective                          |
+|----------------------------------|------------------------------------|
+| `POST /api/v2/agreements`        | Create agreement                   |
+| `POST /api/v2/agreements/bulk`   | Create multiple agreements at once |
+| `PUT /api/v2/agreements/{id}`    | Update agreement                   |
+| `DELETE /api/v2/agreements/{id}` | Delete agreement                   |
 
-> [!IMPORTANT]
-> The implementation of agreement V2 API-s are a prerequisite for the market participant to receive coordinated changes to the agreements via the data distribution service (Data Distribution). To do this, market participants must request the IDs of all their agreements via the `GET /api/v2/agreements` service.
 
 
 #### Message rules
@@ -118,15 +116,13 @@ There are 2 different business cases where agreements are searched:
 
 ### API messages
 
-| V1 message                            | V2 message                                     | Objective                                                                       |
-|---------------------------------------|------------------------------------------------|---------------------------------------------------------------------------------|
-| `POST /api/v1/agreement/search`       | `GET /api/v2/agreements`                       | Find agreements, where the market participant is a service provider or customer |
-| -                                     | `GET /api/v2/agreements/{id}`                  | Find specific agreement by ID                                                   |
-| `POST /api/v1/agreement/search/meter` | `GET /api/v2/metering-points/{eic}/agreements` | Find agreements by Metering Point during new agreement registration             |
-| `POST /api/v1/agreement/export`       | `GET /api/v2/agreements/export`                | Export agreements by attributes                                                 |
+| V2 message                                     | Objective                                                                       |
+|------------------------------------------------|---------------------------------------------------------------------------------|
+| `GET /api/v2/agreements`                       | Find agreements, where the market participant is a service provider or customer |
+| `GET /api/v2/agreements/{id}`                  | Find specific agreement by ID                                                   |
+| `GET /api/v2/metering-points/{eic}/agreements` | Find agreements by Metering Point during new agreement registration             |
+| `GET /api/v2/agreements/export`                | Export agreements by attributes                                                 |                                           |
 
-> [!IMPORTANT]
-> The implementation of agreement V2 API-s are a prerequisite for the market participant to receive coordinated changes to the agreements via the data distribution service (Data Distribution). To do this, market participants must request the IDs of all their agreements via the `GET /api/v2/agreements` service.
 
 #### Message rules
 
