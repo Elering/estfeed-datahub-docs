@@ -21,15 +21,15 @@
 
 The system allows the user to add the following agreements:
 
-| Agreement                                             | Code               |
-|-------------------------------------------------------|--------------------|
-| grid agreement                                        | GRID               |
-| border metering point grid agreement                  | BORDER_GRID        |
-| open supply agreement                                 | SUPPLY             |
-| aggregation agreement                                 | AGGREGATION        |
-| portfolio agreement (this includes balance agreement) | PORTFOLIO_SUPPLIER |
-| named supplier agreement                              | NAMED_SUPPLIER     |
-| joint invoice agreement                               | JOINT_INVOICE      |
+| Agreement                                             | Code               | Market |
+|-------------------------------------------------------|--------------------|----|
+| grid agreement                                        | GRID               | Electricity, Gas |
+| border metering point grid agreement                  | BORDER_GRID        | Electricity, Gas |
+| open supply agreement                                 | SUPPLY             | Electricity, Gas |
+| aggregation agreement                                 | AGGREGATION        | Electricity |
+| portfolio agreement (this includes balance agreement) | PORTFOLIO_SUPPLIER | Electricity, Gas |
+| named supplier agreement                              | NAMED_SUPPLIER     | Electricity, Gas |
+| joint invoice agreement                               | JOINT_INVOICE      | Electricity, Gas |
 
 Agreements have different rules. In addition, there are rules between agreements, for example, an open supply agreement cannot be added to a period where there is no grid agreement.
 
@@ -81,20 +81,28 @@ Dependencies and rules between agreements:
 Other rules:
 
 - The start and end time of the agreement is presented in the user interface with the accuracy of the day or month:
-  - If the type of agreement allows validity periods to be determined by month:
-    - the agreement starts on the first day of the selected month at 00:00
-    - the agreement ends at midnight of the last day of the selected month.
-  - If the type of agreement allows the validity period to be determined by days:
-    - the agreement starts at 00:00 on the selected day
-    - the agreement ends at midnight of the selected day.
+  - See the following table: user interface — monthly precision
 - The start and end time of the agreement is presented in the API with the accuracy of date and time:
-  - The start time of the agreement must be 00:00:00 Estonian time on the first day of the agreement validity. The Datahub interprets the date and time provided as inclusive. For example, if the agreement should start from the beginning of 01.01.2024, `2024-01-01T:00:00+02:00` or `2023-12-31T22:00:00Z` must be sent in the message.
-  - The end time of the agreement must be 00:00:00 Estonian time of the day following the end of the agreement. The Datahub interprets the provided date and time as exclusive. For example, if the agreement should end at midnight on 30.04.2024, then `2024-05-01T00:00:00+03:00` or `2024-04-30T21:00:00Z` must be sent in the message, which according to the Datahub business logic means that the agreement was valid until 30.04.2024 23:59:59.
+  - See the following table: user interface — daily precision, data exchange interface start/end
 - The end date of the agreement must be later or equal than the start date (one-day agreements have the same start and end date, but different time values).
 - It is not permitted to *delete* a valid or expired agreement. It is possible to close a valid agreement by updating the value of the end date of the agreement.
 - It is not permitted to modify expired agreement.
 - The type of energy indicated in the agreement must be the same as the type of energy at the metering point indicated in the agreement (if the type of agreement provides for this information).
 - For agreements, only the operator's agreement ID and the end date of the agreement can be changed. Changing the remaining data is not allowed.
+
+Electricity Market and Gas Market Contract Start and End Differences
+
+| **Domain** | **Rule / Description** | **Electricity Market (midnight – midnight)** | **Gas Market (gas day 07:00 – 07:00)** |
+|-----------|------------------------|-----------------------------------------------|---------------------------------------|
+| **User interface — monthly precision** | Contract starts | 1st day of the month at 00:00 | 1st day of the month at 07:00 |
+| | Contract ends | at midnight on the last day of the month | 1st day of the following month at 07:00 |
+| **User interface — daily precision** | Contract starts | Selected day at 00:00 (Ex: 01.01.2024 00:00)| Selected day at 07:00 (Ex: 01.01.2024 07:00) |
+| | Contract ends | at midnight on the selected day (30.04.2024 midnight)| Following day at 07:00 (01.05.2024 07:00)|
+| **Data exchange interface — start** | Start time according to EE time | 01.01.2024 00:00:00 | 01.01.2024 07:00:00 |
+| Must be sent in the message | Start example (winter time) | 2024-01-01T00:00:00+02:00 or 2023-12-31T22:00:00Z | 2024-01-01T07:00:00+02:00 or 2024-01-01T05:00:00Z |
+| **Data exchange interface — end** | End time according to EE time | 30.04.2024 at midnight | 01.05.2024 07:00:00 |
+| Must be sent in the message | End example (summer time) | 2024-05-01T00:00:00+03:00 or 2024-04-30T21:00:00Z | 2024-05-01T07:00:00+03:00 or 2024-05-01T04:00:00Z |
+| **Valid until (result)** | According to Data Hub interpretation | 30.04.2024 23:59:59 | 01.05.2024 06:59:59 |
 
 ### Web interface
 

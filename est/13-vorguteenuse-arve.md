@@ -59,13 +59,9 @@ Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi 
 
 Uued API sõnumid:
 
-| Sõnum                        | Eesmärk                    |
-|------------------------------|----------------------------|
-| `POST /api/v2/network-bills` | Võrguteenuse arve lisamine |
-| `GET /api/v2/network-bills`  | Võrguteenuse arve otsing   |
-
-> [!WARNING]
-> Võrguteenuse arve otsingu API ei ole esialgses skoobis. Võrguteenuse arveid tagastab andmete levitamise teenus.
+| Sõnum                             | Eesmärk                    |
+|-----------------------------------|----------------------------|
+| `POST /api/v2/network-bills/bulk` | Võrguteenuse arve lisamine |
 
 > [!WARNING]
 > Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.

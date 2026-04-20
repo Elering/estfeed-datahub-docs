@@ -21,7 +21,7 @@
 
 ## Sissejuhatus
 
-Elektrituruseaduses nimetatud turuosalistest võimaldab Andmeladu lisada ja muuta ainult tarbija ehk kliendi (*Customer*) andmeid. Ülejäänud turuosalised hallatakse Andmelao süsteemihalduri poolt.
+Elektrituruseaduses ja maagaasiseaduses nimetatud turuosalistest võimaldab Andmeladu lisada ja muuta ainult tarbija ehk kliendi (*Customer*) andmeid. Ülejäänud turuosalised hallatakse Andmelao süsteemihalduri poolt.
 
 Igale kliendile omistatakse Andmelao poolt **EIC kood**, mis on peamine kliendi identifikaator süsteemis.
 

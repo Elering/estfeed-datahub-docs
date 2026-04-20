@@ -6,6 +6,10 @@
 * [Mõõteandmed](#mõõteandmed)
   * [Sisukord](#sisukord)
   * [Sissejuhatus](#sissejuhatus)
+    * [Neto mõõdetud mõõteandmed](#neto-mõõdetud-mõõteandmed)
+      * [Netomõõdetud elektri koguste näited](#netomõõdetud-elektri-koguste-näited)
+      * [Muudatused API kasutajatele](#muudatused-api-kasutajatele)
+      * [Muudatused veebiliidese kasutajale](#muudatused-veebiliidese-kasutajale)
   * [Mõõteandmete edastamine](#mõõteandmete-edastamine)
     * [Mõõteandmete vastuvõtmise juhtimine](#mõõteandmete-vastuvõtmise-juhtimine)
     * [Mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu)
@@ -20,23 +24,59 @@
     * [Mõõteandmete otsimine veebiliidese kaudu](#mõõteandmete-otsimine-veebiliidese-kaudu)
     * [Masinliidese sõnumid](#masinliidese-sõnumid-1)
       * [Sõnumid](#sõnumid-1)
-    * [Neto mõõdetud mõõteandmed](#neto-mõõdetud-mõõteandmed)
 <!-- TOC -->
 
 ## Sissejuhatus
 
 Mõõteandmed on konkreetse mõõtepunktiga seotud prognoositud või mõõdetud aktiivenergia tarbimise andmed teatud ajaperioodi kohta. Mõõteandmed on arveldamise aluseks ja neid esitavad mõõtepunkti haldurid ning tarbivad teised turuosalised (peamiselt avatud tarnijad).
 
+### Neto mõõdetud mõõteandmed
+
+Alates **01.08.2026** on elektriturul võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 04.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
+
+#### Netomõõdetud elektri koguste näited 
+
+**Näide 1 (rohkem tootmist):**
+| Mõõteandme tüüp / suund | Kogus |
+|-----------------------------------------|---------------------------|
+| Tootmine (IN) | 15 kWh |
+| Tarbimine (OUT) | 10 kWh |
+| Neto - tootmine (NETO IN) | 5 kWh |
+| Neto - tarbimine (NETO OUT) | 0 kWh |
+
+**Näide 2 (rohkem tarbimist):**
+| Mõõteandme tüüp / suund | Kogus |
+|-----------------------------------------|---------------------------|
+| Tootmine (IN) | 10 kWh |
+| Tarbimine (OUT) | 15 kWh |
+| Neto - tootmine (NETO IN) | 0 kWh |
+| Neto - tarbimine (NETO OUT) | 5 kWh |
+
+#### Muudatused API kasutajatele
+
+> [!WARNING]
+> `POST /api/v1/meter-data` sõnumit pole elektrituru võrguettevõtetel võimalik kasutada alates 20.07.2026 11:00. Teised rollid, näiteks liinivaldaja ja agregaator saavad V1 versiooni kasutamist veel 6 kuud peale uue versiooni kasutuselevõttu jätkata.
+
+#### Muudatused veebiliidese kasutajale
+
+Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub Exceli struktuur. Uut Exceli malli saab allalaadida veebiliidesest alates 20.07.2026.
+
+> [!WARNING]
+> Uuenevad ka import ja template API lahendused, kuid tegu on veebiliidese jaoks mõeldud API-dega ja seetõttu ei ole need täpsemalt siin dokumentatsioonis kirjeldatud.
+
+> [!WARNING]
+> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole kõik uued API-d veel kirjeldatud Swaggeris.
+
 ## Mõõteandmete edastamine
 
 Mõõtepunkti haldur tagab tema mõõtepunktide aktiivenergia koguse kindlaksmääramise ning esitab Andmelattu kahesuunalised tunnipõhised aktiivenergia koguste mõõteandmed.
 
-Agregaator edastab tarbimise juhtimise energia kogused.
+Agregaator (elektriturul) edastab tarbimise juhtimise energia kogused.
 
 Mõõtepunkti haldurid edastavad mõõtepunktide lõikes mõõteandmed järgmistel tingimustel:
 
-1. nende mõõtepunktide kohta, kus mõõtmine toimub kauglugemise teel, edastatakse Andmelattu esialgsed mõõteandmed igal tööpäeval kella 10.00-ks;
-2. kalendrikuu lõplikud mõõteandmed mõõtepunktides, kus mõõtmine toimub kauglugemise teel, edastatakse  Andmelattu iga järgneva kuu 5. kuupäevaks;
+1. nende mõõtepunktide kohta, kus mõõtmine toimub kauglugemise teel, edastatakse Andmelattu esialgsed mõõteandmed elektriturul igal tööpäeval kella 10.00-ks, gaasiturul kella 13:00-ks;
+2. kalendrikuu lõplikud mõõteandmed mõõtepunktides, kus mõõtmine toimub kauglugemise teel, edastatakse Andmelattu elektriturul järgneva kuu 5. kuupäevaks, gaasiturul järgneva kuu 7. kuupäevaks;
 
 Võrgu- ja liinikao koguseid arvutab Andmeladu.
 
@@ -46,7 +86,9 @@ Võrguettevõtja ja liinivaldaja saab mõõteandmed edastada Andmelattu nii veeb
 
 Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Mõõtepunkti haldur saadab uue või muutunud mõõteandmete sõnumi kasutades teenust `meter-data`.
+**NB! kuni 20.07.2026 on elektriandmete edastamiseks kasutuses `meter-data` teenus**
+
+- Mõõtepunkti haldur saadab uue või muutunud mõõteandmete sõnumi kasutades elektriandmete edastamiseks teenust `metering-data/electricity` (alates 20.07.2026 kell 11:00) ja gaasiandmete edastamiseks `metering-data/natural-gas` (alates 2026 november).
 - Kuivõrd mõõteandmete töötlemine toimub Andmelaos asünkroonselt, siis esmalt annab Andmeladu kiire vastuse, kas sõnum õnnestus kätte saada või mitte.
 - Seejärel paneb Andmeladu sõnumi töötluse järjekorda.
 - Mõõtepunkti haldur kontrollib andmete töötluse tulemust, kasutades teenust `meter-data/status`(sõnumi positsioonil `originalDocumentIdentification` tuleb edastada eelnevalt edastatud mõõteandmete sõnumi `header`-is olnud samanimelise atribuudi väärtus. UUID väärtust ei tohi taaskasutada). Võimalikud tulemused on:
@@ -77,7 +119,7 @@ Vastuvõetud mõõteandmete töötlemine on 2 etapiline protsess:
 
 Kui mõõteandmete töötlmine toimub aeglasemalt kui uusi tulemusi vastu võetakse hakkab töötlemise järjekord kasvama.
 
-Kui järjekorda on juba kogunenud 100 000 päringu andmed, siis POST /meter-data päring vastab päringu tegijale
+Kui järjekorda on juba kogunenud 100 000 päringu andmed, siis POST /metering-data päring vastab päringu tegijale
 - HTTP status 503
 - HTTP header Retry-After: 300
 
@@ -112,23 +154,25 @@ Kui faili on juhtunud mõni viga annab süsteem sellest teada.
 
 ### Mõõteandmete edastamine Exceli teel
 
-Mõõteandmete saatmiseks on võimalik kasutada Exceli faili. Seda saab saata [veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu) või kasutades API `meter-data/import` teenust.
+Mõõteandmete saatmiseks on võimalik kasutada Exceli faili. Seda saab saata [veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu) või kasutades API `metering-data/import` teenust.
 
 Mõõteandmete edastamiseks tuleks alustuseks veebiliidesest alla laadida mõõteandmete mall. Selleks leiab juhendi siit: [mõõteandmete edastamine veebiliidese kaudu](#mõõteandmete-edastamine-veebiliidese-kaudu).
 
 Järgnevalt on välja toodud Exceli veergude kirjeldused ja näidised:
 
-| Veeru nimi       | Kirjeldus                 | Näidis | Kohustuslik?                  
-|------------------|---------------------------|---------------------------| ---------------------------|
-| Meter EIC        | Mõõtepunkti EIC kood. Kood peab olema lisatud kõigile tabeli ridadele. Turuosaline peab olema mõõtepunkti omanik. Ühes failis võib saata mitme mõõtepunkti mõõteandmed, need võivad olla üksteise järel ühel lehel või jagatud mitme Exceli lehe vahel.      | 38ZEE-1000009--Z | Jah
-| Period Start     | Perioodi algus. Kellaaeg, mis aja tarbimise / tootmise kogustega on tegu. Soovitus on kasutada mallis sisalduvat kuupäeva vormingut, vale kuupäeva vorminguga ei ole võimalik mõõteandmeid lisada. Õige vorming on dd.mm.yyyy hh:mm.  | 01.11.2024 00:00:00 | Jah
-| Resolution       | Mõõtandmete resolutsioon, kas tegu on 15 minuti mõõteandmetega või 1 tunni mõõteandmetega. Exceli mallis on võimalik rippmenüüst valida sobiv valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale.  | 15 MINUTES või HOURLY | Jah
-| Quantity KWH IN  | Võrku antud kogus. | 1,234 | Ei, kui "Quantity KWH OUT" kogus on lisatud
-| Quantity KWH OUT | Võrgust võetud kogus.      | 1,234 | Ei, kui "Quantity KWH IN" kogus on lisatud
-| Reading Type IN  | Võrku antud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale. | METERED või ESTIMATED | Jah, kui "Quantity KWH IN" lahter on täidetud.
-| Reading Type OUT | Võrgust võetud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale.  | METERED või ESTIMATED | Jah, kui "Quantity KWH OUT" lahter on täidetud.
-| Reading Time IN  | Võrku antud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Ei, jättes tühjaks lisab süsteem hetkeaja.
-| Reading Time OUT  | Võrgust võetud koguse mõõtmise aeg. | 02.11.2024 08:00:00 | Ei, jättes tühjaks lisab süsteem hetkeaja. 
+| Veeru nimi       | Turg | Kirjeldus                 | Näidis | Kohustuslik?                  
+|------------------|---|---------------------------|---------------------------| ---------------------------|
+| Meter EIC        | Elekter, Gaas | Mõõtepunkti EIC kood. Kood peab olema lisatud kõigile tabeli ridadele. Turuosaline peab olema mõõtepunkti omanik. Ühes failis võib saata mitme mõõtepunkti mõõteandmed, need võivad olla üksteise järel ühel lehel või jagatud mitme Exceli lehe vahel.      | 38ZEE-1000009--Z | Jah
+| Period Start     | Elekter, Gaas | Perioodi algus. Kellaaeg, mis aja tarbimise / tootmise kogustega on tegu. Soovitus on kasutada mallis sisalduvat kuupäeva vormingut, vale kuupäeva vorminguga ei ole võimalik mõõteandmeid lisada. Õige vorming on dd.mm.yyyy hh:mm.  | 01.11.2024 00:00:00 | Jah
+| IN Quantity kWh  | Elekter, Gaas | Võrku antud kogus. | 1,534 | Ei, kui "OUT Quantity kWh " kogus on lisatud
+| OUT Quantity kWh | Elekter, Gaas | Võrgust võetud kogus.      | 1,234 | Ei, kui "IN Quantity kWh" kogus on lisatud
+| IN Quantity M3  | Gaas | Võrku antud kogus kuupmeetrites. | 1,534 | Ei, kui "OUT Quantity M3" kogus on lisatud
+| OUT Quantity M3 | Gaas | Võrgust võetud kogus kuupmeetrites.      | 1,234 | Ei, kui "IN Quantity M3" kogus on lisatud
+| NET IN Quantity kWh  | Elekter | Võrku antud kogus. | 0,300 | Lubatud tururollidele GRID_OPERATOR ja CLOSED_DISTRIBUTION_NETWORK. Ei tohi olla täidetud, kui „inQty“ ja „outQty“ puuduvad. Kui üks netokogus on täidetud, peab ka teine olema täidetud. Kui on täidetud siis: a) Peab olema 0,000, kui „netOutQty“ on suurem kui 0,000 b) Peab olema 0,000, kui nii „inQty“ kui ka „outQty“ on mõlemad 0,000 c) Täpselt 3 kohta pärast koma.
+| NET OUT Quantity kWh  | Elekter | Võrku antud kogus. | 0,000 | Lubatud tururollidele GRID_OPERATOR ja CLOSED_DISTRIBUTION_NETWORK. Ei tohi olla täidetud, kui „inQty“ ja „outQty“ puuduvad. Kui üks netokogus on täidetud, peab ka teine olema täidetud. Kui on täidetud siis: a) Peab olema 0,000, kui „netOutQty“ on suurem kui 0,000 b) Peab olema 0,000, kui nii „inQty“ kui ka „outQty“ on mõlemad 0,000 c) Täpselt 3 kohta pärast koma.
+| Reading Type IN  | Elekter, Gaas | Võrku antud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale. | METERED või ESTIMATED | Jah, kui "Quantity KWH IN" lahter on täidetud.
+| Reading Type OUT | Elekter, Gaas | Võrgust võetud koguse mõõtmise tüüp. Kas mõõdetud või estimeeritud. Exceli mallis on võimalik rippmenüüst valida õige valik, peale lahtris klikkimist tuleb selleks vajutada lahtri kõrvale tekkiva noole peale.  | METERED või ESTIMATED | Jah, kui "Quantity KWH OUT" lahter on täidetud.
+
 
 Edukaks mõõteandmete saatmiseks on oluline, et Excel oleks täidetud korrektselt ja vastaks reeglitele.
 
@@ -136,7 +180,7 @@ Edukaks mõõteandmete saatmiseks on oluline, et Excel oleks täidetud korrektse
 
 | Probleem       | Lahendus
 |------------------|---------------------------
-| Mõõteandmete resolutsioon on vale. | Peale 15-minuti andmevahetusperioodile üleminemist on võimalik saata vaid 15 minuti resolutsiooniga andmeid. Enne üleminekut on võimalik saata vaid ühe tunni resolutsiooniga mõõteandmeid.
+| Mõõteandmete resolutsioon on vale. | Elektriturul on võimalik saata vaid 15 minuti resolutsiooniga andmeid. Gaasiturul on võimalik saata 1 tunni ja 1 päeva resolutsiooniga andmeid 
 | Mõõtepunkt ei kuulu turuosalisele. | Turuosaline saab saata mõõteandmeid vaid neile kuuluvatesse mõõtepunktidesse.
 | Fail sisaldab tühjasid Exceli lehtesid. | Kuigi Excelisse võib lisada mõõteandmed mitmele lehele jaotatuna peab jälgima, et Exceli fail ei sisaldaks täiesti tühjasid või muud informatsiooni sisaldavaid Exceli lehti.
 | Fail sisaldab valemeid. | Andmed peaksid olema sisestatud puhtas teksti vormingus - ilma valemiteta.
@@ -148,59 +192,58 @@ Edukaks mõõteandmete saatmiseks on oluline, et Excel oleks täidetud korrektse
 
 ### Masinliidese sõnumid
 
-Uues Andmelaos on "pos" ehk "positsiooni" atribuut eemaldatud. Mõõteandmete edastaja peab sõnumis defineerima perioodi alguse (pS) ja resolutsiooni (r) ehk andmete mõõtmise tiheduse:
+Uues API päringus on lisaks eesmärgi atribuut (Purpose). Päringus peaks määrama ka päringu tegemise eesmärgi. Näiteks, kas päring tehakse arvelduse eesmärgil või päritakse enda mõõtepunkte. Esialgu selle väärtuse lisamine ei mõjuta päringu vastust, kuid tulevikus hakkab see mõjutama ka päringu vastust. Selle muudatuse eesmärk on muuta API päring kiiremaks ja võimaldada pärida andmeid mitme mõõtepunkti EIC alusel. Energiateenuse osutaja ei tohiks lisada eesmärki, teistes rollides on see kohustuslik.
 
-```json
-"periods": [
-  {
-    "r": "PT1H",
-    "aI": [
-      {
-        "pS": "2023-09-04T12:00:00.000Z",
-        "inQty": {
-          "rTime": "2023-09-04T12:48:13.368Z",
-          "rType": "E",
-          "kwh": 0
-        },
-        "outQty": {
-          "rTime": "2023-09-04T12:48:13.368Z",
-          "rType": "M",
-          "kwh": 5
-        }
-      }
-    ]
-  }
-]
-```
+Mõõteandmete otsimine on võimalik peale uue lahenduse kasutuselevõttu 6 kuud ka V1 API kaudu, kuid V1 API ei tagasta neto mõõdetud väärtuseid.
 
-API teenuses kasutatavate lühendite selgitused:
+Avatud tarnija rollis on võimalikud eesmärgid:
+- `OPEN_SUPPLY` ehk peamine viis avatud tarnijana mõõteandmete pärimiseks.
+- `PORTFOLIO` ehk bilansihaldurina mõõteandmete pärimine
+- `BILLING` ehk arvelduse eesmärgil andmete pärimine
 
-* r - resolutsioon
-* aI - Account Interval ehk ühe mõõtetulemuse intervall
-* pS - Period Start ehk perioodi algus
-* inQty - IN ehk siseneva energia mõõtetulemus
-* outQty - OUT ehk väljuva energia mõõtetulemus
-* rTime - Reading Time ehk mõõtmise aeg
-* rType - Reading Type ehk mõõtmise tüüp (E - estimeeritud, M - mõõdetud)
+Mõõtepunkti halduri rollis on võimalikud eesmärgid
+- `OWN_MP_MANAGEMENT` ehk enda mõõtepunktide andmete pärimine
+- `OTHER` ehk teiste mõõtepunktide andmete pärimine
 
-Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandmetega täidetud. 
+Mõõteandmeid on esialgu võimalik otsida ühe mõõtepunkti kaupa, kuid tulevikus lisandub ka võimalus mitme mõõtepunkti andmete korraga pärimiseks.
+
+API teenuses kasutatavate lühendite selgitused:                                          
+
+| lühend    | selgitus                                                          | turg           | rakendamise info     |
+|-----------|-------------------------------------------------------------------|----------------|------------------------|
+| periods   | ühe mõõtetulemuse intervall (elektris 15 minutit, gaasis 1 tund)  | Elekter, Gaas  |                        |
+| pS        | Period Start ehk perioodi algus                                   | Elekter, Gaas  |                        |
+| inQty     | IN ehk siseneva energia mõõtetulemus                              | Elekter, Gaas  |                        |
+| outQty    | OUT ehk väljuva energia mõõtetulemus                              | Elekter, Gaas  |                        |
+| netInQty  | neto tootmine (NETO IN)                                           | Elekter        | alates 01.08.2026      |
+| netOutQty | neto tarbimine (NETO OUT)                                         | Elekter        | alates 01.08.2026      |
+| rTime     | Reading Time ehk mõõtmise aeg                                     | Elekter, Gaas  |                        |
+| rType     | Reading Type ehk mõõtmise tüüp (E - estimeeritud, M - mõõdetud)   | Elekter, Gaas  |                        |
+| kwh       | mõõdetud kogused kWh                                              | Elekter, Gaas  |                        |
+| m3        | mõõdetud kogused kuupmeetrites                                    | Elekter, Gaas  |                        |
+
+
+Andmeladu ei valideeri, et gaasi mõõteandmetes iga 1 tunni või elektriandmetes 15 minuti vahemik oleks mõõteandmetega täidetud.
 
 > [!NOTE]
-> Andmete resolutsioon on Andmelao poolt jäigalt fikseeritud - Alates 01.04.2025 on elektri resolutsiooniks 15minutit.ggaasi puhul on resolutsiooniks 1 tund.> 
+> Andmete resolutsioon on Andmelao poolt jäigalt fikseeritud - Alates 01.04.2025 on elektri resolutsiooniks 15minutit. gaasi puhul on resolutsiooniks 1 tund.> 
 > Gaasi puhul on lubatud edastada ka päeva andmeid. Sellisel juhul tuleb päeva mõõteandmed lisada enda poolt sobivasse gaasipäeva tundi.
 
 #### Sõnumid
 
-| Sõnum                                     | Eesmärk                                                              |
-|-------------------------------------------|----------------------------------------------------------------------|
-| `POST /api/{version}/meter-data`          | Mõõteandmete lisamine                                                |
-| `POST /api/{version}/meter-data/status`   | Mõõteandmete sõnumi töötlemise staatuse päring                       |
-| `POST /api/{version}/meter-data/import`   | Mõõteandmete masslaadimine templiidi abil                            |
-| `POST /api/{version}/template/meter-data` | Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine |
+| Sõnum                                     | Eesmärk                                                              | Turg |
+|-------------------------------------------|----------------------------------------------------------------------|---------|
+| `POST /api/{version}/metering-data/electricity`| Mõõteandmete lisamine | Elekter |
+| `POST /api/{version}/metering-data/natural-gas`| Mõõteandmete lisamine  | Gaas|
+| `GET /api/{version}/metering-data/electricity/template`| Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine | Elekter |
+| `GET /api/{version}/metering-data/natural-gas/template`| Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine | Gaas |
+| `POST /api/{version}/meter-data/status`   | Mõõteandmete sõnumi töötlemise staatuse päring                       | Elekter, Gaas |
+| `POST /api/{version}/metering-data/electricity/import`| Mõõteandmete masslaadimine templiidi abil  | Elekter |
+| `POST /api/{version}/metering-data/natural-gas/import` | Mõõteandmete masslaadimine templiidi abil  | Gaas |  
+
 
 #### Sõnumite reeglid
 
-- Resolutsiooni väärtus peab vastama antud ajaperioodil rakendatud globaalse resolutsiooniga. Nt, kui kogu turg läheb kuupäeval X üle 15min resolutsioonile, siis mõõteandmetele alates X kuupäevast peab sõnumis olema resolutsiooni väärtuseks 15min
 - Perioodi ajaperioodi väärtus peab olema vastavuses resolutsiooniga. Näiteks:
   - kui resolutsioon on 1 tund, siis perioodi alguse kellaaeg peab olema täistund (hh:00);
   - kui resolutsioon on 15 minutit, siis perioodi alguse kellaaeg peab olema veerandtund (hh:00, hh:15, hh:30, hh:45).
@@ -212,7 +255,7 @@ Andmeladu ei valideeri, et iga 1 tunni või 15 minuti vahemik oleks mõõteandme
 - Siseneva ja väljuva energia koguseid võib edastada ka eraldi sõnumitega.
 - Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
 - Mõõteandmeid on lubatud edastada tulevikku (periood on tulevikus). Hetkel on maksimaalne lubatud väärtus 45 päeva tulevikus. Iga mõõtetulemust valideeritaks eraldi. Kui ükski mõõtetulemus ei läbi validatsioone, vastab süsteem koodiga ERROR. Kui ainult mõned ei läbi, siis koodiga PARTIALLY_SUCCESSFUL. Mõlemal juhul on veakoodiks `period-start-too-far-in-future`.
-- Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export` või `template/meter-data`
+- Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export` või `metering-data/electricity/template` / `metering-data/natural-gas/template`
 
 ## Mõõteandmete päringud
 
@@ -221,7 +264,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Andmetele ligi
 Mõõteandmete päringute teostamiseks on järgmised võimalused:
 
 - Avatud tarnija, nimetatud müüja ja portfelliteenuse pakkuja skaneerib mõõteandmete muudatusi kasutades andmete levitamise teenust
-- Õigustatud kasutaja pärib mõõteandmed kasutades teenust `search`
+- Õigustatud kasutaja pärib mõõteandmed kasutades teenust `GET /metering-data/`
 
 ### legalConsent
 
@@ -229,7 +272,7 @@ Nii füüsiline kui ka juriidiline isik saab läbi kliendiportaali anda andmetel
 
 Kui füüsiliste isikute ligipääsuõigus on oma olemuselt absoluutne, siis juriidiliste isikute puhul on võimalik ka alternatiivne töövoog, kus juriidiline isik on andnud ligipääsuõiguse Andmelao ja kliendiportaali väliselt, kuid kirjalikus taasesitamist võimaldavad vormis otse avatud tarnijale.
 
-Sellise olukorra olemasolu saab avatud tarnija `search` teenuses kinnitada, lisades päringusse `"legalConsent": true`. Sellisel juhul on avatud tarnijal võimalik pärida mistahes mõõtepunkti mõõteandmeid eeldusel, et mõõtepunkti võrgulepingu kliendiks on juriidiline isik või organisatsioon.
+Sellise olukorra olemasolu saab avatud tarnija `GET /metering-data/` teenuses kinnitada, lisades päringusse `"legalConsent": true`. Sellisel juhul on avatud tarnijal võimalik pärida mistahes mõõtepunkti mõõteandmeid eeldusel, et mõõtepunkti võrgulepingu kliendiks on juriidiline isik või organisatsioon.
 
 > [!CAUTION] 
 > `"legalConsent": true` kasutamine on lubatud vaid kliendi volituse olemasolul ja selle õiguspärast kasutamist monitooritakse
@@ -268,174 +311,9 @@ Mõõteandmete Excelisse laadimiseks on vaja alustuseks vajutada "Otsi" nuppu, s
 
 #### Sõnumid
 
-| Sõnum                                   | Eesmärk                   |
-|-----------------------------------------|---------------------------|
-| `POST /api/{version}/meter-data/search` | Mõõteandmete otsing       |
-| `POST /api/{version}/meter-data/export` | Mõõteandmete eksportimine |
-
-### Neto mõõdetud mõõteandmed
-
-#### Üldine sisu
-
-Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 04.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
-
-**Näide 1 (rohkem tootmist):**
-| Mõõteandme tüüp / suund | Kogus |
-|-----------------------------------------|---------------------------|
-| Tootmine (IN) | 15 kWh |
-| Tarbimine (OUT) | 10 kWh |
-| Neto - tootmine (NETO IN) | 5 kWh |
-| Neto - tarbimine (NETO OUT) | 0 kWh |
-
-**Näide 2 (rohkem tarbimist):**
-| Mõõteandme tüüp / suund | Kogus |
-|-----------------------------------------|---------------------------|
-| Tootmine (IN) | 10 kWh |
-| Tarbimine (OUT) | 15 kWh |
-| Neto - tootmine (NETO IN) | 0 kWh |
-| Neto - tarbimine (NETO OUT) | 5 kWh |
-
-#### Muudatused veebiliidese kasutajale
-
-Mõõteandmeid on jätkuvalt võimalik edastada Exceli vahendusel, kuid muutub Exceli struktuur. Uut Exceli malli saab allalaadida veebiliidesest alates 20.07.2026.
-
-#### Muudatused API kasutajatele
-
-> [!WARNING]
-> `POST /api/v1/meter-data` sõnumit pole võrguettevõtetel võimalik kasutada alates 20.07.2026 11:00. Teised rollid, näiteks liinivaldaja ja agregaator saavad V1 versiooni kasutamist veel 6 kuud peale uue versiooni kasutuselevõttu jätkata.
-
-> [!WARNING]
-> Uuenevad ka import ja template API lahendused, kuid tegu on veebiliidese jaoks mõeldud API-dega ja seetõttu ei ole need täpsemalt siin dokumentatsioonis kirjeldatud.
-
-> [!WARNING]
-> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
-
-**Uued API sõnumid:**
-
-Uued API-d kasutavad V2 headereid.
-
-| Sõnum                                    | Eesmärk               |
-|------------------------------------------|-----------------------|
-| `POST /api/v2/metering-data/electricity` | Mõõteandmete lisamine |
-| `GET /api/v2/metering-data/electricity`  | Mõõteandmete otsing   |
-
-
-**Mõõteandmete lisamine**
-
-V1 API-st erinevad sõnumi reeglid:
-- Lisanduvad atribuudid `netInQty` ja `netOutQty`. Väärtuseid on võimalik saata vaid võrguettevõtja ja suletud jaotusvõrgu rollis. Väärtust pole võimalik saata, kui samas sõnumis ei ole lisaks tarbimise (`outQty`) ega tootmise (`inQty`) kogust.
-- Andmete lugemise aeg (`rTime`) ei tohi olla tulevikus. 
-- Andmete resolutsiooni päringus enam ei ole, sest tunni resolutsioonis andmeid enam saata pole lubatud. Andmete tagasiulatuv korrigeerimine on lubatud 12 kuud minevikku ja andmed on 15 minuti resolutsioonis alates 01.04.2025.
-- Kõik kogused peavad olema esitatud täpselt 3 kohta peale koma täpsusega.
-
-Näidis päring (tarbimine + tootmine + neto):
-```json
-[
-  {
-    "meteringPointEic": "38ZGO-100000BP-P",
-    "periods": [
-      {
-        "pS": "2026-11-01T00:00:00+02:00",
-        "rTime": "2025-12-16T12:35:11.335582+02:00",
-        "inQty": {
-          "rType": "M",
-          "kwh": 0
-        },
-        "outQty": {
-          "rType": "M",
-          "kwh": 0
-        },
-        "netQtyIn": 0,
-        "netQtyOut": 0
-      }
-    ]
-  }
-]
-```
-
-Näidis päring (ainult tarbimine):
-```json
-[
-  {
-    "meteringPointEic": "38ZGO-100000BP-P",
-    "periods": [
-      {
-        "pS": "2026-11-01T00:15:00+02:00",
-        "outQty": {
-          "rType": "E",
-          "kwh": 29.564
-        },
-        "rTime": "2025-12-16T12:35:11.335582+02:00"
-      }
-    ]
-  }
-]
-```
-
-**Mõõteandmete otsing**
-
-Uues API päringus on lisaks eesmärgi atribuut (Purpose). Päringus peaks määrama ka päringu tegemise eesmärgi. Näiteks, kas päring tehakse arvelduse eesmärgil või päritakse enda mõõtepunkte. Esialgu selle väärtuse lisamine ei mõjuta päringu vastust, kuid tulevikus hakkab see mõjutama ka päringu vastust. Selle muudatuse eesmärk on muuta API päring kiiremaks ja võimaldada pärida andmeid mitme mõõtepunkti EIC alusel. Energiateenuse osutaja ei tohiks lisada eesmärki, teistes rollides on see kohustuslik.
-
-Mõõteandmete otsimine on võimalik peale uue lahenduse kasutuselevõttu 6 kuud ka V1 API kaudu, kuid V1 API ei tagasta neto mõõdetud väärtuseid.
-
-Avatud tarnija rollis on võimalikud eesmärgid:
-- `OPEN_SUPPLY` ehk peamine viis avatud tarnijana mõõteandmete pärimiseks.
-- `PORTFOLIO` ehk bilansihaldurina mõõteandmete pärimine
-- `BILLING` ehk arvelduse eesmärgil andmete pärimine
-
-Mõõtepunkti halduri rollis on võimalikud eesmärgid
-- `OWN_MP_MANAGEMENT` ehk enda mõõtepunktide andmete pärimine
-- `OTHER` ehk teiste mõõtepunktide andmete pärimine
-
-Mõõteandmeid on esialgu võimalik otsida ühe mõõtepunkti kaupa, kuid tulevikus lisandub ka võimalus mitme mõõtepunkti andmete korraga pärimiseks.
-
-Näidis päring:
-```
-http://datahub.elering.ee/api/v2/metering-data/electricity?meteringPointEics=38ZGO-133300BP-P%2C28ZEE-10000001-7&purpose=OWN_MP_MANAGEMENT&customerEic=38X-IND-PHYS---Q&periodStart=2025-04-01T00%3A00%3A00Z&periodEnd=2025-05-01T00%3A00%3A00Z&resolution=PT15M&observationTime=2025-05-01T00%3A00%3A00Z&observationTimeType=SNAPSHOT_TIME&legalConsent=true
-```
-
-Näidis vastus:
-```json
-{
-  "successful": [
-    {
-      "meteringPointEic": "38ZGO-133300BP-P",
-      "periods": [
-        {
-          "r": "PT15M",
-          "aI": [
-            { 
-              "pS": "2025-04-01T00:00:00Z",
-              "inQty": {
-                "rTime": "2025-04-01T00:15:00Z",
-                "rType": "M",
-                "kwh": 0.000
-              },
-              "outQty": {
-                "rTime": "2025-04-01T00:15:00Z",
-                "rType": "M",
-                "kwh": 0.000
-              },
-              "netQtyIn": 0.000,
-              "netQtyOut": 0.000
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "unsuccessful": [
-    {
-      "meteringPointEic": "38ZGO-10000012-N",
-      "error": {
-        "id": "346ce43c-1d39-4df6-abd3-9834cc604c25",
-        "message": "Customer EIC code required",
-        "code": "opp.error.business.customer-eic-required",
-        "args": [],
-        "traceId": "346ce43c1d394df6abd39834cc604c25"
-      }
-    }
-  ]
-}
-
-```
+| Sõnum                                   | Eesmärk                   | Turg |
+|-----------------------------------------|---------------------------|-----|
+| `GET /api/{version}/metering-data/electricity` | Mõõteandmete otsing       | Elekter |
+| `GET /api/{version}/metering-data/natural-gas` | Mõõteandmete otsing | Gaas |
+| `GET /api/{version}/metering-data/electricity/export` | Mõõteandmete eksportimine | Elekter |
+| `GET /api/{version}/metering-data/natural-gas/export` | Mõõteandmete eksportimine | Gaas |

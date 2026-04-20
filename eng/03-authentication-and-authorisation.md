@@ -150,13 +150,15 @@ If the defined `marketParticipantContext` does not match the rest of the message
 
 Roles:
 
-| Role                                 | `marketParticipantIdentification` code |
-|--------------------------------------|----------------------------------------|
-| Open or named supplier               | OPEN_SUPPLIER                          |
-| Grid operator                        | GRID_OPERATOR                          |
-| Closed distribution network operator | CLOSED_DISTRIBUTION_NETWORK            |
-| Line operator                        | LINE_OPERATOR                          |
-| Charging point operator              | CHARGING_POINT_OPERATOR                |
-| Aggregator                           | AGGREGATOR                             |
-| Producer                             | PRODUCER_OPERATOR                      |
-| Other energy service provider        | ENERGY_SERVICE_PROVIDER                |
+| Role                          | `marketParticipantIdentification` code | Market            |
+|-------------------------------|----------------------------------------|-----------------|
+| Open or named supplier   | OPEN_SUPPLIER                          | Electricity, Gas   |
+| Grid operator                 | GRID_OPERATOR                          | Electricity, Gas    |
+| Closed distribution network operator  | CLOSED_DISTRIBUTION_NETWORK            | Electricity         |
+| Line operator                  | LINE_OPERATOR                          | Electricity         |
+| Charging point operator       | CHARGING_POINT_OPERATOR                | Electricity         |
+| Aggregator                    | AGGREGATOR                             | Electricity     |
+| Producer                         | PRODUCER_OPERATOR                      | Electricity, Gas    |
+| Other energy service provider    | ENERGY_SERVICE_PROVIDER                | Electricity, Gas    |
+| Storage Operator      | STORAGE_OPERATOR                       | Gas            |
+| Gas Station Operator         | GAS_STATION_OPERATOR                   | Gas            |

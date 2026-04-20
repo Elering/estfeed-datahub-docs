@@ -57,13 +57,9 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 
 New API messages:
 
-| Message                      | Objective                          |
-|------------------------------|------------------------------------|
-| `POST /api/v2/network-bills` | Create or update network bill data |
-| `GET /api/v2/network-bills`  | Find network bill data             |
-
-> [!WARNING]
-> Network bill GET API is currently out of scope due to not being used. Network bills are returned by data distribution service.
+| Message                           | Objective                          |
+|-----------------------------------|------------------------------------|
+| `POST /api/v2/network-bills/bulk` | Create or update network bill data |
 
 > [!WARNING]
 > As this functionality is still under development, the new APIs are not yet described in Swagger.

@@ -32,8 +32,8 @@ Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt 
 | NotifySupplyAgreement        | `POST` ja `PUT` `/api /{version}/agreement` kus `agreementType = SUPPLY`              | [Lepingud](06-lepingud.md)                                   |
 |                              | `POST` `/api /{version}/agreement/delete`                                             |                                                              |
 |                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = AGREEMENT`      | [Andmete levitamine](30-andmete-levitamine.md)               |
-| EnergyReport                 | `POST` `/api/{version}/meter-data`                                                    | [Mõõteandmed](12-mooteandmed.md)                             |
-|                              | `POST` `/api/{version}/meter-data/import`                                             |                                                              |
+| EnergyReport                 | `POST` `/api/{version}/metering-data/natural-gas`                                     | [Metering data](12-metering-data.md)                        |
+|                              | `POST` `/api/{version}/metering-data/natural-gas/import`                              |                                                             |
 |                              | `POST` `/api /{version}/data-distribution/search` kus `resourceType = METERING_DATA`  | [Andmete levitamine](30-andmete-levitamine.md)               |
 | EnergyReportResult           | `POST` `/api /{version}/meter-data/status`                                            | [Mõõteandmed](12-mooteandmed.md)                             |
 | NetworkBill                  | `POST` ja `PUT` `/api/{version}/network-bill`                                         | [Võrguteenuse arve](13-vorguteenuse-arve.md)                 |
@@ -70,28 +70,19 @@ Uus Andmeladu kasutab kaasaegsemat REST andmevahetusliidest. Sellest tulenevalt 
 
 API-de valmimise kohta leiab lisainformatsiooni [siit](50-tegevuskava.md)
 
-## Lisandunud funktsionaalsus
+## Suurimad erinevused
 
-Võrreldes varasema Andmelaoga on uues Andmelaos juba arendatud või arendamisel järgmised uued funktsionaalsused:
+Võrreldes varasema Andmelaoga on uues Estfeed Datahubis järgnevad suuremad muudatused.
 
-- Lisandunud on uus lepingu tüüp - [Agregeerimisleping](06.6-agregeerimisleping.md).
-- Kliendi lisamine ja muutmine on lepingust sõltumatu.
-- Niinimetatud ülem-mõõtepunkti kontseptsioon.
-- Asukoha andmetesse on lisandunud ADS-i ADR_ID ja kommentaar.
-- Mõõtmise resolutsioonide hulka on lisandunud ka 15min võimekus.
-- Uued klienditüübi valikud: ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR.
-- Tootmise olemasolu ja tüüp: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE.
-- Arvulised väärtused: salvestusvõimsus (storageCapacity), salvestusenergia (storageEnergy), tootmisvõimsus (productionCapacity) ja ülekandevõimsus (transmissionCapacity).
-- Ülekandevõrgu alajaam
-- Korteriühistu tunnus
-- Laadimispunkti tunnus
-- Mõõteandmete resolutsioon on energiatüübi kaupa fikseeritud rakenduse konfiguratsioonis ning mõõteandmete sõnumis resolutsiooni enam juhtida ei saa.
+- Kliendi lisamine ja muutmine on lepingust sõltumatu. Kui kliendi nime on viimase kahe aasta jooksul GAVP-s muudetud jääb kehtima Estfeed Datahubis olev nimi. Paraku ei ole meil võimalik kindlaks teha kumb nimi on õige.
+- Muutunud on mõõtepunkti tehnilised andmed, täpsemalt loe nende kohta [siit](05-mõõtepunktid.md).
 - Mõõteandmete edastamisel pole vaja enam arvutada ega edastada "pos" väärtust. Selle asemel on kasutusel perioodi alguse plus resolutsiooni kombinatsioon.
 - Lisandunud on eraldi piirimõõtepunkti (BORDER) ja piirimõõtepunkti lepingu (BORDER_GRID) definitsioonid
-- Lisandunud on võimalus edastada kliendi metaandmetena ühisarve võrguarve jaoks vajalikke arvelduse andmeid.
+- Lisandunud on võimalus edastada kliendi metaandmetena arvelduseks vajalikke andmeid.
 - Andmeladu genereerib GENERAL_SERVICE lepinguid automaatselt ja levitab seda infot võrguettevõtjale ja nimetatud müüjale.
 - API kasutamiseks vajalike tehniliste kasutajakontode toe loomine.
 - Mõõteandmete vastuvõtmise ja töötlemise protsess on muutunud asünkroonseks. Töötlemise tulemuse saab pärida teenusest `/meter-data/status`
-- Raporteid on võimalik alla laadida ka JSON formaadis
-- Ühel turuosalisel saab olla ka mitu EIC koodide vahemikku
+- Raporteid on võimalik alla laadida JSON formaadis, kuid mitte XML formaadis.
+- Ühel turuosalisel saab olla ka mitu EIC koodide vahemikku.
 - _Billing sequence_ asemel on nüüd kasutusel _reading time_. GO saab mõõteandmete edastamisel defineerida _reading time_ väärtuse ja OS/NS saavad selle väärtuse järgi mõõteandmeid otsida
+- Mõõteandmeid saab veebiliidesest korraga alla laadida vaid ühe mõõtepunkti kaupa.

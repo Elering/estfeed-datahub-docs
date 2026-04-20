@@ -21,9 +21,3 @@ In the absence of a web interface or in the event of its failure, users are adde
 Read more about roles in [Authentication and authorisation](03-authentication-and-authorisation.md).
 
 If there are any changes in the composition of the user’s authorised employees after the entry into the agreement (a new employee is added, an employee leaves, etc.), the user’s admin will make the corresponding changes regarding access rights immediately after the composition of the user’s authorised employees has changed.
-
-If the user would like the system operator to administer the rights of the user’s authorised employees when using the Datahub, the user will submit to the system operator a list of the employees authorised by the user in a digitally signed form together with the following information:
-
-| Role                | Personal identification code | First name | Last name | E-mail address |
-|---------------------|------------------------------|------------|-----------|----------------|
-| Authorised employee |                              |            |           |                |

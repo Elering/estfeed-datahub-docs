@@ -32,8 +32,8 @@ The new Datahub uses a more modern REST data exchange interface. As a consequenc
 | NotifySupplyAgreement        | `POST` and `PUT` `/api /{version}/agreement` where `agreementType = SUPPLY`             | [Agreements](06-agreements.md)                                                                       |
 |                              | `POST` `/api /{version}/agreement/delete`                                               |                                                                                                      |
 |                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = AGREEMENT`      | [Data distribution](30-data-distribution.md)                                                         |
-| EnergyReport                 | `POST` `/api/{version}/meter-data`                                                      | [Metering data](12-metering-data.md)                                                                 |
-|                              | `POST` `/api/{version}/meter-data/import`                                               |                                                                                                      |
+| EnergyReport                 | `POST` `/api/{version}/metering-data/natural-gas`                                       | [Metering data](12-metering-data.md)                                                                 |
+|                              | `POST` `/api/{version}/metering-data/natural-gas/import`                                |                                                                                                      |
 |                              | `POST` `/api /{version}/data-distribution/search` where `resourceType = METERING_DATA`  | [Data distribution](30-data-distribution.md)                                                         |
 | EnergyReportResult           | `POST` `/api /{version}/meter-data/status`                                              | [Metering data](12-metering-data.md)                                                                 |
 | NetworkBill                  | `POST` and `PUT` `/api/{version}/network-bill`                                          | [Network bill](13-network-bill.md)                                                                   |
@@ -72,26 +72,17 @@ Information about development and deployment deadlines of all API-s can be found
 
 ## Added functionality
 
-Compared to the previous Datahub, the new Datahub has the following new functionalities already developed or under development:
+Compared to the previous Datahub, the new Datahub has the following differences:
 
-- A new agreement type has been added: [Aggregation agreement](06.6-aggregation-agreement.md).
-- Adding and updating a customer is separated from agreement.
-- There is a new concept of a master metering point.
-- Location data now include ADS’s ADR_ID and comment.
-- A 15-min resolution has been added to reading resolutions.
-- There are new customer types: ENERGY_STORAGE_UNIT, CHARGING_POINT_OPERATOR.
-- The existence and type of production: SOLAR, WIND, HYDRO, BIOGAS, BIOMASS, NATURAL_GAS, OIL_SHALE, OTHER_RENEWABLE, OTHER_NON_RENEWABLE.
-- Numerical values: storage capacity (storageCapacity), storage energy (storageEnergy), production capacity (productionCapacity) and transmission capacity (transmissionCapacity).
-- Transmission grid substation
-- Apartment association ID
-- Charging point ID
-- The resolution of metering data is fixed by energy type in the application configuration and can no longer be controlled in metering data messages.
-- When transmitting metering data, it is no longer necessary to calculate or transmit the ‘pos’ value. Instead, a combination of period start time plus resolution is used.
-- Definitions of border metering point (BORDER) and border metering point agreement (BORDER_GRID) have been added.
-- Joint Invoice billing metadata can be added as Customer metadata.
-- Datahub now generates GENERAL_SERVICE agreements automatically and distributes this knowledge to grid operator and named supplier
-- Added support for technical users in the API authentication and authorization.
-- The process of receiving and processing metering data has become asynchronous. The processing result can be obtained from the `/meter-data/status` service.
-- Reports can be downloaded in JSON format
-- Market Participant can have more than one EIC range
-- Reading time replaces the previous billing sequence. GO can define the reading time of the Metering Data and OS/NS can search for Metering Data by that reading time
+- Adding and modifying a customer is independent of the contract. If the customer name has been changed in GAVP within the last two years, the name in Estfeed Datahub will remain valid. Unfortunately, it is not possible for us to determine which name is correct.  
+- The technical data of the metering point has changed; read more about them [here](05-metering-points.md).  
+- When submitting metering data, it is no longer necessary to calculate or submit the "pos" value. Instead, a combination of period start and resolution is used.  
+- Separate definitions have been added for a border metering point (BORDER) and a border metering point contract (BORDER_GRID).  
+- The ability has been added to submit billing-related data as customer metadata.  
+- The data warehouse automatically generates GENERAL_SERVICE contracts and distributes this information to the grid operator and the designated supplier.  
+- Support has been created for technical user accounts required to use the API.  
+- The process for receiving and processing metering data has changed to asynchronous. The processing result can be queried from the service `/meter-data/status`.  
+- Reports can be downloaded in JSON format, but not in XML format.  
+- A single market participant can have multiple EIC code ranges.  
+- Instead of _Billing sequence_, _reading time_ is now used. The GO can define the _reading time_ value when submitting metering data, and OS/NS can search for metering data based on this value.  
+- Metering data can be downloaded from the web interface only one metering point at a time.

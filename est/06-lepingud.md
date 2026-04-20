@@ -21,15 +21,15 @@
 
 Süsteem võimaldab lisada järgmisi lepinguid:
 
-| Leping                                         | Kood               |
-|------------------------------------------------|--------------------|
-| võrguleping                                    | GRID               |
-| piirimõõtepunkti võrguleping                   | BORDER_GRID        |
-| avatud tarne leping                            | SUPPLY             |
-| agregeerimisleping                             | AGGREGATION        |
-| portfellileping (siia kuulub ka bilansileping) | PORTFOLIO_SUPPLIER |
-| nimetatud tarnija leping                       | NAMED_SUPPLIER     |
-| ühisarve leping                                | JOINT_INVOICE      |
+| Leping                                         | Kood               |Turg         |
+|------------------------------------------------|--------------------|-------------|
+| võrguleping                                    | GRID               |Elekter, Gaas|
+| piirimõõtepunkti võrguleping                   | BORDER_GRID        |Elekter, Gaas|
+| avatud tarne leping                            | SUPPLY             |Elekter, Gaas|
+| agregeerimisleping                             | AGGREGATION        |Elekter      |
+| portfellileping (siia kuulub ka bilansileping) | PORTFOLIO_SUPPLIER |Elekter, Gaas|
+| nimetatud tarnija leping                       | NAMED_SUPPLIER     |Elekter, Gaas|
+| ühisarve leping                                | JOINT_INVOICE      |Elekter, Gaas|
 
 Erinevatel lepingutel on erinevad reeglid. Lisaks eksisteerivad lepingute omavahelised reeglid stiilis "avatud tarne lepingut ei saa lisada perioodi, kus puudub võrguleping".
 
@@ -79,27 +79,36 @@ Lepingute omavahelised sõltuvused ja reeglid:
 - (Piirmõõtepunkti) võrgulepingu, (piirmõõtepunkti) avatud tarne lepingu, agregeerimislepingu või üldteenuse lepingute kehtivusajad samade osapoolte vahel ja samas mõõtepunktis ei tohi kattuda
 - Avatud tarnija saab avatud tarne lepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk avatud tarnija on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Võrguettevõtja saab võrgulepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  võrguettevõtja on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
-- Agregaator saab agregeerimislepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  agregaator on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
+- Agregaator saab agregeerimislepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  agregaator on kellegi portfellis). Kehtivuse aega arvesse ei võeta (ainult elektriturg).
 - Avatud tarne lepingu sõlmimise aluseks on kehtiv võrguleping mõõtepunktis. Avatud tarne lepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
-- Agregeerimislepingu sõlmimise aluseks on kehtiv võrguleping võrgu ülemmõõtepunktis. Agregeerimislepingu kehtivus ei tohi kummastki otspunktist ületada ülemmõõtepunkti võrgulepingu kehtivust.
+- Agregeerimislepingu sõlmimise aluseks on kehtiv võrguleping võrgu ülemmõõtepunktis. Agregeerimislepingu kehtivus ei tohi kummastki otspunktist ületada ülemmõõtepunkti võrgulepingu kehtivust (ainult elektriturg).
 
 Muud reeglid:
 
 - Lepingu alguse ja lõpu aeg esitatakse kasutajaliideses päeva või kuu täpsusega:
-  - Kui lepingu liik lubab kehtivusaegu määrata kuu kaupa:
-    - leping hakkab kehtima valitud kuu esimesel päeval kell 00:00
-    - leping lõpeb valitud kuu viimasel päeva südaööl.
-  - Kui lepingu liik lubab kehtivusaeg määrata päeva kaupa:
-    - leping hakkab kehtima valitud päeval kell 00:00
-    - leping lõpeb valitud päeva südaööl.
+  - vaata allpool olev tabel: kasutajaliides — kuu täpsus
 - Lepingu alguse ja lõpu aeg esitatakse andmevahtusliideses kellaaja täpsusega:
-  - Lepingu alguse kellaaeg peab olema lepingu kehtivuse esimese päeva 00:00:00 Eesti aja järgi. Andmeladu tõlgendab esitatud kuupäeva sissearvatuna (*inclusive*). Näiteks, kui leping peaks algama 01.01.2024 algusest, siis peab sõnumis olema märgitud `2024-01-01T:00:00+02:00` või `2023-12-31T22:00:00Z`.
-  - Lepingu lõpu kellaaeg peab olema lepingu lõpule järgneva päeva 00:00:00 Eesti aja järgi. Andmelagu tõlgendab esitatud kuupäeva väljaarvatuna (*exclusive*). Näiteks kui leping peaks lõppema 30.04.2024 südaööl, siis peab sõnumis olema märgitud `2024-05-01T00:00:00+03:00` või `2024-04-30T21:00:00Z`, mis Andmelao loogika järgi tähendab, et leping kehtis 30.04.2024 23:59:59 lõpuni.
+  - vaata allpool olev tabel: kasutajaliides — päeva täpsus ja andmevahetusliides algus/lõpp
 - Lepingu lõpu kuupäev peab olema võrdne või hilisem alguskuupäevast (ühepäevasel lepingul on alguse ja lõpu kuupäevad samad, kuid kellaajad erinevad).
 - Kehtivat ega kehtivuse kaotanud lepingut kustutada (*delete*) ei ole lubatud. Kehtivat lepingut on võimalik sulgeda, uuendades lepingu lõppemise kuupäeva väärtust.
 - Kehtivuse kaotanud lepingut muuta ei ole lubatud.
 - Lepingus märgitud energia liik peab olema sama lepingus märgitud mõõtepunkti energia liigiga (juhul, kui lepingu tüüp neid andmeid ette näeb).
 - Lepingute puhul on lubatud muuta ainult operaatoripoolset lepingu ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
+
+Elektrituru ja gaasituru lepingite alguse ja lõpu erisused 
+
+| **Valdkond** | **Reegel / kirjeldus** | **Elektriturg (südaöö – südaöö)** | **Gaasiturg (gaasipäev 07:00 – 07:00)** |
+|--------------|-------------------------|------------------------------------|-------------------------------------------|
+| **Kasutajaliides — kuu täpsus** | Leping algab | Kuu 1. päev 00:00 | Kuu 1. päev 07:00 |
+| | Leping lõpeb | kuu viimase päeva südaööl | Järgnev kuu 1. päev 07:00 |
+| **Kasutajaliides — päeva täpsus** | Leping algab | Valitud päev 00:00 (näiteks: 01.01.2024 00:00) | Valitud päev 07:00 (näiteks: 01.01.2024 07:00)|
+| | Leping lõpeb | valitud päeva südaööl (näiteks: 30.04.2024 südaöö) | Järgnev päev 07:00 (näiteks: 01.05.2024 07:00) |
+| **Andmevahetusliides — algus** | Algusaeg EE aja järgi | 01.01.2024 00:00:00 | 01.01.2024 07:00:00 |
+| Sõnumis tuleb edastada | Alguse näide (talveaeg) | 2024-01-01T00:00:00+02:00 või 2023-12-31T22:00:00Z | 2024-01-01T07:00:00+02:00 või 2024-01-01T05:00:00Z |
+| **Andmevahetusliides — lõpp** | Lõppaeg EE aja järgi | 30.04.2024 südaööl | 01.05.2024 07:00:00 |
+| Sõnumis tuleb edastada | Lõpu näide (suveaeg) | 2024-05-01T00:00:00+03:00 või 2024-04-30T21:00:00Z | 2024-05-01T07:00:00+03:00 või 2024-05-01T04:00:00Z |
+| **Tulemuseks kehtib kuni** | Andmelao tõlgenduse järgi | 30.04.2024 23:59:59 | 01.05.2024 06:59:59 |
+
 
 ## Lepingute otsimine ja eksport
 

@@ -21,9 +21,3 @@ Veebiliidese puudumisel või selle häirete puhul lisab kasutajad Süsteemihaldu
 Loe täpsemalt rollide kohta dokumendist [Autentimine ja autoriseerimine](03-autentimine-ja-autoriseerimine.md)
 
 Pärast lepingu sõlmimist toimuvatest muudatustest Kasutaja volitatud töötajate koosseisus (uue töötaja lisandumine, töötaja lahkumine jms) viib Kasutaja Haldur vastavad muudatused ligipääsuõiguste osas sisse viivitamatult pärast Kasutaja volitatud isikute koosseisu muudatuste toimumist.
-
-Juhul kui Kasutaja soovib, et Süsteemihaldur haldaks Kasutaja volitatud töötajate õigusi Andmelao kasutamisel ise, siis teatab Kasutaja Süsteemihaldurile digitaalselt allkirjastatud vormis enda volitatud töötajate nimekirjas koos alljärgnevate andmetega:
-
-| Roll              | Isikukood | Eesnimi | Perekonnanimi | e-posti aadress |
-|-------------------|-----------|---------|---------------|-----------------|
-| Volitatud töötaja |           |         |               |                 |

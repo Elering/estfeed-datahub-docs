@@ -150,13 +150,15 @@ Kui defineeritud `marketParticipantContext` ei lähe kokku sõnumi ülejäänud 
 
 Rollid:
 
-| Roll                          | `marketParticipantIdentification` kood |
-|-------------------------------|----------------------------------------|
-| Avatud või nimetatud tarnija  | OPEN_SUPPLIER                          |
-| Võrguettevõtja                | GRID_OPERATOR                          |
-| Suletud jaotusvõrgu ettevõtja | CLOSED_DISTRIBUTION_NETWORK            |
-| Liinivaldaja                  | LINE_OPERATOR                          |
-| Laadimispunkti operaator      | CHARGING_POINT_OPERATOR                |
-| Agregaator                    | AGGREGATOR                             |
-| Tootja                        | PRODUCER_OPERATOR                      |
-| Muu energiateenuse osutaja    | ENERGY_SERVICE_PROVIDER                |
+| Roll                          | `marketParticipantIdentification` kood | Turg            |
+|-------------------------------|----------------------------------------|-----------------|
+| Avatud või nimetatud tarnija  | OPEN_SUPPLIER                          | Elekter, Gaas   |
+| Võrguettevõtja                | GRID_OPERATOR                          | Elekter, Gaas   |
+| Suletud jaotusvõrgu ettevõtja | CLOSED_DISTRIBUTION_NETWORK            | Elekter         |
+| Liinivaldaja                  | LINE_OPERATOR                          | Elekter         |
+| Laadimispunkti operaator      | CHARGING_POINT_OPERATOR                | Elekter         |
+| Agregaator                    | AGGREGATOR                             | Elekter         |
+| Tootja                        | PRODUCER_OPERATOR                      | Elekter, Gaas   |
+| Muu energiateenuse osutaja    | ENERGY_SERVICE_PROVIDER                | Elekter, Gaas   |
+| Salvestusjaama operaator      | STORAGE_OPERATOR                       | Gaas            |
+| Gaasitankla operaator         | GAS_STATION_OPERATOR                   | Gaas            |
