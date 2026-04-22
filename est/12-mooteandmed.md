@@ -104,6 +104,9 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 > **NB! Andmeladu edastab võrguettevõtjate poolt sisestatud mõõteandmed muutmata kujul. Andmeladu ei kontrolli mõõteandmete sisu**
 
 > [!WARNING]
+> Mõõteandmete saatmisel V2 API kaudu kehtib piirang perioodide arvule, mida saab ühe Exceli faili või API sõnumiga edastada. Korraga on võimalik saata kuni 35 040 perioodi mõõteandmeid. See tähendab, et kui saadetakse igapäevaselt ühe päeva andmeid, saab ühe Exceli faili või API sõnumiga edastada kuni 365 mõõtepunkti andmed. Pikema perioodi korral tuleb vastavalt vähendada mõõtepunktide arvu.
+
+> [!WARNING]
 > `meter-data/status` teenus ei väljasta kirjeid, mis on loodud rohkem kui 7 päeva tagasi.
 
 > [!NOTE]

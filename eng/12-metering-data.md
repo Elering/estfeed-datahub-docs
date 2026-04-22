@@ -105,6 +105,9 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 > **PLEASE NOTE! The Datahub transmits the metering data entered by the grid operators in unaltered form. The Datahub does not check the content of the metering data.**
 
 > [!WARNING]
+> When sending metering data via the V2 API, there is a limit on the number of periods that can be included in a single Excel file or API message. A maximum of 35,040 periods of metering data can be sent at once. This means that when sending data for one day at a time, a single Excel file or API message can contain data for up to 365 metering points. For longer periods, the number of metering points must be reduced accordingly.
+
+> [!WARNING]
 > `meter-data/status` API doesn't return records, that are created more than 7 days ago.
 
 > [!NOTE]
