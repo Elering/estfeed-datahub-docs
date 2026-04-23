@@ -95,7 +95,6 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
   - `PROCESSING` - töötlus ei ole veel lõppenud
   - `SUCCESSFUL` - töötlus lõppes vigadeta
   - `ERROR` - töötlus lõppes vigadega
-  - `PARTIALLY_SUCCESSFUL` - töötlus lõppes osaliselt vigadega (nt sõnumis olid mitme mõõtepunkti mõõteandmed ja ühe mõõtepunkti andmete lisamine õnnestus, aga teise oma mitte)
 - Kui sõnumi töötlemine õnnestub vigadeta, siis andmed lisatakse või muudetakse andmebaasis ning Andmeladu teeb mõõteandmete lisandumise või muutumise kättesaadavaks avatud tarnijatele läbi andmete levitamise teenuse. Loe täpsemalt peatükist [Andmete levitamine](30-andmete-levitamine.md).
 - Kui sõnumi töötlemisel tekivad vead, siis Andmeladu koostab vearaporti ja teeb selle kättesaadavaks mõõtepunkti haldurile teenuse `meter-data/status` vastuses.
 - Mõõtepunkti haldur loeb talle adresseeritud vearaportit ning lahendab selle vastavalt oma sisemisele äriloogikale.
@@ -257,7 +256,7 @@ Andmeladu ei valideeri, et gaasi mõõteandmetes iga 1 tunni või elektriandmete
   - out – võrgust väljuv energia (tarbimine).
 - Siseneva ja väljuva energia koguseid võib edastada ka eraldi sõnumitega.
 - Mõõteandmeid on lubatud korrigeerida tagasiulatuvalt kuni 12 kuud.
-- Mõõteandmeid on lubatud edastada tulevikku (periood on tulevikus). Hetkel on maksimaalne lubatud väärtus 45 päeva tulevikus. Iga mõõtetulemust valideeritaks eraldi. Kui ükski mõõtetulemus ei läbi validatsioone, vastab süsteem koodiga ERROR. Kui ainult mõned ei läbi, siis koodiga PARTIALLY_SUCCESSFUL. Mõlemal juhul on veakoodiks `period-start-too-far-in-future`.
+- Mõõteandmeid on lubatud edastada tulevikku (periood on tulevikus). Hetkel on maksimaalne lubatud väärtus 45 päeva tulevikus. Iga mõõtetulemust valideeritaks eraldi. Kui kasvõi üks mõõtetulemus ei läbi validatsioone, vastab süsteem koodiga ERROR, veakoodiks `period-start-too-far-in-future`.
 - Teenuses `import` tuleb kasutada sama templiiti, mida väljastab teenus `export` või `metering-data/electricity/template` / `metering-data/natural-gas/template`
 
 ## Mõõteandmete päringud

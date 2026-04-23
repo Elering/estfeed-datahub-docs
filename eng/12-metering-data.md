@@ -96,7 +96,6 @@ Relevant Datahub services have been set up to transmit metering data. The intend
   - `PROCESSING` - processing not finished
   - `SUCCESSFUL` - processing finished successfully
   - `ERROR` - processing finished with errors.
-  - `PARTIALLY_SUCCESSFUL` - processing finished partially successfully (for example, the message contained multiple metering points and processing of some metering point's data failed)
 - If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the data-distribution service. For more details, see [Data distribution](30-data-distribution.md).
 - If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
 - The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
@@ -258,7 +257,7 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
   - out – energy leaving the grid (consumption).
 - The amounts of incoming and outgoing energy can also be transmitted in separate messages.
 - It is permitted to correct metering data retroactively for up to 12 months.
-- The time period of the metering data is allowed to be in the future. The current limit is 45 days. Each measurement is validated separately. If all values are further in the future, then allowed, then system replies with ERROR. If only some, then system replies with PARTIALLY_SUCCESSFUL. In both cases the error code is `period-start-too-far-in-future`.
+- The time period of the metering data is allowed to be in the future. The current limit is 45 days. Each measurement is validated separately. If some values are further in the future, then allowed, then system replies with ERROR, the error code is `period-start-too-far-in-future`.
 - The `import` service requires the same template, that the service `export` or `metering-data/electricity/template` / `metering-data/natural-gas/template` returns.
 
 ## Metering data requests
