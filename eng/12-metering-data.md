@@ -32,7 +32,7 @@ Metering data is the predicted or measured active energy consumption data associ
 
 ###  Net measured metering data
 
-As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 04.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
 
 ### Examples of Net‑Metered Electricity Quantities
 

@@ -477,10 +477,8 @@ Mõõteandmete levitamise sõnumi struktuur on täpselt sama, nagu `POST /meter-
 ```
 
 ##### Neto mõõdetud mõõteandmed
-Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
 
-> [!WARNING]
-> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
 
 > [!WARNING]
 > Erinevate andmestruktuuride tõttu ei ole uue versiooniga saadetud mõõteandmeid võimalik pärida vana versiooni andmete levitamise teenusest. Seetõttu pole alates 20.07.2026 võimalik kasutada V1 lahendust võrguettevõtja poolt saadetud mõõteandmete pärimiseks ja vajalik on üleminek V2 versioonile.
@@ -598,10 +596,7 @@ Võrguteenuse arve levitamise sõnumi struktuur on täpselt sama, nagu `POST /ne
 ```
 
 ##### Neto mõõdetud mõõteandmed võrguarvel
-Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik alates 01.05.2026, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
-
-> [!WARNING]
-> Kuna tegu on alles arenduses oleva funktsionaalsusega ei ole uued API-d veel kirjeldatud Swaggeris.
+Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi kahesuunaliste mõõtepunktide kohta neto mõõdetud mõõteandmed. Andmed tuleb võrguettevõtjal ise arvutada lahutades tootmise kogusest tarbimine. Testimine on testkeskkonnas võimalik, testkeskkonna ligipääsu puudumisel tuleb sõlmida turuosalisel testkeskkonna kasutamise leping kirjutades datahub@elering.ee.
 
 > [!WARNING]
 > Erinevate andmestruktuuride tõttu ei ole saadetud sõnum saadaval mõlemast andmete levitamise versioonist (data distribution). V1 versioonis saadetud võrguarve on saadaval V1 andmete levitamise kaudu. V2 versioonis saadetud võrguarve on saadaval V2 andmete levitamise kaudu.

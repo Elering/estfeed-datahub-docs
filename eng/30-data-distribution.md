@@ -476,10 +476,8 @@ The structure of metering data distribution message is exactly the same as in `P
 ```
 
 ##### Net metering data
-As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 01.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
 
-> [!WARNING]
-> As this functionality is still under development, the new APIs are not yet described in Swagger.
 
 > [!WARNING]
 > Due to different data structures, metering data sent with the new version cannot be queried from the old version of the data distribution service. Therefore, starting from 20.07.2026, it will no longer be possible to use the V1 solution to retrieve metering data sent by the grid operator, and migration to version V2 is required.
@@ -598,10 +596,7 @@ The structure of network bill data distribution message is exactly the same as i
 
 
 ##### Net metering data on network bill
-As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible starting from 01.05.2026, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
-
-> [!WARNING]
-> As this functionality is still under development, the new APIs are not yet described in Swagger.
+As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
 
 > [!WARNING]
 > Due to different data structures, a sent message is not available from both versions of the data distribution service. A network bill sent in V1 is available via V1 data distribution. A network bill sent in V2 is available via V2 data distribution.
