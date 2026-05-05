@@ -24,9 +24,6 @@ Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi 
 > [!WARNING]
 > Erinevate andmestruktuuride tõttu ei ole saadetud sõnum saadaval mõlemast andmete levitamise versioonist (data distribution). V1 versioonis saadetud võrguarve on saadaval V1 andmete levitamise kaudu. V2 versioonis saadetud võrguarve on saadaval V2 andmete levitamise kaudu.
 
-> [!WARNING]
-> Päevaste ja öiste koguste eristamine võrguteenuse arvel on ka V2 API-s vabatahtlik, muudatus tehakse Swaggeris peatselt.
-
 ## Võrguteenuse arve edastamine ja pärimine
 
 Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:

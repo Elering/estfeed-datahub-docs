@@ -20,8 +20,9 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 > [!WARNING] 
 > The Datahub is not responsible for the quality of the energy amount data provided in the message.
 
-> [!WARNING]
-> Day and night quantities are optional also in V2 API, change will be made in Swagger soon.
+> [!WARNING] 
+> Due to different data structures network bill sent via V1 API is only available in V2 data distribution and vice versa.
+
 
 ## Transmitting and requesting a network bill
 
