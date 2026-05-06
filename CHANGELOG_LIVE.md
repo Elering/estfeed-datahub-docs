@@ -1,3 +1,9 @@
+## 2026-05-06
+
+|                                  Issue                                  | Type |  Priority |                            Title                           |
+|-------------------------------------------------------------------------|------|-----------|------------------------------------------------------------|
+|  [EDH-9288](https://github.com/Elering/estfeed-datahub-docs/issues/204) |  Bug |  Critical |  Metering data request with legalConsent = true is failing |
+
 ## 2026-04-01
 
 |                                  Issue                                  |  Type  |Priority|                        Title                       |
