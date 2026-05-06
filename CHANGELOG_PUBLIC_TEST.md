@@ -1,3 +1,9 @@
+## 2026-05-06
+
+| Issue                                                                  | Type |  Priority |                 Title                 |
+|------------------------------------------------------------------------|------|-----------|---------------------------------------|
+| [EDH-9288](https://github.com/Elering/estfeed-datahub-docs/issues/204) |  Bug |  Critical |  In UI legal person metering data can't be downloaded with legalConsent = true |
+
 ## 2026-03-31
 
 |                                  Issue                                  |  Type  |Priority|                        Title                       |
