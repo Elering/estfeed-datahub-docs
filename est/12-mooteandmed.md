@@ -116,7 +116,7 @@ Mõõteandmete edastamiseks on loodud vastavad Andmelao teenused. Ettenähtud ka
 ### Mõõteandmete vastuvõtmise juhtimine
 
 Vastuvõetud mõõteandmete töötlemine on 2 etapiline protsess:
-- mõõtetulemus võetakse vastu (200) ja pannakse töötlemise järjekorda;
+- mõõtetulemus võetakse vastu (202) ja pannakse töötlemise järjekorda;
 - mõõteandmete töötleja võtab järjekorrast mõõtetulemuse, märgib staatuse, salvestab andmebaasi ja uuendab staatuse.
 
 Kui mõõteandmete töötlmine toimub aeglasemalt kui uusi tulemusi vastu võetakse hakkab töötlemise järjekord kasvama.

@@ -28,7 +28,7 @@ Alates **01.08.2026** on võrguettevõtted kohustatud edastama Estfeed Datahubi 
 
 Võrguteenuse arve edastamiseks ja pärimiseks on loodud vastavad Andmelao teenused. Ettenähtud kasutamise protsess on järgmine:
 
-- Võrguettevõtja saadab uue või muutunud võrguteenuse arve sõnumi kasutades teenust `POST /api/v2/network-bills/bulk`.
+- Võrguettevõtja saadab uue või muutunud võrguteenuse arve sõnumi kasutades teenust `POST /api/v2/network-bills/`.
 - Andmeladu salvestab võrguteenuse arve andmebaasi
 - Avatud tarnija otsib uusi võrguarveid kasutades teenust `POST /api/v2/data-distributions/network-bill`, andmed on kättesaadavad 7 päeva.
 
@@ -40,7 +40,7 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
 
 | Sõnum                                     | Eesmärk                    |
 |-------------------------------------------|----------------------------|
-| `POST /api/v2/network-bills/bulk`         | Võrguteenuse arve lisamine |
+| `POST /api/v2/network-bills/`         | Võrguteenuse arve lisamine |
 
 
 
@@ -53,7 +53,3 @@ Võrguteenuse arve andmete muutmiseks, tuleb saata uus `network-bill` sõnum par
   - Maksimaalne võrguarve koostamise periood on üks kuu.
   - Perioodi alguse ja lõpu kuu väärtus peab olema võrdne (juhul, kui avatud tarnija ei vahetu kuu vahetusel, siis võrguettevõtja peab edastama 2 eraldi võrguteenuse arvet).
 - Juhul kui turuosaline kasutab üldteenust, on võrguteenuste arve edastamine Andmelattu vabatahtlik.
-- Võrguarvete otsimise reeglid:
-  - võrguettevõtja (GO) ja suletud jaotusvõrgu ettevõtja (CDN) saavad otsida ainult neid võrguarveid, mida nad ise lisasid
-  - avatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise avatud tarne lepinguga, kus avatud tarnija on teenusepakkuja.
-  - nimetatud tarnija saab otsida neid võrguarveid, kus `periodStart` ja `periodEnd` on kaetud sellise üldteenuse lepinguga, kus nimetatud tarnija on teenusepakkuja.

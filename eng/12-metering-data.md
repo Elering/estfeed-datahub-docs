@@ -117,7 +117,7 @@ Relevant Datahub services have been set up to transmit metering data. The intend
 ### Throttling of metering data input
 
 Processing of received meteringdata is a 2-step process:
-- the metering result is received (200) and placed in the processing queue;
+- the metering result is received (202) and placed in the processing queue;
 - the metering data processor takes the metering results from the queue, writes the status, saves metering data to the database and updates the status.
 
 If the measurement data processing is slower than new results are received, the processing queue starts to grow.

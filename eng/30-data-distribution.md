@@ -481,6 +481,7 @@ As of **01.08.2026** grid operators are required to set net measured metering da
 
 > [!WARNING]
 > Due to different data structures, metering data sent with the new version cannot be queried from the old version of the data distribution service. Therefore, starting from 20.07.2026, it will no longer be possible to use the V1 solution to retrieve metering data sent by the grid operator, and migration to version V2 is required.
+Since other market roles, such as line operators and aggregators, can continue using the V1 version for six months after the new version is introduced, the V1 data distribution service must continue to be used to retrieve their metering data.
 
 The new APIs use V2 headers.
 
