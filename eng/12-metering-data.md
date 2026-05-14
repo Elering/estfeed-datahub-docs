@@ -237,11 +237,15 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 |---------------------------------------------|----------------------------------------------------------------------|---------|
 | `POST /api/{version}/metering-data/electricity` | Adding metering data | Electricity |
 | `POST /api/{version}/metering-data/natural-gas` | Adding metering data | Gas |
+| `GET /api/{version}/metering-data/electricity`| Metering data search | Electricity |
+| `GET /api/{version}/metering-data/natural-gas`| Metering data search | Gas|
 | `GET /api/{version}/metering-data/electricity/template` | Generating and downloading a template for bulk upload of metering data | Electricity |
 | `GET /api/{version}/metering-data/natural-gas/template` | Generating and downloading a template for bulk upload of metering data | Gas |
 | `POST /api/{version}/meter-data/status`     | Querying the processing status of a metering data message            | Electricity, Gas |
 | `POST /api/{version}/metering-data/electricity/import` | Bulk upload of metering data using a template | Electricity |
 | `POST /api/{version}/metering-data/natural-gas/import` | Bulk upload of metering data using a template | Gas |
+| `POST /api/{version}/meter-data` | Adding metering data for grid operators and closed distribution grid operators, valid until 20 July 2026 | Electricity |
+| `POST /api/{version}/meter-data/search` | This version cannot be used to search net-metered electricity quantities from 01 August 2026 | Electricity |
 
 
 #### Message rules

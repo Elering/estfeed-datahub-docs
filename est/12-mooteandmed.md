@@ -237,11 +237,15 @@ Andmeladu ei valideeri, et gaasi mõõteandmetes iga 1 tunni või elektriandmete
 |-------------------------------------------|----------------------------------------------------------------------|---------|
 | `POST /api/{version}/metering-data/electricity`| Mõõteandmete lisamine | Elekter |
 | `POST /api/{version}/metering-data/natural-gas`| Mõõteandmete lisamine  | Gaas|
+| `GET /api/{version}/metering-data/electricity`| Mõõteandmete otsimine | Elekter |
+| `GET /api/{version}/metering-data/natural-gas`| Mõõteandmete otsimine  | Gaas|
 | `GET /api/{version}/metering-data/electricity/template`| Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine | Elekter |
 | `GET /api/{version}/metering-data/natural-gas/template`| Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine | Gaas |
 | `POST /api/{version}/meter-data/status`   | Mõõteandmete sõnumi töötlemise staatuse päring                       | Elekter, Gaas |
 | `POST /api/{version}/metering-data/electricity/import`| Mõõteandmete masslaadimine templiidi abil  | Elekter |
 | `POST /api/{version}/metering-data/natural-gas/import` | Mõõteandmete masslaadimine templiidi abil  | Gaas |  
+| `POST /api/{version}/meter-data` | Mõõteandmete lisamine võrguettevõtjatele ja suletud jaotusvõrgu ettevõtjatele kasutatav kuni 20.07.2026| Elekter |
+| `POST /api/{version}/meter-data/search` | Seda versiooni ei saa kasutada netomõõdetud elektrienergia koguste otsimiseks alates 01. augustist 2026 | Elekter |
 
 
 #### Sõnumite reeglid
