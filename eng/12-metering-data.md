@@ -241,7 +241,8 @@ The Datahub does not check whether every one hour or 15 minute interval is fille
 | `GET /api/V2/metering-data/natural-gas`| Metering data search | Gas|
 | `GET /api/V2/metering-data/electricity/template` | Generating and downloading a template for bulk upload of metering data | Electricity |
 | `GET /api/V2/metering-data/natural-gas/template` | Generating and downloading a template for bulk upload of metering data | Gas |
-| `POST /api/V1/meter-data/status`     | Querying the processing status of a metering data message            | Electricity, Gas |
+| `POST /api/V1/meter-data/status`     | Querying the processing status of a metering data message            | Electricity |
+| `GET /api/V2/metering-data/status` | Querying the processing status of a metering data message | Electricity, Gas |
 | `POST /api/V2/metering-data/electricity/import` | Bulk upload of metering data using a template | Electricity |
 | `POST /api/V2/metering-data/natural-gas/import` | Bulk upload of metering data using a template | Gas |
 | `POST /api/V1/meter-data` | Adding metering data for grid operators and closed distribution grid operators, valid until 20 July 2026 | Electricity |

@@ -241,7 +241,8 @@ Andmeladu ei valideeri, et gaasi mõõteandmetes iga 1 tunni või elektriandmete
 | `GET /api/V2/metering-data/natural-gas`| Mõõteandmete otsimine  | Gaas|
 | `GET /api/V2/metering-data/electricity/template`| Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine | Elekter |
 | `GET /api/V2/metering-data/natural-gas/template`| Mõõteandmete masslaadimine templiidi genereerimine ja alla laadimine | Gaas |
-| `POST /api/V1/meter-data/status`   | Mõõteandmete sõnumi töötlemise staatuse päring                       | Elekter, Gaas |
+| `GET /api/V2/metering-data/status` | Mõõteandmete sõnumi töötlemise staatuse päring | Elekter, Gaas |
+| `POST /api/V1/meter-data/status`   | Mõõteandmete sõnumi töötlemise staatuse päring  | Elekter |
 | `POST /api/V2/metering-data/electricity/import`| Mõõteandmete masslaadimine templiidi abil  | Elekter |
 | `POST /api/V2/metering-data/natural-gas/import` | Mõõteandmete masslaadimine templiidi abil  | Gaas |  
 | `POST /api/V1/meter-data` | Mõõteandmete lisamine võrguettevõtjatele ja suletud jaotusvõrgu ettevõtjatele kasutatav kuni 20.07.2026| Elekter |
