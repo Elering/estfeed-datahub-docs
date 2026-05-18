@@ -311,7 +311,7 @@ Since both time values are available in the Datahub, the Datahub allows to searc
 
 Metering data can be requested by navigating to "Metering data" page. There metering point EIC code and search period start need to be defined. If needed the end date can be added as well. 
 
-![Searching metering data](../images/opp-ui/metering-data/metering-data-search.png)
+![Searching metering data](../images/opp-ui/metering-data/metering-data-search2.png)
 
 In order to download metering data to Excel file first "Search" button has to be clicked. After that the "Download" button will be active.
 
