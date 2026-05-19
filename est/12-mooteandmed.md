@@ -134,17 +134,17 @@ Lahendus põhineb spetsifikatsioonidel:
 
 Mõõteandmete edastamiseks veebiliidese kaudu tuleb navigeerida "Metering data" lehele.
 
-Mõõteandmete mugavamaks edastamiseks on võimalik alla laadida template. Template koostamiseks tuleks valida mõõteandmete resolutsioon ning ajavahemik, selle põhjal koostatakse eeltäidetud template. Tähelepanu tuleks pöörata valitud ajavahemikule - valitud kellaajad peavad vastama mõõteandmete resolutsioonile.
+Mõõteandmete mugavamaks edastamiseks on võimalik alla laadida template. Template koostamiseks tuleks valida mõõteandmete ajavahemik, selle põhjal koostatakse eeltäidetud template.
 
-![Mõõteandmete template genereerimine](../images/opp-ui/metering-data/metering-data-template1.png)
+![Mõõteandmete template genereerimine](../images/opp-ui/metering-data/metering-data-template3.png)
 
-![Template seadistamine](../images/opp-ui/metering-data/metering-data-template2.png)
+![Template seadistamine](../images/opp-ui/metering-data/metering-data-template4.png)
 
 Exceli täitmise juhendi leiab siit: [Mõõteandmete edastamine Exceli teel](#mõõteandmete-edastamine-exceli-teel)
 
 Mõõteandmete importimiseks tuleks vajutada "Metering data" lehel nuppu "Import". Seejärel on võimalik võimalik lisada mõõteandmete fail. 
 
-![Mõõteandmete edastamine](../images/opp-ui/metering-data/metering-data-import.png)
+![Mõõteandmete edastamine](../images/opp-ui/metering-data/metering-data-import2.png)
 
 Kui faili on juhtunud mõni viga annab süsteem sellest teada.
 1. Mõõtepunktide andmed võivad olla lisatud ka mitmele MS Excel faili lehele, seetõttu annab süsteem kasutajatele teada, millisel lehel probleem on.
@@ -152,7 +152,7 @@ Kui faili on juhtunud mõni viga annab süsteem sellest teada.
 3. Probleemi kirjeldus aitab mõista probleemi sisu.
 4. Kui probleem on leitud ja fail parandatud peaks vajutama "Cancel" ning importimise protsessi kordama.
 
-![Error mõõteandmete edastamisel](../images/opp-ui/metering-data/metering-data-error.png)
+![Error mõõteandmete edastamisel](../images/opp-ui/metering-data/metering-data-error2.png)
 
 ### Mõõteandmete edastamine Exceli teel
 
@@ -310,7 +310,7 @@ Kuna mõlemad ajaväärtused on Andmelao süsteemis olemas, siis võimaldab Andm
 
 Mõõteandmeid saab otsida navigeerides "Metering data" lehele. Selleks tuleb sisestada otsitava mõõtepunkti EIC kood ning otsinguperioodi algkuupäev. Soovi korral võib määrata ka lõppkuupäeva.
 
-![Mõõteandmete otsimine](../images/opp-ui/metering-data/metering-data-search.png)
+![Mõõteandmete otsimine](../images/opp-ui/metering-data/metering-data-search3.png)
 
 Mõõteandmete Excelisse laadimiseks on vaja alustuseks vajutada "Otsi" nuppu, seejärel muutub "Laadi alla" nupp aktiivseks.
 

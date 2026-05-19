@@ -134,15 +134,15 @@ The solution is based on the specifications:
 
 In order to transmit data via the web interface user will need to navigate to "Metering data" page.
 
-For easier metering data transmitting it is possible to download the template. To generate the template the resolution and time range needs to be selected, based on it the prefilled template is generated. It is important to choose the time range correctly - it needs to fit the resolution.
+For easier metering data transmitting it is possible to download the template. To generate the template the time range needs to be selected, based on it the prefilled template is generated.
 
-![Generating the template](../images/opp-ui/metering-data/metering-data-template1.png)
+![Generating the template](../images/opp-ui/metering-data/metering-data-template3.png)
 
-![Filling in the template](../images/opp-ui/metering-data/metering-data-template2.png)
+![Filling in the template](../images/opp-ui/metering-data/metering-data-template4.png)
 
 To import metering data "Import" button needs to be clicked on the "Metering data" page. After that it is possible to add the metering data file. Guide how to fill the Excel file can be found here: [Transmitting metering data via Excel](#transmitting-metering-data-via-excel).
 
-![Metering data import](../images/opp-ui/metering-data/metering-data-import.png)
+![Metering data import](../images/opp-ui/metering-data/metering-data-import2.png)
 
 In case there is a mistake in the file the system will notify the user:
 1. Metering data can be added to several MS Excel file sheets. The system will tell the user on which sheet the problem is located.
@@ -150,7 +150,7 @@ In case there is a mistake in the file the system will notify the user:
 3. Error description helps to understand the issue.
 4. After the problem is found and fixed "Cancel" should be clicked and import process should be repeated.
 
-![Import error](../images/opp-ui/metering-data/metering-data-error.png)
+![Import error](../images/opp-ui/metering-data/metering-data-error2.png)
 
 ### Transmitting metering data via Excel
 
@@ -311,7 +311,7 @@ Since both time values are available in the Datahub, the Datahub allows to searc
 
 Metering data can be requested by navigating to "Metering data" page. There metering point EIC code and search period start need to be defined. If needed the end date can be added as well. 
 
-![Searching metering data](../images/opp-ui/metering-data/metering-data-search2.png)
+![Searching metering data](../images/opp-ui/metering-data/metering-data-search3.png)
 
 In order to download metering data to Excel file first "Search" button has to be clicked. After that the "Download" button will be active.
 
