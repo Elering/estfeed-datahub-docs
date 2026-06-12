@@ -1,4 +1,4 @@
-﻿# Metering point
+# Metering point
 
 ## Table of contents
 
@@ -59,7 +59,7 @@ The data of metering point is the same in all interfaces. The data of a metering
 |----------------------|-------------------------------------|--------------------|------------|-----------------------------------------------------------------|
 | meterEic             | Metering Point EIC                  | 16 digits EIC code | yes        | Must be valid EIC code and inside the range of issued EIC range |
 | meteringType         | Metering Type                       |                    | yes        | One of: REMOTE_READING, VIRTUAL, NON_REMOTE_READING             |
-| meteringPointType    | Metering Point Type                 |                    | yes        | One of: REGULAR, INTERNAL, BORDER, AGGREGATION                  |
+| meteringPointType    | Metering Point Type                 |                    | yes        | One of: REGULAR, INTERNAL (Electricity only), BORDER, AGGREGATION (Electricity only)                 |
 
 - Specific data for electricity and gas metering points:
 
