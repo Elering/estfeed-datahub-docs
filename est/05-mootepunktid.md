@@ -59,7 +59,7 @@ Mõõtepunktide andmed on samalaadsed nii andmevahetuse teenustes kui ka veebili
 |-------------------|----------------------------------------|----------------------------------|--------------|-----------------------------------------------------------------------------------------------------|
 | meterEic          | Metering Point EIC                     | mõõtepunkti 16 kohaline EIC kood | jah          | Peab olema valiidne EIC kood ja mahtuma eraldatud EIC koodi vahemikku                               |
 | meteringType      | Metering Type                          | mõõtmise viis                    | jah          | Üks neist: REMOTE_READING (kaugloetav), VIRTUAL (virtuaalne), NON_REMOTE_READING (mitte kaugloetav) |
-| meteringPointType | Metering Point Type                    | mõõtepunkti tüüp                 | jah          | Üks neist: REGULAR (tavaline), INTERNAL (sisemine), BORDER(piiri), AGGREGATION (agregeerimise)      |
+| meteringPointType | Metering Point Type                    | mõõtepunkti tüüp                 | jah          | Üks neist: REGULAR (tavaline), INTERNAL (sisemine)(ainult elekter), BORDER(piiri), AGGREGATION (agregeerimise) (ainult elekter)      |
 
 - Elektri ja gaasi mõõtepunktide ühised metaandmed:
 
