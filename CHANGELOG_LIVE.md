@@ -1,3 +1,9 @@
+## 2026-06-15
+
+|                                  Issue                                  | Type |Priority|                          Title                          |
+|-------------------------------------------------------------------------|------|--------|---------------------------------------------------------|
+|  [EDH-8302](https://github.com/Elering/estfeed-datahub-docs/issues/202) |  Bug |  High  |  Agreement coordination search UI shows the wrong dates |
+
 ## 2026-05-06
 
 |                                  Issue                                  | Type |  Priority |                            Title                           |
