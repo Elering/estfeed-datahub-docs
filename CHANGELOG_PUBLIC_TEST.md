@@ -1,3 +1,9 @@
+## 2026-06-25
+
+|                                   Issue                                  | Type | Priority |                                             Title                                             |
+|--------------------------------------------------------------------------|------|----------|-----------------------------------------------------------------------------------------------|
+|  [EDH-10005](https://github.com/Elering/estfeed-datahub-docs/issues/205) |  Bug |  Highest |  V2 DD is missing rTime when rTime was not included in the metering data request, ELECTRICITY |
+
 ## 2026-06-12
 
 |                                  Issue                                  | Type |Priority|                          Title                          |
