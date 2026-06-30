@@ -89,7 +89,7 @@ Each API version goes through the following stages:
 | POST   | /api/v1/meter-data                           | v1       | active | 22.11.2024       | 20.07.2026                | 31.01.2027                | Starting from 20.07 can't be used by Grid Operators and Closed Distribution Networks. 
 | POST   | /api/v2/metering-data/electricity                           | v2      | upcoming | 20.07.2026       | -               | -                 |                                                                   |
 | POST   | /api/v1/meter-data/status                    | v1       | active | 22.11.2024       | -                | -                 |                                                                       |
-| GET | /api/V2/metering-data/status | V2 | upcoming | 01.08.2026 | - | - | From 17 November 2026, gas metering data message status can only be retrieved from this API |
+| GET | /api/V2/metering-data/status | V2 | active | 30.06.2026 | - | - | From 17 November 2026, gas metering data message status can only be retrieved from this API |
 | POST   | /api/v1/meter-data/search                    | v1       | deprecated | 22.11.2024       | 26.06.2026                | 31.01.2027                 | Does not return net measured quantities.
 | GET   | /api/v2/metering-data/electricity                    | v2       | active | 26.06.2026      | -                | -                 |                                                                         |
 | POST | /api/V2/metering-data/natural-gas | V2 | upcoming | 17.11.2026 | - | - | |

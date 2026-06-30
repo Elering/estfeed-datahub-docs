@@ -91,7 +91,7 @@ Iga API versioon läbib järgmised etapid:
 | POST | /api/V2/metering-data/natural-gas | V2 | tulemas | 17.11.2026 | - | - | |
 | GET | /api/V2/metering-data/natural-gas | V2 | tulemas | 17.11.2026 | - | - | |
 | POST   | /api/v1/meter-data/status                    | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
-| GET | /api/V2/metering-data/status | V2 | tulemas | 01.08.2026 | - | - | alates 17.11.2026 gaasi mõõteandmete staatust saab ainult sellest API-st pärida |
+| GET | /api/V2/metering-data/status | V2 | aktiivne | 30.06.2026 | - | - | alates 17.11.2026 gaasi mõõteandmete staatust saab ainult sellest API-st pärida |
 | POST   | /api/v1/meter-data/search                    | v1       | aegunud | 22.11.2024       | 26.06.2026               | 31.01.2027                 | Seda versiooni ei saa kasutada neto mõõdetud andmete pärimiseks. 
 | GET   | /api/v2/metering-data/electricity                    | v2       | tulemas | 20.07.2026       | -                | -                 |                                                                         |
 | POST   | /api/v1/meter-data/import                    | v1       | aktiivne | 22.11.2024       | 20.07.2026                | 20.07.2026                 |Veebiliides hakkab kasutama v2 versiooni alates 20.07.2026.                                                                     |
