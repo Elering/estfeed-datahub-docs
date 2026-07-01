@@ -90,7 +90,7 @@ Iga API versioon läbib järgmised etapid:
 | POST   | /api/v2/metering-data/electricity                           | v2      | aktiivne | 26.06.2026      | -               | -                 |                                                                   |
 | POST | /api/V2/metering-data/natural-gas | V2 | tulemas | 17.11.2026 | - | - | |
 | GET | /api/V2/metering-data/natural-gas | V2 | tulemas | 17.11.2026 | - | - | |
-| POST   | /api/v1/meter-data/status                    | v1       | aktiivne | 22.11.2024       | -                | -                 |                                                                       |
+| POST   | /api/v1/meter-data/status                    | v1       | aegunud | 22.11.2024       | 30.06.2026 | 31.01.2027 | Palume võtta kasutusele V2 versioon. Alates 17.11.2026 gaasi mõõteandmete staatust saab ainult V2 API-st pärida                                                   |
 | GET | /api/V2/metering-data/status | V2 | aktiivne | 30.06.2026 | - | - | alates 17.11.2026 gaasi mõõteandmete staatust saab ainult sellest API-st pärida |
 | POST   | /api/v1/meter-data/search                    | v1       | aegunud | 22.11.2024       | 26.06.2026               | 31.01.2027                 | Seda versiooni ei saa kasutada neto mõõdetud andmete pärimiseks. 
 | GET   | /api/v2/metering-data/electricity                    | v2       | tulemas | 20.07.2026       | -                | -                 |                                                                         |
