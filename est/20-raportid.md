@@ -165,10 +165,14 @@ Veergude kirjeldus:
   - Bilansiperiood – bilansiperioodi algust tähistav aeg (kuupäev + kellaaeg) (DateTime)
   - Võrku sisenenud kogus lõppkliendilt, kWh –võrku sisenenud kogus Pin (kõik MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (inQuantityPortfolio)
   - Võrgust väljunud kogus lõppkliendile, kWh – võrguettevõtja võrgust väljunud kogus Pout (kõik MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (outQuantityPortfolio)
+  - Võrku sisenenud netokogus lõppklienidilt, kWh - arvutatakse võrku siseneva ja võrgust väljuva energia positiivse vahena (Pin – Pout) (netInQuantityPortfolio) (ainult elektriturg)
+  - Võrgust väljunud netokogus lõppkliendile, kWh - arvutatakse võrgust väljuva energia ja võrku siseneva energia positiivse vahena (Pout – Pin) (netOutQuantityPortfolio) (ainult elektriturg)
   - Võrku sisenenud kogus lõppkliendilt, M3 - (inQuantityPortfolioM3) (ainult gaasiturg)
   - Võrgust väljunud kogus lõppkliendile, M3 - (outQuantityPortfolioM3) (ainult gaasiturg)
   - Isoleeritud võrku sisenenud kogus lõppkliendilt, kWh –isoleeritud võrku sisenenud kogus Pin (kõik isoleeritud MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (inQuantityIsolated) (ainult elektriturg)
   - Isoleeritud võrgust väljunud kogus lõppkliendile, kWh – isoleeritud võrgust väljunud kogus Pout (kõik isoleeritud MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (outQuantityIsolated) (ainult elektriturg)
+  - Isoleeritud võrku sisenenud netokogus lõppkliendilt, kWh - arvutatakse isoleeritud võrku siseneva ja võrgust väljuva energia positiivse vahena (Pin – Pout). Kui tulemus on negatiivne, esitatakse väärtusena 0 (netInQuantityIsolated) (ainult elektriturg)
+  - Isoleeritud võrgust väljunud netokogus lõppkliendile, kWh - arvutatakse isoleeritud võrgust väljuva energia ja võrku siseneva energia positiivse vahena (Pout – Pin). Kui tulemus on negatiivne, esitatakse väärtusena 0 (netOutQuantityIsolated) (ainult elektriturg)
   - Mõõtepunktide arv, tk (meteringPointsTotal)
 
 ### Avatud tarnija koondraport

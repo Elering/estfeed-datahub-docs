@@ -165,10 +165,14 @@ Column descriptions:
   - Balance period – time (date + time) marking the beginning of the balance period (DateTime)
   - Amounts entering the grid from the end customer, kWh – Pin amount entering the grid (all metering points that have a valid grid agreement and are not a GO-GO border point) (inQuantityPortfolio)
   - Amounts leaving the grid to the end customer, kWh – Pout amount leaving the grid of the grid operator (all metering points that have a valid grid agreement and are not a GO-GO border point) (outQuantityPortfolio)
+  - Net amounts entering the grid from end customers, kWh – Calculated as the positive difference between energy entering and leaving the grid (Pin – Pout). If the result is negative, the value is reported as 0 (netInQuantityPortfolio) (electricity market only)
+  - Net amounts leaving the grid to end customers, kWh – Calculated as the positive difference between energy leaving and entering the grid (Pout – Pin). If the result is negative, the value is reported as 0. (netOutQuantityPortfolio) (electricity market only)
   - Amounts entering the grid from the end customer, m³ (inQuantityPortfolioM3) (gas market only)
   - Amounts leaving the grid to the end customer, m³ (outQuantityPortfolioM3) (gas market only)
-  - Amounts entering an isolated grid from the end customer, kWh – Pin amount entering the isolated grid (all isolated metering points that have a valid grid agreement and are not a GO-GO border point) (inQuantityIsolated) (electricity market only)
-  - Amounts leaving an isolated grid to the end customer, kWh – Pout amount leaving the isolated grid (all isolated metering points that have a valid grid agreement and are not a GO-GO border point) (outQuantityIsolated) (electricity market only)
+  - Amounts entering the isolated grid from the end customer, kWh – Pin amount entering the isolated grid (all isolated metering points that have a valid grid agreement and are not a GO-GO border point) (inQuantityIsolated) (electricity market only)
+  - Amounts leaving the isolated grid to the end customer, kWh – Pout amount leaving the isolated grid (all isolated metering points that have a valid grid agreement and are not a GO-GO border point) (outQuantityIsolated) (electricity market only)
+  - Net amounts entering the isolated grid from end customers, kWh – Calculated as the positive difference between energy entering and leaving the isolated grid (Pin – Pout). If the result is negative, the value is reported as 0. (netInQuantityIsolated) (electricity market only)
+  - Net amounts leaving the isolated grid to end customers, kWh – Calculated as the positive difference between energy leaving and entering the isolated grid (Pout – Pin). If the result is negative, the value is reported as 0. (netOutQuantityIsolated) (electricity market only)
   - Number of metering points, pcs (meteringPointsTotal)
 
 ### Open supplier summary report
