@@ -252,6 +252,10 @@ In general, all authorised users can request metering point data using the `sear
 
 ##### `meter/search/customer` rules
 
+
+> [!NOTE]
+> The `POST /api/{version}/meter/search/customer` service can only be used by an Open Supplier or Aggregator. In addition, the requesting party must have either Administrator rights or the right to view customer metering points (VIEW_CUSTOMER_METERING_POINT).
+
 - The Datahub returns all data of the Metering Point if:
   - requester has the customer authorization, given by the Customer via the Self Service Portal
   - requester is the open/named supplier and has currently active (or had in the last 12 months) open supply or general service agreement with the Metering Point

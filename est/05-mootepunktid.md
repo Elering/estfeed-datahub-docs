@@ -251,6 +251,9 @@ V2 versiooni lisandumisel toimusid järgmised muudatused:
 
 ##### `meter/search/customer` reeglid
 
+> [!NOTE]
+> Teenust `POST /api/{version}/meter/search/customer` saab kasutada vaid avatud tarnija või agregaatori rollis ja andmete pärijal peab selleks olema administraatori või kliendi mõõtepunktide vaatamise õigus (VIEW_CUSTOMER_METERING_POINT).
+
 - Andmeladu väljastab kõik mõõtepunkti andmed juhul kui:
   - andmete pärijal on Kliendiportaali kaudu väljastatud ligipääsuõigus
   - andmete pärija on avatud või nimetatud tarnija, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) avatud või nimetatud tarne leping antud mõõtepunktis
