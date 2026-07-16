@@ -1,328 +1,431 @@
 ﻿# Metering data
 
-## Table of contents
 
-<!-- TOC -->
-* [Metering data](#metering-data)
-  * [Table of contents](#table-of-contents)
-  * [Introduction](#introduction)
-    * [Net measured metering data](#net-measured-metering-data)
-    * [Examples of Net‑Metered Electricity Quantities](#examples-of-net-metered-electricity-quantities)
-    * [Changes for web interface user](#changes-for-web-interface-user)
-    * [Changes for API user](#changes-for-api-user)
+## Table of contents
+* [Introduction](#introduction)
+* [General principles of metering data](#general-principles-of-metering-data)
+  * [Metering data directions](#metering-data-directions)
+  * [Net measured metering data](#net-measured-metering-data)
+  * [Metering data resolution](#metering-data-resolution)
   * [Transmitting metering data](#transmitting-metering-data)
-    * [Throttling of metering data input](#throttling-of-metering-data-input)
-    * [Transmitting metering data via the web interface](#transmitting-metering-data-via-the-web-interface)
-    * [Transmitting metering data via Excel](#transmitting-metering-data-via-excel)
-      * [Possible errors when filling out Excel](#possible-errors-when-filling-out-excel)
-    * [API messages](#api-messages)
-      * [Messages](#messages)
-      * [Message rules](#message-rules)
-  * [Metering data requests](#metering-data-requests)
-    * [legalConsent](#legalconsent)
-    * [Observation time type](#observation-time-type)
-    * [Requesting metering data via the web interface](#requesting-metering-data-via-the-web-interface)
-    * [API messages](#api-messages)
-      * [Messages](#messages-1)
-<!-- TOC -->
+  * [Legal bases for access to metering data](#legal-bases-for-access-to-metering-data)
+  * [External consent](#external-consent)
+  * [Time type](#time-type)
+* [Transmitting metering data via API](#transmitting-metering-data-via-api)
+  * [Message rules](#message-rules)
+  * [API abbreviations](#api-abbreviations)
+  * [Throttling of metering data input](#throttling-of-metering-data-input)
+* [Requesting metering data via API](#requesting-metering-data-via-api)
+  * [Purpose of the request](#purpose-of-the-request)
+* [Transmitting metering data via the web interface](#transmitting-metering-data-via-the-web-interface)
+  * [Navigating to the metering data page](#navigating-to-the-metering-data-page)
+  * [Generating the metering data Excel template](#generating-the-metering-data-excel-template)
+  * [Transmitting metering data with an Excel file](#transmitting-metering-data-with-an-excel-file)
+    * [Excel column descriptions](#excel-column-descriptions)
+    * [The following rules apply when filling in net quantities](#the-following-rules-apply-when-filling-in-net-quantities)
+    * [Possible errors when filling in Excel](#possible-errors-when-filling-in-excel)
+  * [Importing the Excel file into Estfeed Datahub](#importing-the-excel-file-into-estfeed-datahub)
+* [Metering data requests via the web interface](#metering-data-requests-via-the-web-interface)
+  
 
 ## Introduction
 
-Metering data is the predicted or measured active energy consumption data associated with a specific metering point over a given period of time. Metering data is the basis for billing and is provided by metering point operators and used by other market participants (mainly open suppliers).
+Metering data is measured or forecasted active energy quantities related to a specific metering point for a defined time period. Metering data is the basis for billing and market processes.
 
-###  Net measured metering data
+Metering data is submitted by metering point managers, such as grid operators, line operators and other market participants who have the right to submit data for the relevant metering point. Metering data is used by other market participants, mainly open suppliers, balance responsible parties and other entitled parties.
 
-As of **01.08.2026** grid operators are required to set net measured metering data for bidirectional metering points to the Estfeed Datahub. The data must be calculated by the grid operator by subtracting consumption from production. Testing in the test environment is possible, if market participants admin does not have access to the test evironment then write to datahub@elering.ee to sign a test environment agreement with Elering.
+Estfeed Datahub enables metering data to be:
+- transmitted with an Excel file via the web interface;
+- transmitted via API;
+- searched via the web interface;
+- requested via API;
+- distributed to entitled market participants through the data distribution service.
 
-### Examples of Net‑Metered Electricity Quantities
+The options for submitting and requesting metering data depend on the market, the market participant's role and the rights related to the metering point.
 
-**Example 1 (more production):**
+## General principles of metering data
+
+### Metering data directions
+
+The direction of metering data is presented as follows:
+- **IN** – energy entering the grid, i.e. production.
+- **OUT** – energy leaving the grid, i.e. consumption.
+
+### Net measured metering data
+
+As of 1 August 2026, according to the Electricity Market Act, electricity invoices for consumption points with a bidirectional meter are based on net measured metering data. Net measured metering data shows the difference between produced and consumed quantities for each 15-minute metering period. If more electricity is consumed from the grid during the metering period than is supplied to the grid, net consumption occurs. If more electricity is supplied to the grid during the metering period than is consumed from the grid, net injection to the grid occurs.
+
+Net quantities are calculated by the electricity market grid operator before the data is transmitted to Estfeed Datahub. Gas market participants and other electricity market participants (for example aggregators or line operators) cannot transmit net measured metering data.
+
+Example where production is greater than consumption:
+
 | Metering data type / direction | Quantity |
-|-----------------------------------------|---------------------------|
-| Production (IN)    | 15 kWh |
-| Consumption (OUT)   | 10 kWh |
-| Net – production (NET IN) | 5 kWh |
-| Net – consumption (NET OUT) | 0 kWh |
+|-------------------------|-------|
+| Production i.e. IN | 15 kWh |
+| Consumption i.e. OUT | 10 kWh |
+| Net production i.e. NET IN | 5 kWh |
+| Net consumption i.e. NET OUT | 0 kWh |
 
-**Example 2 (more consumption):**
+Example where consumption is greater than production:
+
 | Metering data type / direction | Quantity |
-|-----------------------------------------|---------------------------|
-| Production (IN)    | 10 kWh |
-| Consumption (OUT) | 15 kWh |
-| Net – production (NET IN) | 0 kWh |
-| Net – consumption (NET OUT) | 5 kWh |
-
-#### Changes for web interface user
-
-Metering data can still be submitted via Excel, but the Excel structure will change. The new Excel template will be available for download from the web interface starting from 20.07.2026.
-
-> [!WARNING]
-> The import and template API solutions will also be updated, but these APIs are intended for the web interface and are therefore not described in detail in this documentation.
-
-> [!WARNING]
-> Since this functionality is still under development, not all new APIs are yet documented in Swagger.
-
-#### Changes for API user
-
-> [!WARNING]
->  Starting from 20.07.2026 11:00 grid operators can't use `POST /api/v1/meter-data` message to add metering data. Other roles, for example line operator or aggregator can continue to send metering data via V1 API for 6 months after the go live of this functionality. 
-
-## Transmitting metering data
-
-The metering point operator determines the active energy amounts in its metering points and transmits two-way hourly active energy amount data to the Datahub.
-
-The aggregator transmits the energy quantities of demand response management.
-
-Metering point operators transmit metering data per metering point under the following conditions:
-
-1. for those metering points where data are read remotely, the initial metering data are transmitted to the Datahub by 10:00 every working day;
-2. the final metering data for the calendar month at the metering points where data are read remotely are transmitted to the Datahub by the 5th day of the following month.
-
-The amounts of grid and line losses are calculated by the Datahub.
-
-The grid operator is the manager of load duration curves and responsible for the transmission of hourly amounts to the Datahub.
-
-Grid operators and line operators can transmit metering data of metering points to the Datahub via a web interface by mass upload or by automatic data exchange message.
-
-Relevant Datahub services have been set up to transmit metering data. The intended use process is as follows:
-
-**NB! until 20.07.2026 the `meter-data` service is used for submitting electricity metering data**
-
-- The metering point operator sends a new or updated metering data message using the service `metering-data/electricity` for the transmission of electricity meter data (as of 20.07.2026 11:00) and `metering-data/natural-gas` for the transmission of gas meter data (as of November 2026).
-- As metering data processing is performed asynchronously in the Data Hub, the Data Hub first provides a rapid response indicating whether the message was successfully received or not.
-- Since the processing of metering data in the Datahub is asynchronous, the Datahub first gives a quick response whether the message was received or not.
-- The Datahub then queues the message.
-- The metering point operator verifies the result of processing, using `meter-data/status` service (at the `originalDocumentIdentification` position of the message, the value of the attribute of the same name that was in the `header` of the previously transmitted metering data message must be transmitted. The UUID value must not be reused). Possible results are:
-  - `PROCESSING` - processing not finished
-  - `SUCCESSFUL` - processing finished successfully
-  - `ERROR` - processing finished with errors.
-- If the message is processed without errors, then the data are added or changed in the database and the Datahub makes the addition or change of metering data available to open suppliers through the data-distribution service. For more details, see [Data distribution](30-data-distribution.md).
-- If errors occur while processing the message, the Datahub will generate an error report and make it available to the metering point operator in the response of the  `meter-data/status` service.
-- The metering point operator reads the error report addressed to it and resolves it according to its internal business logic.
-
-> [!WARNING]
-> **PLEASE NOTE! The Datahub transmits the metering data entered by the grid operators in unaltered form. The Datahub does not check the content of the metering data.**
-
-> [!WARNING]
-> When sending metering data via the V2 API, there is a limit on the number of periods that can be included in a single Excel file or API message. A maximum of 35,040 periods of metering data can be sent at once. This means that when sending data for one day at a time, a single Excel file or API message can contain data for up to 365 metering points. For longer periods, the number of metering points must be reduced accordingly.
-
-> [!WARNING]
-> `meter-data/status` API doesn't return records, that are created more than 7 days ago.
+|-------------------------|-------|
+| Production i.e. IN | 10 kWh |
+| Consumption i.e. OUT | 15 kWh |
+| Net production i.e. NET IN | 0 kWh |
+| Net consumption i.e. NET OUT | 5 kWh |
 
 > [!NOTE]
-> It is worth knowing that there is a very small, but in theory still possible situation where the Data Warehouse receives a metering data message and responds with a "processing started" response, but in reality the message remains unprocessed and no ´meter_data_status´ record is created about it either.
-> The metering point manager should keep track of what has been received from each metering data message and whether the processing ended with a result. If some of the metering data messages do not receive any result, it must be assumed that an unexpected problem occurred in the Datahub when processing the metering data (e.g. unexpected shut down of the application) and the metering data must be transmitted again.
-> There are different options for monitoring the results. E.g. check the status one by one based on `originalDocumentIdentification` (in case the data volumes are small) or scan the `SUCCESSFUL` and `ERROR` statuses and internally keep track of which messages have reached the final state
+> Estfeed Datahub receives the net measured metering data transmitted by the grid operator. The grid operator is responsible for the correctness of the data.
+
+### Metering data resolution
+
+The resolution of metering data depends on the market.
+
+| Market | Resolution |
+|------|--------------|
+| Electricity | 15 minutes |
+| Gas | 1 hour or 1 day|
+
+The start of the period must correspond to the selected resolution.
+
+Examples:
+
+- in the case of 15-minute resolution, period start times must be `hh:00`, `hh:15`, `hh:30` or `hh:45`;
+- in the case of 1-hour resolution, period start times must be full hours, i.e. `hh:00`;
+- in the case of daily data, the quantity must be added to the first hour of the gas day, i.e. `07:00`.
+
+Estfeed Datahub does not validate that the entire period is fully covered with metering data. For example, it is not checked whether every 15-minute interval for electricity or every hourly interval for gas is filled separately.
+
+### Transmitting metering data
+
+The metering point manager ensures the determination of active energy quantities for its metering points and transmits the metering data to Estfeed Datahub.
+
+In the electricity market, metering data is transmitted with 15-minute resolution. In the gas market, metering data is generally transmitted with hourly resolution, but transmitting daily data is also allowed.
+
+Metering point managers transmit metering data by the following deadlines:
+
+1. initial metering data for the previous day:
+   - in the electricity market by 10:00 on every working day;
+   - in the gas market by 13:00 on every working day;
+2. final metering data for the previous calendar month:
+   - in the electricity market by the 5th day of the following month;
+   - in the gas market by the 7th day of the following month.
+
+Metering data can be transmitted, for example, by:
+
+- grid operator;
+- line operator;
+- closed distribution network;
+- charging point operator;
+- aggregator, if this is allowed according to its market role and business process.
+
+The general process for transmitting metering data is as follows:
+
+1. The metering point manager prepares a metering data message or Excel file.
+2. The metering point manager transmits the metering data to Estfeed Datahub.
+3. Estfeed Datahub receives the message and gives an initial response on whether the message was successfully received.
+4. Since metering data processing is asynchronous, the message is added to the processing queue.
+5. The metering point manager checks the processing result through the status request.
+6. If processing is successful, the metering data is saved to the database.
+7. If errors occur during processing, Estfeed Datahub makes an error report available. The error report is available for 7 days.
+8. The metering point manager resolves the errors according to its internal business logic and, if necessary, transmits the metering data again.
+
+
+Possible processing status values are:
+
+- `PROCESSING` – processing has not yet finished;
+- `SUCCESSFUL` – processing finished without errors;
+- `ERROR` – processing finished with errors.
+
+> [!NOTE]
+> A situation may occur where Estfeed Datahub receives a metering data message and responds that processing has started, but the message does not actually reach processing and no status record is created for it either.
+>
+> The metering point manager must keep track of what has happened to each metering data message and whether the processing reached a final state. If no final status is created for a message, it must be assumed that an unexpected problem occurred during processing, and the metering data must be transmitted again.
+>
+> To monitor results, it is possible, for example, to:
+>
+> - request the status based on a single `originalDocumentIdentification` value;
+> - scan `SUCCESSFUL` and `ERROR` statuses;
+> - internally keep track of which messages have reached a final state.
+
+### Legal bases for access to metering data
+Metering data access is restricted and depends on the market participant's role, agreements related to the metering point and existing rights.
+
+Access rules are described in the document [Role-based access rights](03.01-role-based-access-rights.md).
+
+The following main options are available for making metering data requests:
+
+- open supplier, named supplier and portfolio service provider scan metering data changes through the data distribution service;
+- entitled user requests metering data through the `GET /metering-data` service;
+- user searches metering data in the web interface.
+
+### External consent
+
+> [!WARNING]
+> As of 01.2027, the use of external consent is no longer allowed and the user must be directed to share access rights in the Estfeed client portal.
+
+Both natural and legal persons can grant access rights to their data through the client portal. The general principles of access rights are described in the document [Role-based access rights](03.01-role-based-access-rights.md).
+
+For natural persons, the access right must be granted through the client portal.
+
+For legal persons, an alternative workflow is also possible, where the client grants access rights outside Estfeed Datahub and the client portal, but in a form that enables written reproduction directly to the open supplier.
+
+In this case, the open supplier can confirm the existence of the right in the `GET /metering-data` service by confirming the existence of the right in the window opened in the web interface or by adding the following to the request:
+
+```json
+{
+  "legalConsent": true
+}
+```
+
+If `"legalConsent": true` is added, the open supplier can request metering data for the metering point provided that the client of the metering point's grid agreement is a legal person or organization.
+
+> [!CAUTION]
+> The use of `"legalConsent": true` is allowed only if the client's authorization exists. The lawful use of this right is monitored.
+
+### Time type
+
+In metering data requests, **Reading Time**, i.e. the measurement time, is used as the time value.
+
+The metering point manager transmits the measurement time, i.e. `reading time`, together with the metering data. This indicates the time when the metering data was received from the meter.
+
+## Transmitting metering data via API
+
+Metering data can be transmitted via API in both the electricity and gas markets. Message specifications are available in Swagger: https://datahub.elering.ee/swagger-ui/index.html#/ 
+
+| Message | Purpose | Market |
+|-------|---------|------|
+| `POST /api/v2/metering-data/electricity` | Adding metering data | Electricity |
+| `POST /api/v2/metering-data/natural-gas` | Adding metering data | Gas |
+| `GET /api/v2/metering-data/status` | Metering data message processing status request | Electricity, gas |
+
+### Message rules
+
+When transmitting metering data via API, the following rules apply:
+
+- the start of the period must correspond to the market resolution;
+- electricity metering quantities are presented in kWh with 3 decimal places;
+- gas metering quantities are presented in kWh and cubic meters with 3 decimal places;
+- the metering data direction is presented from the perspective of the metering point manager that measures it;
+- IN means energy entering the grid, i.e. production;
+- OUT means energy leaving the grid, i.e. consumption;
+- quantities of incoming and outgoing energy may also be transmitted in separate messages;
+- for bidirectional electricity metering points, net quantities must also be transmitted;
+- metering data may be corrected retroactively for up to 12 months;
+- metering data may be transmitted up to 45 days into the future;
+- if even one metering result fails validation, the entire message receives status `ERROR`;
+- if the start of the period is further in the future than allowed, error code `period-start-too-far-in-future` is returned;
+- in the `import` service, the same template must be used that is returned by the corresponding template service or export service.
+- When sending metering data via V2 API, a limit applies to the number of periods that can be transmitted in one message. Up to 35,040 periods of metering data can be sent at once. If one day of data is sent daily, one message can transmit data for up to 365 metering points. For a longer period, the number of metering points must be reduced accordingly.
+
+### API abbreviations
+
+| Abbreviation | Explanation | Market |
+|--------|----------|------|
+| `periods` | Interval of one metering result | Electricity, gas |
+| `pS` | Period Start | Electricity, gas |
+| `inQty` | IN, i.e. quantity of energy entering the grid | Electricity, gas |
+| `outQty` | OUT, i.e. quantity of energy leaving the grid | Electricity, gas |
+| `netInQty` | Net production, i.e. NET IN | Electricity |
+| `netOutQty` | Net consumption, i.e. NET OUT | Electricity |
+| `rTime` | Reading Time, i.e. measurement time | Electricity, gas |
+| `rType` | Reading Type, i.e. measurement type | Electricity, gas |
+| `kwh` | Measured quantities in kWh | Electricity, gas |
+| `m3` | Measured quantities in cubic meters | Gas |
 
 ### Throttling of metering data input
 
-Processing of received meteringdata is a 2-step process:
-- the metering result is received (202) and placed in the processing queue;
-- the metering data processor takes the metering results from the queue, writes the status, saves metering data to the database and updates the status.
+Processing of received metering data takes place in two steps:
 
-If the measurement data processing is slower than new results are received, the processing queue starts to grow.
+1. the metering data message is received, `202` is returned as the response and the message is placed in the processing queue;
+2. the metering data processor takes the message from the queue, processes it, saves the data to the database and updates the processing status.
 
-If the queue already has data of 100,000 requests, then the POST /meter-data endpoint responds with
-- HTTP status 503
-- HTTP header Retry-After: 300
+If metering data processing is slower than new messages are received, the processing queue starts to grow.
 
-The solution is based on the specifications:
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
+If the queue contains data for 100,000 requests, the `POST /metering-data` request responds with:
 
-### Transmitting metering data via the web interface
+- HTTP status `503`;
+- HTTP header `Retry-After: 300`.
 
-In order to transmit data via the web interface user will need to navigate to "Metering data" page.
+The solution is based on the following specifications:
 
-For easier metering data transmitting it is possible to download the template. To generate the template the time range needs to be selected, based on it the prefilled template is generated.
+- [HTTP 503 Service Unavailable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
+- [Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
+
+## Requesting metering data via API
+
+Metering data can be requested via API using the following services. Message specifications are available in Swagger: https://datahub.elering.ee/swagger-ui/index.html#/ 
+
+| Message | Purpose | Market |
+|-------|---------|------|
+| `GET /api/{version}/metering-data/electricity` | Electricity metering data search | Electricity |
+| `GET /api/{version}/metering-data/natural-gas` | Gas metering data search | Gas |
+
+
+Metering data requests made through V1 API do not return electricity net quantities. To request electricity net quantities, V2 metering data services must be used.
+
+Data distribution services are additionally in use.
+
+### Purpose of the request
+
+The attribute `purpose` is used in the metering data request.
+
+The purpose describes the business context in which metering data is requested. For example, an open supplier may request metering data for fulfilling an open supply agreement, for balance management purposes or for billing.
+
+In the open supplier role, the possible purposes are:
+
+- `OPEN_SUPPLY` – requesting metering data as an open supplier;
+- `PORTFOLIO` – requesting metering data as a balance responsible party;
+- `BILLING` – requesting metering data for billing purposes.
+
+In the metering point manager role, the possible purposes are:
+
+- `OWN_MP_MANAGEMENT` – requesting data of own metering points;
+- `OTHER` – requesting data of other metering points.
+
+The energy service provider does not have to add the request purpose. In other roles, adding the purpose is mandatory.
+
+
+## Transmitting metering data via the web interface
+
+Before transmitting metering data, the user must make sure that the metering points are registered and grid agreements are concluded.
+
+To transmit metering data via the web interface, navigate to the **Metering data** page. The user must then complete the following steps:
+1. The first time or after the template has been updated, click the "Template" button to download the Excel template.
+2. In the template, add the date range for which data is to be added. In the gas market, it must additionally be specified whether data is to be added with 1-day or 1-hour resolution.
+3. In Excel, add the metering point EIC code whose data is transmitted to each row and fill in the rest of the cells in the row. To avoid problems, we strongly recommend not changing the Excel format or the dates and times. The data exchange platform will not accept data with incorrect formatting.
+4. When the Excel file is completed and saved to the computer, click the "Import" button in the data exchange platform. 
+5. In the opened window, add the previously completed Excel file and click the "Import" button again.
+6. If the Excel file was completed correctly, the data upload is then started. Please note that starting the processing does not guarantee successful saving of the data.
+7. The data submitter is required to monitor the data processing status. This can be done after uploading the Excel file by clicking the "View processing result" button in the opened window or on the page "Metering data" -> "Metering data status".
+
+All steps are described in more detail in the following documentation chapters.
+
+### Navigating to the metering data page
+
+To open the metering data page, make sure that you are in the correct role. For example, metering data cannot be added while in the open supplier role. Then open the "Metering data" page by clicking on the menu title.
+
+![Page navigation](../images/opp-ui/metering-data/metering-data-page-navigation-eng.png)
+
+### Generating the metering data Excel template
+
+To transmit metering data with an Excel file, the metering data template must first be generated.
 
 ![Generating the template](../images/opp-ui/metering-data/metering-data-template3.png)
 
+When generating the template, times are not entered manually. The system compiles the periods automatically based on the selected dates and market resolution.
+
 ![Filling in the template](../images/opp-ui/metering-data/metering-data-template4.png)
 
-To import metering data "Import" button needs to be clicked on the "Metering data" page. After that it is possible to add the metering data file. Guide how to fill the Excel file can be found here: [Transmitting metering data via Excel](#transmitting-metering-data-via-excel).
+In the electricity market, to generate the template select:
 
+- start date;
+- end date.
+
+The electricity metering data template is generated with 15-minute resolution.
+
+In the gas market, to generate the template select:
+
+- start date;
+- end date;
+- resolution (in the gas market, a suitable resolution can be selected depending on whether hourly data or daily data is transmitted)
+
+
+### Transmitting metering data with an Excel file
+
+Metering data can be transmitted with an Excel file via the web interface.
+
+It is recommended to always prepare the Excel file based on the template generated by Estfeed Datahub. The template contains the necessary structure and periods according to the selected market, dates and resolution.
+
+Several metering points' metering data may be transmitted in one file. Metering point data may be:
+
+- one after another on the same Excel sheet;
+- divided between several Excel sheets.
+
+The file must not contain empty sheets, formulas or information not related to metering data.
+
+If one day of data is sent daily, one Excel file or API message can transmit data for up to 365 metering points. For a longer period, the number of metering points must be reduced accordingly; for example, when sending 1 year of data, data for 1 metering point can be transmitted at once.
+
+Example of correctly completed Excel:
+![Excel example](../images/opp-ui/metering-data/excel-näidis.png)
+
+#### Excel column descriptions
+
+| Column name | Market | Description | Example | Mandatory? |
+|-----------|------|-----------|--------|--------------|
+| Meter EIC | Electricity, gas | Metering point EIC code. The code must be added to all rows of the table. The market participant must have the right to transmit metering data for the metering point. Several metering points' metering data may be sent in one file; they may be one after another on one sheet or divided between several Excel sheets. | `38ZEE-1000009--Z` | Yes |
+| Period Start | Electricity, gas | Start of the period. The value is generated automatically when the template is created according to the selected dates and resolution. | `01.11.2024 00:00:00` | Yes |
+| IN Quantity kWh | Electricity, gas | Quantity given to the grid in kWh. | `1,534` | No, if OUT quantity is filled |
+| OUT Quantity kWh | Electricity, gas | Quantity taken from the grid in kWh. | `1,234` | No, if IN quantity is filled |
+| IN Quantity M3 | Gas | Quantity given to the grid in cubic meters. | `1,534` | No, if OUT Quantity M3 is filled |
+| OUT Quantity M3 | Gas | Quantity taken from the grid in cubic meters. | `1,234` | No, if IN Quantity M3 is filled |
+| NET IN Quantity kWh | Electricity | Net quantity given to the grid. Positive if production is greater than consumption. | `0,300` | Mandatory for bidirectional electricity metering points if net quantities are transmitted |
+| NET OUT Quantity kWh | Electricity | Net quantity taken from the grid. Positive if consumption is greater than production. | `0,000` | Mandatory for bidirectional electricity metering points if net quantities are transmitted |
+| Reading Type IN | Electricity, gas | Measurement type of the quantity given to the grid. Possible values are metered or estimated. In the Excel template, the suitable value can be selected from the drop-down menu. | `METERED` or `ESTIMATED` | Yes, if IN quantity is filled |
+| Reading Type OUT | Electricity, gas | Measurement type of the quantity taken from the grid. Possible values are metered or estimated. In the Excel template, the suitable value can be selected from the drop-down menu. | `METERED` or `ESTIMATED` | Yes, if OUT quantity is filled |
+
+#### The following rules apply when filling in net quantities
+
+- net quantities can be transmitted only by permitted market roles, which are `GRID_OPERATOR` and `CLOSED_DISTRIBUTION_NETWORK`;
+- if one net quantity is filled, the other net quantity must also be filled;
+- `NET IN` and `NET OUT` must not both be positive in the same period;
+- if `NET IN` is greater than `0,000`, `NET OUT` must be `0,000`;
+- if `NET OUT` is greater than `0,000`, `NET IN` must be `0,000`;
+- if IN and OUT quantities are both `0,000`, the net quantities must also be `0,000`;
+- the precision of net quantities must be 3 decimal places.
+
+#### Possible errors when filling in Excel
+
+| Problem | Solution |
+|----------|----------|
+| The metering point does not belong to the market participant or the market participant does not have the right to transmit data. | The market participant can transmit metering data only for those metering points for which it has the corresponding right. |
+| The file contains empty Excel sheets. | The Excel file must not contain completely empty sheets or other sheets not related to metering data. |
+| The file contains formulas. | Data must be entered as values, not as formulas. |
+| Quantities are presented with more than 3 decimal places. | Remove the excess decimal places from the file. |
+| The period start does not correspond to the resolution. | In the case of 1-hour resolution, the period start must be a full hour. In the case of 15-minute resolution, the period start must be a quarter hour. |
+| The date or time is in the wrong format. | The date and time format in the template must be used. |
+| Mandatory columns are not filled. | All mandatory fields must be filled according to the Excel column description. |
+| The metering point EIC code is missing from some rows. | The metering point EIC code must be added to all metering data rows. |
+| An attempt is made to send Excel in the wrong market role. | Metering data can be transmitted only in a role that has the right to do so. If a market participant operates in several roles, the suitable role must be selected at the time of sending. |
+| Net quantities are filled in contrary to IN and OUT quantities. | It must be checked that net quantities are calculated correctly and that only one net quantity is positive. |
+| Only one of the net quantity columns is filled. | If `NET IN` is filled, `NET OUT` must also be filled, and vice versa. |
+
+Example of a problematic Excel file; several problems are marked in the image:
+- the metering point EIC code has not been added to cell A5
+- only net quantities have been added to cells C4 and D4, but the IN and OUT quantity columns have been left empty.
+- a value with 4 decimal places has been added to cell D3; although this is not visible at first glance, the excess decimal places are visible when clicking on the cell.
+- the value 'Metered' has not been added to cell H4.
+
+![Excel possible mistakes](../images/opp-ui/metering-data/potentsial-excel-mistakes.png)
+
+Please make sure that the Excel file meets the requirements. If necessary, try uploading the Excel file in smaller parts, i.e. delete some rows. This helps to understand the problem more precisely.
+
+### Importing the Excel file into Estfeed Datahub
+
+To import metering data, select the "Import" button on the metering data page. Then select the suitable file for upload in the opened modal and click the "Import" button.
+![Import button](../images/opp-ui/metering-data/import-button-eng.png)
 ![Metering data import](../images/opp-ui/metering-data/metering-data-import2.png)
 
-In case there is a mistake in the file the system will notify the user:
-1. Metering data can be added to several MS Excel file sheets. The system will tell the user on which sheet the problem is located.
-2. In addition, it is possible to see the row where the problem is.
-3. Error description helps to understand the issue.
-4. After the problem is found and fixed "Cancel" should be clicked and import process should be repeated.
+If the import is successful, the user is shown the corresponding message and is directed to view the Excel processing status. The grid operator must make sure that the Excel file is successfully processed:
+![Successful metering data import](../images/opp-ui/metering-data/success-pop-up-eng.png)
 
+If an error has occurred in the file, the system informs the user. Metering point data may also be added to several MS Excel file sheets, therefore the system informs users on which sheet the problem is located. In addition, it is possible to see the number of the incorrect row. The problem description helps to understand the content of the problem. Once the problem has been found and the file corrected, click "Cancel" and repeat the import process.
 ![Import error](../images/opp-ui/metering-data/metering-data-error2.png)
 
-### Transmitting metering data via Excel
 
-Metering data can be sent using an Excel file. It can be uploaded via [the web interface](#transmitting-metering-data-via-web-interface) or by using the API `metering-data/import` service.
+## Metering data requests via the web interface
 
-To send metering data, start by downloading the metering data template from the web interface. Instructions for this can be found here: [transmitting metering data via the web interface](#transmitting-metering-data-via-web-interface).
+Metering data requests allow an entitled user to search and download metering data. Metering data can be searched in the web interface on the **Metering data** page.
 
-Below are the descriptions and examples of Excel columns:
+To search, enter:
 
+- metering point EIC code;
+- search period start date;
+- search period end date, if desired.
 
-# Examples of Net-Metered Electricity Quantities
-
-| Column Name | Market | Description | Example | Mandatory? |
-|------------|--------|-------------|---------|------------|
-| Meter EIC | Electricity, Gas | EIC code of the metering point. The code must be included in all rows of the table. The market participant must be the owner of the metering point. Measurement data for multiple metering points may be submitted in a single file; they may be listed sequentially on one sheet or distributed across multiple Excel sheets. | 38ZEE-1000009--Z | Yes |
-| Period Start | Electricity, Gas | Start of the period. The timestamp indicating the period to which the consumption/production quantities apply. It is recommended to use the date format provided in the template. Measurement data cannot be submitted with an incorrect date format. Correct format: dd.mm.yyyy hh:mm. | 01.11.2024 00:00:00 | Yes |
-| IN Quantity kWh | Electricity, Gas | Quantity fed into the grid. | 1.534 | No, if “OUT Quantity kWh” is provided |
-| OUT Quantity kWh | Electricity, Gas | Quantity taken from the grid. | 1.234 | No, if “IN Quantity kWh” is provided |
-| IN Quantity m3 | Gas | Quantity fed into the grid, in cubic meters. | 1.534 | No, if “OUT Quantity m3” is provided |
-| OUT Quantity m3 | Gas | Quantity taken from the grid, in cubic meters. | 1.234 | No, if “IN Quantity m3” is provided |
-| NET IN Quantity kWh | Electricity | Net quantity fed into the grid. | 0.300 | Allowed for market roles GRID_OPERATOR and CLOSED_DISTRIBUTION_NETWORK. Must not be filled if “inQty” and “outQty” are missing. If one net quantity is filled, the other must also be filled. If filled then: a) Must be 0.000 if “netOutQty” is greater than 0.000 b) Must be 0.000 if both “inQty” and “outQty” are 0.000 c) Exactly 3 decimal places. |
-| NET OUT Quantity kWh | Electricity | Net quantity taken from the grid. | 0.000 | Allowed for market roles GRID_OPERATOR and CLOSED_DISTRIBUTION_NETWORK. Must not be filled if “inQty” and “outQty” are missing. If one net quantity is filled, the other must also be filled. If filled then: a) Must be 0.000 if “netInQty” is greater than 0.000 b) Must be 0.000 if both “inQty” and “outQty” are 0.000 c) Exactly 3 decimal places. |
-| Reading Type IN | Electricity, Gas | Measurement type of the quantity fed into the grid: measured or estimated. In the Excel template, the correct option can be selected from a dropdown menu by clicking the arrow next to the cell. | METERED or ESTIMATED | Yes, if “IN Quantity kWh” is filled |
-| Reading Type OUT | Electricity, Gas | Measurement type of the quantity taken from the grid: measured or estimated. In the Excel template, the correct option can be selected from a dropdown menu by clicking the arrow next to the cell. | METERED or ESTIMATED | Yes, if “OUT Quantity kWh” is filled |
-
-For successful transmission of metering data, it is essential that the Excel file is completed correctly and meets all requirements.
-
-#### Possible errors when filling out Excel
-
-| Issue                              | Solution                                                         |
-|------------------------------------|-------------------------------------------------------------------|
-| The metering data resolution is incorrect. | On the electricity market, it is only possible to submit data with a 15‑minute resolution. On the gas market, it is possible to submit data with a 1‑hour and 1‑day resolution. |
-| The metering point does not belong to the market participant. | The market participant can only send metering data to metering points they own. |
-| The file contains empty Excel sheets. | Although metering data can be divided across multiple sheets, ensure that the Excel file does not contain completely empty or otherwise unnecessary sheets. |
-| The file contains formulas. | Data should be entered in plain text format - without formulas. |
-| The time and resolution do not match. | For 1-hour resolution, period start times should correspond to full hours. For 15-minute resolution, period start times should correspond to quarter hours. |
-| The time is in the wrong format. | The "Period start" time format must match that used in the template. The "Reading time" format must match the "Period start" time format. |
-| All mandatory columns are not filled. | The table above indicates which fields are required. |
-| Some rows are missing the metering point EIC code. | The metering point EIC code must be added to all rows in the table. |
-| The Excel file is sent using an incorrect market role. | Metering data can only be sent by the grid operator, line operator, closed distribution network, and charging point operator. If a market participant operates in multiple roles, the appropriate role must be selected at the time of sending. |
-
-### API messages
-
-**Metering data search**
-
-In the new API request, an additional attribute `Purpose` is introduced. The purpose of the request should be specified, for example whether the request is made for billing purposes or for querying own metering points. Initially, adding this value does not affect the response, but in the future it will also influence the response. The purpose of this change is to make API queries faster and support querying by multiple metering point EIC codes. Energy service provider should not add the purpose to the request.
-
-Possible purposes in the open supplier role:
-- `OPEN_SUPPLY` – the primary way for open suppliers to query metering data
-- `PORTFOLIO` – querying metering data as a balance responsible party
-- `BILLING` – querying data for billing purposes
-
-Possible purposes in metering point manager role:
-- `OWN_MP_MANAGEMENT` – querying data of own metering points
-- `OTHER` – querying data of other metering points
-
-Initially, metering data can only be searched one metering point at a time, but in the future it will also be possible to query data for multiple metering points simultaneously.
-
-Explanation of abbreviations used in the API service:
-
-| abbreviation | explanation | market | implementation info |
-|--------------|-------------|--------|----------------------|
-| periods | interval of one measurement result (15 minutes for electricity, 1 hour for gas) | Electricity, Gas |
-| pS | Period Start | Electricity, Gas | |
-| inQty | IN, i.e., incoming energy measurement result | Electricity, Gas | |
-| outQty | OUT, i.e., outgoing energy measurement result | Electricity, Gas | |
-| netInQty | net production (NET IN) | Electricity | from 01.08.2026 |
-| netOutQty | net consumption (NET OUT) | Electricity | from 01.08.2026 |
-| rTime | Reading Time, i.e., time of measurement | Electricity, Gas | |
-| rType | Reading Type (E – estimated, M – read) | Electricity, Gas | |
-| kwh | measured quantities in kWh | Electricity, Gas | |
-| m3 | measured quantities in cubic meters | Electricity, Gas | |
-
-
-The Datahub does not check whether every one hour or 15 minute interval is filled with metering data. 
-
-> [!NOTE]
-> The resolution of the data is rigidly fixed by the Datahub – electricity resolution is 15 minutes from 01.04.2025. The resolution for gas is one hour.> 
-> In the case of gas, it is also allowed to transmit daily data. In this case, the daily metering data must be added to the suitable gas day hour.
-
-#### Messages
-
-| Message                                     | Purpose                                                              | Market |
-|---------------------------------------------|----------------------------------------------------------------------|---------|
-| `POST /api/V2/metering-data/electricity` | Adding metering data | Electricity |
-| `POST /api/V2/metering-data/natural-gas` | Adding metering data | Gas |
-| `GET /api/V2/metering-data/electricity`| Metering data search | Electricity |
-| `GET /api/V2/metering-data/natural-gas`| Metering data search | Gas|
-| `GET /api/V2/metering-data/electricity/template` | Generating and downloading a template for bulk upload of metering data | Electricity |
-| `GET /api/V2/metering-data/natural-gas/template` | Generating and downloading a template for bulk upload of metering data | Gas |
-| `POST /api/V1/meter-data/status`     | Querying the processing status of a metering data message            | Electricity |
-| `GET /api/V2/metering-data/status` | Querying the processing status of a metering data message | Electricity, Gas |
-| `POST /api/V2/metering-data/electricity/import` | Bulk upload of metering data using a template | Electricity |
-| `POST /api/V2/metering-data/natural-gas/import` | Bulk upload of metering data using a template | Gas |
-| `POST /api/V1/meter-data` | Adding metering data for grid operators and closed distribution grid operators, valid until 20 July 2026 | Electricity |
-| `POST /api/V1/meter-data/search` | This version cannot be used to search net-metered electricity quantities from 01 August 2026 | Electricity |
-
-
-#### Message rules
-
-- The resolution value must match the global resolution applied in the given time period. For example, if the entire market switches to a resolution of 15 minutes on date X, then for metering data from date X the resolution value must be 15 minutes in the message.
-- The time period value must be consistent with the resolution. For example:
-  - if the resolution is one hour, the start time of the period must be the beginning of the hour (hh:00);
-  - if the resolution is 15 minutes, the start time of the period must be a quarter of the hour (hh:00, hh:15, hh:30, hh:45).
-- Electricity metering data are always transmitted in kWh up to three decimal places. 
-- Gas metering data are transmitted in both kWh and cubic metres to three decimal places.
-- The direction of the metering data is always presented as viewed by the metering point operator:
-  - in – energy entering the grid (generation);
-  - out – energy leaving the grid (consumption).
-- The amounts of incoming and outgoing energy can also be transmitted in separate messages.
-- It is permitted to correct metering data retroactively for up to 12 months.
-- The time period of the metering data is allowed to be in the future. The current limit is 45 days. Each measurement is validated separately. If some values are further in the future, then allowed, then system replies with ERROR, the error code is `period-start-too-far-in-future`.
-- The `import` service requires the same template, that the service `export` or `metering-data/electricity/template` / `metering-data/natural-gas/template` returns.
-
-## Metering data requests
-
-Relevant Datahub services have been set up to transmit metering data. Access to data is limited. The rules are described in [Role-based access rights](03.01-role-based-access-rights.md).
-
-The following options are available for making metering data requests:
-
-- Open suppliers, named suppliers and portfolio providers can scan metering data changes using the data-distribution service.
-- Authorised users can request metering data using the `GET /metering-data/` service.
-
-### legalConsent
-
-Both physical and legal persons can grant access rights to data through the client portal. The rules are described in [Role-based access rights](03.01-role-based-access-rights.md).
-
-Physical person data can only be queried when the client has given access rights through the client portal. For legal persons and organizations there is an alternative workflow where the legal person or organization gives access outside the system. In this case the right has to be given in written form and the open supplier needs to be able to prove it exists.
-
-In this case Open Supplier can add `"legalConsent": true` to `GET /metering-data/` service. This allows metering data to be requested for any metering point, as long as the customer that has grid agreement is a legal person or organization.
-
-> [!CAUTION] 
-> It is only allowed to use `"legalConsent": true` when open supplier has customer's written authorization to request data. Legitimate usage of this service is monitored.
-
-### Observation time type
-
-Compared to the old system, the `billingSequence` concept has disappeared. Instead, the metering point manager transmits the reading time (**reading time**) together with the metering data.
-When receiving metering data, the Datahub adds a data storing time (**snapshot time**) to the data.
-
-Since both time values are available in the Datahub, the Datahub allows to search for metering data based on these time values. Examples:
-
-1. The open supplier is interested in the last known metering data at metering point X. For this, he has 2 options:
-  * Omits `observationTimeType` and `observationTime` attributes in the message
-  * sets the attributes in the message:
-    * `observationTimeType` = `SNAPSHOT_TIME`.
-    * `observationTime` = current date and time
-2. The open supplier is interested of metering data at metering point X as of 01.01.2024 00:00. To do this, it sets the attributes in the message:
-  * `observationTimeType` = `SNAPSHOT_TIME`
-  * `observationTime` = `2024-01-01T00:00:00+02:00`
-3. The open supplier is interested of the metering data at the metering point X, where the reading time is not greater than 31.12.2023 23:59. To do this, it sets the attributes in the message:
-  * `observationTimeType` = `READING_TIME`
-  * `observationTime` = `2023-12-31T23:59:59+02:00`
-
-> [!WARNING]
-> At the moment, the `observationTimeType` = `SNAPSHOT_TIME` and `observationTime` combination (example nr 2) is not supported. Development task is created and planned to be finished during year 2024.
-
-### Requesting metering data via the web interface
-
-Metering data can be requested by navigating to "Metering data" page. There metering point EIC code and search period start need to be defined. If needed the end date can be added as well. 
+To download metering data to Excel, first click the **Search** button. Then the **Download** button becomes active.
 
 ![Searching metering data](../images/opp-ui/metering-data/metering-data-search3.png)
 
-In order to download metering data to Excel file first "Search" button has to be clicked. After that the "Download" button will be active.
-
-### API messages
-
-#### Messages
-
-| Message                                   | Purpose                   | Market |
-|-------------------------------------------|---------------------------|--------|
-| `GET /api/{version}/metering-data/electricity` | Searching metering data       | Electricity |
-| `GET /api/{version}/metering-data/natural-gas` | Searching metering data | Gas |
-| `GET /api/{version}/metering-data/electricity/export` | Exporting metering data | Electricity |
-| `GET /api/{version}/metering-data/natural-gas/export` | Exporting metering data | Gas |
 

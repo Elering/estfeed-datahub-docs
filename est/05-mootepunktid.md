@@ -171,14 +171,12 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 
 #### Sõnumid
 
-| V1 Sõnum                      | V2 Sõnum                      | Eesmärk                                             |
-|-------------------------------|-------------------------------|-----------------------------------------------------|
-| `POST /api/v1/meter`          | `POST /api/v2/meter`          | Mõõtepunkti lisamine                                |
-| `PUT /api/v1/meter`           | `PUT /api/v2/meter`           | Mõõtepunkti muutmine                                |
-| `POST /api/v1/template/meter` | `POST /api/v2/template/meter` | Mõõtepunktide masslisamise templiidi alla laadimine |
-| `POST /api/v1/meter/import`   | `POST /api/v2/meter/import`   | Mõõtepunktide massimport templiidi abil             |
-| `POST /api/v1/eic/amount`     | -                             | **Enda** EIC vahemikust vabade EIC koodide otsing   |
-| `POST /api/v1/eic/range`      | -                             | Turusalise **enda** EIC koodi vahemike otsing       |
+ | Sõnum                      | Eesmärk                                             |
+|-------------------------------|-----------------------------------------------------|
+| `POST /api/v2/meter`          | Mõõtepunkti lisamine                                |
+|`PUT /api/v2/meter`           | Mõõtepunkti muutmine                                |
+| `POST /api/v1/eic/amount`                            | **Enda** EIC vahemikust vabade EIC koodide otsing   |
+| `POST /api/v1/eic/range`                        | Turusalise **enda** EIC koodi vahemike otsing       |
 
 ##### Versioonide info
 
@@ -223,12 +221,12 @@ V2 versiooni lisandumisel toimusid järgmised muudatused:
 
 #### Sõnumid
 
-| V1 Sõnum                             | V2 Sõnum                             | Eesmärk                                                                                                                                                                                                         |
-|--------------------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/v1/meter/search`          | `POST /api/v2/meter/search`          | Mõõtepunktide otsing erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                        |
-| `POST /api/v1/meter/search/customer` | `POST /api/v2/meter/search/customer` | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks) |
-| `POST /api/v1/meter/search/border`   | -                                    | Piirimõõtepunkti otsing                                                                                                                                                                                         |
-| `POST /api/v1/meter/export`          | `POST /api/v2/meter/export`          | Mõõtepunktide eksportimine erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                  |
+| Sõnum                             | Eesmärk                                                                                                                                                                                                         |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `POST /api/v2/meter/search`       | Mõõtepunktide otsing erinevate tunnuste alusel. Vaata järgnevaid peatükke reeglite osas.                                                                                                                        |
+| `POST /api/v2/meter/search/customer` | Leida kliendi mõõtepunktid (aktiivsete või tulevikus aktiveeruvate GRID lepingutega) kliendi EIC koodi alusel selleks, **et luua uus SUPPLY leping** (võrgueeskirja §8 lg 5 ette nähtud kontrolli teostamiseks). |
+| `POST /api/v1/meter/search/border` | Piirimõõtepunkti otsing                                                                                                                                                                                          |
+
 
 > [!CAUTION] 
 > Teenust `POST /api/{version}/meter/search/customer` on lubatud kasutada ainult uue lepingu loomisel ja selle õiguspärast kasutamist monitooritakse

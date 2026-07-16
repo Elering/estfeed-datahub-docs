@@ -171,14 +171,12 @@ The data of the metering point is described in paragraph [Transmitting metering 
 
 #### Messages
 
-| V1 Message                    | V2 Message                    | Objective                                          |
-|-------------------------------|-------------------------------|----------------------------------------------------|
-| `POST /api/v1/meter`          | `POST /api/v2/meter`          | Create meter with metadata                         |
-| `PUT /api/v1/meter`           | `PUT /api/v2/meter`           | Update meter metadata                              |
-| `POST /api/v1/template/meter` | `POST /api/v2/template/meter` | Get metering point mass import templates           |
-| `POST /api/v1/meter/import`   | `POST /api/v2/meter/import`   | Mass import metering points with template          |
-| `POST /api/v1/eic/amount`     | -                             | Get a list of unused EICs from a range             |
-| `POST /api/v1/eic/range`      | -                             | Get a list of EIC ranges of the Market Participant |
+| Sõnum                      | Eesmärk                                          |
+| -------------------------- | ------------------------------------------------ |
+| `POST /api/v2/meter`       | Mõõtepunkti loomine koos metaandmetega.          |
+| `PUT /api/v2/meter`        | Mõõtepunkti metaandmete uuendamine.              |
+| `POST /api/v1/eic/amount`  | Kasutamata EIC-koodide loendi pärimine vahemiku alusel. |
+| `POST /api/v1/eic/range`   | Turuosalise EIC-vahemike pärimine.               |
 
 ##### Information of the versions
 
@@ -223,12 +221,11 @@ In general, all authorised users can request metering point data using the `sear
 
 #### Messages
 
-| V1 Message                           | V2 Message                           | Objective                                                                                                                                             |
-|--------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `POST /api/v1/meter/search`          | `POST /api/v2/meter/search`          | Find Metering Points by attributes (check paragraph below for rules)                                                                                  |
-| `POST /api/v1/meter/search/customer` | `POST /api/v2/meter/search/customer` | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code's §8(5) check) |
-| `POST /api/v1/meter/search/border`   | -                                    | Get border Metering Points by customer                                                                                                                |
-| `POST /api/v1/meter/export`          | `POST /api/v2/meter/export`          | Export Metering Points by attributes (check paragraph below for rules)                                                                                |
+| Message                           | Objective                                                                                                                                             |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST /api/v2/meter/search`       | Find Metering Points by attributes (check the sections below for applicable rules).                                                                   |
+| `POST /api/v2/meter/search/customer` | Find Customer's Metering Points (with valid or future grid agreements) by Customer EIC **to create a new SUPPLY agreement** (Grid Code § 8(5) check). |
+| `POST /api/v1/meter/search/border` | Get border Metering Points by customer.                                                                                                               |                                                                       |
 
 
 > [!CAUTION] 
