@@ -96,6 +96,8 @@ Mõõtepunktide andmed on samalaadsed nii andmevahetuse teenustes kui ka veebili
 | aggregationProductionType | Aggregation production type            | Mõõtepunkti tootmise tüüp            | atribuut puudub            | jah, kui vara tüüp on PRODUCTION | Üks neist: BESS, BV, WIND, HYDRO, OTHER. Väärtuse uuendamine on lubatud ainult siis, kui eelnev väärtus puudub ja vara tüüp on PRODUCTION |
 | resourceEic               | Resource EIC                           | Ressursi EIC                         | atribuut puudub            | jah                              | Ei pea viitama Andmelaos registreeritud EIC koodile. Väärtuse uuendamine on lubatud ainult siis, kui eelnev väärtus puudub.               |
 
+Täispikk juhend on agregeerimismõõtepunkti lisamise kohta on saadaval [siin](https://elering.ee/sites/default/files/2026-06/Iseseisva%20agregaatori%20reguleerimisandmete%20esitamise%20juhend%20Estfeed%20Datahubis.pdf).
+
 - Ühised aadressi andmed kõikidele mõõtepunktidele:
 
 | Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus                                              | Kohustuslik V1 versioonis?              | Kohustuslik V2 versioonis?     | Muud reeglid                                                                                                                                    |

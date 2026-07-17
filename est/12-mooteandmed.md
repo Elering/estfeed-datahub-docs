@@ -7,6 +7,7 @@
   * [Mõõteandmete suunad](#mõõteandmete-suunad)
   * [Netomõõdetud mõõteandmed](#netomõõdetud-mõõteandmed)
   * [Mõõteandmete resolutsioon](#mõõteandmete-resolutsioon)
+  * [Reguleerimisandmete esitamine](#reguleerimisandmete-esitamine)
   * [Mõõteandmete edastamine](#mõõteandmete-edastamine)
   * [Mõõteandmetele ligipääs õiguslikud alused](#mõõteandmetele-ligipääs-õiguslikud-alused)
   * [Süsteemiväline nõusolek](#süsteemiväline-nõusolek)
@@ -48,8 +49,16 @@ Mõõteandmete esitamise ja pärimise võimalused sõltuvad turust, turuosalise 
 ### Mõõteandmete suunad
 
 Mõõteandmete suund esitatakse järgnevalt:
-- **IN** – võrku sisenev energia ehk tootmine.
+- **IN** – võrku sisenev energia ehk tootmine;
 - **OUT** – võrgust väljuv energia ehk tarbimine.
+
+Agregeerimise mõõtepunktis, kus reguleeritakse tarbimist esitatakse suund järgnevalt:
+- **IN** – tarbimise vähendamine;
+- **OUT** – tarbimise suurendamine.
+
+Agregeerimise mõõtepunktis, kus reguleeritakse tootmist esitatakse suund järgnevalt:
+- **IN** – tootmise suurendamine;
+- **OUT** – tootmise vähendamine.
 
 ### Netomõõdetud mõõteandmed
 
@@ -96,6 +105,18 @@ Näited:
 - päevaandmete korral tuleb kogus lisada esimesele gaasipäeva tunnile ehk `07:00`.
 
 Estfeed Datahub ei valideeri, et kogu periood oleks täielikult mõõteandmetega kaetud. Näiteks ei kontrollita, kas elektri puhul on iga 15 minuti vahemik või gaasi puhul iga tunni vahemik eraldi täidetud.
+
+### Reguleerimisandmete esitamine
+
+Iseseisva agregaatorina tegutsemise eelduseks on aktiveeritud reguleerimisenergia koguste deklareerimine Estfeed Datahubis. Tsentraalne arveldus ja ebabilansi arvestus põhinevad iseseisva agregaatori poolt Datahubi esitatud aktiveeritud reguleerimisenergia kogustel.
+
+Aktiveeritud reguleerimisenergia koguseks loetakse Eleringi aktiveerimissignaali alusel tarnitud üles- või allareguleerimise energiakogus. Näiteks kui Elering aktiveerib 15-minutiliseks perioodiks 1 MW allareguleerimist ning selle tulemusena suureneb tarbimine 1 MW võrra, on aktiveeritud energiakogus 0,250 MWh ehk 250 kWh. Estfeed Datahubis esitatakse kogused kWh-des Wh täpsusega (nt 1 MWh = 1000,000 kWh).
+
+Iseseisev agregaator peab **iga päev hiljemalt kell 10:00** deklareerima eelmise päeva aktiveeritud reguleerimisenergia kogused. Andmed esitatakse agregeerimismõõtepunkti kohta, millel on kehtiv agregeerimisleping.
+
+Aktiveeritud reguleerimisenergia koguste deklareerimine toimub mõõteandmete esitamisena Estfeed Datahubi. Seejuures käsitletakse aktiveeritud reguleerimisenergia koguseid mõõteandmetena ning agregeerimismõõtepunkti mõõtepunktina. Kõik selles dokumentatsioonis kirjeldatud tehnilised reeglid kehtivad ka reguleerimisandmetele.
+
+Täispikk juhend on kättesaadav [siin](https://elering.ee/sites/default/files/2026-06/Iseseisva%20agregaatori%20reguleerimisandmete%20esitamise%20juhend%20Estfeed%20Datahubis.pdf).
 
 ### Mõõteandmete edastamine
 

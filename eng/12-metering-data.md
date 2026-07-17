@@ -97,6 +97,16 @@ Examples:
 
 Estfeed Datahub does not validate that the entire period is fully covered with metering data. For example, it is not checked whether every 15-minute interval for electricity or every hourly interval for gas is filled separately.
 
+### Submission of Balancing Energy Data
+
+To operate as an **independent aggregator**, the declaration of activated balancing energy volumes in Estfeed Datahub must be enabled. Central settlement and imbalance calculations are based on the activated balancing energy volumes submitted by the independent aggregator to the Datahub.
+
+Activated balancing energy refers to the upward or downward balancing energy delivered in response to an activation signal from Elering. For example, if Elering activates 1 MW of downward regulation for a 15-minute period and consumption increases by 1 MW as a result, the activated energy volume is 0.250 MWh, or 250 kWh. In Estfeed Datahub, volumes are submitted in kWh with Wh precision (e.g. 1 MWh = 1000.000 kWh).
+
+The independent aggregator must declare the previous day's activated balancing energy volumes **by 10:00 each day**. Data is submitted for an aggregation metering point covered by a valid aggregation agreement.
+
+Activated balancing energy volumes are declared in Estfeed Datahub as metering data. In this context, the activated balancing energy volumes are treated as metering data and the aggregation metering point is treated as the metering point.
+
 ### Transmitting metering data
 
 The metering point manager ensures the determination of active energy quantities for its metering points and transmits the metering data to Estfeed Datahub.
