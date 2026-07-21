@@ -9,7 +9,6 @@
   - [Masinliidese sõnumid](#masinliidese-sõnumid)
     - [Sõnumid](#sõnumid)
     - [Sõnumite reeglid](#sõnumite-reeglid)
-  - [Neto mõõdetud mõõteandmete lisandumine võrguarvele](#neto-mõõdetud-mõõteandmete-lisandumine-võrguarvele)
 
 ## Sissejuhatus
 

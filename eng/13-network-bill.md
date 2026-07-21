@@ -9,7 +9,6 @@
   - [API messages](#api-messages)
     - [Messages](#messages)
     - [Message rules](#message-rules)
-  - [Net metering data in network bill message](#net-metering-data-in-network-bill-message)
 
 ## Introduction
 
