@@ -238,7 +238,7 @@ API kaudu mõõteandmete edastamisel kehtivad järgmised reeglid:
 - kui kasvõi üks mõõtetulemus ei läbi valideerimist, saab kogu sõnum staatuse `ERROR`;
 - kui perioodi algus on lubatust kaugemal tulevikus, tagastatakse veakood `period-start-too-far-in-future`;
 - `import` teenuses tuleb kasutada sama malli, mille väljastab vastav template-teenus.
-- Mõõteandmete saatmisel V2 API kaudu kehtib piirang perioodide arvule, mida saab ühe õnumiga edastada. Korraga on võimalik saata kuni 35 040 perioodi mõõteandmeid. Kui saadetakse igapäevaselt ühe päeva andmeid, saab ühe sõnumiga edastada kuni 365 mõõtepunkti andmed. Pikema perioodi korral tuleb vastavalt vähendada mõõtepunktide arvu.
+- Mõõteandmete saatmisel V2 API kaudu kehtib piirang perioodide arvule, mida saab ühe sõnumiga edastada. Korraga on võimalik saata elektrituru mõõteandmeid kuni 35 040 perioodi ja gaasituru mõõteandmeid kuni 8760 perioodi. 
 
 ### API lühendid
 

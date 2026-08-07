@@ -227,7 +227,7 @@ When transmitting metering data via API, the following rules apply:
 - if even one metering result fails validation, the entire message receives status `ERROR`;
 - if the start of the period is further in the future than allowed, error code `period-start-too-far-in-future` is returned;
 - in the `import` service, the same template must be used that is returned by the corresponding template service or export service.
-- When sending metering data via V2 API, a limit applies to the number of periods that can be transmitted in one message. Up to 35,040 periods of metering data can be sent at once. If one day of data is sent daily, one message can transmit data for up to 365 metering points. For a longer period, the number of metering points must be reduced accordingly.
+- When sending metering data via V2 API, a limit applies to the number of periods that can be transmitted in one message. Up to 35,040 periods of electricity metering data or 8760 periods of gas metering data can be sent at once. 
 
 ### API abbreviations
 
