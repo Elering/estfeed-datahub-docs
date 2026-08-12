@@ -1,3 +1,9 @@
+## 2026-08-12
+
+|                                  Issue                                  | Type | Priority|                                      Title                                      |
+|-------------------------------------------------------------------------|------|---------|---------------------------------------------------------------------------------|
+|  [EDH-4048](https://github.com/Elering/estfeed-datahub-docs/issues/168) |  Bug |  Medium |  Aggregation of metering data is not correct depending on summer or winter time |
+
 ## 2026-08-11
 
 |                                   Issue                                  | Type |Priority|                    Title                   |
