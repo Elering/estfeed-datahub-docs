@@ -1,3 +1,9 @@
+## 2026-08-11
+
+|                                   Issue                                  | Type |Priority|                    Title                   |
+|--------------------------------------------------------------------------|------|--------|--------------------------------------------|
+|  [EDH-10641](https://github.com/Elering/estfeed-datahub-docs/issues/206) |  Bug |  High  |  Report type filter is not clickable in UI |
+
 ## 2026-06-25
 
 |                                   Issue                                  | Type | Priority |                                             Title                                             |
