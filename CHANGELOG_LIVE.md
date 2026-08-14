@@ -1,3 +1,9 @@
+## 2026-08-14
+
+|                                   Issue                                  | Type |  Priority |                                 Title                                |
+|--------------------------------------------------------------------------|------|-----------|----------------------------------------------------------------------|
+|  [EDH-10780](https://github.com/Elering/estfeed-datahub-docs/issues/207) |  Bug |  Critical |  The DD v2 APIs do not guarantee a deterministic ordering of results |
+
 ## 2026-08-12
 
 |                                   Issue                                  | Type | Priority|                                      Title                                      |
