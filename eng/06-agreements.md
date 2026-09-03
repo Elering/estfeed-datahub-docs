@@ -87,7 +87,7 @@ Other rules:
 - It is not permitted to modify expired agreement.
 - The type of energy indicated in the agreement must be the same as the type of energy at the metering point indicated in the agreement (if the type of agreement provides for this information).
 - For agreements, only the operator's agreement ID and the end date of the agreement can be changed. Changing the remaining data is not allowed.
-- For agreement types (SUPPLY, GRID, BORDER_GRID, AGGREGATION), validations are applied during both creation and update: the validity valid from must not be later than 31.12.2035, and the valid to (if specified) must not be later than 01.012080.
+- For agreement types (SUPPLY, GRID, BORDER_GRID, AGGREGATION), validations are applied during both creation and update: the validity valid from must not be later than 31.12.2035, and the valid to (if specified) must not be later than 01.01.2080.
 
 Electricity Market and Gas Market Contract Start and End Differences
 
