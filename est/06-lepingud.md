@@ -79,7 +79,7 @@ Lepingute omavahelised sõltuvused ja reeglid:
 - Avatud tarnija saab avatud tarne lepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk avatud tarnija on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Võrguettevõtja saab võrgulepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  võrguettevõtja on kellegi portfellis). Kehtivuse aega arvesse ei võeta.
 - Agregaator saab agregeerimislepinguid lisada alles siis, kui tal on kehtiv portfellileping (ehk  agregaator on kellegi portfellis). Kehtivuse aega arvesse ei võeta (ainult elektriturg).
-- Avatud tarne lepingu sõlmimise aluseks on kehtiv võrguleping mõõtepunktis. Avatud tarne lepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
+- Avatud tarne lepingu sõlmimise aluseks on kehtiv võrguleping mõõtepunktis ja mõõtepunkti omaniku tururoll peab olema GRID_OPERATOR või CLOSED_DISTRIBUTION_NETWORK. Avatud tarne lepingu kehtivus ei tohi kummastki otspunktist ületada võrgulepingu kehtivust.
 - Agregeerimislepingu sõlmimise aluseks on kehtiv võrguleping võrgu ülemmõõtepunktis. Agregeerimislepingu kehtivus ei tohi kummastki otspunktist ületada ülemmõõtepunkti võrgulepingu kehtivust (ainult elektriturg).
 
 Muud reeglid:

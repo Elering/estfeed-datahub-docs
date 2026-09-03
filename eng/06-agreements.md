@@ -73,7 +73,7 @@ Dependencies and rules between agreements:
 - An open supplier can only add open supply agreements if they have a valid portfolio agreement (i.e. when the open supplier is in someone’s portfolio). The validity period is not taken into account.
 - A grid operator can only add grid agreements if they have a valid portfolio agreement (i.e. when the grid operator is in someone’s portfolio). The validity period is not taken into account.
 - An aggregator can only add aggregation agreements if they have a valid portfolio agreement (i.e. when the aggregator is in someone’s portfolio). The validity period is not taken into account.
-- An open supply agreement cannot be entered into without a valid grid agreement at the metering point. The duration of the open supply agreement cannot exceed the duration of the grid agreement at either end point.
+- An open supply agreement cannot be entered into without a valid grid agreement at the metering point and the market role of the metering point owner must be either GRID_OPERATOR or CLOSED_DISTRIBUTION_NETWORK. The duration of the open supply agreement cannot exceed the duration of the grid agreement at either end point.
 - An aggregation agreement cannot be entered into without a valid grid agreement at the parent metering point. The duration of the aggregation agreement cannot exceed the duration of the grid agreement at either end point.
 
 Other rules:

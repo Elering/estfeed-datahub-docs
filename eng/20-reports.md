@@ -414,7 +414,7 @@ Column descriptions:
 
 BHT report values are calculated based on Balance Provider report.
 
-- **PAGE "BMS_RAPORT"**
+- **Sheet "BMS_RAPORT"**
   - Balance responsible party EIC (balanceProviderEic)
   - Balance period – time (date + time) marking the beginning of the balance period (DateTime)
   - Production - Production in metering points that belong to the balance provider portfolio but grid operator belong to another portfolio. From these values metering points where grid operator belongs to the balance provider portfolio but open supplier does not are subtracted. Isolated metering points are counted as well. (ortfolioProduction)
@@ -422,6 +422,11 @@ BHT report values are calculated based on Balance Provider report.
   - Net Production - For bidirectional grid metering points with net quantities (netIn and netOut) submitted to the Estfeed Datahub, the report uses these net values. For all other metering points, the standard in and out quantities are taken into account. In the report, both net quantities and standard quantities are aggregated in the netPortfolioProduction and netPortfolioConsumption columns. (netPortfolioProduction) (electricity market only).
   - Net Consumption - For bidirectional grid metering points with net quantities (netIn and netOut) submitted to the Estfeed Datahub, the report uses these net values. For all other metering points, the standard in and out quantities are taken into account. In the report, both net quantities and standard quantities are aggregated in the netPortfolioProduction and netPortfolioConsumption columns.  (netPortfolioConsumption) (electricity market only).
   - Saldo - is being calculated based on previous columns: Portfolio Production - Portfolio Consumption (Portfolio Saldo)
+
+**Sheet "In_portfolio_production" (gas market only)**
+  - Balance Responsible Party EIC – EIC code of the Balance Responsible Party (balanceProviderEic)
+  - Balance Period – start time of the balance period (date + time) (DateTime)
+  - In-Portfolio Production – production within the Balance Responsible Party's portfolio in MWh (portfolioProduction)
   
 #### Report of Non-Remote Read Metering Points 
 ### (Gas Market Only)
