@@ -93,6 +93,7 @@ Muud reeglid:
 - Kehtivuse kaotanud lepingut muuta ei ole lubatud.
 - Lepingus märgitud energia liik peab olema sama lepingus märgitud mõõtepunkti energia liigiga (juhul, kui lepingu tüüp neid andmeid ette näeb).
 - Lepingute puhul on lubatud muuta ainult operaatoripoolset lepingu ID-d ja lepingu lõpu kuupäeva. Ülejäänud andmete muutmine ei ole lubatud.
+- Lepingu tüüpidele (SUPPLY, GRID, BORDER_GRID, AGGREGATION) rakendatakse loomisel ja muutmisel validatsioone: kehtuvuse algus ei saa olla hilisem kui 31.12.2035 ja lepingu lõpp (kui on määratud), ei saa olla hilisem kui 01.01.2080.  
 
 Elektrituru ja gaasituru lepingite alguse ja lõpu erisused 
 
