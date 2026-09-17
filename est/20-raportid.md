@@ -496,7 +496,7 @@ Sagedus:
   - Tarbimine m3 - võrgust võetud kuupmeetrid (outM3) (ainult gaasiturg)
   - Tootmine Kwh - võrku antud KWH (inkWh)
   - Tarbimine Kwh - võrgust võetud KWH (outkWh)
-  - Netoootmine Kwh - võrku antud netokogus (netInKwh) (ainult elektriturg)
+  - Netotootmine Kwh - võrku antud netokogus (netInKwh) (ainult elektriturg)
   - Netotarbimine Kwh -  võrgust võetud netokogus (netOutKwh) (ainult elektriturg)
 
 
