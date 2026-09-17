@@ -482,13 +482,12 @@ Sagedus:
 
 **Leht "GO_MP"**
   - Mõõtepunkti EIC – mõõtepunkti EIC kood (meteringPointEIC)
-  - Gaasi müüja EIC - mõõtepunktis gaasi müüva turuosalise EIC (openSupplierEIC)
+  - Müüja EIC - mõõtepunktis müüva turuosalise EIC (openSupplierEIC)
   - Kliendi EIC - mõõtepunkti kliendi EIC kood (customerEIC)
   - Kliendi nimi - mõõtepunkti kliendi nimi (customerName)
-  - Katkestatud - kui perioodi jooksul on leping katkestatud, siis on 1, muidu 0 (Canceled)
-  - Perioodi algus - jooksva kuu algus kell 07:00 või uue võrgulepingu korral lepingu alguskuupäev (periodStarts)
+  - Perioodi algus - jooksva kuu algus või uue võrgulepingu korral lepingu alguskuupäev (periodStarts)
   - Perioodi lõpp - raporti koostamise kuupäev või jooksval kuu lõppenud võrgulepingu lõppkuuäev (periodEnds)
-  - Tunnid – lepingu kehtivus tundides aruande kuus (hours)
+  - Positsioonid - Positsioonide arv resolutsiooni järgi unikaalse lepingu kohta (positions)
   - Võrku sisenenud koguste edastuste arv  - loendatakse (count) kokku edastatud mõõteandmed (sh nullkogused) (inCount)
   - Võrgust väljunud koguste edastaste arv - loendatakse (count) kokku edastatud mõõteandmed (sh nullkogused) (outCount)
   - Netokoguste edastuste arv (in) - loendatakse kokku (count) edastatud netokogused (sh nullkogused) (netInCount) (ainult elektriturg)
