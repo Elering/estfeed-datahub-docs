@@ -484,7 +484,8 @@ Frequency:
 
 **Sheet "GO_MP"**
 - Metering Point EIC – EIC code of the metering point (meteringPointEIC)
-- Gas Supplier EIC – EIC of the market participant supplying gas at the metering point (openSupplierEIC)
+- Supplier EIC – EIC of the market supplyier at the metering point (openSupplierEIC)
+- General Service - Is the customer on the general service YES/NO (onGeneralService)
 - Customer EIC – EIC code of the metering point customer (customerEIC)
 - Customer Name – name of the metering point customer (customerName)
 - Period Start – start of the current month or, in case of a grid agreement, the agreement start date (periodStarts)

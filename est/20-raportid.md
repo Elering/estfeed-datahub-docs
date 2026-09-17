@@ -483,6 +483,7 @@ Sagedus:
 **Leht "GO_MP"**
   - Mõõtepunkti EIC – mõõtepunkti EIC kood (meteringPointEIC)
   - Müüja EIC - mõõtepunktis müüva turuosalise EIC (openSupplierEIC)
+  - Ületeenusel olek - kas klient on üldteenusel Jah/ei (onGeneralService)
   - Kliendi EIC - mõõtepunkti kliendi EIC kood (customerEIC)
   - Kliendi nimi - mõõtepunkti kliendi nimi (customerName)
   - Perioodi algus - jooksva kuu algus või uue võrgulepingu korral lepingu alguskuupäev (periodStarts)
@@ -496,7 +497,7 @@ Sagedus:
   - Tarbimine m3 - võrgust võetud kuupmeetrid (outM3) (ainult gaasiturg)
   - Tootmine Kwh - võrku antud KWH (inkWh)
   - Tarbimine Kwh - võrgust võetud KWH (outkWh)
-  - Netotootmine Kwh - võrku antud netokogus (netInKwh) (ainult elektriturg)
+  - Netoootmine Kwh - võrku antud netokogus (netInKwh) (ainult elektriturg)
   - Netotarbimine Kwh -  võrgust võetud netokogus (netOutKwh) (ainult elektriturg)
 
 
