@@ -271,7 +271,7 @@ Veergude kirjeldus:
   - Võrgust väljunud kogus ülem-võrguettevõtja võrku, kWh – võrguettevõtja võrgust väljunud koguspiiripunktides (Pout) (outQuantityBorder)
   - Võrguettevõtja võrgukadu, kWh (qtyLosses)
   - Piirimõõtepunktide arv, tk (meteringPointsTotalBorder)
-  - Mõõtepunktide arv, tk (meteringPointsTotal)
+  - Tavamõõtepunktide arv, tk (meteringPointsTotalRegular)
   - Ainult gaasiraportites:
     - Võrku sisenenud kogus võrgulepinguga üldteenuse lõppkliendilt, m³ –võrku sisenenud kogus Pin (tootmine) (inQtyPortfolioLastResortSupplyM3)
     - Võrgust väljunud kogus võrgulepinguga üldteenuse lõppkliendile, m³ – võrguettevõtja võrgust väljunud kogus Pout (tarbimine) (outQtyPortfolioLastResortSupplyM3)
@@ -468,7 +468,6 @@ Sagedus:
 
 
   ### Võrguettevõtja klientide raport
-  ### (ainult gaasiturg)
 
 Saajad:
 
@@ -476,10 +475,10 @@ Saajad:
 
 Sagedus:
 
-|                                                                    | Gaas                                   |
-|--------------------------------------------------------------------|----------------------------------------|
-| Kord kuus 8. kuupäeval toimub M+1 raporti koostamine               | kell 14.00 (kättesaadav ca kell 18.00) |
-| Kord kuus 1. kuupäeval toimub M+1, M+2 ja M+3 raporti koostamine   | kell 14.00 (kättesaadav ca kell 18.00) |
+|                                                                    | Elekter | Gaas                                   |
+|--------------------------------------------------------------------|---|----------------------------------------|
+| Kord ööpäevas toimub D+1 raporti koostamine | Ei koostata | kell 14.00 (kättesaadav ca kell 18.00) |
+| Kord kuus 1., 4., 5. ja 8. kuupäeval toimub M+1 raporti koostamine               | kell 10.00 (kättesaadav ca kell 12.00 | kell 14.00 (kättesaadav ca kell 18.00) |
 
 **Leht "GO_MP"**
   - Mõõtepunkti EIC – mõõtepunkti EIC kood (meteringPointEIC)
@@ -490,11 +489,15 @@ Sagedus:
   - Perioodi algus - jooksva kuu algus kell 07:00 või uue võrgulepingu korral lepingu alguskuupäev (periodStarts)
   - Perioodi lõpp - raporti koostamise kuupäev või jooksval kuu lõppenud võrgulepingu lõppkuuäev (periodEnds)
   - Tunnid – lepingu kehtivus tundides aruande kuus (hours)
-  - Võrku sisenenud koguste edastuste arv  - loendatakse (count) kokku edastatud mõõteandmed (sh nullkogused) (inNumber)
-  - Võrgust väljunud koguste edastaste arv - loendatakse (count) kokku edastatud mõõteandmed (sh nullkogused) (outNumber)
-  - Tootmine m3 - võrku antud kuupmeetrid (inM3)
-  - Tarbimine m3 - võrgust võetud kuupmeetrid (outM3)
+  - Võrku sisenenud koguste edastuste arv  - loendatakse (count) kokku edastatud mõõteandmed (sh nullkogused) (inCount)
+  - Võrgust väljunud koguste edastaste arv - loendatakse (count) kokku edastatud mõõteandmed (sh nullkogused) (outCount)
+  - Netokoguste edastuste arv (in) - loendatakse kokku (count) edastatud netokogused (sh nullkogused) (netInCount) (ainult elektriturg)
+  - Netokoguste edastuste arv (out) - loendatakse kokku (count) edastatud netokogused (sh nullkogused) (netOutCount) (ainult elektriturg)
+  - Tootmine m3 - võrku antud kuupmeetrid (inM3) (ainult gaasiturg)
+  - Tarbimine m3 - võrgust võetud kuupmeetrid (outM3) (ainult gaasiturg)
   - Tootmine Kwh - võrku antud KWH (inkWh)
   - Tarbimine Kwh - võrgust võetud KWH (outkWh)
+  - Netoootmine Kwh - võrku antud netokogus (netInKwh) (ainult elektriturg)
+  - Netotarbimine Kwh -  võrgust võetud netokogus (netOutKwh) (ainult elektriturg)
 
 

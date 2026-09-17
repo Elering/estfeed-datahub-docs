@@ -271,7 +271,7 @@ Column descriptions:
   - Amounts leaving the grid to the grid of the master grid operator, kWh – amounts leaving the grid of the grid operator at border metering points (Pout) (outQuantityBorder)
   - Grid operator grid loss, kWh (qtyLosses)
   - Number of border metering points, pcs (meteringPointsTotalBorder)
-  - Number of metering points, pcs (meteringPointsTotal)
+  - Number of regular metering points, pcs (meteringPointsTotalRegular)
   - Only in gas reports:
     - Quantity entered into the grid from a last‑resort supply end customer under a grid agreement, m³ – quantity entered into the grid Pin (production) (inQtyPortfolioLastResortSupplyM3)
     - Quantity exited from the grid to a last‑resort supply end customer under grid agreement, m³ – quantity exited from the grid Pout (consumption) (outQtyPortfolioLastResortSupplyM3)
@@ -470,17 +470,16 @@ Frequency:
 - Number of Metering Points (pcs) (meteringPointsTotal)
 
 #### Grid Operator Customer Report 
-### (Gas Market Only)
 
 Recipients:
 - **Grid Operators**
 
 Frequency:
 
-| | Gas |
-|---|---|
-| Once per month on the 8th, preparation of the M+1 report | at 14:00 (available approx. at 18:00) |
-| Once per month on the 1st, preparation of the M+1, M+2 and M+3 reports | at 14:00 (available approx. at 18:00) |
+|                                                                    | Electricity | Gas |
+|--------------------------------------------------------------------|-------------|-----|
+| D+1 report generation once per day                                 | Not generated | 14:00 (available around 18:00) |
+| M+1 report generation once per month on the 1st, 4th, 5th, and 8th day of the month | 10:00 (available around 12:00) | 14:00 (available around 18:00) |
 
 
 **Sheet "GO_MP"**
@@ -492,9 +491,13 @@ Frequency:
 - Period Start – start of the current month at 07:00 or, in case of a negrid agreement, thd agreement start date (periodStarts)
 - Period End – report generation date or, if thgrid agreement ended during the current month, thd agreement end date (periodEnds)
 - Hours – validity of thd agreement in hours during the reporting month (hours)
+- Net Quantity Transmissions Count (In) – total count of transmitted netIn quantities (including zero quantities) (netInCount) (electricity market only)
+- Net Quantity Transmissions Count (Out) – total count of transmitted netOut quantities (including zero quantities) (netOutCount) (electricity market only)
 - Number of Transmissions of Entered Quantities – total count of transmitted metering data (including zero quantities) (inNumber)
 - Number of Transmissions of Exited Quantities – total count of transmitted metering data (including zero quantities) (outNumber)
-- Production m3 – cubic meters injected into the grid (inM3)
-- Consumption m3 – cubic meters withdrawn from the grid (outM3)
+- Production m3 – cubic meters injected into the grid (inM3) (Gas market only)
+- Consumption m3 – cubic meters withdrawn from the grid (outM3) (Gas market only)
 - Production kWh – kWh injected into the grid (inKwh)
 - Consumption kWh – kWh withdrawn from the grid (outKwh)
+- Net Generation (kWh) – net quantity supplied to the grid (netInKwh) (electricity market only)
+- Net Consumption (kWh) – net quantity taken from the grid (netOutKwh) (electricity market only)
