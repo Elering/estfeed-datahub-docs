@@ -1,3 +1,15 @@
+## 2026-09-16
+
+|                                   Issue                                  | Type |Priority|                                                          Title                                                         |
+|--------------------------------------------------------------------------|------|--------|------------------------------------------------------------------------------------------------------------------------|
+|  [EDH-11238](https://github.com/Elering/estfeed-datahub-docs/issues/209) |  Bug |  High  |  Customer authorization search returns both electricity and gas permissions regardless of the requested commodity type |
+
+## 2026-09-07
+
+|                                  Issue                                  | Type |Priority|                                                Title                                                |
+|-------------------------------------------------------------------------|------|--------|-----------------------------------------------------------------------------------------------------|
+|  [EDH-7617](https://github.com/Elering/estfeed-datahub-docs/issues/200) |  Bug |  High  |  /api/v1/2/meter/search/customer is slow (30+ seconds) with customer that has ~1700 metering points |
+
 ## 2026-08-14
 
 |                                   Issue                                  | Type |  Priority |                                 Title                                |
