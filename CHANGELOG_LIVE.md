@@ -1,3 +1,9 @@
+## 2026-09-23
+
+|                                   Issue                                  | Type |Priority|                                                Title                                               |
+|--------------------------------------------------------------------------|------|--------|----------------------------------------------------------------------------------------------------|
+|  [EDH-11346](https://github.com/Elering/estfeed-datahub-docs/issues/210) |  Bug |  High  |  Open Supplier cannot export gas metering data on New agreement page (customer-eic-required error) |
+
 ## 2026-09-17
 
 |                                   Issue                                  | Type |Priority|                                                          Title                                                         |
