@@ -39,7 +39,7 @@ _request body_
 
 _response body_
 
-_x-b3-traceid from response headers or x-document-identification from the request headers_
+_X-Trace-Id from response headers or x-document-identification from the request headers_
 
 ### *Impact*
 

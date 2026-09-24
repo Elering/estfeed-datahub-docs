@@ -40,7 +40,7 @@ _päringu body_
 
 _vastuse body_
 
-_x-b3-traceid vastuse header'ist või x-document-identification päringu header'ist_
+_X-Trace-Id vastuse header'ist või x-document-identification päringu header'ist_
 
 ### *Mõju*
 
