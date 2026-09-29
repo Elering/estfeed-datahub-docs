@@ -1,3 +1,9 @@
+## 2026-09-29
+
+|                                   Issue                                  | Type |Priority|                       Title                      |
+|--------------------------------------------------------------------------|------|--------|--------------------------------------------------|
+|  [EDH-11404](https://github.com/Elering/estfeed-datahub-docs/issues/212) |  Bug |  High  |  DD agreement content timezone not always in UTC |
+
 ## 2026-09-23
 
 |                                   Issue                                  | Type |Priority|                                                Title                                               |
