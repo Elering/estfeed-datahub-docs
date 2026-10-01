@@ -60,10 +60,10 @@ The following parameters are passed during the redirection:
 
 | Parameter | Description |
 |------------|-----------|
-| `eicCode` | EIC code of the company that should receive access to the data. |
-| `energyType` | Energy type (`electricity` or `gas`) |
-| `redirectUrl` | URL to which the customer will be redirected after the process is completed |
-| `showBackButton` | Determines whether the **"Back to Service Provider"** button is displayed to the user. The value is generally set to `true`. |
+| `eic` | EIC code of the company that should receive access to the data. |
+| `energy_type` | Energy type (`electricity` or `gas`) |
+| `redirect_uri` | URL to which the customer will be redirected after the process is completed |
+| `show_back_button` | Determines whether the **"Back to Service Provider"** button is displayed to the user. The value is generally set to `true`. |
 
 ### Redirection
 
@@ -78,7 +78,7 @@ If a redirection URL has been specified:
 
 For security reasons, customers can only be redirected to pre-approved addresses after completing the consent process.
 
-All `redirectUrl` values must be registered in the Estfeed allowed URL list (whitelist) at the domain level.
+All `redirect_uri` values must be registered in the Estfeed allowed URL list (whitelist) at the domain level.
 
 If the redirect address is not included in the whitelist, no redirection will take place.
 

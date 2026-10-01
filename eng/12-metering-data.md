@@ -279,7 +279,7 @@ Data distribution services are additionally in use.
 
 ### Purpose of the request
 
-The attribute `purpose` is used in the metering data request.
+The attribute `purpose` is used in the metering data request. The long-term goal of introducing this attribute is to enable requesting data for multiple metering points within a single query. However, a current limitation still applies, and data can only be requested for one metering point per query.
 
 The purpose describes the business context in which metering data is requested. For example, an open supplier may request metering data for fulfilling an open supply agreement, for balance management purposes or for billing.
 

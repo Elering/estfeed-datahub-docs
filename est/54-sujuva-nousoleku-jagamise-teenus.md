@@ -61,10 +61,10 @@ Suunamisel edastatakse järgmised parameetrid:
 
 | Parameeter | Kirjeldus |
 |------------|-----------|
-| `eicCode` | Ettevõte EIC kood, kellele ligipääsu soovitakse jagada.  |
-| `energyType` | Energia liik (`electricity` või `gas`) |
-| `redirectUrl` | URL, kuhu klient pärast protsessi lõppu tagasi suunatakse |
-| `showBackButton` | Määrab, kas kasutajale kuvatakse nupp „Tagasi teenusepakkuja juurde“. Üldjuhul kasutatakse väärtust 'true'.  |
+| `eic` | Ettevõte EIC kood, kellele ligipääsu soovitakse jagada.  |
+| `energy_type` | Energia liik (`electricity` või `gas`) |
+| `redirect_uri` | URL, kuhu klient pärast protsessi lõppu tagasi suunatakse |
+| `show_back_button` | Määrab, kas kasutajale kuvatakse nupp „Tagasi teenusepakkuja juurde“. Üldjuhul kasutatakse väärtust 'true'.  |
 
 
 ### Tagasisuunamine
@@ -80,7 +80,7 @@ Kui tagasisuunamise URL on määratud:
 
 Turvalisuse tagamiseks saab klienti pärast nõusoleku andmise protsessi lõppu suunata ainult eelnevalt lubatud aadressidele.
 
-Kõik `redirectUrl` väärtused peavad olema domeeni täpsusega kantud Estfeedi lubatud URL-ide nimekirja (whitelist).
+Kõik `redirect_uri` väärtused peavad olema domeeni täpsusega kantud Estfeedi lubatud URL-ide nimekirja (whitelist).
 
 Kui suunamisaadress ei ole lubatud nimekirjas, siis tagasisuunamist ei toimu.
 

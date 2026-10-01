@@ -291,7 +291,7 @@ Täiendavalt on kasutusel andmete levitamise teenused.
 
 ### Päringu eesmärk
 
-Mõõteandmete päringus kasutatakse eesmärgi atribuuti `purpose`.
+Mõõteandmete päringus kasutatakse eesmärgi atribuuti `purpose`. Atribuudi lisamise pikaajaline eesmärk on võimaldada ühe päringuga küsida andmeid mitme mõõtepunkti kohta. Praegu kehtib siiski endiselt piirang, mille kohaselt saab ühe päringuga küsida andmeid ainult ühe mõõtepunkti kohta.
 
 Eesmärk kirjeldab, millises ärilises kontekstis mõõteandmeid päritakse. Näiteks võib avatud tarnija pärida mõõteandmeid avatud tarne lepingu täitmiseks, bilansihalduse eesmärgil või arvelduseks.
 
