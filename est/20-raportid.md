@@ -478,7 +478,7 @@ Sagedus:
 |                                                                    | Elekter | Gaas                                   |
 |--------------------------------------------------------------------|---|----------------------------------------|
 | Kord ööpäevas toimub D+1 raporti koostamine | Ei koostata | kell 14.00 (kättesaadav ca kell 18.00) |
-| Kord kuus 1., 4., 5. ja 8. kuupäeval toimub M+1 raporti koostamine               | kell 10.00 (kättesaadav ca kell 12.00 | kell 14.00 (kättesaadav ca kell 18.00) |
+| Kord kuus 1., 4., 5. ja 8. kuupäeval toimub M+1 raporti koostamine               | kell 06.00 (kättesaadav ca kell 08.00 | kell 14.00 (kättesaadav ca kell 18.00) |
 
 **Leht "GO_MP"**
   - Mõõtepunkti EIC – mõõtepunkti EIC kood (meteringPointEIC)

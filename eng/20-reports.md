@@ -479,7 +479,7 @@ Frequency:
 |                                                                    | Electricity | Gas |
 |--------------------------------------------------------------------|-------------|-----|
 | D+1 report generation once per day                                 | Not generated | 14:00 (available around 18:00) |
-| M+1 report generation once per month on the 1st, 4th, 5th, and 8th day of the month | 10:00 (available around 12:00) | 14:00 (available around 18:00) |
+| M+1 report generation once per month on the 1st, 4th, 5th, and 8th day of the month | 06:00 (available around 08:00) | 14:00 (available around 18:00) |
 
 
 **Sheet "GO_MP"**
