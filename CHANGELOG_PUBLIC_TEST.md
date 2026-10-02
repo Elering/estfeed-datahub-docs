@@ -1,3 +1,9 @@
+## 2026-10-02
+
+|                                   Issue                                  | Type |Priority|                                                Title                                               |
+|--------------------------------------------------------------------------|------|--------|----------------------------------------------------------------------------------------------------|
+|  [EDH-11497](https://github.com/Elering/estfeed-datahub-docs/issues/213) |  Bug |  High  |  PUT /api/v2/meter returns HTTP 422 instead of HTTP 404 when the metering point EIC does not exist |
+
 ## 2026-09-28
 
 |                                   Issue                                  | Type |Priority|                       Title                      |
