@@ -481,6 +481,9 @@ Frequency:
 | D+1 report generation once per day                                 | Not generated | 14:00 (available around 18:00) |
 | M+1 report generation is performed daily from the 1st to the 8th day of each month | 06:00 (available around 08:00) | 14:00 (available around 18:00) |
 
+Data:
+
+- Page "GO_MP" contains Grid operator’s customers in REGULAR and BORDER metering points and their energy consumption during the reporting period.
 
 **Sheet "GO_MP"**
 - Metering Point EIC – EIC code of the metering point (meteringPointEIC)

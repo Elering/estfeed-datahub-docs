@@ -243,6 +243,7 @@ In general, all authorised users can request metering point data using the `sear
   - requester is the owner of the Metering Point
   - requester has the customer authorization, given by the Customer via the Self Service Portal
   - requester is the open/named supplier and has currently active (or had in the last 12 months) open supply or general service agreement with the Metering Point
+  - requester is the open supplier that has an open supply agreement for the given metering point that becomes effective within the next 31 days, and whose customer has a valid network agreement for the same metering point and the same period. In the gas market, a supply agreement may become effective up to 3 months (92 days) in the future.
   - requester is the aggregator and has currently active (or had in the last 12 months) aggregation agreement with one of the child Metering Points
   - requester is the owner of the parent Metering Point and request the data of some child aggregation Metering Point
 - In all other cases Datahub returns no data

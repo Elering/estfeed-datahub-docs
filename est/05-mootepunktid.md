@@ -244,7 +244,8 @@ V2 versiooni lisandumisel toimusid järgmised muudatused:
 - Andmeladu väljastab kõik mõõtepunkti andmed juhul kui:
   - andmete pärija on mõõtepunkti omanik
   - andmete pärijal on Kliendiportaali kaudu väljastatud ligipääsuõigus
-  - andmete pärija on avatud või nimetatud tarnija, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) avatud või nimetatud tarne leping antud mõõtepunktis
+  - andmete pärija on avatud või nimetatud tarnija, kellel on antud mõõtepunktis viimase 12 kuu jooksul olnud aktiivne, on hetkel aktiivne avatud või nimetatud tarne leping
+  - Andmete pärija on avatud tarnija, kellel on antud mõõtepunktis kuni 31 päeva tulevikus jõustuv avatud tarne leping ning kelle kliendil on samas mõõtepunktis ja samal perioodil kehtiv võrguleping. Gaasiturul võib avatud tarne leping jõustuda kuni 3 kuu (92 päeva) jooksul tulevikus.
   - andmete pärija on agregaator, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) agregeerimise leping mõnes antud mõõtepunkti alammõõtepunktis
   - andmete pärija on ülemmõõtepunkti omanik ja päritakse mõne alammõõtepunkti andmeid
 - Ülejäänud juhtudel andmeid ei tagastata
