@@ -77,7 +77,7 @@ Frequency:
 | | Electricity | Gas |
 |---|---|---|
 | Once per day, D+1 data aggregation takes place | Includes data submitted until 10:0000 (Report available approximately at 14:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
-| Once per month on the 8th, M+1 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately Includes data submitted until 10:0000) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
+| Once per month on the 8th, M+1 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately Includes data submitted until 10:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 | Once per month on the 1st, M+2 and M+3 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately at 07:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 
 Data:
@@ -404,7 +404,7 @@ Frequency:
 | | Electricity | Gas |
 |---|---|---|
 | Once per day, D+1 data aggregation takes place | not generated | Includes data submitted until 14:00 (Report available approximately at 18:00) |
-| Once per month on the 8th, M+1 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately at 10:0000) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
+| Once per month on the 8th, M+1 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately at 10:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 | Once per month on the 1st, M+2 and M+3 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately at 07:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 
 
