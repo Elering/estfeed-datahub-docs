@@ -76,7 +76,7 @@ Frequency:
 
 | | Electricity | Gas |
 |---|---|---|
-| Once per day, D+1 data aggregation takes place | Includes data submitted until 10:0000 (Report available approximately at 14:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
+| Once per day, D+1 data aggregation takes place | Includes data submitted until 10:00 (Report available approximately at 14:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 | Once per month on the 8th, M+1 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately Includes data submitted until 10:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 | Once per month on the 1st, M+2 and M+3 data aggregation takes place | Includes data submitted until 00:00 (Report available approximately at 07:00) | Includes data submitted until 14:00 (Report available approximately at 18:00) |
 
@@ -281,7 +281,7 @@ Column descriptions:
     - Grid operator portfolio consumption, kWh (goPortfolioConsumption)
     - Grid operator portfolio consumption, m³ (goPortfolioConsumptionM3)
 
-### Balance management report
+### Balance provider report
 
 Recipients:
 
@@ -342,7 +342,7 @@ Column descriptions:
   - Net amounts leaving the isolated grid, kWh. For bidirectional isolated grid metering points with net quantities (netIn and netOut) submitted to the Estfeed Datahub, the report uses these net values. For all other isolated metering points, the standard in and out quantities are taken into account. In the report, both net quantities and standard quantities are aggregated in the netInQuantityIsolated and netOutQuantityIsolated columns. (netOutQuantityIsolated) (electricity market only).
   - Number of metering points (meteringPointsTotal)
 
-### Balance responsible party report No. 2
+### Balance provider report No. 2
 ### (only electricity market)
 
 Recipients:
@@ -426,7 +426,7 @@ BHT report values are calculated based on Balance Provider report.
   - Balance Period – start time of the balance period (date + time) (DateTime)
   - In-Portfolio Production – production within the Balance Responsible Party's portfolio in MWh (portfolioProduction)
   
-#### Report of Non-Remote Read Metering Points 
+#### Balance Provider Non-Remote Read Metering Points report 
 ### (Gas Market Only)
 
 Recipients:
@@ -436,7 +436,7 @@ Frequency:
 
 | | Gas |
 |---|---|
-| Once per month on the 28th. The report is compiled for the following month | Includes data submitted until 01:30 (Report available approximately at 10:00) |
+| Once per month on the 28th. The report is compiled for the following month | Report generation starts at 01:30 (Report available approximately at 10:00) |
 
 
 
@@ -446,7 +446,7 @@ Frequency:
 - Customer EIC – EIC code of the customer (grid agreement customer) of the non-remote read metering point (customerEIC)
 - Connection State – connection status of the metering point (whether connected or not) (connectionState)
 
-#### Forecast Report of Non-Remote Read Metering Points
+#### Balance Provider consumption Forecast Report
 ### (Gas Market Only)
 
 Recipients:
@@ -456,7 +456,7 @@ Frequency:
 
 | | Gas |
 |---|---|
-| Once per month on the 28th. The report is compiled for the following month | Includes data submitted until 02:00 (Report available approximately at 10:00) |
+| Once per month on the 28th. The report is compiled for the following month | Report generation starts at 02:00 (Report available approximately at 10:00) |
 
 
 **Sheet "FORECAST_DATA MM.YYYY"**
