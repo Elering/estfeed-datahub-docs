@@ -1,3 +1,9 @@
+## 2026-10-12
+
+|                                  Issue                                 | Type |Priority|                                  Title                                  |
+|------------------------------------------------------------------------|------|--------|-------------------------------------------------------------------------|
+|  [EDH-3144](https://github.com/Elering/estfeed-datahub-docs/issues/74) |  Bug |  High  |  [DD] Distribute Metering Data to the Customer of Border Metering Point |
+
 ## 2026-10-02
 
 |                                   Issue                                  | Type |Priority|                                                Title                                               |
