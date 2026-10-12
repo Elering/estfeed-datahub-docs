@@ -1,3 +1,9 @@
+## 2026-10-12
+
+|                                   Issue                                  | Type | Priority|                                                Title                                               |
+|--------------------------------------------------------------------------|------|---------|----------------------------------------------------------------------------------------------------|
+|  [EDH-11584](https://github.com/Elering/estfeed-datahub-docs/issues/214) |  Bug |  Medium |  Gas SUPPLY agreement creation: validation errors suggest start dates rejected by other date rules |
+
 ## 2026-10-09
 
 |                                  Issue                                 | Type |Priority|                                  Title                                  |

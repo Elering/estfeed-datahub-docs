@@ -1,8 +1,9 @@
 ## 2026-10-12
 
-|                                  Issue                                 | Type |Priority|                                  Title                                  |
-|------------------------------------------------------------------------|------|--------|-------------------------------------------------------------------------|
-|  [EDH-3144](https://github.com/Elering/estfeed-datahub-docs/issues/74) |  Bug |  High  |  [DD] Distribute Metering Data to the Customer of Border Metering Point |
+|                                   Issue                                  | Type | Priority|                                                Title                                               |
+|--------------------------------------------------------------------------|------|---------|----------------------------------------------------------------------------------------------------|
+|   [EDH-3144](https://github.com/Elering/estfeed-datahub-docs/issues/74)  |  Bug |   High  |               [DD] Distribute Metering Data to the Customer of Border Metering Point               |
+|  [EDH-11584](https://github.com/Elering/estfeed-datahub-docs/issues/214) |  Bug |  Medium |  Gas SUPPLY agreement creation: validation errors suggest start dates rejected by other date rules |
 
 ## 2026-10-02
 
