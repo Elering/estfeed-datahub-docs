@@ -37,6 +37,8 @@
   * [Taotluste lugemine](#taotluste-lugemine)
   * [Taotlusele vastamine](#taotlusele-vastamine)
 
+> [!NOTE]
+> Kasutajaliidese demo video: [https://www.youtube.com/watch?v=qK4dAT9aPTw](https://www.youtube.com/watch?v=qK4dAT9aPTw)
 
 ## Kasutajad ja õigused
 Peale andmevahetusplatvormi kasutamise lepingu sõlmimist lisame administraatori õigused lepingus lisatud haldurile. Haldur saab jagada õiguseid ka teistele enda ettevõtte töötajatele ja luua tehnilisi kasutajaid. Tehniline kasutaja on vajalik Estfeed Datahubi API liidese kasutamiseks. Veebiliidese kasutamiseks pole tehnilist kasutajat vaja.

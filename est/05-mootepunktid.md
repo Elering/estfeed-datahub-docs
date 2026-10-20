@@ -260,3 +260,112 @@ V2 versiooni lisandumisel toimusid järgmised muudatused:
   - andmete pärija on avatud või nimetatud tarnija, kellel on hetkel aktiivne (või oli viimase 12 kuu jooksul aktiivne) avatud või nimetatud tarne leping antud mõõtepunktis
   - andmete pärija otsib juriidilise isiku või organisatsiooni mõõtepunkte ja kinnitab, et tal on süsteemiväline kirjalikku taasesitust võimaldavas vormis volitus (`legalConsent` väärtus on `true`)
 - Ülejäänud juhtudel tagastatakse ainult mõõtepunkti EIC kood
+
+# Elektri mõõtepunkti API andmekoosseis (V2 vs V3)
+
+Alates mõõtepunkti API V3 versioonidest tulevad elektri, gaasi ja agregeerimise mõõtepunktidele eraldi API-d. 
+Järgnevalt API-de kirjeldus on Elektri mõõtepunkti API-de kohta.
+
+## Mõõtepunkti V3 andmete edastamine
+
+### Üldandmed
+
+| Atribuut teenuses | V2 | V3 | Kommentaar |
+|-------------------|----|----|------------|
+| eic | jah | jah | Mõõtepunkti EIC kood |
+| meteringPointType | jah | jah | Mõõtepunkti tüüp |
+| meteringType | jah | jah | Mõõtmise viis |
+| characteristics | jah | jah | Elektri mõõtepunkti metaandmed |
+| location | jah | jah | Mõõtepunkti asukohaandmed |
+
+### mõõtepunkti metaandmed
+
+| Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Muud reeglid |
+|-------------------|---------------------------|---------------------------|-------------|
+| consumptionScale | jah | jah | SMALL, LARGE |
+| connectionState | jah | jah | CONNECTED, DISCONNECTED |
+| resolution | jah | jah | V2: PT15M (15 minutit), PT1H (1 tund), V3: 15_MINUTES  |
+| customerType | jah | jah | Üks neist:  CONSUMER (tarbija), GRID_OPERATOR (võrguettevõtja), PRODUCER (tootja), MICRO (mikrotootja), LINE_OPERATOR (liinivaldaja), ENERGY_STORAGE_UNIT (salvestusjaam), CHARGING_POINT_OPERATOR (laadimispunkti operaator) |
+| production | jah | jah | TRUE/FALSE |
+| apartmentAssociation | jah | jah | TRUE/FALSE |
+
+### Elektri mõõtepunkti spetsiifilised metaandmed
+
+| Atribuut teenuses | Tulba nimetus masslaadimise templiidis | Selgitus | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Muud reeglid |
+|-------------------|----------------------------------------|----------|----------------------------|----------------------------|--------------|
+| productionSource  | Production Source | energia tootmise allikas | jah, kui production=true | jah, kui production=true | Üks neist: SOLAR (päike), WIND (tuul), HYDRO (vesi), BIOGAS (biogaas), BIOMASS (biomass), NATURAL_GAS (gaas), OIL_SHALE (põlevkivi), OTHER_RENEWABLE (muu taastuv), OTHER_NON_RENEWABLE (muu mittetaastuv). |
+| transmissionNetworkEic | Transmission Network EIC | ülekandevõrgu 16 kohaline EIC kood | jah | ei | Määratud ülekandevõrgu EIC kood peab eksisteerima süsteemis. Energiakandja tüüp peab ühtima mõõtepunkti omaga. Koodi puudumisel võib kasutada koodi 38A-1234567890-1. V3 versioonis ei ole kohustuslik |
+| isolatedMeteringPoint | Isolated Metering Point | kas tegemist on isoleeritud mõõtepunktiga | jah | jah | Üks neist: TRUE (jah), FALSE (ei) |
+| electricalHeating | Electrical Heating | kas mõõtepunktis toimub elektriga kütmist | jah | jah | Üks neist: TRUE (jah), FALSE (ei) |
+| chargingPoint | Charging Point | kas mõõtepunktis toimub elektri laadimist | jah | jah | Üks neist: TRUE (jah), FALSE (ei) |
+| storageCapacity | Storage Capacity | energiasalvestusvõimsus (kW) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
+| storageEnergy | Storage Energy | energiasalvesti mahtuvus (kWh) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
+| productionCapacity | Production Capacity | tootmise maht (kW) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
+| transmissionCapacity | Transmission Capacity | ülekande maht (kW) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
+| esuScheme | ESU Scheme | energiasalvesti skeem | atribuut puudub | ei | Üks neist: STANDALONE (eraldiseisev salvesti), PRODUCTION (salvesti + tootmine), CONSUMPTION (salvesti + tarbimine), HYBRID (Salvesti + tootmine + tarbimine) |
+| esuSchemeValidFrom | ESU Scheme Valid From | energiasalvesti skeemi kehtivuse algus | atribuut puudub | ei | Energiasalvesti skeemi algus päeva täpsusega |
+| esuQuantitiesProvider | ESU Quantities Provider | energiasalvesti mõõteandmete esitaja | atribuut puudub | ei | Üks neist: OWNER (omanik), CUSTOMER (mõõtepunkti klient) |
+| esuBilling | ESU Billing | energiasalvesti arveldusskeemi kasutamine | atribuut puudub | ei | Üks neist: TRUE (jah), FALSE (ei). |
+| esuBillingValidFrom | ESU Billing Valid From | energiasalvesti arveldusskeemi kehtivuse algus | atribuut puudub | ei | Energiasalvesti arvelsusskeemi algus päeva täpsusega |
+| bidirectional | Bidirectional | kas mõõtepunkt on kahesuunaline | atribuut puudub | ei | Üks neist: TRUE (jah), FALSE (ei). |
+| bidirectionalChangeTime | Bidirectional Change Time | kahesuunalisuse muudatuse aeg | atribuut puudub | ei | Kellaaeg peab olema 15-minutilise täpsusega, minutite väärtus peab olema: 00, 15, 30 või 45. Sekundite väärtus peab alati olema 00. |
+
+### Asukohaandmed
+
+| Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Kommentaar |
+|-------------------|---------------------------|---------------------------|------------|
+| adrId | ei | ei | ADS aadressi identifikaator |
+| comment | ei | ei | Kommentaar |
+| county | jah | jah | Maakond, peab ühtima EHAK level 1 |
+| municipality | jah | jah | Omavalitsus, peab ühtima EHAK level 2-ga ja sisalduma level 1-s |
+| locality | ei | tingimuslik | V3-s kohustuslik kui EHAK tase 3 on olemas. Peab sisalduma level 3-s ja sisalduma EHAK level 2-s |
+| streetAddress | jah | jah | Tänav, maja, korter (ADS levels 4-8) |
+| postcode | jah | jah | Sihtnumber |
+| coordinates | ei | ei | Koordinaadid |
+
+#### Koordinaadid
+
+| Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Kommentaar |
+|-------------------|---------------------------|---------------------------|------------|
+| latitude | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | Laiuskraad |
+| longitude | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | Pikkuskraad |
+| coordinateSystem | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | WGS84 või LEST97 |
+
+### V3 versioonis lisandunud atribuudid
+
+| Atribuut | Kirjeldus |
+|-----------|-----------|
+| esuScheme | Energiasalvesti skeem |
+| esuSchemeValidFrom | Energiasalvesti skeemi jõustumise kuupäev |
+| esuQuantitiesProvider | Energiasalvesti koguste esitaja |
+| esuBilling | Energiasalvesti arveldusloogika |
+| esuBillingValidFrom | Energiasalvesti arvelduse jõustumise kuupäev |
+| bidirectional | Kahesuunaline mõõtepunkt |
+| bidirectionalChangeTime | Kahesuunalisuse muudatuse aeg |
+
+### V3 versioonis muudetud reeglid
+
+| Atribuut | Muudatus |
+|-----------|----------|
+| transmissionNetworkEic | Kohustuslik → vabatahtlik |
+| resolution | Kasutab ainult 15_MINUTES enumit |
+| API struktuur | Üldine mõõtepunkti API jagati elektri-, gaasi- ja agregeerimise API-deks |
+
+
+### Masinliidese sõnumid V3 
+
+#### Sõnumid V3
+
+ | Sõnum                      | Eesmärk                                             |
+|-------------------------------|-----------------------------------------------------|
+| `POST /api/V3/metering-points/electricity`          | Mõõtepunkti lisamine                                |
+| `PUT /api/V3/metering-points/electricity/{eic}`     | Mõõtepunkti muutmine                                |
+| `GET /api/V3/metering-points/electricity/{eic}` | Mõõtepunkti otsimine|
+| `GET /api/V3/customers/{customerEic}/metering-points/electricity` | mõõtepunkti otsimine kliendi alusel ka juhul, kui päringu tegijal puudub tavapärase protsessi raames mõõtepunktile juurdepääsuõigus. Seda kasutatakse uue lepingu lisamisel avatud tarnija (Open Supplier) poolt |
+
+##### Versioonide info
+
+V3 versiooni lisandumisel toimusid järgmised muudatused:
+  - V3 versioonis lisandusid elektri mõõtepunktile 7 uut atribuuti: `esuScheme`, `esuSchemeValidFrom`, `esuQuantitiesProvider`, `esuBilling`, `esuBillingValidFrom`, `bidirectional`, `bidirectionalChangeTime`. 
+  - V3 versioonis muutusid asukoha ja elektri mõõtepunkti spetsiifiliste atribuutide kohustuslikkuse reeglid
+  
