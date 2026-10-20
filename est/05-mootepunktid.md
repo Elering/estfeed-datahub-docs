@@ -20,6 +20,18 @@
       * [Sõnumite reeglid](#sõnumite-reeglid-1)
         * [`meter/search` ja `meter/export` reeglid](#metersearch-ja-meterexport-reeglid)
         * [`meter/search/customer` reeglid](#metersearchcustomer-reeglid)
+  * [Elektri mõõtepunkti API andmekoosseis (V2 vs V3)](#elektri-mõõtepunkti-api-andmekoosseis-v2-vs-v3)
+    * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
+      * [Üldandmed](#üldandmed)
+      * [Mõõtepunkti metaandmed](#mõõtepunkti-metaandmed)
+      * [Elektri mõõtepunkti spetsiifilised metaandmed](#elektri-mõõtepunkti-spetsiifilised-metaandmed)
+      * [Asukohaandmed](#asukohaandmed)
+        * [Koordinaadid](#koordinaadid)
+      * [V3 versioonis lisandunud atribuudid](#v3-versioonis-lisandunud-atribuudid)
+      * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
+      * [Masinliidese sõnumid V3](#masinliidese-sõnumid-v3)
+        * [Sõnumid V3](#sõnumid-v3)
+        * [Versioonide info](#versioonide-info-2)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -363,7 +375,7 @@ Järgnevalt API-de kirjeldus on Elektri mõõtepunkti API-de kohta.
 | `GET /api/V3/metering-points/electricity/{eic}` | Mõõtepunkti otsimine|
 | `GET /api/V3/customers/{customerEic}/metering-points/electricity` | mõõtepunkti otsimine kliendi alusel ka juhul, kui päringu tegijal puudub tavapärase protsessi raames mõõtepunktile juurdepääsuõigus. Seda kasutatakse uue lepingu lisamisel avatud tarnija (Open Supplier) poolt |
 
-##### Versioonide info
+#### Versioonide info
 
 V3 versiooni lisandumisel toimusid järgmised muudatused:
   - V3 versioonis lisandusid elektri mõõtepunktile 7 uut atribuuti: `esuScheme`, `esuSchemeValidFrom`, `esuQuantitiesProvider`, `esuBilling`, `esuBillingValidFrom`, `bidirectional`, `bidirectionalChangeTime`. 
