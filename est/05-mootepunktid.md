@@ -86,17 +86,17 @@ Mõõtepunktide andmed on samalaadsed nii andmevahetuse teenustes kui ka veebili
 
 - Elektri mõõtepunkti spetsiifilised metaandmed:
 
-| Atribuut teenuses     | Tulba nimetus masslaadimise templiidis | Selgitus                                  | Kohustuslik V1 versioonis? | Kohustuslik V2 versioonis? | Muud reeglid                                                                            |
-|-----------------------|----------------------------------------|-------------------------------------------|----------------------------|----------------------------|-----------------------------------------------------------------------------------------|
-| productionSource  | Production Source  | energia tootmise allikas | jah, kui production=true | jah, kui production=true | Üks neist: SOLAR (päike), WIND (tuul), HYDRO (vesi), BIOGAS (biogaas), BIOMASS (biomass), NATURAL_GAS (gaas), OIL_SHALE (põlevkivi), OTHER_RENEWABLE (muu taastuv), OTHER_NON_RENEWABLE (muu mittetaastuv). |
-|  transmissionNetworkEic | Transmission Network EIC | ülekandevõrgu 16 kohaline EIC kood | jah | jah | Määratud ülekandevõrgu EIC kood peab eksisteerima süsteemis. Energiakandja tüüp peab ühtima mõõtepunkti omaga. Koodi puudumisel võib kasutada koodi 38A-1234567890-1. |
-| isolatedMeteringPoint | Isolated Metering Point                | kas tegemist on isoleeritud mõõtepunktiga | jah                        | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
-| electricalHeating     | Electrical Heating                     | kas mõõtepunktis toimub elektriga kütmist | jah                        | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
-| chargingPoint         | Charging Point                         | kas mõõtepunktis toimub elektri laadimist | jah                        | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
-| storageCapacity       | Storage Capacity                       | energiasalvestusvõimsus (kW)              | ei                         | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
-| storageEnergy         | Storage Energy                         | energiasalvesti mahtuvus (kWh)            | ei                         | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
-| productionCapacity    | Production Capacity                    | tootmise maht (kW)                        | ei                         | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
-| transmissionCapacity  | Transmission Capacity                  | ülekande maht (kW)                        | ei                         | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
+| Atribuut teenuses     | Tulba nimetus masslaadimise templiidis | Selgitus                                  | Kohustuslik V2 versioonis? | Muud reeglid                                                                            |
+|-----------------------|----------------------------------------|-------------------------------------------|----------------------------|-----------------------------------------------------------------------------------------|
+| productionSource  | Production Source  | energia tootmise allikas | jah, kui production=true | Üks neist: SOLAR (päike), WIND (tuul), HYDRO (vesi), BIOGAS (biogaas), BIOMASS (biomass), NATURAL_GAS (gaas), OIL_SHALE (põlevkivi), OTHER_RENEWABLE (muu taastuv), OTHER_NON_RENEWABLE (muu mittetaastuv). |
+|  transmissionNetworkEic | Transmission Network EIC | ülekandevõrgu 16 kohaline EIC kood | jah | Määratud ülekandevõrgu EIC kood peab eksisteerima süsteemis. Energiakandja tüüp peab ühtima mõõtepunkti omaga. Koodi puudumisel võib kasutada koodi 38A-1234567890-1. |
+| isolatedMeteringPoint | Isolated Metering Point                | kas tegemist on isoleeritud mõõtepunktiga | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
+| electricalHeating     | Electrical Heating                     | kas mõõtepunktis toimub elektriga kütmist | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
+| chargingPoint         | Charging Point                         | kas mõõtepunktis toimub elektri laadimist | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
+| storageCapacity       | Storage Capacity                       | energiasalvestusvõimsus (kW)              | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
+| storageEnergy         | Storage Energy                         | energiasalvesti mahtuvus (kWh)            | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
+| productionCapacity    | Production Capacity                    | tootmise maht (kW)                        | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
+| transmissionCapacity  | Transmission Capacity                  | ülekande maht (kW)                        | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
 
 - Agregeerimise mõõtepunkti spetsiifilised metaandmed:
 
@@ -197,7 +197,6 @@ Mõõtepunkti andmed on kirjeldatud peatükis [Mõõtepunkti andmete edastamine]
 V2 versiooni lisandumisel toimusid järgmised muudatused:
   - V2 versioonis lisandusid agregeerimise mõõtepunktile 4 uut atribuuti: `aggregationProductType`, `assetType`, `aggregationProductionType` ja `resourceType`. 
   - V2 versioonis muutusid asukoha ja elektri mõõtepunkti spetsiifiliste atribuutide kohustuslikkuse reeglid 
-  - V1 versioonis pole enam võimalik lisada ega muuta agregeerimise mõõtepunkte
 
 #### Sõnumite reeglid
 
