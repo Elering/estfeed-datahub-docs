@@ -1,3 +1,9 @@
+## 2026-10-22
+
+|                                   Issue                                  | Type | Priority |                                         Title                                         |
+|--------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------------------------|
+|  [EDH-11860](https://github.com/Elering/estfeed-datahub-docs/issues/215) |  Bug |  Highest |  POST Natural gas metering data API returns HTTP 202 while Swagger documents HTTP 200 |
+
 ## 2026-10-12
 
 |                                   Issue                                  | Type | Priority|                                                Title                                               |
