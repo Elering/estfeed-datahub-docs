@@ -161,13 +161,14 @@ The request body is a **list** of objects, one per grid metering point:
 
 > [!WARNING]
 > The baseline methodology supports submitting consumption (OUT) and production (IN) baseline quantities either together or separately.
+> 
 > For a given period:
-  - both inQty and outQty may be submitted in the same message;
-  - only inQty may be submitted;
-  - only outQty may be submitted;
-  - at least one of the two fields (inQty or outQty) must be present.
-
-  A value of 0 represents a submitted baseline with a forecast quantity of zero. A missing field indicates that the corresponding direction (IN or OUT) was not submitted for that period.
+>  - both inQty and outQty may be submitted in the same message;
+>  - only inQty may be submitted;
+>  - only outQty may be submitted;
+>  - at least one of the two fields (inQty or outQty) must be present.
+>
+> A value of 0 represents a submitted baseline with a forecast quantity of zero. A missing field indicates that the corresponding direction (IN or OUT) was not submitted for that period.
 
 **Message rules**
 

@@ -158,13 +158,13 @@ Sõnumi keha on **loend** objektidest, üks iga võrgumõõtepunkti kohta:
 
 > [!WARNING]
 > Baasjoone metoodika võimaldab tarbimise (OUT) ja tootmise (IN) baasjoone koguseid esitada kas koos või eraldi.
-
+> 
 > Konkreetse perioodi puhul:
 > - samas sõnumis võib esitada nii inQty kui ka outQty;
 > - võib esitada ainult inQty;
 > - võib esitada ainult outQty;
 > - vähemalt üks kahest väljast (inQty või outQty) peab olema esitatud.
-
+> 
 > Väärtus 0 tähistab esitatud baasjoont, mille prognoositud kogus on null. Puuduv väli tähendab, et vastava suuna (IN või OUT) baasjoont selle perioodi kohta ei esitatud.
 
 **Sõnumi reeglid**
@@ -178,6 +178,7 @@ Sõnumi keha on **loend** objektidest, üks iga võrgumõõtepunkti kohta:
   perioodid ja reeglid, et sõnumi saaks enne tähtaega parandada ja uuesti esitada. Sõnumi staatuse kontrollimiseks kasuta [staatuse API-t](#töötlemise-staatuse-kontrollimine)
 - Sama perioodi uuesti esitamine enne selle tähtaega ei ole viga: uus väärtus asendab vana.
 - Baasjoone saatmisel kehtib piirang perioodide arvule, mida saab ühe sõnumiga edastada. Korraga on võimalik saata baasjoont kuni 35 040 perioodi.
+- Iga esitatud perioodi kohta peab olema määratud vähemalt üks väärtustest inQty või outQty. Periood, mille puhul mõlemad väljad puuduvad, loetakse vigaseks ning selle tulemusel lükatakse tagasi kogu sõnum.
 
 **Vastused**
 
