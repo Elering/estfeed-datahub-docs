@@ -153,11 +153,19 @@ Sõnumi keha on **loend** objektidest, üks iga võrgumõõtepunkti kohta:
 | Atribuut | Tüüp | Kohustuslik? | Selgitus ja reeglid |
 | --- | --- | --- | --- |
 | `pS` | string (date-time) | jah | Arveldusperioodi algus, ISO-8601 koos nihkega UTC suhtes (nt 2026-01-01T00:00:00+02:00). Peab langema veerandtunni piirile (hh:00, hh:15, hh:30, hh:45). Peab vastama esitamise tähtajale ja 32 päeva ülempiirile. |
-| `inQty` | number | vt allpool | **Tootmise** baasjoon, kWh. Ei või olla negatiivne; null on lubatud; täpsus 0,001 kWh (kolm komakohta). |
-| `outQty` | number | vt allpool | **Tarbimise** baasjoon, kWh. Ei või olla negatiivne; null on lubatud; täpsus 0,001 kWh (kolm komakohta). |
+| `inQty` | number | tingimuslik | **Tootmise** baasjoon, kWh. Ei või olla negatiivne; null on lubatud; täpsus 0,001 kWh (kolm komakohta). Iga perioodi kohta peab olema esitatud vähemalt üks väljadest inQty või outQty |
+| `outQty` | number | tingimislik | **Tarbimise** baasjoon, kWh. Ei või olla negatiivne; null on lubatud; täpsus 0,001 kWh (kolm komakohta). Iga perioodi kohta peab olema esitatud vähemalt üks väljadest inQty või outQty |
 
 > [!WARNING]
-> Baasjoone metoodika eeldab iga perioodi kohta **mõlemat** väärtust — nii tarbimist (OUT) kui tootmist (IN). Väärtus 0 tähendab esitatud baasjoont, mille prognoositud kogus on null. Välja puudumine või perioodi kohta kirje puudumine tähendab, et vastavat baasjoont ei ole esitatud.
+> Baasjoone metoodika võimaldab tarbimise (OUT) ja tootmise (IN) baasjoone koguseid esitada kas koos või eraldi.
+
+> Konkreetse perioodi puhul:
+> - samas sõnumis võib esitada nii inQty kui ka outQty;
+> - võib esitada ainult inQty;
+> - võib esitada ainult outQty;
+> - vähemalt üks kahest väljast (inQty või outQty) peab olema esitatud.
+
+> Väärtus 0 tähistab esitatud baasjoont, mille prognoositud kogus on null. Puuduv väli tähendab, et vastava suuna (IN või OUT) baasjoont selle perioodi kohta ei esitatud.
 
 **Sõnumi reeglid**
 

@@ -156,11 +156,18 @@ The request body is a **list** of objects, one per grid metering point:
 | Attribute | Type | Mandatory | Explanation and rules |
 | --- | --- | --- | --- |
 | `pS` | string (date-time) | yes | Settlement period start, ISO-8601 with offset. Must fall on a quarter-hour boundary (hh:00, hh:15, hh:30, hh:45). Must satisfy the submission deadline and the 32-day ceiling. |
-| `inQty` | number | see below | **Production** baseline, kWh. Non-negative; zero is allowed; precision 0.001 kWh (three decimals). |
-| `outQty` | number | see below | **Consumption** baseline, kWh. Non-negative; zero is allowed; precision 0.001 kWh (three decimals). |
+| `inQty` | number | conditional | **Production** baseline, kWh. Non-negative; zero is allowed; precision 0.001 kWh (three decimals). At least one of inQty or outQty must be present for each period. |
+| `outQty` | number | conditional | **Consumption** baseline, kWh. Non-negative; zero is allowed; precision 0.001 kWh (three decimals). At least one of inQty or outQty must be present for each period. |
 
 > [!WARNING]
-> The baseline methodology expects **both** directions for each period: consumption (OUT) and production (IN). A value of 0 represents a submitted baseline with a forecast quantity of zero. A missing field or absence of a direction for a period indicates that the corresponding baseline was not submitted.
+> The baseline methodology supports submitting consumption (OUT) and production (IN) baseline quantities either together or separately.
+> For a given period:
+  - both inQty and outQty may be submitted in the same message;
+  - only inQty may be submitted;
+  - only outQty may be submitted;
+  - at least one of the two fields (inQty or outQty) must be present.
+
+  A value of 0 represents a submitted baseline with a forecast quantity of zero. A missing field indicates that the corresponding direction (IN or OUT) was not submitted for that period.
 
 **Message rules**
 
@@ -171,6 +178,7 @@ The request body is a **list** of objects, one per grid metering point:
 - If even a **single** period violates any rule, the whole message is rejected and nothing is stored. The error response lists all failing periods and rules so the message can be corrected and resubmitted before the deadline. Use the [status API](#checking-the-processing-status)to check the processing result of the submitted message.
 - Submitting the same period again before its deadline is not an error: the new value replaces the old one.
 - When submitting baseline data, a limit applies to the number of periods that can be included in a single message. A maximum of 35,040 periods can be submitted at once.
+- For each submitted period, at least one of inQty or outQty must be provided. A period where both fields are missing is invalid and causes the entire message to be rejected.
 
 **Responses**
 
