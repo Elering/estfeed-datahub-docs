@@ -140,7 +140,7 @@ General baseline data transmission process
 
 ### API message
 
-`POST /api/v1/baseline`
+`POST /api/v1/baseline-data`
 
 The request body is a **list** of objects, one per grid metering point:
 
@@ -187,11 +187,11 @@ available through the Status API.
 
 The web interface offers the same functionality with an Excel file:
 
-| Operation | Endpoint | Explanation |
-| --- | --- | --- |
-| Template | `GET /api/v1/baseline/template` | Empty `.xlsx` template: grid metering point EIC, period start, consumption baseline (kWh), production baseline (kWh) |
-| Import | `POST /api/v1/baseline/import` | Multipart `.xlsx` upload. The file is validated as a whole (all row errors are collected and returned at once); a valid file is processed exactly like an API message |
-| Export | `GET /api/v1/baseline/export` | The [search](#requesting-baseline-data) result as an `.xlsx` file; same parameters as the search API |
+| Operation | Explanation |
+| --- | --- |
+| Template | Empty `.xlsx` template: grid metering point EIC, period start, consumption baseline (kWh), production baseline (kWh) |
+| Import | Multipart `.xlsx` upload. The file is validated as a whole (all row errors are collected and returned at once); a valid file is processed exactly like an API message |
+| Export | The [search](#requesting-baseline-data) result as an `.xlsx` file; same parameters as the search API |
 
 When submitting baseline data using an Excel file, the maximum file size is 35,000 rows. For example, when submitting 31 days of baseline data in advance, a single file can contain baseline data for up to 11 metering points.
 
@@ -201,7 +201,7 @@ message (one `x-document-identification`), visible in the Status API exactly lik
 
 ## Checking the processing status
 
-`GET /api/v1/baseline/status`
+`GET /api/v1/baseline-data/status`
 
 Returns the processing status and submission history of baseline messages — one entry per message,
 including messages that were rejected synchronously.
@@ -233,7 +233,7 @@ A status entry is created for messages that receive HTTP 202 (`PROCESSING` → `
 
 ## Requesting baseline data
 
-`GET /api/v1/baseline`
+`GET /api/v1/baseline-data`
 
 Returns baseline values together with the metered quantities of the grid metering point and the activated
 (metered) quantities of the aggregation metering points, at a chosen aggregation level.
@@ -283,7 +283,7 @@ Rules:
 
 ## Requesting resource data
 
-`GET /api/v1/resources`
+`GET /api/v1/aggregation-resources`
 
 The resource register: which resources exist and which aggregation metering points belong to them.
 Resources are **registered and maintained by Elering**; the Aggregator declares the resource EIC on the
@@ -293,14 +293,10 @@ aggregation metering point's characteristics when registering the metering point
 
 | Attribute | Mandatory | Explanation |
 | --- | --- | --- |
-| `resourceEics` | no | Filter by resource EIC |
-| `meteringPointEics` | no | Aggregation metering points — "which resource does this metering point belong to" |
-| `validAt` | no | Point in time for the membership list; defaults to the current time |
-| `includeMeteringPoints` | no | Default `true` |
-| `page` / `size` | no | Paging |
+| `resourceEics` | no | Filter by resource EIC, at most 100 values |
+| `validAt` | no | Estonian calendar day (Europe/Tallinn) on which the resource must be valid; defaults to the current Estonian day. Format yyyy-MM-dd only |
 
-**Response item**: `resourceEic`, `baselineType`, `ownerEic`, `createdTime`, and (when included)
-`meteringPoints[]` with `eic`, `parentMeteringPointEic`, `validFrom`, `validTo`.
+**Response item**: `resourceEic`, `ownerEic`, `baselineType`, `validFrom`, `validTo`, `createdTime`.
 
 An Aggregator sees only its own resources.
 

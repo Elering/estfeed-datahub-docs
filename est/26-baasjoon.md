@@ -137,7 +137,7 @@ Baasjoone andmete edastamise üldine protsess on järgmine:
 
 ### Masinliidese sõnum
 
-`POST /api/v1/baseline`
+`POST /api/v1/baseline-data`
 
 Sõnumi keha on **loend** objektidest, üks iga võrgumõõtepunkti kohta:
 
@@ -203,7 +203,7 @@ sõnumi (ühe `x-document-identification`), mis on staatuse API-s nähtav täpse
 
 
 
-`GET /api/v1/baseline/status`
+`GET /api/v1/baseline-data/status`
 
 Tagastab baasjoone sõnumite töötlemise staatuse ja esituste ajaloo — üks kirje sõnumi kohta, kaasa arvatud
 sünkroonselt tagasi lükatud sõnumid.
@@ -235,7 +235,7 @@ Staatusekirje (`PROCESSING` → `SUCCESSFUL`) luuakse HTTP 202 ja ärilise valid
 
 ## Baasjoone andmete küsimine
 
-`GET /api/v1/baseline`
+`GET /api/v1/baseline-data`
 
 Tagastab baasjoone väärtused koos võrgumõõtepunkti mõõteandmetega ja agregeerimismõõtepunktide
 aktiveeritud (mõõdetud) kogustega, valitud agregeerimistasemel.
@@ -285,7 +285,7 @@ Reeglid:
 
 ## Ressursi andmete küsimine
 
-`GET /api/v1/resources`
+`GET /api/v1/aggregation-resources`
 
 Ressursside register: millised ressursid eksisteerivad ja millised agregeerimismõõtepunktid nendesse
 kuuluvad. Ressursse **registreerib ja haldab Elering**; agregaator deklareerib ressursi EIC
@@ -295,14 +295,10 @@ agregeerimismõõtepunkti tunnustel mõõtepunkti registreerimisel.
 
 | Atribuut | Kohustuslik? | Selgitus |
 | --- | --- | --- |
-| `resourceEics` | ei | Filter ressursi EIC järgi |
-| `meteringPointEics` | ei | Agregeerimismõõtepunktid — millise ressursiga on mõõtepunkt seotud |
-| `validAt` | ei | Kuuluvuse loendi ajahetk; vaikimisi praegune hetk |
-| `includeMeteringPoints` | ei | Vaikimisi `true` |
-| `page` / `size` | ei | Lehekülgede kaupa |
+| `resourceEics` | ei | Filter ressursi EIC järgi, kuni 100 Eic koodi |
+| `validAt` | ei | Eesti kalendripäev (Europe/Tallinn ajavööndis), millel ressurss peab olema kehtiv. Vaikimisi kasutatakse jooksvat Eesti kuupäeva. Vorming: ainult yyyy-MM-dd. |
 
-**Vastuse kirje**: `resourceEic`, `baselineType`, `ownerEic`, `createdTime` ning (kui kaasatud)
-`meteringPoints[]` väljadega `eic`, `parentMeteringPointEic`, `validFrom`, `validTo`.
+**Vastuse kirje**: `resourceEic`, `ownerEic`, `baselineType`, `validFrom`, `validTo`, `createdTime`.
 
 Agregaator näeb ainult oma ressursse.
 
