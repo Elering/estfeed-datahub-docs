@@ -31,7 +31,7 @@ Andmeladu koostab regulaarselt avatud tarnijale, võrguettevõtjale ja bilansiha
 
 Koondraportid arvutatakse ja edastatakse järgmise ajakavaga:
 
-- Elektriturul iga päev orienteeruvalt kella 14.00ks, Gaasiturul kella 18:00ks, eelmise päeva mõõteandmetega raportid (sh on mõõteandmeid kehtiva kalendrikuu algusest alates);
+- Elektriturul iga päev orienteeruvalt kella 14:00 ks, Gaasiturul kella 18:00ks, eelmise päeva mõõteandmetega raportid (sh on mõõteandmeid kehtiva kalendrikuu algusest alates);
 - Kalendrikuu 1. kuupäeval arvutatakse tagasiulatuvalt kaks kuud ja kolm kuud tagasi mõõteandmed kalendrikuu kohta;
 - Kalendrikuu 8. kuupäeval (esimesel bilansiperioodil 00.00-01.00) arvutatakse eelmise kalendrikuu mõõteandmed, mis on aluseks esialgseks bilansiaruandeks.
 
@@ -77,7 +77,7 @@ Sagedus:
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
 | Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
-| M+1 raporti koostamine toimub iga kuu 2.–8. kuupäevani iga päev | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| M+1 raporti koostamine toimub iga kuu 2.–8. kuupäevani iga päev | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
 Andmed:
@@ -148,7 +148,7 @@ Sagedus:
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
 | Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
-| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
 Andmed:
@@ -219,7 +219,7 @@ Sagedus:
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
 | Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
-| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
 Andmed:
@@ -292,7 +292,7 @@ Sagedus:
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
 | Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
-| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
 Andmed:
@@ -404,7 +404,7 @@ Sagedus:
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
 | Kord ööpäevas toimub D+1 andmete agregeerimine                 | Ei koostata                            | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00)|
-| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
 Veergude kirjeldus:
