@@ -95,8 +95,8 @@ Mõõtepunktide andmed on samalaadsed nii andmevahetuse teenustes kui ka veebili
 | chargingPoint         | Charging Point                         | kas mõõtepunktis toimub elektri laadimist | jah                        | Üks neist: TRUE (jah), FALSE (ei)                                                       |
 | storageCapacity       | Storage Capacity                       | energiasalvestusvõimsus (kW)              | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
 | storageEnergy         | Storage Energy                         | energiasalvesti mahtuvus (kWh)            | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
-| productionCapacity    | Production Capacity                    | tootmise maht (kW)                        | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
-| transmissionCapacity  | Transmission Capacity                  | ülekande maht (kW)                        | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
+| productionCapacity    | Production Capacity                    | tootmisvõimsus (kW)                        | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. Tootmisvõimsuse hulka arvestatakse ka energiasalvesti võimsus.|
+| transmissionCapacity  | Transmission Capacity                  | ülekandevõimsus (kW)                        | jah                        | Peab olema täis- või komakohaga (max. 2 komakohta)number. |
 
 - Agregeerimise mõõtepunkti spetsiifilised metaandmed:
 
