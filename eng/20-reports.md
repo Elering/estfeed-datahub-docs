@@ -494,10 +494,11 @@ Data:
 - Positions - Number of positions by resolution for a unique agreement combination (positions)
 - Number of Transmissions of Entered Quantities – total count of transmitted metering data (including zero quantities) (inCount)
 - Number of Transmissions of Exited Quantities – total count of transmitted metering data (including zero quantities) (outCount)
-- Net Positions – Number of net positions by resolution for a unique agreement combination (netPositions) (electricity market only)
-- NetIn Quantity Transmissions Count (In) – total count of transmitted netIn quantities (including zero quantities) (netInCount) (electricity market only)
-- NetOut Quantity Transmissions Count (Out) – total count of transmitted netOut quantities (including zero quantities) (netOutCount) (electricity market only)
-- Net Quantity Transmissions Count (in = out = 0) – Number of transmitted net positions where both netIn and netOut are equal to zero (netPositionsNCount) (electricity market only).
+- Net Positions - Since Datahub does not yet have a bi-directional metering point indicator, in the report netPositions = positions. Therefore, netPositions cannot be used to identify gaps in net quantities when net quantity submission started in the middle of the period. (netPositions) (electricity market only)
+- NetIn Quantity Transmissions Count (in) - Intervals with netIn quantities. Counted when metering data is available (the field is not empty) and the value is not 0. (netInCount) (electricity market only)
+- NetOut Quantity Transmissions Count (Out) - Intervals with netOut quantities. Counted when metering data is available (the field is not empty) and the value is not 0. (netOutCount) (electricity market only)
+- Net Quantity Transmissions Count (in = out = 0) - Intervals where both net quantities (In and Out) are zero. Counted when metering data is available (netIn and netOut fields are not empty) and both values are 0. (netPositionsNCount) (electricity market only)
+  **The net quantity counting logic is: netInCount + netOutCount + netPositionsNCount = netPositions**
 - Production m3 – cubic meters injected into the grid (inM3) (Gas market only)
 - Consumption m3 – cubic meters withdrawn from the grid (outM3) (Gas market only)
 - Production kWh – kWh injected into the grid (inKwh)
