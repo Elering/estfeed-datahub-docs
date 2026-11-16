@@ -1,3 +1,9 @@
+## 2026-11-16
+
+|                                   Issue                                  | Type |Priority|                                            Title                                           |
+|--------------------------------------------------------------------------|------|--------|--------------------------------------------------------------------------------------------|
+|  [EDH-12313](https://github.com/Elering/estfeed-datahub-docs/issues/217) |  Bug |  High  |  GO cannot see SUPPLY agreement on its metering point until the GRID agreement has started |
+
 ## 2026-11-13
 
 |                                   Issue                                  | Type | Priority |                                            Title                                            |
