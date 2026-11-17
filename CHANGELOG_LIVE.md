@@ -1,3 +1,10 @@
+## 2026-11-17
+
+|                                   Issue                                  | Type | Priority |                                            Title                                            |
+|--------------------------------------------------------------------------|------|----------|---------------------------------------------------------------------------------------------|
+|  [EDH-12285](https://github.com/Elering/estfeed-datahub-docs/issues/216) |  Bug |  Highest |  Gas market SUPPLY agreement can't start mid month even when GRID agreement start mid month |
+|  [EDH-12313](https://github.com/Elering/estfeed-datahub-docs/issues/217) |  Bug |   High   |  GO cannot see SUPPLY agreement on its metering point until the GRID agreement has started  |
+
 ## 2026-11-02
 
 |                                   Issue                                  | Type | Priority |                                         Title                                         |
