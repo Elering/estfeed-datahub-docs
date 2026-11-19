@@ -76,7 +76,7 @@ Sagedus:
 
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
-| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 15:00) |
 | M+1 raporti koostamine toimub iga kuu 2.–8. kuupäevani iga päev | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
@@ -147,7 +147,7 @@ Sagedus:
 
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
-| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 15:00) |
 | Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
@@ -218,7 +218,7 @@ Sagedus:
 
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
-| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 15:00) |
 | Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
@@ -291,7 +291,7 @@ Sagedus:
 
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
-| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Sisaldab kuni kella 10:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 14:00) | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 15:00) |
 | Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
@@ -372,11 +372,11 @@ Veergude kirjeldus:
   - Võrguettevõtja EIC – võrguettevõtja EIC kood mõõtepunktis (gridOperatorEIC)
   - Võrguettevõtja – võrguettevõtja nimi mõõtepunktis (gridOperatorName)
   - Bilansiperiood – bilansiperioodi algust tähistav aeg (kuupäev + kellaaeg) (DateTime)
-  - BH portfellis võrku sisenenud kogus lõppkliendilt, kWh –võrku sisenenud kogus Pin (kõik MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (inQuantity))
+  - BH portfellis võrku sisenenud kogus lõppkliendilt, kWh –võrku sisenenud kogus Pin (kõik MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (inQuantity)
   - BH portfellis võrgust väljunud kogus lõppkliendile, kWh – võrguettevõtja võrgust väljunud kogus Pout (kõik MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt (outQuantity))
   - BH portfellis võrku sisenenud netokogus lõppkliendilt, kWh. Kahesuunaliste võrgu mõõtepunktide puhul, mille netokogused (netIn ja netOut) on edastatud Estfeed Datahubi, kasutatakse raportis neid netoväärtusi. Kõigi teiste mõõtepunktide puhul võetakse arvesse tavapäraseid In ja Out koguseid. Raportis agregeeritakse nii netokogused kui ka tavapärased kogused veergudesse netInQuantity ja netOutQuantity. (netInQuantity)
   - BH portfellis võrgust väljunud netokogus lõppkliendile, kwh. Kahesuunaliste võrgu mõõtepunktide puhul, mille netokogused (netIn ja netOut) on edastatud Estfeed Datahubi, kasutatakse raportis neid netoväärtusi. Kõigi teiste mõõtepunktide puhul võetakse arvesse tavapäraseid In ja Out koguseid. Raportis agregeeritakse nii netokogused kui ka tavapärased kogused veergudesse netInQuantity ja netOutQuantity. (netOutQuantity)
-  - BH portfellis isoleeritud võrku sisenenud kogus lõppkliendilt, kWh – võrku sisenenud kogus Pin (kõik isoleeritud MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (inQuantityIsolated))
+  - BH portfellis isoleeritud võrku sisenenud kogus lõppkliendilt, kWh – võrku sisenenud kogus Pin (kõik isoleeritud MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt) (inQuantityIsolated)
   - BH portfellis isoleeritud võrgust väljunud kogus lõppkliendile, kWh – võrgust väljunud kogus Pout (kõik isoleeritud MPd, kus on kehtiv võrguleping ja punkt ei ole GO-GO piiripunkt (outQuantityIsolated))
   - BH portfellis isoleeritud võrku sisenenud netokogus lõppkliendilt, kWh. Kahesuunaliste võrgu isoleeritud mõõtepunktide puhul, mille netokogused (netIn ja netOut) on edastatud Estfeed Datahubi, kasutatakse raportis neid netoväärtusi. Kõigi teiste isoleeritud mõõtepunktide puhul võetakse arvesse tavapäraseid In ja Out koguseid. Raportis agregeeritakse nii netokogused kui ka tavapärased kogused veergudesse netInQuantityIsolated ja netOutQuantityIsolated. (netInQuantityIsolated)
   - BH portfellis isoleeritud võrgust väljunud netokogus lõppkliendile, kWh. Kahesuunaliste võrgu isoleeritud mõõtepunktide puhul, mille netokogused (netIn ja netOut) on edastatud Estfeed Datahubi, kasutatakse raportis neid netoväärtusi. Kõigi teiste isoleeritud mõõtepunktide puhul võetakse arvesse tavapäraseid In ja Out koguseid. Raportis agregeeritakse nii netokogused kui ka tavapärased kogused veergudesse netInQuantityIsolated ja netOutQuantityIsolated. (netOutQuantityIsolated)
@@ -403,7 +403,7 @@ Sagedus:
 
 |                                                                | Elekter                                | Gaas                                   |
 |----------------------------------------------------------------|----------------------------------------|----------------------------------------|
-| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Ei koostata                            | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00)|
+| Kord ööpäevas toimub D+1 andmete agregeerimine                 | Ei koostata                            | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 15:00)|
 | Kord kuus 8. kuupäeval toimub M+1 andmete agregeerimine        | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 10:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 | Kord kuus 1. kuupäeval toimub M+2 ja M+3 andmete agregeerimine | Sisaldab kuni kella 00:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) | Sisaldab kuni kella 07:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 09:00) |
 
@@ -477,7 +477,7 @@ Sagedus:
 
 |                                                                    | Elekter | Gaas                                   |
 |--------------------------------------------------------------------|---|----------------------------------------|
-| D+1 raporti koostamine toumub igapäevaselt | Ei koostata | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 18:00) |
+| D+1 raporti koostamine toumub igapäevaselt | Ei koostata | Sisaldab kuni kella 14:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 15:00) |
 | M+1 raporti koostamine toimub iga kuu 1.–8. kuupäevani (gaasiturul 2.-8. kuupäevani) iga päev | Sisaldab kuni kella 06:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 08:00) | Sisaldab kuni kella 05:00-ni esitatud andmeid (raport on kättesaadav ligikaudu kell 07:00) |
 
 Andmed: 
