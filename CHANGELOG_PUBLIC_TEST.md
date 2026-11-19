@@ -1,3 +1,9 @@
+## 2026-11-19
+
+|                                   Issue                                  | Type |  Priority |                                                         Title                                                        |
+|--------------------------------------------------------------------------|------|-----------|----------------------------------------------------------------------------------------------------------------------|
+|  [EDH-12375](https://github.com/Elering/estfeed-datahub-docs/issues/219) |  Bug |  Critical |  Metering data search times out after 60 s for long periods (MPD-GAS query takes 68-72 s, OPP returns generic error) |
+
 ## 2026-11-16
 
 |                                   Issue                                  | Type |Priority|                                            Title                                           |
