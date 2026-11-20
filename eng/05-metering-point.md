@@ -26,7 +26,7 @@
 
 > [!WARNING] 
 > Important! In Q1 2027, we will introduce Version 3 (V3) of the metering point APIs. Starting from Metering Point API V3, separate APIs will be provided for electricity, gas, and aggregation metering points.
-> Currently, the Electricity Metering Point API V3 specifications are described in more detail in [Elektri mõõtepunkti API andmekoosseis (V2 vs V3)](05-mootepunktid.md#elektri-mõõtepunkti-api-andmekoosseis-v2-vs-v3).
+> Currently, the Electricity Metering Point API V3 specifications are described in more detail in [Elektri mõõtepunkti API andmekoosseis (V2 vs V3)](https://koodirepo.elering.sise/-/ide/project/estfeed/estfeed-datahub-docs/edit/main/-/est/05-mootepunktid.md#elektri-mõõtepunkti-api-andmekoosseis-v2-vs-v3).
 
 
 A metering point is a device that measures the amount of energy consumed and produced at a given location.
