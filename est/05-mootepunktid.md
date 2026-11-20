@@ -36,6 +36,11 @@
 
 ## Sissejuhatus
 
+> [!WARNING] 
+> NB! 2027 aasta 1. kvartalil võtame kasutusele mõõtepunkti API-de V3 versioonid. Alates mõõtepunkti API V3 versioonidest tulevad elektri, gaasi ja agregeerimise mõõtepunktidele eraldi API-d. 
+> hetkel on detailsemalt lahti kirjutatud Elektri V3 mõõtepunkti API-d [Elektri mõõtepunkti API andmekoosseis (V2 vs V3)](#elektri-mõõtepunkti-api-andmekoosseis-v2-vs-v3).
+
+
 Mõõtepunkt on seade, mis mõõdab energia tarbimise ja tootmise koguseid teatud asukohas.
 
 Mõõtepunkte haldavad järgmised turuosalised:
