@@ -12,7 +12,7 @@
     * [Mõõtepunktide masslaadimine](#mõõtepunktide-masslaadimine)
     * [EIC koodide Masinliidese sõnumid](#eic-koodide-masinliidese-sõnumid)
 * [Elektri mõõtepunkti API andmekoosseis](#elektri-mõõtepunkti-api-andmekoosseis)
-  * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
+  * [Elektri mõõtepunkti V3 andmete edastamine](#elektri-mõõtepunkti-v3-andmete-edastamine)
     * [Üldandmed](#üldandmed)
     * [Elektri mõõtepunkti metaandmed](#elektri-mõõtepunkti-metaandmed)
     * [Asukohaandmed](#asukohaandmed)
@@ -21,7 +21,7 @@
     * [Elektri API sõnumid](#elektri-api-sõnumid)
     * [Elektri GET V3 otsinguparameetrid](#elektri-get-v3-otsinguparameetrid)
 * [Gaasi mõõtepunkti API andmekoosseis](#gaasi-mõõtepunkti-api-andmekoosseis)
-  * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
+  * [Gaasi mõõtepunkti V3 andmete edastamine](#gaasi-mõõtepunkti-v3-andmete-edastamine)
     * [Üldandmed](#üldandmed)
     * [Gaasi mõõtepunkti metaandmed](#gaasi-mõõtepunkti-metaandmed)
     * [Asukohaandmed](#asukohaandmed)
@@ -29,7 +29,7 @@
     * [Gaasi API sõnumid](#gaasi-api-sõnumid)
     * [GET V3 otsinguparameetrid](#get-v3-otsinguparameetrid)
 * [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-mõõtepunkti-api-andmekoosseis)
-  * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
+  * [Agregeerimise mõõtepunkti V3 andmete edastamine](#agregeerimise-mõõtepunkti-v3-andmete-edastamine)
     * [Üldandmed](#üldandmed-1)
     * [Agregeerimise mõõtepunkti metaandmed](#agregeerimise-mõõtepunkti-metaandmed)
     * [Asukohaandmed](#asukohaandmed-1)
@@ -267,7 +267,7 @@ Mõõtepunkti andmekoosseis on kirjeldatud koos API-dega alljärgnevates peatük
 
 # Elektri mõõtepunkti API andmekoosseis
 
-## Mõõtepunkti V3 andmete edastamine
+## Elektri mõõtepunkti V3 andmete edastamine
 
 ### Üldandmed
 
@@ -447,7 +447,7 @@ V3 versiooni lisandumisel toimusid järgmised muudatused:
   
 # Gaasi mõõtepunkti API andmekoosseis
 
-## Mõõtepunkti V3 andmete edastamine
+## Gaasi mõõtepunkti V3 andmete edastamine
 
 ### Üldandmed
 
@@ -589,7 +589,7 @@ Agregeerimise mõõtepunkt on elektri energiakandjaga mõõtepunkt, mille tüüp
 
 Täispikk juhend on agregeerimismõõtepunkti lisamise kohta on saadaval [siin](https://elering.ee/sites/default/files/2026-06/Iseseisva%20agregaatori%20reguleerimisandmete%20esitamise%20juhend%20Estfeed%20Datahubis.pdf).
 
-## Mõõtepunkti V3 andmete edastamine
+## Agregeerimise mõõtepunkti V3 andmete edastamine
 
 ### Üldandmed
 
