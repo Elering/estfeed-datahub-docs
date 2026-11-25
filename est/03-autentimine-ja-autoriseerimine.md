@@ -159,6 +159,6 @@ Rollid:
 | Laadimispunkti operaator      | CHARGING_POINT_OPERATOR                | Elekter         |
 | Agregaator                    | AGGREGATOR                             | Elekter         |
 | Tootja                        | PRODUCER_OPERATOR                      | Elekter, Gaas   |
-| Muu energiateenuse osutaja    | ENERGY_SERVICE_PROVIDER                | Elekter, Gaas   |
+| Muu energiateenuse osutaja    | ENERGY_SERVICE_PROVIDER                | Elekter   |
 | Salvestusjaama operaator      | STORAGE_OPERATOR                       | Gaas            |
 | Gaasitankla operaator         | GAS_STATION_OPERATOR                   | Gaas            |

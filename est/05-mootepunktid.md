@@ -76,7 +76,7 @@ Mõõtepunkti haldur vastutab Andmelaos tema piirkonnas olevate mõõtepunktid k
 
 ## Mõõtepunkti andmete edastamine
 
-Mõõtepunkti haldur saab mõõtepunktide tehnilised andmed edastada Andmelattu:
+Mõõtepunkti haldur saab mõõtepunktide tehnilised andmed edastada Estfeed Datahubi:
 
 - ükshaaval veebiliidese või vastava automaatse andmevahetuse liidese kaudu
 - masslaadimisega veebiliidese või vastava automaatse andmevahetuse liidese kaudu
@@ -103,7 +103,7 @@ JWT-tokenis olev õigus peab olema seotud sama turuosalise EIC, tururolli ja ene
 ### Mõõtepunkti loomise üldised reeglid
 
 - Mõõtepunkti EIC kood peab olema valiidne ja kuuluma päringu tegijale eraldatud EIC-vahemikku.
-- Sama EIC koodiga mõõtepunkt ei tohi Andmelaos juba eksisteerida.
+- Sama EIC koodiga mõõtepunkt ei tohi Estfeed Datahubis juba eksisteerida.
 - Mõõtepunkti omanik määratakse päringu päistes esitatud `x-market-participant-eic` ja `x-market-participant-role` alusel.
 - Mõõtepunkti energiakandja peab vastama kasutatud API-le ja `x-commodity-type` päisele.
 - Mõõtepunkti metaandmete objekt peab vastama kasutatud API liigile. Elektri API-s kasutatakse elektri, gaasi API-s gaasi ja agregeerimise API-s agregeerimise metaandmestikku.
@@ -112,7 +112,7 @@ JWT-tokenis olev õigus peab olema seotud sama turuosalise EIC, tururolli ja ene
 ### Mõõtepunkti muutmise üldised reeglid
 
 - Muudetava mõõtepunkti EIC edastatakse PUT-päringu path-parameetrina.
-- Mõõtepunkt peab Andmelaos eksisteerima.
+- Mõõtepunkt peab Estfeed Datahubis eksisteerima.
 - Mõõtepunkt peab kuuluma päringu päistes esitatud turuosalisele ja tururollile.
 - Mõõtepunkti EIC koodi, omanikku, energiakandjat ega mõõtepunkti tüüpi ei saa PUT-päringuga muuta.
 - PUT-päring ei kirjuta olemasolevat mõõtepunkti versiooni üle. Andmeladu loob mõõtepunktist uue versiooni.
@@ -382,12 +382,70 @@ Agregeerimine: [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-m�
 - `transmissionNetworkEic` ei ole V3-s kohustuslik.
 - Kui `production=true`, on `productionSource` kohustuslik.
 
-### Elektri kliendipõhine otsing
+### Elektri GET V3 otsinguparameetrid
 
-- Kliendipõhine GET-teenus on mõeldud uue avatud tarne lepingu loomise protsessiks.
-- Teenuse kasutaja peab olema vastava õiguse ja tururolliga.
-- Kui päringu tegijal on tavapäraste ligipääsureeglite alusel täielik ligipääs, tagastatakse täielikud mõõtepunkti andmed.
+`GET /api/v3/metering-points/electricity` võimaldab kasutada järgmisi otsinguparameetreid:
+
+| Parameeter | Kohustuslik | Reegel |
+|---|---|---|
+| `eic` | ei | Mõõtepunkti EIC kood. Mõõtepunkt peab Andmelaos eksisteerima. |
+| `meteringPointType` | ei | Lubatud alamhulk: `REGULAR`, `BORDER`, `INTERNAL`. |
+| `meteringType` | ei | Mõõtmise viis. |
+| `customerEic` | ei | Klient peab Andmelaos eksisteerima. Tagastatakse mõõtepunktid, kus kliendil on aktiivne `GRID` leping. |
+| `viewMode` | ei | Vaikimisi väärtus on `FULL`. |
+| `hasCustomerAuthorization` | ei | Vaikimisi `false`. Väärtuse `true` korral tagastatakse ainult kliendi antud kehtiva volitusega mõõtepunktid. |
+| `consumptionScale` | ei | Tarbimismaht. |
+| `connectionState` | ei | Ühenduse olek. |
+| `resolution` | ei | Elektri V3 väärtus on `15_MINUTES`. |
+| `customerType` | ei | Elektri mõõtepunkti kliendi tüüp. |
+| `production` | ei | Näitab, kas mõõtepunktis toimub tootmine. |
+| `productionSource` | ei | Tootmisallikas. |
+| `transmissionNetworkEic` | ei | Ülekandevõrgu EIC peab Andmelaos eksisteerima ja selle energiakandja peab vastama mõõtepunkti energiakandjale. |
+| `apartmentAssociation` | ei | Näitab, kas mõõtepunkt on seotud korteriühistuga. |
+| `isolatedMeteringPoint` | ei | Näitab, kas tegemist on isoleeritud mõõtepunktiga. |
+| `electricalHeating` | ei | Näitab, kas mõõtepunktis kasutatakse elektrikütet. |
+| `chargingPoint` | ei | Näitab, kas tegemist on laadimispunktiga. |
+| `bidirectional` | ei | Näitab, kas mõõtepunkt on kahesuunaline. |
+| `location.adrId` | ei | ADS-aadressi identifikaator. |
+| `location.location` | ei | Osaline otsing ADS-i tasemete 1–8 kombineeritud aadressist. |
+| `location.comment` | ei | Osaline otsing asukoha kommentaarist. |
+| `page` | ei | Lehekülje number. Nummerdamine algab nullist. |
+| `size` | ei | Lehekülje suurus. Maksimaalne väärtus on 500. |
+
+#### Elektri GET V3 ligipääsureeglid
+
+Kui `hasCustomerAuthorization=true`, tagastatakse ainult mõõtepunktid,
+millele päringu tegijal on Kliendiportaalis antud kehtiv volitus.
+
+Kui `hasCustomerAuthorization=false`, rakendatakse tururollipõhiseid reegleid:
+
+- `GRID_OPERATOR`, `LINE_OPERATOR`, `CLOSED_DISTRIBUTION_NETWORK`,
+  `PRODUCER_OPERATOR`, `CHARGING_POINT_OPERATOR` ja
+  `ENERGY_STORAGE_UNIT` näevad mõõtepunkte, mille omanikuks nad on;
+- `AGGREGATOR` ligipääs sõltub mõõtepunktiga seotud aktiivsest
+  agregeerimislepingust;
+- `OPEN_SUPPLIER` ligipääs sõltub mõõtepunktiga seotud tarnelepingutest
+  ja teistest kehtivatest ligipääsureeglitest.
+
+Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil
+on päringu tegemise hetkel aktiivne `GRID` leping.
+
+Teenus tagastab ainult elektri mõõtepunkte. `AGGREGATION` tüüpi
+mõõtepunkte selle teenusega ei tagastata.
+
+#### Elektri kliendipõhine otsing
+
+`GET /api/v3/customers/{customerEic}/metering-points/electricity` on eriteenus, mida kasutatakse uue lepingu loomise protsessis.
+
+- Teenust kasutab `OPEN_SUPPLIER` või `AGGREGATOR` roll.
+- Kasutajal peab olema `VIEW_METERING_POINT` õigus.
+- `x-commodity-type` peab olema `ELECTRICITY`.
+- Teenus otsib kliendi elektri mõõtepunkte kliendi EIC alusel.
+- Otsitakse kliendi mõõtepunkte, kus kliendil on aktiivne või tulevikus jõustuv GRID või BORDER_GRID leping;
+- täielikud andmed tagastatakse, kui avatud tarnijal on praegu või viimase 12 kuu jooksul olnud SUPPLY või GENERAL_SERVICE leping või kehtiv kliendi volitus, muul juhul tagastatakse ainult EIC;
+- Täielikud andmed tagastatakse juhul, kui päringu tegijal on mõõtepunktile tavapäraste ligipääsureeglite alusel õigus.
 - Kui täielik ligipääs puudub, võib teenus lepingu loomise kontrolliks tagastada ainult mõõtepunkti EIC koodi.
+- V3 teenuses tagastatakse ainult `GRID_OPERATOR` või `CLOSED_DISTRIBUTION_NETWORK` omandis mõõtepunktid.
 
 
 #### Versioonide info

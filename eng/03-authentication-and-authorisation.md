@@ -159,6 +159,6 @@ Roles:
 | Charging point operator       | CHARGING_POINT_OPERATOR                | Electricity         |
 | Aggregator                    | AGGREGATOR                             | Electricity     |
 | Producer                         | PRODUCER_OPERATOR                      | Electricity, Gas    |
-| Other energy service provider    | ENERGY_SERVICE_PROVIDER                | Electricity, Gas    |
+| Other energy service provider    | ENERGY_SERVICE_PROVIDER                | Electricity    |
 | Storage Operator      | STORAGE_OPERATOR                       | Gas            |
 | Gas Station Operator         | GAS_STATION_OPERATOR                   | Gas            |
