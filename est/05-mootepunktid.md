@@ -7,6 +7,7 @@
   * [Sisukord](#sisukord)
   * [Sissejuhatus](#sissejuhatus)
   * [Mõõtepunkti andmete edastamine](#mõõtepunkti-andmete-edastamine)
+    * [Mõõtepunkti API V3 üldised reeglid](#mõõtepunkti-API-V3-üldised-reeglid)
     * [Veebiliides](#veebiliides)
     * [Mõõtepunktide masslaadimine](#mõõtepunktide-masslaadimine)
     * [EIC koodide Masinliidese sõnumid](#eic-koodide-masinliidese-sõnumid)
@@ -20,8 +21,7 @@
         * [Koordinaadid](#koordinaadid)
       * [V3 versioonis lisandunud atribuudid](#v3-versioonis-lisandunud-atribuudid)
       * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
-      * [Masinliidese sõnumid V3](#masinliidese-sõnumid-v3)
-        * [Sõnumid V3](#sõnumid-v3)
+      * [Elektri API sõnumid](#elektri-api-sõnumid)
         * [Versioonide info](#versioonide-info-2)
 * [Gaasi mõõtepunkti API andmekoosseis](#gaasi-mõõtepunkti-api-andmekoosseis)
   * [Gaasi mõõtepunkti V3 andmete edastamine](#gaasi-mõõtepunkti-v3-andmete-edastamine)
@@ -30,8 +30,7 @@
     * [Asukohaandmed](#asukohaandmed)
       * [Koordinaadid](#koordinaadid)
     * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
-    * [Masinliidese sõnumid V3](#masinliidese-sõnumid-v3)
-      * [Sõnumid V3](#sõnumid-v3)
+    * [Gaasi API sõnumid](#gaasi-api-sõnumid)
       * [GET V3 otsinguparameetrid](#get-v3-otsinguparameetrid)
       * [Versioonide info](#versioonide-info)
 * [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-mõõtepunkti-api-andmekoosseis)
@@ -83,6 +82,129 @@ Mõõtepunkti haldur saab mõõtepunktide tehnilised andmed edastada Andmelattu:
 - masslaadimisega veebiliidese või vastava automaatse andmevahetuse liidese kaudu
 
 Mõõtepunktide andmed on samalaadsed nii andmevahetuse teenustes kui ka veebiliides.
+
+### Mõõtepunkti API V3 üldised reeglid
+
+### Üldised kasutusõigused ja päised
+
+Mõõtepunkti API V3 kasutamisel määratakse päringu kontekst HTTP päistega.
+
+| Päis või õigus | Selgitus |
+|---|---|
+| `Authorization` | Päring peab sisaldama kehtivat JWT-tokenit. |
+| `x-market-participant-eic` | Turuosalise EIC kood, kelle nimel päring tehakse. |
+| `x-market-participant-role` | Tururoll, milles päring tehakse. |
+| `x-commodity-type` | Energiakandja liik. Elektri ja agregeerimise API korral `ELECTRICITY`, gaasi API korral `NATURAL_GAS`. |
+| `EDIT_METERING_POINT` | Nõutud mõõtepunkti loomisel ja muutmisel. |
+| `VIEW_METERING_POINT` | Nõutud mõõtepunktide otsimisel. |
+
+JWT-tokenis olev õigus peab olema seotud sama turuosalise EIC, tururolli ja energiakandja kombinatsiooniga, mis on esitatud päringu päistes.
+
+### Mõõtepunkti loomise üldised reeglid
+
+- Mõõtepunkti EIC kood peab olema valiidne ja kuuluma päringu tegijale eraldatud EIC-vahemikku.
+- Sama EIC koodiga mõõtepunkt ei tohi Andmelaos juba eksisteerida.
+- Mõõtepunkti omanik määratakse päringu päistes esitatud `x-market-participant-eic` ja `x-market-participant-role` alusel.
+- Mõõtepunkti energiakandja peab vastama kasutatud API-le ja `x-commodity-type` päisele.
+- Mõõtepunkti metaandmete objekt peab vastama kasutatud API liigile. Elektri API-s kasutatakse elektri, gaasi API-s gaasi ja agregeerimise API-s agregeerimise metaandmestikku.
+- Mõõtepunkti loomisel määratakse uue kirje kehtivuse alguseks loomise kuupäev ja kellaaeg.
+
+### Mõõtepunkti muutmise üldised reeglid
+
+- Muudetava mõõtepunkti EIC edastatakse PUT-päringu path-parameetrina.
+- Mõõtepunkt peab Andmelaos eksisteerima.
+- Mõõtepunkt peab kuuluma päringu päistes esitatud turuosalisele ja tururollile.
+- Mõõtepunkti EIC koodi, omanikku, energiakandjat ega mõõtepunkti tüüpi ei saa PUT-päringuga muuta.
+- PUT-päring ei kirjuta olemasolevat mõõtepunkti versiooni üle. Andmeladu loob mõõtepunktist uue versiooni.
+- Uus versioon märgitakse kehtivaks versiooniks ning selle kehtivuse alguseks määratakse muutmise kuupäev ja kellaaeg.
+- Eelmise versiooni kehtivus lõpetatakse muutmise kuupäeva ja kellaajaga.
+- Metaandmetest ja asukohaandmetest luuakse uued versioonid. Varasemaid kirjeid ei kirjutata üle.
+
+### Mõõtepunkti tüübi ja tururolli üldised reeglid
+
+| Mõõtepunkt | Lubatud tururollid |
+|---|---|
+| Elektri `REGULAR` või `INTERNAL` mõõtepunkt | Vastavalt elektri API spetsiifilistele rollireeglitele. |
+| Gaasi `REGULAR` mõõtepunkt | `GRID_OPERATOR`, `PRODUCER_OPERATOR`, `STORAGE_OPERATOR`, `GAS_STATION_OPERATOR`. |
+| Elektri või gaasi `BORDER` mõõtepunkt | `GRID_OPERATOR`. |
+| `AGGREGATION` mõõtepunkt | `AGGREGATOR`. |
+
+### Aadressiandmete üldised reeglid
+
+- `county` peab vastama aktiivsele EHAK taseme 1 üksusele.
+- `municipality` peab vastama aktiivsele EHAK taseme 2 üksusele ja kuuluma määratud maakonda.
+- `locality` on kohustuslik, kui määratud omavalitsusel on EHAK taseme 3 üksus.
+- Kui `locality` esitatakse, peab see kuuluma määratud omavalitsusse.
+- `streetAddress` sisaldab tänava, maja, korteri või muude ADS tasemete 4–8 andmeid.
+- Kui õige sihtnumber ei ole teada, kasutatakse väärtust `00000`.
+- Tekstiliste aadressiandmete esitamisel tuleb kasutada EHAK klassifikaatori ametlikke nimekujusid.
+
+### Koordinaatide üldised reeglid
+
+- `coordinates` objekt ei ole kohustuslik.
+- Kui `coordinates` objekt on esitatud, on `latitude`, `longitude` ja `coordinateSystem` kohustuslikud.
+- `coordinateSystem` lubatud väärtused on `WGS84` ja `LEST97`.
+- LEST97 korral peab `latitude` sisaldama seitset kohta enne koma ja 1–3 kohta pärast koma.
+- LEST97 korral peab `longitude` sisaldama kuut kohta enne koma ja 1–3 kohta pärast koma.
+- WGS84 korral peab `latitude` ja `longitude` sisaldama kahte kohta enne koma ja 4–8 kohta pärast koma.
+- Koordinaadid peavad olema arvulised väärtused.
+
+### GET V3 üldised otsingureeglid
+
+- Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga.
+- `viewMode` vaikimisi väärtus on `FULL`.
+- `hasCustomerAuthorization` vaikimisi väärtus on `false`.
+- Kui `hasCustomerAuthorization=true`, otsitakse ainult mõõtepunkte, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus.
+- Kui `hasCustomerAuthorization=false`, Kliendiportaali volitust otsingu alusena ei kasutata ning rakendatakse mõõtepunkti omandi, tururolli ja lepingutega seotud ligipääsureegleid.
+- `location.location` võimaldab otsida mõõtepunkti kombineeritud aadressitekstist.
+- `location.comment` võimaldab teha osalist tekstiotsingut asukoha kommentaarist.
+- `page` väärtus algab nullist.
+- `size` maksimaalne väärtus on 500.
+
+
+### GET V3 üldised ligipääsureeglid
+
+Täielikud mõõtepunkti andmed tagastatakse juhul, kui vähemalt üks järgnevatest tingimustest on täidetud:
+
+- päringu tegija on mõõtepunkti omanik;
+- päringu tegijal on Kliendiportaali kaudu antud kehtiv ligipääsuõigus;
+- päringu tegijal on mõõtepunktiga seotud kehtiv või ligipääsureeglitega lubatud varasem leping;
+- päringu tegijal on vastava mõõtepunktiga seotud tulevikus jõustuv leping ning täidetud on API ja energiakandja spetsiifilised tingimused;
+- päringu tegijal on ülemmõõtepunkti omanikuna õigus alammõõtepunkti andmetele;
+- päringu tegijal on agregaatorina ligipääs agregeerimislepingu või talle kuuluva agregeerimise mõõtepunkti kaudu.
+
+Kui ükski ligipääsu alus ei kehti, mõõtepunkti täielikke andmeid ei tagastata. Kliendipõhise lepingu loomise teenuse korral võidakse täielike andmete asemel tagastada ainult mõõtepunkti EIC kood.
+
+### V3 vastuse üldine andmekoosseis
+
+V3 teenuse vastus võib sisaldada järgmisi andmeid:
+
+| Atribuut | Selgitus |
+|---|---|
+| `eic` | Mõõtepunkti EIC kood. |
+| `commodityType` | Mõõtepunkti energiakandja liik. |
+| `meteringPointType` | Mõõtepunkti tüüp. |
+| `meteringType` | Mõõtmise viis. |
+| `owner` | Mõõtepunkti omaniku andmed, sealhulgas EIC ja tururoll. |
+| `customer` | Kehtiva lepinguga seotud klient, kui kliendi andmete tagastamine on ligipääsureeglite alusel lubatud. |
+| `characteristics` | Energiakandja või agregeerimise spetsiifilised metaandmed. |
+| `location` | Mõõtepunkti asukohaandmed. |
+
+POST- ja PUT-teenus tagastab eduka töötlemise korral loodud või muudetud mõõtepunkti andmed. Vea korral tagastatakse standardne veavastus.
+
+### Pagineeritud GET-vastus
+
+GET-otsingu vastus on lehekülgedeks jaotatud vastus. Vastus sisaldab vähemalt järgmisi pagineerimise andmeid:
+
+| Atribuut | Selgitus |
+|---|---|
+| `content` | Leitud mõõtepunktide loend. |
+| `page` | Tagastatud lehekülje number. |
+| `size` | Lehekülje suurus. |
+| `totalElements` | Otsingutingimustele vastavate kirjete koguarv. |
+| `totalPages` | Otsingutulemuse lehekülgede koguarv. |
+
+
 
 ### Veebiliides
 
@@ -240,16 +362,33 @@ Agregeerimine: [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-m�
 | API struktuur | Üldine mõõtepunkti API jagati elektri-, gaasi- ja agregeerimise API-deks |
 
 
-### Masinliidese sõnumid V3 
+### Elektri API sõnumid 
 
-#### Sõnumid V3
+| Sõnum | Eesmärk |
+|---|---|
+| `POST /api/v3/metering-points/electricity` | Elektri mõõtepunkti lisamine. |
+| `PUT /api/v3/metering-points/electricity/{eic}` | Elektri mõõtepunkti muutmine. |
+| `GET /api/v3/metering-points/electricity` | Elektri mõõtepunktide otsimine. EIC edastatakse vajaduse korral query-parameetrina. |
+| `GET /api/v3/customers/{customerEic}/metering-points/electricity` | Kliendi elektri mõõtepunktide otsimine uue lepingu loomise protsessis. |
 
- | Sõnum                      | Eesmärk                                             |
-|-------------------------------|-----------------------------------------------------|
-| `POST /api/V3/metering-points/electricity`          | Mõõtepunkti lisamine                                |
-| `PUT /api/V3/metering-points/electricity/{eic}`     | Mõõtepunkti muutmine                                |
-| `GET /api/V3/metering-points/electricity/{eic}` | Mõõtepunkti otsimine|
-| `GET /api/V3/customers/{customerEic}/metering-points/electricity` | mõõtepunkti otsimine kliendi alusel ka juhul, kui päringu tegijal puudub tavapärase protsessi raames mõõtepunktile juurdepääsuõigus. Seda kasutatakse uue lepingu lisamisel avatud tarnija (Open Supplier) poolt |
+### Elektri API kasutamise reeglid
+
+- `x-commodity-type` peab olema `ELECTRICITY`.
+- Elektri API lubab elektri mõõtepunkti andmekoosseisu.
+- Mõõtepunkti tüüp peab vastama elektri API-s lubatud mõõtepunkti tüübile.
+- Agregeerimise mõõtepunkte ei looda ega muudeta elektri mõõtepunkti API kaudu, vaid eraldi agregeerimise API kaudu.
+- Elektri GET-teenus ei tagasta agregeerimise mõõtepunkte.
+- `resolution` V3 väärtus on `15_MINUTES`.
+- `transmissionNetworkEic` ei ole V3-s kohustuslik.
+- Kui `production=true`, on `productionSource` kohustuslik.
+
+### Elektri kliendipõhine otsing
+
+- Kliendipõhine GET-teenus on mõeldud uue avatud tarne lepingu loomise protsessiks.
+- Teenuse kasutaja peab olema vastava õiguse ja tururolliga.
+- Kui päringu tegijal on tavapäraste ligipääsureeglite alusel täielik ligipääs, tagastatakse täielikud mõõtepunkti andmed.
+- Kui täielik ligipääs puudub, võib teenus lepingu loomise kontrolliks tagastada ainult mõõtepunkti EIC koodi.
+
 
 #### Versioonide info
 
@@ -325,16 +464,48 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 | locality | V3-s kohustuslik, kui määratud omavalitsusel on EHAK taseme 3 üksus. |
 | Asukohaandmete valideerimine | county, municipality ja locality valideeritakse aktiivse EHAK klassifikaatori vastu. |
 
-#### Masinliidese sõnumid V3
-
-##### Sõnumid V3
+### Gaasi API sõnumid
 
 | Sõnum | Eesmärk |
-|-------|---------|
-| POST /api/v3/metering-points/natural-gas | Gaasi mõõtepunkti lisamine. |
-| PUT /api/v3/metering-points/natural-gas/{eic} | Gaasi mõõtepunkti muutmine. |
-| GET /api/v3/metering-points/natural-gas | Gaasi mõõtepunktide otsimine. |
-| GET /api/v3/customers/{customerEic}/metering-points/natural-gas | Kliendi gaasi mõõtepunktide otsimine uue lepingu loomisel ka juhul, kui päringu tegijal puudub tavapärase protsessi alusel mõõtepunktile juurdepääs. |
+|---|---|
+| `POST /api/v3/metering-points/natural-gas` | Gaasi mõõtepunkti lisamine. |
+| `PUT /api/v3/metering-points/natural-gas/` | Gaasi mõõtepunkti muutmine. |
+| `GET /api/v3/metering-points/natural-gas` | Gaasi mõõtepunktide otsimine. |
+| `GET /api/v3/customers/{customerEic}/metering-points/natural-gas` | Kliendi gaasi mõõtepunktide otsimine uue lepingu loomise protsessis. |
+
+### Gaasi API kasutamise reeglid
+
+- `x-commodity-type` peab olema `NATURAL_GAS`.
+- `AGGREGATOR` roll ei saa gaasi mõõtepunkti luua ega muuta.
+- `BORDER` tüüpi gaasi mõõtepunkti saab luua ainult `GRID_OPERATOR`.
+- `REGULAR` tüüpi gaasi mõõtepunkti saavad luua `GRID_OPERATOR`, `PRODUCER_OPERATOR`, `STORAGE_OPERATOR` ja `GAS_STATION_OPERATOR`.
+- Gaasi GET-teenus tagastab ainult `NATURAL_GAS` mõõtepunkte.
+- Gaasi GET-teenus ei tagasta `AGGREGATION` tüüpi mõõtepunkte.
+- Gaasi V3 resolutsiooni lubatud väärtused on `HOUR` ja `DAY`.
+- Andmelaos vastab `HOUR` väärtusele `PT1H` ja `DAY` väärtusele `PT1D`.
+
+### Gaasi GET V3 ligipääsureeglid
+
+Kui `hasCustomerAuthorization=true`, tagastatakse ainult mõõtepunktid, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus.
+
+Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi põhimõtteid:
+
+- `GRID_OPERATOR`, `PRODUCER_OPERATOR`, `STORAGE_OPERATOR` ja `GAS_STATION_OPERATOR` näevad neile kuuluvaid gaasi mõõtepunkte;
+- `OPEN_SUPPLIER` ligipääs sõltub mõõtepunktiga seotud tarnelepingutest ja muudest mõõtepunkti ligipääsureeglitest;
+- agregaatorile ei tagastata gaasi mõõtepunkte tavapärase agregeerimise ligipääsuloogika alusel;
+- täielike andmete tagastamine sõltub mõõtepunkti omandist, kehtivast volitusest või lepingulisest ligipääsust.
+
+### Gaasi kliendipõhise otsingu erireeglid
+
+`GET /api/v3/customers/{customerEic}/metering-points/natural-gas` on eriteenus, mida kasutatakse uue lepingu loomise protsessis.
+
+- Teenust kasutab `OPEN_SUPPLIER` roll.
+- Kasutajal peab olema `VIEW_METERING_POINT` õigus.
+- `x-commodity-type` peab olema `NATURAL_GAS`.
+- Teenus otsib kliendi gaasi mõõtepunkte kliendi EIC alusel.
+- Täielikud andmed tagastatakse juhul, kui päringu tegijal on mõõtepunktile tavapäraste ligipääsureeglite alusel õigus.
+- Kui täielik ligipääs puudub, võib teenus lepingu loomise kontrolliks tagastada ainult mõõtepunkti EIC koodi.
+- V3 teenuses tagastatakse ainult `GRID_OPERATOR` või `CLOSED_DISTRIBUTION_NETWORK` omandis mõõtepunktid.
 
 ##### GET V3 otsinguparameetrid
 
@@ -368,7 +539,6 @@ V3 versiooni lisandumisel toimusid järgmised muudatused:
 - V3 API-st eemaldati `sourceType` atribuut;
 - asukohaandmete EHAK-põhist valideerimist täpsustati.
 
----
 
 ## Agregeerimise mõõtepunkti API andmekoosseis
 
@@ -434,17 +604,59 @@ PUT-päringus peab URL-is esitatud mõõtepunkt eksisteerima, kuuluma päringu t
 | Metaandmete muutmine | aggregationProductType, assetType, aggregationProductionType ja resourceEic väärtusi saab lisada ainult juhul, kui eelnev väärtus puudub. |
 | locality | V3-s kohustuslik, kui määratud omavalitsusel on EHAK taseme 3 üksus. |
 
-#### Masinliidese sõnumid V3
-
-##### Sõnumid V3
+### Agregeerimise API sõnumid
 
 | Sõnum | Eesmärk |
-|-------|---------|
-| POST /api/v3/metering-points/aggregation | Agregeerimise mõõtepunkti lisamine. |
-| PUT /api/v3/metering-points/aggregation/{eic} | Agregeerimise mõõtepunkti muutmine. |
-| GET /api/v3/metering-points/aggregation | Agregeerimise mõõtepunktide otsimine. |
+|---|---|
+| `POST /api/v3/metering-points/aggregation` | Agregeerimise mõõtepunkti lisamine. |
+| `PUT /api/v3/metering-points/aggregation` | Agregeerimise mõõtepunkti muutmine. |
+| `GET /api/v3/metering-points/aggregation` | Agregeerimise mõõtepunktide otsimine. |
 
-Agregeerimise mõõtepunktidele ei ole eraldi `GET /customers/{customerEic}/metering-points/aggregation` teenust. Kliendi järgi saab otsida tavapärase GET teenuse `customerEic` parameetriga.
+
+### Agregeerimise API kasutamise reeglid
+
+- `x-commodity-type` peab olema `ELECTRICITY`.
+- `x-market-participant-role` peab POST- ja PUT-päringu korral olema `AGGREGATOR`.
+- Mõõtepunkti tüübiks määrab süsteem alati `AGGREGATION`.
+- `meteringPointType` ei edastata POST- ega PUT-päringu kehas.
+- Agregeerimise mõõtepunkti omanik määratakse päringu päistes esitatud agregaatori EIC ja tururolli alusel.
+- Agregeerimise GET-teenus tagastab ainult `AGGREGATION` tüüpi mõõtepunkte.
+
+### Ülemmõõtepunkti reeglid
+
+- `parentMeteringPointEic` on POST-päringus kohustuslik.
+- Ülemmõõtepunkt peab Andmelaos eksisteerima.
+- Ülemmõõtepunkt peab olema tüübiga `REGULAR`.
+- Ülemmõõtepunkt peab olema sama energiakandja tüübiga.
+- Ülemmõõtepunkti omanik peab olema `GRID_OPERATOR` või `CLOSED_DISTRIBUTION_NETWORK`.
+- `parentMeteringPointEic` ei ole PUT-päringu kehas ja seda ei saa PUT-päringuga muuta.
+
+### Agregeerimise metaandmete muutmise reeglid
+
+| Atribuut | PUT V3 reegel |
+|---|---|
+| `aggregationProductType` | Väärtuse võib lisada juhul, kui eelnev väärtus puudub. Olemasolevat väärtust teise väärtusega asendada ei saa. |
+| `assetType` | Väärtuse võib lisada juhul, kui eelnev väärtus puudub. Olemasolevat väärtust teise väärtusega asendada ei saa. |
+| `aggregationProductionType` | Väärtuse võib lisada juhul, kui eelnev väärtus puudub ja `assetType=PRODUCTION`. |
+| `resourceEic` | Väärtuse võib lisada juhul, kui eelnev väärtus puudub. |
+
+Kui `assetType=PRODUCTION`, on `aggregationProductionType` kohustuslik. Kui `assetType` ei ole `PRODUCTION`, ei tohi `aggregationProductionType` olla esitatud.
+
+`resourceEic` peab vastama ressursi EIC vormingule. Ärireegli järgi peab ressurss kuuluma agregaatorile, kuid kuuluvuse automaatne kontroll võib V3 esimeses lahenduses puududa.
+
+### Agregeerimise GET V3 ligipääsureeglid
+
+Kui `hasCustomerAuthorization=true`, tagastatakse ainult agregeerimise mõõtepunktid, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus.
+
+Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi reegleid:
+
+- `AGGREGATOR` näeb talle kuuluvaid agregeerimise mõõtepunkte;
+- `GRID_OPERATOR` ja `CLOSED_DISTRIBUTION_NETWORK` näevad agregeerimise mõõtepunkte, mille ülemmõõtepunkt neile kuulub;
+- `OPEN_SUPPLIER` ligipääs sõltub mõõtepunktiga seotud lepingutest ja muudest mõõtepunkti ligipääsureeglitest;
+- teistele tururollidele agregeerimise mõõtepunkte ei tagastata.
+
+Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil on päringu tegemise hetkel aktiivne `AGGREGATION` leping.
+
 
 ##### GET V3 otsinguparameetrid
 
@@ -467,17 +679,6 @@ Agregeerimise mõõtepunktidele ei ole eraldi `GET /customers/{customerEic}/mete
 
 Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga. API tagastab ainult `AGGREGATION` tüüpi mõõtepunkte. `page` väärtus algab nullist ja `size` maksimaalne väärtus on 500.
 
-##### Ligipääsureeglid
-
-Kui `hasCustomerAuthorization=true`, tagastatakse ainult mõõtepunktid, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus.
-
-Kui `hasCustomerAuthorization=false`, rakenduvad järgmised põhireeglid:
-- `AGGREGATOR` näeb talle kuuluvaid agregeerimise mõõtepunkte;
-- `GRID_OPERATOR` ja `CLOSED_DISTRIBUTION_NETWORK` näevad agregeerimise mõõtepunkte, mille ülemmõõtepunkt neile kuulub;
-- `OPEN_SUPPLIER` ligipääs sõltub mõõtepunktiga seotud lepingutest ja mõõtepunkti ligipääsureeglitest;
-- teistele tururollidele agregeerimise mõõtepunkte ei tagastata.
-
-Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil on päringu tegemise hetkel aktiivne agregeerimise leping.
 
 ##### Versioonide info
 
