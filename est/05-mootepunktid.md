@@ -122,12 +122,12 @@ JWT-tokenis olev õigus peab olema seotud sama turuosalise EIC, tururolli ja ene
 
 ### Mõõtepunkti tüübi ja tururolli üldised reeglid
 
-| Mõõtepunkt | Lubatud tururollid |
+| Mõõtepunkt | Lubatud tururollid mõõtepunkti loomiseks |
 |---|---|
-| Elektri `REGULAR` või `INTERNAL` mõõtepunkt | Vastavalt elektri API spetsiifilistele rollireeglitele. |
-| Gaasi `REGULAR` mõõtepunkt | `GRID_OPERATOR`, `PRODUCER_OPERATOR`, `STORAGE_OPERATOR`, `GAS_STATION_OPERATOR`. |
-| Elektri või gaasi `BORDER` mõõtepunkt | `GRID_OPERATOR`. |
-| `AGGREGATION` mõõtepunkt | `AGGREGATOR`. |
+| Elektri `REGULAR` või `INTERNAL` mõõtepunkt | `GRID_OPERATOR`, `LINE_OPERATOR`, `CLOSED_DISTRIBUTION_NETWORK`, `PRODUCER_OPERATOR`, `CHARGING_POINT_OPERATOR`, `ENERGY_STORAGE_UNIT` |
+| Gaasi `REGULAR` mõõtepunkt | `GRID_OPERATOR`, `PRODUCER_OPERATOR`, `STORAGE_OPERATOR`, `GAS_STATION_OPERATOR` |
+| Elektri või gaasi `BORDER` mõõtepunkt | `GRID_OPERATOR`|
+| `AGGREGATION` mõõtepunkt | `AGGREGATOR`|
 
 ### Aadressiandmete üldised reeglid
 
@@ -260,9 +260,9 @@ Kirjeldatud on mõõtepunkte haldavate turuosaliste õigused, teistel rollidel m
 Nii veebiliideses kui ka andmevahetuse liideses on loodud võimalus mõõtepunkide masslaadimiseks MS Excel faili abil. Selleks tuleb veebiliidese või teenuse `template` kaudu laadida alla energikandja liigi spetsiifiline templiit, lisada andmed ning täidetud templiit uuesti veebi või teenuse `import` vahendusel üles laadida.
 
 Mõõtepunkti andmekoosseis on kirjeldatud koos API-dega alljärgnevates peatükkides:
-Elekter: [Elektri mõõtepunkti API andmekoosseis](#elektri-mõõtepunkti-api-andmekoosseis)
-Gaas: [Gaasi mõõtepunkti API andmekoosseis](#gaasi-mõõtepunkti-api-andmekoosseis)
-Agregeerimine: [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-mõõtepunkti-api-andmekoosseis)
+- Elekter: [Elektri mõõtepunkti API andmekoosseis](#elektri-mõõtepunkti-api-andmekoosseis)
+- Gaas: [Gaasi mõõtepunkti API andmekoosseis](#gaasi-mõõtepunkti-api-andmekoosseis)
+- Agregeerimine: [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-mõõtepunkti-api-andmekoosseis)
 
 ### EIC koodide Masinliidese sõnumid
 
@@ -367,7 +367,7 @@ Agregeerimine: [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-m�
 | Sõnum | Eesmärk |
 |---|---|
 | `POST /api/v3/metering-points/electricity` | Elektri mõõtepunkti lisamine. |
-| `PUT /api/v3/metering-points/electricity/{eic}` | Elektri mõõtepunkti muutmine. |
+| `PUT /api/v3/metering-points/electricity/` | Elektri mõõtepunkti muutmine. |
 | `GET /api/v3/metering-points/electricity` | Elektri mõõtepunktide otsimine. EIC edastatakse vajaduse korral query-parameetrina. |
 | `GET /api/v3/customers/{customerEic}/metering-points/electricity` | Kliendi elektri mõõtepunktide otsimine uue lepingu loomise protsessis. |
 
@@ -424,7 +424,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse tururollipõhiseid reegleid:
   `ENERGY_STORAGE_UNIT` näevad mõõtepunkte, mille omanikuks nad on;
 - `AGGREGATOR` ligipääs sõltub mõõtepunktiga seotud aktiivsest
   agregeerimislepingust;
-- `OPEN_SUPPLIER` ligipääs sõltub mõõtepunktiga seotud tarnelepingutest
+- `OPEN_SUPPLIER` ligipääs sõltub mõõtepunktiga seotud avatud tarne lepingutest
   ja teistest kehtivatest ligipääsureeglitest.
 
 Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil
@@ -467,14 +467,6 @@ V3 versiooni lisandumisel toimusid järgmised muudatused:
 | meteringType | jah | jah | Mõõtmise viis. |
 | characteristics | jah | jah | Gaasi mõõtepunkti metaandmed. |
 | location | jah | jah | Mõõtepunkti asukohaandmed. |
-
-POST-päringus peab `eic` kuuluma turuosalisele eraldatud EIC-vahemikku ning sama EIC koodiga mõõtepunkt ei tohi juba süsteemis eksisteerida.  
-PUT-päringus peab URL-is esitatud mõõtepunkt eksisteerima, kuuluma päringu tegijale ja olema energiakandja tüübiga `NATURAL_GAS`.
-
-Gaasi mõõtepunkti loomisel kehtivad järgmised tururollide reeglid:
-- `BORDER` mõõtepunkti saab luua ainult `GRID_OPERATOR`;
-- `REGULAR` mõõtepunkti saavad luua `GRID_OPERATOR`, `PRODUCER_OPERATOR`, `STORAGE_OPERATOR` ja `GAS_STATION_OPERATOR`;
-- `AGGREGATOR` roll ei saa gaasi mõõtepunkti luua ega muuta.
 
 #### Gaasi mõõtepunkti metaandmed
 
@@ -542,6 +534,32 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 - Gaasi V3 resolutsiooni lubatud väärtused on `HOUR` ja `DAY`.
 - Andmelaos vastab `HOUR` väärtusele `PT1H` ja `DAY` väärtusele `PT1D`.
 
+##### GET V3 otsinguparameetrid
+
+`GET /api/v3/metering-points/natural-gas` võimaldab kasutada järgmisi otsinguparameetreid:
+
+| Parameeter | Kohustuslik | Reegel |
+|---|---|---|
+| `eic` | ei | Mõõtepunkti EIC kood. Mõõtepunkt peab Andmelaos eksisteerima. |
+| `meteringPointType` | ei | Mõõtepunkti tüüp. Lubatud väärtused on `REGULAR` ja `BORDER`. |
+| `meteringType` | ei | Mõõtmise viis. |
+| `customerEic` | ei | Kliendi EIC kood. Klient peab Andmelaos eksisteerima. Tagastatakse mõõtepunktid, kus kliendil on päringu tegemise hetkel aktiivne `GRID` leping. |
+| `viewMode` | ei | Vastuse kuvamisviis. Vaikimisi väärtus on `FULL`. |
+| `hasCustomerAuthorization` | ei | Vaikimisi väärtus on `false`. Väärtuse `true` korral tagastatakse ainult mõõtepunktid, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus. |
+| `consumptionScale` | ei | Tarbimismaht. Lubatud väärtused on `SMALL` ja `LARGE`. |
+| `connectionState` | ei | Ühenduse olek. Lubatud väärtused on `CONNECTED` ja `DISCONNECTED`. |
+| `resolution` | ei | Mõõteandmete resolutsioon. Lubatud väärtused on `HOUR` ja `DAY`. |
+| `customerType` | ei | Gaasi mõõtepunkti kliendi tüüp. |
+| `production` | ei | Näitab, kas mõõtepunktis toimub gaasi tootmine. |
+| `apartmentAssociation` | ei | Näitab, kas mõõtepunkt on seotud korteriühistuga. |
+| `location.adrId` | ei | Maa- ja Ruumiameti ADS-aadressi identifikaator. |
+| `location.location` | ei | Võimaldab teha osalist otsingut ADS-i tasemete 1–8 põhjal moodustatud kombineeritud aadressist. |
+| `location.comment` | ei | Võimaldab teha osalist tekstiotsingut asukoha kommentaarist. |
+| `page` | jah | Lehekülje number. Lehekülgede nummerdamine algab nullist. Järgmise lehekülje küsimiseks kasutatakse väärtust `n+1`. |
+| `size` | jah | Lehekülje suurus. Maksimaalne väärtus on 500. |
+
+Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga.
+
 ### Gaasi GET V3 ligipääsureeglid
 
 Kui `hasCustomerAuthorization=true`, tagastatakse ainult mõõtepunktid, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus.
@@ -553,7 +571,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi põhimõt
 - agregaatorile ei tagastata gaasi mõõtepunkte tavapärase agregeerimise ligipääsuloogika alusel;
 - täielike andmete tagastamine sõltub mõõtepunkti omandist, kehtivast volitusest või lepingulisest ligipääsust.
 
-### Gaasi kliendipõhise otsingu erireeglid
+### Gaasi kliendipõhine otsing
 
 `GET /api/v3/customers/{customerEic}/metering-points/natural-gas` on eriteenus, mida kasutatakse uue lepingu loomise protsessis.
 
@@ -564,30 +582,6 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi põhimõt
 - Täielikud andmed tagastatakse juhul, kui päringu tegijal on mõõtepunktile tavapäraste ligipääsureeglite alusel õigus.
 - Kui täielik ligipääs puudub, võib teenus lepingu loomise kontrolliks tagastada ainult mõõtepunkti EIC koodi.
 - V3 teenuses tagastatakse ainult `GRID_OPERATOR` või `CLOSED_DISTRIBUTION_NETWORK` omandis mõõtepunktid.
-
-##### GET V3 otsinguparameetrid
-
-`GET /api/v3/metering-points/natural-gas` võimaldab kasutada järgmisi otsinguparameetreid:
-- `eic`;
-- `meteringPointType`;
-- `meteringType`;
-- `customerEic`;
-- `viewMode`;
-- `hasCustomerAuthorization`;
-- `consumptionScale`;
-- `connectionState`;
-- `resolution`;
-- `customerType`;
-- `production`;
-- `apartmentAssociation`;
-- `location.adrId`;
-- `location.location`;
-- `location.comment`;
-- `page`;
-- `size`.
-
-Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga. `page` väärtus algab nullist ja `size` maksimaalne väärtus on 500.
-
 
 ##### Versioonide info
 
@@ -719,24 +713,29 @@ Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil on pär
 ##### GET V3 otsinguparameetrid
 
 `GET /api/v3/metering-points/aggregation` võimaldab kasutada järgmisi otsinguparameetreid:
-- `eic`;
-- `meteringType`;
-- `customerEic`;
-- `viewMode`;
-- `parentMeteringPointEic`;
-- `hasCustomerAuthorization`;
-- `aggregationProductType`;
-- `assetType`;
-- `aggregationProductionType`;
-- `resourceEic`;
-- `location.adrId`;
-- `location.location`;
-- `location.comment`;
-- `page`;
-- `size`.
 
-Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga. API tagastab ainult `AGGREGATION` tüüpi mõõtepunkte. `page` väärtus algab nullist ja `size` maksimaalne väärtus on 500.
+| Parameeter | Kohustuslik | Reegel |
+|---|---|---|
+| `eic` | ei | Agregeerimise mõõtepunkti EIC kood. Mõõtepunkt peab Andmelaos eksisteerima. |
+| `meteringType` | ei | Mõõtmise viis. |
+| `customerEic` | ei | Kliendi EIC kood. Klient peab Andmelaos eksisteerima. Tagastatakse mõõtepunktid, kus kliendil on päringu tegemise hetkel aktiivne `AGGREGATION` leping. |
+| `viewMode` | ei | Vastuse kuvamisviis. Vaikimisi väärtus on `FULL`. |
+| `parentMeteringPointEic` | ei | Ülemmõõtepunkti EIC kood. Ülemmõõtepunkt peab Andmelaos eksisteerima, olema tüübiga `REGULAR` ja sama energiakandjaga. |
+| `hasCustomerAuthorization` | ei | Vaikimisi väärtus on `false`. Väärtuse `true` korral tagastatakse ainult mõõtepunktid, millele päringu tegijal on Kliendiportaali kaudu antud kehtiv volitus. |
+| `aggregationProductType` | ei | Agregeerimise toote tüüp. Lubatud väärtused määrab `AggregationProductType` enum. |
+| `assetType` | ei | Vara tüüp. Lubatud väärtused on `CONSUMPTION` ja `PRODUCTION`. |
+| `aggregationProductionType` | ei | Tootmise tüüp. Kasutatakse juhul, kui `assetType=PRODUCTION`. Lubatud väärtused määrab `AggregationProductionType` enum. |
+| `resourceEic` | ei | Ressursi EIC kood. Peab vastama ressursi EIC vormingule. |
+| `location.adrId` | ei | Maa- ja Ruumiameti ADS-aadressi identifikaator. |
+| `location.location` | ei | Võimaldab teha osalist otsingut ADS-i tasemete 1–8 põhjal moodustatud kombineeritud aadressist. |
+| `location.comment` | ei | Võimaldab teha osalist tekstiotsingut asukoha kommentaarist. |
+| `page` | jah | Lehekülje number. Lehekülgede nummerdamine algab nullist. Järgmise lehekülje küsimiseks kasutatakse väärtust `n+1`. |
+| `size` | jah | Lehekülje suurus. Maksimaalne väärtus on 500. |
 
+Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga. Agregeerimise GET-teenus tagastab ainult `AGGREGATION` tüüpi mõõtepunkte.
+
+> [!NOTE]
+> Agregeerimise mõõtepunktidele ei ole eraldi kliendipõhist GET-teenust. Kliendi järgi otsimiseks kasutatakse `customerEic` otsinguparameetrit.
 
 ##### Versioonide info
 
