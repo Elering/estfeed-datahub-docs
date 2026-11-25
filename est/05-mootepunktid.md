@@ -8,43 +8,36 @@
   * [Sissejuhatus](#sissejuhatus)
   * [Mõõtepunkti andmete edastamine](#mõõtepunkti-andmete-edastamine)
     * [Mõõtepunkti API V3 üldised reeglid](#mõõtepunkti-API-V3-üldised-reeglid)
-    * [Veebiliides](#veebiliides)
+    * [Mõõtepunktide lisamine veebiliideses](#mõõtepunktide-lisamine-veebiliideses)
     * [Mõõtepunktide masslaadimine](#mõõtepunktide-masslaadimine)
     * [EIC koodide Masinliidese sõnumid](#eic-koodide-masinliidese-sõnumid)
-      * [Sõnumid](#sõnumid)
-  * [Elektri mõõtepunkti API andmekoosseis](#elektri-mõõtepunkti-api-andmekoosseis)
+ * [Elektri mõõtepunkti API andmekoosseis](#elektri-mõõtepunkti-api-andmekoosseis)
     * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
       * [Üldandmed](#üldandmed)
-      * [Mõõtepunkti metaandmed](#mõõtepunkti-metaandmed)
-      * [Elektri mõõtepunkti spetsiifilised metaandmed](#elektri-mõõtepunkti-spetsiifilised-metaandmed)
+      * [Elektri mõõtepunkti metaandmed](#elektri-mõõtepunkti-metaandmed)
       * [Asukohaandmed](#asukohaandmed)
-        * [Koordinaadid](#koordinaadid)
       * [V3 versioonis lisandunud atribuudid](#v3-versioonis-lisandunud-atribuudid)
       * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
       * [Elektri API sõnumid](#elektri-api-sõnumid)
-        * [Versioonide info](#versioonide-info-2)
+      * [Elektri GET V3 otsinguparameetrid](#elektri-get-v3-otsinguparameetrid)
 * [Gaasi mõõtepunkti API andmekoosseis](#gaasi-mõõtepunkti-api-andmekoosseis)
-  * [Gaasi mõõtepunkti V3 andmete edastamine](#gaasi-mõõtepunkti-v3-andmete-edastamine)
+  * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
     * [Üldandmed](#üldandmed)
     * [Gaasi mõõtepunkti metaandmed](#gaasi-mõõtepunkti-metaandmed)
     * [Asukohaandmed](#asukohaandmed)
-      * [Koordinaadid](#koordinaadid)
     * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
     * [Gaasi API sõnumid](#gaasi-api-sõnumid)
       * [GET V3 otsinguparameetrid](#get-v3-otsinguparameetrid)
-      * [Versioonide info](#versioonide-info)
 * [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-mõõtepunkti-api-andmekoosseis)
-  * [Agregeerimise mõõtepunkti V3 andmete edastamine](#agregeerimise-mõõtepunkti-v3-andmete-edastamine)
+  * [Mõõtepunkti V3 andmete edastamine](#mõõtepunkti-v3-andmete-edastamine)
     * [Üldandmed](#üldandmed-1)
-    * [Agregeerimise mõõtepunkti spetsiifilised metaandmed](#agregeerimise-mõõtepunkti-spetsiifilised-metaandmed)
+    * [Agregeerimise mõõtepunkti metaandmed](#agregeerimise-mõõtepunkti-metaandmed)
     * [Asukohaandmed](#asukohaandmed-1)
-      * [Koordinaadid](#koordinaadid-1)
     * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid-1)
     * [Masinliidese sõnumid V3](#masinliidese-sõnumid-v3-1)
       * [Sõnumid V3](#sõnumid-v3-1)
       * [GET V3 otsinguparameetrid](#get-v3-otsinguparameetrid-1)
       * [Ligipääsureeglid](#ligipääsureeglid)
-      * [Versioonide info](#versioonide-info-1)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -206,7 +199,7 @@ GET-otsingu vastus on lehekülgedeks jaotatud vastus. Vastus sisaldab vähemalt 
 
 
 
-### Veebiliides
+### Mõõtepunktide lisamine veebiliideses
 
 Veebiliidese kaudu on elektri-, gaasi-, agregeerimsie mõõtepunkide ükshaaval lisamine, masslaadimine ja pärimine sarnase loogikaga. Alljärgnevad kasutajaliidese piltidega näited on elektri mõõtepunkti näitel. 
 
@@ -288,7 +281,7 @@ Mõõtepunkti andmekoosseis on kirjeldatud koos API-dega alljärgnevates peatük
 | characteristics | jah | jah | Elektri mõõtepunkti metaandmed |
 | location | jah | jah | Mõõtepunkti asukohaandmed |
 
-### mõõtepunkti metaandmed
+### Elektri mõõtepunkti metaandmed
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Muud reeglid |
 |-------------------|---------------------------|---------------------------|-------------|
@@ -454,11 +447,11 @@ V3 versiooni lisandumisel toimusid järgmised muudatused:
   - V3 versioonis lisandusid elektri mõõtepunktile 7 uut atribuuti: `esuScheme`, `esuSchemeValidFrom`, `esuQuantitiesProvider`, `esuBilling`, `esuBillingValidFrom`, `bidirectional`, `bidirectionalChangeTime`. 
   - V3 versioonis muutusid asukoha ja elektri mõõtepunkti spetsiifiliste atribuutide kohustuslikkuse reeglid
   
-## Gaasi mõõtepunkti API andmekoosseis
+# Gaasi mõõtepunkti API andmekoosseis
 
-### Gaasi mõõtepunkti V3 andmete edastamine
+## Mõõtepunkti V3 andmete edastamine
 
-#### Üldandmed
+### Üldandmed
 
 | Atribuut teenuses | V2 | V3 | Kommentaar |
 |-------------------|----|----|------------|
@@ -468,7 +461,7 @@ V3 versiooni lisandumisel toimusid järgmised muudatused:
 | characteristics | jah | jah | Gaasi mõõtepunkti metaandmed. |
 | location | jah | jah | Mõõtepunkti asukohaandmed. |
 
-#### Gaasi mõõtepunkti metaandmed
+### Gaasi mõõtepunkti metaandmed
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Muud reeglid |
 |-------------------|----------------------------|----------------------------|--------------|
@@ -483,7 +476,7 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 - `HOUR` ↔ `PT1H`;
 - `DAY` ↔ `PT1D`.
 
-#### Asukohaandmed
+### Asukohaandmed
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Kommentaar |
 |-------------------|----------------------------|----------------------------|------------|
@@ -496,7 +489,7 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 | postcode | jah | jah | Sihtnumber. Kui õige sihtnumber ei ole teada, kasutatakse väärtust 00000. |
 | coordinates | ei | ei | Koordinaadid. |
 
-##### Koordinaadid
+#### Koordinaadid
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Kommentaar |
 |-------------------|----------------------------|----------------------------|------------|
@@ -504,7 +497,7 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 | longitude | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | Pikkuskraad. |
 | coordinateSystem | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | WGS84 või LEST97. |
 
-#### V3 versioonis muudetud reeglid
+### V3 versioonis muudetud reeglid
 
 | Atribuut | Muudatus |
 |----------|----------|
@@ -534,7 +527,7 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 - Gaasi V3 resolutsiooni lubatud väärtused on `HOUR` ja `DAY`.
 - Andmelaos vastab `HOUR` väärtusele `PT1H` ja `DAY` väärtusele `PT1D`.
 
-##### GET V3 otsinguparameetrid
+#### GET V3 otsinguparameetrid
 
 `GET /api/v3/metering-points/natural-gas` võimaldab kasutada järgmisi otsinguparameetreid:
 
@@ -571,7 +564,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi põhimõt
 - agregaatorile ei tagastata gaasi mõõtepunkte tavapärase agregeerimise ligipääsuloogika alusel;
 - täielike andmete tagastamine sõltub mõõtepunkti omandist, kehtivast volitusest või lepingulisest ligipääsust.
 
-### Gaasi kliendipõhine otsing
+#### Gaasi kliendipõhine otsing
 
 `GET /api/v3/customers/{customerEic}/metering-points/natural-gas` on eriteenus, mida kasutatakse uue lepingu loomise protsessis.
 
@@ -583,7 +576,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi põhimõt
 - Kui täielik ligipääs puudub, võib teenus lepingu loomise kontrolliks tagastada ainult mõõtepunkti EIC koodi.
 - V3 teenuses tagastatakse ainult `GRID_OPERATOR` või `CLOSED_DISTRIBUTION_NETWORK` omandis mõõtepunktid.
 
-##### Versioonide info
+#### Versioonide info
 
 V3 versiooni lisandumisel toimusid järgmised muudatused:
 - üldine mõõtepunkti API jagati elektri-, gaasi- ja agregeerimise API-deks;
@@ -592,15 +585,15 @@ V3 versiooni lisandumisel toimusid järgmised muudatused:
 - asukohaandmete EHAK-põhist valideerimist täpsustati.
 
 
-## Agregeerimise mõõtepunkti API andmekoosseis
+# Agregeerimise mõõtepunkti API andmekoosseis
 
 Agregeerimise mõõtepunkt on elektri energiakandjaga mõõtepunkt, mille tüüp on alati `AGGREGATION`. API kasutamisel peab `x-commodity-type` olema `ELECTRICITY` ja tururoll `AGGREGATOR`.
 
 Täispikk juhend on agregeerimismõõtepunkti lisamise kohta on saadaval [siin](https://elering.ee/sites/default/files/2026-06/Iseseisva%20agregaatori%20reguleerimisandmete%20esitamise%20juhend%20Estfeed%20Datahubis.pdf).
 
-### Agregeerimise mõõtepunkti V3 andmete edastamine
+## Mõõtepunkti V3 andmete edastamine
 
-#### Üldandmed
+### Üldandmed
 
 | Atribuut teenuses | V2 | V3 | Kommentaar |
 |-------------------|----|----|------------|
@@ -613,7 +606,7 @@ Täispikk juhend on agregeerimismõõtepunkti lisamise kohta on saadaval [siin](
 POST-päringus peab `eic` kuuluma agregaatorile eraldatud EIC-vahemikku ning sama EIC koodiga mõõtepunkt ei tohi juba süsteemis eksisteerida.  
 PUT-päringus peab URL-is esitatud mõõtepunkt eksisteerima, kuuluma päringu tegijale, olema energiakandja tüübiga `ELECTRICITY` ja mõõtepunkti tüübiga `AGGREGATION`.
 
-#### Agregeerimise mõõtepunkti spetsiifilised metaandmed
+### Agregeerimise mõõtepunkti metaandmed
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 POST-is? | V3 PUT reegel | Muud reeglid |
 |-------------------|----------------------------|-------------------------|---------------|--------------|
@@ -624,7 +617,7 @@ PUT-päringus peab URL-is esitatud mõõtepunkt eksisteerima, kuuluma päringu t
 | resourceEic | jah | jah | Väärtust saab lisada ainult juhul, kui eelnev väärtus puudub. | Ressursi EIC kood peab vastama EIC vormingule ja kuuluma agregaatorile. |
 
 
-#### Asukohaandmed
+### Asukohaandmed
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Kommentaar |
 |-------------------|----------------------------|----------------------------|------------|
@@ -637,7 +630,7 @@ PUT-päringus peab URL-is esitatud mõõtepunkt eksisteerima, kuuluma päringu t
 | postcode | jah | jah | Sihtnumber. Kui õige sihtnumber ei ole teada, kasutatakse väärtust 00000. |
 | coordinates | ei | ei | Koordinaadid. |
 
-##### Koordinaadid
+#### Koordinaadid
 
 | Atribuut teenuses | Kohustuslik V2 versioonis? | Kohustuslik V3 versioonis? | Kommentaar |
 |-------------------|----------------------------|----------------------------|------------|
@@ -645,7 +638,7 @@ PUT-päringus peab URL-is esitatud mõõtepunkt eksisteerima, kuuluma päringu t
 | longitude | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | Pikkuskraad. |
 | coordinateSystem | jah, kui coordinates on täidetud | jah, kui coordinates on täidetud | WGS84 või LEST97. |
 
-#### V3 versioonis muudetud reeglid
+### V3 versioonis muudetud reeglid
 
 | Atribuut | Muudatus |
 |----------|----------|
@@ -710,7 +703,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi reegleid:
 Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil on päringu tegemise hetkel aktiivne `AGGREGATION` leping.
 
 
-##### GET V3 otsinguparameetrid
+### GET V3 otsinguparameetrid
 
 `GET /api/v3/metering-points/aggregation` võimaldab kasutada järgmisi otsinguparameetreid:
 
@@ -737,7 +730,7 @@ Mitme otsinguparameetri kasutamisel ühendatakse tingimused loogilise `AND`-iga.
 > [!NOTE]
 > Agregeerimise mõõtepunktidele ei ole eraldi kliendipõhist GET-teenust. Kliendi järgi otsimiseks kasutatakse `customerEic` otsinguparameetrit.
 
-##### Versioonide info
+### Versioonide info
 
 V3 versiooni lisandumisel toimusid järgmised muudatused:
 - agregeerimise mõõtepunktidele loodi eraldi API;
