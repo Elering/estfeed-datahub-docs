@@ -13,29 +13,20 @@
     * [EIC koodide Masinliidese sõnumid](#eic-koodide-masinliidese-sõnumid)
 * [Elektri mõõtepunkti API andmekoosseis](#elektri-mõõtepunkti-api-andmekoosseis)
   * [Elektri mõõtepunkti V3 andmete edastamine](#elektri-mõõtepunkti-v3-andmete-edastamine)
-    * [Üldandmed](#üldandmed)
     * [Elektri mõõtepunkti metaandmed](#elektri-mõõtepunkti-metaandmed)
-    * [Asukohaandmed](#asukohaandmed)
-    * [V3 versioonis lisandunud atribuudid](#v3-versioonis-lisandunud-atribuudid)
-    * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
     * [Elektri API sõnumid](#elektri-api-sõnumid)
     * [Elektri GET V3 otsinguparameetrid](#elektri-get-v3-otsinguparameetrid)
 * [Gaasi mõõtepunkti API andmekoosseis](#gaasi-mõõtepunkti-api-andmekoosseis)
   * [Gaasi mõõtepunkti V3 andmete edastamine](#gaasi-mõõtepunkti-v3-andmete-edastamine)
-    * [Üldandmed](#üldandmed)
     * [Gaasi mõõtepunkti metaandmed](#gaasi-mõõtepunkti-metaandmed)
-    * [Asukohaandmed](#asukohaandmed)
     * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
     * [Gaasi API sõnumid](#gaasi-api-sõnumid)
-    * [GET V3 otsinguparameetrid](#get-v3-otsinguparameetrid)
+    * [Gaasi GET V3 otsinguparameetrid](#gaasi-get-v3-otsinguparameetrid)
 * [Agregeerimise mõõtepunkti API andmekoosseis](#agregeerimise-mõõtepunkti-api-andmekoosseis)
   * [Agregeerimise mõõtepunkti V3 andmete edastamine](#agregeerimise-mõõtepunkti-v3-andmete-edastamine)
-    * [Üldandmed](#üldandmed-1)
     * [Agregeerimise mõõtepunkti metaandmed](#agregeerimise-mõõtepunkti-metaandmed)
-    * [Asukohaandmed](#asukohaandmed-1)
-    * [V3 versioonis muudetud reeglid](#v3-versioonis-muudetud-reeglid)
     * [Agregeerimise API sõnumid](#agregeerimise-api-sõnumid)
-    * [GET V3 otsinguparameetrid](#get-v3-otsinguparameetrid)
+    * [agregeerimise GET V3 otsinguparameetrid](#agregeerimise-get-v3-otsinguparameetrid)
 <!-- TOC -->
 
 ## Sissejuhatus
@@ -537,7 +528,7 @@ V3 API kasutab gaasi mõõtepunktidele eraldi `NaturalGasMeteringPointResolution
 - Gaasi V3 resolutsiooni lubatud väärtused on `HOUR` ja `DAY`.
 - Andmelaos vastab `HOUR` väärtusele `PT1H` ja `DAY` väärtusele `PT1D`.
 
-#### GET V3 otsinguparameetrid
+#### Gaasi GET V3 otsinguparameetrid
 
 `GET /api/v3/metering-points/natural-gas` võimaldab kasutada järgmisi otsinguparameetreid:
 
@@ -712,7 +703,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi reegleid:
 Kui `customerEic` on esitatud, tagastatakse mõõtepunktid, kus kliendil on päringu tegemise hetkel aktiivne `AGGREGATION` leping.
 
 
-### GET V3 otsinguparameetrid
+### Agregeerimise GET V3 otsinguparameetrid
 
 `GET /api/v3/metering-points/aggregation` võimaldab kasutada järgmisi otsinguparameetreid:
 

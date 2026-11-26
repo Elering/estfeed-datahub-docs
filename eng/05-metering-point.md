@@ -13,29 +13,19 @@
     * [EIC Code API Interface Messages](#eic-code-api-interface-messages)
 * [Electricity Metering Point API Data Structure](#electricity-metering-point-api-data-structure)
   * [Submitting Electricity Metering Point V3 Data](#submitting-electricity-metering-point-v3-data)
-    * [General Data](#general-data)
     * [Electricity Metering Point Metadata](#electricity-metering-point-metadata)
-    * [Location Data](#location-data)
-    * [Attributes Added in V3](#attributes-added-in-v3)
-    * [Rules Changed in V3](#rules-changed-in-v3)
     * [Electricity API Messages](#electricity-api-messages)
     * [Electricity GET V3 Search Parameters](#electricity-get-v3-search-parameters)
 * [Natural Gas Metering Point API Data Structure](#natural-gas-metering-point-api-data-structure)
   * [Submitting Natural Gas Metering Point V3 Data](#submitting-natural-gas-metering-point-v3-data)
-    * [General Data](#general-data)
     * [Natural Gas Metering Point Metadata](#natural-gas-metering-point-metadata)
-    * [Location Data](#location-data)
-    * [Rules Changed in V3](#rules-changed-in-v3)
     * [Natural Gas API Messages](#natural-gas-api-messages)
-    * [GET V3 Search Parameters](#get-v3-search-parameters)
+    * [Gas GET V3 Search Parameters](#gas-get-v3-search-parameters)
 * [Aggregation Metering Point API Data Structure](#aggregation-metering-point-api-data-structure)
   * [Submitting Aggregation Metering Point V3 Data](#submitting-aggregation-metering-point-v3-data)
-    * [General Data](#general-data-1)
     * [Aggregation Metering Point Metadata](#aggregation-metering-point-metadata)
-    * [Location Data](#location-data)
-    * [Rules Changed in V3](#rules-changed-in-v3)
     * [Aggregation API Messages](#aggregation-api-messages)
-    * [GET V3 Search Parameters](#get-v3-search-parameters)
+    * [Aggregation GET V3 Search Parameters](#Aggregation-get-v3-search-parameters)
 <!-- TOC -->
 
 ## Introduction
@@ -525,7 +515,7 @@ The V3 API uses a separate `NaturalGasMeteringPointResolution` enum for natural 
 - The allowed Natural Gas V3 resolution values are `HOUR` and `DAY`.
 - in the Datahub `HOUR` corresponds to `PT1H` and `DAY` corresponds to `PT1D`.
 
-#### GET V3 Search Parameters
+#### Gas GET V3 Search Parameters
 
 `GET /api/v3/metering-points/natural-gas` supports the following search parameters:
 
@@ -699,7 +689,7 @@ If `hasCustomerAuthorization=false`, at least the following rules apply:
 If `customerEic` is provided, the service returns metering points for which the customer has an active `AGGREGATION` agreement at the time of the request.
 
 
-### GET V3 Search Parameters
+### Aggregation GET V3 Search Parameters
 
 `GET /api/v3/metering-points/aggregation` supports the following search parameters:
 
