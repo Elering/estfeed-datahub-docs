@@ -1,3 +1,9 @@
+## 2026-11-24
+
+|                                   Issue                                  | Type |Priority|                                                                          Title                                                                          |
+|--------------------------------------------------------------------------|------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  [EDH-12355](https://github.com/Elering/estfeed-datahub-docs/issues/218) |  Bug |  High  |  GENERAL_SERVICE balanceState access incorrectly blocked for Portfolio Provider when owner has self-referential GS relation (metering-data search, E+G) |
+
 ## 2026-11-19
 
 |                                   Issue                                  | Type |  Priority |                                                         Title                                                        |
