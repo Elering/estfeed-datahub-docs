@@ -303,13 +303,13 @@ Mõõtepunkti andmekoosseis on kirjeldatud koos API-dega alljärgnevates peatük
 | storageEnergy | Storage Energy | energiasalvesti mahtuvus (kWh) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
 | productionCapacity | Production Capacity | tootmise maht (kW) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
 | transmissionCapacity | Transmission Capacity | ülekande maht (kW) | jah | jah | Peab olema täis- või komakohaga (max. 2 komakohta) number. |
-| esuScheme | ESU Scheme | energiasalvesti skeem | atribuut puudub | ei | Üks neist: STANDALONE (eraldiseisev salvesti), PRODUCTION (salvesti + tootmine), CONSUMPTION (salvesti + tarbimine), HYBRID (Salvesti + tootmine + tarbimine) |
-| esuSchemeValidFrom | ESU Scheme Valid From | energiasalvesti skeemi kehtivuse algus | atribuut puudub | ei | Energiasalvesti skeemi algus päeva täpsusega |
-| esuQuantitiesProvider | ESU Quantities Provider | energiasalvesti mõõteandmete esitaja | atribuut puudub | ei | Üks neist: OWNER (omanik), CUSTOMER (mõõtepunkti klient) |
-| esuBilling | ESU Billing | energiasalvesti arveldusskeemi kasutamine | atribuut puudub | ei | Üks neist: TRUE (jah), FALSE (ei). |
-| esuBillingValidFrom | ESU Billing Valid From | energiasalvesti arveldusskeemi kehtivuse algus | atribuut puudub | ei | Energiasalvesti arvelsusskeemi algus päeva täpsusega |
-| bidirectional | Bidirectional | kas mõõtepunkt on kahesuunaline | atribuut puudub | ei | Üks neist: TRUE (jah), FALSE (ei). |
-| bidirectionalChangeTime | Bidirectional Change Time | kahesuunalisuse muudatuse aeg | atribuut puudub | ei | Kellaaeg peab olema 15-minutilise täpsusega, minutite väärtus peab olema: 00, 15, 30 või 45. Sekundite väärtus peab alati olema 00. |
+| esuScheme | ESU Scheme | energiasalvesti skeem | atribuut puudub | ei | Üks neist: STANDALONE (eraldiseisev salvesti), PRODUCTION (salvesti + tootmine), CONSUMPTION (salvesti + tarbimine), HYBRID (Salvesti + tootmine + tarbimine). lubatud ainult REGULAR ja BORDER tüüpi mõõtepunktidele ja tururollidele GRID_OPERATOR ja CLOSED_DISTRIBUTION_NETWORK |
+| esuSchemeValidFrom | ESU Scheme Valid From | energiasalvesti skeemi kehtivuse algus | atribuut puudub | tingimuslik | Energiasalvesti skeemi algus päeva täpsusega |
+| esuQuantitiesProvider | ESU Quantities Provider | energiasalvesti mõõteandmete esitaja | atribuut puudub | tingimuslik | Üks neist: OWNER (omanik), CUSTOMER (mõõtepunkti klient). Kohustuslik ainult siis, kui esuScheme=HYBRID |
+| esuBilling | ESU Billing | energiasalvesti arveldusskeemi kasutamine | atribuut puudub | tingimuslik | Üks neist: TRUE (jah), FALSE (ei). On kohustuslik, kui esuScheme on esitatud |
+| esuBillingValidFrom | ESU Billing Valid From | energiasalvesti arveldusskeemi kehtivuse algus | atribuut puudub | tingimuslik | Energiasalvesti arvelsusskeemi algus päeva täpsusega |
+| bidirectional | Bidirectional | kas mõõtepunkt on kahesuunaline | atribuut puudub | tingimuslik | Üks neist: TRUE (jah), FALSE (ei). lubatud ainult tururollidele GRID_OPERATOR ja CLOSED_DISTRIBUTION_NETWORK|
+| bidirectionalChangeTime | Bidirectional Change Time | kahesuunalisuse muudatuse aeg | atribuut puudub | tingimuslik | Kellaaeg peab olema 15-minutilise täpsusega, minutite väärtus peab olema: 00, 15, 30 või 45. Sekundite väärtus peab alati olema 00. On kohustuslik, kui bidirectional väärtus muutub |
 
 ### Asukohaandmed
 
@@ -396,12 +396,24 @@ Mõõtepunkti andmekoosseis on kirjeldatud koos API-dega alljärgnevates peatük
 | `isolatedMeteringPoint` | ei | Näitab, kas tegemist on isoleeritud mõõtepunktiga. |
 | `electricalHeating` | ei | Näitab, kas mõõtepunktis kasutatakse elektrikütet. |
 | `chargingPoint` | ei | Näitab, kas tegemist on laadimispunktiga. |
+| `storageCapacity.filterType` | tingimuslik | Energiasalvestusvõimsuse filtri võrdlustüüp. Kohustuslik, kui `storageCapacity.filterValue` on esitatud. |
+| `storageCapacity.filterValue` | tingimuslik | Energiasalvestusvõimsuse filtri väärtus kilovattides (kW). Kohustuslik, kui `storageCapacity.filterType` on esitatud. |
+| `storageEnergy.filterType` | tingimuslik | Energiasalvesti mahtuvuse filtri võrdlustüüp. Kohustuslik, kui `storageEnergy.filterValue` on esitatud. |
+| `storageEnergy.filterValue` | tingimuslik | Energiasalvesti mahtuvuse filtri väärtus kilovatt-tundides (kWh). Kohustuslik, kui `storageEnergy.filterType` on esitatud. |
+| `productionCapacity.filterType` | tingimuslik | Tootmisvõimsuse filtri võrdlustüüp. Kohustuslik, kui `productionCapacity.filterValue` on esitatud. |
+| `productionCapacity.filterValue` | tingimuslik | Tootmisvõimsuse filtri väärtus kilovattides (kW). Kohustuslik, kui `productionCapacity.filterType` on esitatud. |
+| `transmissionCapacity.filterType` | tingimuslik | Ülekandevõimsuse filtri võrdlustüüp. Kohustuslik, kui `transmissionCapacity.filterValue` on esitatud. |
+| `transmissionCapacity.filterValue` | tingimuslik | Ülekandevõimsuse filtri väärtus kilovattides (kW). Kohustuslik, kui `transmissionCapacity.filterType` on esitatud. |
+| `esuScheme` | ei | Energiasalvesti skeem. Võimalikud väärtused on STANDALONE, PRODUCTION, CONSUMPTION ja HYBRID. |
+| `esuQuantitiesProvider` | ei | Energiasalvesti mõõteandmete esitaja. Võimalikud väärtused on OWNER ja CUSTOMER. |
+| `esuBilling` | ei | Näitab, kas kasutatakse energiasalvesti arveldusskeemi. Võimalikud väärtused on true ja false. |
 | `bidirectional` | ei | Näitab, kas mõõtepunkt on kahesuunaline. |
 | `location.adrId` | ei | ADS-aadressi identifikaator. |
 | `location.location` | ei | Osaline otsing ADS-i tasemete 1–8 kombineeritud aadressist. |
 | `location.comment` | ei | Osaline otsing asukoha kommentaarist. |
 | `page` | ei | Lehekülje number. Nummerdamine algab nullist. |
 | `size` | ei | Lehekülje suurus. Maksimaalne väärtus on 500. |
+
 
 #### Elektri GET V3 ligipääsureeglid
 
@@ -570,8 +582,7 @@ Kui `hasCustomerAuthorization=false`, rakendatakse vähemalt järgmisi põhimõt
 - Kasutajal peab olema `VIEW_METERING_POINT` õigus.
 - `x-commodity-type` peab olema `NATURAL_GAS`.
 - Teenus otsib kliendi gaasi mõõtepunkte kliendi EIC alusel.
-- Täielikud andmed tagastatakse juhul, kui päringu tegijal on mõõtepunktile tavapäraste ligipääsureeglite alusel õigus.
-- Kui täielik ligipääs puudub, võib teenus lepingu loomise kontrolliks tagastada ainult mõõtepunkti EIC koodi.
+- Täielikud andmed tagastatakse, kui avatud tarnijal on praegu või oli viimase 12 kuu jooksul kliendiga seotud SUPPLY või GENERAL_SERVICE leping või kui päringu tegijal on kehtiv kliendi volitus. Muul juhul tagastatakse ainult mõõtepunkti EIC kood.
 - V3 teenuses tagastatakse ainult `GRID_OPERATOR` või `CLOSED_DISTRIBUTION_NETWORK` omandis mõõtepunktid.
 
 #### Versioonide info
